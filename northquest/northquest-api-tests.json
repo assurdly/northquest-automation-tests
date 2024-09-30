@@ -54,7 +54,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\":\"{{$randomFirstName}}@assurdly.com\"\n}",
+									"raw": "{\n    \"email\":\"{{$randomFirstName}}@mailinator.com\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -7506,21 +7506,24 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "1d6f3413-b18e-4d1a-b5dd-c7a498f3a5b8",
+				"id": "8e67172d-20ae-4b24-8bef-61684cd65eeb",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					"pm.request.headers.add({",
 					"  key: \"origin\",",
 					"  value: pm.environment.get(\"origin\")",
-					"});"
+					"});",
+					"",
+					"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
+					""
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "461f1059-a45b-4154-9c77-6b9043c876b1",
+				"id": "9eb0b6fe-e33c-4d37-817b-63132a40d8c0",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
