@@ -5873,7 +5873,7 @@
 											"    });",
 											"",
 											"    pm.test (\"Test for valid error message\", () => {",
-											"        pm.expect(message).to.eql(\"Invalid Credentials\")",
+											"        pm.expect(message).to.eql(\"Invalid credentials\")",
 											"    })",
 											"",
 											"} catch (error) {",
