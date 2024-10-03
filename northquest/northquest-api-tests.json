@@ -2454,7 +2454,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email_otp_id\": \"0191fa72-2542-7553-aff4-e58ed86ccbb2\",\n    \"phone_otp_id\": \"0191fa72-78bd-7553-aff4-e97226e6478b\",\n    \"email_otp\": \"699056\",\n    \"phone_otp\": \"450790\",\n    \"password\": \"Password12@@\",\n    \"referral_code\": \"\",\n    \"last_name\": \"Ade\",\n    \"first_name\": \"Wunmi\"\n}",
+									"raw": "{\n    \"email_otp_id\": \"019252da-e30f-7447-bcc2-a0d99ba91a46\",\n    // \"phone_otp_id\": \"0191fa72-78bd-7553-aff4-e97226e6478b\",\n    \"email_otp\": \"439034\",\n    // \"phone_otp\": \"439034\",\n    \"password\": \"Password12@@\",\n    \"referral_code\": \"\",\n    \"last_name\": \"Ade\",\n    \"first_name\": \"Wunmi\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4845,7 +4845,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"identity\": \"azeez@mailinator.com\",\n    \"password\": \"Password12@@\"\n}",
+									"raw": "{\n    \"identity\": \"Rhett@mailinator.com\",\n    \"password\": \"Password12@@\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -7266,6 +7266,15 @@
 							"request": {
 								"method": "PATCH",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "{{base_url}}/profile/:id",
 									"host": [
@@ -7277,7 +7286,6 @@
 									],
 									"variable": [
 										{
-											"id": "a8048ef8-4007-4322-8a9a-511c61e3d3e1",
 											"key": "id",
 											"value": ""
 										}
@@ -7306,7 +7314,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"Azeez-Profile\",\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
+							"raw": "{\n    \"type\": \"businesss\",\n    \"name\": \"Azeez-Profile\",\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7391,6 +7399,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -7414,9 +7428,8 @@
 							],
 							"variable": [
 								{
-									"id": "aeaef63e-19f3-4d6a-8c01-69441abde02e",
 									"key": "profile_id",
-									"value": "01925236-19c0-7112-9440-aa8162716104"
+									"value": "019233c5-f357-7ffa-922e-9ff5318f8678"
 								}
 							]
 						}
