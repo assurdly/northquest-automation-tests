@@ -573,7 +573,7 @@
 											"    })",
 											"",
 											"    pm.test(\"Test for valid error message\", () => {",
-											"        pm.expect(message).includes(\"Invalid Email Format\")",
+											"        pm.expect(message).includes(\"Invalid email format\")",
 											"    })",
 											"",
 											"} catch (error) {",
