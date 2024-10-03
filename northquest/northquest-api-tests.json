@@ -1380,7 +1380,7 @@
 											"    });",
 											"",
 											"    pm.test (\"Test for valid error message\", () => {",
-											"        pm.expect(message[0]).to.eql(\"phone must be a valid phone number\")",
+											"        pm.expect(message[0]).to.eql(\"Invalid phone number\")",
 											"    })",
 											"",
 											"} catch (error) {",
