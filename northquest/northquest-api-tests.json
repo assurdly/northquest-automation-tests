@@ -7184,7 +7184,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{accessToken}}"
+										"token": "{{userAccessToken}}"
 									}
 								},
 								"method": "GET",
@@ -7262,6 +7262,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
