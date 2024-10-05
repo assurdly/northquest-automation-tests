@@ -7966,6 +7966,101 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"nin\": \"1234567890\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"personal\",\n        \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\",\n        \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-09-27T13:57:43.894Z\",\n        \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "Create Profile Copy",
+							"id": "607d2c23-84a0-4e41-b484-a3748efa424b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"businesss\",\n    \"name\": \"Azeez-Profile\",\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/profiles"
+							},
+							"response": [
+								{
+									"id": "cfe8a3d1-98c4-42ce-ae75-727e58144d68",
+									"name": "Create Profile",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"wunmi\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"1234567890\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/profiles"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 27 Sep 2024 13:57:44 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "445"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1bd-FAijTRuS60lyD9Xj8CumelVWbXU\""
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"nin\": \"1234567890\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"personal\",\n        \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\",\n        \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-09-27T13:57:43.894Z\",\n        \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "2a9cdb68-c147-4994-8797-f28f8b453f2a"
@@ -8195,142 +8290,14 @@
 				},
 				{
 					"name": "Accept Invite",
-					"item": [],
-					"id": "75fa27b4-492f-4d19-a1b2-d7ffc1bb6f81"
-				},
-				{
-					"name": "New Folder",
-					"item": [],
-					"id": "f147c5dd-e97c-469b-af13-400dd23e0dc0"
-				},
-				{
-					"name": "Accept Invite",
-					"id": "3a065e04-49c3-4e5b-90c6-685872b83a22",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\",\n    \"password\": \"Password12@@\",\n    \"last_name\": \"Ade\",\n    \"first_name\": \"Wunmi\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/accept-invite",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"accept-invite"
-							],
-							"variable": [
-								{
-									"id": "e22918aa-e282-4973-9a1b-d0acc33ddafe",
-									"key": "profile_id",
-									"value": "01925236-19c0-7112-9440-aa8162716104"
-								}
-							]
-						}
-					},
-					"response": [
+					"item": [
 						{
-							"id": "4dc34b7f-9631-456f-974a-3ce4a16f7aa1",
-							"name": "Incorrect Profile",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accept-invite",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accept-invite"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "01924c5c-77eb-7990-8116-d7b9032d6d27"
-										}
-									]
-								}
+							"name": "Accept Invite",
+							"id": "3a065e04-49c3-4e5b-90c6-685872b83a22",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
 							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "172"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"ac-5EWXaj29XfgXzP55qWc3gI4dWlY\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 03 Oct 2024 11:58:30 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"User Profile does not exist\",\n    \"timestamp\": \"2024-10-03T11:58:30.073Z\",\n    \"path\": \"/profiles/01924c5c-77eb-7990-8116-d7b9032d6d27/team/accept-invite\"\n}"
-						},
-						{
-							"id": "80646001-e199-4049-9f5f-ec1d6a2342cb",
-							"name": "Success (New User)",
-							"originalRequest": {
+							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -8354,152 +8321,520 @@
 									],
 									"variable": [
 										{
+											"id": "e22918aa-e282-4973-9a1b-d0acc33ddafe",
 											"key": "profile_id",
 											"value": "01925236-19c0-7112-9440-aa8162716104"
 										}
 									]
 								}
 							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "57"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"39-LbTKKWK0Vq4JYYxoSjiZyzl0toE\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 03 Oct 2024 12:01:19 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Accepted Invite\"\n    }\n}"
-						},
-						{
-							"id": "7ae3e8cd-6a84-4dcd-a5f2-d4a8f18f46e7",
-							"name": "Success (Existing User)",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"id": "4dc34b7f-9631-456f-974a-3ce4a16f7aa1",
+									"name": "Incorrect Profile",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/accept-invite",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"accept-invite"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01924c5c-77eb-7990-8116-d7b9032d6d27"
+												}
+											]
 										}
-									}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "172"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ac-5EWXaj29XfgXzP55qWc3gI4dWlY\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 11:58:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"statusCode\": 404,\n    \"message\": \"User Profile does not exist\",\n    \"timestamp\": \"2024-10-03T11:58:30.073Z\",\n    \"path\": \"/profiles/01924c5c-77eb-7990-8116-d7b9032d6d27/team/accept-invite\"\n}"
 								},
+								{
+									"id": "80646001-e199-4049-9f5f-ec1d6a2342cb",
+									"name": "Success (New User)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\",\n    \"password\": \"Password12@@\",\n    \"last_name\": \"Ade\",\n    \"first_name\": \"Wunmi\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/accept-invite",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"accept-invite"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "57"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"39-LbTKKWK0Vq4JYYxoSjiZyzl0toE\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 12:01:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Accepted Invite\"\n    }\n}"
+								},
+								{
+									"id": "7ae3e8cd-6a84-4dcd-a5f2-d4a8f18f46e7",
+									"name": "Success (Existing User)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/accept-invite",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"accept-invite"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "57"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"39-LbTKKWK0Vq4JYYxoSjiZyzl0toE\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 12:02:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Accepted Invite\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "75fa27b4-492f-4d19-a1b2-d7ffc1bb6f81"
+				},
+				{
+					"name": "Resend Invite",
+					"item": [],
+					"id": "f147c5dd-e97c-469b-af13-400dd23e0dc0"
+				},
+				{
+					"name": "Get User",
+					"item": [
+						{
+							"name": "Get User",
+							"id": "fe77b509-c9da-431b-ae01-e3422b9aa734",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accept-invite",
+									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"profiles",
 										":profile_id",
-										"accept-invite"
+										"users",
+										":id"
 									],
 									"variable": [
 										{
+											"id": "9b126ab0-9f3f-45a9-bf5c-52614df53ad7",
+											"key": "profile_id",
+											"value": "01925236-19c0-7112-9440-aa8162716104"
+										},
+										{
+											"id": "fef74e24-bedf-4b7a-ad5a-2b3364288f6a",
+											"key": "id",
+											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "69d4652d-70c6-49e1-857f-7917473ac745",
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "649"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"289-cG2xyXeRi3Li51IKymIvMCyg45o\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 17:55:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n        \"user\": {\n            \"id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"darehorla@gmail.com\"\n        },\n        \"role\": {\n            \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n            \"name\": \"Owner\"\n        }\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "5a29f573-f53c-4302-8c90-85d9709b66da"
+				},
+				{
+					"name": "Get Users",
+					"item": [
+						{
+							"name": "Get Users",
+							"id": "52c5ada9-2ed5-4c76-858b-56e152b09718",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"users"
+									],
+									"variable": [
+										{
+											"id": "f95ff277-e6fa-424b-91e9-89f3043227eb",
 											"key": "profile_id",
 											"value": "01925236-19c0-7112-9440-aa8162716104"
 										}
 									]
 								}
 							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "57"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"39-LbTKKWK0Vq4JYYxoSjiZyzl0toE\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 03 Oct 2024 12:02:22 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "275e3923-1c39-4fb5-90e1-222f22765470",
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1952"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"7a0-RYXWA3g4p6T1QADsAc5zA/01OiY\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 17:53:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"status\": \"active\",\n                \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                \"user\": {\n                    \"id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"Dare\",\n                    \"email\": \"darehorla@gmail.com\"\n                },\n                \"role\": {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"name\": \"Owner\"\n                }\n            },\n            {\n                \"id\": \"01925238-10f2-7112-9440-c57f1e32ed7d\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T11:50:59.058Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T11:50:59.058Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"status\": \"pending\",\n                \"user_id\": \"01925238-10ec-7112-9440-bc46320cdde3\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                \"user\": {\n                    \"id\": \"01925238-10ec-7112-9440-bc46320cdde3\",\n                    \"first_name\": null,\n                    \"last_name\": null,\n                    \"email\": \"daresodiq000@gmail.com\"\n                },\n                \"role\": {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"name\": \"Owner\"\n                }\n            },\n            {\n                \"id\": \"01925239-3906-7112-9492-503c37450d25\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T11:52:14.854Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T12:05:57.129Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"status\": \"active\",\n                \"user_id\": \"01925239-38dc-7112-9492-4c3e36f2b489\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                \"user\": {\n                    \"id\": \"01925239-38dc-7112-9492-4c3e36f2b489\",\n                    \"first_name\": \"Wunmi\",\n                    \"last_name\": \"Ade\",\n                    \"email\": \"daresodiq0000@gmail.com\"\n                },\n                \"role\": {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"name\": \"Owner\"\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 3\n    }\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Accepted Invite\"\n    }\n}"
+							]
 						}
-					]
+					],
+					"id": "6ef18cdf-cb54-4e7a-916b-39610631e0de"
 				},
 				{
 					"name": "Resend Invite",
@@ -8710,233 +9045,6 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"User profile or associated user does not exist\",\n    \"timestamp\": \"2024-10-03T11:54:42.599Z\",\n    \"path\": \"/profiles/01924c5c-77eb-7990-8116-d7b9032d6d27/team/resend-invite\"\n}"
-						}
-					]
-				},
-				{
-					"name": "Get User",
-					"id": "fe77b509-c9da-431b-ae01-e3422b9aa734",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"users",
-								":id"
-							],
-							"variable": [
-								{
-									"id": "9b126ab0-9f3f-45a9-bf5c-52614df53ad7",
-									"key": "profile_id",
-									"value": "01925236-19c0-7112-9440-aa8162716104"
-								},
-								{
-									"id": "fef74e24-bedf-4b7a-ad5a-2b3364288f6a",
-									"key": "id",
-									"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "69d4652d-70c6-49e1-857f-7917473ac745",
-							"name": "Success",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"users",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "01925236-19c0-7112-9440-aa8162716104"
-										},
-										{
-											"key": "id",
-											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "649"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"289-cG2xyXeRi3Li51IKymIvMCyg45o\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 03 Oct 2024 17:55:23 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n        \"user\": {\n            \"id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"darehorla@gmail.com\"\n        },\n        \"role\": {\n            \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n            \"name\": \"Owner\"\n        }\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Get Users",
-					"id": "52c5ada9-2ed5-4c76-858b-56e152b09718",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/users",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"users"
-							],
-							"variable": [
-								{
-									"id": "f95ff277-e6fa-424b-91e9-89f3043227eb",
-									"key": "profile_id",
-									"value": "01925236-19c0-7112-9440-aa8162716104"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "275e3923-1c39-4fb5-90e1-222f22765470",
-							"name": "Success",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"users"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "01925236-19c0-7112-9440-aa8162716104"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "1952"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"7a0-RYXWA3g4p6T1QADsAc5zA/01OiY\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 03 Oct 2024 17:53:24 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"status\": \"active\",\n                \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                \"user\": {\n                    \"id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"Dare\",\n                    \"email\": \"darehorla@gmail.com\"\n                },\n                \"role\": {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"name\": \"Owner\"\n                }\n            },\n            {\n                \"id\": \"01925238-10f2-7112-9440-c57f1e32ed7d\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T11:50:59.058Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T11:50:59.058Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"status\": \"pending\",\n                \"user_id\": \"01925238-10ec-7112-9440-bc46320cdde3\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                \"user\": {\n                    \"id\": \"01925238-10ec-7112-9440-bc46320cdde3\",\n                    \"first_name\": null,\n                    \"last_name\": null,\n                    \"email\": \"daresodiq000@gmail.com\"\n                },\n                \"role\": {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"name\": \"Owner\"\n                }\n            },\n            {\n                \"id\": \"01925239-3906-7112-9492-503c37450d25\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T11:52:14.854Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T12:05:57.129Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"status\": \"active\",\n                \"user_id\": \"01925239-38dc-7112-9492-4c3e36f2b489\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                \"user\": {\n                    \"id\": \"01925239-38dc-7112-9492-4c3e36f2b489\",\n                    \"first_name\": \"Wunmi\",\n                    \"last_name\": \"Ade\",\n                    \"email\": \"daresodiq0000@gmail.com\"\n                },\n                \"role\": {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"name\": \"Owner\"\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 3\n    }\n}"
 						}
 					]
 				}
