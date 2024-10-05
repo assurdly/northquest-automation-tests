@@ -6335,7 +6335,7 @@
 											"        pm.response.to.have.status(400);",
 											"    });",
 											"    pm.test(\"Valid error messages returned\", () => {",
-											"        pm.expect(message).includes('Identity is required')",
+											"        pm.expect(message).includes('Identity is required.')",
 											"        pm.expect(message).includes('The value must be a valid email address or phone number')",
 											"        pm.expect(message).includes('OTP cannot be empty')",
 											"        pm.expect(message).includes('Password is required.')",
