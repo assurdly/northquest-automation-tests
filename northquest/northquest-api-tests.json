@@ -7834,14 +7834,13 @@
 											"try {",
 											"    const { message, statusCode } = pm.response.json()",
 											"",
-											"    pm.test(\"Test for valid status code\", ()=> {",
+											"    pm.test(\"Test for valid status code\", () => {",
 											"        pm.expect(statusCode).to.eql(401)",
 											"    })",
 											"",
-											"    pm.test(\"Test for valid error message\", ()=> {",
-											"        pm.expect(message).to.eql(\"Invalid access token\")",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.eql(\"Access token is required\")",
 											"    })",
-											"",
 											"",
 											"} catch (error) {",
 											"    console.error(error)",
@@ -8088,7 +8087,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"businesss\",\n    \"name\": \"Azeez-Profile\",\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
+									"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"\",\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
