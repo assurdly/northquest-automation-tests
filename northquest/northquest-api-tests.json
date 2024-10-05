@@ -7184,6 +7184,223 @@
 					"name": "Roles and permissions",
 					"item": [
 						{
+							"name": "Permisssions",
+							"item": [
+								{
+									"name": "Get Permissions",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "6f0b8516-4fee-4ff9-bb5a-eeb3397e3412",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"array\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "2ad2f2cc-366f-4dcd-9a31-a8c07067f962",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/permissions"
+									},
+									"response": [
+										{
+											"id": "e90f4136-2eb8-475c-8dc7-40cf72f319f8",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/permissions"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "1566"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"61e-9BToeY8HBs4rBfMnNuscAOhkNes\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 03 Oct 2024 17:51:23 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"fad67802-c62d-4f3f-bfc7-1678b81583bc\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Create User\",\n            \"slug\": \"create-user\",\n            \"description\": \"Permission to create a new user in the system\"\n        },\n        {\n            \"id\": \"4709ce66-f0ee-402f-81e8-8cd6d473f3b5\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Delete User\",\n            \"slug\": \"delete-user\",\n            \"description\": \"Permission to delete a user from the system\"\n        },\n        {\n            \"id\": \"0cfb141a-a637-4e85-a925-0c7a85d960a1\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"View Users\",\n            \"slug\": \"view-users\",\n            \"description\": \"Permission to view a list of users\"\n        },\n        {\n            \"id\": \"38db681a-1a45-4c63-b11b-99ff1bb57ff1\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Edit User\",\n            \"slug\": \"edit-user\",\n            \"description\": \"Permission to edit user details\"\n        },\n        {\n            \"id\": \"d471c134-c115-4f48-bac0-d30e1ca2bb7c\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Assign Role\",\n            \"slug\": \"assign-role\",\n            \"description\": \"Permission to assign roles to users\"\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Permissions - No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "27cc42ae-48f7-4e4f-8055-978dbd3d16ca",
+												"exec": [
+													"try {",
+													"    const { message, statusCode } = pm.response.json()",
+													"",
+													"    pm.test(\"Test for valid status code\", () => {",
+													"        pm.expect(statusCode).to.eql(401)",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).to.eql(\"Access token is required\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "381f352d-4a42-491c-9f23-f51a7e8f7bb3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/permissions"
+									},
+									"response": [
+										{
+											"id": "e96a7520-047a-487b-9905-1ed7062ee2b1",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/permissions"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "1566"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"61e-9BToeY8HBs4rBfMnNuscAOhkNes\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 03 Oct 2024 17:51:23 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"fad67802-c62d-4f3f-bfc7-1678b81583bc\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Create User\",\n            \"slug\": \"create-user\",\n            \"description\": \"Permission to create a new user in the system\"\n        },\n        {\n            \"id\": \"4709ce66-f0ee-402f-81e8-8cd6d473f3b5\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Delete User\",\n            \"slug\": \"delete-user\",\n            \"description\": \"Permission to delete a user from the system\"\n        },\n        {\n            \"id\": \"0cfb141a-a637-4e85-a925-0c7a85d960a1\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"View Users\",\n            \"slug\": \"view-users\",\n            \"description\": \"Permission to view a list of users\"\n        },\n        {\n            \"id\": \"38db681a-1a45-4c63-b11b-99ff1bb57ff1\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Edit User\",\n            \"slug\": \"edit-user\",\n            \"description\": \"Permission to edit user details\"\n        },\n        {\n            \"id\": \"d471c134-c115-4f48-bac0-d30e1ca2bb7c\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Assign Role\",\n            \"slug\": \"assign-role\",\n            \"description\": \"Permission to assign roles to users\"\n        }\n    ]\n}"
+										}
+									]
+								}
+							],
+							"id": "34bda51e-5822-43c6-9b0d-eee5f0c052ac"
+						},
+						{
 							"name": "Roles",
 							"item": [
 								{
@@ -7664,197 +7881,6 @@
 								}
 							],
 							"id": "0c64b528-5348-4d7a-a73f-f7849f9514a7"
-						},
-						{
-							"name": "Permisssions",
-							"item": [
-								{
-									"name": "Get Permissions",
-									"id": "2ad2f2cc-366f-4dcd-9a31-a8c07067f962",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{userAccessToken}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": "{{base_url}}/permissions"
-									},
-									"response": [
-										{
-											"id": "e90f4136-2eb8-475c-8dc7-40cf72f319f8",
-											"name": "Success",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": "{{base_url}}/permissions"
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "1566"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"61e-9BToeY8HBs4rBfMnNuscAOhkNes\""
-												},
-												{
-													"key": "Date",
-													"value": "Thu, 03 Oct 2024 17:51:23 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"fad67802-c62d-4f3f-bfc7-1678b81583bc\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Create User\",\n            \"slug\": \"create-user\",\n            \"description\": \"Permission to create a new user in the system\"\n        },\n        {\n            \"id\": \"4709ce66-f0ee-402f-81e8-8cd6d473f3b5\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Delete User\",\n            \"slug\": \"delete-user\",\n            \"description\": \"Permission to delete a user from the system\"\n        },\n        {\n            \"id\": \"0cfb141a-a637-4e85-a925-0c7a85d960a1\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"View Users\",\n            \"slug\": \"view-users\",\n            \"description\": \"Permission to view a list of users\"\n        },\n        {\n            \"id\": \"38db681a-1a45-4c63-b11b-99ff1bb57ff1\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Edit User\",\n            \"slug\": \"edit-user\",\n            \"description\": \"Permission to edit user details\"\n        },\n        {\n            \"id\": \"d471c134-c115-4f48-bac0-d30e1ca2bb7c\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Assign Role\",\n            \"slug\": \"assign-role\",\n            \"description\": \"Permission to assign roles to users\"\n        }\n    ]\n}"
-										}
-									]
-								},
-								{
-									"name": "Get Permissions - No Auth",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "27cc42ae-48f7-4e4f-8055-978dbd3d16ca",
-												"exec": [
-													"try {",
-													"    const { message, statusCode } = pm.response.json()",
-													"",
-													"    pm.test(\"Test for valid status code\", () => {",
-													"        pm.expect(statusCode).to.eql(401)",
-													"    })",
-													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(message).to.eql(\"Access token is required\")",
-													"    })",
-													"",
-													"} catch (error) {",
-													"    console.error(error)",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "381f352d-4a42-491c-9f23-f51a7e8f7bb3",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "noauth"
-										},
-										"method": "GET",
-										"header": [],
-										"url": "{{base_url}}/permissions"
-									},
-									"response": [
-										{
-											"id": "e96a7520-047a-487b-9905-1ed7062ee2b1",
-											"name": "Success",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": "{{base_url}}/permissions"
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "1566"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"61e-9BToeY8HBs4rBfMnNuscAOhkNes\""
-												},
-												{
-													"key": "Date",
-													"value": "Thu, 03 Oct 2024 17:51:23 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"fad67802-c62d-4f3f-bfc7-1678b81583bc\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Create User\",\n            \"slug\": \"create-user\",\n            \"description\": \"Permission to create a new user in the system\"\n        },\n        {\n            \"id\": \"4709ce66-f0ee-402f-81e8-8cd6d473f3b5\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Delete User\",\n            \"slug\": \"delete-user\",\n            \"description\": \"Permission to delete a user from the system\"\n        },\n        {\n            \"id\": \"0cfb141a-a637-4e85-a925-0c7a85d960a1\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"View Users\",\n            \"slug\": \"view-users\",\n            \"description\": \"Permission to view a list of users\"\n        },\n        {\n            \"id\": \"38db681a-1a45-4c63-b11b-99ff1bb57ff1\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Edit User\",\n            \"slug\": \"edit-user\",\n            \"description\": \"Permission to edit user details\"\n        },\n        {\n            \"id\": \"d471c134-c115-4f48-bac0-d30e1ca2bb7c\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T17:50:54.538Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Assign Role\",\n            \"slug\": \"assign-role\",\n            \"description\": \"Permission to assign roles to users\"\n        }\n    ]\n}"
-										}
-									]
-								}
-							],
-							"id": "34bda51e-5822-43c6-9b0d-eee5f0c052ac"
 						}
 					],
 					"id": "e3304f0d-09f4-4d96-a5e8-5ff2a1715d88"
