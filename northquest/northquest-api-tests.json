@@ -7825,16 +7825,40 @@
 						},
 						{
 							"name": "Get Profiles - No Auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "46438a94-62a7-4f9e-a5aa-f35e25820d89",
+										"exec": [
+											"try {",
+											"    const { message, statusCode } = pm.response.json()",
+											"",
+											"    pm.test(\"Test for valid status code\", ()=> {",
+											"        pm.expect(statusCode).to.eql(401)",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", ()=> {",
+											"        pm.expect(message).to.eql(\"Invalid access token\")",
+											"    })",
+											"",
+											"",
+											"} catch (error) {",
+											"    console.error(error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "a05e048a-6682-46c0-8d43-682dce5bbd45",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
+									"type": "noauth"
 								},
 								"method": "GET",
 								"header": [],
