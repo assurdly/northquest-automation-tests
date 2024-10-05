@@ -7588,56 +7588,25 @@
 							"item": [
 								{
 									"name": "Create Role",
-									"id": "93e892b4-be52-4c17-bc92-eb03800cf208",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{userAccessToken}}"
-											}
-										},
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"sodiqsnst {{$randomFullName}}\",\n    \"description\": \"sodiq\",\n    \"permissions\": [\n        \"019253c6-b848-7764-a1c0-7fb0a820b694\"\n    ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/roles",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"roles"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925882-f353-7002-8052-04c8be2c03da"
-												}
-											]
-										}
-									},
-									"response": [
+									"item": [
 										{
-											"id": "3182231b-b693-4f37-b867-b0a4d3853f5a",
-											"name": "Success",
-											"originalRequest": {
+											"name": "Create Role",
+											"id": "93e892b4-be52-4c17-bc92-eb03800cf208",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
 												"method": "POST",
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"name\": \"Account Manager\"\n}",
+													"raw": "{\n    \"name\": \"sodiqsnst Mary Jenkins\",\n    \"description\": \"sodiq\",\n    \"permissions\": [\n        \"019253c6-b848-7764-a1c0-7fb0a820b694\"\n    ]\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -7657,209 +7626,243 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+															"value": "01925882-f353-7002-8052-04c8be2c03da"
 														}
 													]
 												}
 											},
-											"status": "Created",
-											"code": 201,
-											"_postman_previewlanguage": "json",
-											"header": [
+											"response": [
 												{
-													"key": "Date",
-													"value": "Thu, 03 Oct 2024 16:54:17 GMT"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "429"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"1ad-W2Ndyw6G1tC+gLC9kSJ5J0iUADY\""
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Account Manager\",\n        \"slug\": \"account-manager\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"description\": null,\n        \"created_on\": \"2024-10-03T16:54:17.485Z\",\n        \"modified_on\": \"2024-10-03T16:54:17.485Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
-										}
-									]
-								},
-								{
-									"name": "Get Role",
-									"id": "5a190fac-6281-41fd-95ff-6fa0d505834c",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{userAccessToken}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/roles",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"roles"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925236-19c0-7112-9440-aa8162716104"
+													"id": "3182231b-b693-4f37-b867-b0a4d3853f5a",
+													"name": "Success",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"name\": \"Account Manager\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{base_url}}/profiles/:profile_id/roles",
+															"host": [
+																"{{base_url}}"
+															],
+															"path": [
+																"profiles",
+																":profile_id",
+																"roles"
+															],
+															"variable": [
+																{
+																	"key": "profile_id",
+																	"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+																}
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Date",
+															"value": "Thu, 03 Oct 2024 16:54:17 GMT"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "429"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "X-RateLimit-Limit",
+															"value": "100"
+														},
+														{
+															"key": "X-RateLimit-Remaining",
+															"value": "99"
+														},
+														{
+															"key": "X-RateLimit-Reset",
+															"value": "1"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1ad-W2Ndyw6G1tC+gLC9kSJ5J0iUADY\""
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Account Manager\",\n        \"slug\": \"account-manager\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"description\": null,\n        \"created_on\": \"2024-10-03T16:54:17.485Z\",\n        \"modified_on\": \"2024-10-03T16:54:17.485Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
 												}
 											]
-										}
-									},
-									"response": [
+										},
 										{
-											"id": "c13efc15-7840-45f5-aed1-c4c92a95e5d7",
-											"name": "Success",
-											"originalRequest": {
-												"method": "GET",
+											"name": "Create Role Copy",
+											"id": "872be5a7-5912-464a-acc8-b20b5f3b992f",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
 												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"sodiqsnst Mary Jenkins\",\n    \"description\": \"sodiq\",\n    \"permissions\": [\n        \"019253c6-b848-7764-a1c0-7fb0a820b694\"\n    ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
 												"url": {
-													"raw": "{{base_url}}/profiles/:profile_id/roles/:id",
+													"raw": "{{base_url}}/profiles/:profile_id/roles",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
 														"profiles",
 														":profile_id",
-														"roles",
-														":id"
+														"roles"
 													],
 													"variable": [
 														{
+															"id": "4f7b5cde-17aa-438b-87af-f63f33d24fe9",
 															"key": "profile_id",
-															"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-														},
-														{
-															"key": "id",
-															"value": "0192540d-a917-7002-8051-b2f4770572b6"
+															"value": "01925882-f353-7002-8052-04c8be2c03da"
 														}
 													]
 												}
 											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
+											"response": [
 												{
-													"key": "Date",
-													"value": "Thu, 03 Oct 2024 20:25:01 GMT"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "1061"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"425-FqpjfhkPZnEyTWsptUYLEQALnL0\""
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192540d-a917-7002-8051-b2f4770572b6\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T20:23:54.384Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-03T20:23:54.384Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Account Managers\",\n        \"slug\": \"account-managers\",\n        \"description\": \"Account Manager\",\n        \"status\": \"active\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"permissions\": [\n            {\n                \"id\": \"019253c6-b848-7764-a1c0-7fb0a820b694\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T17:50:54.538Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"name\": \"View Users\",\n                \"slug\": \"view-users\",\n                \"description\": \"Permission to view a list of users\"\n            },\n            {\n                \"id\": \"019253c6-b848-7a00-a7cf-84365e71ad9e\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T17:50:54.538Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"name\": \"Edit User\",\n                \"slug\": \"edit-user\",\n                \"description\": \"Permission to edit user details\"\n            }\n        ]\n    }\n}"
-										}
-									]
-								},
-								{
-									"name": "Get Roles",
-									"id": "a609f376-cd89-4ebf-be0b-76f1b7738361",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/roles",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"roles"
-											],
-											"variable": [
-												{
-													"id": "e9e0b52c-9638-4b42-b32b-53ffa12a6d51",
-													"key": "profile_id",
-													"value": "01925236-19c0-7112-9440-aa8162716104"
+													"id": "21fd12ae-5155-47f6-a267-4054ae157d8a",
+													"name": "Success",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"name\": \"Account Manager\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{base_url}}/profiles/:profile_id/roles",
+															"host": [
+																"{{base_url}}"
+															],
+															"path": [
+																"profiles",
+																":profile_id",
+																"roles"
+															],
+															"variable": [
+																{
+																	"key": "profile_id",
+																	"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+																}
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Date",
+															"value": "Thu, 03 Oct 2024 16:54:17 GMT"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "429"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "X-RateLimit-Limit",
+															"value": "100"
+														},
+														{
+															"key": "X-RateLimit-Remaining",
+															"value": "99"
+														},
+														{
+															"key": "X-RateLimit-Reset",
+															"value": "1"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1ad-W2Ndyw6G1tC+gLC9kSJ5J0iUADY\""
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Account Manager\",\n        \"slug\": \"account-manager\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"description\": null,\n        \"created_on\": \"2024-10-03T16:54:17.485Z\",\n        \"modified_on\": \"2024-10-03T16:54:17.485Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
 												}
 											]
 										}
-									},
-									"response": [
+									],
+									"id": "3f149e2e-3c9e-410f-85b0-1098d8abddad"
+								},
+								{
+									"name": "Get Role",
+									"item": [
 										{
-											"id": "b0a91e07-d26a-475d-90ac-f711e1423cc7",
-											"name": "Success",
-											"originalRequest": {
+											"name": "Get Role",
+											"id": "5a190fac-6281-41fd-95ff-6fa0d505834c",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
 												"method": "GET",
 												"header": [],
 												"url": {
@@ -7875,108 +7878,215 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+															"value": "01925236-19c0-7112-9440-aa8162716104"
 														}
 													]
 												}
 											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
+											"response": [
 												{
-													"key": "Date",
-													"value": "Thu, 03 Oct 2024 16:54:22 GMT"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "867"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"363-HfvzU2IruI1gZzMhW8VzZ372rD4\""
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": \"0192533b-4fa0-7cca-8790-d1fb190cf492\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T16:34:08.904Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T16:34:08.904Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Owner\",\n                \"slug\": \"owner\",\n                \"description\": \"This is for the owner of the tenant\",\n                \"status\": \"active\",\n                \"profile_id\": null\n            },\n            {\n                \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T16:54:17.485Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T16:54:17.485Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Account Manager\",\n                \"slug\": \"account-manager\",\n                \"description\": null,\n                \"status\": \"active\",\n                \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
-										}
-									]
-								},
-								{
-									"name": "Update Role",
-									"id": "4feb2168-6fb3-4db5-8dd2-81d0217e75e2",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Account deleter\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/roles/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"roles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												},
-												{
-													"key": "id",
-													"value": "0192534d-c08e-7886-abfb-7badcb2e11ff"
+													"id": "c13efc15-7840-45f5-aed1-c4c92a95e5d7",
+													"name": "Success",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{base_url}}/profiles/:profile_id/roles/:id",
+															"host": [
+																"{{base_url}}"
+															],
+															"path": [
+																"profiles",
+																":profile_id",
+																"roles",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "profile_id",
+																	"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+																},
+																{
+																	"key": "id",
+																	"value": "0192540d-a917-7002-8051-b2f4770572b6"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Date",
+															"value": "Thu, 03 Oct 2024 20:25:01 GMT"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "1061"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "X-RateLimit-Limit",
+															"value": "100"
+														},
+														{
+															"key": "X-RateLimit-Remaining",
+															"value": "99"
+														},
+														{
+															"key": "X-RateLimit-Reset",
+															"value": "1"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"425-FqpjfhkPZnEyTWsptUYLEQALnL0\""
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192540d-a917-7002-8051-b2f4770572b6\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T20:23:54.384Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-03T20:23:54.384Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Account Managers\",\n        \"slug\": \"account-managers\",\n        \"description\": \"Account Manager\",\n        \"status\": \"active\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"permissions\": [\n            {\n                \"id\": \"019253c6-b848-7764-a1c0-7fb0a820b694\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T17:50:54.538Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"name\": \"View Users\",\n                \"slug\": \"view-users\",\n                \"description\": \"Permission to view a list of users\"\n            },\n            {\n                \"id\": \"019253c6-b848-7a00-a7cf-84365e71ad9e\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T17:50:54.538Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T17:50:54.538Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"name\": \"Edit User\",\n                \"slug\": \"edit-user\",\n                \"description\": \"Permission to edit user details\"\n            }\n        ]\n    }\n}"
 												}
 											]
 										}
-									},
-									"response": [
+									],
+									"id": "0c5daaa8-09ee-4f12-b410-cee8edaac0cc"
+								},
+								{
+									"name": "Get Roles",
+									"item": [
 										{
-											"id": "5a474cb9-5917-4947-bb6d-8bbe54da81c8",
-											"name": "Success",
-											"originalRequest": {
+											"name": "Get Roles",
+											"id": "a609f376-cd89-4ebf-be0b-76f1b7738361",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/roles",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"roles"
+													],
+													"variable": [
+														{
+															"id": "e9e0b52c-9638-4b42-b32b-53ffa12a6d51",
+															"key": "profile_id",
+															"value": "01925236-19c0-7112-9440-aa8162716104"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "b0a91e07-d26a-475d-90ac-f711e1423cc7",
+													"name": "Success",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{base_url}}/profiles/:profile_id/roles",
+															"host": [
+																"{{base_url}}"
+															],
+															"path": [
+																"profiles",
+																":profile_id",
+																"roles"
+															],
+															"variable": [
+																{
+																	"key": "profile_id",
+																	"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Date",
+															"value": "Thu, 03 Oct 2024 16:54:22 GMT"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "867"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "X-RateLimit-Limit",
+															"value": "100"
+														},
+														{
+															"key": "X-RateLimit-Remaining",
+															"value": "99"
+														},
+														{
+															"key": "X-RateLimit-Reset",
+															"value": "1"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"363-HfvzU2IruI1gZzMhW8VzZ372rD4\""
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": \"0192533b-4fa0-7cca-8790-d1fb190cf492\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T16:34:08.904Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T16:34:08.904Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Owner\",\n                \"slug\": \"owner\",\n                \"description\": \"This is for the owner of the tenant\",\n                \"status\": \"active\",\n                \"profile_id\": null\n            },\n            {\n                \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T16:54:17.485Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T16:54:17.485Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Account Manager\",\n                \"slug\": \"account-manager\",\n                \"description\": null,\n                \"status\": \"active\",\n                \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
+												}
+											]
+										}
+									],
+									"id": "3db3a7b3-0609-4ce2-8da2-290f7895af61"
+								},
+								{
+									"name": "Update Role",
+									"item": [
+										{
+											"name": "Update Role",
+											"id": "4feb2168-6fb3-4db5-8dd2-81d0217e75e2",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
 												"method": "PATCH",
 												"header": [],
 												"body": {
@@ -8011,56 +8121,98 @@
 													]
 												}
 											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
+											"response": [
 												{
-													"key": "Date",
-													"value": "Thu, 03 Oct 2024 16:57:17 GMT"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "429"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"1ad-uS8QKnExaubjZih0C76PTMlSvz0\""
+													"id": "5a474cb9-5917-4947-bb6d-8bbe54da81c8",
+													"name": "Success",
+													"originalRequest": {
+														"method": "PATCH",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"name\": \"Account deleter\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{base_url}}/profiles/:profile_id/roles/:id",
+															"host": [
+																"{{base_url}}"
+															],
+															"path": [
+																"profiles",
+																":profile_id",
+																"roles",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "profile_id",
+																	"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+																},
+																{
+																	"key": "id",
+																	"value": "0192534d-c08e-7886-abfb-7badcb2e11ff"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Date",
+															"value": "Thu, 03 Oct 2024 16:57:17 GMT"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "429"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "X-RateLimit-Limit",
+															"value": "100"
+														},
+														{
+															"key": "X-RateLimit-Remaining",
+															"value": "99"
+														},
+														{
+															"key": "X-RateLimit-Reset",
+															"value": "1"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1ad-uS8QKnExaubjZih0C76PTMlSvz0\""
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T16:54:17.485Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-03T16:55:56.408Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Account deleter\",\n        \"slug\": \"account-deleter\",\n        \"description\": null,\n        \"status\": \"active\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\"\n    }\n}"
 												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T16:54:17.485Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-03T16:55:56.408Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Account deleter\",\n        \"slug\": \"account-deleter\",\n        \"description\": null,\n        \"status\": \"active\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\"\n    }\n}"
+											]
 										}
-									]
+									],
+									"id": "7f5b5d49-ce13-4c12-ba3b-066c2fbc6060"
 								}
 							],
 							"id": "0c64b528-5348-4d7a-a73f-f7849f9514a7"
