@@ -2732,7 +2732,7 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/users"
+								"url": "{{base_url}}/auth/onboard"
 							},
 							"response": [
 								{
@@ -2990,7 +2990,7 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/users"
+								"url": "{{base_url}}/auth/onboard"
 							},
 							"response": [
 								{
@@ -3248,7 +3248,7 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/users"
+								"url": "{{base_url}}/auth/onboard"
 							},
 							"response": [
 								{
@@ -3506,7 +3506,7 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/users"
+								"url": "{{base_url}}/auth/onboard"
 							},
 							"response": [
 								{
@@ -7824,7 +7824,7 @@
 							]
 						},
 						{
-							"name": "Get Profiles Copy",
+							"name": "Get Profiles - No Auth",
 							"id": "a05e048a-6682-46c0-8d43-682dce5bbd45",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
