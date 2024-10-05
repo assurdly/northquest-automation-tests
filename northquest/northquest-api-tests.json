@@ -7751,16 +7751,39 @@
 								},
 								{
 									"name": "Get Permissions - No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "27cc42ae-48f7-4e4f-8055-978dbd3d16ca",
+												"exec": [
+													"try {",
+													"    const { message, statusCode } = pm.response.json()",
+													"",
+													"    pm.test(\"Test for valid status code\", () => {",
+													"        pm.expect(statusCode).to.eql(401)",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).to.eql(\"Access token is required\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "381f352d-4a42-491c-9f23-f51a7e8f7bb3",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{userAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [],
