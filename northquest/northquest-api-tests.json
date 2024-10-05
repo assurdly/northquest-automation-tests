@@ -7744,7 +7744,7 @@
 					"id": "e3304f0d-09f4-4d96-a5e8-5ff2a1715d88"
 				},
 				{
-					"name": "Get Profile",
+					"name": "Get Profiles",
 					"item": [
 						{
 							"name": "Get Profiles",
@@ -7822,10 +7822,16 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n            \"meta\": {\n                \"first_name\": \"\",\n                \"last_name\": \"\",\n                \"nin\": \"1234567890\"\n            },\n            \"created_on\": \"2024-09-27T13:57:43.894Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"wunmi\",\n            \"type\": \"personal\",\n            \"status\": \"active\",\n            \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\"\n        }\n    ]\n}"
 								}
 							]
-						},
+						}
+					],
+					"id": "540b7f8d-4cf5-490a-9bb9-5e8045b7929b"
+				},
+				{
+					"name": "Get Profileby ID",
+					"item": [
 						{
-							"name": "Get Profiles Copy",
-							"id": "057c790c-3186-4194-bf45-e32df1ed436e",
+							"name": "Get Profile",
+							"id": "f2a6e0de-6f9a-40bb-946b-61a8d538ac82",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -7838,11 +7844,26 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{base_url}}/profiles"
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": ""
+										}
+									]
+								}
 							},
 							"response": [
 								{
-									"id": "d5ce97e1-210a-40ed-968c-bcae8d54eb25",
+									"id": "8731ef7d-e9b3-416e-b812-112c34f6c70e",
 									"name": "Get Profiles",
 									"originalRequest": {
 										"method": "GET",
@@ -7901,7 +7922,7 @@
 							]
 						}
 					],
-					"id": "540b7f8d-4cf5-490a-9bb9-5e8045b7929b"
+					"id": "d84169f3-c96e-4ac8-b7a6-91ee98bc8219"
 				},
 				{
 					"name": "Update Profile",
