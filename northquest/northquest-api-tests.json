@@ -6336,7 +6336,7 @@
 											"    });",
 											"    pm.test(\"Valid error messages returned\", () => {",
 											"        pm.expect(message).includes('Identity is required.')",
-											"        pm.expect(message).includes('The value must be a valid email address or phone number')",
+											"        pm.expect(message).includes('The value must be a valid email address or phone number.')",
 											"        pm.expect(message).includes('OTP cannot be empty')",
 											"        pm.expect(message).includes('Password is required.')",
 											"        pm.expect(message).includes('password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters in length.')",
@@ -7871,40 +7871,25 @@
 				},
 				{
 					"name": "Create Profile",
-					"id": "73af81bb-c507-4d4b-bb35-9c9d820ccf00",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"type\": \"businesss\",\n    \"name\": \"Azeez-Profile\",\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/profiles"
-					},
-					"response": [
+					"item": [
 						{
-							"id": "97010828-ff50-438e-bae6-c288844eb9ab",
 							"name": "Create Profile",
-							"originalRequest": {
+							"id": "73af81bb-c507-4d4b-bb35-9c9d820ccf00",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"wunmi\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"1234567890\"\n}",
+									"raw": "{\n    \"type\": \"businesss\",\n    \"name\": \"Azeez-Profile\",\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -7913,109 +7898,99 @@
 								},
 								"url": "{{base_url}}/profiles"
 							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "Date",
-									"value": "Fri, 27 Sep 2024 13:57:44 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "445"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"1bd-FAijTRuS60lyD9Xj8CumelVWbXU\""
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"nin\": \"1234567890\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"personal\",\n        \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\",\n        \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-09-27T13:57:43.894Z\",\n        \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Invite User",
-					"id": "d10daf56-d137-45d7-8d8b-70cc58e9f052",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"daresodiq000@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/invite",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"invite"
-							],
-							"variable": [
-								{
-									"key": "profile_id",
-									"value": "019233c5-f357-7ffa-922e-9ff5318f8678"
+									"id": "97010828-ff50-438e-bae6-c288844eb9ab",
+									"name": "Create Profile",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"wunmi\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"1234567890\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/profiles"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 27 Sep 2024 13:57:44 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "445"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1bd-FAijTRuS60lyD9Xj8CumelVWbXU\""
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"nin\": \"1234567890\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"personal\",\n        \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\",\n        \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-09-27T13:57:43.894Z\",\n        \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
 								}
 							]
 						}
-					},
-					"response": [
+					],
+					"id": "2a9cdb68-c147-4994-8797-f28f8b453f2a"
+				},
+				{
+					"name": "Invite User",
+					"item": [
 						{
-							"id": "a9d0ac48-d7ba-42ff-b438-e5fbffd8f6ec",
-							"name": "Existing User",
-							"originalRequest": {
+							"name": "Invite User",
+							"id": "d10daf56-d137-45d7-8d8b-70cc58e9f052",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"darehorla@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
+									"raw": "{\n    \"email\": \"daresodiq000@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -8035,151 +8010,198 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "01925236-19c0-7112-9440-aa8162716104"
+											"value": "019233c5-f357-7ffa-922e-9ff5318f8678"
 										}
 									]
 								}
 							},
-							"status": "Conflict",
-							"code": 409,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "174"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"ae-wkmtRSv5H+NZ0LB8XhfzBPBjxJs\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 03 Oct 2024 11:50:09 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"statusCode\": 409,\n    \"message\": \"User already belongs to this profile\",\n    \"timestamp\": \"2024-10-03T11:50:09.628Z\",\n    \"path\": \"/profiles/01925236-19c0-7112-9440-aa8162716104/team/invite\"\n}"
-						},
-						{
-							"id": "af4408c9-be8f-42a9-bc39-c3f8056ea3ec",
-							"name": "Success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"daresodiq0000@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"id": "a9d0ac48-d7ba-42ff-b438-e5fbffd8f6ec",
+									"name": "Existing User",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"darehorla@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/invite",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"invite"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												}
+											]
 										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/invite",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"invite"
-									],
-									"variable": [
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "json",
+									"header": [
 										{
-											"key": "profile_id",
-											"value": "01925236-19c0-7112-9440-aa8162716104"
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "174"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ae-wkmtRSv5H+NZ0LB8XhfzBPBjxJs\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 11:50:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
 										}
-									]
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"statusCode\": 409,\n    \"message\": \"User already belongs to this profile\",\n    \"timestamp\": \"2024-10-03T11:50:09.628Z\",\n    \"path\": \"/profiles/01925236-19c0-7112-9440-aa8162716104/team/invite\"\n}"
+								},
+								{
+									"id": "af4408c9-be8f-42a9-bc39-c3f8056ea3ec",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"daresodiq0000@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/invite",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"invite"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "280"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"118-xlOBxXYCuiv6lbichGuqmBUDi5c\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 11:52:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\",\n        \"message\": \"User successfully invited.\"\n    }\n}"
 								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "280"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"118-xlOBxXYCuiv6lbichGuqmBUDi5c\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 03 Oct 2024 11:52:14 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\",\n        \"message\": \"User successfully invited.\"\n    }\n}"
+							]
 						}
-					]
+					],
+					"id": "10dc8d12-a29e-406f-aba1-362354c9be69"
+				},
+				{
+					"name": "Accept Invite",
+					"item": [],
+					"id": "75fa27b4-492f-4d19-a1b2-d7ffc1bb6f81"
+				},
+				{
+					"name": "New Folder",
+					"item": [],
+					"id": "f147c5dd-e97c-469b-af13-400dd23e0dc0"
 				},
 				{
 					"name": "Accept Invite",
