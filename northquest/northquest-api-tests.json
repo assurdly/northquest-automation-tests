@@ -4838,7 +4838,6 @@
 											"        const user = pm.response.json().data.user;",
 											"        pm.expect(user).to.not.have.property('password');",
 											"    })",
-											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error);",
 											"}",
@@ -5100,6 +5099,7 @@
 											"        pm.expect(message).includes('The identity must be a valid email address or phone number.')",
 											"        pm.expect(message).includes('Password is required.')",
 											"    })",
+											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
 											"}"
@@ -5359,9 +5359,10 @@
 											"        pm.response.to.have.status(\"Bad Request\");",
 											"    });",
 											"",
-											"    pm.test (\"Test for valid error message\", () => {",
+											"    pm.test(\"Test for valid error message\", () => {",
 											"        pm.expect(message[0]).to.eql(\"The value must be a valid email address or phone number\")",
 											"    })",
+											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
 											"}"
