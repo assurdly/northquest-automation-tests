@@ -10092,26 +10092,17 @@
 											"try {",
 											"    const { message } = pm.response.json()",
 											"",
-											"    pm.test(\"Status code is 400\", () => {",
-											"        pm.response.to.have.status(400);",
+											"    pm.test(\"Status code is 404\", () => {",
+											"        pm.response.to.have.status(404);",
 											"    });",
 											"",
 											"    pm.test(\"Status code name has string\", function () {",
-											"        pm.response.to.have.status(\"Bad Request\");",
+											"        pm.response.to.have.status(\"Not Found\");",
 											"    });",
 											"",
 											"    pm.test(\"Test for valid error message\", () => {",
-											"        pm.expect(message).includes(\"Email cannot be empty\")",
-											"        pm.expect(message).includes(\"Invalid email format\")",
-											"        pm.expect(message).includes(\"Role ID is required\")",
-											"        pm.expect(message).includes(\"Role ID must be a valid UUID\")",
-											"    })",
-											"",
-											"    pm.test(\"Test for valid error message\", () => {",
-											"        pm.expect(message).does.not.include(\"Phone number cannot be empty\")",
-											"        pm.expect(message).does.not.include(\"Invalid phone number\")",
-											"    })",
-											"",
+											"        pm.expect(message).eql(\"Profile not found\")",
+											"    });",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
 											"}"
@@ -10136,7 +10127,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"\",\n    \"role_id\":\"\"\n}",
+									"raw": "{\n    \"email\": \"test@mailinatyor.com\",\n    \"role_id\":\"{{$randomUUID}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10155,9 +10146,8 @@
 									],
 									"variable": [
 										{
-											"id": "0cf26e94-1e9e-425f-8927-989e2a933e42",
 											"key": "profile_id",
-											"value": ""
+											"value": "{{$randomUUID}}"
 										}
 									]
 								}
