@@ -4281,7 +4281,7 @@
 											"    });",
 											"",
 											"    pm.test (\"Test for valid error message\", () => {",
-											"        pm.expect(message[0]).to.eql(\"The value must be a valid email address or phone number\")",
+											"        pm.expect(message[0]).to.eql(\"The value must be a valid email address or phone number.\")",
 											"    })",
 											"",
 											"} catch (error) {",
@@ -4544,7 +4544,7 @@
 											"    });",
 											"",
 											"    pm.test (\"Test for valid error message\", () => {",
-											"        pm.expect(message[0]).to.eql(\"The value must be a valid email address or phone number\")",
+											"        pm.expect(message[0]).to.eql(\"The identity must be a valid email address or phone number.\")",
 											"    })",
 											"",
 											"} catch (error) {",
@@ -7890,7 +7890,7 @@
 											]
 										},
 										{
-											"name": "Create Role - Invalid profile id",
+											"name": "Create Role - existing name",
 											"event": [
 												{
 													"listen": "test",
@@ -7965,6 +7965,164 @@
 											"response": [
 												{
 													"id": "339553be-3fc2-4461-b318-06d702aeaa53",
+													"name": "Success",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"name\": \"Account Manager\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{base_url}}/profiles/:profile_id/roles",
+															"host": [
+																"{{base_url}}"
+															],
+															"path": [
+																"profiles",
+																":profile_id",
+																"roles"
+															],
+															"variable": [
+																{
+																	"key": "profile_id",
+																	"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+																}
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Date",
+															"value": "Thu, 03 Oct 2024 16:54:17 GMT"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "429"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "X-RateLimit-Limit",
+															"value": "100"
+														},
+														{
+															"key": "X-RateLimit-Remaining",
+															"value": "99"
+														},
+														{
+															"key": "X-RateLimit-Reset",
+															"value": "1"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1ad-W2Ndyw6G1tC+gLC9kSJ5J0iUADY\""
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Account Manager\",\n        \"slug\": \"account-manager\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"description\": null,\n        \"created_on\": \"2024-10-03T16:54:17.485Z\",\n        \"modified_on\": \"2024-10-03T16:54:17.485Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+												}
+											]
+										},
+										{
+											"name": "Create Role - Invalid profile ID",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "fba4803a-7848-4a15-8f10-44868fcd035c",
+														"exec": [
+															"try {",
+															"    const { message } = pm.response.json()",
+															"",
+															"    pm.test(\"Status code is 400\", () => {",
+															"        pm.response.to.have.status(400);",
+															"    });",
+															"",
+															"    pm.test(\"Status code name has string\", function () {",
+															"        pm.response.to.have.status(\"Bad Request\");",
+															"    });",
+															"",
+															"    pm.test(\"Test for valid error message\", () => {",
+															"        pm.expect(message).to.eql(\"Role with name already exist.\")",
+															"    })",
+															"",
+															"} catch (error) {",
+															"    console.error(\"Error from test:\", error)",
+															"}"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"id": "3ce4d507-170f-446b-84fc-f9ebf2d79d60",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"sodiqsnst Mary Jenkins\",\n    \"description\": \"sodiq\",\n    \"permissions\": [\n        \"019253c6-b848-7764-a1c0-7fb0a820b694\"\n    ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/roles",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"roles"
+													],
+													"variable": [
+														{
+															"id": "e39be47f-7f5d-48d5-bc4c-36c4b3d0d7c7",
+															"key": "profile_id",
+															"value": "01925882-f353-7002-8052-04c8be2c03da"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "c41f669c-b20d-4f37-a171-9f2e08f1371c",
 													"name": "Success",
 													"originalRequest": {
 														"method": "POST",
