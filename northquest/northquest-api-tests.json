@@ -10580,6 +10580,11 @@
 					"name": "Accept Invite",
 					"item": [
 						{
+							"name": "New Folder",
+							"item": [],
+							"id": "887ce125-6b14-43b6-b2a7-e5d311c8ea5a"
+						},
+						{
 							"name": "Accept Invite",
 							"id": "3a065e04-49c3-4e5b-90c6-685872b83a22",
 							"protocolProfileBehavior": {
@@ -10590,7 +10595,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\",\n    \"password\": \"Password12@@\",\n    \"last_name\": \"Ade\",\n    \"first_name\": \"Wunmi\"\n}",
+									"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjYxZDctMzcxNi03Y2NlLWExNDItYzVjNTc2M2E0ZGQ5IiwiaWF0IjoxNzI4MjE4MzQ3LCJleHAiOjE3MjgyMjE5NDd9.jycTCa1Alyl08DRK-KzKk69MQqWu_C7gEhcoG6qp7qs\",\n    \"password\": \"Password12@@\",\n    \"last_name\": \"Invited-User\",\n    \"first_name\": \"Azeez\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10609,9 +10614,8 @@
 									],
 									"variable": [
 										{
-											"id": "e22918aa-e282-4973-9a1b-d0acc33ddafe",
 											"key": "profile_id",
-											"value": "01925236-19c0-7112-9440-aa8162716104"
+											"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
 										}
 									]
 								}
@@ -10882,7 +10886,220 @@
 				},
 				{
 					"name": "Resend Invite",
-					"item": [],
+					"item": [
+						{
+							"name": "Resend Invite",
+							"id": "0a818170-dbe9-44f1-955e-1bd88273bc6a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_profile_id\": \"01925239-3906-7112-9492-503c37450d25\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/resend-invite",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"resend-invite"
+									],
+									"variable": [
+										{
+											"id": "424528c1-a0ce-40da-9d42-db4a963d92a9",
+											"key": "profile_id",
+											"value": "01925236-19c0-7112-9440-aa8162716104"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "aec31cf5-608d-473e-b258-49d0413f0af7",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"user_profile_id\": \"01925239-3906-7112-9492-503c37450d25\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/resend-invite",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"resend-invite"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01924c5c-77eb-7990-8116-d7b9032d6d27"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "68"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"44-h8Ju37x7cGBI0bggmry26dHyfGE\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 11:52:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Invite resent successfully\"\n    }\n}"
+								},
+								{
+									"id": "8b4f4ddd-698b-428a-819f-4e8e68571e97",
+									"name": "Wrong profile",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"user_profile_id\": \"01925239-3906-7112-9492-503c37450d25\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/resend-invite",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"resend-invite"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01924c5c-77eb-7990-8116-d7b9032d6d27"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "191"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"bf-KKLODyIgSCYpslZlnS9JuVORx9c\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 11:54:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"statusCode\": 404,\n    \"message\": \"User profile or associated user does not exist\",\n    \"timestamp\": \"2024-10-03T11:54:42.599Z\",\n    \"path\": \"/profiles/01924c5c-77eb-7990-8116-d7b9032d6d27/team/resend-invite\"\n}"
+								}
+							]
+						}
+					],
 					"id": "f147c5dd-e97c-469b-af13-400dd23e0dc0"
 				},
 				{
@@ -11123,218 +11340,6 @@
 						}
 					],
 					"id": "6ef18cdf-cb54-4e7a-916b-39610631e0de"
-				},
-				{
-					"name": "Resend Invite",
-					"id": "0a818170-dbe9-44f1-955e-1bd88273bc6a",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"user_profile_id\": \"01925239-3906-7112-9492-503c37450d25\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/resend-invite",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"resend-invite"
-							],
-							"variable": [
-								{
-									"id": "424528c1-a0ce-40da-9d42-db4a963d92a9",
-									"key": "profile_id",
-									"value": "01925236-19c0-7112-9440-aa8162716104"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "aec31cf5-608d-473e-b258-49d0413f0af7",
-							"name": "Success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"user_profile_id\": \"01925239-3906-7112-9492-503c37450d25\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/resend-invite",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"resend-invite"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "01924c5c-77eb-7990-8116-d7b9032d6d27"
-										}
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "68"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"44-h8Ju37x7cGBI0bggmry26dHyfGE\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 03 Oct 2024 11:52:50 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Invite resent successfully\"\n    }\n}"
-						},
-						{
-							"id": "8b4f4ddd-698b-428a-819f-4e8e68571e97",
-							"name": "Wrong profile",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"user_profile_id\": \"01925239-3906-7112-9492-503c37450d25\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/resend-invite",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"resend-invite"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "01924c5c-77eb-7990-8116-d7b9032d6d27"
-										}
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "191"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"bf-KKLODyIgSCYpslZlnS9JuVORx9c\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 03 Oct 2024 11:54:42 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"User profile or associated user does not exist\",\n    \"timestamp\": \"2024-10-03T11:54:42.599Z\",\n    \"path\": \"/profiles/01924c5c-77eb-7990-8116-d7b9032d6d27/team/resend-invite\"\n}"
-						}
-					]
 				}
 			],
 			"id": "5f372b21-b7d6-4c78-a4b5-268f0d1cb9c4"
