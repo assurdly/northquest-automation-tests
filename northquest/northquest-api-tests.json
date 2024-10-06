@@ -8103,7 +8103,7 @@
 															"    });",
 															"",
 															"    pm.test(\"Test for valid error message\", () => {",
-															"        pm.expect(message).to.eql(\"Invalid profile ID\")",
+															"        pm.expect(message).to.eql(\"Profile ID must be a valid UUID\")",
 															"    })",
 															"",
 															"} catch (error) {",
