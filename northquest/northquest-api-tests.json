@@ -12769,7 +12769,84 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"id": "8fcd8a13-b152-4e5f-bafc-89310a073b6e",
+							"name": "Get Definition",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/definitions/:slug",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"definitions",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "profiles"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "851"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"353-JwG4DSWZmiX9xUgUpuiVbHQXrQ4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 23:22:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\",\n        \"meta\": null,\n        \"created_on\": \"2024-09-27T11:59:36.320Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-09-27T11:59:36.320Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"slug\": \"profiles\",\n        \"name\": \"Profiles\",\n        \"description\": null,\n        \"version\": 1,\n        \"schemas\": [\n            {\n                \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                \"meta\": null,\n                \"created_on\": \"2024-09-27T09:36:57.352Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-09-27T09:36:57.352Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"slug\": \"name\",\n                \"name\": \"Name\",\n                \"tags\": null,\n                \"options\": null,\n                \"version\": 1,\n                \"type\": \"text\",\n                \"default\": null,\n                \"enabled\": true,\n                \"required\": true,\n                \"order\": 1,\n                \"storage_strategy\": \"plain\",\n                \"definition_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n            }\n        ]\n    }\n}"
+						}
+					]
 				}
 			],
 			"id": "643eb6bc-61e1-48e4-9947-59e1ff0d3a15"
