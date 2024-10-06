@@ -9502,7 +9502,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"invitedUser@mailinator.com\",\n    \"role_id\":\"0192533b-4fa0-7cca-8790-d1fb190cf491\"\n}",
+									"raw": "{\n    \"email\": \"\",\n    \"role_id\":\"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -9521,7 +9521,6 @@
 									],
 									"variable": [
 										{
-											"id": "902f23db-49ba-4dc0-b0b9-20dea8e972f7",
 											"key": "profile_id",
 											"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
 										}
