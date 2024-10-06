@@ -9591,16 +9591,24 @@
 											"try {",
 											"    const { message } = pm.response.json()",
 											"",
-											"    pm.test(\"Status code is 404\", () => {",
-											"        pm.response.to.have.status(404);",
+											"    pm.test(\"Status code is 400\", () => {",
+											"        pm.response.to.have.status(400);",
 											"    });",
 											"",
 											"    pm.test(\"Status code name has string\", function () {",
-											"        pm.response.to.have.status(\"Not Found\");",
+											"        pm.response.to.have.status(\"Bad Request\");",
 											"    });",
 											"",
 											"    pm.test(\"Test for valid error message\", () => {",
-											"        pm.expect(message).to.eql(\"Assigned role does not exist\")",
+											"        pm.expect(message).includes(\"Email cannot be empty\")",
+											"        pm.expect(message).includes(\"Invalid email format\")",
+											"        pm.expect(message).includes(\"Role ID is required\")",
+											"        pm.expect(message).includes(\"Role ID must be a valid UUID\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).does.not.include(\"Phone number cannot be empty\")",
+											"        pm.expect(message).does.not.include(\"Invalid phone number\")",
 											"    })",
 											"",
 											"} catch (error) {",
@@ -9741,6 +9749,262 @@
 								},
 								{
 									"id": "e3634111-c8e0-4666-970d-2ee4437df61f",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"daresodiq0000@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/invite",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"invite"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "280"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"118-xlOBxXYCuiv6lbichGuqmBUDi5c\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 11:52:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\",\n        \"message\": \"User successfully invited.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Invite User - Empty Profile ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6e519ce6-12d4-4d3c-b73c-b9c68044c36d",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", () => {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Bad Request\");",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"Email cannot be empty\")",
+											"        pm.expect(message).includes(\"Invalid email format\")",
+											"        pm.expect(message).includes(\"Role ID is required\")",
+											"        pm.expect(message).includes(\"Role ID must be a valid UUID\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).does.not.include(\"Phone number cannot be empty\")",
+											"        pm.expect(message).does.not.include(\"Invalid phone number\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "233b9b83-d959-4210-a195-5843c651cd60",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"\",\n    \"role_id\":\"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/invite",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"invite"
+									],
+									"variable": [
+										{
+											"id": "a09d6372-6541-48d1-8811-44638c219a18",
+											"key": "profile_id",
+											"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "c19a0597-ba6b-49c1-85c9-28af46b06df3",
+									"name": "Existing User",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"darehorla@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/invite",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"invite"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												}
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "174"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ae-wkmtRSv5H+NZ0LB8XhfzBPBjxJs\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 11:50:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"statusCode\": 409,\n    \"message\": \"User already belongs to this profile\",\n    \"timestamp\": \"2024-10-03T11:50:09.628Z\",\n    \"path\": \"/profiles/01925236-19c0-7112-9440-aa8162716104/team/invite\"\n}"
+								},
+								{
+									"id": "83861e5e-9599-4331-9fca-3c2c858a9524",
 									"name": "Success",
 									"originalRequest": {
 										"method": "POST",
