@@ -7209,16 +7209,20 @@
 										"id": "40c13de3-a391-4468-a153-3b8d84b8f85a",
 										"exec": [
 											"try {",
-											"    const { data } = pm.response.json()",
+											"    const { status, data } = pm.response.json()",
 											"",
 											"    pm.test(\"Status code is 200\", function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
 											"",
-											"    // pm.test(\"Validate names aren't null values\", () => {",
-											"    //     pm.expect(firstName).to.not.be.null;",
-											"    //     pm.expect(lastName).to.not.be.null;",
-											"    // })",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error);",
 											"}",
@@ -7423,6 +7427,10 @@
 												"exec": [
 													"try {",
 													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
 													"",
 													"    pm.test(\"Test for valid status\", () => {",
 													"        pm.expect(status).to.eql(\"success\")",
@@ -7650,7 +7658,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"name\": \"sodiqsnst {{$randomAbbreviation}}\",\n    \"description\": \"sodiq\",\n    \"permissions\": [\n        \"019253c6-b848-7764-a1c0-7fb0a820b694\"\n    ]\n}",
+													"raw": "{\n    \"name\": \"sodiqsnst SAS\",\n    \"description\": \"sodiq\",\n    \"permissions\": [\n        \"019253c6-b848-7764-a1c0-7fb0a820b694\"\n    ]\n}",
 													"options": {
 														"raw": {
 															"language": "json"
