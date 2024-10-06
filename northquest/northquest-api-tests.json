@@ -10580,11 +10580,6 @@
 					"name": "Accept Invite",
 					"item": [
 						{
-							"name": "New Folder",
-							"item": [],
-							"id": "887ce125-6b14-43b6-b2a7-e5d311c8ea5a"
-						},
-						{
 							"name": "Accept Invite",
 							"id": "3a065e04-49c3-4e5b-90c6-685872b83a22",
 							"protocolProfileBehavior": {
@@ -10878,6 +10873,296 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Accepted Invite\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Login After Accept Invite",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c8cd824b-f65b-4587-af40-498786763696",
+										"exec": [
+											"try {",
+											"    const {",
+											"        data: {",
+											"            token,",
+											"            user: {",
+											"                id: userId,",
+											"                meta,",
+											"                created_on: dateCreated,",
+											"                modified_on: dateModified,",
+											"                deleted_on: dateDeleted,",
+											"                tenant_id: tenantId,",
+											"                first_name: firstName,",
+											"                last_name: lastName,",
+											"                email,",
+											"                phone,",
+											"                referral_code: referralCode,",
+											"            }",
+											"        }",
+											"    } = pm.response.json();",
+											"",
+											"    pm.environment.set(\"userAccessToken\", token)",
+											"    pm.environment.set(\"userTenantId\", tenantId)",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Validate names aren't null values\", () => {",
+											"        pm.expect(firstName).to.not.be.null;",
+											"        pm.expect(lastName).to.not.be.null;",
+											"    })",
+											"    pm.test(\"Validate User and Tenant IDs aren't null values\", () => {",
+											"        pm.expect(userId).to.not.be.null;",
+											"        pm.expect(tenantId).to.not.be.null;",
+											"    })",
+											"",
+											"    pm.test(\"Validate that the user's password is not returned in the response\", () => {",
+											"        const user = pm.response.json().data.user;",
+											"        pm.expect(user).to.not.have.property('password');",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "1e06a16a-33c4-42ba-842f-46cd40e1798f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"identity\": \"invitedUser1@mailinator.com\",\n    \"password\": \"Password12@@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/login"
+							},
+							"response": [
+								{
+									"id": "95b716aa-8a43-460a-9e6e-48e1847674f4",
+									"name": "Wrong password",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"identity\": \"sodiq@google.com\",\n    \"password\": \"Buaks\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/login"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "113"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"71-z+uH2j8BSelTM6jdBLZ4cNYnyMM\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 24 Sep 2024 20:03:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Password doesn't match\",\n    \"timestamp\": \"2024-09-24T20:03:39.611Z\",\n    \"path\": \"/auth/login\"\n}"
+								},
+								{
+									"id": "407f5e5f-0ebf-4044-9e2f-aa786ba5e179",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"identity\": \"sodiq@google.com\",\n    \"password\": \"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/login"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "631"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"277-vYnJsKKQkC+cJnacdRl4cVEzuMI\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 24 Sep 2024 20:05:05 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTFmYTg2LWY5YmQtNzU1NC05NDJmLWU2Mjg2YjA4M2QyYyIsImlhdCI6MTcyNzIwODMwNSwiZXhwIjoxNzI3MjExOTA1fQ.R_yCMuB4ZuC6N2D8m9m0MyEuELGr966YTuaOz72SUoE\",\n        \"user\": {\n            \"id\": \"0191fa86-f9bd-7554-942f-e6286b083d2c\",\n            \"meta\": null,\n            \"created_on\": \"2024-09-16T11:10:35.453Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-16T11:13:09.201Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"first_name\": \"Dare\",\n            \"last_name\": \"Sodiq\",\n            \"email\": \"sodiq@google.com\",\n            \"phone\": \"+2348148292993\",\n            \"referral_code\": \"\",\n            \"password\": \"$2b$10$wHQPZJlCHRUHYoSbT96u2ObW3nxsWba46UUztcwQo92tkDcZzmDna\"\n        }\n    }\n}"
+								},
+								{
+									"id": "fecbfa10-bf3e-403e-8848-c369ab9155c4",
+									"name": "No User",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"identity\": \"sodiq@googsle.com\",\n    \"password\": \"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/login"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "120"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"78-A6SroxK9JGRvJr5M2W3aQBiGmzU\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 24 Sep 2024 20:05:18 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Email or phone does not exist\",\n    \"timestamp\": \"2024-09-24T20:05:18.416Z\",\n    \"path\": \"/auth/login\"\n}"
 								}
 							]
 						}
