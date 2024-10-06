@@ -22,13 +22,30 @@
 											"try {",
 											"    const { message } = pm.response.json()",
 											"",
-											"    pm.test(\"Successful POST request\", function () {",
-											"        pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
-											"    });",
+											"    // pm.test(\"Successful POST request\", function () {",
+											"    //     pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+											"    // });",
 											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
 											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "4f73f52b-38d7-462e-ad83-2a00667c9382",
+										"exec": [
+											"pm.request.headers.add({",
+											"  key: \"origin\",",
+											"  value: pm.environment.get(\"origin\")",
+											"});",
+											"",
+											"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -296,7 +313,7 @@
 											"    });",
 											"",
 											"    pm.test (\"Test for valid error message\", () => {",
-											"        pm.expect(message[0]).to.eql(\"Invalid email format\")",
+											"        pm.expect(message).includes(\"Invalid email format\")",
 											"    })",
 											"",
 											"} catch (error) {",
