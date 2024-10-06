@@ -8103,7 +8103,7 @@
 															"    });",
 															"",
 															"    pm.test(\"Test for valid error message\", () => {",
-															"        pm.expect(message).to.eql(\"Role with name already exist.\")",
+															"        pm.expect(message).to.eql(\"Invalid profile ID\")",
 															"    })",
 															"",
 															"} catch (error) {",
@@ -8149,9 +8149,8 @@
 													],
 													"variable": [
 														{
-															"id": "e39be47f-7f5d-48d5-bc4c-36c4b3d0d7c7",
 															"key": "profile_id",
-															"value": "01925882-f353-7002-8052-04c8be2c03da"
+															"value": "01925882-f353-7002-8052-04c8be2c03dh"
 														}
 													]
 												}
