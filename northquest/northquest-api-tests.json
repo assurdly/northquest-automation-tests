@@ -7606,7 +7606,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"name\": \"sodiqsnst Mary Jenkins\",\n    \"description\": \"sodiq\",\n    \"permissions\": [\n        \"019253c6-b848-7764-a1c0-7fb0a820b694\"\n    ]\n}",
+													"raw": "{\n    \"name\": \"sodiqsnst {{$randomAbbreviation}}\",\n    \"description\": \"sodiq\",\n    \"permissions\": [\n        \"019253c6-b848-7764-a1c0-7fb0a820b694\"\n    ]\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -7626,7 +7626,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": "01925882-f353-7002-8052-04c8be2c03da"
+															"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
 														}
 													]
 												}
