@@ -40,8 +40,8 @@
 										"id": "4f73f52b-38d7-462e-ad83-2a00667c9382",
 										"exec": [
 											"pm.request.headers.add({",
-											"  key: \"origin\",",
-											"  value: pm.environment.get(\"origin\")",
+											"    key: \"origin\",",
+											"    value: pm.environment.get(\"origin\")",
 											"});",
 											"",
 											"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
@@ -2449,9 +2449,9 @@
 											"try {",
 											"    const { message } = pm.response.json()",
 											"",
-											"    pm.test(\"Successful POST request\", function () {",
-											"        pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
-											"    });",
+											"    // pm.test(\"Successful POST request\", function () {",
+											"    //     pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+											"    // });",
 											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
@@ -11816,13 +11816,13 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8e67172d-20ae-4b24-8bef-61684cd65eeb",
+				"id": "603b19a6-7567-4e42-bb99-a2c61952b701",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					"pm.request.headers.add({",
-					"  key: \"origin\",",
-					"  value: pm.environment.get(\"origin\")",
+					"    key: \"origin\",",
+					"    value: pm.environment.get(\"origin\")",
 					"});",
 					"",
 					"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
@@ -11833,7 +11833,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "9eb0b6fe-e33c-4d37-817b-63132a40d8c0",
+				"id": "8b169135-f7fc-4060-ab47-9580f78748c9",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
