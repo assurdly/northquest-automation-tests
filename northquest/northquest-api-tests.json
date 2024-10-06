@@ -41,9 +41,8 @@
 										"exec": [
 											"pm.request.headers.add({",
 											"    key: \"origin\",",
-											"    value: pm.environment.get(\"https://northquestfinance.com\")",
+											"    value: pm.environment.set(\"https://northquestfinance.com\")",
 											"});",
-											"",
 											"",
 											"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
 											""
@@ -6168,6 +6167,7 @@
 											"// } catch (error) {",
 											"//     console.error(\"Error from test:\", error);",
 											"// }",
+											"",
 											""
 										],
 										"type": "text/javascript",
@@ -12813,13 +12813,13 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "37896456-b437-457d-8e0b-deaf75de9b68",
+				"id": "450087f4-3d3b-4d5b-b54b-2cd545b97048",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					"pm.request.headers.add({",
 					"    key: \"origin\",",
-					"    value: pm.environment.get(\"https://northquestfinance.com\")",
+					"    value: pm.environment.set(\"https://northquestfinance.com\")",
 					"});",
 					"",
 					"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
@@ -12830,7 +12830,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a587982e-46c3-4bc1-8c40-87fdbc34dcd9",
+				"id": "12fa8889-4f3a-456b-9565-a1de16d4f760",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
