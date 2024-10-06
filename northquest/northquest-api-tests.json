@@ -11184,11 +11184,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"user_profile_id\": \"01925239-3906-7112-9492-503c37450d25\"\n}",
+									"raw": "{\n    \"user_profile_id\": \"019261a8-d7b5-7880-ae6f-de63a5d91a8b\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -11207,9 +11213,8 @@
 									],
 									"variable": [
 										{
-											"id": "424528c1-a0ce-40da-9d42-db4a963d92a9",
 											"key": "profile_id",
-											"value": "01925236-19c0-7112-9440-aa8162716104"
+											"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
 										}
 									]
 								}
