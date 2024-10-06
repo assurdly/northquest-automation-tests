@@ -39,10 +39,7 @@
 									"script": {
 										"id": "4f73f52b-38d7-462e-ad83-2a00667c9382",
 										"exec": [
-											"pm.request.headers.add({",
-											"    key: \"origin\",",
-											"    value: pm.environment.set(\"https://northquestfinance.com\")",
-											"});",
+											"pm.environment.set('origin', \"https://northquestfinance.com\")",
 											"",
 											"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
 											""
@@ -4841,7 +4838,6 @@
 											"        const user = pm.response.json().data.user;",
 											"        pm.expect(user).to.not.have.property('password');",
 											"    })",
-											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error);",
 											"}",
@@ -5103,6 +5099,7 @@
 											"        pm.expect(message).includes('The identity must be a valid email address or phone number.')",
 											"        pm.expect(message).includes('Password is required.')",
 											"    })",
+											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
 											"}"
@@ -5362,9 +5359,10 @@
 											"        pm.response.to.have.status(\"Bad Request\");",
 											"    });",
 											"",
-											"    pm.test (\"Test for valid error message\", () => {",
+											"    pm.test(\"Test for valid error message\", () => {",
 											"        pm.expect(message[0]).to.eql(\"The value must be a valid email address or phone number\")",
 											"    })",
+											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
 											"}"
@@ -12814,14 +12812,16 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "450087f4-3d3b-4d5b-b54b-2cd545b97048",
+				"id": "b7aa47a8-7d58-4519-a9af-b4733870bd61",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"pm.request.headers.add({",
-					"    key: \"origin\",",
-					"    value: pm.environment.set(\"https://northquestfinance.com\")",
-					"});",
+					"// pm.request.headers.add({",
+					"//     key: \"origin\",",
+					"//     value: pm.environment.set(\"https://northquestfinance.com\")",
+					"// });",
+					"",
+					"pm.environment.set('origin', \"https://northquestfinance.com\")",
 					"",
 					"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
 					""
@@ -12831,7 +12831,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "12fa8889-4f3a-456b-9565-a1de16d4f760",
+				"id": "747a4d97-d957-4e7c-915f-892d8beec142",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
