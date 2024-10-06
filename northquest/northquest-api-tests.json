@@ -7895,19 +7895,24 @@
 												"method": "GET",
 												"header": [],
 												"url": {
-													"raw": "{{base_url}}/profiles/:profile_id/roles",
+													"raw": "{{base_url}}/profiles/:profile_id/roles/:id",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
 														"profiles",
 														":profile_id",
-														"roles"
+														"roles",
+														":id"
 													],
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": "01925236-19c0-7112-9440-aa8162716104"
+															"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
+														},
+														{
+															"key": "id",
+															"value": "019261e0-2249-7cce-a142-c84262b5ae14"
 														}
 													]
 												}
