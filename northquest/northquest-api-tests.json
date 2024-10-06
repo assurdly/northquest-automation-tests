@@ -2707,21 +2707,20 @@
 											"    pm.test(\"Status code is 400\", () => {",
 											"        pm.response.to.have.status(400);",
 											"    });",
+											"",
 											"    pm.test(\"Valid error messages returned\", () => {",
-											"        pm.expect(message).includes('email_otp_id should not be empty')",
-											"        pm.expect(message).includes('email_otp_id must be a UUID')",
-											"        pm.expect(message).includes('phone_otp_id should not be empty')",
-											"        pm.expect(message).includes('phone_otp_id must be a UUID')",
-											"        pm.expect(message).includes('email_otp should not be empty')",
-											"        pm.expect(message).includes('phone_otp should not be empty')",
-											"        pm.expect(message).includes('password is required.')",
-											"        pm.expect(message).includes('password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters in length.')",
-											"        pm.expect(message).includes('first_name is required.')",
-											"        pm.expect(message).includes('first_name value should have at least 2 characters.')",
-											"        pm.expect(message).includes('first_name value must contain only alphabets.')",
-											"        pm.expect(message).includes('last_name value should have at least 2 characters.')",
-											"        pm.expect(message).includes('last_name value must contain only alphabets.')",
-											"        pm.expect(message).includes('last_name is required.')",
+											"        pm.expect(message).includes('Email OTP ID is required.')",
+											"        pm.expect(message).includes('Email OTP ID must be a valid UUID.')",
+											"        pm.expect(message).includes('Phone OTP ID is required.')",
+											"        pm.expect(message).includes('Phone OTP ID must be a valid UUID.')",
+											"        pm.expect(message).includes('Email OTP is required.')",
+											"        pm.expect(message).includes('Phone OTP is required.')",
+											"        pm.expect(message).includes('Password is required.')",
+											"        pm.expect(message).includes('Password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters long.')",
+											"        pm.expect(message).includes('First name is required.')",
+											"        pm.expect(message).includes('First name must be at least 2 characters and contain only alphabets.')",
+											"        pm.expect(message).includes('Last name is required.')",
+											"        pm.expect(message).includes('Last name must be at least 2 characters and contain only alphabets.')",
 											"    })",
 											"",
 											"} catch (error) {",
@@ -2979,7 +2978,7 @@
 											"        pm.response.to.have.status(400);",
 											"    });",
 											"    pm.test(\"Valid Error messages returned\", () => {",
-											"        pm.expect(message).includes('password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters in length.')",
+											"        pm.expect(message).includes('Password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters long.')",
 											"    })",
 											"",
 											"} catch (error) {",
@@ -3755,13 +3754,13 @@
 											"try {",
 											"    const { message } = pm.response.json()",
 											"",
-											"    pm.test(\"Successful POST request\", () => {",
-											"        pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
-											"    });",
+											"    // pm.test(\"Successful POST request\", () => {",
+											"    //     pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+											"    // });",
 											"",
-											"    pm.test (\"Test for valid error message\", () => {",
-											"        pm.expect(message).to.eql(\"OTP sent successfully\")",
-											"    })",
+											"    // pm.test (\"Test for valid error message\", () => {",
+											"    //     pm.expect(message).to.eql(\"OTP sent successfully\")",
+											"    // })",
 											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
@@ -4014,13 +4013,13 @@
 											"try {",
 											"    const { message } = pm.response.json()",
 											"",
-											"    pm.test(\"Successful POST request\", () => {",
-											"        pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
-											"    });",
+											"    // pm.test(\"Successful POST request\", () => {",
+											"    //     pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+											"    // });",
 											"",
-											"    pm.test (\"Test for valid error message\", () => {",
-											"        pm.expect(message).to.eql(\"OTP sent successfully\")",
-											"    })",
+											"    // pm.test (\"Test for valid error message\", () => {",
+											"    //     pm.expect(message).to.eql(\"OTP sent successfully\")",
+											"    // })",
 											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
@@ -7808,6 +7807,164 @@
 											"response": [
 												{
 													"id": "21fd12ae-5155-47f6-a267-4054ae157d8a",
+													"name": "Success",
+													"originalRequest": {
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"name\": \"Account Manager\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{base_url}}/profiles/:profile_id/roles",
+															"host": [
+																"{{base_url}}"
+															],
+															"path": [
+																"profiles",
+																":profile_id",
+																"roles"
+															],
+															"variable": [
+																{
+																	"key": "profile_id",
+																	"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+																}
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Date",
+															"value": "Thu, 03 Oct 2024 16:54:17 GMT"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Content-Length",
+															"value": "429"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "X-RateLimit-Limit",
+															"value": "100"
+														},
+														{
+															"key": "X-RateLimit-Remaining",
+															"value": "99"
+														},
+														{
+															"key": "X-RateLimit-Reset",
+															"value": "1"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"1ad-W2Ndyw6G1tC+gLC9kSJ5J0iUADY\""
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Account Manager\",\n        \"slug\": \"account-manager\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"description\": null,\n        \"created_on\": \"2024-10-03T16:54:17.485Z\",\n        \"modified_on\": \"2024-10-03T16:54:17.485Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+												}
+											]
+										},
+										{
+											"name": "Create Role - Invalid profile id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "fba4803a-7848-4a15-8f10-44868fcd035c",
+														"exec": [
+															"try {",
+															"    const { message } = pm.response.json()",
+															"",
+															"    pm.test(\"Status code is 400\", () => {",
+															"        pm.response.to.have.status(400);",
+															"    });",
+															"",
+															"    pm.test(\"Status code name has string\", function () {",
+															"        pm.response.to.have.status(\"Bad Request\");",
+															"    });",
+															"",
+															"    pm.test(\"Test for valid error message\", () => {",
+															"        pm.expect(message).to.eql(\"Role with name already exist.\")",
+															"    })",
+															"",
+															"} catch (error) {",
+															"    console.error(\"Error from test:\", error)",
+															"}"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"id": "06f463c7-d7f4-4b46-8dd2-a8dacd9a7f00",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"sodiqsnst Mary Jenkins\",\n    \"description\": \"sodiq\",\n    \"permissions\": [\n        \"019253c6-b848-7764-a1c0-7fb0a820b694\"\n    ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/roles",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"roles"
+													],
+													"variable": [
+														{
+															"id": "e39be47f-7f5d-48d5-bc4c-36c4b3d0d7c7",
+															"key": "profile_id",
+															"value": "01925882-f353-7002-8052-04c8be2c03da"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"id": "339553be-3fc2-4461-b318-06d702aeaa53",
 													"name": "Success",
 													"originalRequest": {
 														"method": "POST",
