@@ -12677,22 +12677,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{base_url}}/definitions/:slug",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"definitions",
-								":slug"
-							],
-							"variable": [
-								{
-									"key": "slug",
-									"value": ""
-								}
-							]
-						}
+						"url": "{{base_url}}/definitions"
 					},
 					"response": []
 				},
