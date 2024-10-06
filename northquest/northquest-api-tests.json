@@ -8249,6 +8249,37 @@
 									"item": [
 										{
 											"name": "Get Role",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "e4d85c6b-fbdb-48b7-bd21-3d3fef8df538",
+														"exec": [
+															"try {",
+															"    const { status, data } = pm.response.json()",
+															"",
+															"    pm.test(\"Status code is 200\", function () {",
+															"        pm.response.to.have.status(200);",
+															"    });",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(status).to.eql(\"success\")",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid error message\", () => {",
+															"        pm.expect(data).to.be.an(\"object\")",
+															"    })",
+															"",
+															"} catch (error) {",
+															"    console.error(\"Error from test:\", error);",
+															"}",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "5a190fac-6281-41fd-95ff-6fa0d505834c",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -8374,6 +8405,37 @@
 									"item": [
 										{
 											"name": "Get Roles",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "275cd2dd-b6c6-4cc9-94a4-78a891b8550e",
+														"exec": [
+															"try {",
+															"    const { status, data } = pm.response.json()",
+															"",
+															"    pm.test(\"Status code is 200\", function () {",
+															"        pm.response.to.have.status(200);",
+															"    });",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(status).to.eql(\"success\")",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid error message\", () => {",
+															"        pm.expect(data).to.be.an(\"array\")",
+															"    })",
+															"",
+															"} catch (error) {",
+															"    console.error(\"Error from test:\", error);",
+															"}",
+															""
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "a609f376-cd89-4ebf-be0b-76f1b7738361",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
