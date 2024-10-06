@@ -8849,7 +8849,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"business\",\n    \"name\": \"\",\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
+									"raw": "{\n    \"type\": \"business\",\n    \"name\": \"\", // Left this empty for a reason, please ignore - Azeez\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
