@@ -41,9 +41,8 @@
 										"exec": [
 											"pm.request.headers.add({",
 											"    key: \"origin\",",
-											"    value: pm.environment.get(\"https://northquestfinance.com\")",
+											"    value: pm.environment.set(\"https://northquestfinance.com\")",
 											"});",
-											"",
 											"",
 											"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
 											""
@@ -6168,6 +6167,7 @@
 											"// } catch (error) {",
 											"//     console.error(\"Error from test:\", error);",
 											"// }",
+											"",
 											""
 										],
 										"type": "text/javascript",
@@ -6350,6 +6350,7 @@
 											"    pm.test(\"Status code is 400\", () => {",
 											"        pm.response.to.have.status(400);",
 											"    });",
+											"    ",
 											"    pm.test(\"Valid error messages returned\", () => {",
 											"        pm.expect(message).includes('Identity is required.')",
 											"        pm.expect(message).includes('The identity must be a valid email address or phone number.')",
@@ -6359,7 +6360,6 @@
 											"        // pm.expect(message).includes('Confirm password is required.')",
 											"        // pm.expect(message).includes('Confirm password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters in length.')",
 											"    })",
-											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
 											"}"
@@ -6544,10 +6544,10 @@
 											"    pm.test(\"Status code is 400\", () => {",
 											"        pm.response.to.have.status(400);",
 											"    });",
+											"",
 											"    pm.test(\"Valid error messages returned\", () => {",
 											"        pm.expect(message).includes('Password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters long.')",
 											"    })",
-											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
 											"}"
@@ -6732,10 +6732,10 @@
 											"    pm.test(\"Status code is 400\", () => {",
 											"        pm.response.to.have.status(400);",
 											"    });",
+											"",
 											"    pm.test(\"Valid error messages returned\", () => {",
 											"        pm.expect(message).to.include('Passwords do not match')",
 											"    })",
-											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
 											"}"
@@ -7076,6 +7076,7 @@
 											"    pm.test(\"Status code is 400\", () => {",
 											"        pm.response.to.have.status(400);",
 											"    });",
+											"    ",
 											"    pm.test(\"Valid error messages returned\", () => {",
 											"        pm.expect(message).includes('NIN cannot be empty')",
 											"    })",
@@ -12813,13 +12814,13 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "37896456-b437-457d-8e0b-deaf75de9b68",
+				"id": "450087f4-3d3b-4d5b-b54b-2cd545b97048",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					"pm.request.headers.add({",
 					"    key: \"origin\",",
-					"    value: pm.environment.get(\"https://northquestfinance.com\")",
+					"    value: pm.environment.set(\"https://northquestfinance.com\")",
 					"});",
 					"",
 					"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
@@ -12830,7 +12831,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a587982e-46c3-4bc1-8c40-87fdbc34dcd9",
+				"id": "12fa8889-4f3a-456b-9565-a1de16d4f760",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
