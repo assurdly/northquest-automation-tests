@@ -7202,6 +7202,33 @@
 					"item": [
 						{
 							"name": "Get Profiles",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "40c13de3-a391-4468-a153-3b8d84b8f85a",
+										"exec": [
+											"try {",
+											"    const { data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    // pm.test(\"Validate names aren't null values\", () => {",
+											"    //     pm.expect(firstName).to.not.be.null;",
+											"    //     pm.expect(lastName).to.not.be.null;",
+											"    // })",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "ca676656-4c20-4d4f-9bdb-b3486203ae0c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
