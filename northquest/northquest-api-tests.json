@@ -6529,7 +6529,7 @@
 											"        pm.response.to.have.status(400);",
 											"    });",
 											"    pm.test(\"Valid error messages returned\", () => {",
-											"        pm.expect(message).includes('Password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters in length.')",
+											"        pm.expect(message).includes('Password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters long.')",
 											"    })",
 											"",
 											"} catch (error) {",
@@ -8011,6 +8011,12 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
 												"method": "GET",
 												"header": [],
 												"url": {
@@ -8025,9 +8031,8 @@
 													],
 													"variable": [
 														{
-															"id": "e9e0b52c-9638-4b42-b32b-53ffa12a6d51",
 															"key": "profile_id",
-															"value": "01925236-19c0-7112-9440-aa8162716104"
+															"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
 														}
 													]
 												}
@@ -8415,7 +8420,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"\",\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
+									"raw": "{\n    \"type\": \"business\",\n    \"name\": \"\",\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -11433,7 +11438,7 @@
 										},
 										{
 											"key": "id",
-											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+											"value": "019252dd-ecc7-7447-bcc2-ad23e54a6b90"
 										}
 									]
 								}
@@ -11660,7 +11665,22 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "{{base_url}}/definitions"
+						"url": {
+							"raw": "{{base_url}}/definitions/:slug",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"definitions",
+								":slug"
+							],
+							"variable": [
+								{
+									"key": "slug",
+									"value": ""
+								}
+							]
+						}
 					},
 					"response": []
 				},
