@@ -12796,25 +12796,21 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "42ddc81b-2866-404d-81b8-b665397f7dd2",
+				"id": "5aaf19b2-4695-4806-8f48-4c7fa65efeb2",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					"pm.request.headers.add({",
 					"    key: \"origin\",",
 					"    value: pm.environment.get(\"origin\")",
-					"});",
-					"",
-					"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
-					"",
-					""
+					"});"
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "a8122550-3f89-4796-9037-71d4363c524c",
+				"id": "3c96e7b7-310d-4ec8-baf9-cef055017ee7",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
