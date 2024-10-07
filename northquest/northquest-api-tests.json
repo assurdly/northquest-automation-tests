@@ -6920,7 +6920,7 @@
 											"    });",
 											"",
 											"    pm.test(\"Valid error messages returned\", () => {",
-											"        pm.expect(message).to.include('Passwords do not match')",
+											"        pm.expect(message).to.include('Password is required.')",
 											"    })",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
@@ -6940,7 +6940,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"identity\": \"azeez@mailinator.com\",\n    \"otp\": \"123456\",\n    \"password\": \"Password12@@@\",\n    \"confirm_password\": \"Password12@@\"\n}",
+									"raw": "{\n    \"identity\": \"azeez@mailinator.com\",\n    \"otp\": \"123456\",\n    \"password\": \"Password12@@@\",\n    \"confirm_password\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
