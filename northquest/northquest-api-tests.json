@@ -6903,6 +6903,194 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0191fa86-f9bd-7554-942f-e6286b083d2c\",\n        \"meta\": null,\n        \"created_on\": \"2024-09-16T11:10:35.453Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-09-16T11:10:35.453Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"firstName\": \"Dare\",\n        \"lastName\": \"Sodiq\",\n        \"email\": \"sodiq@google.com\",\n        \"phone\": \"+2348148292993\",\n        \"referralCode\": \"\",\n        \"password\": \"$2b$10$P4rbofr9VdkzN.vYkcZLsec6L98vPolIl/bTIXkgSSOk5REYrzewe\"\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "Reset Password - Empty confirm Password field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "880d3b84-c510-4362-934f-d1005082e91a",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", () => {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Valid error messages returned\", () => {",
+											"        pm.expect(message).to.include('Passwords do not match')",
+											"    })",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "679e56cf-78dd-412f-8ab1-04e6e9566715",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"identity\": \"azeez@mailinator.com\",\n    \"otp\": \"123456\",\n    \"password\": \"Password12@@@\",\n    \"confirm_password\": \"Password12@@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/reset-password"
+							},
+							"response": [
+								{
+									"id": "ed8130fe-6ac4-46e7-b2cf-1ce37422eb10",
+									"name": "Wrong code",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"identity\":\"sodiq@google.com\",\n    \"otp\":\"8705219\",\n    \"password\":\"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/reset-password"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "119"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"77-XIQ1UMIDy79roC9mclCh1iqwqgg\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 16 Sep 2024 11:12:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Code does not match\",\n    \"timestamp\": \"2024-09-16T11:12:22.314Z\",\n    \"path\": \"/auth/reset-password\"\n}"
+								},
+								{
+									"id": "4e8d2bc9-ed40-490a-bd78-a7435938c104",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"identity\":\"sodiq@google.com\",\n    \"otp\":\"540060\",\n    \"password\":\"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/reset-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "421"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1a5-8s1iXVWcJhW0300UZ93bLb2X1lI\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 16 Sep 2024 11:12:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0191fa86-f9bd-7554-942f-e6286b083d2c\",\n        \"meta\": null,\n        \"created_on\": \"2024-09-16T11:10:35.453Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-09-16T11:10:35.453Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"firstName\": \"Dare\",\n        \"lastName\": \"Sodiq\",\n        \"email\": \"sodiq@google.com\",\n        \"phone\": \"+2348148292993\",\n        \"referralCode\": \"\",\n        \"password\": \"$2b$10$P4rbofr9VdkzN.vYkcZLsec6L98vPolIl/bTIXkgSSOk5REYrzewe\"\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "d78f145d-e83e-49eb-844d-57adf71dc2d7"
