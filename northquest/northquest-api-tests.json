@@ -12614,7 +12614,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users",
+									"raw": "{{base_url}}/profiles/:profile_id/users?role_id=01926788-704b-7336-86de-a5f24f6e9082",
 									"host": [
 										"{{base_url}}"
 									],
@@ -12622,6 +12622,22 @@
 										"profiles",
 										":profile_id",
 										"users"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "horla",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "role_id",
+											"value": "01926788-704b-7336-86de-a5f24f6e9082"
+										}
 									],
 									"variable": [
 										{
@@ -12633,7 +12649,7 @@
 							},
 							"response": [
 								{
-									"id": "275e3923-1c39-4fb5-90e1-222f22765470",
+									"id": "a2e0b7e3-b401-4a4e-8d4d-1a621e32a93e",
 									"name": "Success",
 									"originalRequest": {
 										"method": "GET",
@@ -12647,6 +12663,28 @@
 												"profiles",
 												":profile_id",
 												"users"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "darehorla@gmail.com",
+													"disabled": true
+												},
+												{
+													"key": "phone",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "name",
+													"value": "A",
+													"disabled": true
+												},
+												{
+													"key": "status",
+													"value": null,
+													"disabled": true
+												}
 											],
 											"variable": [
 												{
@@ -12686,15 +12724,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "1952"
+											"value": "840"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"7a0-RYXWA3g4p6T1QADsAc5zA/01OiY\""
+											"value": "W/\"348-rqE0MsagCJf/M+WqcLPDfCAuqws\""
 										},
 										{
 											"key": "Date",
-											"value": "Thu, 03 Oct 2024 17:53:24 GMT"
+											"value": "Sun, 06 Oct 2024 23:47:17 GMT"
 										},
 										{
 											"key": "Connection",
@@ -12707,7 +12745,87 @@
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"status\": \"active\",\n                \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                \"user\": {\n                    \"id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"Dare\",\n                    \"email\": \"darehorla@gmail.com\"\n                },\n                \"role\": {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"name\": \"Owner\"\n                }\n            },\n            {\n                \"id\": \"01925238-10f2-7112-9440-c57f1e32ed7d\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T11:50:59.058Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T11:50:59.058Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"status\": \"pending\",\n                \"user_id\": \"01925238-10ec-7112-9440-bc46320cdde3\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                \"user\": {\n                    \"id\": \"01925238-10ec-7112-9440-bc46320cdde3\",\n                    \"first_name\": null,\n                    \"last_name\": null,\n                    \"email\": \"daresodiq000@gmail.com\"\n                },\n                \"role\": {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"name\": \"Owner\"\n                }\n            },\n            {\n                \"id\": \"01925239-3906-7112-9492-503c37450d25\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T11:52:14.854Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T12:05:57.129Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"status\": \"active\",\n                \"user_id\": \"01925239-38dc-7112-9492-4c3e36f2b489\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                \"user\": {\n                    \"id\": \"01925239-38dc-7112-9492-4c3e36f2b489\",\n                    \"first_name\": \"Wunmi\",\n                    \"last_name\": \"Ade\",\n                    \"email\": \"daresodiq0000@gmail.com\"\n                },\n                \"role\": {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"name\": \"Owner\"\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 3\n    }\n}"
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"darehorla@gmail.com\",\n                \"phone\": null,\n                \"userProfile\": {\n                    \"status\": \"active\",\n                    \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"role\": {\n                        \"name\": \"Owner\",\n                        \"slug\": \"owner\"\n                    }\n                }\n            },\n            {\n                \"id\": \"01925238-10ec-7112-9440-bc46320cdde3\",\n                \"first_name\": null,\n                \"last_name\": null,\n                \"email\": \"daresodiq000@gmail.com\",\n                \"phone\": null,\n                \"userProfile\": {\n                    \"status\": \"pending\",\n                    \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"role\": {\n                        \"name\": \"Owner\",\n                        \"slug\": \"owner\"\n                    }\n                }\n            },\n            {\n                \"id\": \"01925239-38dc-7112-9492-4c3e36f2b489\",\n                \"first_name\": \"Wunmi\",\n                \"last_name\": \"Ade\",\n                \"email\": \"daresodiq0000@gmail.com\",\n                \"phone\": null,\n                \"userProfile\": {\n                    \"status\": \"active\",\n                    \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"role\": {\n                        \"name\": \"Owner\",\n                        \"slug\": \"owner\"\n                    }\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 3\n    }\n}"
+								},
+								{
+									"id": "23671191-6c8c-48e3-bb9c-fce13c110068",
+									"name": "Get Users",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users"
+											],
+											"query": [
+												{
+													"key": "status",
+													"value": null,
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 07 Oct 2024 00:23:52 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "161"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"a1-gttBimkGqC5vA6hrWxPcnYKgbW4\""
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Profile not found\",\n    \"timestamp\": \"2024-10-07T00:23:52.990Z\",\n    \"path\": \"/api-backend/profiles/01925236-19c0-7112-9440-aa8162716104/users\"\n}"
 								}
 							]
 						},
@@ -12864,10 +12982,83 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"disabled": true
+							}
+						],
 						"url": "{{base_url}}/definitions"
 					},
 					"response": [
+						{
+							"id": "0b214d6a-fc4a-4e75-99ee-9f113cd53d26",
+							"name": "List All Definitions",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"url": "{{base_url}}/definitions"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "853"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"355-suM1HbOshizQb+0lDprLS0n1Jvc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 23:22:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\",\n            \"meta\": null,\n            \"created_on\": \"2024-09-27T11:59:36.320Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T11:59:36.320Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"slug\": \"profiles\",\n            \"name\": \"Profiles\",\n            \"description\": null,\n            \"version\": 1,\n            \"schemas\": [\n                {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-09-27T09:36:57.352Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-09-27T09:36:57.352Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"slug\": \"name\",\n                    \"name\": \"Name\",\n                    \"tags\": null,\n                    \"options\": null,\n                    \"version\": 1,\n                    \"type\": \"text\",\n                    \"default\": null,\n                    \"enabled\": true,\n                    \"required\": true,\n                    \"order\": 1,\n                    \"storage_strategy\": \"plain\",\n                    \"definition_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n                }\n            ]\n        }\n    ]\n}"
+						},
 						{
 							"id": "6d7239d9-dc22-4ee3-a649-36749fcb2383",
 							"name": "List All Definitions",
@@ -12958,6 +13149,82 @@
 						}
 					},
 					"response": [
+						{
+							"id": "a39cebc7-64fe-467e-9f9c-492f04f1f373",
+							"name": "Get Definition",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/definitions/:slug",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"definitions",
+										":slug"
+									],
+									"variable": [
+										{
+											"key": "slug",
+											"value": "profiles"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "851"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"353-JwG4DSWZmiX9xUgUpuiVbHQXrQ4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 06 Oct 2024 23:22:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\",\n        \"meta\": null,\n        \"created_on\": \"2024-09-27T11:59:36.320Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-09-27T11:59:36.320Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"slug\": \"profiles\",\n        \"name\": \"Profiles\",\n        \"description\": null,\n        \"version\": 1,\n        \"schemas\": [\n            {\n                \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                \"meta\": null,\n                \"created_on\": \"2024-09-27T09:36:57.352Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-09-27T09:36:57.352Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"slug\": \"name\",\n                \"name\": \"Name\",\n                \"tags\": null,\n                \"options\": null,\n                \"version\": 1,\n                \"type\": \"text\",\n                \"default\": null,\n                \"enabled\": true,\n                \"required\": true,\n                \"order\": 1,\n                \"storage_strategy\": \"plain\",\n                \"definition_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n            }\n        ]\n    }\n}"
+						},
 						{
 							"id": "8fcd8a13-b152-4e5f-bafc-89310a073b6e",
 							"name": "Get Definition",
