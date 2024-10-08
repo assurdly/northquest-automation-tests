@@ -12614,7 +12614,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users?role_id=01926788-704b-7336-86de-a5f24f6e9082",
+									"raw": "{{base_url}}/profiles/:profile_id/users",
 									"host": [
 										"{{base_url}}"
 									],
@@ -12636,7 +12636,8 @@
 										},
 										{
 											"key": "role_id",
-											"value": "01926788-704b-7336-86de-a5f24f6e9082"
+											"value": "01926788-704b-7336-86de-a5f24f6e9082",
+											"disabled": true
 										}
 									],
 									"variable": [
