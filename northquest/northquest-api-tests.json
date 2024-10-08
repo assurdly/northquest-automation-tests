@@ -11775,6 +11775,33 @@
 						},
 						{
 							"name": "Accept Invite with expired jwt",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5ac0f9f6-a1d6-450d-81c7-67171bf491a5",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 401\", () => {\r",
+											"        pm.response.to.have.status(401);\r",
+											"    });\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Invalid access token\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "90a9c66c-285a-4ebb-803c-b81d0c5184d8",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -11802,7 +11829,6 @@
 									],
 									"variable": [
 										{
-											"id": "1229eaab-bf78-45c6-a145-729ca9405dd9",
 											"key": "profile_id",
 											"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
 										}
@@ -12923,7 +12949,7 @@
 									"query": [
 										{
 											"key": "search",
-											"value": "horla",
+											"value": "invitedUser@mailinator.com",
 											"disabled": true
 										},
 										{
