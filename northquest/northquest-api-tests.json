@@ -8749,7 +8749,7 @@
 															"    })",
 															"",
 															"    pm.test(\"Test for valid error message\", () => {",
-															"        pm.expect(data).to.be.an(\"array\")",
+															"        pm.expect(data.roles).to.be.an(\"array\")",
 															"    })",
 															"",
 															"} catch (error) {",
