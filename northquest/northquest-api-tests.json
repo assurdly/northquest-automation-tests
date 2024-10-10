@@ -12810,6 +12810,36 @@
 						},
 						{
 							"name": "Get Profile by ID -Invalid ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "94784b9a-fce5-4f6d-963a-84d82dcd3fd3",
+										"exec": [
+											"try {\r",
+											"    const { status, message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    // pm.test(\"Test for valid status\", () => {\r",
+											"    //     pm.expect(status).to.eql(\"success\")\r",
+											"    // })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.include(\"Profile ID must be a valid UUID\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "826a8327-f2fb-4926-bf3c-8a3a03fa79c7",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -12834,9 +12864,8 @@
 									],
 									"variable": [
 										{
-											"id": "5e3b4c73-32f5-4822-9f21-ef92dd773edb",
 											"key": "profile_id",
-											"value": ""
+											"value": "01925882-f353-7002-8052-04c8be2c03da2@/"
 										}
 									]
 								}
@@ -12903,16 +12932,39 @@
 						},
 						{
 							"name": "Get Profile by ID -No Auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "33d37f85-2475-4645-88f0-58b0fd0dd02f",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Test for valid status code\", () => {\r",
+											"        pm.expect(statusCode).to.eql(401)\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "7a00fe73-a21f-43a8-a7b5-c6d889c189d0",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
+									"type": "noauth"
 								},
 								"method": "GET",
 								"header": [],
@@ -12927,7 +12979,6 @@
 									],
 									"variable": [
 										{
-											"id": "5e3b4c73-32f5-4822-9f21-ef92dd773edb",
 											"key": "profile_id",
 											"value": ""
 										}
