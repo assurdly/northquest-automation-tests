@@ -12688,6 +12688,36 @@
 					"item": [
 						{
 							"name": "Get Profile by ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a6c36842-c55c-4668-84d7-b2d23c87527a",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data).to.be.an(\"object\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "f2a6e0de-6f9a-40bb-946b-61a8d538ac82",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -12713,7 +12743,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": ""
+											"value": "01925882-f353-7002-8052-04c8be2c03da"
 										}
 									]
 								}
@@ -12814,6 +12844,99 @@
 							"response": [
 								{
 									"id": "aee3efa9-8988-499c-acc7-6a5bc54540e8",
+									"name": "Get Profiles",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/profiles"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 27 Sep 2024 13:58:13 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "447"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1bf-MNyzZTZvL4Dqi8uWF0cXgf41aMA\""
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n            \"meta\": {\n                \"first_name\": \"\",\n                \"last_name\": \"\",\n                \"nin\": \"1234567890\"\n            },\n            \"created_on\": \"2024-09-27T13:57:43.894Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"wunmi\",\n            \"type\": \"personal\",\n            \"status\": \"active\",\n            \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Profile by ID -No Auth",
+							"id": "7a00fe73-a21f-43a8-a7b5-c6d889c189d0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id"
+									],
+									"variable": [
+										{
+											"id": "5e3b4c73-32f5-4822-9f21-ef92dd773edb",
+											"key": "profile_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "fe098c20-55a9-4f6a-9a17-b0a4b75af867",
 									"name": "Get Profiles",
 									"originalRequest": {
 										"method": "GET",
