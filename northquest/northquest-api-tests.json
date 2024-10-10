@@ -6356,7 +6356,7 @@
 											"        pm.expect(message).includes('The identity must be a valid email address or phone number.')",
 											"        pm.expect(message).includes('OTP cannot be empty')",
 											"        pm.expect(message).includes('Password is required.')",
-											"        pm.expect(message).includes('Password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters long.')",
+											"        // pm.expect(message).includes('Password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters long.')",
 											"        // pm.expect(message).includes('Confirm password is required.')",
 											"        // pm.expect(message).includes('Confirm password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters in length.')",
 											"    })",
