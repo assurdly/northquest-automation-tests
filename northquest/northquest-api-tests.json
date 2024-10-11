@@ -10521,12 +10521,12 @@
 									"query": [
 										{
 											"key": "search",
-											"value": "invitedUser@mailinator.com",
+											"value": "Azeez",
 											"disabled": true
 										},
 										{
 											"key": "status",
-											"value": "",
+											"value": "active",
 											"disabled": true
 										},
 										{
@@ -12289,7 +12289,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Account deleter\"\n}",
+											"raw": "{\n    \"name\": \"Account deleter\",\n    \"status\": \"inactive\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
