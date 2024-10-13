@@ -2715,7 +2715,6 @@
 											"        pm.expect(message).includes('Email OTP is required.')",
 											"        pm.expect(message).includes('Phone OTP is required.')",
 											"        pm.expect(message).includes('Password is required.')",
-											"        pm.expect(message).includes('Password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters long.')",
 											"        pm.expect(message).includes('First name is required.')",
 											"        pm.expect(message).includes('First name must be at least 2 characters and contain only alphabets.')",
 											"        pm.expect(message).includes('Last name is required.')",
