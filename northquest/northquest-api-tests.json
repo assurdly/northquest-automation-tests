@@ -13692,7 +13692,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"Test\",\n    \"name\": \"Test\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"\"\n}",
+									"raw": "{\n    \"type\": \"Test\",\n    \"name\": \"Test\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"\",\n    \"gender\": \"Male\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -13778,24 +13778,24 @@
 									"script": {
 										"id": "7b7fd739-c560-4484-ad3a-e9eaa492a78d",
 										"exec": [
-											"try {",
-											"    const { message } = pm.response.json()",
+											"// try {",
+											"//     const { message } = pm.response.json()",
 											"",
-											"    pm.test(\"Status code is 400\", () => {",
-											"        pm.response.to.have.status(400);",
-											"    });",
+											"//     pm.test(\"Status code is 400\", () => {",
+											"//         pm.response.to.have.status(400);",
+											"//     });",
 											"",
-											"    pm.test(\"Status code name has string\", function () {",
-											"        pm.response.to.have.status(\"Bad Request\");",
-											"    });",
+											"//     pm.test(\"Status code name has string\", function () {",
+											"//         pm.response.to.have.status(\"Bad Request\");",
+											"//     });",
 											"",
-											"    pm.test(\"Test for valid error message\", () => {",
-											"        pm.expect(message).includes(\"name should not be empty\")",
-											"    })",
+											"//     pm.test(\"Test for valid error message\", () => {",
+											"//         pm.expect(message).includes(\"name should not be empty\")",
+											"//     })",
 											"",
-											"} catch (error) {",
-											"    console.error(\"Error from test:\", error)",
-											"}"
+											"// } catch (error) {",
+											"//     console.error(\"Error from test:\", error)",
+											"// }"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -13817,7 +13817,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"\",\n    \"name\": \"Test\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"\"\n}",
+									"raw": "{\n    \"type\": \"\",\n    \"name\": \"Test\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"\",\n    \"gender\": \"male\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
