@@ -12690,11 +12690,11 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+													"value": "{{profileId}}"
 												},
 												{
 													"key": "id",
-													"value": "0192534d-c08e-7886-abfb-7badcb2e11ff"
+													"value": "019261c9-580b-7444-a489-deb18e6c2ffe"
 												}
 											]
 										}
@@ -14005,6 +14005,218 @@
 					]
 				},
 				{
+					"name": "Invite User Copy",
+					"id": "5f57a699-92f1-4885-b0e5-6b9900c15c0d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"\",\n    \"role_id\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/invite",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"invite"
+							],
+							"variable": [
+								{
+									"id": "450fefe6-3375-4a57-82d6-9753c5062a47",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "fef09f1c-f9c9-46a2-99bf-fc26ff1ee347",
+							"name": "Existing User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"darehorla@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/invite",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"invite"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "01925236-19c0-7112-9440-aa8162716104"
+										}
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "174"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ae-wkmtRSv5H+NZ0LB8XhfzBPBjxJs\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Oct 2024 11:50:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"statusCode\": 409,\n    \"message\": \"User already belongs to this profile\",\n    \"timestamp\": \"2024-10-03T11:50:09.628Z\",\n    \"path\": \"/profiles/01925236-19c0-7112-9440-aa8162716104/team/invite\"\n}"
+						},
+						{
+							"id": "fc34c571-4641-4def-9aaa-84276d489b02",
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"daresodiq0000@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/invite",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"invite"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "01925236-19c0-7112-9440-aa8162716104"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "280"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"118-xlOBxXYCuiv6lbichGuqmBUDi5c\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 03 Oct 2024 11:52:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\",\n        \"message\": \"User successfully invited.\"\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "Update User role",
 					"id": "4f91f64b-bdda-4b60-9589-b9a08a24ee2b",
 					"protocolProfileBehavior": {
@@ -15028,6 +15240,130 @@
 				}
 			],
 			"id": "454ee525-daaf-4488-9b79-cb9c1b6b737c"
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Set Security Question",
+					"id": "a045a681-c574-4f00-b8c6-17f54a9593ca",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question1\": \"What is the name of your first pet?\",\n    \"answer1\": \"Fluffy\",\n    \"question2\": \"What was the make of your first car?\",\n    \"answer2\": \"Toyota\",\n    \"otp\": \"892810\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/users/security-questions"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate OTP",
+					"id": "9905a9e5-797e-4ed8-b9fe-5cd954015955",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"type\": \"security-question\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/users/generate-otp"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Security Question",
+					"id": "5f686aba-ed44-45bc-8cbd-7f2da77cc99a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/users/security-questions"
+					},
+					"response": []
+				}
+			],
+			"id": "016a4f53-3b2b-4ed8-ac78-b44ca10a517a"
+		},
+		{
+			"name": "Documents",
+			"item": [
+				{
+					"name": "List Documents",
+					"id": "c29713c1-2b77-4204-9ca1-394c4ccb6820",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/documents"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Document",
+					"id": "c370bc47-b0c1-426b-a217-f0757d0a8778",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/documents/:documentId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"documents",
+								":documentId"
+							],
+							"variable": [
+								{
+									"id": "7bc9e9cd-840e-4192-8b15-4ac3dca31034",
+									"key": "documentId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set Document",
+					"id": "323b1ed0-d9fa-4499-b9fc-f73a9b84a1c3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "{{base_url}}/documents"
+					},
+					"response": []
+				}
+			],
+			"id": "25550e73-77a0-41e1-b756-377d7ef340c1"
 		},
 		{
 			"name": "Service Payment",
