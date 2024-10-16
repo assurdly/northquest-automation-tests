@@ -19596,37 +19596,14 @@
 						},
 						{
 							"name": "Get User",
-							"id": "87faea15-8ca7-4742-898c-4e21d841d025",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/admin/users/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"users",
-										":id"
-									],
-									"variable": [
-										{
-											"id": "1345b530-4ce8-448e-a72a-5254172e4924",
-											"key": "id",
-											"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
-										}
-									]
-								}
-							},
-							"response": [
+							"item": [
 								{
-									"id": "11f8170f-c274-477f-9851-81da961ac193",
 									"name": "Get User",
-									"originalRequest": {
+									"id": "87faea15-8ca7-4742-898c-4e21d841d025",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -19641,100 +19618,214 @@
 											],
 											"variable": [
 												{
+													"id": "1345b530-4ce8-448e-a72a-5254172e4924",
 													"key": "id",
 													"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
 												}
 											]
 										}
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "836"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"344-fWpCH5u/RhneL0M2GuilEV7G8+A\""
-										},
-										{
-											"key": "Date",
-											"value": "Tue, 15 Oct 2024 20:44:12 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"id": "11f8170f-c274-477f-9851-81da961ac193",
+											"name": "Get User",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/users/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "836"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"344-fWpCH5u/RhneL0M2GuilEV7G8+A\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 15 Oct 2024 20:44:12 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T17:49:49.700Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"first_name\": \"Sodiq\",\n        \"last_name\": \"Dare\",\n        \"email\": \"sodiq@google.com\",\n        \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n        \"status\": \"pending\",\n        \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n        \"role\": {\n            \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Admin\",\n            \"slug\": \"admin\",\n            \"description\": null,\n            \"status\": \"active\"\n        }\n    }\n}"
 										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T17:49:49.700Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"first_name\": \"Sodiq\",\n        \"last_name\": \"Dare\",\n        \"email\": \"sodiq@google.com\",\n        \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n        \"status\": \"pending\",\n        \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n        \"role\": {\n            \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Admin\",\n            \"slug\": \"admin\",\n            \"description\": null,\n            \"status\": \"active\"\n        }\n    }\n}"
+									]
+								},
+								{
+									"name": "Get User- No auth",
+									"id": "5cb3d1c3-76be-4a4a-ac1e-60ee96b17a08",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "1345b530-4ce8-448e-a72a-5254172e4924",
+													"key": "id",
+													"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "2406eb58-2942-45dd-9a85-b7b415efc753",
+											"name": "Get User",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/users/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "836"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"344-fWpCH5u/RhneL0M2GuilEV7G8+A\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 15 Oct 2024 20:44:12 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T17:49:49.700Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"first_name\": \"Sodiq\",\n        \"last_name\": \"Dare\",\n        \"email\": \"sodiq@google.com\",\n        \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n        \"status\": \"pending\",\n        \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n        \"role\": {\n            \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Admin\",\n            \"slug\": \"admin\",\n            \"description\": null,\n            \"status\": \"active\"\n        }\n    }\n}"
+										}
+									]
 								}
-							]
+							],
+							"id": "93609a42-0da8-4803-aa1d-c6379f3a3381"
 						},
 						{
 							"name": "Update User",
-							"id": "6d237e40-5e77-4417-96b0-b37f09fdcf70",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/admin/users/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"users",
-										":id"
-									],
-									"variable": [
-										{
-											"id": "cd84ff60-7955-480f-a2a0-d5791bcaba9f",
-											"key": "id",
-											"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
-										}
-									]
-								}
-							},
-							"response": [
+							"item": [
 								{
-									"id": "2e8b7228-ddcf-433f-b180-593272e5bdf0",
-									"name": "Get User",
-									"originalRequest": {
+									"name": "Update User",
+									"id": "6d237e40-5e77-4417-96b0-b37f09fdcf70",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -19749,66 +19840,95 @@
 											],
 											"variable": [
 												{
+													"id": "cd84ff60-7955-480f-a2a0-d5791bcaba9f",
 													"key": "id",
 													"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
 												}
 											]
 										}
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "836"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"344-fWpCH5u/RhneL0M2GuilEV7G8+A\""
-										},
-										{
-											"key": "Date",
-											"value": "Tue, 15 Oct 2024 20:44:12 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"id": "2e8b7228-ddcf-433f-b180-593272e5bdf0",
+											"name": "Get User",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/users/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "836"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"344-fWpCH5u/RhneL0M2GuilEV7G8+A\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 15 Oct 2024 20:44:12 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T17:49:49.700Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"first_name\": \"Sodiq\",\n        \"last_name\": \"Dare\",\n        \"email\": \"sodiq@google.com\",\n        \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n        \"status\": \"pending\",\n        \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n        \"role\": {\n            \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Admin\",\n            \"slug\": \"admin\",\n            \"description\": null,\n            \"status\": \"active\"\n        }\n    }\n}"
 										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T17:49:49.700Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"first_name\": \"Sodiq\",\n        \"last_name\": \"Dare\",\n        \"email\": \"sodiq@google.com\",\n        \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n        \"status\": \"pending\",\n        \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n        \"role\": {\n            \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Admin\",\n            \"slug\": \"admin\",\n            \"description\": null,\n            \"status\": \"active\"\n        }\n    }\n}"
+									]
 								}
-							]
+							],
+							"id": "45aa0112-9a40-41b4-9e3e-4c04d3faf82c"
 						},
 						{
 							"name": "Invite User",
