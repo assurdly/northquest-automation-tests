@@ -19122,7 +19122,7 @@
 							]
 						},
 						{
-							"name": "Reset Password Copy 4",
+							"name": "Reset Password-Empty confirm password field",
 							"id": "352b0fc0-e213-4834-9586-8d3d6cf2e9c5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -19213,48 +19213,44 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
 								}
 							]
-						}
-					],
-					"id": "b9f51823-8022-4410-ab02-38e449d1f90b"
-				},
-				{
-					"name": "User",
-					"item": [
+						},
 						{
-							"name": "Get Users",
-							"id": "3275db7a-fff0-4d11-8d52-01611eacbcb4",
+							"name": "Reset Password-Invalid OTP",
+							"id": "5339d539-4918-4f63-b3fe-0aa0d10e6d95",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "GET",
+								"method": "PATCH",
 								"header": [],
-								"url": {
-									"raw": "{{base_url}}/admin/users",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"users"
-									],
-									"query": [
-										{
-											"key": "search",
-											"value": "sodiq",
-											"disabled": true
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
-								}
+									}
+								},
+								"url": "{{base_url}}/admin/auth/reset-password"
 							},
 							"response": [
 								{
-									"id": "11238870-7692-4f8d-9d72-6dd6022a7235",
-									"name": "New Request",
+									"id": "6978b077-6c1b-4f3a-a88a-015a2ee7caf3",
+									"name": "Success",
 									"originalRequest": {
-										"method": "GET",
+										"method": "PATCH",
 										"header": [],
-										"url": "{{base_url}}/admin/users"
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/reset-password"
 									},
 									"status": "OK",
 									"code": 200,
@@ -19286,15 +19282,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "894"
+											"value": "70"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"37e-SHXwF7TNBq+jnDgvGGnjVt2AzIo\""
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
 										},
 										{
 											"key": "Date",
-											"value": "Tue, 15 Oct 2024 20:42:09 GMT"
+											"value": "Wed, 09 Oct 2024 17:55:02 GMT"
 										},
 										{
 											"key": "Connection",
@@ -19307,9 +19303,296 @@
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"sodiq@google.com\",\n                \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n                \"status\": \"pending\",\n                \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"role\": {\n                    \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"name\": \"Admin\",\n                    \"slug\": \"admin\",\n                    \"description\": null,\n                    \"status\": \"active\"\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "Reset Password-Invalid Email",
+							"id": "f9e78834-8265-47ed-ba80-2bd5ed3560ca",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/auth/reset-password"
+							},
+							"response": [
+								{
+									"id": "d57b4842-29fd-4cfa-8db6-6302cfcee21d",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/reset-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Oct 2024 17:55:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "b9f51823-8022-4410-ab02-38e449d1f90b"
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Get Users",
+							"item": [
+								{
+									"name": "Get Users",
+									"id": "3275db7a-fff0-4d11-8d52-01611eacbcb4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/users",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"users"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": "sodiq",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "11238870-7692-4f8d-9d72-6dd6022a7235",
+											"name": "New Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/users"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "894"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"37e-SHXwF7TNBq+jnDgvGGnjVt2AzIo\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 15 Oct 2024 20:42:09 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"sodiq@google.com\",\n                \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n                \"status\": \"pending\",\n                \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"role\": {\n                    \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"name\": \"Admin\",\n                    \"slug\": \"admin\",\n                    \"description\": null,\n                    \"status\": \"active\"\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Users-No auth",
+									"id": "87c14f84-76d2-4601-8c86-827303a1d5fa",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/users",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"users"
+											],
+											"query": [
+												{
+													"key": "search",
+													"value": "sodiq",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "33320ee3-fc1e-4874-9a8d-79c5f8be1751",
+											"name": "New Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/users"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "894"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"37e-SHXwF7TNBq+jnDgvGGnjVt2AzIo\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 15 Oct 2024 20:42:09 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"sodiq@google.com\",\n                \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n                \"status\": \"pending\",\n                \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"role\": {\n                    \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"name\": \"Admin\",\n                    \"slug\": \"admin\",\n                    \"description\": null,\n                    \"status\": \"active\"\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "846c24d3-9326-42f7-a304-335bd90c6a7c"
 						},
 						{
 							"name": "Get User",
