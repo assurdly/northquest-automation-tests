@@ -15085,58 +15085,15 @@
 					"id": "d1e9274f-ce02-465d-a025-108c2dd485b9"
 				},
 				{
-					"name": "New Folder",
-					"item": [],
-					"id": "5f80af7f-f7d4-40a7-baf7-0adc4810f117"
-				},
-				{
-					"name": "Update User role",
-					"id": "4f91f64b-bdda-4b60-9589-b9a08a24ee2b",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"users",
-								":id"
-							],
-							"variable": [
-								{
-									"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
-									"key": "profile_id",
-									"value": "01925236-19c0-7112-9440-aa8162716104"
-								},
-								{
-									"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
-									"key": "id",
-									"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-								}
-							]
-						}
-					},
-					"response": [
+					"name": "Update User Role",
+					"item": [
 						{
-							"id": "c444bcf9-6ba2-4fb1-8f13-b9e5bc3beacf",
-							"name": "Success",
-							"originalRequest": {
+							"name": "Update User role",
+							"id": "4f91f64b-bdda-4b60-9589-b9a08a24ee2b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "PATCH",
 								"header": [],
 								"body": {
@@ -15161,112 +15118,536 @@
 									],
 									"variable": [
 										{
+											"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
 											"key": "profile_id",
 											"value": "01925236-19c0-7112-9440-aa8162716104"
 										},
 										{
+											"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
 											"key": "id",
 											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
 										}
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "458"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 09 Oct 2024 22:05:13 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "c444bcf9-6ba2-4fb1-8f13-b9e5bc3beacf",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "458"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Update Profile",
-					"id": "5dc78c0d-8e63-46a8-a36d-0a2e8cc52ef8",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							]
 						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id"
-							],
-							"variable": [
+						{
+							"name": "Update User role-Invalid status",
+							"id": "edaed77d-68fe-4f6a-a555-3eba9ea14925",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
+											"key": "profile_id",
+											"value": "01925236-19c0-7112-9440-aa8162716104"
+										},
+										{
+											"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
+											"key": "id",
+											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+										}
+									]
+								}
+							},
+							"response": [
 								{
-									"id": "9b4548f0-1cf6-4b1b-a6a9-7fbb1dec3a5b",
-									"key": "profile_id",
-									"value": "{{profileId}}"
+									"id": "e5b10e33-af32-4a2f-b510-05b77f255b06",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "458"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User role-Invalid role ID",
+							"id": "ac690abb-2062-43ee-ad48-e8031687fdca",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
+											"key": "profile_id",
+											"value": "01925236-19c0-7112-9440-aa8162716104"
+										},
+										{
+											"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
+											"key": "id",
+											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "42f2ecf0-bc32-4bb8-b863-841d6dd4eaec",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "458"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User role-Empty fields",
+							"id": "dc821e3d-481f-44e6-a182-06b44a8b5015",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
+											"key": "profile_id",
+											"value": "01925236-19c0-7112-9440-aa8162716104"
+										},
+										{
+											"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
+											"key": "id",
+											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "c1474c34-04a2-424e-b3c6-e90168a54c6a",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "458"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
 								}
 							]
 						}
-					},
-					"response": [
+					],
+					"id": "5f80af7f-f7d4-40a7-baf7-0adc4810f117"
+				},
+				{
+					"name": "Update Profile",
+					"item": [
 						{
-							"id": "91c542aa-fa6a-4775-b35f-b6ffac7303a3",
-							"name": "Success",
-							"originalRequest": {
+							"name": "Update Profile",
+							"id": "5dc78c0d-8e63-46a8-a36d-0a2e8cc52ef8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "PATCH",
 								"header": [],
 								"body": {
@@ -15289,66 +15670,103 @@
 									],
 									"variable": [
 										{
+											"id": "9b4548f0-1cf6-4b1b-a6a9-7fbb1dec3a5b",
 											"key": "profile_id",
 											"value": "{{profileId}}"
 										}
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "445"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"1bd-dP++nxfyxaGAnvdHt2QshJ2yNTU\""
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 08 Oct 2024 20:16:25 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "91c542aa-fa6a-4775-b35f-b6ffac7303a3",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "445"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1bd-dP++nxfyxaGAnvdHt2QshJ2yNTU\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 08 Oct 2024 20:16:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"DA\",\n            \"nin\": \"232\"\n        },\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\"\n    }\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"DA\",\n            \"nin\": \"232\"\n        },\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\"\n    }\n}"
+							]
 						}
-					]
+					],
+					"id": "a4ba5004-ecb1-4448-a2ac-6a6545a04f2f"
 				}
 			],
 			"id": "5f372b21-b7d6-4c78-a4b5-268f0d1cb9c4"
