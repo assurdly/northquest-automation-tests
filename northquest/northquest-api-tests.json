@@ -20591,30 +20591,31 @@
 						},
 						{
 							"name": "Accept Invite",
-							"item": [],
+							"item": [
+								{
+									"name": "Accept Invite",
+									"id": "39b2350e-f7d1-4301-addf-b8ddbc8f4726",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\",\n    \"password\": \"Password12@@\",\n    \"last_name\": \"Ade\",\n    \"first_name\": \"Wunmi\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/users/accept-invite"
+									},
+									"response": []
+								}
+							],
 							"id": "57429f00-8570-405d-b4ec-993163f48a0e"
-						},
-						{
-							"name": "Accept Invite",
-							"id": "39b2350e-f7d1-4301-addf-b8ddbc8f4726",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\",\n    \"password\": \"Password12@@\",\n    \"last_name\": \"Ade\",\n    \"first_name\": \"Wunmi\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/users/accept-invite"
-							},
-							"response": []
 						},
 						{
 							"name": "Resend Invite",
