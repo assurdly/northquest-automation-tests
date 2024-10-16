@@ -14005,218 +14005,6 @@
 					]
 				},
 				{
-					"name": "Invite User Copy",
-					"id": "5f57a699-92f1-4885-b0e5-6b9900c15c0d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email\": \"\",\n    \"role_id\":\"\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/invite",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"invite"
-							],
-							"variable": [
-								{
-									"id": "450fefe6-3375-4a57-82d6-9753c5062a47",
-									"key": "profile_id",
-									"value": "{{profileId}}"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "fef09f1c-f9c9-46a2-99bf-fc26ff1ee347",
-							"name": "Existing User",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"darehorla@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/invite",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"invite"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "01925236-19c0-7112-9440-aa8162716104"
-										}
-									]
-								}
-							},
-							"status": "Conflict",
-							"code": 409,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "174"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"ae-wkmtRSv5H+NZ0LB8XhfzBPBjxJs\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 03 Oct 2024 11:50:09 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"statusCode\": 409,\n    \"message\": \"User already belongs to this profile\",\n    \"timestamp\": \"2024-10-03T11:50:09.628Z\",\n    \"path\": \"/profiles/01925236-19c0-7112-9440-aa8162716104/team/invite\"\n}"
-						},
-						{
-							"id": "fc34c571-4641-4def-9aaa-84276d489b02",
-							"name": "Success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"daresodiq0000@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/invite",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"invite"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "01925236-19c0-7112-9440-aa8162716104"
-										}
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "280"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"118-xlOBxXYCuiv6lbichGuqmBUDi5c\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 03 Oct 2024 11:52:14 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\",\n        \"message\": \"User successfully invited.\"\n    }\n}"
-						}
-					]
-				},
-				{
 					"name": "Update User role",
 					"id": "4f91f64b-bdda-4b60-9589-b9a08a24ee2b",
 					"protocolProfileBehavior": {
@@ -15211,11 +14999,318 @@
 					"id": "b9f51823-8022-4410-ab02-38e449d1f90b"
 				},
 				{
-					"name": "Login Copy 2",
+					"name": "User",
 					"item": [
 						{
-							"name": "New Request",
-							"id": "d6f6d708-a6d7-4469-a56a-a73fd4bb459f",
+							"name": "Get Users",
+							"id": "3275db7a-fff0-4d11-8d52-01611eacbcb4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"users"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "sodiq",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "11238870-7692-4f8d-9d72-6dd6022a7235",
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/users"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "894"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"37e-SHXwF7TNBq+jnDgvGGnjVt2AzIo\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 20:42:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"sodiq@google.com\",\n                \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n                \"status\": \"pending\",\n                \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"role\": {\n                    \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"name\": \"Admin\",\n                    \"slug\": \"admin\",\n                    \"description\": null,\n                    \"status\": \"active\"\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get User",
+							"id": "87faea15-8ca7-4742-898c-4e21d841d025",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "1345b530-4ce8-448e-a72a-5254172e4924",
+											"key": "id",
+											"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "11f8170f-c274-477f-9851-81da961ac193",
+									"name": "Get User",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "836"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"344-fWpCH5u/RhneL0M2GuilEV7G8+A\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 20:44:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T17:49:49.700Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"first_name\": \"Sodiq\",\n        \"last_name\": \"Dare\",\n        \"email\": \"sodiq@google.com\",\n        \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n        \"status\": \"pending\",\n        \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n        \"role\": {\n            \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Admin\",\n            \"slug\": \"admin\",\n            \"description\": null,\n            \"status\": \"active\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User",
+							"id": "6d237e40-5e77-4417-96b0-b37f09fdcf70",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/users/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "cd84ff60-7955-480f-a2a0-d5791bcaba9f",
+											"key": "id",
+											"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "2e8b7228-ddcf-433f-b180-593272e5bdf0",
+									"name": "Get User",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "836"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"344-fWpCH5u/RhneL0M2GuilEV7G8+A\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 20:44:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T17:49:49.700Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"first_name\": \"Sodiq\",\n        \"last_name\": \"Dare\",\n        \"email\": \"sodiq@google.com\",\n        \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n        \"status\": \"pending\",\n        \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n        \"role\": {\n            \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Admin\",\n            \"slug\": \"admin\",\n            \"description\": null,\n            \"status\": \"active\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Invite User",
+							"id": "dac93b4a-e80e-44c6-a1fb-ed25a290cbe3",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -15224,19 +15319,508 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "",
+									"raw": "{\n    \"email\": \"\",\n    \"role_id\":\"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/auth/login"
+								"url": "{{base_url}}/admin/users/invite"
+							},
+							"response": [
+								{
+									"id": "7e147253-846f-4951-afed-e300ee6deb12",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"daresodiq0000@gmail.com\",\n    \"role_id\":\"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/invite",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"invite"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "280"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"118-xlOBxXYCuiv6lbichGuqmBUDi5c\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 11:52:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\",\n        \"message\": \"User successfully invited.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Accept Invite",
+							"id": "39b2350e-f7d1-4301-addf-b8ddbc8f4726",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyUHJvZmlsZUlkIjoiMDE5MjUyMzktMzkwNi03MTEyLTk0OTItNTAzYzM3NDUwZDI1IiwiaWF0IjoxNzI3OTU2MzM0LCJleHAiOjE3Mjc5NTk5MzR9.-8DNCFd-ambSVw-dAlE9aHhEJguGBX1XaQDS-bE_HQw\",\n    \"password\": \"Password12@@\",\n    \"last_name\": \"Ade\",\n    \"first_name\": \"Wunmi\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/users/accept-invite"
+							},
+							"response": []
+						},
+						{
+							"name": "Resend Invite",
+							"id": "c173568e-cca3-46c5-b816-0f5242eb9fb7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user_id\": \"01925239-3906-7112-9492-503c37450d25\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/users/resend-invite"
+							},
+							"response": [
+								{
+									"id": "c1621a5b-2a27-41b8-9662-ff27cf8bf328",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"user_profile_id\": \"01925239-3906-7112-9492-503c37450d25\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/resend-invite",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"resend-invite"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01924c5c-77eb-7990-8116-d7b9032d6d27"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "68"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"44-h8Ju37x7cGBI0bggmry26dHyfGE\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 11:52:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Invite resent successfully\"\n    }\n}"
+								},
+								{
+									"id": "9cde6f52-69e3-43a3-8cfa-38df60e097be",
+									"name": "Wrong profile",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"user_profile_id\": \"01925239-3906-7112-9492-503c37450d25\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/resend-invite",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"resend-invite"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01924c5c-77eb-7990-8116-d7b9032d6d27"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "191"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"bf-KKLODyIgSCYpslZlnS9JuVORx9c\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 03 Oct 2024 11:54:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"statusCode\": 404,\n    \"message\": \"User profile or associated user does not exist\",\n    \"timestamp\": \"2024-10-03T11:54:42.599Z\",\n    \"path\": \"/profiles/01924c5c-77eb-7990-8116-d7b9032d6d27/team/resend-invite\"\n}"
+								}
+							]
+						}
+					],
+					"id": "5cdbd249-f5aa-4842-a28f-d6df19faef74"
+				},
+				{
+					"name": "Role and Permissions",
+					"item": [
+						{
+							"name": "Get Permissions",
+							"id": "5569cf0c-c431-47c6-a918-a1f6c5c6c80d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/admin/permissions"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Roles",
+							"id": "3fc235a9-23e7-4a09-8a76-c8bd835be542",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/admin/roles"
+							},
+							"response": [
+								{
+									"id": "64a7d738-bbfb-4d82-ac22-4d01c732fdc1",
+									"name": "Get Roles",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/roles"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "758"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2f6-AVtWRZV0/21U72HzRqvbKK+bDVo\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 15 Oct 2024 20:46:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"roles\": [\n            {\n                \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Admin\",\n                \"slug\": \"admin\",\n                \"description\": null,\n                \"status\": \"active\"\n            },\n            {\n                \"id\": \"019291e9-5a4f-766a-8e6a-98ebea7542f8\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-15T20:40:42.310Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-15T20:40:42.310Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"sodsiqsnst\",\n                \"slug\": \"sodsiqsnst\",\n                \"description\": \"sodiq\",\n                \"status\": \"active\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Role",
+							"id": "0dbaba93-5194-47e0-ad09-bc43b799e08c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\",\n        \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n        \"019291bc-4e74-769e-ab34-984446abf18d\",\n        \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n        \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/roles/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"roles",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "5f6f6def-686b-4495-a2f0-3828d3034cb3",
+											"key": "id",
+											"value": "01927265-d8bc-7195-996f-e131d5e13329"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Role",
+							"id": "86bd3fc0-b45e-4060-8070-f132416dee59",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/roles/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"roles",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "587be60b-58d8-4346-82ee-4a74952241e7",
+											"key": "id",
+											"value": "01927265-d8bc-7195-996f-e131d5e13329"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Role",
+							"id": "ca64a2d3-560a-40bb-adf9-ca23c0feede0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Manager\",\n    \"description\": \"Manager\",\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/roles"
 							},
 							"response": []
 						}
 					],
-					"id": "64b7d341-2b9a-4a34-a2e1-78eaf4be5b00"
+					"id": "f3b66bd7-0b77-434f-8701-7988339e9010"
 				}
 			],
 			"id": "454ee525-daaf-4488-9b79-cb9c1b6b737c"
@@ -15369,6 +15953,15 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type_id\": \"\",\n    \"url\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": "{{base_url}}/documents"
 					},
 					"response": []
