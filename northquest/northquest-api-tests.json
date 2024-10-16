@@ -17092,6 +17092,254 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"DA\",\n            \"nin\": \"232\"\n        },\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\"\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "Update Profile-Empty fields",
+							"id": "d3a196a9-8a2a-4bfe-b04e-63caf2f15131",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id"
+									],
+									"variable": [
+										{
+											"id": "9b4548f0-1cf6-4b1b-a6a9-7fbb1dec3a5b",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "daa28717-c1de-41de-97d9-4413ef4c9c27",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "445"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1bd-dP++nxfyxaGAnvdHt2QshJ2yNTU\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 08 Oct 2024 20:16:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"DA\",\n            \"nin\": \"232\"\n        },\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Profile-Invalid nin",
+							"id": "86266dbc-6dce-4a8f-ad9b-030d1de303a0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id"
+									],
+									"variable": [
+										{
+											"id": "9b4548f0-1cf6-4b1b-a6a9-7fbb1dec3a5b",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "856f4e48-723e-4c37-bc02-ded56c1544ac",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "445"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1bd-dP++nxfyxaGAnvdHt2QshJ2yNTU\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 08 Oct 2024 20:16:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"DA\",\n            \"nin\": \"232\"\n        },\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\"\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "a4ba5004-ecb1-4448-a2ac-6a6545a04f2f"
@@ -17488,6 +17736,285 @@
 							"response": [
 								{
 									"id": "b2ecb5e3-e745-4602-8da0-4dd6b29ed576",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "613"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"265-FkCRfi4dBIWVsV87NKqmf7NCL5c\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Oct 2024 17:55:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI3MjY1LTRlZDItNzljYy1hMGU2LWUxMTMzOWEzNTlmMyIsImlhdCI6MTcyODQ5NjUyNSwiZXhwIjoxNzI4NTAwMTI1fQ.JHJA9YkS36WwVd33K98HsercYhJuuLqHd21UFsmt_8s\",\n        \"user\": {\n            \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"sodiq@google.com\",\n            \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "New Request-Invalid email",
+							"id": "c8b4f223-7270-4a02-85d7-93d73e121fa4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/auth/login"
+							},
+							"response": [
+								{
+									"id": "582a6fe6-43e3-4ae6-9548-e1198a7a4b38",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "613"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"265-FkCRfi4dBIWVsV87NKqmf7NCL5c\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Oct 2024 17:55:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI3MjY1LTRlZDItNzljYy1hMGU2LWUxMTMzOWEzNTlmMyIsImlhdCI6MTcyODQ5NjUyNSwiZXhwIjoxNzI4NTAwMTI1fQ.JHJA9YkS36WwVd33K98HsercYhJuuLqHd21UFsmt_8s\",\n        \"user\": {\n            \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"sodiq@google.com\",\n            \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "New Request Copy 2",
+							"id": "accca469-2d85-463e-957c-0a0a4928ab68",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/auth/login"
+							},
+							"response": [
+								{
+									"id": "c5952222-c136-4f9f-b644-f68dd199bec9",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/login"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "613"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"265-FkCRfi4dBIWVsV87NKqmf7NCL5c\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Oct 2024 17:55:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI3MjY1LTRlZDItNzljYy1hMGU2LWUxMTMzOWEzNTlmMyIsImlhdCI6MTcyODQ5NjUyNSwiZXhwIjoxNzI4NTAwMTI1fQ.JHJA9YkS36WwVd33K98HsercYhJuuLqHd21UFsmt_8s\",\n        \"user\": {\n            \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"sodiq@google.com\",\n            \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "New Request Copy 3",
+							"id": "c1af0e73-c921-455c-b1d0-fd3ccb1911c8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/auth/login"
+							},
+							"response": [
+								{
+									"id": "7a2ce87a-5ca5-459c-b7fc-3354c9579b15",
 									"name": "Success",
 									"originalRequest": {
 										"method": "POST",
