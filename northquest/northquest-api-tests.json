@@ -13625,7 +13625,7 @@
 									]
 								},
 								{
-									"name": "Update Role Copy 4",
+									"name": "Update Role-Invalid status",
 									"id": "7cfc4dda-5b00-417a-b2fe-3c39789a0ebe",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -13670,6 +13670,272 @@
 									"response": [
 										{
 											"id": "ed7fe24a-466d-4aec-9ea0-bb7762ff7ea6",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"Account deleter\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/roles/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"roles",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+														},
+														{
+															"key": "id",
+															"value": "0192534d-c08e-7886-abfb-7badcb2e11ff"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Thu, 03 Oct 2024 16:57:17 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "429"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1ad-uS8QKnExaubjZih0C76PTMlSvz0\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T16:54:17.485Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-03T16:55:56.408Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Account deleter\",\n        \"slug\": \"account-deleter\",\n        \"description\": null,\n        \"status\": \"active\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Role -Invalid permission ID",
+									"id": "d669ae7f-2693-4af9-9ef0-906ff1a5021f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Account deleterss\",\n    \"status\": \"inactive\",\n    \"permissions\": [\n        \"019253c6-b848-7eb6-b328-6c61e63fbfec\",\n        \"019253c6-b848-7a00-a7cf-84365e71ad9e\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "97f8e43b-18f9-4556-9999-5fac055153e9",
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												},
+												{
+													"id": "6a3b9892-ab8a-4e35-b7f7-d0c0de218553",
+													"key": "id",
+													"value": "019261c9-580b-7444-a489-deb18e6c2ffe"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "fa2e38b7-03de-426d-8c6f-5a50b90a60b9",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"Account deleter\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/roles/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"roles",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+														},
+														{
+															"key": "id",
+															"value": "0192534d-c08e-7886-abfb-7badcb2e11ff"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Thu, 03 Oct 2024 16:57:17 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "429"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1ad-uS8QKnExaubjZih0C76PTMlSvz0\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T16:54:17.485Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-03T16:55:56.408Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Account deleter\",\n        \"slug\": \"account-deleter\",\n        \"description\": null,\n        \"status\": \"active\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Role-Empty fields",
+									"id": "5fba3513-6e75-40af-a836-5a6b11e64f4e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Account deleterss\",\n    \"status\": \"inactive\",\n    \"permissions\": [\n        \"019253c6-b848-7eb6-b328-6c61e63fbfec\",\n        \"019253c6-b848-7a00-a7cf-84365e71ad9e\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "97f8e43b-18f9-4556-9999-5fac055153e9",
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												},
+												{
+													"id": "6a3b9892-ab8a-4e35-b7f7-d0c0de218553",
+													"key": "id",
+													"value": "019261c9-580b-7444-a489-deb18e6c2ffe"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "74d1c4b5-cf3e-41b5-8aaf-f082ff386002",
 											"name": "Success",
 											"originalRequest": {
 												"method": "PATCH",
@@ -14865,6 +15131,11 @@
 						}
 					],
 					"id": "2a9cdb68-c147-4994-8797-f28f8b453f2a"
+				},
+				{
+					"name": "Get Profile",
+					"item": [],
+					"id": "d1e9274f-ce02-465d-a025-108c2dd485b9"
 				},
 				{
 					"name": "Get Profile",
