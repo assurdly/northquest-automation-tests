@@ -20151,7 +20151,7 @@
 									]
 								},
 								{
-									"name": "Invite User Copy 2",
+									"name": "Invite User-Non existing user",
 									"id": "ce9664bb-d9b9-48bd-8b91-d078a19f8bac",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -20260,7 +20260,7 @@
 									]
 								},
 								{
-									"name": "Invite User Copy 3",
+									"name": "Invite User-Empty fields",
 									"id": "2a06adce-8ce7-4f51-866e-d4bb0d5feb57",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -20369,7 +20369,7 @@
 									]
 								},
 								{
-									"name": "Invite User Copy 4",
+									"name": "Invite User-Invalid email",
 									"id": "9c82eb4f-e99b-41c6-95b1-c706387c8c0c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -20478,7 +20478,7 @@
 									]
 								},
 								{
-									"name": "Invite User Copy 5",
+									"name": "Invite User-Invalid role id",
 									"id": "4dfd8ec1-140d-4c78-b6f4-646cfb73d2af",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -20588,6 +20588,11 @@
 								}
 							],
 							"id": "f8b0d416-c704-4f7e-b22b-e427738f6e50"
+						},
+						{
+							"name": "Accept Invite",
+							"item": [],
+							"id": "57429f00-8570-405d-b4ec-993163f48a0e"
 						},
 						{
 							"name": "Accept Invite",
