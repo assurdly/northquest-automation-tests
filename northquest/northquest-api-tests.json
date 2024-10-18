@@ -22016,65 +22016,129 @@
 					"id": "06437e17-afb9-4898-a785-f825cd5f72cb"
 				},
 				{
-					"name": "New Folder",
-					"item": [],
+					"name": "Get Document",
+					"item": [
+						{
+							"name": "Get Document",
+							"id": "c370bc47-b0c1-426b-a217-f0757d0a8778",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/documents/:documentId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										":documentId"
+									],
+									"variable": [
+										{
+											"key": "documentId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Document-No auth",
+							"id": "d7240562-061f-4d4f-b865-5cf11d2219a0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/documents/:documentId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"documents",
+										":documentId"
+									],
+									"variable": [
+										{
+											"id": "375c1561-62ec-41b2-b640-f6b355e6637b",
+											"key": "documentId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
 					"id": "1a0d4310-9bea-4b85-abcc-d66b8acc83bf"
 				},
 				{
-					"name": "Get Document",
-					"id": "c370bc47-b0c1-426b-a217-f0757d0a8778",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/documents/:documentId",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"documents",
-								":documentId"
-							],
-							"variable": [
-								{
-									"key": "documentId",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Set Document",
-					"id": "323b1ed0-d9fa-4499-b9fc-f73a9b84a1c3",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"type_id\": \"\",\n    \"url\": \"\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+					"item": [
+						{
+							"name": "Set Document",
+							"id": "323b1ed0-d9fa-4499-b9fc-f73a9b84a1c3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type_id\": \"\",\n    \"url\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/documents"
+							},
+							"response": []
 						},
-						"url": "{{base_url}}/documents"
-					},
-					"response": []
+						{
+							"name": "Set Document Copy",
+							"id": "68ffe80c-46bd-4585-81fa-471982d487ed",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type_id\": \"\",\n    \"url\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/documents"
+							},
+							"response": []
+						}
+					],
+					"id": "a10bf831-a70b-42a7-952f-f7b037872c6b"
 				}
 			],
 			"id": "25550e73-77a0-41e1-b756-377d7ef340c1"
