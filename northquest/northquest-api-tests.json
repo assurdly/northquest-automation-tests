@@ -21851,6 +21851,72 @@
 										"url": "{{base_url}}/admin/roles"
 									},
 									"response": []
+								},
+								{
+									"name": "Create Role-Empty fields",
+									"id": "6ab9f23b-16b8-45c1-80b8-e528955b6598",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Manager\",\n    \"description\": \"Manager\",\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/roles"
+									},
+									"response": []
+								},
+								{
+									"name": "Create Role-Existing name",
+									"id": "cde27017-4155-4742-9471-385fd64d4f16",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Manager\",\n    \"description\": \"Manager\",\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/roles"
+									},
+									"response": []
+								},
+								{
+									"name": "Create Role Copy 3",
+									"id": "194cd382-562f-4731-a61b-1782a04277b0",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Manager\",\n    \"description\": \"Manager\",\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/roles"
+									},
+									"response": []
 								}
 							],
 							"id": "5d8ac06e-b3e0-4d50-9b23-1ce1d0ad4a3c"
