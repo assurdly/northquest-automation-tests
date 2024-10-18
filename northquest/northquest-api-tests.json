@@ -21973,22 +21973,52 @@
 			"item": [
 				{
 					"name": "List Documents",
-					"id": "c29713c1-2b77-4204-9ca1-394c4ccb6820",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
+					"item": [
+						{
+							"name": "List Documents",
+							"id": "c29713c1-2b77-4204-9ca1-394c4ccb6820",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/documents"
+							},
+							"response": []
 						},
-						"method": "GET",
-						"header": [],
-						"url": "{{base_url}}/documents"
-					},
-					"response": []
+						{
+							"name": "List Documents -No auth",
+							"id": "a77852f7-d6e5-4241-a50d-12d6c432531e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/documents"
+							},
+							"response": []
+						}
+					],
+					"id": "06437e17-afb9-4898-a785-f825cd5f72cb"
+				},
+				{
+					"name": "New Folder",
+					"item": [],
+					"id": "1a0d4310-9bea-4b85-abcc-d66b8acc83bf"
 				},
 				{
 					"name": "Get Document",
