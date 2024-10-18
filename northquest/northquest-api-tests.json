@@ -19931,6 +19931,114 @@
 											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T17:49:49.700Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"first_name\": \"Sodiq\",\n        \"last_name\": \"Dare\",\n        \"email\": \"sodiq@google.com\",\n        \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n        \"status\": \"pending\",\n        \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n        \"role\": {\n            \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Admin\",\n            \"slug\": \"admin\",\n            \"description\": null,\n            \"status\": \"active\"\n        }\n    }\n}"
 										}
 									]
+								},
+								{
+									"name": "Update User Copy",
+									"id": "cc6c3b7a-1e8a-4a69-816d-585b20edcfae",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "d8deb2b1-4833-4084-9458-c933f9205321",
+													"key": "id",
+													"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "929293e0-e543-4eb6-9407-3309859021b4",
+											"name": "Get User",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/users/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "836"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"344-fWpCH5u/RhneL0M2GuilEV7G8+A\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 15 Oct 2024 20:44:12 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T17:49:49.700Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"first_name\": \"Sodiq\",\n        \"last_name\": \"Dare\",\n        \"email\": \"sodiq@google.com\",\n        \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n        \"status\": \"pending\",\n        \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n        \"role\": {\n            \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Admin\",\n            \"slug\": \"admin\",\n            \"description\": null,\n            \"status\": \"active\"\n        }\n    }\n}"
+										}
+									]
 								}
 							],
 							"id": "45aa0112-9a40-41b4-9e3e-4c04d3faf82c"
