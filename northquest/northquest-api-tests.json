@@ -21763,55 +21763,97 @@
 						},
 						{
 							"name": "Get Role",
-							"id": "86bd3fc0-b45e-4060-8070-f132416dee59",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/admin/roles/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"roles",
-										":id"
-									],
-									"variable": [
-										{
-											"id": "587be60b-58d8-4346-82ee-4a74952241e7",
-											"key": "id",
-											"value": "01927265-d8bc-7195-996f-e131d5e13329"
+							"item": [
+								{
+									"name": "Get Role",
+									"id": "86bd3fc0-b45e-4060-8070-f132416dee59",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "587be60b-58d8-4346-82ee-4a74952241e7",
+													"key": "id",
+													"value": "01927265-d8bc-7195-996f-e131d5e13329"
+												}
+											]
 										}
-									]
+									},
+									"response": []
+								},
+								{
+									"name": "Get Role- No auth",
+									"id": "89933e5f-8cc1-46b6-8827-02314df41624",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "587be60b-58d8-4346-82ee-4a74952241e7",
+													"key": "id",
+													"value": "01927265-d8bc-7195-996f-e131d5e13329"
+												}
+											]
+										}
+									},
+									"response": []
 								}
-							},
-							"response": []
+							],
+							"id": "1403967b-5b51-48ef-9590-2192898275dc"
 						},
 						{
 							"name": "Create Role",
-							"id": "ca64a2d3-560a-40bb-adf9-ca23c0feede0",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Manager\",\n    \"description\": \"Manager\",\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\"\n    ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/roles"
-							},
-							"response": []
+							"item": [
+								{
+									"name": "Create Role",
+									"id": "ca64a2d3-560a-40bb-adf9-ca23c0feede0",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Manager\",\n    \"description\": \"Manager\",\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/roles"
+									},
+									"response": []
+								}
+							],
+							"id": "5d8ac06e-b3e0-4d50-9b23-1ce1d0ad4a3c"
 						}
 					],
 					"id": "f3b66bd7-0b77-434f-8701-7988339e9010"
