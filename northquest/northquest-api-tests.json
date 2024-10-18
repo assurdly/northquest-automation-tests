@@ -21405,123 +21405,205 @@
 							"id": "9db1f076-26d5-48ba-848d-d49f16917ca6"
 						},
 						{
-							"name": "New Folder",
-							"item": [],
-							"id": "a07f507b-06c1-437e-a813-9136fa35b5e9"
-						},
-						{
 							"name": "Get Roles",
-							"id": "3fc235a9-23e7-4a09-8a76-c8bd835be542",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{base_url}}/admin/roles"
-							},
-							"response": [
+							"item": [
 								{
-									"id": "64a7d738-bbfb-4d82-ac22-4d01c732fdc1",
 									"name": "Get Roles",
-									"originalRequest": {
+									"id": "3fc235a9-23e7-4a09-8a76-c8bd835be542",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "GET",
 										"header": [],
 										"url": "{{base_url}}/admin/roles"
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "758"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"2f6-AVtWRZV0/21U72HzRqvbKK+bDVo\""
-										},
-										{
-											"key": "Date",
-											"value": "Tue, 15 Oct 2024 20:46:28 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"id": "64a7d738-bbfb-4d82-ac22-4d01c732fdc1",
+											"name": "Get Roles",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/roles"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "758"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2f6-AVtWRZV0/21U72HzRqvbKK+bDVo\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 15 Oct 2024 20:46:28 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"roles\": [\n            {\n                \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Admin\",\n                \"slug\": \"admin\",\n                \"description\": null,\n                \"status\": \"active\"\n            },\n            {\n                \"id\": \"019291e9-5a4f-766a-8e6a-98ebea7542f8\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-15T20:40:42.310Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-15T20:40:42.310Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"sodsiqsnst\",\n                \"slug\": \"sodsiqsnst\",\n                \"description\": \"sodiq\",\n                \"status\": \"active\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
 										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"roles\": [\n            {\n                \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Admin\",\n                \"slug\": \"admin\",\n                \"description\": null,\n                \"status\": \"active\"\n            },\n            {\n                \"id\": \"019291e9-5a4f-766a-8e6a-98ebea7542f8\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-15T20:40:42.310Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-15T20:40:42.310Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"sodsiqsnst\",\n                \"slug\": \"sodsiqsnst\",\n                \"description\": \"sodiq\",\n                \"status\": \"active\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Update Role",
-							"id": "0dbaba93-5194-47e0-ad09-bc43b799e08c",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\",\n        \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n        \"019291bc-4e74-769e-ab34-984446abf18d\",\n        \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n        \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\"\n    ]\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									]
 								},
-								"url": {
-									"raw": "{{base_url}}/admin/roles/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"roles",
-										":id"
-									],
-									"variable": [
+								{
+									"name": "Get Roles-No auth",
+									"id": "c80e8651-1da7-454b-aeba-34359800e03d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/roles"
+									},
+									"response": [
 										{
-											"id": "5f6f6def-686b-4495-a2f0-3828d3034cb3",
-											"key": "id",
-											"value": "01927265-d8bc-7195-996f-e131d5e13329"
+											"id": "6e242919-cc35-4217-88f0-ef602e159916",
+											"name": "Get Roles",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/roles"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "758"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2f6-AVtWRZV0/21U72HzRqvbKK+bDVo\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 15 Oct 2024 20:46:28 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"roles\": [\n            {\n                \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Admin\",\n                \"slug\": \"admin\",\n                \"description\": null,\n                \"status\": \"active\"\n            },\n            {\n                \"id\": \"019291e9-5a4f-766a-8e6a-98ebea7542f8\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-15T20:40:42.310Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-15T20:40:42.310Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"sodsiqsnst\",\n                \"slug\": \"sodsiqsnst\",\n                \"description\": \"sodiq\",\n                \"status\": \"active\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
 										}
 									]
 								}
-							},
-							"response": []
+							],
+							"id": "a07f507b-06c1-437e-a813-9136fa35b5e9"
+						},
+						{
+							"name": "Update Role",
+							"item": [
+								{
+									"name": "Update Role",
+									"id": "0dbaba93-5194-47e0-ad09-bc43b799e08c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\",\n        \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n        \"019291bc-4e74-769e-ab34-984446abf18d\",\n        \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n        \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "5f6f6def-686b-4495-a2f0-3828d3034cb3",
+													"key": "id",
+													"value": "01927265-d8bc-7195-996f-e131d5e13329"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "80fbf70b-15f4-4052-8f0e-b6952182c527"
 						},
 						{
 							"name": "Get Role",
