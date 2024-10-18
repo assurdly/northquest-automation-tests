@@ -22116,8 +22116,30 @@
 							"response": []
 						},
 						{
-							"name": "Set Document Copy",
+							"name": "Set Document-Empty fields",
 							"id": "68ffe80c-46bd-4585-81fa-471982d487ed",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type_id\": \"\",\n    \"url\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/documents"
+							},
+							"response": []
+						},
+						{
+							"name": "Set Document-Invalid type id",
+							"id": "9dc11772-13e6-4b05-8856-b4e76d6a5c1f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
