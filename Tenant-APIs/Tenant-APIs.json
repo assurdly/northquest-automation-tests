@@ -6981,7 +6981,7 @@
 											"",
 											"    if (data) {",
 											"        pm.test(\"The accuracy of the filtered results\", () => {",
-											"            pm.expect(data[0].first_name).to.eql('wunmi');",
+											"            pm.expect(data[0].first_name).to.eql('Wunmi');",
 											"        })",
 											"    }",
 											"} catch (error) {",
@@ -7002,7 +7002,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/users?filter[first_name]=wunmi",
+									"raw": "{{base_url}}/tenants/:tenantId/users?filter[first_name]=Wunmi",
 									"host": [
 										"{{base_url}}"
 									],
@@ -7014,7 +7014,7 @@
 									"query": [
 										{
 											"key": "filter[first_name]",
-											"value": "wunmi"
+											"value": "Wunmi"
 										},
 										{
 											"key": "filter[email]",
@@ -7038,12 +7038,72 @@
 							"response": []
 						},
 						{
+							"name": "List Users - Filter (FirstName) Copy",
+							"id": "5a32058c-fd2c-439d-b5eb-20b92fe581d9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tenants/:tenantId/users?filter[email]=Wunmi",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tenants",
+										":tenantId",
+										"users"
+									],
+									"query": [
+										{
+											"key": "filter[email]",
+											"value": "Wunmi"
+										}
+									],
+									"variable": [
+										{
+											"key": "tenantId",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "List Users-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2975afe6-e227-47a2-8aaa-c002d062776b",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 401\", function () {",
+											"        pm.response.to.have.status(401);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "6a0a751d-2980-4c0d-8376-cd2a653ead8f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -7075,7 +7135,6 @@
 									],
 									"variable": [
 										{
-											"id": "a397b186-249e-4761-918b-3df9ac61ef7a",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
