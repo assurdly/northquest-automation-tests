@@ -15816,6 +15816,32 @@
 						},
 						{
 							"name": "Get Profile-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b9fa3625-6bf2-4c47-86e5-ff06d373553b",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Test for valid status code\", () => {\r",
+											"        pm.expect(statusCode).to.eql(401)\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "69c40ae3-3660-4a02-8f7d-fb1137f1f396",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -15834,7 +15860,6 @@
 									],
 									"variable": [
 										{
-											"id": "27450cb6-c6c5-47f0-8f6a-fa699706970d",
 											"key": "profile_id",
 											"value": "{{profileId}}"
 										}
@@ -17658,33 +17683,21 @@
 			"name": "Definitions",
 			"item": [
 				{
-					"name": "List All Definitions",
-					"id": "2d3dfd4f-ef20-4553-ae0b-112738265c46",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "",
-								"disabled": true
-							}
-						],
-						"url": "{{base_url}}/definitions"
-					},
-					"response": [
+					"name": "List Definitions",
+					"item": [
 						{
-							"id": "0b214d6a-fc4a-4e75-99ee-9f113cd53d26",
 							"name": "List All Definitions",
-							"originalRequest": {
+							"id": "2d3dfd4f-ef20-4553-ae0b-112738265c46",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [
 									{
@@ -17695,121 +17708,139 @@
 								],
 								"url": "{{base_url}}/definitions"
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
+									"id": "0b214d6a-fc4a-4e75-99ee-9f113cd53d26",
+									"name": "List All Definitions",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "",
+												"disabled": true
+											}
+										],
+										"url": "{{base_url}}/definitions"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "853"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"355-suM1HbOshizQb+0lDprLS0n1Jvc\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 06 Oct 2024 23:22:37 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\",\n            \"meta\": null,\n            \"created_on\": \"2024-09-27T11:59:36.320Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T11:59:36.320Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"slug\": \"profiles\",\n            \"name\": \"Profiles\",\n            \"description\": null,\n            \"version\": 1,\n            \"schemas\": [\n                {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-09-27T09:36:57.352Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-09-27T09:36:57.352Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"slug\": \"name\",\n                    \"name\": \"Name\",\n                    \"tags\": null,\n                    \"options\": null,\n                    \"version\": 1,\n                    \"type\": \"text\",\n                    \"default\": null,\n                    \"enabled\": true,\n                    \"required\": true,\n                    \"order\": 1,\n                    \"storage_strategy\": \"plain\",\n                    \"definition_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n                }\n            ]\n        }\n    ]\n}"
 								},
 								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "853"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"355-suM1HbOshizQb+0lDprLS0n1Jvc\""
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 06 Oct 2024 23:22:37 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "6d7239d9-dc22-4ee3-a649-36749fcb2383",
+									"name": "List All Definitions",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/definitions"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "853"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"355-suM1HbOshizQb+0lDprLS0n1Jvc\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 06 Oct 2024 23:19:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\",\n            \"meta\": null,\n            \"created_on\": \"2024-09-27T11:59:36.320Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T11:59:36.320Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"slug\": \"profiles\",\n            \"name\": \"Profiles\",\n            \"description\": null,\n            \"version\": 1,\n            \"schemas\": [\n                {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-09-27T09:36:57.352Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-09-27T09:36:57.352Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"slug\": \"name\",\n                    \"name\": \"Name\",\n                    \"tags\": null,\n                    \"options\": null,\n                    \"version\": 1,\n                    \"type\": \"text\",\n                    \"default\": null,\n                    \"enabled\": true,\n                    \"required\": true,\n                    \"order\": 1,\n                    \"storage_strategy\": \"plain\",\n                    \"definition_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n                }\n            ]\n        }\n    ]\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\",\n            \"meta\": null,\n            \"created_on\": \"2024-09-27T11:59:36.320Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T11:59:36.320Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"slug\": \"profiles\",\n            \"name\": \"Profiles\",\n            \"description\": null,\n            \"version\": 1,\n            \"schemas\": [\n                {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-09-27T09:36:57.352Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-09-27T09:36:57.352Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"slug\": \"name\",\n                    \"name\": \"Name\",\n                    \"tags\": null,\n                    \"options\": null,\n                    \"version\": 1,\n                    \"type\": \"text\",\n                    \"default\": null,\n                    \"enabled\": true,\n                    \"required\": true,\n                    \"order\": 1,\n                    \"storage_strategy\": \"plain\",\n                    \"definition_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n                }\n            ]\n        }\n    ]\n}"
-						},
-						{
-							"id": "6d7239d9-dc22-4ee3-a649-36749fcb2383",
-							"name": "List All Definitions",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": "{{base_url}}/definitions"
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "853"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"355-suM1HbOshizQb+0lDprLS0n1Jvc\""
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 06 Oct 2024 23:19:29 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\",\n            \"meta\": null,\n            \"created_on\": \"2024-09-27T11:59:36.320Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T11:59:36.320Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"slug\": \"profiles\",\n            \"name\": \"Profiles\",\n            \"description\": null,\n            \"version\": 1,\n            \"schemas\": [\n                {\n                    \"id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-09-27T09:36:57.352Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-09-27T09:36:57.352Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"slug\": \"name\",\n                    \"name\": \"Name\",\n                    \"tags\": null,\n                    \"options\": null,\n                    \"version\": 1,\n                    \"type\": \"text\",\n                    \"default\": null,\n                    \"enabled\": true,\n                    \"required\": true,\n                    \"order\": 1,\n                    \"storage_strategy\": \"plain\",\n                    \"definition_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n                }\n            ]\n        }\n    ]\n}"
+							]
 						}
-					]
+					],
+					"id": "53d81763-b547-4b84-a5fb-a90068a9dab4"
 				},
 				{
 					"name": "Get Definition",
