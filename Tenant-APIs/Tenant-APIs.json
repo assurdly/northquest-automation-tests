@@ -7482,6 +7482,32 @@
 						},
 						{
 							"name": "List Profiles-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c31191e1-dae7-4451-91c8-4e030f9e7464",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "89c0c409-3bef-4535-a444-6c85b6891543",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -7507,9 +7533,8 @@
 									],
 									"variable": [
 										{
-											"id": "cee451e1-1e29-4e09-a52d-d1c76aa4a430",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "@"
 										}
 									]
 								}
@@ -7518,11 +7543,37 @@
 						},
 						{
 							"name": "List Profiles-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9484098a-874d-456d-a267-aad2f124fa6e",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 401\", function () {",
+											"        pm.response.to.have.status(401);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "4828863a-f560-4156-a0b9-cf415de1428c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": {}
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -7543,7 +7594,6 @@
 									],
 									"variable": [
 										{
-											"id": "cee451e1-1e29-4e09-a52d-d1c76aa4a430",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
@@ -7577,7 +7627,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/profiles/:profileId",
+									"raw": "{{base_url}}/tenants/:tenantId/profiles/:profileIdd",
 									"host": [
 										"{{base_url}}"
 									],
@@ -7585,17 +7635,15 @@
 										"tenants",
 										":tenantId",
 										"profiles",
-										":profileId"
+										":profileIdd"
 									],
 									"variable": [
 										{
-											"id": "dcac1139-5775-470a-97ed-589949a4a0d6",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "583f3fcc-2b84-4a9a-85f0-43db372135ba",
-											"key": "profileId",
+											"key": "profileIdd",
 											"value": ""
 										}
 									]
