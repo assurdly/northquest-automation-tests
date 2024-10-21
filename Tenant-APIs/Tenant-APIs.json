@@ -4834,6 +4834,38 @@
 					"item": [
 						{
 							"name": "List Document Types",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cf889e55-0fcc-45ff-80c3-518da3591f13",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"    pm.environment.set(\"fetchedDocumentTypeId\", data[0].id)",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "54ecffff-97b8-4636-942c-acc944adcdac",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -4853,7 +4885,6 @@
 									],
 									"variable": [
 										{
-											"id": "9de95861-0177-4f8c-a110-8dc82d06be15",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
@@ -5764,11 +5795,36 @@
 						},
 						{
 							"name": "Get Document Type-No Auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e4b17f51-09f3-47ef-bf92-88fb8e4cc15d",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 401\", function () {",
+											"        pm.response.to.have.status(401);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "61b098f8-885d-4eeb-a46f-8e16e663472b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -5784,12 +5840,10 @@
 									],
 									"variable": [
 										{
-											"id": "47d635aa-5906-4fdf-b965-01d934c5a647",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "96679489-d4bc-4336-825a-3996846c9eaf",
 											"key": "documentTypeId",
 											"value": "019289f1-8d87-766b-8bff-1ee5c22d9add"
 										}
@@ -5912,14 +5966,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/tiers",
+									"raw": "{{base_url}}/tenants/:tenantId/tierss",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"tenants",
 										":tenantId",
-										"tiers"
+										"tierss"
 									],
 									"query": [
 										{
@@ -5930,7 +5984,6 @@
 									],
 									"variable": [
 										{
-											"id": "a46ce058-4a5d-4130-9c29-2cdca57fd760",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
