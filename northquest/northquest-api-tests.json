@@ -17841,6 +17841,32 @@
 						},
 						{
 							"name": "List All Definitions-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7fc7afdf-18c5-46cc-bcc5-9b670d9add4b",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Test for valid status code\", () => {\r",
+											"        pm.expect(statusCode).to.eql(401)\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "693bb308-bad1-4d03-9a84-a8833033b8e2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -18182,6 +18208,32 @@
 						},
 						{
 							"name": "Get Definition-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a818acaf-5988-43d1-a4dc-10291a080da2",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Test for valid status code\", () => {\r",
+											"        pm.expect(statusCode).to.eql(401)\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "560a40f2-8900-4178-8a92-7a9e6ef400be",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -18200,7 +18252,6 @@
 									],
 									"variable": [
 										{
-											"id": "684b485d-dec7-4252-af1f-1e44da3fbef8",
 											"key": "slug",
 											"value": "profiles"
 										}
