@@ -3968,11 +3968,36 @@
 						},
 						{
 							"name": "List Documents--No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "22ad20ad-f8e9-467c-bc08-41eaf64b2c85",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 401\", function () {",
+											"        pm.response.to.have.status(401);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "b56851fc-0cd8-4d80-898c-cc1e3f4ca4a5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -3987,7 +4012,6 @@
 									],
 									"variable": [
 										{
-											"id": "b28b331f-60b2-4b3a-9e96-33e2a58bc6db",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
@@ -4043,6 +4067,34 @@
 						},
 						{
 							"name": "Set Document-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e0679b94-ac02-4364-89c9-105d1317fe3c",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"array\") && pm.expect(message).to.include('type_id must be a UUID')",
+											"        pm.expect(message).to.be.an(\"array\") && pm.expect(message).to.include('profile_id must be a UUID')",
+											"        pm.expect(message).to.be.an(\"array\") && pm.expect(message).to.include('url must be a URL address')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "2ecd1d0c-3aec-4538-a4c3-68dea8f923c1",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -4071,9 +4123,8 @@
 									],
 									"variable": [
 										{
-											"id": "6ea2d2dd-147d-4a19-864b-9889d1758f09",
 											"key": "tenantId",
-											"value": ""
+											"value": "00000000-0000-0000-0000-000000000000"
 										}
 									]
 								}
