@@ -14101,16 +14101,49 @@
 								},
 								{
 									"name": "Update Role-Invalid status",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ba72f5f1-dcca-4f35-a2ca-f671ace76b42",
+												"exec": [
+													"try {\r",
+													"     const { message } = pm.response.json()\r",
+													"\r",
+													"     pm.test(\"Status code is 400\", () => {\r",
+													"         pm.response.to.have.status(400);\r",
+													"     });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message[0]).to.eql(\"Role status can either be active or inactive\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"     console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "7cfc4dda-5b00-417a-b2fe-3c39789a0ebe",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
 										"method": "PATCH",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Account deleterss\",\n    \"status\": \"inactive\",\n    \"permissions\": [\n        \"019253c6-b848-7eb6-b328-6c61e63fbfec\",\n        \"019253c6-b848-7a00-a7cf-84365e71ad9e\"\n    ]\n}",
+											"raw": "{\n    \"name\": \"Account deleterss\",\n    \"status\": \"123456\",\n    \"permissions\": [\n        \"019253c6-b848-7eb6-b328-6c61e63fbfec\",\n        \"019253c6-b848-7a00-a7cf-84365e71ad9e\"\n    ]\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -14130,14 +14163,12 @@
 											],
 											"variable": [
 												{
-													"id": "97f8e43b-18f9-4556-9999-5fac055153e9",
 													"key": "profile_id",
-													"value": "{{profileId}}"
+													"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
 												},
 												{
-													"id": "6a3b9892-ab8a-4e35-b7f7-d0c0de218553",
 													"key": "id",
-													"value": "019261c9-580b-7444-a489-deb18e6c2ffe"
+													"value": "019261e0-2249-7cce-a142-c84262b5ae14"
 												}
 											]
 										}
