@@ -7038,7 +7038,41 @@
 							"response": []
 						},
 						{
-							"name": "List Users - Filter (FirstName) Copy",
+							"name": "List Users - Filter (Email)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2b2b96bf-c63f-4713-ad4e-76c2ffcdd4e1",
+										"exec": [
+											"try {",
+											"    const {",
+											"        data",
+											"    } = pm.response.json();",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Validate that the user's password is not returned in the response\", () => {",
+											"        pm.expect(data[0]).to.not.have.property('password');",
+											"    })",
+											"",
+											"    if (data) {",
+											"        pm.test(\"The accuracy of the filtered results\", () => {",
+											"            pm.expect(data[0].email).to.eql('adewunmiakinsanya@gmail.com');",
+											"        })",
+											"    }",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "5a32058c-fd2c-439d-b5eb-20b92fe581d9",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -7047,7 +7081,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/users?filter[email]=Wunmi",
+									"raw": "{{base_url}}/tenants/:tenantId/users",
 									"host": [
 										"{{base_url}}"
 									],
@@ -7059,13 +7093,83 @@
 									"query": [
 										{
 											"key": "filter[email]",
+											"value": "Wunmi",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "tenantId",
+											"value": "00000000-0000-0000-0000-000000000000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Users - Filter (Phone)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3368e199-7b25-4b48-a74b-079f76e1e7d8",
+										"exec": [
+											"try {",
+											"    const {",
+											"        data",
+											"    } = pm.response.json();",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Validate that the user's password is not returned in the response\", () => {",
+											"        pm.expect(data[0]).to.not.have.property('password');",
+											"    })",
+											"",
+											"    if (data) {",
+											"        pm.test(\"The accuracy of the filtered results\", () => {",
+											"            pm.expect(data[0].phone).to.eql('');",
+											"        })",
+											"    }",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "27889fed-40c3-41a7-b85c-81bb6e38c133",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tenants/:tenantId/users?filter[first_name]=Wunmi",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tenants",
+										":tenantId",
+										"users"
+									],
+									"query": [
+										{
+											"key": "filter[first_name]",
 											"value": "Wunmi"
 										}
 									],
 									"variable": [
 										{
 											"key": "tenantId",
-											"value": ""
+											"value": "00000000-0000-0000-0000-000000000000"
 										}
 									]
 								}
