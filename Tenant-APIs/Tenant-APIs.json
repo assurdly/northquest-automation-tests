@@ -1030,6 +1030,32 @@
 						},
 						{
 							"name": "Get Definition-Invalid Definition id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c0c1b116-a767-4235-9f70-70dbae4be0c5",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes('not found')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "641fdf7f-a875-4afd-afde-2c163135d1b8",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1050,14 +1076,12 @@
 									],
 									"variable": [
 										{
-											"id": "43aafcb8-6ea2-4179-adfb-30bae5b8d76a",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "3ccbee81-e912-44df-aeee-228c40d6074e",
 											"key": "definitionId",
-											"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
+											"value": "01923359-cd8b-755b-862f-22b00cdce000"
 										}
 									]
 								}
@@ -1149,11 +1173,36 @@
 						},
 						{
 							"name": "Get Definition-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "048db903-c704-4454-a223-7adbc5ab9193",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 401\", function () {",
+											"        pm.response.to.have.status(401);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "400cf676-65e8-4063-978b-94a56b19bb53",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -1169,12 +1218,10 @@
 									],
 									"variable": [
 										{
-											"id": "43aafcb8-6ea2-4179-adfb-30bae5b8d76a",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "3ccbee81-e912-44df-aeee-228c40d6074e",
 											"key": "definitionId",
 											"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
 										}
@@ -1291,18 +1338,17 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/definitions",
+									"raw": "{{base_url}}/tenants/:tenantId/definitionss",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"tenants",
 										":tenantId",
-										"definitions"
+										"definitionss"
 									],
 									"variable": [
 										{
-											"id": "cbe2bfbc-93dc-464d-b1c4-ff0667837211",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
@@ -1400,6 +1446,44 @@
 						},
 						{
 							"name": "Create Definition-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "91956bae-4d61-447c-b0ee-a288ea26a391",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", () => {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Bad Request\");",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"slug should not be empty\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"name should not be empty\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"description should not be empty\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "b2b9cd07-48e6-422b-9bb2-6c4477e59444",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1409,7 +1493,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"slug\": \"kyc\",\n    \"name\": \"KYC\",\n    \"description\": \"KYC definitions\"\n}",
+									"raw": "{\n    \"slug\": \"\",\n    \"name\": \"\",\n    \"description\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1428,7 +1512,6 @@
 									],
 									"variable": [
 										{
-											"id": "cbe2bfbc-93dc-464d-b1c4-ff0667837211",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
