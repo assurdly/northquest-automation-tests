@@ -13,6 +13,22 @@
 					"item": [
 						{
 							"name": "List Definitions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f0068d3a-99b7-4a7e-a6ec-2d6c810f3db5",
+										"exec": [
+											"// pm.environment.set('origin', \"https://northquestfinance.com\")",
+											"",
+											"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "d30dabc8-6aa1-4802-ad7a-595ab73350c9",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
