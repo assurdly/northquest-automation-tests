@@ -5533,6 +5533,32 @@
 						},
 						{
 							"name": "Get Document Type-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7565e880-1716-40f8-8e05-c52cb9b15d4c",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "471a896f-6338-4c71-bb50-abe2a42e314a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -5553,12 +5579,10 @@
 									],
 									"variable": [
 										{
-											"id": "47d635aa-5906-4fdf-b965-01d934c5a647",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "@@"
 										},
 										{
-											"id": "96679489-d4bc-4336-825a-3996846c9eaf",
 											"key": "documentTypeId",
 											"value": "019289f1-8d87-766b-8bff-1ee5c22d9add"
 										}
@@ -6149,6 +6173,32 @@
 						},
 						{
 							"name": "Create Tier-Already existing tier",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0c407c63-edc8-4a67-bb89-a0cc44787f1d",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql(\"Tier type Tier 1 or level 1 already exists\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "bca6dfa9-a178-44ea-9f24-2ad8aa3bfb07",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -6184,7 +6234,6 @@
 									],
 									"variable": [
 										{
-											"id": "a46ce058-4a5d-4130-9c29-2cdca57fd760",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
@@ -6201,6 +6250,38 @@
 					"item": [
 						{
 							"name": "List Tiers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "261db458-15ca-4e79-9aa3-49ddc7f5a06b",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"    pm.environment.set(\"fetchedTierId\", data[0].id)",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "3e148e53-bb1a-4ed1-9240-ff5eec1b647a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -6219,22 +6300,57 @@
 										"value": "Bearer eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18ybUVZVTZZd01zTWNlbnFtcnBua1VudXBlQmsiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL2tpdWItZnJvbnRlbmQudmVyY2VsLmFwcCIsImV4cCI6MTcyODkwNzExOSwiaWF0IjoxNzI4OTA3MDU5LCJpc3MiOiJodHRwczovL2FkdmFuY2VkLXJvdWdoeS05My5jbGVyay5hY2NvdW50cy5kZXYiLCJqdGkiOiI1NjQ4YjY3NTI2ZDA5MzE0YTYwMyIsIm1ldGFkYXRhIjp7Im9uYm9hcmRpbmciOnRydWV9LCJuYmYiOjE3Mjg5MDcwNDksInNpZCI6InNlc3NfMm5JNURWQnRKaG12ckNNU1IxS25VT0ZORWN4Iiwic3ViIjoidXNlcl8ybkNUTHkxbFE5clR6Y1E3a09KSjBHWmpuZmgifQ.ko-RDk2WPeZxkwClWT05O6gRiLzyUxsqtqhm8pmsJZCMD1b6KciOdVo-XKy6U5xde8xPf28oMfRQlDONaPDOMwwYI-y314Oir8Zrl9Rd44eQURUtf_FyFx_1oqw4flmEJH_5UepjGd9ju3YzLPjaSIB7Sc6wQr3VE8mbEvMJHWlsr_d-hSe06Q6drb9IFVlLNXaM8EPhpQU3e6SgZpy8sZQVJYgDc-lC5dbTTSbGNUz0Sh_NoC8bia6mhpNkMuu6JGMfKYq_7AAs0edL_kLUa7FBuh8uPVrQLpOGckTv2dJH61d2D3HqgSEbeUKXxiEtGdPlYNf8YlInmQfp9eNAAg"
 									}
 								],
-								"url": "https://kiub-v1-convex-staging-25cb91e7cc32.herokuapp.com/user/guest/available-times"
+								"url": {
+									"raw": "{{base_url}}/tenants/:tenantId/tiers",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tenants",
+										":tenantId",
+										"tiers"
+									],
+									"variable": [
+										{
+											"key": "tenantId",
+											"value": "00000000-0000-0000-0000-000000000000"
+										}
+									]
+								}
 							},
 							"response": []
 						},
 						{
 							"name": "List Tiers-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6152fc13-69da-4d82-8fe4-35c442a9d6c6",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 401\", function () {",
+											"        pm.response.to.have.status(401);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "9eee451a-766d-4740-bcc4-1056575d8866",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18ybUVZVTZZd01zTWNlbnFtcnBua1VudXBlQmsiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL2tpdWItZnJvbnRlbmQudmVyY2VsLmFwcCIsImV4cCI6MTcyODk5MzQ2MCwiaWF0IjoxNzI4OTkzNDAwLCJpc3MiOiJodHRwczovL2FkdmFuY2VkLXJvdWdoeS05My5jbGVyay5hY2NvdW50cy5kZXYiLCJqdGkiOiJhMjA1OTFiNmY5ODFhYjM2MzczYyIsIm1ldGFkYXRhIjp7Im9uYm9hcmRpbmciOnRydWV9LCJuYmYiOjE3Mjg5OTMzOTAsInNpZCI6InNlc3NfMm5JNURWQnRKaG12ckNNU1IxS25VT0ZORWN4Iiwic3ViIjoidXNlcl8ybkNUTHkxbFE5clR6Y1E3a09KSjBHWmpuZmgifQ.GiAulPSsCIC-BmLNoM4sVTEv6r2ahbHepfXl7Lpbir7fnemmff9Oyf91LnNuu4tGay1Z_JoLG8qAwkRySLc4fW1uQjaAV7uTN-Z7bw4mcp49qlHsEg2nDsmc-ujvPf4S8hnXn3EHSvRP71Uggvhqj5Bn8-hw93D-P-dp7w6N1sG9Hr2QepQD9CGPmL0C_QOauuHlxRhfRfDKKRmnYzGF5i0bDtv2zuO4k17vuA9xuefnqM_Nrv2vi3wRuZr8M8NRH0nLU_eVxYXlJ4Encpph5hS8rrZ5tiTltw1_-2Vx-K93VEyWTDI7NBE_DywgHQC52mIBQ2z6AvpgDjw167mSCQ"
-									}
+									"type": "noauth"
 								},
 								"method": "GET",
 								"header": [
