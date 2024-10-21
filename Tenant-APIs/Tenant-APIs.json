@@ -6779,13 +6779,12 @@
 											"    const {",
 											"        data",
 											"    } = pm.response.json();",
-											"    ",
+											"",
 											"    pm.test(\"Status code is 200\", function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
 											"",
 											"    pm.test(\"Validate that the user's password is not returned in the response\", () => {",
-											"        const user = pm.response.json().data.user;",
 											"        pm.expect(data[0]).to.not.have.property('password');",
 											"    })",
 											"} catch (error) {",
@@ -6844,6 +6843,32 @@
 						},
 						{
 							"name": "List Users-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d87c23ab-a61d-47fa-9953-82b3c30a9d45",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "a343133e-108e-4f47-860a-ba7601cb84fe",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -6880,9 +6905,8 @@
 									],
 									"variable": [
 										{
-											"id": "a397b186-249e-4761-918b-3df9ac61ef7a",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "@@"
 										}
 									]
 								}
