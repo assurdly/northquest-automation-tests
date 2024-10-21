@@ -6609,14 +6609,12 @@
 									],
 									"variable": [
 										{
-											"id": "31c399e8-73a1-4bd0-a5e5-dcc3bac875e6",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "cb5b11b7-2390-453f-a61f-9b7e2b0cfde0",
 											"key": "tierId",
-											"value": ""
+											"value": "@@"
 										}
 									]
 								}
@@ -6639,7 +6637,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/tiers/:tierId",
+									"raw": "{{base_url}}/tenants/:tenantId/tiers/:tierIdd",
 									"host": [
 										"{{base_url}}"
 									],
@@ -6647,17 +6645,15 @@
 										"tenants",
 										":tenantId",
 										"tiers",
-										":tierId"
+										":tierIdd"
 									],
 									"variable": [
 										{
-											"id": "bd8197bc-92c5-4872-90a4-583609b76bb6",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "3f5677a4-8d80-4c4e-96fc-b2ab252b28d7",
-											"key": "tierId",
+											"key": "tierIdd",
 											"value": ""
 										}
 									]
