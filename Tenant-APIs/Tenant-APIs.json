@@ -4206,7 +4206,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type_id\": \"\",\n    \"url\": \"\",\n    \"profile_id\": \"\"\n}",
+									"raw": "{\n    \"type_id\": \"00000000-0000-0000-0000-000000000000\",\n    \"url\": \"https://google.com\",\n    \"profile_id\": \"00000000-0000-0000-0000-000000000000\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4225,9 +4225,8 @@
 									],
 									"variable": [
 										{
-											"id": "6ea2d2dd-147d-4a19-864b-9889d1758f09",
 											"key": "tenantId",
-											"value": ""
+											"value": "00000000-0000-0000-0000-000000000000"
 										}
 									]
 								}
@@ -4265,18 +4264,17 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/document-types",
+									"raw": "{{base_url}}/tenants/:tenantId/document-typess",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"tenants",
 										":tenantId",
-										"document-types"
+										"document-typess"
 									],
 									"variable": [
 										{
-											"id": "fee7b76d-1af0-4c93-bf91-2d671a251d69",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
@@ -4374,6 +4372,35 @@
 						},
 						{
 							"name": "Create Document Type-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "29973437-621e-4542-88e7-28798a1ade8d",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"array\")",
+											"        pm.expect(message).to.include('name should not be empty')",
+											"        pm.expect(message).to.include('enabled must be a boolean value')",
+											"        pm.expect(message).to.include('required must be a boolean value')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "a24c5d9a-bb67-483d-966d-0b47ad0b4ee1",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -4383,7 +4410,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Proof of address\",\n    \"description\": \"Proof of address\",\n    \"enabled\": true,\n    \"required\": true\n}",
+									"raw": "{\n    \"name\": \"\",\n    \"description\": \"\",\n    \"enabled\": \"\",\n    \"required\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4402,7 +4429,6 @@
 									],
 									"variable": [
 										{
-											"id": "fee7b76d-1af0-4c93-bf91-2d671a251d69",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
