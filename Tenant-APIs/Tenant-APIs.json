@@ -6663,6 +6663,32 @@
 						},
 						{
 							"name": "Delete Tier-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "130882b2-6d05-4f48-ba28-9df7117d1eef",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "7417cadc-12d2-4e72-ac1c-c325637dad26",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -6683,12 +6709,10 @@
 									],
 									"variable": [
 										{
-											"id": "bd8197bc-92c5-4872-90a4-583609b76bb6",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "@@"
 										},
 										{
-											"id": "3f5677a4-8d80-4c4e-96fc-b2ab252b28d7",
 											"key": "tierId",
 											"value": ""
 										}
@@ -6719,14 +6743,12 @@
 									],
 									"variable": [
 										{
-											"id": "bd8197bc-92c5-4872-90a4-583609b76bb6",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "3f5677a4-8d80-4c4e-96fc-b2ab252b28d7",
 											"key": "tierId",
-											"value": ""
+											"value": "@@"
 										}
 									]
 								}
