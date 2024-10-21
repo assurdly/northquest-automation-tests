@@ -22447,6 +22447,32 @@
 								},
 								{
 									"name": "Get Roles-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "365e18df-1e06-4da2-92ac-115f8183a12c",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "c80e8651-1da7-454b-aeba-34359800e03d",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -22788,6 +22814,32 @@
 								},
 								{
 									"name": "Get Role- No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "15fff6d1-4589-4cf1-b62e-da808329c58f",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "89933e5f-8cc1-46b6-8827-02314df41624",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -22807,7 +22859,6 @@
 											],
 											"variable": [
 												{
-													"id": "587be60b-58d8-4346-82ee-4a74952241e7",
 													"key": "id",
 													"value": "01927265-d8bc-7195-996f-e131d5e13329"
 												}
@@ -22902,60 +22953,78 @@
 			"item": [
 				{
 					"name": "Set Security Question",
-					"id": "a045a681-c574-4f00-b8c6-17f54a9593ca",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"question1\": \"What is the name of your first pet?\",\n    \"answer1\": \"Fluffy\",\n    \"question2\": \"What was the make of your first car?\",\n    \"answer2\": \"Toyota\",\n    \"otp\": \"892810\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/users/security-questions"
-					},
-					"response": []
+					"item": [
+						{
+							"name": "Set Security Question",
+							"id": "a045a681-c574-4f00-b8c6-17f54a9593ca",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"question1\": \"What is the name of your first pet?\",\n    \"answer1\": \"Fluffy\",\n    \"question2\": \"What was the make of your first car?\",\n    \"answer2\": \"Toyota\",\n    \"otp\": \"892810\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/users/security-questions"
+							},
+							"response": []
+						}
+					],
+					"id": "6fdc3b1d-c5de-4181-a5d3-8293f709f5e5"
 				},
 				{
 					"name": "Generate OTP",
-					"id": "9905a9e5-797e-4ed8-b9fe-5cd954015955",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"type\": \"security-question\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/users/generate-otp"
-					},
-					"response": []
+					"item": [
+						{
+							"name": "Generate OTP",
+							"id": "9905a9e5-797e-4ed8-b9fe-5cd954015955",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"type\": \"security-question\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/users/generate-otp"
+							},
+							"response": []
+						}
+					],
+					"id": "26d59048-1c68-4a33-930d-9e4daa14981b"
 				},
 				{
 					"name": "Get Security Question",
-					"id": "5f686aba-ed44-45bc-8cbd-7f2da77cc99a",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{base_url}}/users/security-questions"
-					},
-					"response": []
+					"item": [
+						{
+							"name": "Get Security Question",
+							"id": "5f686aba-ed44-45bc-8cbd-7f2da77cc99a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/users/security-questions"
+							},
+							"response": []
+						}
+					],
+					"id": "294c31a0-960f-4ea1-a34b-4119f30c984b"
 				}
 			],
 			"id": "016a4f53-3b2b-4ed8-ac78-b44ca10a517a"
