@@ -10566,6 +10566,33 @@
 						},
 						{
 							"name": "Resend Invite -Invalid user profile ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3fd84e0b-43c0-4eee-a06d-165c2b82d4fd",
+										"exec": [
+											"// try {\r",
+											"//      const { message } = pm.response.json()\r",
+											"\r",
+											"//      pm.test(\"Status code is 404\", () => {\r",
+											"//          pm.response.to.have.status(404);\r",
+											"//      });\r",
+											"\r",
+											"\r",
+											"//     pm.test(\"Test for valid error message\", () => {\r",
+											"//         pm.expect(message).to.eql(\"User profile or associated user does not exist\")\r",
+											"//     })\r",
+											"\r",
+											"// } catch (error) {\r",
+											"//      console.error(\"Error from test:\", error)\r",
+											"// }"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "21e41c20-c3a0-4182-83b6-7f07757f1fb0",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -10600,7 +10627,6 @@
 									],
 									"variable": [
 										{
-											"id": "be891c9a-3a09-4c56-b2e8-56bc86ba6725",
 											"key": "profile_id",
 											"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
 										}
