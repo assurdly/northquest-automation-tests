@@ -7268,6 +7268,38 @@
 					"item": [
 						{
 							"name": "List Profiles",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b480854d-cce2-442c-9c54-bece81d17fc7",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"    pm.environment.set(\"fetchedTierId\", data[0].id)",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "73163be1-4a99-4b16-911e-b09cc565294c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -7276,7 +7308,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/profiles?filter[type]=business",
+									"raw": "{{base_url}}/tenants/:tenantId/profiles?filter[type]=personal",
 									"host": [
 										"{{base_url}}"
 									],
@@ -7288,11 +7320,147 @@
 									"query": [
 										{
 											"key": "filter[type]",
-											"value": "business"
+											"value": "personal"
 										}
 									],
 									"variable": [
 										{
+											"key": "tenantId",
+											"value": "00000000-0000-0000-0000-000000000000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Profiles - Individuals",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b480854d-cce2-442c-9c54-bece81d17fc7",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"    pm.environment.set(\"fetchedTierId\", data[0].id)",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "47375d34-67ad-4e7e-b737-d6c3eb9f03b5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tenants/:tenantId/profiles?filter[type]=personal",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tenants",
+										":tenantId",
+										"profiles"
+									],
+									"query": [
+										{
+											"key": "filter[type]",
+											"value": "personal"
+										}
+									],
+									"variable": [
+										{
+											"id": "7603571d-2cb7-49c2-a209-ba79ce5609a8",
+											"key": "tenantId",
+											"value": "00000000-0000-0000-0000-000000000000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Profiles - Business",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b480854d-cce2-442c-9c54-bece81d17fc7",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"    pm.environment.set(\"fetchedTierId\", data[0].id)",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "22990d52-90a7-4c0b-a31c-2e592f92fcd7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tenants/:tenantId/profiles?filter[type]=personal",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tenants",
+										":tenantId",
+										"profiles"
+									],
+									"query": [
+										{
+											"key": "filter[type]",
+											"value": "personal"
+										}
+									],
+									"variable": [
+										{
+											"id": "7603571d-2cb7-49c2-a209-ba79ce5609a8",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
