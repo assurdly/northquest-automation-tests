@@ -5994,6 +5994,45 @@
 						},
 						{
 							"name": "Create Tier-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "377df2e5-6be9-4b42-9f7b-9a58f2cd4d06",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"array\");",
+											"",
+											"        pm.expect(message).to.include('name should not be empty');",
+											"        pm.expect(message).to.include('description should not be empty');",
+											"        pm.expect(message).to.include('profile_type must be one of the following values: personal, business');",
+											"        pm.expect(message).to.include('profile_type should not be empty');",
+											"        pm.expect(message).to.include('level should not be empty');",
+											"        pm.expect(message).to.include('level must be a number conforming to the specified constraints');",
+											"        pm.expect(message).to.include('single_sending_limit must be a number conforming to the specified constraints');",
+											"        pm.expect(message).to.include('single_receiving_limit must be a number conforming to the specified constraints');",
+											"        pm.expect(message).to.include('period_sending_limit must be a number conforming to the specified constraints');",
+											"        pm.expect(message).to.include('period_receiving_limit must be a number conforming to the specified constraints');",
+											"        pm.expect(message).to.include('enabled must be a boolean value');",
+											"    });",
+											"",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "b365423f-12d0-4cfd-bf29-60df85279697",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -6003,7 +6042,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Tier 1\",\n    \"description\": \"Tier 1\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 0,\n    \"single_receiving_limit\": 0,\n    \"period_sending_limit\": 0,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 0,\n    \"period_receiving_limit_time_unit\": \"day\"\n}",
+									"raw": "{\n    \"name\": \"\",\n    \"description\": \"\",\n    \"profile_type\": \"\",\n    \"level\": \"\",\n    \"enabled\": \"\",\n    \"single_sending_limit\": \"\",\n    \"single_receiving_limit\": \"\",\n    \"period_sending_limit\": \"\",\n    \"period_sending_limit_time_unit\": \"\",\n    \"period_receiving_limit\": \"\",\n    \"period_receiving_limit_time_unit\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6029,7 +6068,6 @@
 									],
 									"variable": [
 										{
-											"id": "a46ce058-4a5d-4130-9c29-2cdca57fd760",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
@@ -6040,6 +6078,32 @@
 						},
 						{
 							"name": "Create Tier-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "70fc140c-59e8-4e9e-bad2-54a458defe40",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "c94df088-9049-46ca-8bbe-01be819a473b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -6075,9 +6139,8 @@
 									],
 									"variable": [
 										{
-											"id": "a46ce058-4a5d-4130-9c29-2cdca57fd760",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "@@"
 										}
 									]
 								}
