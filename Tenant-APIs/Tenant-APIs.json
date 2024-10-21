@@ -3121,7 +3121,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "[\n    {\n        \"slug\": \"name\",\n        \"name\": \"Name\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 1,\n        \"storage_strategy\": \"plain\"\n    },\n    {\n        \"slug\": \"gender\",\n        \"name\": \"Gender\",\n        \"options\": [\"male\", \"female\"],\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 2,\n        \"storage_strategy\": \"plain\"\n    }\n]",
+									"raw": "[\n    {\n        \"slug\": \"\",\n        \"name\": \"\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 1,\n        \"storage_strategy\": \"\"\n    }\n]",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3249,6 +3249,32 @@
 						},
 						{
 							"name": "Set Definition Schema-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "33909ca0-62dc-47ef-88c4-8b27dc8b750f",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "b0ab99ce-27c3-4c4c-b27e-33bd31202965",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -3279,12 +3305,10 @@
 									],
 									"variable": [
 										{
-											"id": "1623c9f4-f93d-49ae-b762-7dc79eff3548",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "@@"
 										},
 										{
-											"id": "9e4fbd29-fd60-43d7-aa1a-032fd53c0a32",
 											"key": "definitionId",
 											"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
 										}
@@ -3388,6 +3412,32 @@
 						},
 						{
 							"name": "Set Definition Schema-Invalid Definition ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "53c81997-678a-4993-b055-05c14a6d1987",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes('not found')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "e74121e3-789f-4fb3-aade-26fbf3b65bce",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -3418,14 +3468,12 @@
 									],
 									"variable": [
 										{
-											"id": "1623c9f4-f93d-49ae-b762-7dc79eff3548",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "9e4fbd29-fd60-43d7-aa1a-032fd53c0a32",
 											"key": "definitionId",
-											"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
+											"value": "01923359-cd8b-755b-862f-22b00cdce2e2"
 										}
 									]
 								}
