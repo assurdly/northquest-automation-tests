@@ -1609,6 +1609,37 @@
 						},
 						{
 							"name": "Create Definition-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5e8caa40-91d9-41d9-8ee9-8c24032afa17",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", () => {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Bad Request\");",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"Tenant ID must be a valid UUID\")",
+											"    })",
+											"",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "4252280c-3fe9-40c0-8468-c0be97ba6f02",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1637,9 +1668,8 @@
 									],
 									"variable": [
 										{
-											"id": "cbe2bfbc-93dc-464d-b1c4-ff0667837211",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "00000000-0000-0000-0000-000@@@@@@"
 										}
 									]
 								}
@@ -1758,7 +1788,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/definitions/:definitionId",
+									"raw": "{{base_url}}/tenants/:tenantId/definitions/:definitionIdd",
 									"host": [
 										"{{base_url}}"
 									],
@@ -1766,18 +1796,16 @@
 										"tenants",
 										":tenantId",
 										"definitions",
-										":definitionId"
+										":definitionIdd"
 									],
 									"variable": [
 										{
-											"id": "727131bd-60a3-45ca-a407-cd1362183660",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "c2b18231-ef33-4e08-9d0e-cfa9ac26d543",
-											"key": "definitionId",
-											"value": "01926438-2db9-7ccd-88ef-fb76284a72f5"
+											"key": "definitionIdd",
+											"value": ""
 										}
 									]
 								}
