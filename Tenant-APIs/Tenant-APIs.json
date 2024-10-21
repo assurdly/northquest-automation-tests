@@ -7291,6 +7291,33 @@
 						},
 						{
 							"name": "Update User-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "164da949-c541-43c1-bc69-16239c569659",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"array\");",
+											"",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "055f1842-38ae-4707-b6fd-dcb77c5eec09",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -7300,7 +7327,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"first_name\": \"Wunmi\",\n    \"last_name\": \"Ade\",\n    \"email\": \"adewunmiakinsanya@gmail.com\",\n    \"phone\": null\n}",
+									"raw": "{\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"email\": \"\",\n    \"phone\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -7466,6 +7493,32 @@
 						},
 						{
 							"name": "Delete User-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f0afb8a3-7d8a-4631-a39a-f4a6a0ebb672",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "e52a84f7-64fa-4c2c-82bb-d013bc5c650e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -7486,12 +7539,10 @@
 									],
 									"variable": [
 										{
-											"id": "0faa2547-3dcc-4a8b-b39b-bb476bafb1a2",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "5cc53815-a392-41b5-962f-6138431db29a",
 											"key": "userId",
 											"value": ""
 										}
