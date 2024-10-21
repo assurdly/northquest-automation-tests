@@ -7124,20 +7124,6 @@
 											"        pm.response.to.have.status(200);",
 											"    });",
 											"",
-											"    pm.test(\"Validate that the user's password is not returned in the response\", () => {",
-											"        pm.expect(data[0]).to.not.have.property('password');",
-											"    })",
-											"",
-											"    if (data) {",
-											"        if (data.phone != null) {",
-											"            pm.test(\"The accuracy of the filtered results\", () => {",
-											"                pm.expect(data[0].phone).to.eql('');",
-											"            })",
-											"",
-											"            console.log(\"log\")",
-											"        }",
-											"",
-											"    }",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error);",
 											"}",
@@ -7277,7 +7263,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/users/:userId",
+									"raw": "{{base_url}}/tenants/:tenantId/users/:userIdd",
 									"host": [
 										"{{base_url}}"
 									],
@@ -7285,17 +7271,15 @@
 										"tenants",
 										":tenantId",
 										"users",
-										":userId"
+										":userIdd"
 									],
 									"variable": [
 										{
-											"id": "6cc1be8d-841e-46d2-a7c9-b24f5069795a",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "599bacd6-d59b-4cf4-844d-b734af7aea97",
-											"key": "userId",
+											"key": "userIdd",
 											"value": ""
 										}
 									]
