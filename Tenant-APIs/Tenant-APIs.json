@@ -5210,6 +5210,37 @@
 					"item": [
 						{
 							"name": "Get Document Type",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1509592e-c176-40be-b618-fc85ab03cb03",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"object\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "b4d31a24-c17c-46cc-adc7-61f150070e3e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -5230,14 +5261,12 @@
 									],
 									"variable": [
 										{
-											"id": "47d635aa-5906-4fdf-b965-01d934c5a647",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "96679489-d4bc-4336-825a-3996846c9eaf",
 											"key": "documentTypeId",
-											"value": "019289f1-8d87-766b-8bff-1ee5c22d9add"
+											"value": "{{fetchedDocumentTypeId}}"
 										}
 									]
 								}
@@ -5329,6 +5358,33 @@
 						},
 						{
 							"name": "Get Document Type-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5a8f8b9e-b2e4-48ec-8430-028fabbe3f39",
+										"exec": [
+											"try {",
+											"    const { status, message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.eql(\"Tenant ID must be a valid UUID\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "715f2148-8dda-4206-ac0a-bdee1964466f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -5349,14 +5405,12 @@
 									],
 									"variable": [
 										{
-											"id": "47d635aa-5906-4fdf-b965-01d934c5a647",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": ""
 										},
 										{
-											"id": "96679489-d4bc-4336-825a-3996846c9eaf",
 											"key": "documentTypeId",
-											"value": "019289f1-8d87-766b-8bff-1ee5c22d9add"
+											"value": ""
 										}
 									]
 								}
@@ -5567,6 +5621,32 @@
 						},
 						{
 							"name": "Get Document Type-Invalid Document Type Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d2579355-d8d6-46ce-8d97-29776dd6b417",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "75cfab60-f325-4cd5-ace6-3288197a0ba6",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -5587,14 +5667,12 @@
 									],
 									"variable": [
 										{
-											"id": "47d635aa-5906-4fdf-b965-01d934c5a647",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "96679489-d4bc-4336-825a-3996846c9eaf",
 											"key": "documentTypeId",
-											"value": "019289f1-8d87-766b-8bff-1ee5c22d9add"
+											"value": "@@"
 										}
 									]
 								}
