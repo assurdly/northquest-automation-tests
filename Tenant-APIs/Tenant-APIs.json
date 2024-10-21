@@ -3603,12 +3603,26 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/tenants/settings"
+								"url": "{{base_url}}/tenants/settingss"
 							},
 							"response": []
 						},
 						{
 							"name": "Create Settings-Empty fields",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "758178cb-1de2-4446-9689-4c52d6095756",
+										"exec": [
+											"pm.environment.set('origin', \"https://northquestfinance.com\")",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "069768cb-b5c3-4c9b-b820-d6d56093aa33",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -3618,7 +3632,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"slug\": \"api-key\",\n    \"value\": \"ola ma\"\n}",
+									"raw": "{\n    \"slug\": \"\",\n    \"value\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
