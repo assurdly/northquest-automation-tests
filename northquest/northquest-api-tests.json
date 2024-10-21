@@ -42,7 +42,6 @@
 										"id": "4f73f52b-38d7-462e-ad83-2a00667c9382",
 										"exec": [
 											"pm.environment.set('origin', \"https://northquestfinance.com\")",
-											"",
 											"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
 											""
 										],
@@ -307,10 +306,14 @@
 											"        pm.response.to.have.status(400);",
 											"    });",
 											"",
+											"    pm.test(\"Status code is 400\", () => {",
+											"        pm.response.to.have.status(400);",
+											"    })",
+											"",
 											"    pm.test(\"Status code name has string\", function () {",
 											"        pm.response.to.have.status(\"Bad Request\");",
 											"    });",
-											"",
+											"    ",
 											"    pm.test (\"Test for valid error message\", () => {",
 											"        pm.expect(message).includes(\"Invalid email format\")",
 											"    })",
