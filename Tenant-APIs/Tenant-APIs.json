@@ -2389,6 +2389,32 @@
 						},
 						{
 							"name": "Update Definition-Invalid definition Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c852a84a-075c-4774-9c6e-fa2576fe4497",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes('not found')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "e13f7316-6e9e-45f8-800a-af5e046bce5b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2418,14 +2444,12 @@
 									],
 									"variable": [
 										{
-											"id": "727131bd-60a3-45ca-a407-cd1362183660",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "c2b18231-ef33-4e08-9d0e-cfa9ac26d543",
 											"key": "definitionId",
-											"value": "01926438-2db9-7ccd-88ef-fb76284a72f5"
+											"value": "01926438-2db9-7ccd-88ef-fb76284a72f4"
 										}
 									]
 								}
@@ -2526,6 +2550,44 @@
 						},
 						{
 							"name": "Update Definition-Empty payload fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ee80694c-606a-4e4f-a79f-e98d3ec2e6be",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", () => {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Bad Request\");",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"slug should not be empty\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"name should not be empty\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"description should not be empty\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "b1b7476f-1847-4e35-b378-a7961f243471",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2535,7 +2597,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"slug\": \"kyc\",\n    \"name\": \"KYC\",\n    \"description\": \"KYC definitions\"\n}",
+									"raw": "{\n    \"slug\": \"\",\n    \"name\": \"\",\n    \"description\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2555,12 +2617,10 @@
 									],
 									"variable": [
 										{
-											"id": "727131bd-60a3-45ca-a407-cd1362183660",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "c2b18231-ef33-4e08-9d0e-cfa9ac26d543",
 											"key": "definitionId",
 											"value": "01926438-2db9-7ccd-88ef-fb76284a72f5"
 										}
@@ -2677,7 +2737,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/definitions/:definitionId",
+									"raw": "{{base_url}}/tenants/:tenantId/definitions/:definitionIdd",
 									"host": [
 										"{{base_url}}"
 									],
@@ -2685,18 +2745,16 @@
 										"tenants",
 										":tenantId",
 										"definitions",
-										":definitionId"
+										":definitionIdd"
 									],
 									"variable": [
 										{
-											"id": "e1784d5b-80c5-4c5f-acb6-41dcf38643ee",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "ce1d8e68-2be4-4b6c-876a-784d7d10b822",
-											"key": "definitionId",
-											"value": "01926438-2db9-7ccd-88ef-fb76284a72f5"
+											"key": "definitionIdd",
+											"value": ""
 										}
 									]
 								}
@@ -2705,6 +2763,32 @@
 						},
 						{
 							"name": "Delete Definition-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6ed3ebe0-bc08-47fa-9dac-0ddc50df05af",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "fbbcda7e-8e24-4129-87a8-dcb32c92e34f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2725,14 +2809,12 @@
 									],
 									"variable": [
 										{
-											"id": "e1784d5b-80c5-4c5f-acb6-41dcf38643ee",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": ""
 										},
 										{
-											"id": "ce1d8e68-2be4-4b6c-876a-784d7d10b822",
 											"key": "definitionId",
-											"value": "01926438-2db9-7ccd-88ef-fb76284a72f5"
+											"value": ""
 										}
 									]
 								}
@@ -2741,6 +2823,32 @@
 						},
 						{
 							"name": "Delete Definition-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "59847670-ba04-4b90-ac26-457e8a01147c",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "1d14560a-a631-4193-9493-c1f371bed69b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2761,12 +2869,10 @@
 									],
 									"variable": [
 										{
-											"id": "e1784d5b-80c5-4c5f-acb6-41dcf38643ee",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "@@"
 										},
 										{
-											"id": "ce1d8e68-2be4-4b6c-876a-784d7d10b822",
 											"key": "definitionId",
 											"value": "01926438-2db9-7ccd-88ef-fb76284a72f5"
 										}
@@ -2777,6 +2883,32 @@
 						},
 						{
 							"name": "Delete Definition-Invalid Definition Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a925d24a-ccbb-4904-af75-897437c775c9",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes('not found')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "eeba9a9c-1c3c-4fc5-a1c9-a3985870856f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2797,14 +2929,12 @@
 									],
 									"variable": [
 										{
-											"id": "e1784d5b-80c5-4c5f-acb6-41dcf38643ee",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "ce1d8e68-2be4-4b6c-876a-784d7d10b822",
 											"key": "definitionId",
-											"value": "01926438-2db9-7ccd-88ef-fb76284a72f5"
+											"value": "01926438-2db9-7ccd-88ef-fb76284a72f1"
 										}
 									]
 								}
@@ -2836,7 +2966,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/definitions/:definitionId/schemas",
+									"raw": "{{base_url}}/tenants/:tenantId/definitions/:definitionId/schemass",
 									"host": [
 										"{{base_url}}"
 									],
@@ -2845,16 +2975,14 @@
 										":tenantId",
 										"definitions",
 										":definitionId",
-										"schemas"
+										"schemass"
 									],
 									"variable": [
 										{
-											"id": "1623c9f4-f93d-49ae-b762-7dc79eff3548",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "9e4fbd29-fd60-43d7-aa1a-032fd53c0a32",
 											"key": "definitionId",
 											"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
 										}
@@ -2958,6 +3086,32 @@
 						},
 						{
 							"name": "Set Definition Schema-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "35c232f7-a136-4c13-af84-73d3f0598b15",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "7e1a0b5a-19ed-4f2a-9b3d-b41259aa0801",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2988,12 +3142,10 @@
 									],
 									"variable": [
 										{
-											"id": "1623c9f4-f93d-49ae-b762-7dc79eff3548",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "9e4fbd29-fd60-43d7-aa1a-032fd53c0a32",
 											"key": "definitionId",
 											"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
 										}
