@@ -10810,6 +10810,33 @@
 						},
 						{
 							"name": "Resend Invite-Empty user profile ID field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9a95b751-3547-44eb-8abe-1524d2f23419",
+										"exec": [
+											"try {\r",
+											"     const { message } = pm.response.json()\r",
+											"\r",
+											"     pm.test(\"Status code is 404\", () => {\r",
+											"         pm.response.to.have.status(404);\r",
+											"     });\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"User profile ID is required \")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"     console.error(\"Error from test:\", error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "5d9f6fc8-333c-4434-bb30-d1800b843947",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -10825,7 +10852,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"user_profile_id\": \"019261a8-d7b5-7880-ae6f-de63a5d91a8b\"\n}",
+									"raw": "{\n    \"user_profile_id\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10844,7 +10871,6 @@
 									],
 									"variable": [
 										{
-											"id": "be891c9a-3a09-4c56-b2e8-56bc86ba6725",
 											"key": "profile_id",
 											"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
 										}
