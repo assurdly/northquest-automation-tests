@@ -13640,11 +13640,44 @@
 								},
 								{
 									"name": "Update Role-Empty profile id field",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "cba44e77-bb69-4124-b3b6-aae63906f77e",
+												"exec": [
+													"try {\r",
+													"     const { message } = pm.response.json()\r",
+													"\r",
+													"     pm.test(\"Status code is 400\", () => {\r",
+													"         pm.response.to.have.status(400);\r",
+													"     });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Profile ID must be a valid UUID\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"     console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "6fc312da-f6e6-4bd3-9f81-6f5feab6854e",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
 										"method": "PATCH",
 										"header": [],
 										"body": {
@@ -13669,14 +13702,12 @@
 											],
 											"variable": [
 												{
-													"id": "4a999ff6-b1b2-4f66-b08c-dfaf3ed51e4b",
 													"key": "profile_id",
-													"value": "{{profileId}}"
+													"value": ""
 												},
 												{
-													"id": "0c84357e-f5db-41e8-ae80-bb324279fd33",
 													"key": "id",
-													"value": "019261c9-580b-7444-a489-deb18e6c2ffe"
+													"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
 												}
 											]
 										}
