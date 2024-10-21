@@ -35,6 +35,10 @@
 											"        pm.expect(data).to.be.an(\"array\")",
 											"    })",
 											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error);",
 											"}"
@@ -189,6 +193,12 @@
 											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
 											"    })",
 											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error);",
 											"}"
