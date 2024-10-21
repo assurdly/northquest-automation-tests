@@ -6359,7 +6359,23 @@
 										"value": "Bearer eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18ybUVZVTZZd01zTWNlbnFtcnBua1VudXBlQmsiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL2tpdWItZnJvbnRlbmQudmVyY2VsLmFwcCIsImV4cCI6MTcyODkwNzExOSwiaWF0IjoxNzI4OTA3MDU5LCJpc3MiOiJodHRwczovL2FkdmFuY2VkLXJvdWdoeS05My5jbGVyay5hY2NvdW50cy5kZXYiLCJqdGkiOiI1NjQ4YjY3NTI2ZDA5MzE0YTYwMyIsIm1ldGFkYXRhIjp7Im9uYm9hcmRpbmciOnRydWV9LCJuYmYiOjE3Mjg5MDcwNDksInNpZCI6InNlc3NfMm5JNURWQnRKaG12ckNNU1IxS25VT0ZORWN4Iiwic3ViIjoidXNlcl8ybkNUTHkxbFE5clR6Y1E3a09KSjBHWmpuZmgifQ.ko-RDk2WPeZxkwClWT05O6gRiLzyUxsqtqhm8pmsJZCMD1b6KciOdVo-XKy6U5xde8xPf28oMfRQlDONaPDOMwwYI-y314Oir8Zrl9Rd44eQURUtf_FyFx_1oqw4flmEJH_5UepjGd9ju3YzLPjaSIB7Sc6wQr3VE8mbEvMJHWlsr_d-hSe06Q6drb9IFVlLNXaM8EPhpQU3e6SgZpy8sZQVJYgDc-lC5dbTTSbGNUz0Sh_NoC8bia6mhpNkMuu6JGMfKYq_7AAs0edL_kLUa7FBuh8uPVrQLpOGckTv2dJH61d2D3HqgSEbeUKXxiEtGdPlYNf8YlInmQfp9eNAAg"
 									}
 								],
-								"url": "https://kiub-v1-convex-staging-25cb91e7cc32.herokuapp.com/user/guest/available-times"
+								"url": {
+									"raw": "{{base_url}}/tenants/:tenantId/tiers",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tenants",
+										":tenantId",
+										"tiers"
+									],
+									"variable": [
+										{
+											"key": "tenantId",
+											"value": "00000000-0000-0000-0000-000000000000"
+										}
+									]
+								}
 							},
 							"response": []
 						}
@@ -6388,7 +6404,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/tiers/:tierId",
+									"raw": "{{base_url}}/tenants/:tenantId/tiers/:tierIdd",
 									"host": [
 										"{{base_url}}"
 									],
@@ -6396,17 +6412,15 @@
 										"tenants",
 										":tenantId",
 										"tiers",
-										":tierId"
+										":tierIdd"
 									],
 									"variable": [
 										{
-											"id": "31c399e8-73a1-4bd0-a5e5-dcc3bac875e6",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "cb5b11b7-2390-453f-a61f-9b7e2b0cfde0",
-											"key": "tierId",
+											"key": "tierIdd",
 											"value": ""
 										}
 									]
@@ -6416,6 +6430,44 @@
 						},
 						{
 							"name": "Update Tier-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2cd98da0-aac1-4f02-bb70-7e82897ab879",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"array\");",
+											"",
+											"        pm.expect(message).to.include('name should not be empty');",
+											"        pm.expect(message).to.include('description should not be empty');",
+											"        pm.expect(message).to.include('profile_type must be one of the following values: personal, business');",
+											"        pm.expect(message).to.include('profile_type should not be empty');",
+											"        pm.expect(message).to.include('level should not be empty');",
+											"        pm.expect(message).to.include('level must be a number conforming to the specified constraints');",
+											"        pm.expect(message).to.include('single_sending_limit must be a number conforming to the specified constraints');",
+											"        pm.expect(message).to.include('single_receiving_limit must be a number conforming to the specified constraints');",
+											"        pm.expect(message).to.include('period_sending_limit must be a number conforming to the specified constraints');",
+											"        pm.expect(message).to.include('period_receiving_limit must be a number conforming to the specified constraints');",
+											"        pm.expect(message).to.include('enabled must be a boolean value');",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "5b05d29c-8e6e-4676-941b-3fa58cb82020",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -6425,7 +6477,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Tier 1\",\n    \"description\": \"Tier 1\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 0,\n    \"single_receiving_limit\": 0,\n    \"period_sending_limit\": 0,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 0,\n    \"period_receiving_limit_time_unit\": \"day\"\n}",
+									"raw": "{\n    \"name\": \"\",\n    \"description\": \"\",\n    \"profile_type\": \"\",\n    \"level\": \"\",\n    \"enabled\": \"\",\n    \"single_sending_limit\": \"\",\n    \"single_receiving_limit\": \"\",\n    \"period_sending_limit\": \"\",\n    \"period_sending_limit_time_unit\": \"\",\n    \"period_receiving_limit\": \"\",\n    \"period_receiving_limit_time_unit\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6445,12 +6497,10 @@
 									],
 									"variable": [
 										{
-											"id": "31c399e8-73a1-4bd0-a5e5-dcc3bac875e6",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "cb5b11b7-2390-453f-a61f-9b7e2b0cfde0",
 											"key": "tierId",
 											"value": ""
 										}
@@ -6461,6 +6511,32 @@
 						},
 						{
 							"name": "Update Tier-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "021007a9-fbb5-4408-a56d-2508b7a85d93",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "058f024c-b4bd-433b-8a16-51ffc85ac902",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -6490,12 +6566,10 @@
 									],
 									"variable": [
 										{
-											"id": "31c399e8-73a1-4bd0-a5e5-dcc3bac875e6",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "@@"
 										},
 										{
-											"id": "cb5b11b7-2390-453f-a61f-9b7e2b0cfde0",
 											"key": "tierId",
 											"value": ""
 										}
@@ -6505,7 +6579,7 @@
 							"response": []
 						},
 						{
-							"name": "Update Tier -Invalid tier Id",
+							"name": "Update Tier -Invalid Tier Id",
 							"id": "5af3c000-a98f-4147-a655-9741e6905f3f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
