@@ -7308,7 +7308,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/profiles?filter[type]=personal",
+									"raw": "{{base_url}}/tenants/:tenantId/profiles",
 									"host": [
 										"{{base_url}}"
 									],
@@ -7320,7 +7320,8 @@
 									"query": [
 										{
 											"key": "filter[type]",
-											"value": "personal"
+											"value": "personal",
+											"disabled": true
 										}
 									],
 									"variable": [
@@ -7357,6 +7358,12 @@
 											"        pm.expect(data).to.be.an(\"array\")",
 											"    })",
 											"",
+											"    if (data) {",
+											"        pm.test(\"Test that result is filtered to business\", () => {",
+											"            pm.expect(data[0].type).to.eql(\"personal\")",
+											"        })",
+											"    }",
+											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error);",
 											"}",
@@ -7392,7 +7399,6 @@
 									],
 									"variable": [
 										{
-											"id": "7603571d-2cb7-49c2-a209-ba79ce5609a8",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
@@ -7425,6 +7431,12 @@
 											"        pm.expect(data).to.be.an(\"array\")",
 											"    })",
 											"",
+											"    if (data) {",
+											"        pm.test(\"Test that result is filtered to business\", () => {",
+											"            pm.expect(data[0].type).to.eql(\"business\")",
+											"        })",
+											"    }",
+											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error);",
 											"}",
@@ -7443,7 +7455,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/profiles?filter[type]=personal",
+									"raw": "{{base_url}}/tenants/:tenantId/profiles?filter[type]=business",
 									"host": [
 										"{{base_url}}"
 									],
@@ -7455,12 +7467,11 @@
 									"query": [
 										{
 											"key": "filter[type]",
-											"value": "personal"
+											"value": "business"
 										}
 									],
 									"variable": [
 										{
-											"id": "7603571d-2cb7-49c2-a209-ba79ce5609a8",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
