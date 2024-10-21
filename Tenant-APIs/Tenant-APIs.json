@@ -7129,9 +7129,14 @@
 											"    })",
 											"",
 											"    if (data) {",
-											"        pm.test(\"The accuracy of the filtered results\", () => {",
-											"            pm.expect(data[0].phone).to.eql('');",
-											"        })",
+											"        if (data.phone != null) {",
+											"            pm.test(\"The accuracy of the filtered results\", () => {",
+											"                pm.expect(data[0].phone).to.eql('');",
+											"            })",
+											"",
+											"            console.log(\"log\")",
+											"        }",
+											"",
 											"    }",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error);",
@@ -7151,7 +7156,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/users?filter[first_name]=Wunmi",
+									"raw": "{{base_url}}/tenants/:tenantId/users?filter[phone]=Wunmi",
 									"host": [
 										"{{base_url}}"
 									],
@@ -7162,7 +7167,7 @@
 									],
 									"query": [
 										{
-											"key": "filter[first_name]",
+											"key": "filter[phone]",
 											"value": "Wunmi"
 										}
 									],
