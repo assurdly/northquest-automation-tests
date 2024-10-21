@@ -21,6 +21,7 @@
 										"exec": [
 											"try {",
 											"    const { data, status } = pm.response.json()",
+											"    pm.environment.set('fetchedDefinitionId', data[0].id)",
 											"",
 											"    pm.test(\"Status code is 200\", function () {",
 											"        pm.response.to.have.status(200);",
@@ -594,6 +595,37 @@
 					"item": [
 						{
 							"name": "Get Definition",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a5de468d-a5a0-4e25-9a66-5a0672cea566",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"object\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "ed772809-64f6-44e0-a6cd-2862358a2f82",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -614,14 +646,12 @@
 									],
 									"variable": [
 										{
-											"id": "43aafcb8-6ea2-4179-adfb-30bae5b8d76a",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "3ccbee81-e912-44df-aeee-228c40d6074e",
 											"key": "definitionId",
-											"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
+											"value": "{{fetchedDefinitionId}}"
 										}
 									]
 								}
@@ -713,6 +743,33 @@
 						},
 						{
 							"name": "Get Definition-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4a57195f-4062-43cc-8ba2-3b5a2c2677bd",
+										"exec": [
+											"try {",
+											"    const { status, message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.eql(\"Tenant ID must be a valid UUID\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "e93be740-f2a6-46f7-9e00-06939ce7981d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -733,14 +790,12 @@
 									],
 									"variable": [
 										{
-											"id": "43aafcb8-6ea2-4179-adfb-30bae5b8d76a",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": ""
 										},
 										{
-											"id": "3ccbee81-e912-44df-aeee-228c40d6074e",
 											"key": "definitionId",
-											"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
+											"value": ""
 										}
 									]
 								}
@@ -832,6 +887,32 @@
 						},
 						{
 							"name": "Get Definition-Invalid Tenant id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "27cc0998-bdbc-49de-912b-11f19188d847",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "6c63fe24-f490-4c2c-a02c-53b9cbf63f6d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -852,12 +933,10 @@
 									],
 									"variable": [
 										{
-											"id": "43aafcb8-6ea2-4179-adfb-30bae5b8d76a",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "00000000-0000-0000-0000-@@@@@@"
 										},
 										{
-											"id": "3ccbee81-e912-44df-aeee-228c40d6074e",
 											"key": "definitionId",
 											"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
 										}
