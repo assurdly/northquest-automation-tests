@@ -4526,6 +4526,32 @@
 						},
 						{
 							"name": "Create Document Type-Existing name",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "83f32ce2-0de3-4c9f-826a-f3b43047744f",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.include('already exists')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "80294195-5c6c-476f-a5a9-b9fe435fb0cf",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -4554,7 +4580,6 @@
 									],
 									"variable": [
 										{
-											"id": "fee7b76d-1af0-4c93-bf91-2d671a251d69",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
@@ -4652,6 +4677,32 @@
 						},
 						{
 							"name": "Create Document Type-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fbfa3bdf-de1c-44c3-b447-24e4ef905a6d",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "8ef181e8-1f6b-44af-914c-f968b3e455f3",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -4680,9 +4731,8 @@
 									],
 									"variable": [
 										{
-											"id": "fee7b76d-1af0-4c93-bf91-2d671a251d69",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "@@"
 										}
 									]
 								}
@@ -4892,6 +4942,32 @@
 						},
 						{
 							"name": "List Document Types-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "68d6acb3-77d6-47e5-97bd-251c5c00bc7c",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "d3a9b159-3814-4e62-acc6-8d75d90d07c5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -4911,9 +4987,8 @@
 									],
 									"variable": [
 										{
-											"id": "9de95861-0177-4f8c-a110-8dc82d06be15",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "@"
 										}
 									]
 								}
@@ -5000,6 +5075,28 @@
 						},
 						{
 							"name": "List Document Types-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f8471d8c-867a-4494-8f48-a5f79f2e8ace",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 401\", function () {",
+											"        pm.response.to.have.status(401);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "1fc85e3a-a157-4d85-9bfa-7e2826ca71cc",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -5019,7 +5116,6 @@
 									],
 									"variable": [
 										{
-											"id": "9de95861-0177-4f8c-a110-8dc82d06be15",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
