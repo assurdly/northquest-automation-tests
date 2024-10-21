@@ -6780,6 +6780,8 @@
 											"        data",
 											"    } = pm.response.json();",
 											"",
+											"    pm.environment.set(\"adminFetchedUserId\", data[0].id)",
+											"",
 											"    pm.test(\"Status code is 200\", function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
@@ -7318,14 +7320,12 @@
 									],
 									"variable": [
 										{
-											"id": "6cc1be8d-841e-46d2-a7c9-b24f5069795a",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "599bacd6-d59b-4cf4-844d-b734af7aea97",
 											"key": "userId",
-											"value": ""
+											"value": "{{adminFetchedUserId}}"
 										}
 									]
 								}
