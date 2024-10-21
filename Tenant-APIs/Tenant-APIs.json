@@ -4133,6 +4133,32 @@
 						},
 						{
 							"name": "Set Document-Invalid type id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bef2c8a-59c2-478c-8539-07f36fcddcc0",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"array\") && pm.expect(message).to.include('type_id must be a UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "67056621-5a8f-4f51-b449-a8ed52cab308",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -4142,7 +4168,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type_id\": \"\",\n    \"url\": \"\",\n    \"profile_id\": \"\"\n}",
+									"raw": "{\n    \"type_id\": \"ooeo\",\n    \"url\": \"https://google.com\",\n    \"profile_id\": \"00000000-0000-0000-0000-000000000000\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4161,9 +4187,8 @@
 									],
 									"variable": [
 										{
-											"id": "6ea2d2dd-147d-4a19-864b-9889d1758f09",
 											"key": "tenantId",
-											"value": ""
+											"value": "00000000-0000-0000-0000-000000000000"
 										}
 									]
 								}
