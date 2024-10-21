@@ -6769,6 +6769,35 @@
 					"item": [
 						{
 							"name": "List Users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dedcaa75-1bb8-4389-8804-0f4a86126e67",
+										"exec": [
+											"try {",
+											"    const {",
+											"        data",
+											"    } = pm.response.json();",
+											"    ",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Validate that the user's password is not returned in the response\", () => {",
+											"        const user = pm.response.json().data.user;",
+											"        pm.expect(data[0]).to.not.have.property('password');",
+											"    })",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "3e700fb6-ed94-41e2-bbdc-f904a5f4001b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
