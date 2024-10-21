@@ -7724,6 +7724,32 @@
 						},
 						{
 							"name": "Update Profile-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "41420cbf-7bbc-46f8-bee3-8b2e9e05df79",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "cff99cb7-856d-4337-b77e-8d741c03a27c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -7753,12 +7779,10 @@
 									],
 									"variable": [
 										{
-											"id": "dcac1139-5775-470a-97ed-589949a4a0d6",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "00000000-0000-0000-0000-00000000000@"
 										},
 										{
-											"id": "583f3fcc-2b84-4a9a-85f0-43db372135ba",
 											"key": "profileId",
 											"value": ""
 										}
@@ -7769,6 +7793,32 @@
 						},
 						{
 							"name": "Update Profile-Invalid Profile Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "272b3cbe-ad1e-4a81-beba-2cfd6df5442a",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Profile ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "9019968b-4c3f-496e-b6f7-ca8e847e2c93",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -7798,14 +7848,12 @@
 									],
 									"variable": [
 										{
-											"id": "dcac1139-5775-470a-97ed-589949a4a0d6",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "583f3fcc-2b84-4a9a-85f0-43db372135ba",
 											"key": "profileId",
-											"value": ""
+											"value": "@@"
 										}
 									]
 								}
@@ -7828,7 +7876,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/profiles/:profileId",
+									"raw": "{{base_url}}/tenants/:tenantId/profiles/:profileIdd",
 									"host": [
 										"{{base_url}}"
 									],
@@ -7836,17 +7884,15 @@
 										"tenants",
 										":tenantId",
 										"profiles",
-										":profileId"
+										":profileIdd"
 									],
 									"variable": [
 										{
-											"id": "ab19b60b-90e2-4f85-adc8-b8075c071b52",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "a717e63c-aea7-462a-828c-8947c70b5bc3",
-											"key": "profileId",
+											"key": "profileIdd",
 											"value": ""
 										}
 									]
@@ -7856,6 +7902,32 @@
 						},
 						{
 							"name": "Delete Profile-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4ad72c86-c41f-4644-a0f7-4b755c7c8b5e",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "03c42995-b987-443b-a6c8-62161c9fe4a7",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -7876,14 +7948,12 @@
 									],
 									"variable": [
 										{
-											"id": "ab19b60b-90e2-4f85-adc8-b8075c071b52",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "00000000-0000-0000-0000-0000000000@@"
 										},
 										{
-											"id": "a717e63c-aea7-462a-828c-8947c70b5bc3",
 											"key": "profileId",
-											"value": ""
+											"value": "00000000-0000-0000-0000-000000000000"
 										}
 									]
 								}
@@ -7892,6 +7962,32 @@
 						},
 						{
 							"name": "Delete Profile-Invalid ProfileId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a4b65f88-fe3c-4309-bd97-4b5a24791113",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Profile ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "558ce211-6bef-43ff-bd14-72802e9000da",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -7912,14 +8008,12 @@
 									],
 									"variable": [
 										{
-											"id": "ab19b60b-90e2-4f85-adc8-b8075c071b52",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "a717e63c-aea7-462a-828c-8947c70b5bc3",
 											"key": "profileId",
-											"value": ""
+											"value": "00000000-0000-0000-0000-00000000000@"
 										}
 									]
 								}
