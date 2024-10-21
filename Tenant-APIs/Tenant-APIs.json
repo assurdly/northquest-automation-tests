@@ -3629,7 +3629,13 @@
 							},
 							"request": {
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "origin",
+										"value": "{{origin}}",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "raw",
 									"raw": "{\n    \"slug\": \"\",\n    \"value\": \"\"\n}",
@@ -3651,7 +3657,13 @@
 							},
 							"request": {
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "origin",
+										"value": "{{origin}}",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "raw",
 									"raw": "{\n    \"slug\": \"api-key\",\n    \"value\": \"ola ma\"\n}",
@@ -3763,13 +3775,44 @@
 						},
 						{
 							"name": "Get Settings-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "caac00ab-1f1f-4e79-87d1-266388b0ae9c",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 401\", function () {",
+											"        pm.response.to.have.status(401);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "7a7d1386-6682-41ca-9802-604780900c32",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "origin",
+										"value": "{{origin}}",
+										"type": "text"
+									}
+								],
 								"url": "{{base_url}}/tenants/settings"
 							},
 							"response": [
@@ -3865,6 +3908,37 @@
 					"item": [
 						{
 							"name": "List Documents",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1c837c08-b227-425b-84f8-9c5508165394",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "eba2b3d4-51d8-4a0b-b620-66129b967815",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -3884,7 +3958,6 @@
 									],
 									"variable": [
 										{
-											"id": "b28b331f-60b2-4b3a-9e96-33e2a58bc6db",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
