@@ -6914,7 +6914,7 @@
 							"response": []
 						},
 						{
-							"name": "List Users-Filter",
+							"name": "List Users - Filter (Empty Field)",
 							"id": "1153534b-8685-4810-a675-8521260c342d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -6923,7 +6923,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tenants/:tenantId/users",
+									"raw": "{{base_url}}/tenants/:tenantId/users?filter[first_name]=",
 									"host": [
 										"{{base_url}}"
 									],
@@ -6935,8 +6935,7 @@
 									"query": [
 										{
 											"key": "filter[first_name]",
-											"value": "",
-											"disabled": true
+											"value": ""
 										},
 										{
 											"key": "filter[email]",
@@ -6951,7 +6950,85 @@
 									],
 									"variable": [
 										{
-											"id": "a397b186-249e-4761-918b-3df9ac61ef7a",
+											"key": "tenantId",
+											"value": "00000000-0000-0000-0000-000000000000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Users - Filter (FirstName)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d3a3bd88-5c47-40f5-aa4e-b15bafc2c2ec",
+										"exec": [
+											"try {",
+											"    const {",
+											"        data",
+											"    } = pm.response.json();",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Validate that the user's password is not returned in the response\", () => {",
+											"        pm.expect(data[0]).to.not.have.property('password');",
+											"    })",
+											"",
+											"    if (data) {",
+											"        pm.test(\"The accuracy of the filtered results\", () => {",
+											"            pm.expect(data[0].first_name).to.eql('wunmi');",
+											"        })",
+											"    }",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "64d69d3d-e72e-494d-bd84-90acfdc068ba",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tenants/:tenantId/users?filter[first_name]=wunmi",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tenants",
+										":tenantId",
+										"users"
+									],
+									"query": [
+										{
+											"key": "filter[first_name]",
+											"value": "wunmi"
+										},
+										{
+											"key": "filter[email]",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "filter[phone]",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
