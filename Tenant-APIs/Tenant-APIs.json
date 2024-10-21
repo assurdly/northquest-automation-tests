@@ -7653,6 +7653,34 @@
 						},
 						{
 							"name": "Update Profile-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c0563112-f2ec-4c77-9a42-482987a15db4",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"array\");",
+											"        pm.expect(message).to.include('type must be one of the following values: personal, business');",
+											"        pm.expect(message).to.include('status must be one of the following values: active, inactive');",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "9559a458-515f-4eb6-abfa-0b2b8b3754d2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -7662,7 +7690,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"wunmi\",\n    \"type\": \"personal\",\n    \"status\": \"active\"\n}",
+									"raw": "{\n    \"name\": \"\",\n    \"type\": \"\",\n    \"status\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -7682,14 +7710,12 @@
 									],
 									"variable": [
 										{
-											"id": "dcac1139-5775-470a-97ed-589949a4a0d6",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "583f3fcc-2b84-4a9a-85f0-43db372135ba",
 											"key": "profileId",
-											"value": ""
+											"value": "00000000-0000-0000-0000-000000000000"
 										}
 									]
 								}
