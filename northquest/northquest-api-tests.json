@@ -20305,6 +20305,32 @@
 								},
 								{
 									"name": "Get Users-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "692e95f7-2de4-4cec-82c5-c72c71dde6d3",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "87c14f84-76d2-4601-8c86-827303a1d5fa",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -20402,6 +20428,36 @@
 							"item": [
 								{
 									"name": "Get User",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2ba84d68-4077-4a15-aa0f-43b347983b2e",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "87faea15-8ca7-4742-898c-4e21d841d025",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -20421,7 +20477,6 @@
 											],
 											"variable": [
 												{
-													"id": "1345b530-4ce8-448e-a72a-5254172e4924",
 													"key": "id",
 													"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
 												}
@@ -20510,6 +20565,32 @@
 								},
 								{
 									"name": "Get User- No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f581296d-b802-44ed-9444-63b84b335ca9",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "5cb3d1c3-76be-4a4a-ac1e-60ee96b17a08",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -20529,7 +20610,6 @@
 											],
 											"variable": [
 												{
-													"id": "1345b530-4ce8-448e-a72a-5254172e4924",
 													"key": "id",
 													"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
 												}
@@ -22174,6 +22254,36 @@
 							"item": [
 								{
 									"name": "Get Permissions",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ca6e6890-aea9-4cc9-97ef-89b133158279",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "5569cf0c-c431-47c6-a918-a1f6c5c6c80d",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -22187,6 +22297,32 @@
 								},
 								{
 									"name": "Get Permissions-No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "97bcf2a4-a3fe-464c-890f-90218a81f153",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "55643294-91d6-4078-9eb9-f19cef29484c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -22206,6 +22342,36 @@
 							"item": [
 								{
 									"name": "Get Roles",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "368066d5-09a1-4aa9-847b-9e5132b1f15f",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "3fc235a9-23e7-4a09-8a76-c8bd835be542",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -22563,6 +22729,36 @@
 							"item": [
 								{
 									"name": "Get Role",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "6fb41269-f21f-4260-92a3-3762ac2e221d",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "86bd3fc0-b45e-4060-8070-f132416dee59",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -22582,7 +22778,6 @@
 											],
 											"variable": [
 												{
-													"id": "587be60b-58d8-4346-82ee-4a74952241e7",
 													"key": "id",
 													"value": "01927265-d8bc-7195-996f-e131d5e13329"
 												}
