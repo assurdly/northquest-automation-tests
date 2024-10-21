@@ -171,6 +171,32 @@
 						},
 						{
 							"name": "List Definitions-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c318e41e-9235-4ab6-a3a8-050e9093fcd6",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "dee05508-537c-4aa8-8531-520a595fef0f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -197,9 +223,8 @@
 									],
 									"variable": [
 										{
-											"id": "5c92badf-1e6f-4d20-bf3d-1e5b517b34c8",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "00000000-0000-0000-0000-0000@@@@@"
 										}
 									]
 								}
@@ -286,6 +311,32 @@
 						},
 						{
 							"name": "List Definitions - Filter options",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9b3048c5-e11f-4150-98ef-5c667e6f68a9",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.not.be.empty",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "b37155f0-cda8-423f-be2c-89280f53e4cc",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -311,7 +362,6 @@
 									],
 									"variable": [
 										{
-											"id": "75cb4e91-9423-44ab-b58a-519f56be9143",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
@@ -400,11 +450,36 @@
 						},
 						{
 							"name": "List Definitions - No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3941ab07-2c7c-4bc4-b922-20258e707ecd",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 401\", function () {",
+											"        pm.response.to.have.status(401);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "901babda-0c37-49c3-95a5-793e580849b3",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -425,7 +500,6 @@
 									],
 									"variable": [
 										{
-											"id": "75cb4e91-9423-44ab-b58a-519f56be9143",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										}
