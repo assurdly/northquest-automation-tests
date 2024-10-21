@@ -1906,6 +1906,32 @@
 						},
 						{
 							"name": "Update Definition-Invalid Tenant Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8402dfa3-04f6-45e4-855c-12749124024c",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "4f4e5006-8e69-45cf-aa0f-4e2ce727a233",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1935,12 +1961,10 @@
 									],
 									"variable": [
 										{
-											"id": "727131bd-60a3-45ca-a407-cd1362183660",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": "00000000-0000-0000-0000-0000000@@@@@"
 										},
 										{
-											"id": "c2b18231-ef33-4e08-9d0e-cfa9ac26d543",
 											"key": "definitionId",
 											"value": "01926438-2db9-7ccd-88ef-fb76284a72f5"
 										}
@@ -2043,6 +2067,32 @@
 						},
 						{
 							"name": "Update Definition-Empty Tenant Id field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d739cca2-075f-4faf-a1aa-38c6250088aa",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Tenant ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "86164f3b-f099-4d5a-9ec6-8c346e636e0f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2072,12 +2122,10 @@
 									],
 									"variable": [
 										{
-											"id": "727131bd-60a3-45ca-a407-cd1362183660",
 											"key": "tenantId",
-											"value": "00000000-0000-0000-0000-000000000000"
+											"value": ""
 										},
 										{
-											"id": "c2b18231-ef33-4e08-9d0e-cfa9ac26d543",
 											"key": "definitionId",
 											"value": "01926438-2db9-7ccd-88ef-fb76284a72f5"
 										}
@@ -2180,6 +2228,32 @@
 						},
 						{
 							"name": "Update Definition-Empty definition Id field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dda51d05-3ca0-4891-ab95-fb76fb348fbb",
+										"exec": [
+											"try {",
+											"    const { message, status } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.be.an(\"string\") && pm.expect(message).to.eql('Definition ID must be a valid UUID')",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "d1fd1a8c-44e0-4fe9-b40a-2321da5574c9",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2209,14 +2283,12 @@
 									],
 									"variable": [
 										{
-											"id": "727131bd-60a3-45ca-a407-cd1362183660",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "c2b18231-ef33-4e08-9d0e-cfa9ac26d543",
 											"key": "definitionId",
-											"value": "01926438-2db9-7ccd-88ef-fb76284a72f5"
+											"value": ""
 										}
 									]
 								}
