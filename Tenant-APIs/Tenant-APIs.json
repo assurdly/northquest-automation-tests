@@ -8443,5 +8443,35 @@
 			],
 			"id": "d2004ca3-5ca7-4a14-8cae-a7dddf9573f0"
 		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{adminAccessToken}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b9fadd87-a183-47ba-bdca-db5d780269b5",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7583c2bd-e013-4fab-961f-08d28374b041",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
 	]
 }
