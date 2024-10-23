@@ -8399,6 +8399,37 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Export Profiles -No auth",
+							"id": "70e2ea4f-6761-450e-ae42-071f891a8327",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tenants/:tenantId/profiles/export",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tenants",
+										":tenantId",
+										"profiles",
+										"export"
+									],
+									"variable": [
+										{
+											"id": "18c0e5d9-216f-4221-ab43-b458725e0469",
+											"key": "tenantId",
+											"value": "00000000-0000-0000-0000-000000000000"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"id": "e29f0ca4-ee3f-40f7-be5c-b40fc78d70b0"
