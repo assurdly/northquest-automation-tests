@@ -18809,10 +18809,11 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "1c1b693d-8fee-440d-8f3c-4242c4307b3c",
+				"id": "75059644-65e0-4cdc-acf8-6b33410dae2d",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
+					"pm.environment.set('origin', \"https://northquestfinance.com\")",
 					"pm.request.headers.add({",
 					"    key: \"origin\",",
 					"    value: pm.environment.get(\"origin\")",
@@ -18823,7 +18824,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "b8d8e28c-0605-450f-8a6c-b354cd7f4e1d",
+				"id": "a41111f8-e38a-471e-a2b7-d029da824990",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
