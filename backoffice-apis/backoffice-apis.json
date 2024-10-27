@@ -7876,6 +7876,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{base_url}}/admin/document-types"
@@ -8193,6 +8199,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{base_url}}/admin/tiers"
@@ -8212,6 +8224,9 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -8223,23 +8238,7 @@
 												}
 											}
 										},
-										"url": {
-											"raw": "{{base_url}}/admin/tiers",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"admin",
-												"tiers"
-											],
-											"query": [
-												{
-													"key": "",
-													"value": "",
-													"disabled": true
-												}
-											]
-										}
+										"url": "{{base_url}}/admin/tiers"
 									},
 									"response": []
 								}
