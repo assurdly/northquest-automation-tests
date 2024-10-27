@@ -39,6 +39,9 @@ jobs:
           repository: ${{ github.repository }}
           ref: gh-pages
           path: gh-pages
+      
+      - name: Wait for 3 minutes before publishing
+        run: sleep 200
 
       - name: Copy existing content to allure-history
         run: |
