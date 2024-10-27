@@ -28,7 +28,7 @@ jobs:
         if: always()
         continue-on-error: true
         run: |
-          newman run Tenant-APIs/Tenant-APIs.json --reporters cli,allure
+          newman run backoffice-apis/backoffice-apis.json --reporters cli,allure
           echo "Postman tests run."
 
       - name: Get Allure history
