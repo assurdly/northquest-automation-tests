@@ -18748,7 +18748,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{adminAccessToken}}"
+										"token": "{{userAccessToken}}"
 									}
 								},
 								"method": "PUT",
