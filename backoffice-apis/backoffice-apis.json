@@ -9669,7 +9669,7 @@
 											"variable": [
 												{
 													"key": "tierId",
-													"value": ""
+													"value": "{{adminFetchedTierId}}"
 												}
 											]
 										}
@@ -9677,12 +9677,18 @@
 									"response": []
 								},
 								{
-									"name": "Delete Tier Copy",
+									"name": "Delete Tier-Invalid Tier Id",
 									"id": "e1914063-99c4-4034-b438-41daaefb3cad",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "DELETE",
 										"header": [],
 										"url": {
@@ -9697,9 +9703,44 @@
 											],
 											"variable": [
 												{
-													"id": "940041fe-1faf-4375-bdb3-9348b4e7331c",
 													"key": "tierId",
-													"value": ""
+													"value": "01928f2d-6756-755b-8a9d-c8094db2af2i"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Tier-Invalid Tier Id Copy",
+									"id": "a72fa6e6-3dba-4540-a241-bafa7df8c13c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/tiers/:tierId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"tiers",
+												":tierId"
+											],
+											"variable": [
+												{
+													"id": "fd87d5ca-7741-4bfe-9765-c1652fb2df6c",
+													"key": "tierId",
+													"value": "01928f2d-6756-755b-8a9d-c8094db2af2i"
 												}
 											]
 										}
