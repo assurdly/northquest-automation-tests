@@ -7900,6 +7900,140 @@
 											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"slug\": \"name\",\n            \"name\": \"Name\",\n            \"options\": null,\n            \"version\": 1,\n            \"type\": \"text\",\n            \"default\": null,\n            \"enabled\": true,\n            \"required\": true,\n            \"order\": 1,\n            \"storage_strategy\": \"plain\"\n        },\n        {\n            \"slug\": \"gender\",\n            \"name\": \"Gender\",\n            \"options\": [\n                \"male\",\n                \"female\"\n            ],\n            \"version\": 1,\n            \"type\": \"text\",\n            \"default\": null,\n            \"enabled\": true,\n            \"required\": true,\n            \"order\": 2,\n            \"storage_strategy\": \"plain\"\n        }\n    ]\n}"
 										}
 									]
+								},
+								{
+									"name": "Set Definition Schema-Empty fields",
+									"id": "af3d4f10-9a99-4645-8386-4fca7b730bfb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n    {\n        \"slug\": \"name\",\n        \"name\": \"Name\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 1,\n        \"storage_strategy\": \"plain\"\n    },\n    {\n        \"slug\": \"\",\n        \"name\": \"\",\n        \"options\": [\"male\", \"female\"],\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 2,\n        \"storage_strategy\": \"plain\"\n    }\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/definitions/:definitionId/schemas",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"definitions",
+												":definitionId",
+												"schemas"
+											],
+											"variable": [
+												{
+													"id": "7622797b-fd79-4d37-ae5f-549bfdce0883",
+													"key": "definitionId",
+													"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "a89ea544-927f-46be-a254-52113b8970cc",
+											"name": "Set Definition Schema",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "[\n    {\n        \"slug\": \"name\",\n        \"name\": \"Name\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 1,\n        \"storage_strategy\": \"plain\"\n    },\n    {\n        \"slug\": \"gender\",\n        \"name\": \"Gender\",\n        \"options\": [\"male\", \"female\"],\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 2,\n        \"storage_strategy\": \"plain\"\n    }\n]",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/admin/definitions/:definitionId/schemas",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"definitions",
+														":definitionId",
+														"schemas"
+													],
+													"variable": [
+														{
+															"key": "definitionId",
+															"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "354"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"162-Kby4Kg01k7AZCaJYdq3/FIXYKIc\""
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 06 Oct 2024 23:49:57 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"slug\": \"name\",\n            \"name\": \"Name\",\n            \"options\": null,\n            \"version\": 1,\n            \"type\": \"text\",\n            \"default\": null,\n            \"enabled\": true,\n            \"required\": true,\n            \"order\": 1,\n            \"storage_strategy\": \"plain\"\n        },\n        {\n            \"slug\": \"gender\",\n            \"name\": \"Gender\",\n            \"options\": [\n                \"male\",\n                \"female\"\n            ],\n            \"version\": 1,\n            \"type\": \"text\",\n            \"default\": null,\n            \"enabled\": true,\n            \"required\": true,\n            \"order\": 2,\n            \"storage_strategy\": \"plain\"\n        }\n    ]\n}"
+										}
+									]
 								}
 							],
 							"id": "0cc332d1-9326-48a2-b72a-e52d14f7b701"
