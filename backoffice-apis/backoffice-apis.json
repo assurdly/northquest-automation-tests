@@ -8364,6 +8364,57 @@
 										"url": "{{base_url}}/admin/tiers"
 									},
 									"response": []
+								},
+								{
+									"name": "Create Tier-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "85b0511b-ab4f-4a7f-9deb-d1b15227ba03",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "61127613-6ada-4418-b3c7-a38bae741185",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"description\": \"\",\n    \"profile_type\": \"\",\n    \"level\": \"\",\n    \"enabled\": true,\n    \"single_sending_limit\": 0,\n    \"single_receiving_limit\": 0,\n    \"period_sending_limit\": 0,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 0,\n    \"period_receiving_limit_time_unit\": \"day\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/tiers"
+									},
+									"response": []
 								}
 							],
 							"id": "c4bac403-9704-4751-bea0-0fe1b288c9ba"
