@@ -1911,7 +1911,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/users",
+											"raw": "{{base_url}}/admin/users?filter[firstname]",
 											"host": [
 												"{{base_url}}"
 											],
@@ -1923,6 +1923,23 @@
 												{
 													"key": "search",
 													"value": "Wunmi",
+													"disabled": true
+												},
+												{
+													"key": "filter[status]",
+													"value": null,
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "filter[firstname]",
+													"value": null,
+													"type": "text"
+												},
+												{
+													"key": "filter[role_id]",
+													"value": null,
+													"type": "text",
 													"disabled": true
 												}
 											]
