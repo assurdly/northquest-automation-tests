@@ -7859,11 +7859,45 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "PUT",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"type_id\": \"\",\n    \"url\": \"\",\n    \"profile_id\": \"\"\n}",
+											"raw": "{\n    \"type_id\": \"{{adminFetchedDocumentTypeId}}\",\n    \"url\": \"\",\n    \"profile_id\": \"{{adminFetchedProfileId}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/documents"
+									},
+									"response": []
+								},
+								{
+									"name": "Set Document Empty fields",
+									"id": "f7847ad5-7589-4d20-932e-32a455b430f4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type_id\": \"{{adminFetchedDocumentTypeId}}\",\n    \"url\": \"\",\n    \"profile_id\": \"{{adminFetchedProfileId}}\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
