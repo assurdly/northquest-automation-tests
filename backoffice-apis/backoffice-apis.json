@@ -8534,7 +8534,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"wunmi\",\n    \"type\": \"personal\",\n    \"status\": \"active\"\n}",
+											"raw": "{\n    \"name\": \"wunmi\",\n    \"type\": \"business\",\n    \"status\": \"active\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -8553,6 +8553,160 @@
 											],
 											"variable": [
 												{
+													"key": "profileId",
+													"value": "{{adminFetchedProfileId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Profile-Invalid Profile Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b5421043-bb51-4c1c-aea1-f54e602fc1fb",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid success message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "4d1bcf76-6bc3-41cf-b9c3-7839b19c6805",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"wunmi\",\n    \"type\": \"business\",\n    \"status\": \"active\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profileId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profileId"
+											],
+											"variable": [
+												{
+													"id": "d2951473-b19f-4fa3-9c98-320b64ea879c",
+													"key": "profileId",
+													"value": "{{adminFetchedProfileId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Profile-Invalid Profile Id Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b5421043-bb51-4c1c-aea1-f54e602fc1fb",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid success message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "3d72dade-5d67-4784-b6c6-819765f666a4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"wunmi\",\n    \"type\": \"business\",\n    \"status\": \"active\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profileId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profileId"
+											],
+											"variable": [
+												{
+													"id": "d2951473-b19f-4fa3-9c98-320b64ea879c",
 													"key": "profileId",
 													"value": "{{adminFetchedProfileId}}"
 												}
