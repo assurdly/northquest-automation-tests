@@ -9712,7 +9712,7 @@
 									"response": []
 								},
 								{
-									"name": "Delete Tier-Invalid Tier Id Copy",
+									"name": "Delete Tier-Empty tier Id Field",
 									"id": "a72fa6e6-3dba-4540-a241-bafa7df8c13c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -9738,9 +9738,8 @@
 											],
 											"variable": [
 												{
-													"id": "fd87d5ca-7741-4bfe-9765-c1652fb2df6c",
 													"key": "tierId",
-													"value": "01928f2d-6756-755b-8a9d-c8094db2af2i"
+													"value": ""
 												}
 											]
 										}
