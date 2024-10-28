@@ -8336,6 +8336,34 @@
 										"url": "{{base_url}}/admin/tiers"
 									},
 									"response": []
+								},
+								{
+									"name": "Create Tier-Empty fields",
+									"id": "70a62cee-f41b-49f9-a592-79c0ae46d132",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"description\": \"\",\n    \"profile_type\": \"\",\n    \"level\": \"\",\n    \"enabled\": true,\n    \"single_sending_limit\": 0,\n    \"single_receiving_limit\": 0,\n    \"period_sending_limit\": 0,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 0,\n    \"period_receiving_limit_time_unit\": \"day\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/tiers"
+									},
+									"response": []
 								}
 							],
 							"id": "c4bac403-9704-4751-bea0-0fe1b288c9ba"
