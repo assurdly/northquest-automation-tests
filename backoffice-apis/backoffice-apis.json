@@ -7104,7 +7104,7 @@
 											"variable": [
 												{
 													"key": "definitionId",
-													"value": "01926438-2db9-7ccd-88ef-fb76284a72f3"
+													"value": "{{adminFetchedDefinition}}"
 												}
 											]
 										}
@@ -7199,7 +7199,7 @@
 									]
 								},
 								{
-									"name": "Update Definition - Empty Definition ID",
+									"name": "Update Definition - Invalid ID",
 									"event": [
 										{
 											"listen": "test",
