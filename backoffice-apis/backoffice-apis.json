@@ -8532,6 +8532,238 @@
 											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Proof of address\",\n        \"description\": \"Proof of address\",\n        \"enabled\": true,\n        \"required\": true,\n        \"id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-10-14T07:32:42.240Z\",\n        \"modified_on\": \"2024-10-14T07:32:42.240Z\",\n        \"deleted_on\": null\n    }\n}"
 										}
 									]
+								},
+								{
+									"name": "Create Document Type Copy",
+									"id": "73f350c0-46b2-486c-b90e-473379f325c4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Business document\",\n    \"description\": \"document type\",\n    \"enabled\": true,\n    \"required\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/tenants/:tenantId/document-types",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"tenants",
+												":tenantId",
+												"document-types"
+											],
+											"variable": [
+												{
+													"id": "bd7b9d38-ab91-4b6c-a18d-6a6817ab42cd",
+													"key": "tenantId",
+													"value": "00000000-0000-0000-0000-000000000000"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "52e56c46-cec6-4b4b-9c94-688a77109647",
+											"name": "Create Document Type",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"Proof of address\",\n    \"description\": \"Proof of address\",\n    \"enabled\": true,\n    \"required\": true\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/document-types"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "380"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"17c-YX3rqbYqKs0/11tRIxkF0BAgF4Q\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 14 Oct 2024 07:32:42 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Proof of address\",\n        \"description\": \"Proof of address\",\n        \"enabled\": true,\n        \"required\": true,\n        \"id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-10-14T07:32:42.240Z\",\n        \"modified_on\": \"2024-10-14T07:32:42.240Z\",\n        \"deleted_on\": null\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Create Document -Duplicate document type",
+									"id": "7f8c0221-0c6e-4924-9816-9246434d1971",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Business document\",\n    \"description\": \"document type\",\n    \"enabled\": true,\n    \"required\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/tenants/:tenantId/document-types",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"tenants",
+												":tenantId",
+												"document-types"
+											],
+											"variable": [
+												{
+													"id": "9cc94b80-4035-4690-a650-ab832517def8",
+													"key": "tenantId",
+													"value": "00000000-0000-0000-0000-000000000000"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "b0e15bff-91bd-463a-b149-de152b909092",
+											"name": "Create Document Type",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"Proof of address\",\n    \"description\": \"Proof of address\",\n    \"enabled\": true,\n    \"required\": true\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/document-types"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "380"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"17c-YX3rqbYqKs0/11tRIxkF0BAgF4Q\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 14 Oct 2024 07:32:42 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Proof of address\",\n        \"description\": \"Proof of address\",\n        \"enabled\": true,\n        \"required\": true,\n        \"id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-10-14T07:32:42.240Z\",\n        \"modified_on\": \"2024-10-14T07:32:42.240Z\",\n        \"deleted_on\": null\n    }\n}"
+										}
+									]
 								}
 							],
 							"id": "31fbd446-2c13-43bf-bc7d-5ca5620f29bc"
