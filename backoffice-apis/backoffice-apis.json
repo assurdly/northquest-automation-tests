@@ -6234,7 +6234,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/definitions",
+											"raw": "{{base_url}}/admin/definitions?filter[name]=profiles",
 											"host": [
 												"{{base_url}}"
 											],
@@ -6245,8 +6245,7 @@
 											"query": [
 												{
 													"key": "filter[name]",
-													"value": "profiles",
-													"disabled": true
+													"value": "profiles"
 												}
 											]
 										}
