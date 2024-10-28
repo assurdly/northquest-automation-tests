@@ -1911,7 +1911,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/users?filter[firstname]=Dare",
+											"raw": "{{base_url}}/admin/users?filter[firstname]=Musa",
 											"host": [
 												"{{base_url}}"
 											],
@@ -1933,7 +1933,7 @@
 												},
 												{
 													"key": "filter[firstname]",
-													"value": "Dare"
+													"value": "Musa"
 												},
 												{
 													"key": "filter[role_id]",
@@ -10039,7 +10039,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"wunmi\",\n    \"type\": \"business\",\n    \"status\": \"active\"\n}",
+											"raw": "{\n    \"name\": \"wunmi\",\n    \"type\": \"business\",\n    \"status\": \"\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
