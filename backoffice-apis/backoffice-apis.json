@@ -8314,13 +8314,49 @@
 							"item": [
 								{
 									"name": "Create Tier",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2886a82d-3db5-468a-aa4f-a6a7a91ab200",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.environment.set(\"adminFetchedProfileId\", data[0].id);\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid success message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "a54e01c2-b73a-4d21-a334-c22a01dc2570",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
 										"auth": {
-											"type": "noauth"
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
 										},
 										"method": "POST",
 										"header": [],
@@ -8339,6 +8375,39 @@
 								},
 								{
 									"name": "Create Tier-Empty fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "bf594459-ade6-4dae-a00e-b94f5fc75ae6",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.environment.set(\"adminFetchedProfileId\", data[0].id);\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", function () {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(statusCode).to.eql(400)\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"name should not be empty\");\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "70a62cee-f41b-49f9-a592-79c0ae46d132",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
