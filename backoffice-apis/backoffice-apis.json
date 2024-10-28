@@ -8120,11 +8120,17 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Proof of address\",\n    \"description\": \"Proof of address\",\n    \"enabled\": true,\n    \"required\": true\n}",
+											"raw": "{\n    \"name\": \"Business document\",\n    \"description\": \"document type\",\n    \"enabled\": true,\n    \"required\": true\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -8143,7 +8149,6 @@
 											],
 											"variable": [
 												{
-													"id": "0c86683b-f13c-4d6f-9258-2500f59c559c",
 													"key": "tenantId",
 													"value": "00000000-0000-0000-0000-000000000000"
 												}
@@ -8432,7 +8437,7 @@
 											"variable": [
 												{
 													"key": "documentTypeId",
-													"value": "019289f1-8d87-766b-8bff-1ee5c22d9adj"
+													"value": "@222@@@"
 												}
 											]
 										}
