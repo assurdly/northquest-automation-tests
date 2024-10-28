@@ -1911,7 +1911,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/users?filter[firstname]",
+											"raw": "{{base_url}}/admin/users?filter[firstname]=Dare",
 											"host": [
 												"{{base_url}}"
 											],
@@ -1927,18 +1927,17 @@
 												},
 												{
 													"key": "filter[status]",
-													"value": null,
+													"value": "",
 													"type": "text",
 													"disabled": true
 												},
 												{
 													"key": "filter[firstname]",
-													"value": null,
-													"type": "text"
+													"value": "Dare"
 												},
 												{
 													"key": "filter[role_id]",
-													"value": null,
+													"value": "",
 													"type": "text",
 													"disabled": true
 												}
