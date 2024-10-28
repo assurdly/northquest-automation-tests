@@ -8413,7 +8413,7 @@
 									"response": []
 								},
 								{
-									"name": "List Profiles Copy",
+									"name": "List Profiles-No auth",
 									"event": [
 										{
 											"listen": "test",
@@ -8421,25 +8421,18 @@
 												"id": "38d9e072-4318-4825-91d6-e89d6391a64c",
 												"exec": [
 													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
+													"    const { message, statusCode } = pm.response.json()\r",
 													"\r",
-													"    pm.environment.set(\"adminFetchedProfileId\", data[0].id);\r",
-													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
 													"    })\r",
 													"\r",
-													"\r",
-													"    pm.test(\"Test for valid success message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
 													"    })\r",
 													"\r",
 													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
+													"    console.error(error)\r",
 													"}"
 												],
 												"type": "text/javascript",
@@ -8453,10 +8446,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [],
@@ -8497,11 +8487,49 @@
 							"item": [
 								{
 									"name": "Update Profile",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b5421043-bb51-4c1c-aea1-f54e602fc1fb",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid success message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "e294f597-6ad2-4e54-8b37-ef1005f08aa9",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "PATCH",
 										"header": [],
 										"body": {
@@ -8525,9 +8553,8 @@
 											],
 											"variable": [
 												{
-													"id": "5763a269-067a-4f47-a462-134c9a103c3e",
 													"key": "profileId",
-													"value": ""
+													"value": "{{adminFetchedProfileId}}"
 												}
 											]
 										}
