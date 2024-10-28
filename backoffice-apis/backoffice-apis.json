@@ -8435,30 +8435,14 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Business document\",\n    \"description\": \"document type\",\n    \"enabled\": true,\n    \"required\": true\n}",
+											"raw": "{\n    \"name\":\"Voter document\",\n    \"description\": \"Voters document\",\n    \"enabled\": true,\n    \"required\": true\n}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": {
-											"raw": "{{base_url}}/tenants/:tenantId/document-types",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"tenants",
-												":tenantId",
-												"document-types"
-											],
-											"variable": [
-												{
-													"key": "tenantId",
-													"value": "00000000-0000-0000-0000-000000000000"
-												}
-											]
-										}
+										"url": "{{base_url}}/admin/document-types"
 									},
 									"response": [
 										{
@@ -8534,7 +8518,7 @@
 									]
 								},
 								{
-									"name": "Create Document Type Copy",
+									"name": "Create Document-Empty description field",
 									"id": "73f350c0-46b2-486c-b90e-473379f325c4",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -8550,31 +8534,14 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Business document\",\n    \"description\": \"document type\",\n    \"enabled\": true,\n    \"required\": true\n}",
+											"raw": "{\n    \"name\": \"Business document\",\n    \"description\": \"\",\n    \"enabled\": true,\n    \"required\": true\n}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": {
-											"raw": "{{base_url}}/tenants/:tenantId/document-types",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"tenants",
-												":tenantId",
-												"document-types"
-											],
-											"variable": [
-												{
-													"id": "bd7b9d38-ab91-4b6c-a18d-6a6817ab42cd",
-													"key": "tenantId",
-													"value": "00000000-0000-0000-0000-000000000000"
-												}
-											]
-										}
+										"url": "{{base_url}}/admin/document-types"
 									},
 									"response": [
 										{
@@ -8673,24 +8640,7 @@
 												}
 											}
 										},
-										"url": {
-											"raw": "{{base_url}}/tenants/:tenantId/document-types",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"tenants",
-												":tenantId",
-												"document-types"
-											],
-											"variable": [
-												{
-													"id": "9cc94b80-4035-4690-a650-ab832517def8",
-													"key": "tenantId",
-													"value": "00000000-0000-0000-0000-000000000000"
-												}
-											]
-										}
+										"url": "{{base_url}}/admin/document-types"
 									},
 									"response": [
 										{
