@@ -8211,6 +8211,39 @@
 							"item": [
 								{
 									"name": "List Tiers",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "14883ca2-cb72-4413-9ff8-3838258609dd",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.environment.set(\"adminFetchedTierId\", data[0].id);\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid success message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "3e5065dc-c4a9-4ffe-970b-8f1e0520f2fb",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
