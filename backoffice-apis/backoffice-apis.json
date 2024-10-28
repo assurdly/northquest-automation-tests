@@ -8231,6 +8231,37 @@
 							"item": [
 								{
 									"name": "Get Document Type",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f55dd24a-71ef-4973-b786-6a6dc5fa9bdb",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "3cd26e08-f2e1-4fab-aa87-7e0e73becf5b",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -8344,6 +8375,37 @@
 								},
 								{
 									"name": "Get Document Type-Invalid Document Type Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d832180e-2ff6-42bd-8e97-4d094f786b43",
+												"exec": [
+													"try {\r",
+													"    const { statusCode, message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", function () {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(statusCode).to.eql(\"400\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"Document Type ID must be a valid UUID\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "17a84f99-d070-4d78-9b3a-cb82c30a218a",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
