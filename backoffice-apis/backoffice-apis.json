@@ -8339,6 +8339,36 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Delete Tier Copy",
+									"id": "e1914063-99c4-4034-b438-41daaefb3cad",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/tiers/:tierId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"tiers",
+												":tierId"
+											],
+											"variable": [
+												{
+													"id": "940041fe-1faf-4375-bdb3-9348b4e7331c",
+													"key": "tierId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"id": "4928e8b3-777e-4e07-83bc-e69f4d259c67"
