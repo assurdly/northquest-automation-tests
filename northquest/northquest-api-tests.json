@@ -18745,6 +18745,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -18767,6 +18773,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
