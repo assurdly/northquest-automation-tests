@@ -9807,7 +9807,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/profiles?filter[type]=Personal",
+											"raw": "{{base_url}}/admin/profiles?filter[type]=Business",
 											"host": [
 												"{{base_url}}"
 											],
@@ -9818,7 +9818,7 @@
 											"query": [
 												{
 													"key": "filter[type]",
-													"value": "Personal"
+													"value": "Business"
 												},
 												{
 													"key": "filter[status]",
@@ -9828,6 +9828,12 @@
 												{
 													"key": "filter[name]",
 													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "id",
+													"value": "019252e1-1a4c-7447-bcc2-b2c6d18d6486",
+													"type": "text",
 													"disabled": true
 												}
 											]
