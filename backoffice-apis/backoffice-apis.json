@@ -8260,6 +8260,51 @@
 										"url": "{{base_url}}/admin/tiers"
 									},
 									"response": []
+								},
+								{
+									"name": "List Tiers-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "14883ca2-cb72-4413-9ff8-3838258609dd",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "7276c65f-05d4-46a7-a62c-28c33726419a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/tiers"
+									},
+									"response": []
 								}
 							],
 							"id": "9809ac37-4ca1-438d-9490-6c1c594c7f43"
