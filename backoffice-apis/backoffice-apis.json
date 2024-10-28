@@ -8570,20 +8570,17 @@
 												"id": "b5421043-bb51-4c1c-aea1-f54e602fc1fb",
 												"exec": [
 													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
+													"    const { message } = pm.response.json()\r",
 													"\r",
 													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
+													"    pm.test(\"Status code is 400\", function () {\r",
+													"        pm.response.to.have.status(400);\r",
 													"    });\r",
 													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
-													"    })\r",
+													"    \r",
 													"\r",
-													"\r",
-													"    pm.test(\"Test for valid success message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"not found\")\r",
 													"    })\r",
 													"\r",
 													"} catch (error) {\r",
@@ -8629,9 +8626,8 @@
 											],
 											"variable": [
 												{
-													"id": "d2951473-b19f-4fa3-9c98-320b64ea879c",
 													"key": "profileId",
-													"value": "{{adminFetchedProfileId}}"
+													"value": "019233c5-f357-7ffa-922e-9ff5318f8670"
 												}
 											]
 										}
@@ -8639,7 +8635,7 @@
 									"response": []
 								},
 								{
-									"name": "Update Profile-Invalid Profile Id Copy",
+									"name": "Update Profile-Empty fields",
 									"event": [
 										{
 											"listen": "test",
@@ -8687,7 +8683,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"wunmi\",\n    \"type\": \"business\",\n    \"status\": \"active\"\n}",
+											"raw": "{\n    \"name\": \"\",\n    \"type\": \"\",\n    \"status\": \"\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -8706,7 +8702,6 @@
 											],
 											"variable": [
 												{
-													"id": "d2951473-b19f-4fa3-9c98-320b64ea879c",
 													"key": "profileId",
 													"value": "{{adminFetchedProfileId}}"
 												}
