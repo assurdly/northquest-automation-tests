@@ -7999,6 +7999,113 @@
 											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-14T07:32:42.240Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-14T07:32:42.240Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Proof of address\",\n            \"description\": \"Proof of address\",\n            \"enabled\": true,\n            \"required\": true\n        }\n    ]\n}"
 										}
 									]
+								},
+								{
+									"name": "List Document Types-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "427f882f-16b6-4df0-9d62-ace13465537c",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "a649b084-10e2-4f6c-96b4-6af360f77086",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/document-types"
+									},
+									"response": [
+										{
+											"id": "6750382b-6b29-48e0-85ca-4f81065cb2d2",
+											"name": "List Document Types",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/document-types"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "382"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"17e-+6P+ihjYVZpYBUBZI77FoWgKQIU\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 14 Oct 2024 07:32:50 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-14T07:32:42.240Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-14T07:32:42.240Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Proof of address\",\n            \"description\": \"Proof of address\",\n            \"enabled\": true,\n            \"required\": true\n        }\n    ]\n}"
+										}
+									]
 								}
 							],
 							"id": "02fe2f66-c6b7-4a90-8abe-491d7db66094"
@@ -8158,6 +8265,119 @@
 									"response": [
 										{
 											"id": "4cfbd3f9-5b48-4f1b-84fe-43a786539375",
+											"name": "Get Document Type",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/document-types/:documentTypeId",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"document-types",
+														":documentTypeId"
+													],
+													"variable": [
+														{
+															"key": "documentTypeId",
+															"value": "019289f1-8d87-766b-8bff-1ee5c22d9add"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "380"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"17c-Av4OCEFAyHomstk0t9e8nF350DU\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 14 Oct 2024 07:34:45 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-14T07:32:42.240Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-14T07:32:42.240Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Proof of address\",\n        \"description\": \"Proof of address\",\n        \"enabled\": true,\n        \"required\": true\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Document Type-Invalid Document Type Id",
+									"id": "17a84f99-d070-4d78-9b3a-cb82c30a218a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/document-types/:documentTypeId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"document-types",
+												":documentTypeId"
+											],
+											"variable": [
+												{
+													"key": "documentTypeId",
+													"value": "019289f1-8d87-766b-8bff-1ee5c22d9adj"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "3155d7c1-7fcd-41e4-80ea-5e67b7b56450",
 											"name": "Get Document Type",
 											"originalRequest": {
 												"method": "GET",
