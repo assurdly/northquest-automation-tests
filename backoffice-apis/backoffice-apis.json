@@ -8548,6 +8548,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "DELETE",
 										"header": [],
 										"url": {
@@ -8562,7 +8568,6 @@
 											],
 											"variable": [
 												{
-													"id": "940041fe-1faf-4375-bdb3-9348b4e7331c",
 													"key": "tierId",
 													"value": ""
 												}
@@ -8739,7 +8744,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/profiles?filter[type]=businesss",
+											"raw": "{{base_url}}/admin/profiles?filter[type]=businessss",
 											"host": [
 												"{{base_url}}"
 											],
@@ -8750,7 +8755,7 @@
 											"query": [
 												{
 													"key": "filter[type]",
-													"value": "businesss"
+													"value": "businessss"
 												},
 												{
 													"key": "filter[status]",
