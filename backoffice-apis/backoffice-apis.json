@@ -7888,6 +7888,39 @@
 							"item": [
 								{
 									"name": "List Document Types",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "427f882f-16b6-4df0-9d62-ace13465537c",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.environment.set(\"adminFetchedDocumentTypeId\", data[0].id);\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "6d03ac8e-0ba8-431f-9d9c-9af851e46d3c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -8096,6 +8129,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -8110,9 +8149,8 @@
 											],
 											"variable": [
 												{
-													"id": "9187b0bf-05a5-4e79-81a2-c831540088bf",
 													"key": "documentTypeId",
-													"value": "019289f1-8d87-766b-8bff-1ee5c22d9add"
+													"value": "{{adminFetchedDocumentTypeId}}"
 												}
 											]
 										}
