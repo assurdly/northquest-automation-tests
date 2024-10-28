@@ -8498,6 +8498,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "PATCH",
 										"header": [],
 										"body": {
@@ -8521,9 +8527,8 @@
 											],
 											"variable": [
 												{
-													"id": "07c7230f-8d23-48f4-8d35-6efce149ccf1",
 													"key": "tierId",
-													"value": ""
+													"value": "{{adminFetchedTierId}}"
 												}
 											]
 										}
