@@ -21888,7 +21888,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300\n   \n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\":\"100\"\n   \n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -21910,12 +21910,10 @@
 													],
 													"variable": [
 														{
-															"id": "7d623ba8-6175-42ba-98d6-6cafb72ba9b2",
 															"key": "category_id",
-															"value": "airtime"
+															"value": "databundle"
 														},
 														{
-															"id": "fd1df3de-5131-458a-8bd7-9ecd8d4d8856",
 															"key": "biller_id",
 															"value": "mtn"
 														}
