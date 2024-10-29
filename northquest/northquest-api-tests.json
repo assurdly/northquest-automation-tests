@@ -19708,6 +19708,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
@@ -19732,12 +19738,10 @@
 							],
 							"variable": [
 								{
-									"id": "30ef5e60-7170-46fb-b985-dadc5f3bfc24",
 									"key": "account_id",
 									"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
 								},
 								{
-									"id": "fa092526-8415-4de9-a1f5-5683a317e86a",
 									"key": "transaction_id",
 									"value": "0192ca7f-b385-7332-8e07-a78a9c67ebe1"
 								}
@@ -19763,7 +19767,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    },\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    },\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    }\n]",
+							"raw": "[\n    {\n        \"account_number\": \"\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    },\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    },\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -20411,6 +20415,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -20434,7 +20444,6 @@
 							],
 							"variable": [
 								{
-									"id": "9ec7d6a1-8552-4769-8f87-fe971f324186",
 									"key": "profile_id",
 									"value": "01925236-19c0-7112-9440-aa8162716104"
 								}
@@ -20450,6 +20459,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -20473,7 +20488,6 @@
 							],
 							"variable": [
 								{
-									"id": "892299da-9e7f-4a3d-8cbd-86b4cf6b6abe",
 									"key": "profile_id",
 									"value": "01925236-19c0-7112-9440-aa8162716104"
 								}
