@@ -21269,6 +21269,151 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"name\": \"Sten Mockett\"\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "Verify Biller Account Number-Invalid account number",
+							"id": "9702074f-794a-4ed4-87ad-c4ffb244d6e8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_number\": \"110200346a\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/verify",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"bill-payments",
+										"categories",
+										":category_id",
+										"billers",
+										":biller_id",
+										"verify"
+									],
+									"variable": [
+										{
+											"key": "category_id",
+											"value": "cabletv"
+										},
+										{
+											"key": "biller_id",
+											"value": "dstv"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "01837a48-da16-4831-a206-bceddcf1b864",
+									"name": "Verify Biller Account Number",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"1102003467\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/verify",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"bill-payments",
+												"categories",
+												":category_id",
+												"billers",
+												":biller_id",
+												"verify"
+											],
+											"variable": [
+												{
+													"key": "category_id",
+													"value": "cabletv"
+												},
+												{
+													"key": "biller_id",
+													"value": "dstv"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "51"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"33-u8uFzrOk7Szd8zEedmXU2r16nd8\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 27 Oct 2024 21:02:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"name\": \"Sten Mockett\"\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "9fd94346-5996-4c1b-9f93-74329096a352"
