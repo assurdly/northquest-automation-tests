@@ -19729,6 +19729,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "{{base_url}}/bill-payments/categories"
@@ -19804,6 +19810,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -19819,7 +19831,6 @@
 							],
 							"variable": [
 								{
-									"id": "a958e776-a3c0-4fbe-8634-058e550f8de3",
 									"key": "category_id",
 									"value": "electricity"
 								}
@@ -19914,6 +19925,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -19931,12 +19948,10 @@
 							],
 							"variable": [
 								{
-									"id": "787605f6-e1e1-445b-8bcc-851027c347b5",
 									"key": "category_id",
 									"value": "cabletv"
 								},
 								{
-									"id": "96d250da-766f-482a-b5bd-0a38eb3c963f",
 									"key": "biller_id",
 									"value": "dstv"
 								}
