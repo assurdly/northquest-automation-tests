@@ -17675,6 +17675,162 @@
 						}
 					],
 					"id": "a4ba5004-ecb1-4448-a2ac-6a6545a04f2f"
+				},
+				{
+					"name": "Update Maker Checker",
+					"id": "fb9f9204-9f5e-423f-b7dc-36ee68221d21",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"enabled\": false,\n    \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/maker-checker",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"maker-checker"
+							],
+							"variable": [
+								{
+									"id": "c51ffe44-5bd3-48cc-ba5d-d8a9ade76410",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "6cd6c106-ca9c-4f72-8ffa-2689f4985d8e",
+							"name": "Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"enabled\": false,\n    \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/maker-checker",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"maker-checker"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-Jxaxu7Xyoh2Jj4rkF8B+9bGtVig\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Oct 2024 20:50:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Permission Updated Successfully\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List KYC",
+					"id": "95d4aa12-a4be-4682-bc4e-889d6f617cf7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/kyc",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"kyc"
+							],
+							"variable": [
+								{
+									"id": "d9166b91-8ef0-4391-bb41-f61d21a51022",
+									"key": "profile_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "5f372b21-b7d6-4c78-a4b5-268f0d1cb9c4"
@@ -20239,6 +20395,181 @@
 				}
 			],
 			"id": "f643d92d-8b0d-4907-bb9d-9c4bcbfbef66"
+		},
+		{
+			"name": "Mandates",
+			"item": [
+				{
+					"name": "Create Mandate",
+					"id": "165ec4bc-79c4-436a-90a3-5979946f0883",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_number\": \"0112345678\",\n    \"phone_number\": \"07034138291\",\n    // \"beneficiary_id\": 1,\n    \"debit_type\": \"all\",\n    \"type\": \"emandate\",\n    \"frequency\": \"daily\",\n    \"bank_code\": \"044\",\n    \"schedule\": false,\n    \"number_of_payments\": 10,\n    // \"schedule_amount\": 1000,\n    \"payment_start_date\":\"2024-11-28\",\n    \"minimum_amount\": 1000,\n    \"email\": \"azeez@mailinator.com\",\n    \"start_date\": \"2024-11-28\",\n    \"end_date\": \"2024-12-28\",\n    \"narration\": \"Mandate for the payments of personal loan\",\n    \"address\": \"4 Perez Drive Lekki Phase 1, Lagos\",\n    \"amount\": 2000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/mandates",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"mandates"
+							],
+							"variable": [
+								{
+									"id": "9ec7d6a1-8552-4769-8f87-fe971f324186",
+									"key": "profile_id",
+									"value": "01925236-19c0-7112-9440-aa8162716104"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get mandates",
+					"id": "60fed5ac-4212-4d38-a734-c32d355b0fc2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_number\": \"0112345678\",\n    \"phone_number\": \"07034138291\",\n    // \"beneficiary_id\": 1,\n    \"debit_type\": \"all\",\n    \"type\": \"emandate\",\n    \"frequency\": \"daily\",\n    \"bank_id\": 51,\n    \"schedule\": false,\n    \"number_of_payments\": 10,\n    // \"schedule_amount\": 1000,\n    \"payment_start_date\": \"2024-10-05\",\n    \"minimum_amount\": 1000,\n    \"email\": \"azeez@mailinator.com\",\n    \"start_date\": \"2024-10-05\",\n    \"end_date\": \"2024-10-18\",\n    \"narration\": \"Mandate for the payments of personal loan\",\n    \"address\": \"4 Perez Drive Lekki Phase 1, Lagos\",\n    \"amount\": 2000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/mandates",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"mandates"
+							],
+							"variable": [
+								{
+									"id": "892299da-9e7f-4a3d-8cbd-86b4cf6b6abe",
+									"key": "profile_id",
+									"value": "01925236-19c0-7112-9440-aa8162716104"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get mandate",
+					"id": "c88327f9-1060-4029-a577-37ae0de58823",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_number\": \"0112345678\",\n    \"phone_number\": \"07034138291\",\n    // \"beneficiary_id\": 1,\n    \"debit_type\": \"all\",\n    \"type\": \"emandate\",\n    \"frequency\": \"daily\",\n    \"bank_id\": 51,\n    \"schedule\": false,\n    \"number_of_payments\": 10,\n    // \"schedule_amount\": 1000,\n    \"payment_start_date\": \"2024-10-05\",\n    \"minimum_amount\": 1000,\n    \"email\": \"azeez@mailinator.com\",\n    \"start_date\": \"2024-10-05\",\n    \"end_date\": \"2024-10-18\",\n    \"narration\": \"Mandate for the payments of personal loan\",\n    \"address\": \"4 Perez Drive Lekki Phase 1, Lagos\",\n    \"amount\": 2000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/mandates/:mandate_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"mandates",
+								":mandate_id"
+							],
+							"variable": [
+								{
+									"id": "2f4b50d5-8f29-4319-a395-00c94165c665",
+									"key": "profile_id",
+									"value": "01925236-19c0-7112-9440-aa8162716104"
+								},
+								{
+									"id": "5f393a99-e425-415d-8ec7-c23e040d6860",
+									"key": "mandate_id",
+									"value": "0192d3bb-ab1d-799a-8886-eda13495c137"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Mandate Status",
+					"id": "b13d7f8d-c000-40e3-9cf8-8b63f2996f88",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_number\": \"0112345678\",\n    \"phone_number\": \"07034138291\",\n    // \"beneficiary_id\": 1,\n    \"debit_type\": \"all\",\n    \"type\": \"emandate\",\n    \"frequency\": \"daily\",\n    \"bank_id\": 51,\n    \"schedule\": false,\n    \"number_of_payments\": 10,\n    // \"schedule_amount\": 1000,\n    \"payment_start_date\": \"2024-10-05\",\n    \"minimum_amount\": 1000,\n    \"email\": \"azeez@mailinator.com\",\n    \"start_date\": \"2024-10-05\",\n    \"end_date\": \"2024-10-18\",\n    \"narration\": \"Mandate for the payments of personal loan\",\n    \"address\": \"4 Perez Drive Lekki Phase 1, Lagos\",\n    \"amount\": 2000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/mandates/:mandate_id/refresh",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"mandates",
+								":mandate_id",
+								"refresh"
+							],
+							"variable": [
+								{
+									"id": "e3d3ad32-bc9c-4a2f-a80e-5784a189914d",
+									"key": "profile_id",
+									"value": "01925236-19c0-7112-9440-aa8162716104"
+								},
+								{
+									"id": "508ffe4b-98f2-404d-a5de-f12c8e05f5c5",
+									"key": "mandate_id",
+									"value": "0192d3bb-ab1d-799a-8886-eda13495c137"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "ca37bbf7-a3fe-4467-9923-44724e121894"
 		}
 	],
 	"auth": {
