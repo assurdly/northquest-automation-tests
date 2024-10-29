@@ -21921,6 +21921,57 @@
 												}
 											},
 											"response": []
+										},
+										{
+											"name": "Mtn Data-Empty fields",
+											"id": "1abf9384-9e41-4394-bba8-fb1b1aa6efab",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\": 100,\n    \"option_id\":\"\"\n   \n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"bill-payments",
+														"categories",
+														":category_id",
+														"billers",
+														":biller_id",
+														"pay"
+													],
+													"variable": [
+														{
+															"key": "category_id",
+															"value": "databundle"
+														},
+														{
+															"key": "biller_id",
+															"value": "mtn"
+														}
+													]
+												}
+											},
+											"response": []
 										}
 									],
 									"id": "b3625d33-0de5-48f4-82b0-3590fd8a3e93"
