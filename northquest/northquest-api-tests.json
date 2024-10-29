@@ -20052,6 +20052,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -20078,12 +20084,10 @@
 							],
 							"variable": [
 								{
-									"id": "d85cb064-8591-4c9d-9c02-0c87866a1a8e",
 									"key": "category_id",
 									"value": "cabletv"
 								},
 								{
-									"id": "e2a919d5-db4b-4bee-a599-4e1b96c9439c",
 									"key": "biller_id",
 									"value": "dstv"
 								}
