@@ -18820,6 +18820,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -19409,6 +19415,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -19432,7 +19444,6 @@
 							],
 							"variable": [
 								{
-									"id": "151cc8e5-5d86-4b32-b1c6-1e525f694be4",
 									"key": "account_id",
 									"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
 								}
