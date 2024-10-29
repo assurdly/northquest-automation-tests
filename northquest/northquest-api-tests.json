@@ -20229,64 +20229,21 @@
 					"id": "52a57d51-596d-4bc8-9522-2713189ac6ef"
 				},
 				{
-					"name": "New Folder",
-					"item": [],
-					"id": "9fd94346-5996-4c1b-9f93-74329096a352"
-				},
-				{
-					"name": "Verify Biller Account Number",
-					"id": "c4430642-0fcc-4ae2-9504-7ed1a717512f",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"account_number\": \"1102003467\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/verify",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"bill-payments",
-								"categories",
-								":category_id",
-								"billers",
-								":biller_id",
-								"verify"
-							],
-							"variable": [
-								{
-									"key": "category_id",
-									"value": "cabletv"
-								},
-								{
-									"key": "biller_id",
-									"value": "dstv"
-								}
-							]
-						}
-					},
-					"response": [
+					"name": "Verify Biller account number",
+					"item": [
 						{
-							"id": "96dc846c-1cb3-42e7-882c-61ca903ad729",
 							"name": "Verify Biller Account Number",
-							"originalRequest": {
+							"id": "c4430642-0fcc-4ae2-9504-7ed1a717512f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -20323,111 +20280,161 @@
 									]
 								}
 							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "51"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"33-u8uFzrOk7Szd8zEedmXU2r16nd8\""
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 27 Oct 2024 21:02:19 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"name\": \"Sten Mockett\"\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Make Bill Payment",
-					"id": "a78a8206-0aee-4480-89bb-64e7301b8a58",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"bill-payments",
-								"categories",
-								":category_id",
-								"billers",
-								":biller_id",
-								"pay"
-							],
-							"variable": [
-								{
-									"key": "category_id",
-									"value": "cabletv"
-								},
-								{
-									"key": "biller_id",
-									"value": "dstv"
+									"id": "96dc846c-1cb3-42e7-882c-61ca903ad729",
+									"name": "Verify Biller Account Number",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"1102003467\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/verify",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"bill-payments",
+												"categories",
+												":category_id",
+												"billers",
+												":biller_id",
+												"verify"
+											],
+											"variable": [
+												{
+													"key": "category_id",
+													"value": "cabletv"
+												},
+												{
+													"key": "biller_id",
+													"value": "dstv"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "51"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"33-u8uFzrOk7Szd8zEedmXU2r16nd8\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 27 Oct 2024 21:02:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"name\": \"Sten Mockett\"\n    }\n}"
 								}
 							]
 						}
-					},
-					"response": []
+					],
+					"id": "9fd94346-5996-4c1b-9f93-74329096a352"
+				},
+				{
+					"name": "Make Bill Payment",
+					"item": [
+						{
+							"name": "Make Bill Payment",
+							"id": "a78a8206-0aee-4480-89bb-64e7301b8a58",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"bill-payments",
+										"categories",
+										":category_id",
+										"billers",
+										":biller_id",
+										"pay"
+									],
+									"variable": [
+										{
+											"key": "category_id",
+											"value": "cabletv"
+										},
+										{
+											"key": "biller_id",
+											"value": "dstv"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "f214bdc5-b6cb-4384-8755-a1ab1c785e6c"
 				}
 			],
 			"id": "f643d92d-8b0d-4907-bb9d-9c4bcbfbef66"
