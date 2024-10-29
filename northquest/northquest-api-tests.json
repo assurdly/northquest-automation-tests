@@ -19970,6 +19970,87 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"airtime\",\n            \"name\": \"Airtime Recharge\"\n        },\n        {\n            \"id\": \"databundle\",\n            \"name\": \"Data Bundle\"\n        },\n        {\n            \"id\": \"cabletv\",\n            \"name\": \"Cable TV Subscription\"\n        },\n        {\n            \"id\": \"electricity\",\n            \"name\": \"Power / Electricity Payments\"\n        },\n        {\n            \"id\": \"epin\",\n            \"name\": \"ePin Services\"\n        },\n        {\n            \"id\": \"vehiclepaper\",\n            \"name\": \"Vehicle Papers\"\n        },\n        {\n            \"id\": \"insurance\",\n            \"name\": \"General Insurance\"\n        }\n    ]\n}"
 								}
 							]
+						},
+						{
+							"name": "List Bill Categories-No auth",
+							"id": "b7235e73-2607-4be6-ac71-123bc14d0906",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/bill-payments/categories"
+							},
+							"response": [
+								{
+									"id": "27c6c129-4295-443a-ae69-6514dd28d65e",
+									"name": "List Bill Categories",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/bill-payments/categories"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "349"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"15d-Pjfc+od9k2CN9vNAHouRClsQq3I\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 27 Oct 2024 19:53:26 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"airtime\",\n            \"name\": \"Airtime Recharge\"\n        },\n        {\n            \"id\": \"databundle\",\n            \"name\": \"Data Bundle\"\n        },\n        {\n            \"id\": \"cabletv\",\n            \"name\": \"Cable TV Subscription\"\n        },\n        {\n            \"id\": \"electricity\",\n            \"name\": \"Power / Electricity Payments\"\n        },\n        {\n            \"id\": \"epin\",\n            \"name\": \"ePin Services\"\n        },\n        {\n            \"id\": \"vehiclepaper\",\n            \"name\": \"Vehicle Papers\"\n        },\n        {\n            \"id\": \"insurance\",\n            \"name\": \"General Insurance\"\n        }\n    ]\n}"
+								}
+							]
 						}
 					],
 					"id": "9a12ff02-230a-45e1-bd05-d852eaae1b5f"
