@@ -19973,16 +19973,39 @@
 						},
 						{
 							"name": "List Bill Categories-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c13ef5f1-2cae-45cb-8d12-fb5ae5a50cf1",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Test for valid status code\", () => {\r",
+											"        pm.expect(statusCode).to.eql(401)\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "b7235e73-2607-4be6-ac71-123bc14d0906",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
+									"type": "noauth"
 								},
 								"method": "GET",
 								"header": [],
@@ -20095,6 +20118,122 @@
 							"response": [
 								{
 									"id": "91c454e3-b1ee-4039-8c81-421227b3f42a",
+									"name": "List Billers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"bill-payments",
+												"categories",
+												":category_id",
+												"billers"
+											],
+											"variable": [
+												{
+													"key": "category_id",
+													"value": "airtime"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "543"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21f-Nyh1SS4LuUAwL5YWh8SzQWMiCJc\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 27 Oct 2024 19:54:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"9mobile\",\n            \"name\": \"9Mobile Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/9mobile.jpg\"\n        },\n        {\n            \"id\": \"airtel\",\n            \"name\": \"Airtel Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/airtel.png\"\n        },\n        {\n            \"id\": \"glo\",\n            \"name\": \"Glo Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/glo.jpg\"\n        },\n        {\n            \"id\": \"mtn\",\n            \"name\": \"MTN Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/mtn.png\"\n        },\n        {\n            \"id\": \"smile\",\n            \"name\": \"Smile Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/smile.png\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Billers Copy",
+							"id": "8b125b5c-01fd-408f-9e3c-da411ff490cc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/bill-payments/categories/:category_id/billers",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"bill-payments",
+										"categories",
+										":category_id",
+										"billers"
+									],
+									"variable": [
+										{
+											"id": "94693a7b-3e50-4847-805e-b4a0c94e687b",
+											"key": "category_id",
+											"value": "airtime"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "cfd4655a-abc6-45ec-8af4-ffad6db6c8ac",
 									"name": "List Billers",
 									"originalRequest": {
 										"method": "GET",
