@@ -10327,7 +10327,7 @@
 							"item": [
 								{
 									"name": "Export Profiles",
-									"id": "680dba24-6940-4430-9910-46219e4b9e42",
+									"id": "47cc2694-4ab3-4a45-afcc-8eac446092e9",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -10340,7 +10340,32 @@
 										},
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/admin/profiles/export"
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=csv",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												"export"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "business"
+												},
+												{
+													"key": "filter[created_on][gt]",
+													"value": "2024-10-04"
+												},
+												{
+													"key": "format",
+													"value": "csv",
+													"description": "csv|xlsx"
+												}
+											]
+										}
 									},
 									"response": []
 								}
