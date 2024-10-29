@@ -20110,7 +20110,7 @@
 									"variable": [
 										{
 											"key": "category_id",
-											"value": "airtime"
+											"value": "cabletv"
 										}
 									]
 								}
@@ -22335,6 +22335,65 @@
 										}
 									],
 									"id": "8e3b7b52-e406-486d-91a5-8689f8f25c30"
+								},
+								{
+									"name": "STARTIMES",
+									"item": [
+										{
+											"name": "Make Bill Payment",
+											"id": "deff2bac-a673-46e0-ae89-fb5903c40188",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"bill-payments",
+														"categories",
+														":category_id",
+														"billers",
+														":biller_id",
+														"pay"
+													],
+													"variable": [
+														{
+															"id": "33ceba8d-5748-4a74-aba6-5487036c8b86",
+															"key": "category_id",
+															"value": "cabletv"
+														},
+														{
+															"id": "57b01328-5f21-4cab-a887-075c45f8374d",
+															"key": "biller_id",
+															"value": "dstv"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									],
+									"id": "f0e2d002-d868-4657-aabf-d63b5c0385a2"
 								}
 							],
 							"id": "fcf46cf3-04ed-416d-85fb-7a456c972940"
