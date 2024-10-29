@@ -20618,6 +20618,65 @@
 										}
 									],
 									"id": "3a34135e-c336-4fa6-9381-bb523d605737"
+								},
+								{
+									"name": "9MOBILE Copy",
+									"item": [
+										{
+											"name": "Make Bill Payment",
+											"id": "bc452500-afb1-4fc2-8bbe-4daa4fef5d43",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"bill-payments",
+														"categories",
+														":category_id",
+														"billers",
+														":biller_id",
+														"pay"
+													],
+													"variable": [
+														{
+															"id": "012c66e4-8953-42b1-87db-897f9c0b78b1",
+															"key": "category_id",
+															"value": "cabletv"
+														},
+														{
+															"id": "e3601c38-301f-4acd-81d6-8e5e0836c073",
+															"key": "biller_id",
+															"value": "dstv"
+														}
+													]
+												}
+											},
+											"response": []
+										}
+									],
+									"id": "ea436802-fc3f-474d-b490-ac66a2a29c66"
 								}
 							],
 							"id": "4396dcb1-4365-4c55-8a97-f62fae2efe92"
