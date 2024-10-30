@@ -20713,6 +20713,133 @@
 							]
 						},
 						{
+							"name": "List Biller Options-Startimes",
+							"id": "1ff16acf-5528-46ee-bf92-9d7a14a5b463",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/options",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"bill-payments",
+										"categories",
+										":category_id",
+										"billers",
+										":biller_id",
+										"options"
+									],
+									"variable": [
+										{
+											"key": "category_id",
+											"value": "cabletv"
+										},
+										{
+											"key": "biller_id",
+											"value": "startimes"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "6f00cedc-79ab-4d12-8038-3309a52f1a44",
+									"name": "List Biller Options",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/options",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"bill-payments",
+												"categories",
+												":category_id",
+												"billers",
+												":biller_id",
+												"options"
+											],
+											"variable": [
+												{
+													"key": "category_id",
+													"value": "cabletv"
+												},
+												{
+													"key": "biller_id",
+													"value": "dstv"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "546"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"222-Cn071q1n9J/Z01urzHR1Xuxah7w\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 27 Oct 2024 20:40:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"PRWFRNSE36\",\n            \"name\": \"DStv Premium French\",\n            \"amount\": 29300\n        },\n        {\n            \"id\": \"NLTESE36\",\n            \"name\": \"Padi\",\n            \"amount\": 2150\n        },\n        {\n            \"id\": \"COMPE36\",\n            \"name\": \"DStv Compact\",\n            \"amount\": 9000\n        },\n        {\n            \"id\": \"COMPLE36\",\n            \"name\": \"DStv Compact Plus\",\n            \"amount\": 14250\n        },\n        {\n            \"id\": \"PRWE36\",\n            \"name\": \"DStv Premium\",\n            \"amount\": 21000\n        },\n        {\n            \"id\": \"PRWASIE36\",\n            \"name\": \"DStv Premium Asia\",\n            \"amount\": 23500\n        },\n        {\n            \"id\": \"ASIAE36\",\n            \"name\": \"Asian Bouqet\",\n            \"amount\": 7100\n        },\n        {\n            \"id\": \"NNJ1E36\",\n            \"name\": \"DStv Yanga Bouquet E36\",\n            \"amount\": 2950\n        },\n        {\n            \"id\": \"NNJ2E36\",\n            \"name\": \"DStv Confam Bouquet E36\",\n            \"amount\": 5300\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
 							"name": "List Biller Options-Invalid category Id",
 							"id": "32856338-4ff1-4f05-a7fd-2e39441d8e46",
 							"protocolProfileBehavior": {
@@ -22876,11 +23003,11 @@
 									"id": "14090c38-144c-4196-a430-ff9fed6361b0"
 								},
 								{
-									"name": "STARTIMES",
+									"name": "GOTV Copy",
 									"item": [
 										{
-											"name": "Make Bill Payment",
-											"id": "deff2bac-a673-46e0-ae89-fb5903c40188",
+											"name": "Make bill payment",
+											"id": "ff911175-ae41-40c8-91a0-c2a242d96b1d",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22895,7 +23022,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22917,12 +23044,224 @@
 													],
 													"variable": [
 														{
-															"id": "33ceba8d-5748-4a74-aba6-5487036c8b86",
+															"id": "beb413ee-60e2-49af-bfe4-35cef31c0a67",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "57b01328-5f21-4cab-a887-075c45f8374d",
+															"id": "1ae513df-796c-4de2-84d4-43f37612cdf2",
+															"key": "biller_id",
+															"value": "gotv"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Make bill payment-Empty fields",
+											"id": "43b275d8-69fb-4c3e-9727-abf590db0bf9",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"bill-payments",
+														"categories",
+														":category_id",
+														"billers",
+														":biller_id",
+														"pay"
+													],
+													"variable": [
+														{
+															"id": "ac753e5b-7c17-48c7-8896-f2551e5779cd",
+															"key": "category_id",
+															"value": ""
+														},
+														{
+															"id": "98c8e350-90e6-4360-a21a-fa1f4a8b614c",
+															"key": "biller_id",
+															"value": ""
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Make bill payment-Invalid category Id",
+											"id": "4c6a2d60-aff0-4b05-8ddd-4c49b3751b7f",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"bill-payments",
+														"categories",
+														":category_id",
+														"billers",
+														":biller_id",
+														"pay"
+													],
+													"variable": [
+														{
+															"id": "aa04674c-12ad-427d-af03-cf95f7eb9c28",
+															"key": "category_id",
+															"value": "cabletv1"
+														},
+														{
+															"id": "ab12eb4d-a1e8-4b1d-9b38-a62faadeb902",
+															"key": "biller_id",
+															"value": "dstv"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Make bill payment-Invalid biller Id",
+											"id": "a81e15ab-9387-42f6-9748-a37e659ae7a9",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"bill-payments",
+														"categories",
+														":category_id",
+														"billers",
+														":biller_id",
+														"pay"
+													],
+													"variable": [
+														{
+															"id": "f1c442e8-f889-4a51-9ada-a2e033aefb06",
+															"key": "category_id",
+															"value": "cabletv"
+														},
+														{
+															"id": "e3738ad1-ec4c-446e-9c7e-8978be4dba25",
+															"key": "biller_id",
+															"value": "dstv1"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Make bill payment-Invalid option Id",
+											"id": "6bf4cadc-1fad-466c-a8a2-a139bd9086b1",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"bill-payments",
+														"categories",
+														":category_id",
+														"billers",
+														":biller_id",
+														"pay"
+													],
+													"variable": [
+														{
+															"id": "b153542e-d2f5-4932-b273-2f1f3a181927",
+															"key": "category_id",
+															"value": "cabletv"
+														},
+														{
+															"id": "87cc95a1-01a6-41e6-bd3c-4d4dcb9cff89",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -22932,7 +23271,7 @@
 											"response": []
 										}
 									],
-									"id": "f0e2d002-d868-4657-aabf-d63b5c0385a2"
+									"id": "b73a6bb8-4508-4e25-b7ab-43090535563f"
 								}
 							],
 							"id": "fcf46cf3-04ed-416d-85fb-7a456c972940"
