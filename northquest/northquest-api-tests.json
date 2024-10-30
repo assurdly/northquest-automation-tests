@@ -22271,6 +22271,112 @@
 												}
 											},
 											"response": []
+										},
+										{
+											"name": "Make bill payment-Empty fields",
+											"id": "b86ef66c-1420-4e9d-b448-cb2504fc4b73",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"bill-payments",
+														"categories",
+														":category_id",
+														"billers",
+														":biller_id",
+														"pay"
+													],
+													"variable": [
+														{
+															"id": "f444d483-cdc2-469e-8d48-4526299875cc",
+															"key": "category_id",
+															"value": "cabletv"
+														},
+														{
+															"id": "e62ebaaf-2bd3-405a-a8b0-6acc312b27fa",
+															"key": "biller_id",
+															"value": "dstv"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Make bill payment-Invalid b",
+											"id": "db80fcc7-142d-4884-9aa5-c40619398b4b",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"bill-payments",
+														"categories",
+														":category_id",
+														"billers",
+														":biller_id",
+														"pay"
+													],
+													"variable": [
+														{
+															"id": "f444d483-cdc2-469e-8d48-4526299875cc",
+															"key": "category_id",
+															"value": "cabletv"
+														},
+														{
+															"id": "e62ebaaf-2bd3-405a-a8b0-6acc312b27fa",
+															"key": "biller_id",
+															"value": "dstv"
+														}
+													]
+												}
+											},
+											"response": []
 										}
 									],
 									"id": "3e32e250-6427-47e4-97c3-69e833acfb76"
