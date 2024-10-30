@@ -17,7 +17,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "48689ac8-3aa7-4f06-bfac-d64c2d746278",
+										"id": "1777b76b-bcd2-4f28-b618-6ea4e6ddf023",
 										"exec": [
 											"try {\r",
 											"    const {\r",
@@ -63,17 +63,6 @@
 											"    console.error(\"Error from test:\", error);\r",
 											"}\r",
 											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "2fbe1be7-f099-4d8b-a281-e9e4df412342",
-										"exec": [
-											"pm.environment.set(\"base_url\", \"http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend\")"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -10382,7 +10371,7 @@
 	"auth": {
 		"type": "bearer",
 		"bearer": {
-			"token": "{{token}}"
+			"token": "{{adminAccessToken}}"
 		}
 	},
 	"event": [
