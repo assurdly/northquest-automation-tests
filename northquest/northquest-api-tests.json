@@ -23538,7 +23538,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300\n    \n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -23560,14 +23560,12 @@
 											],
 											"variable": [
 												{
-													"id": "33ceba8d-5748-4a74-aba6-5487036c8b86",
 													"key": "category_id",
-													"value": "cabletv"
+													"value": "electricity"
 												},
 												{
-													"id": "57b01328-5f21-4cab-a887-075c45f8374d",
 													"key": "biller_id",
-													"value": "dstv"
+													"value": "abuja_electric_postpaid"
 												}
 											]
 										}
