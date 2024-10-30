@@ -23813,6 +23813,57 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Make Bill Payment-Invalid category Id",
+									"id": "d6da6bab-88df-4045-9143-be8201de2000",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1000,\n    \"option_id\":\"100\"\n   \n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"bill-payments",
+												"categories",
+												":category_id",
+												"billers",
+												":biller_id",
+												"pay"
+											],
+											"variable": [
+												{
+													"key": "category_id",
+													"value": "electricity1"
+												},
+												{
+													"key": "biller_id",
+													"value": "abuja_electric_postpaid"
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"id": "b2baf224-927d-4027-a6a7-22999c64dcad"
