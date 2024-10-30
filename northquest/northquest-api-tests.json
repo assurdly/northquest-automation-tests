@@ -22626,7 +22626,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22648,14 +22648,12 @@
 													],
 													"variable": [
 														{
-															"id": "786f4f8c-0e29-4b6d-ab39-028ecf886ae1",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "ccd7d3e2-cfe2-4dca-a9e9-90e02766908d",
 															"key": "biller_id",
-															"value": "dstv"
+															"value": "gotv"
 														}
 													]
 												}
