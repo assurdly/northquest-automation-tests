@@ -20082,7 +20082,7 @@
 					"name": "List Billers",
 					"item": [
 						{
-							"name": "List Billers",
+							"name": "List Billers-Cabletv",
 							"id": "6e08d6ca-2801-4231-880d-d92a6c81b638",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -20118,6 +20118,122 @@
 							"response": [
 								{
 									"id": "91c454e3-b1ee-4039-8c81-421227b3f42a",
+									"name": "List Billers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"bill-payments",
+												"categories",
+												":category_id",
+												"billers"
+											],
+											"variable": [
+												{
+													"key": "category_id",
+													"value": "airtime"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "543"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21f-Nyh1SS4LuUAwL5YWh8SzQWMiCJc\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 27 Oct 2024 19:54:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"9mobile\",\n            \"name\": \"9Mobile Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/9mobile.jpg\"\n        },\n        {\n            \"id\": \"airtel\",\n            \"name\": \"Airtel Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/airtel.png\"\n        },\n        {\n            \"id\": \"glo\",\n            \"name\": \"Glo Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/glo.jpg\"\n        },\n        {\n            \"id\": \"mtn\",\n            \"name\": \"MTN Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/mtn.png\"\n        },\n        {\n            \"id\": \"smile\",\n            \"name\": \"Smile Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/smile.png\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Billers-Cabletv Copy",
+							"id": "cbdcf194-f8ea-42be-831e-929d2cd2094f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/bill-payments/categories/:category_id/billers",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"bill-payments",
+										"categories",
+										":category_id",
+										"billers"
+									],
+									"variable": [
+										{
+											"id": "fdc09222-b973-4b98-b25f-f4aca52b3ee0",
+											"key": "category_id",
+											"value": "cabletv"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "d6e0855f-d4ae-499d-9eba-64f4b22ab5b6",
 									"name": "List Billers",
 									"originalRequest": {
 										"method": "GET",
@@ -23003,7 +23119,7 @@
 									"id": "14090c38-144c-4196-a430-ff9fed6361b0"
 								},
 								{
-									"name": "GOTV Copy",
+									"name": "STARTIMES",
 									"item": [
 										{
 											"name": "Make bill payment",
@@ -23022,7 +23138,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -23044,14 +23160,12 @@
 													],
 													"variable": [
 														{
-															"id": "beb413ee-60e2-49af-bfe4-35cef31c0a67",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "1ae513df-796c-4de2-84d4-43f37612cdf2",
 															"key": "biller_id",
-															"value": "gotv"
+															"value": "startimes"
 														}
 													]
 												}
