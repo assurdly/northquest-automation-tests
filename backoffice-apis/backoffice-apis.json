@@ -9519,7 +9519,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Tier 1\",\n    \"description\": \"Tier 1\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 0,\n    \"single_receiving_limit\": 0,\n    \"period_sending_limit\": 0,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 0,\n    \"period_receiving_limit_time_unit\": \"day\",\n    \"requirements\": [\n        {\n            \"type\": \"documents\",\n            \"type_id\": \"{{adminFetchedDocumentTypeId}}\"\n        },\n        {\n            \"type\": \"definitions\",\n            \"type_id\": \"{{adminFetchedDefinition}}\"\n        }\n    ]\n}",
+											"raw": "{\n    \"name\": \"Tier 2\",\n    \"description\": \"Tier 2\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 0,\n    \"single_receiving_limit\": 0,\n    \"period_sending_limit\": 0,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 0,\n    \"period_receiving_limit_time_unit\": \"day\",\n    \"requirements\": [\n        {\n            \"type\": \"documents\",\n            \"type_id\": \"{{adminFetchedDocumentTypeId}}\"\n        },\n        {\n            \"type\": \"definitions\",\n            \"type_id\": \"{{adminFetchedDefinition}}\"\n        }\n    ]\n}",
 											"options": {
 												"raw": {
 													"language": "json"
