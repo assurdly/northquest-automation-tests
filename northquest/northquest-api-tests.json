@@ -20312,6 +20312,121 @@
 							]
 						},
 						{
+							"name": "List Billers-education",
+							"id": "589e8733-bc55-4828-984c-f1d12c1815d1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/bill-payments/categories/:category_id/billers",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"bill-payments",
+										"categories",
+										":category_id",
+										"billers"
+									],
+									"variable": [
+										{
+											"key": "category_id",
+											"value": "epin"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "1e07c6d3-9250-40a3-a438-920b2492d91b",
+									"name": "List Billers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"bill-payments",
+												"categories",
+												":category_id",
+												"billers"
+											],
+											"variable": [
+												{
+													"key": "category_id",
+													"value": "airtime"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "543"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21f-Nyh1SS4LuUAwL5YWh8SzQWMiCJc\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 27 Oct 2024 19:54:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"9mobile\",\n            \"name\": \"9Mobile Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/9mobile.jpg\"\n        },\n        {\n            \"id\": \"airtel\",\n            \"name\": \"Airtel Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/airtel.png\"\n        },\n        {\n            \"id\": \"glo\",\n            \"name\": \"Glo Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/glo.jpg\"\n        },\n        {\n            \"id\": \"mtn\",\n            \"name\": \"MTN Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/mtn.png\"\n        },\n        {\n            \"id\": \"smile\",\n            \"name\": \"Smile Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/smile.png\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
 							"name": "List Billers-Invalid category Id",
 							"id": "8b125b5c-01fd-408f-9e3c-da411ff490cc",
 							"protocolProfileBehavior": {
@@ -20999,6 +21114,135 @@
 							"response": [
 								{
 									"id": "d921a5dd-0bbb-47a2-9dc4-c38d1086b950",
+									"name": "List Biller Options",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/options",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"bill-payments",
+												"categories",
+												":category_id",
+												"billers",
+												":biller_id",
+												"options"
+											],
+											"variable": [
+												{
+													"key": "category_id",
+													"value": "cabletv"
+												},
+												{
+													"key": "biller_id",
+													"value": "dstv"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "546"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"222-Cn071q1n9J/Z01urzHR1Xuxah7w\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 27 Oct 2024 20:40:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"PRWFRNSE36\",\n            \"name\": \"DStv Premium French\",\n            \"amount\": 29300\n        },\n        {\n            \"id\": \"NLTESE36\",\n            \"name\": \"Padi\",\n            \"amount\": 2150\n        },\n        {\n            \"id\": \"COMPE36\",\n            \"name\": \"DStv Compact\",\n            \"amount\": 9000\n        },\n        {\n            \"id\": \"COMPLE36\",\n            \"name\": \"DStv Compact Plus\",\n            \"amount\": 14250\n        },\n        {\n            \"id\": \"PRWE36\",\n            \"name\": \"DStv Premium\",\n            \"amount\": 21000\n        },\n        {\n            \"id\": \"PRWASIE36\",\n            \"name\": \"DStv Premium Asia\",\n            \"amount\": 23500\n        },\n        {\n            \"id\": \"ASIAE36\",\n            \"name\": \"Asian Bouqet\",\n            \"amount\": 7100\n        },\n        {\n            \"id\": \"NNJ1E36\",\n            \"name\": \"DStv Yanga Bouquet E36\",\n            \"amount\": 2950\n        },\n        {\n            \"id\": \"NNJ2E36\",\n            \"name\": \"DStv Confam Bouquet E36\",\n            \"amount\": 5300\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Biller Options-Electricity Copy",
+							"id": "69ae0112-7887-4b1e-9b96-fad9862ea617",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/options",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"bill-payments",
+										"categories",
+										":category_id",
+										"billers",
+										":biller_id",
+										"options"
+									],
+									"variable": [
+										{
+											"id": "0e16010b-be56-4121-94ba-f988be9244b0",
+											"key": "category_id",
+											"value": "cabletv"
+										},
+										{
+											"id": "53390010-d273-4c5b-bdc7-f50c1f1858f3",
+											"key": "biller_id",
+											"value": "startimes"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "193594f8-93e9-4b23-aa1c-811c4d0e6970",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
