@@ -21199,7 +21199,7 @@
 							]
 						},
 						{
-							"name": "List Biller Options-Electricity Copy",
+							"name": "List Biller Options-Education",
 							"id": "69ae0112-7887-4b1e-9b96-fad9862ea617",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -21228,14 +21228,12 @@
 									],
 									"variable": [
 										{
-											"id": "0e16010b-be56-4121-94ba-f988be9244b0",
 											"key": "category_id",
-											"value": "cabletv"
+											"value": "epin"
 										},
 										{
-											"id": "53390010-d273-4c5b-bdc7-f50c1f1858f3",
 											"key": "biller_id",
-											"value": "startimes"
+											"value": "waec"
 										}
 									]
 								}
@@ -23839,7 +23837,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -23861,14 +23859,12 @@
 											],
 											"variable": [
 												{
-													"id": "33ceba8d-5748-4a74-aba6-5487036c8b86",
 													"key": "category_id",
-													"value": "cabletv"
+													"value": "epin"
 												},
 												{
-													"id": "57b01328-5f21-4cab-a887-075c45f8374d",
 													"key": "biller_id",
-													"value": "dstv"
+													"value": "waec"
 												}
 											]
 										}
