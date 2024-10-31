@@ -11410,7 +11410,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users",
+									"raw": "{{base_url}}/profiles/:profile_id/users?search=Azeez",
 									"host": [
 										"{{base_url}}"
 									],
@@ -11422,8 +11422,7 @@
 									"query": [
 										{
 											"key": "search",
-											"value": "Azeez",
-											"disabled": true
+											"value": "Azeez"
 										},
 										{
 											"key": "status",
