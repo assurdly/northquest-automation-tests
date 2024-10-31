@@ -19279,6 +19279,137 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Transfers Processed Successfully\"\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "Transfer Copy",
+					"id": "e6c46e6a-cf00-4044-8d5f-f8fe2b2738aa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": -100.23,\n    \"narration\": \"Sodiq\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/accounts/:account_id/transfer",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"accounts",
+								":account_id",
+								"transfer"
+							],
+							"variable": [
+								{
+									"key": "account_id",
+									"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "ae60b499-be45-4d93-a274-43a543ad57a0",
+							"name": "Pending Approval",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/accounts/:account_id/transfer",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"accounts",
+										":account_id",
+										"transfer"
+									],
+									"variable": [
+										{
+											"key": "account_id",
+											"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "70"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"46-8bfyF8xfJ1hm7Swt5nggBBZF7H0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 26 Oct 2024 20:23:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Transaction pending approval\"\n    }\n}"
+						}
+					]
 				}
 			],
 			"id": "252c8204-a2e4-4d4e-bc09-13d61a9fedf4"
