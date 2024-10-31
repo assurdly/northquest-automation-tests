@@ -1900,7 +1900,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/users?filter[firstname]=Musa",
+											"raw": "{{base_url}}/admin/users",
 											"host": [
 												"{{base_url}}"
 											],
@@ -1922,7 +1922,8 @@
 												},
 												{
 													"key": "filter[firstname]",
-													"value": "Musa"
+													"value": "Musa",
+													"disabled": true
 												},
 												{
 													"key": "filter[role_id]",
