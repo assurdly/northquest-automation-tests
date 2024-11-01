@@ -2449,7 +2449,8 @@
 										"id": "742c27e8-72c6-4981-90f0-70ef0dd92bc4",
 										"exec": [
 											"try {",
-											"    const { message } = pm.response.json()",
+											"    const { message, data: { token } } = pm.response.json()",
+											"    pm.environment.set(\"createdUserToken\", token)",
 											"",
 											"    // pm.test(\"Successful POST request\", function () {",
 											"    //     pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
@@ -2473,7 +2474,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email_otp_id\": \"0192b6b3-d19d-7aad-a2f7-2e03b4aff712\",\n    // \"phone_otp_id\": \"0191fa72-78bd-7553-aff4-e97226e6478b\",\n    \"email_otp\": \"335984\",\n    // \"phone_otp\": \"439034\",\n    \"password\": \"123456\",\n    \"referral_code\": \"\",\n    \"last_name\": \"Testing\",\n    \"first_name\": \"Midnight\"\n}",
+									"raw": "{\n    \"email_otp_id\": \"0192e896-261b-7111-a063-04c1dd7622d1\",\n    // \"phone_otp_id\": \"0191fa72-78bd-7553-aff4-e97226e6478b\",\n    \"email_otp\": \"207006\",\n    // \"phone_otp\": \"439034\",\n    \"password\": \"123456\",\n    \"referral_code\": \"\",\n    \"last_name\": \"Testing\",\n    \"first_name\": \"Midnight\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
