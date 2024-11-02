@@ -10474,11 +10474,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/transactions/0192e39c-3492-7445-bc38-6977bba60b85",
+									"raw": "{{base_url}}/admin/profiles/:profile_id/transactions/0192e39c-3492-7445-bc38-6977bba60b85",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"admin",
 										"profiles",
 										":profile_id",
 										"transactions",
@@ -10486,7 +10487,6 @@
 									],
 									"variable": [
 										{
-											"id": "150b7f4c-46ad-4ea8-81c4-9da8ad30e2c0",
 											"key": "profile_id",
 											"value": "{{profileId}}"
 										}
@@ -10602,11 +10602,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/transactions?filter[start_date]=2024-10-31T17:19:32.710Z&filter[transaction_type]=transfer",
+									"raw": "{{base_url}}/admin/profiles/:profile_id/transactions?filter[start_date]=2024-10-31T17:19:32.710Z&filter[transaction_type]=transfer",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"admin",
 										"profiles",
 										":profile_id",
 										"transactions"
@@ -10638,8 +10639,7 @@
 										},
 										{
 											"key": "filter[start_date]",
-											"value": "2024-10-31T17:19:32.710Z",
-											"type": "text"
+											"value": "2024-10-31T17:19:32.710Z"
 										},
 										{
 											"key": "filter[end_date]",
@@ -10649,13 +10649,11 @@
 										},
 										{
 											"key": "filter[transaction_type]",
-											"value": "transfer",
-											"type": "text"
+											"value": "transfer"
 										}
 									],
 									"variable": [
 										{
-											"id": "3213d1f6-957a-469f-a253-4a43683557df",
 											"key": "profile_id",
 											"value": "{{profileId}}"
 										}
