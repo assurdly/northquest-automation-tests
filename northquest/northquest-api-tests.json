@@ -24577,6 +24577,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [],
 								"body": {
@@ -24600,9 +24606,8 @@
 									],
 									"variable": [
 										{
-											"id": "197e923f-73c0-4fd9-89dd-4bbc0313b3fc",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userProfileId}}"
 										}
 									]
 								}
