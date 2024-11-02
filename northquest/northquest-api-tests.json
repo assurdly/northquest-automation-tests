@@ -25099,7 +25099,7 @@
 									]
 								},
 								{
-									"name": "Get Transfer Beneficiaries Copy",
+									"name": "Get Transfer Beneficiaries-Invalid Profile Id",
 									"id": "df647c24-3ae6-4133-96f5-fa2506b35867",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -25267,9 +25267,8 @@
 											],
 											"variable": [
 												{
-													"id": "57a24b9e-1aec-40ba-88e8-512bcb21e94a",
 													"key": "profile_id",
-													"value": "{{profileId}}"
+													"value": "{{userProfileId}}"
 												}
 											]
 										}
