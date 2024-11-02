@@ -24862,7 +24862,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"\",\n    \"bank_code\": \"\",\n    \"account_id\": \"\"\n}",
+											"raw": "{\n    \"account_number\": \"011234567812\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -24881,7 +24881,6 @@
 											],
 											"variable": [
 												{
-													"id": "dc1bd1ba-1fab-4160-b50e-568312452edd",
 													"key": "profile_id",
 													"value": "{{userProfileId}}"
 												}
@@ -24994,7 +24993,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"\",\n    \"bank_code\": \"\",\n    \"account_id\": \"\"\n}",
+											"raw": "{\n    \"account_number\": \"01123456\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -25013,7 +25012,6 @@
 											],
 											"variable": [
 												{
-													"id": "dc1bd1ba-1fab-4160-b50e-568312452edd",
 													"key": "profile_id",
 													"value": "{{userProfileId}}"
 												}
@@ -25122,6 +25120,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
 										"method": "DELETE",
 										"header": [],
 										"url": {
@@ -25137,9 +25141,8 @@
 											],
 											"variable": [
 												{
-													"id": "ade0e303-a51a-4f9b-a382-07d1ff967e78",
 													"key": "profile_id",
-													"value": "{{profileId}}"
+													"value": "{{userProfileId}}"
 												}
 											]
 										}
