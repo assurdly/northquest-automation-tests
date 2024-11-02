@@ -24318,52 +24318,21 @@
 					"name": "Transfer Beneficiaries",
 					"item": [
 						{
-							"name": "Create Transfer Beneficiary",
-							"id": "1dbed08d-cfee-4655-a63b-12dc0e329fdb",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"transfer-beneficiaries"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userProfileId}}"
-										}
-									]
-								}
-							},
-							"response": [
+							"name": "Create Beneficiary",
+							"item": [
 								{
-									"id": "45405fa4-2167-4c42-8352-c0abe9ad5674",
-									"name": "Success",
-									"originalRequest": {
+									"name": "Create Transfer Beneficiary",
+									"id": "1dbed08d-cfee-4655-a63b-12dc0e329fdb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -24388,104 +24357,117 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{profileId}}"
+													"value": "{{userProfileId}}"
 												}
 											]
 										}
 									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "505"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1f9-AfKBIDXtb8C1dgZUKNNmBacbCfM\""
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 31 Oct 2024 16:58:36 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"bank_code\": \"999998\",\n        \"account_number\": \"0112345678\",\n        \"account_name\": \"vee Test\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"id\": \"0192e383-c2b7-7446-891e-7b148d063ad5\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-10-31T16:58:36.086Z\",\n        \"modified_on\": \"2024-10-31T16:58:36.086Z\",\n        \"deleted_on\": null\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Delete Transfer Beneficiary",
-							"id": "aa13130a-270c-49ed-94ed-4205c9e0f8ec",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192c9e2-1d5e-7dd3-ac9c-9740acd187f1",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"transfer-beneficiaries",
-										"0192c9e2-1d5e-7dd3-ac9c-9740acd187f1"
-									],
-									"variable": [
-										{
-											"id": "ade0e303-a51a-4f9b-a382-07d1ff967e78",
-											"key": "profile_id",
-											"value": "{{profileId}}"
+											"id": "45405fa4-2167-4c42-8352-c0abe9ad5674",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transfer-beneficiaries"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "505"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1f9-AfKBIDXtb8C1dgZUKNNmBacbCfM\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 16:58:36 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"bank_code\": \"999998\",\n        \"account_number\": \"0112345678\",\n        \"account_name\": \"vee Test\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"id\": \"0192e383-c2b7-7446-891e-7b148d063ad5\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-10-31T16:58:36.086Z\",\n        \"modified_on\": \"2024-10-31T16:58:36.086Z\",\n        \"deleted_on\": null\n    }\n}"
 										}
 									]
 								}
-							},
-							"response": [
+							],
+							"id": "6f73b8c5-579e-43cb-9f94-1981611028fb"
+						},
+						{
+							"name": "Delete Beneficiary",
+							"item": [
 								{
-									"id": "458c6a8a-cd75-4204-a54c-8a589a91ac8a",
-									"name": "Success",
-									"originalRequest": {
+									"name": "Delete Transfer Beneficiary",
+									"id": "aa13130a-270c-49ed-94ed-4205c9e0f8ec",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e383-c2b7-7446-891e-7b148d063ad5",
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192c9e2-1d5e-7dd3-ac9c-9740acd187f1",
 											"host": [
 												"{{base_url}}"
 											],
@@ -24493,70 +24475,100 @@
 												"profiles",
 												":profile_id",
 												"transfer-beneficiaries",
-												"0192e383-c2b7-7446-891e-7b148d063ad5"
+												"0192c9e2-1d5e-7dd3-ac9c-9740acd187f1"
 											],
 											"variable": [
 												{
+													"id": "ade0e303-a51a-4f9b-a382-07d1ff967e78",
 													"key": "profile_id",
 													"value": "{{profileId}}"
 												}
 											]
 										}
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "32"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 31 Oct 2024 17:13:03 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"id": "458c6a8a-cd75-4204-a54c-8a589a91ac8a",
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e383-c2b7-7446-891e-7b148d063ad5",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transfer-beneficiaries",
+														"0192e383-c2b7-7446-891e-7b148d063ad5"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 17:13:03 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
 										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+									]
 								}
-							]
+							],
+							"id": "7ca6ad39-4c23-4d99-bd4e-8156ed929b24"
 						},
 						{
 							"name": "Get Transfer Beneficiaries",
