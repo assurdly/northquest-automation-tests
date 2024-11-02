@@ -14622,9 +14622,13 @@
 											"try {",
 											"    const { status, data } = pm.response.json()",
 											"",
+											"",
+											"    pm.environment.set(\"userProfileId\", data[0].id);",
+											"",
 											"    pm.test(\"Status code is 200\", function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
+											"",
 											"",
 											"    pm.test(\"Test for valid status\", () => {",
 											"        pm.expect(status).to.eql(\"success\")",
@@ -24350,7 +24354,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userProfileId}}"
 										}
 									]
 								}
