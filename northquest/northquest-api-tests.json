@@ -24965,52 +24965,21 @@
 							"id": "7ca6ad39-4c23-4d99-bd4e-8156ed929b24"
 						},
 						{
-							"name": "Get Transfer Beneficiaries",
-							"id": "7ecb1be3-9e6e-4c5f-bdf9-af9c57b5aa92",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"transfer-beneficiaries"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userProfileId}}"
-										}
-									]
-								}
-							},
-							"response": [
+							"name": "Get Beneficiaries",
+							"item": [
 								{
-									"id": "801a008e-e2d2-4b57-86aa-e13997fb18a1",
-									"name": "Success",
-									"originalRequest": {
+									"name": "Get Transfer Beneficiaries",
+									"id": "7ecb1be3-9e6e-4c5f-bdf9-af9c57b5aa92",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"body": {
@@ -25035,183 +25004,226 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{profileId}}"
+													"value": "{{userProfileId}}"
 												}
 											]
 										}
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "1016"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"3f8-3lBnrAD+5jda+Shm+hO11icbk/Q\""
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 31 Oct 2024 17:11:20 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"beneficiaries\": [\n            {\n                \"id\": \"0192e380-cf71-744e-8c99-18a370b01b82\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-31T16:55:22.726Z\",\n                \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"modified_on\": \"2024-10-31T16:55:22.726Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"bank_code\": \"9999989\",\n                \"account_number\": \"0112345678\",\n                \"account_name\": \"vee Test\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"account_id\": null\n            },\n            {\n                \"id\": \"0192e383-c2b7-7446-891e-7b148d063ad5\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-31T16:58:36.086Z\",\n                \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"modified_on\": \"2024-10-31T16:58:36.086Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"bank_code\": \"999998\",\n                \"account_number\": \"0112345678\",\n                \"account_name\": \"vee Test\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Get Transfer Beneficiary",
-							"id": "b8cacd48-551b-4dc2-a3ce-9b22257f205d",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e380-cf71-744e-8c99-18a370b01b82",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"transfer-beneficiaries",
-										"0192e380-cf71-744e-8c99-18a370b01b82"
-									],
-									"variable": [
-										{
-											"id": "57a24b9e-1aec-40ba-88e8-512bcb21e94a",
-											"key": "profile_id",
-											"value": "{{profileId}}"
+											"id": "801a008e-e2d2-4b57-86aa-e13997fb18a1",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transfer-beneficiaries"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "1016"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"3f8-3lBnrAD+5jda+Shm+hO11icbk/Q\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 17:11:20 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"beneficiaries\": [\n            {\n                \"id\": \"0192e380-cf71-744e-8c99-18a370b01b82\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-31T16:55:22.726Z\",\n                \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"modified_on\": \"2024-10-31T16:55:22.726Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"bank_code\": \"9999989\",\n                \"account_number\": \"0112345678\",\n                \"account_name\": \"vee Test\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"account_id\": null\n            },\n            {\n                \"id\": \"0192e383-c2b7-7446-891e-7b148d063ad5\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-31T16:58:36.086Z\",\n                \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"modified_on\": \"2024-10-31T16:58:36.086Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"bank_code\": \"999998\",\n                \"account_number\": \"0112345678\",\n                \"account_name\": \"vee Test\",\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
 										}
 									]
 								}
-							},
-							"response": [
+							],
+							"id": "2aafd081-aeb6-4343-ae10-2e5596656334"
+						},
+						{
+							"name": "Get Beneficiary",
+							"item": [
 								{
-									"id": "544f6f3a-e073-4a76-b06c-49899dd5d88d",
-									"name": "Success",
-									"originalRequest": {
-										"method": "POST",
+									"name": "Get Transfer Beneficiary",
+									"id": "b8cacd48-551b-4dc2-a3ce-9b22257f205d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e380-cf71-744e-8c99-18a370b01b82",
 											"host": [
 												"{{base_url}}"
 											],
 											"path": [
 												"profiles",
 												":profile_id",
-												"transfer-beneficiaries"
+												"transfer-beneficiaries",
+												"0192e380-cf71-744e-8c99-18a370b01b82"
 											],
 											"variable": [
 												{
+													"id": "57a24b9e-1aec-40ba-88e8-512bcb21e94a",
 													"key": "profile_id",
 													"value": "{{profileId}}"
 												}
 											]
 										}
 									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "505"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1f9-AfKBIDXtb8C1dgZUKNNmBacbCfM\""
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 31 Oct 2024 16:58:36 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"id": "544f6f3a-e073-4a76-b06c-49899dd5d88d",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transfer-beneficiaries"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "505"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1f9-AfKBIDXtb8C1dgZUKNNmBacbCfM\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 16:58:36 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"bank_code\": \"999998\",\n        \"account_number\": \"0112345678\",\n        \"account_name\": \"vee Test\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"id\": \"0192e383-c2b7-7446-891e-7b148d063ad5\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-10-31T16:58:36.086Z\",\n        \"modified_on\": \"2024-10-31T16:58:36.086Z\",\n        \"deleted_on\": null\n    }\n}"
 										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"bank_code\": \"999998\",\n        \"account_number\": \"0112345678\",\n        \"account_name\": \"vee Test\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"id\": \"0192e383-c2b7-7446-891e-7b148d063ad5\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-10-31T16:58:36.086Z\",\n        \"modified_on\": \"2024-10-31T16:58:36.086Z\",\n        \"deleted_on\": null\n    }\n}"
+									]
 								}
-							]
+							],
+							"id": "797eccd8-b3f5-4ba1-912b-6b6d3df4f685"
 						}
 					],
 					"id": "b2e1e224-7f80-4b9d-84cb-603813a87e15"
