@@ -9290,7 +9290,23 @@
 										},
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/admin/tiers"
+										"url": {
+											"raw": "{{base_url}}/admin/tiers",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"tiers"
+											],
+											"query": [
+												{
+													"key": "filter[profile_type]",
+													"value": "business",
+													"disabled": true
+												}
+											]
+										}
 									},
 									"response": []
 								},
