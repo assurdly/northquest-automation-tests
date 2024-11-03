@@ -10480,6 +10480,95 @@
 							"id": "da73be8c-4c30-4ec8-9b1f-eed609efc9db"
 						},
 						{
+							"name": "Get Profile",
+							"item": [
+								{
+									"name": "List Profiles",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "38d9e072-4318-4825-91d6-e89d6391a64c",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.environment.set(\"adminFetchedProfileId\", data[0].id);\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid success message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "efec6b1b-7099-436d-ae0a-ecec6debf714",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles?filter[type]=Business",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "Business"
+												},
+												{
+													"key": "filter[status]",
+													"value": "inactive",
+													"disabled": true
+												},
+												{
+													"key": "filter[name]",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "id",
+													"value": "019252e1-1a4c-7447-bcc2-b2c6d18d6486",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "1f3b29c9-6dd8-4e92-a65c-c12f10d0ee65"
+						},
+						{
 							"name": "Get Transaction",
 							"id": "b71296d4-3076-4d8b-9687-be9d45018518",
 							"protocolProfileBehavior": {
