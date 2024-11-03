@@ -26150,17 +26150,8 @@
 										},
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e380-cf71-744e-8c99-18a370b01b82",
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
 											"host": [
 												"{{base_url}}"
 											],
@@ -26168,12 +26159,16 @@
 												"profiles",
 												":profile_id",
 												"transfer-beneficiaries",
-												"0192e380-cf71-744e-8c99-18a370b01b82"
+												":beneficiary_id"
 											],
 											"variable": [
 												{
 													"key": "profile_id",
 													"value": "{{userProfileId}}"
+												},
+												{
+													"key": "beneficiary_id",
+													"value": "0192edb4-d36b-7111-a063-94f06e3ec25e"
 												}
 											]
 										}
