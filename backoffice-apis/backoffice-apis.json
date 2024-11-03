@@ -6267,6 +6267,71 @@
 								}
 							],
 							"id": "d0c536b8-b2d0-4dc3-bdff-343fd6ae5e8f"
+						},
+						{
+							"name": "Delete Role",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bd3be5db-15e8-4e1d-8937-aa8541ca202e",
+										"exec": [
+											"// try {\r",
+											"//     const { status, data } = pm.response.json()\r",
+											"\r",
+											"//     pm.test(\"Status code is 200\", function () {\r",
+											"//         pm.response.to.have.status(200);\r",
+											"//     });\r",
+											"\r",
+											"//     pm.test(\"Test for valid status\", () => {\r",
+											"//         pm.expect(status).to.eql(\"success\")\r",
+											"//     })\r",
+											"\r",
+											"//     pm.test(\"Test for valid error message\", () => {\r",
+											"//         pm.expect(data).to.be.an(\"object\")\r",
+											"//     })\r",
+											"\r",
+											"// } catch (error) {\r",
+											"//     console.error(\"Error from test:\", error);\r",
+											"// }"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "95a53faa-07b4-468d-9e59-f5644474f640",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/roles/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"roles",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "0192f395-fe6d-7993-8e68-6bbc791530c0"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"id": "99866b42-f310-4b29-9299-7e8291c73c2d"
