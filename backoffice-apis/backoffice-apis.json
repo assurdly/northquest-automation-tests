@@ -1900,7 +1900,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/users?filter[firstname]=dare&filter[role_id]=019295e4-b39f-7dd9-892d-46959f7d679d",
+											"raw": "{{base_url}}/admin/users",
 											"host": [
 												"{{base_url}}"
 											],
@@ -1911,7 +1911,7 @@
 											"query": [
 												{
 													"key": "search",
-													"value": "Wunmi",
+													"value": "obologodo",
 													"disabled": true
 												},
 												{
@@ -1920,12 +1920,20 @@
 													"disabled": true
 												},
 												{
-													"key": "filter[firstname]",
-													"value": "dare"
+													"key": "filter[first_name]",
+													"value": "dare",
+													"disabled": true
 												},
 												{
 													"key": "filter[role_id]",
-													"value": "019295e4-b39f-7dd9-892d-46959f7d679d"
+													"value": "019295e4-b39f-7dd9-892d-46959f7d6794",
+													"disabled": true
+												},
+												{
+													"key": "filter[last_name]",
+													"value": "me",
+													"type": "text",
+													"disabled": true
 												}
 											]
 										}
