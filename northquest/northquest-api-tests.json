@@ -18775,6 +18775,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"url": "{{base_url}}/users/two-fa"
@@ -18844,7 +18850,7 @@
 							]
 						},
 						{
-							"name": "Verify TwoFA Copy",
+							"name": "Verify TwoFA",
 							"id": "f92cb810-6a3a-4dd8-a164-6d83abfc86e8",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
