@@ -14623,7 +14623,7 @@
 											"    const { status, data } = pm.response.json()",
 											"",
 											"",
-											"    pm.environment.set(\"userProfileId\", data[0].id);",
+											"    pm.environment.set(\"userFetchedProfileId\", data[0].id);",
 											"",
 											"    pm.test(\"Status code is 200\", function () {",
 											"        pm.response.to.have.status(200);",
@@ -15719,6 +15719,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -15732,9 +15738,8 @@
 									],
 									"variable": [
 										{
-											"id": "27450cb6-c6c5-47f0-8f6a-fa699706970d",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
