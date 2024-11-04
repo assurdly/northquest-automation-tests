@@ -5762,7 +5762,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    // \"permissions\": [\n    //     \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n    //     \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n    //     \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n    //     \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n    //     \"019291bb-74c2-7d09-b969-5395961a0650\",\n    //     \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n    //     \"019291bc-4e74-769e-ab34-984446abf18d\",\n    //     \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n    //     \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\"\n    // ]\n    \"status\": \"inactive\"\n}",
+											"raw": "{\n    // \"permissions\": [\n    //     \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n    //     \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n    //     \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n    //     \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n    //     \"019291bb-74c2-7d09-b969-5395961a0650\",\n    //     \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n    //     \"019291bc-4e74-769e-ab34-984446abf18d\",\n    //     \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n    //     \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\"\n    // ]\n    \"status\": \"active\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -6401,7 +6401,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/definitions?filter[name]=profiles",
+											"raw": "{{base_url}}/admin/definitions",
 											"host": [
 												"{{base_url}}"
 											],
@@ -6412,7 +6412,8 @@
 											"query": [
 												{
 													"key": "filter[name]",
-													"value": "profiles"
+													"value": "profiles",
+													"disabled": true
 												}
 											]
 										}
@@ -11044,9 +11045,8 @@
 									],
 									"variable": [
 										{
-											"id": "a4c589cf-0d9c-4d12-b397-255de8a782af",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{adminFetchedProfileId}}"
 										}
 									]
 								}
