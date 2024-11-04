@@ -10788,6 +10788,119 @@
 									]
 								},
 								{
+									"name": "Get Dispute",
+									"id": "8b32cb9f-b396-48af-8bff-654e12a1f8a7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profile_id/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profile_id",
+												"transactions",
+												"disputes",
+												"0192f88c-a2c1-7115-af2b-27552469196e"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "8b65812d-fa1e-4524-ba83-c84ae2b09656",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/profiles/:profile_id/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"profiles",
+														":profile_id",
+														"transactions",
+														"disputes",
+														"0192f88c-a2c1-7115-af2b-27552469196e"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "519"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"207-fTAseIB7SVRW4or2mu3JrBo9Wqw\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 04 Nov 2024 20:59:51 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-04T19:00:19.265Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n        \"status\": \"pending\",\n        \"note\": \"djdjd\",\n        \"comment\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\"\n    }\n}"
+										}
+									]
+								},
+								{
 									"name": "Get Transactions",
 									"id": "9fa79ce2-6c7e-4972-b907-1e0814d4e263",
 									"protocolProfileBehavior": {
@@ -11311,14 +11424,34 @@
 									]
 								},
 								{
-									"name": "New Request",
+									"name": "Update Dispute",
 									"id": "2ed5e2ec-a8a5-4646-bff2-7911e02324ca",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
-										"method": "GET",
-										"header": []
+										"method": "PATCH",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profile_id/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profile_id",
+												"transactions",
+												"disputes",
+												"0192f88c-a2c1-7115-af2b-27552469196e"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
 									},
 									"response": []
 								}
