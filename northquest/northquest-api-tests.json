@@ -19264,6 +19264,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -19288,9 +19294,8 @@
 							],
 							"variable": [
 								{
-									"id": "150b7f4c-46ad-4ea8-81c4-9da8ad30e2c0",
 									"key": "profile_id",
-									"value": "{{profileId}}"
+									"value": "{{userFetchedProfileId}}"
 								}
 							]
 						}
