@@ -26645,6 +26645,40 @@
 					"item": [
 						{
 							"name": "List Accounts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "138b1920-998c-448a-a73f-748df9713c47",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"\r",
+											"    pm.environment.set(\"userFetchedAccountId\", data[0].id);\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "2a6edbc0-4e51-4a3e-9df2-b0828a0b247a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -26670,7 +26704,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}1"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -26678,6 +26712,152 @@
 							"response": [
 								{
 									"id": "b6720e56-6f13-463a-a869-164b1c4a4e6d",
+									"name": "List Accounts",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/:profile_id/accounts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												":profile_id",
+												"accounts"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "971"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3cb-QGjE0PG+bDBmmxLCvGT4BAmscHg\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Nov 2024 15:52:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n            \"meta\": {\n                \"account_type\": \"savings\"\n            },\n            \"created_on\": \"2024-10-22T17:12:40.747Z\",\n            \"created_by\": \"system\",\n            \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n            \"modified_by\": \"system\",\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"John Doe\",\n            \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n            \"account_number\": \"9876543210\",\n            \"ledger_balance\": \"2496.32\",\n            \"hold_balance\": \"0.00\",\n            \"available_balance\": \"2496.32\",\n            \"currency\": \"GBP\"\n        },\n        {\n            \"id\": \"0192e86c-722c-7881-a19d-6e78ce08d56f\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-01T15:51:14.308Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-01T15:51:14.308Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Spending\",\n            \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n            \"account_number\": \"1234567890\",\n            \"ledger_balance\": \"0.00\",\n            \"hold_balance\": \"0.00\",\n            \"available_balance\": \"0.00\",\n            \"currency\": \"NGN\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Accounts Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "138b1920-998c-448a-a73f-748df9713c47",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"\r",
+											"    pm.environment.set(\"userFetchedAccountId\", data[0].id);\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "6dd4d300-e6dd-44c6-ac38-5832f1c98610",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/:profile_id/accounts",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										":profile_id",
+										"accounts"
+									],
+									"variable": [
+										{
+											"id": "a804bb3e-f3ae-445f-9f79-ac6b39f4ce6c",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "1bb857a4-a5cc-4eb8-a0fd-639ce63dd789",
 									"name": "List Accounts",
 									"originalRequest": {
 										"method": "GET",
