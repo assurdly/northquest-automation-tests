@@ -19397,6 +19397,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -19445,8 +19451,7 @@
 								},
 								{
 									"key": "filter[start_date]",
-									"value": "2024-10-31T17:19:32.710Z",
-									"type": "text"
+									"value": "2024-10-31T17:19:32.710Z"
 								},
 								{
 									"key": "filter[end_date]",
@@ -19456,15 +19461,13 @@
 								},
 								{
 									"key": "filter[transaction_type]",
-									"value": "transfer",
-									"type": "text"
+									"value": "transfer"
 								}
 							],
 							"variable": [
 								{
-									"id": "3213d1f6-957a-469f-a253-4a43683557df",
 									"key": "profile_id",
-									"value": "{{profileId}}"
+									"value": "{{userFetchedProfileId}}"
 								}
 							]
 						}
@@ -19599,7 +19602,7 @@
 					]
 				},
 				{
-					"name": "Export Transactions Copy",
+					"name": "Export Transactions",
 					"id": "9382bed9-38fb-4fca-93ed-a941b623bbd4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
