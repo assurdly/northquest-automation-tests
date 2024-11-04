@@ -26198,6 +26198,141 @@
 			"name": "Accounts Copy",
 			"item": [
 				{
+					"name": "Create account",
+					"item": [
+						{
+							"name": "Create Account",
+							"id": "94b4d9b9-5d3a-4ce7-8e85-4da8b5b58947",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Spending\",\n    \"currency\": \"NGN\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/:profile_id/accounts",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										":profile_id",
+										"accounts"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "e2c20180-e04c-4222-94f6-4eaa1c0296d2",
+									"name": "Create Account",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Spending\",\n    \"currency\": \"NGN\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/:profile_id/accounts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												":profile_id",
+												"accounts"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "480"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1e0-0YekJUHDFhKP6jhV44xwe267RyM\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Nov 2024 15:51:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Spending\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"1234567890\",\n        \"currency\": \"NGN\",\n        \"id\": \"0192e86c-722c-7881-a19d-6e78ce08d56f\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-11-01T15:51:14.308Z\",\n        \"modified_on\": \"2024-11-01T15:51:14.308Z\",\n        \"deleted_on\": null,\n        \"ledger_balance\": \"0.00\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"0.00\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "a84064eb-e3fc-401e-ad74-f9a91922048d"
+				},
+				{
 					"name": "Transfer",
 					"id": "aedc97bf-b5dc-4b4b-a374-5afcc72fcdd2",
 					"protocolProfileBehavior": {
@@ -26720,135 +26855,6 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Create Account",
-					"id": "94b4d9b9-5d3a-4ce7-8e85-4da8b5b58947",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"Spending\",\n    \"currency\": \"NGN\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/:profile_id/accounts",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								":profile_id",
-								"accounts"
-							],
-							"variable": [
-								{
-									"key": "profile_id",
-									"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "e2c20180-e04c-4222-94f6-4eaa1c0296d2",
-							"name": "Create Account",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Spending\",\n    \"currency\": \"NGN\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										":profile_id",
-										"accounts"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-										}
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "480"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"1e0-0YekJUHDFhKP6jhV44xwe267RyM\""
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 01 Nov 2024 15:51:14 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Spending\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"1234567890\",\n        \"currency\": \"NGN\",\n        \"id\": \"0192e86c-722c-7881-a19d-6e78ce08d56f\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-11-01T15:51:14.308Z\",\n        \"modified_on\": \"2024-11-01T15:51:14.308Z\",\n        \"deleted_on\": null,\n        \"ledger_balance\": \"0.00\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"0.00\"\n    }\n}"
 						}
 					]
 				},
