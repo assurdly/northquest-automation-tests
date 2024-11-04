@@ -11432,6 +11432,15 @@
 									"request": {
 										"method": "PATCH",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"comment\": \"Test\",\n    \"status\": \"resolved\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
 											"raw": "{{base_url}}/admin/profiles/:profile_id/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e",
 											"host": [
