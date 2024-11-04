@@ -804,6 +804,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -819,12 +825,10 @@
 									],
 									"variable": [
 										{
-											"id": "0faa2547-3dcc-4a8b-b39b-bb476bafb1a2",
 											"key": "tenantId",
 											"value": "00000000-0000-0000-0000-000000000000"
 										},
 										{
-											"id": "5cc53815-a392-41b5-962f-6138431db29a",
 											"key": "userId",
 											"value": ""
 										}

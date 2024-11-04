@@ -31,6 +31,9 @@ jobs:
           newman run backoffice-apis/backoffice-apis.json --reporters cli,allure
           echo "Postman tests run."
 
+      - name: Wait for 3 minutes before publishing
+        run: sleep 200  
+
       - name: Get Allure history
         uses: actions/checkout@v2
         if: always()
