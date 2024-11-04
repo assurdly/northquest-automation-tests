@@ -26604,7 +26604,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"restricted\": true\n}",
+									"raw": "{\n    \"restricted\": false\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -26623,14 +26623,12 @@
 									],
 									"variable": [
 										{
-											"id": "8c44c54c-4b82-481e-808c-e020af49e2cc",
 											"key": "profile_id",
-											"value": ""
+											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "5cf431ae-622f-45fc-9b81-5ed6b1822009",
 											"key": "account_id",
-											"value": ""
+											"value": "{{userFetchedAccountId}}"
 										}
 									]
 								}
