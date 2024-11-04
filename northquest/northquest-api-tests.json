@@ -27193,6 +27193,392 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "Get Account-Invalid Profile Id",
+							"id": "111727d3-fb28-42fa-933c-4afa1bbaa885",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										":profile_id",
+										"accounts",
+										":account_id"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}1"
+										},
+										{
+											"key": "account_id",
+											"value": "{{userFetchedAccountId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "3801db29-7470-4ce4-8f9e-6b4f47b035c3",
+									"name": "Get Account",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												":profile_id",
+												"accounts",
+												":account_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												},
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "516"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Account-Invalid account Id",
+							"id": "807787bd-e6d0-4edd-b77b-66f7e6ca1ec1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										":profile_id",
+										"accounts",
+										":account_id"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"key": "account_id",
+											"value": "{{userFetchedAccountId}}2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "50332c40-1b0e-48d8-bd3a-4212f0af2611",
+									"name": "Get Account",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												":profile_id",
+												"accounts",
+												":account_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												},
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "516"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Account-No Auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fbb829fb-ef34-4d86-8963-420be6b63cd0",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Test for valid status code\", () => {\r",
+											"        pm.expect(statusCode).to.eql(401)\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "bf265464-384f-4362-8acf-31c5f99835a2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										":profile_id",
+										"accounts",
+										":account_id"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"key": "account_id",
+											"value": "{{userFetchedAccountId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "202c19a0-b75f-48be-9c6a-99f5207d39bd",
+									"name": "Get Account",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												":profile_id",
+												"accounts",
+												":account_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												},
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "516"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "6c21256a-bc01-4952-b7f8-b5d07d879867"
