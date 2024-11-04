@@ -11215,11 +11215,11 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "c411cc35-1dad-47a2-9a0f-4ca98fb05386",
+				"id": "fa025a47-8b0d-4786-b977-17d2258a895c",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"pm.environment.set('origin', \"https://northquestfinance.com\")",
+					"pm.environment.set('origin', \"https://dev.admin.cashdrive.co\")",
 					"pm.request.headers.add({",
 					"    key: \"origin\",",
 					"    value: pm.environment.get(\"origin\")",
@@ -11230,7 +11230,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "4ed2fd5e-ec55-4f47-ac1d-eda754b9ea00",
+				"id": "8d8af78d-d75f-4c41-a690-8b75b294d418",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -11241,7 +11241,6 @@
 	],
 	"variable": [
 		{
-			"id": "4510e4e5-769d-4aa1-83c9-126bf7e83bfb",
 			"key": "token",
 			"value": ""
 		}
