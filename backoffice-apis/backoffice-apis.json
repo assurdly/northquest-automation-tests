@@ -67,6 +67,18 @@
 										"type": "text/javascript",
 										"packages": {}
 									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "1c5bf75c-8fe6-4983-a763-d052fbd25662",
+										"exec": [
+											"pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
 							"id": "5f7142fc-ae50-4181-a8ca-ca7d806c2514",
