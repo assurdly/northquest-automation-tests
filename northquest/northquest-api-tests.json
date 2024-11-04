@@ -27583,46 +27583,14 @@
 				},
 				{
 					"name": "Transfer",
-					"id": "aedc97bf-b5dc-4b4b-a374-5afcc72fcdd2",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/accounts/:account_id/transfer",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"accounts",
-								":account_id",
-								"transfer"
-							],
-							"variable": [
-								{
-									"id": "ef611c55-50ec-4a74-a173-57ee857fb6b6",
-									"key": "account_id",
-									"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-								}
-							]
-						}
-					},
-					"response": [
+					"item": [
 						{
-							"id": "530da997-24c0-4d7c-9d36-300fe7c8e885",
-							"name": "Pending Approval",
-							"originalRequest": {
+							"name": "Transfer",
+							"id": "aedc97bf-b5dc-4b4b-a374-5afcc72fcdd2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -27646,165 +27614,120 @@
 									],
 									"variable": [
 										{
+											"id": "ef611c55-50ec-4a74-a173-57ee857fb6b6",
 											"key": "account_id",
 											"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
 										}
 									]
 								}
 							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "70"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"46-8bfyF8xfJ1hm7Swt5nggBBZF7H0\""
-								},
-								{
-									"key": "Date",
-									"value": "Sat, 26 Oct 2024 20:23:39 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Transaction pending approval\"\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Transaction Approval",
-					"id": "ba763d20-485d-49df-b5cc-b04a552f2ad4",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"action\": \"approve\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/accounts/:account_id/transaction/:transaction_id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"accounts",
-								":account_id",
-								"transaction",
-								":transaction_id"
-							],
-							"variable": [
-								{
-									"id": "e89f6794-7d56-4bed-9317-3e76ee7c5131",
-									"key": "account_id",
-									"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-								},
-								{
-									"id": "36974a3f-4b9d-4c46-8d51-b624092bf203",
-									"key": "transaction_id",
-									"value": "0192ca7f-b385-7332-8e07-a78a9c67ebe1"
+									"id": "530da997-24c0-4d7c-9d36-300fe7c8e885",
+									"name": "Pending Approval",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/accounts/:account_id/transfer",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"accounts",
+												":account_id",
+												"transfer"
+											],
+											"variable": [
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-8bfyF8xfJ1hm7Swt5nggBBZF7H0\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 26 Oct 2024 20:23:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Transaction pending approval\"\n    }\n}"
 								}
 							]
 						}
-					},
-					"response": []
+					],
+					"id": "9bf4eb6c-29ec-4925-9366-e2362ef1ae1d"
 				},
 				{
-					"name": "Bulk Transfer",
-					"id": "7aed265f-9ec9-4ede-a11b-af7e09f0b917",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    },\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    },\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    }\n]",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/:profile_id/accounts/:account_id/bulk-transfer",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								":profile_id",
-								"accounts",
-								":account_id",
-								"bulk-transfer"
-							],
-							"variable": [
-								{
-									"id": "d1f5106e-ff38-43e8-9d24-47ca25728390",
-									"key": "profile_id",
-									"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-								},
-								{
-									"id": "13407455-ed1f-4814-a743-a5b23f039227",
-									"key": "account_id",
-									"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-								}
-							]
-						}
-					},
-					"response": [
+					"name": "Transaction approval",
+					"item": [
 						{
-							"id": "4266ecd8-af2f-4c02-b9b4-bee636049ae0",
-							"name": "Success",
-							"originalRequest": {
-								"method": "POST",
+							"name": "Transaction Approval",
+							"id": "ba763d20-485d-49df-b5cc-b04a552f2ad4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "[\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    }\n]",
+									"raw": "{\n    \"action\": \"approve\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -27812,77 +27735,172 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/accounts/:account_id/bulk-transfer",
+									"raw": "{{base_url}}/accounts/:account_id/transaction/:transaction_id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"accounts",
 										":account_id",
+										"transaction",
+										":transaction_id"
+									],
+									"variable": [
+										{
+											"id": "e89f6794-7d56-4bed-9317-3e76ee7c5131",
+											"key": "account_id",
+											"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+										},
+										{
+											"id": "36974a3f-4b9d-4c46-8d51-b624092bf203",
+											"key": "transaction_id",
+											"value": "0192ca7f-b385-7332-8e07-a78a9c67ebe1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "9f11d971-ab0d-4802-9f7e-3ca8b0a1d74d"
+				},
+				{
+					"name": "Bulk transfer",
+					"item": [
+						{
+							"name": "Bulk Transfer",
+							"id": "7aed265f-9ec9-4ede-a11b-af7e09f0b917",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    },\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    },\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/:profile_id/accounts/:account_id/bulk-transfer",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										":profile_id",
+										"accounts",
+										":account_id",
 										"bulk-transfer"
 									],
 									"variable": [
 										{
+											"id": "d1f5106e-ff38-43e8-9d24-47ca25728390",
+											"key": "profile_id",
+											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+										},
+										{
+											"id": "13407455-ed1f-4814-a743-a5b23f039227",
 											"key": "account_id",
 											"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
 										}
 									]
 								}
 							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "74"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"4a-PXqPl8K2qC3OzYNWW1TcJksz+CY\""
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 25 Oct 2024 17:12:40 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "4266ecd8-af2f-4c02-b9b4-bee636049ae0",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    }\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/accounts/:account_id/bulk-transfer",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"accounts",
+												":account_id",
+												"bulk-transfer"
+											],
+											"variable": [
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "74"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4a-PXqPl8K2qC3OzYNWW1TcJksz+CY\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 25 Oct 2024 17:12:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Transfers Processed Successfully\"\n    }\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Transfers Processed Successfully\"\n    }\n}"
+							]
 						}
-					]
+					],
+					"id": "35085634-2539-454e-a4c6-e625fe5f7bf0"
 				}
 			],
 			"id": "804127ad-4d2d-4303-b951-836a31a59380"
