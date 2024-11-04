@@ -22475,6 +22475,21 @@
 									"item": [
 										{
 											"name": "Make Bill Payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "dac5be3a-b88a-480c-9245-47985e928e9d",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "a78a8206-0aee-4480-89bb-64e7301b8a58",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -22774,6 +22789,21 @@
 									"item": [
 										{
 											"name": "Make Bill Payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "b668a63d-f327-42df-ba3f-7b1e1839bdd2",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "6b605255-6f34-4479-837e-d21faada4bad",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -22882,6 +22912,21 @@
 									"item": [
 										{
 											"name": "Make Bill Payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "27693d0c-b80b-4212-b5ec-8c3cb2834ab6",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "fcd4b9c5-4024-4710-a466-9d2ea67c30c2",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -22919,12 +22964,10 @@
 													],
 													"variable": [
 														{
-															"id": "012c66e4-8953-42b1-87db-897f9c0b78b1",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "e3601c38-301f-4acd-81d6-8e5e0836c073",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -22941,6 +22984,21 @@
 									"item": [
 										{
 											"name": "Make Bill Payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "8df629ea-ad57-4d1d-953b-59e1fb9a40bd",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "f0d07905-10e9-4953-9431-fca2d948c8b8",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -22978,12 +23036,10 @@
 													],
 													"variable": [
 														{
-															"id": "012c66e4-8953-42b1-87db-897f9c0b78b1",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "e3601c38-301f-4acd-81d6-8e5e0836c073",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -23000,6 +23056,21 @@
 									"item": [
 										{
 											"name": "Make Bill Payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "13d83dd5-511d-4103-a1c3-426d63179c4c",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "7131ff4d-73a9-439c-b70b-a9fc18f18b62",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -23037,12 +23108,10 @@
 													],
 													"variable": [
 														{
-															"id": "012c66e4-8953-42b1-87db-897f9c0b78b1",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "e3601c38-301f-4acd-81d6-8e5e0836c073",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -23059,6 +23128,21 @@
 									"item": [
 										{
 											"name": "Make Bill Payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "37eb89c7-e02c-4f7d-8ae4-7863e4ce83a7",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "a93ded7c-f009-4eed-bd15-80112f50127e",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -23096,12 +23180,10 @@
 													],
 													"variable": [
 														{
-															"id": "012c66e4-8953-42b1-87db-897f9c0b78b1",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "e3601c38-301f-4acd-81d6-8e5e0836c073",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -23124,6 +23206,21 @@
 									"item": [
 										{
 											"name": "Make bill payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "ad6c086c-932b-4e78-906f-264caa840876",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "4e39291b-4a18-4efb-babc-21d771558c75",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -23385,6 +23482,21 @@
 									"item": [
 										{
 											"name": "Make bill payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "c2b73ab1-81b9-45e8-a9b8-c80ecbe8290a",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "212218d3-fe6c-4ff6-aa86-640068efd82c",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -23654,6 +23766,21 @@
 									"item": [
 										{
 											"name": "Make bill payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "79114f97-bfa9-45ba-a44c-e83396e169c2",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "ff911175-ae41-40c8-91a0-c2a242d96b1d",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -23926,6 +24053,21 @@
 							"item": [
 								{
 									"name": "Make Bill Payment",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "9398dd36-b930-4036-ad26-77d5ce44e924",
+												"exec": [
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "06b8be7e-1003-459a-95e2-0601647454b5",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -24040,9 +24182,9 @@
 											"script": {
 												"id": "9d9cb2bf-08a7-4a24-8f52-4f774cafb70b",
 												"exec": [
-													"",
 													"pm.test(\"Status code is 200\", function () {",
-													"    pm.response.to.have.status(200); Î"
+													"    pm.response.to.have.status(200);",
+													"});"
 												],
 												"type": "text/javascript",
 												"packages": {}
