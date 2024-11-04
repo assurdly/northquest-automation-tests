@@ -26662,6 +26662,7 @@
 											"\r",
 											"\r",
 											"    pm.environment.set(\"userFetchedAccountId\", data[0].id);\r",
+											"    pm.environment.set(\"userFetchedAccountnumber\", data[0].account_number);\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
