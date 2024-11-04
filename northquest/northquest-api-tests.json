@@ -26475,7 +26475,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Spending\",\n    \"currency\": \"NGN\"\n}",
+									"raw": "{\n    \"name\": \"\",\n    \"currency\": \"NGN\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -26493,9 +26493,8 @@
 									],
 									"variable": [
 										{
-											"id": "a5f05f71-4ccb-451a-86be-0c20f8fbc8a9",
 											"key": "profile_id",
-											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -26590,6 +26589,11 @@
 						}
 					],
 					"id": "a84064eb-e3fc-401e-ad74-f9a91922048d"
+				},
+				{
+					"name": "New Folder",
+					"item": [],
+					"id": "e49ccf3a-c11b-4f82-aea7-cfb77ff5ddb2"
 				},
 				{
 					"name": "Transfer",
