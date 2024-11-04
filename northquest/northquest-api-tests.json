@@ -22546,6 +22546,21 @@
 									"item": [
 										{
 											"name": "Make Bill Payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "1972d135-8e94-4aff-9215-d06c1de5a2ff",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "6a773647-1fc0-4db6-b41e-d4956fd8bf49",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -22583,12 +22598,10 @@
 													],
 													"variable": [
 														{
-															"id": "012c66e4-8953-42b1-87db-897f9c0b78b1",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "e3601c38-301f-4acd-81d6-8e5e0836c073",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -22605,6 +22618,21 @@
 									"item": [
 										{
 											"name": "Make Bill Payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "452c8d5d-cca0-403f-a532-3a25a3b76f62",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "533f89e5-5359-4354-9be7-118faa3090a4",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -22642,12 +22670,10 @@
 													],
 													"variable": [
 														{
-															"id": "012c66e4-8953-42b1-87db-897f9c0b78b1",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "e3601c38-301f-4acd-81d6-8e5e0836c073",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -22664,6 +22690,21 @@
 									"item": [
 										{
 											"name": "Make Bill Payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "72bf7378-4689-4da6-8f07-50f915915b58",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "8dbbe1ae-556a-4f2e-9199-d945d3a89cc2",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -22701,12 +22742,10 @@
 													],
 													"variable": [
 														{
-															"id": "012c66e4-8953-42b1-87db-897f9c0b78b1",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "e3601c38-301f-4acd-81d6-8e5e0836c073",
 															"key": "biller_id",
 															"value": "dstv"
 														}
