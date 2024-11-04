@@ -24034,6 +24034,21 @@
 							"item": [
 								{
 									"name": "Make Bill Payment",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "9d9cb2bf-08a7-4a24-8f52-4f774cafb70b",
+												"exec": [
+													"",
+													"pm.test(\"Status code is 200\", function () {",
+													"    pm.response.to.have.status(200); Î"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "2dd3faf0-9951-4c0c-8352-c52e8dbcbf1c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
