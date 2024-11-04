@@ -42,7 +42,7 @@
 										"id": "4f73f52b-38d7-462e-ad83-2a00667c9382",
 										"exec": [
 											"pm.environment.set('origin', \"https://northquestfinance.com\")",
-											"pm.environment.set('base_url', 'http://platform-alb-1140284525.us-east-2.elb.amazonaws.com/api-backend')",
+											"pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')",
 											""
 										],
 										"type": "text/javascript",
@@ -22724,6 +22724,21 @@
 									"item": [
 										{
 											"name": "Make Bill Payment",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "fc979d2e-825e-4630-87f0-3db0753f6b66",
+														"exec": [
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "bc452500-afb1-4fc2-8bbe-4daa4fef5d43",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -22761,12 +22776,10 @@
 													],
 													"variable": [
 														{
-															"id": "012c66e4-8953-42b1-87db-897f9c0b78b1",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "e3601c38-301f-4acd-81d6-8e5e0836c073",
 															"key": "biller_id",
 															"value": "dstv"
 														}
