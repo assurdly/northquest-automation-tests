@@ -26387,7 +26387,34 @@
 									]
 								},
 								{
-									"name": "Delete Transfer Beneficiary Copy",
+									"name": "Delete Transfer Beneficiary-Invalid Profile Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e8910f8f-d308-487d-93c4-05787a160e1d",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "95f103dc-a500-4c3f-b7e2-1264c8301d2e",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -26414,12 +26441,10 @@
 											],
 											"variable": [
 												{
-													"id": "40bfebbb-4643-4b10-8d56-59cf013ed9ea",
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "{{userProfileId}}1"
 												},
 												{
-													"id": "e81c2d95-3a71-4588-b402-a4e8908dd2c3",
 													"key": "beneficiary_id",
 													"value": "{{userFetchedBenefId}}"
 												}
@@ -26508,7 +26533,34 @@
 									]
 								},
 								{
-									"name": "Delete Transfer Beneficiary Copy 2",
+									"name": "Delete Transfer Beneficiary -Invalid beneficiary Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "230c7f60-94ae-4111-ba09-837e1d52f649",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"Beneficiary ID must be a valid UUID\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "135ec555-1023-4b80-bc8e-08c512c5d149",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -26535,14 +26587,12 @@
 											],
 											"variable": [
 												{
-													"id": "40bfebbb-4643-4b10-8d56-59cf013ed9ea",
 													"key": "profile_id",
 													"value": "{{userProfileId}}"
 												},
 												{
-													"id": "e81c2d95-3a71-4588-b402-a4e8908dd2c3",
 													"key": "beneficiary_id",
-													"value": "{{userFetchedBenefId}}"
+													"value": "{{userFetchedBenefId}}1"
 												}
 											]
 										}
