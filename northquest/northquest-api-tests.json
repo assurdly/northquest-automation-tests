@@ -19158,6 +19158,174 @@
 						}
 					],
 					"id": "c00e7676-ce05-4e54-ac65-e8b21102acf7"
+				},
+				{
+					"name": "Forgot PIN",
+					"id": "03ffb945-ec2b-4893-84ff-be994fc73030",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{base_url}}/users/forgot-pin"
+					},
+					"response": [
+						{
+							"id": "d9750b66-45ff-4fae-bc2c-462d296258e9",
+							"name": "Forgot PIN",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": "{{base_url}}/users/forgot-pin"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-ZdCUUP9bxwcFOFNmTxH0hdInijI\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Oct 2024 03:49:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"OTP sent successfully\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Reset PIN",
+					"id": "f065c2e3-7daa-4f68-8eef-da68f9de8d7e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"otp\": \"786709\",\n    \"pin\": \"1234\",\n    \"confirm_pin\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/users/reset-pin"
+					},
+					"response": [
+						{
+							"id": "fafd5498-2fa0-4fe9-866b-dda3f54b57e2",
+							"name": "Reset PIN",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"otp\": \"786709\",\n    \"pin\": \"1234\",\n    \"confirm_pin\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/users/reset-pin"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-IL1vJeO/e3EXt4RL8aJTf/oC3cc\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 29 Oct 2024 03:55:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Pin reset successfully.\"\n    }\n}"
+						}
+					]
 				}
 			],
 			"id": "016a4f53-3b2b-4ed8-ac78-b44ca10a517a"
