@@ -4823,6 +4823,7 @@
 											"    } = pm.response.json();",
 											"",
 											"    pm.environment.set(\"userAccessToken\", token)",
+											"    pm.environment.set(\"userRefreshToken\", refresh_token)",
 											"    pm.environment.set(\"userTenantId\", tenantId)",
 											"",
 											"    pm.test(\"Status code is 200\", function () {",
@@ -7705,6 +7706,127 @@
 						}
 					],
 					"id": "ae69204c-35b8-4b16-b9e9-5641ff70f85e"
+				},
+				{
+					"name": "Refresh - Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2570f8dc-bc37-4972-a9e3-13cb372f955f",
+								"exec": [
+									"try {",
+									"    const {",
+									"        data: {",
+									"            token,",
+									"        ",
+									"        }",
+									"    } = pm.response.json();",
+									"",
+									"    pm.environment.set(\"token\", token)",
+									"    pm.test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"} catch (error) {",
+									"    console.error(\"Error from test:\", error);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "4fd16250-961e-4dd8-ad28-e76016b92701",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh_token\": \"{{userRefreshToken}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/auth/refresh"
+					},
+					"response": [
+						{
+							"id": "8007706e-39d1-4ce8-9389-61ecf5afd629",
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI0YzU1LWFmMjMtNzQ0Zi1iOWY0LTEzZjEzOTE2NmFjMSIsImlhdCI6MTczMDc5OTE5MCwiZXhwIjoxNzMxNDAzOTkwfQ.H2eDin0ofOD1UX_5KQJuiPeLxltWNmcT0BXURkiOd24\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/refresh"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "433"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b1-TKo+7Da2v+VhzLMLGgt67xzTxQk\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 05 Nov 2024 09:33:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI0YzU1LWFmMjMtNzQ0Zi1iOWY0LTEzZjEzOTE2NmFjMSIsImlhdCI6MTczMDc5OTIxMSwiZXhwIjoxNzMwODg1NjExfQ._q4UboHomxrhaOPaCAW_JASGV7LmSpOGhfnzP5OcZJc\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI0YzU1LWFmMjMtNzQ0Zi1iOWY0LTEzZjEzOTE2NmFjMSIsImlhdCI6MTczMDc5OTIxMSwiZXhwIjoxNzMxNDA0MDExfQ.dWXNtBYxZyTcrgdCipKJyMQ1ok12YJIXRtumDRgXiX4\"\n    }\n}"
+						}
+					]
 				}
 			],
 			"id": "e571f9e7-e259-4c84-8da5-39e9f21a9a44",
