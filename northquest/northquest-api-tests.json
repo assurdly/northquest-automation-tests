@@ -26283,7 +26283,7 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192c9e2-1d5e-7dd3-ac9c-9740acd187f1",
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
 											"host": [
 												"{{base_url}}"
 											],
@@ -26291,12 +26291,16 @@
 												"profiles",
 												":profile_id",
 												"transfer-beneficiaries",
-												"0192c9e2-1d5e-7dd3-ac9c-9740acd187f1"
+												":beneficiary_id"
 											],
 											"variable": [
 												{
 													"key": "profile_id",
 													"value": "{{userProfileId}}"
+												},
+												{
+													"key": "beneficiary_id",
+													"value": "{{userFetchedBenefId}}"
 												}
 											]
 										}
@@ -26304,6 +26308,369 @@
 									"response": [
 										{
 											"id": "458c6a8a-cd75-4204-a54c-8a589a91ac8a",
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e383-c2b7-7446-891e-7b148d063ad5",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transfer-beneficiaries",
+														"0192e383-c2b7-7446-891e-7b148d063ad5"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 17:13:03 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete Transfer Beneficiary Copy",
+									"id": "95f103dc-a500-4c3f-b7e2-1264c8301d2e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transfer-beneficiaries",
+												":beneficiary_id"
+											],
+											"variable": [
+												{
+													"id": "40bfebbb-4643-4b10-8d56-59cf013ed9ea",
+													"key": "profile_id",
+													"value": "{{userProfileId}}"
+												},
+												{
+													"id": "e81c2d95-3a71-4588-b402-a4e8908dd2c3",
+													"key": "beneficiary_id",
+													"value": "{{userFetchedBenefId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "462672e9-4e9f-4024-bd98-bc15eaf168db",
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e383-c2b7-7446-891e-7b148d063ad5",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transfer-beneficiaries",
+														"0192e383-c2b7-7446-891e-7b148d063ad5"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 17:13:03 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete Transfer Beneficiary Copy 2",
+									"id": "135ec555-1023-4b80-bc8e-08c512c5d149",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transfer-beneficiaries",
+												":beneficiary_id"
+											],
+											"variable": [
+												{
+													"id": "40bfebbb-4643-4b10-8d56-59cf013ed9ea",
+													"key": "profile_id",
+													"value": "{{userProfileId}}"
+												},
+												{
+													"id": "e81c2d95-3a71-4588-b402-a4e8908dd2c3",
+													"key": "beneficiary_id",
+													"value": "{{userFetchedBenefId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "62da52cd-b25a-4b85-998f-a62d83b01e37",
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e383-c2b7-7446-891e-7b148d063ad5",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transfer-beneficiaries",
+														"0192e383-c2b7-7446-891e-7b148d063ad5"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 17:13:03 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete Transfer Beneficiary Copy 3",
+									"id": "ceb71201-3515-41e5-b411-9312ea1b4495",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transfer-beneficiaries",
+												":beneficiary_id"
+											],
+											"variable": [
+												{
+													"id": "40bfebbb-4643-4b10-8d56-59cf013ed9ea",
+													"key": "profile_id",
+													"value": "{{userProfileId}}"
+												},
+												{
+													"id": "e81c2d95-3a71-4588-b402-a4e8908dd2c3",
+													"key": "beneficiary_id",
+													"value": "{{userFetchedBenefId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "029ab5ab-b7f6-4497-bcef-681e29a2395f",
 											"name": "Success",
 											"originalRequest": {
 												"method": "DELETE",
