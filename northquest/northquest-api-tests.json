@@ -21656,6 +21656,21 @@
 						},
 						{
 							"name": "List Biller Options-Education",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "aaf8ebb9-537d-4eac-bd8c-bbe1b8700670",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "69ae0112-7887-4b1e-9b96-fad9862ea617",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -21783,6 +21798,21 @@
 						},
 						{
 							"name": "List Biller Options-Invalid category Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7b070a3a-ccc4-42b9-8a96-340a65a2ee80",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "32856338-4ff1-4f05-a7fd-2e39441d8e46",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -21910,6 +21940,21 @@
 						},
 						{
 							"name": "List Biller Options-Invalid Biller Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "059303c0-e2c5-46c8-9de1-76b6092da2bd",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "8a39ee9a-a421-45cf-a389-40ad8f4178b0",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -22037,6 +22082,21 @@
 						},
 						{
 							"name": "List Biller Options-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "df4300fe-d047-426f-af34-c93746ead540",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "9fafe098-6fa7-409f-af3d-bb620e051e94",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
