@@ -26702,19 +26702,18 @@
 												"id": "fa130f83-3828-4a1c-b1aa-349679341ad9",
 												"exec": [
 													"try {\r",
-													"    const { message } = pm.response.json()\r",
+													"    const { message, statusCode } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Status code is 400\", () => {\r",
-													"        pm.response.to.have.status(400);\r",
-													"    });\r",
-													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
 													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
 													"    })\r",
 													"\r",
 													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error)\r",
+													"    console.error(error)\r",
 													"}"
 												],
 												"type": "text/javascript",
@@ -26728,10 +26727,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{userAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [],
@@ -26756,7 +26752,6 @@
 											],
 											"variable": [
 												{
-													"id": "c48d9fd1-5858-45b5-9d0a-be66a9f5c053",
 													"key": "profile_id",
 													"value": "{{userProfileId}}1"
 												}
