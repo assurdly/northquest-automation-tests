@@ -26264,15 +26264,6 @@
 										},
 										"method": "GET",
 										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
 										"url": {
 											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
 											"host": [
