@@ -20551,6 +20551,21 @@
 						},
 						{
 							"name": "List Billers-electricity",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cd40ff41-3f0a-4938-bac1-71f68eacabcd",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "cbdcf194-f8ea-42be-831e-929d2cd2094f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -20666,6 +20681,21 @@
 						},
 						{
 							"name": "List Billers-education",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "82abcbf3-ef24-46f1-9f9b-3e64d63963ba",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "589e8733-bc55-4828-984c-f1d12c1815d1",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -20781,6 +20811,21 @@
 						},
 						{
 							"name": "List Billers-Invalid category Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "42ee93df-4897-4ef5-9d9b-004b3c85bd0c",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "8b125b5c-01fd-408f-9e3c-da411ff490cc",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -21042,7 +21087,22 @@
 					"name": "List Biller Options",
 					"item": [
 						{
-							"name": "List Biller-Dstv",
+							"name": "List Biller Options-Dstv",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9553a6ad-d6e2-4520-b0d0-31f09ca46123",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "19a21b46-c7ca-4a87-9381-d37bb3008d17",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -21170,6 +21230,21 @@
 						},
 						{
 							"name": "List Biller Options-Gotv",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "04aea537-e125-4530-a341-4bdfd2e50a02",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "0c3b37ad-6b90-4931-b5bf-8f1c288aa4e5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -21297,6 +21372,21 @@
 						},
 						{
 							"name": "List Biller Options-Startimes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d4bba51b-0b0c-422c-9c97-53afad5a98eb",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "1ff16acf-5528-46ee-bf92-9d7a14a5b463",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -21424,6 +21514,21 @@
 						},
 						{
 							"name": "List Biller Options-Electricity",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "24fb2ced-6ebd-490c-b83a-67dd49d09731",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "52ca2b27-c93c-49fc-82b3-d5aaae0a2cfe",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -21452,12 +21557,10 @@
 									],
 									"variable": [
 										{
-											"id": "0e16010b-be56-4121-94ba-f988be9244b0",
 											"key": "category_id",
 											"value": "cabletv"
 										},
 										{
-											"id": "53390010-d273-4c5b-bdc7-f50c1f1858f3",
 											"key": "biller_id",
 											"value": "startimes"
 										}
