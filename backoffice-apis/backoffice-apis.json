@@ -6293,6 +6293,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "DELETE",
 										"header": [],
 										"url": {
@@ -6307,9 +6313,8 @@
 											],
 											"variable": [
 												{
-													"id": "b40bdc4c-ae96-4d01-a006-f85b154906db",
 													"key": "id",
-													"value": ""
+													"value": "0192fc90-1703-7002-904c-af6f3df248a6"
 												}
 											]
 										}
