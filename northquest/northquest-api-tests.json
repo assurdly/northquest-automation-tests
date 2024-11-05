@@ -27003,7 +27003,7 @@
 									]
 								},
 								{
-									"name": "Get Transfer Beneficiary Copy",
+									"name": "Get Transfer Beneficiary-Invalid beneficiary Id",
 									"event": [
 										{
 											"listen": "test",
@@ -27011,23 +27011,19 @@
 												"id": "b8126c8a-bb36-42ff-84bf-59ec0df4b1b4",
 												"exec": [
 													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
+													"    const { message } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
 													"    });\r",
 													"\r",
 													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
-													"    })\r",
-													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"object\")\r",
+													"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")\r",
 													"    })\r",
 													"\r",
 													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
+													"    console.error(\"Error from test:\", error)\r",
 													"}"
 												],
 												"type": "text/javascript",
@@ -27061,12 +27057,10 @@
 											],
 											"variable": [
 												{
-													"id": "511920c0-b41a-4a32-a254-ea8d2b2b6923",
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "{{userProfileId}}1"
 												},
 												{
-													"id": "fd60e1a9-81e0-4b4a-86e7-e38b920dbbab",
 													"key": "beneficiary_id",
 													"value": "{{userFetchedBenefId}}"
 												}
@@ -27154,7 +27148,7 @@
 									]
 								},
 								{
-									"name": "Get Transfer Beneficiary Copy 2",
+									"name": "Get Transfer Beneficiary-Invalid beneficiary Id",
 									"event": [
 										{
 											"listen": "test",
@@ -27162,23 +27156,19 @@
 												"id": "b8126c8a-bb36-42ff-84bf-59ec0df4b1b4",
 												"exec": [
 													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
+													"    const { message } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
 													"    });\r",
 													"\r",
 													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
-													"    })\r",
-													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"object\")\r",
+													"        pm.expect(message).includes(\"Beneficiary ID must be a valid UUID\")\r",
 													"    })\r",
 													"\r",
 													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
+													"    console.error(\"Error from test:\", error)\r",
 													"}"
 												],
 												"type": "text/javascript",
@@ -27212,14 +27202,12 @@
 											],
 											"variable": [
 												{
-													"id": "511920c0-b41a-4a32-a254-ea8d2b2b6923",
 													"key": "profile_id",
 													"value": "{{userProfileId}}"
 												},
 												{
-													"id": "fd60e1a9-81e0-4b4a-86e7-e38b920dbbab",
 													"key": "beneficiary_id",
-													"value": "{{userFetchedBenefId}}"
+													"value": "{{userFetchedBenefId}}1"
 												}
 											]
 										}
@@ -27305,7 +27293,7 @@
 									]
 								},
 								{
-									"name": "Get Transfer Beneficiary Copy 3",
+									"name": "Get Transfer Beneficiary-No auth",
 									"event": [
 										{
 											"listen": "test",
@@ -27313,23 +27301,18 @@
 												"id": "b8126c8a-bb36-42ff-84bf-59ec0df4b1b4",
 												"exec": [
 													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
+													"    const { message, statusCode } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"    });\r",
-													"\r",
-													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
 													"    })\r",
 													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"object\")\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
 													"    })\r",
 													"\r",
 													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
+													"    console.error(error)\r",
 													"}"
 												],
 												"type": "text/javascript",
@@ -27343,10 +27326,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{userAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [],
@@ -27363,12 +27343,10 @@
 											],
 											"variable": [
 												{
-													"id": "511920c0-b41a-4a32-a254-ea8d2b2b6923",
 													"key": "profile_id",
 													"value": "{{userProfileId}}"
 												},
 												{
-													"id": "fd60e1a9-81e0-4b4a-86e7-e38b920dbbab",
 													"key": "beneficiary_id",
 													"value": "{{userFetchedBenefId}}"
 												}
