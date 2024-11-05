@@ -6288,6 +6288,22 @@
 							"item": [
 								{
 									"name": "Delete Role",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "01c45508-e191-4a9d-a7dc-58930b5a4553",
+												"exec": [
+													"// pm.test(\"Status code is 200\", function () {\r",
+													"//         pm.response.to.have.status(200);\r",
+													"//     });\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "e6005d20-0749-4516-a195-b848546ad364",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
