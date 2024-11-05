@@ -41,7 +41,7 @@
 									"script": {
 										"id": "4f73f52b-38d7-462e-ad83-2a00667c9382",
 										"exec": [
-											"pm.environment.set('origin', \"https://northquestfinance.com\")",
+											"// pm.environment.set('origin', \"https://northquestfinance.com\")",
 											"pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')"
 										],
 										"type": "text/javascript",
