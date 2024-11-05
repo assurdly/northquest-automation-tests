@@ -26105,6 +26105,33 @@
 								},
 								{
 									"name": "Create Transfer Beneficiary-Incomplete account number",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "44a583c6-1b47-46bf-bb6f-7d96de1485fd",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"Account Number can not be greater or less than 10 digits\");\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "68db2d2d-7ca2-42d1-9bf3-30d3e46bdb5c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
