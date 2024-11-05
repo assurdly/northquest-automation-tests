@@ -26412,7 +26412,7 @@
 													"    })\r",
 													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"array\")\r",
+													"        pm.expect(data.beneficiaries).to.be.an(\"array\")\r",
 													"    })\r",
 													"\r",
 													"} catch (error) {\r",
@@ -26546,6 +26546,33 @@
 								},
 								{
 									"name": "Get Transfer Beneficiaries-Invalid Profile Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "fa130f83-3828-4a1c-b1aa-349679341ad9",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "df647c24-3ae6-4133-96f5-fa2506b35867",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -26580,9 +26607,8 @@
 											],
 											"variable": [
 												{
-													"id": "7aad7851-6481-4cec-8eab-be1f6e1eeb2d",
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "{{userProfileId}}1"
 												}
 											]
 										}
