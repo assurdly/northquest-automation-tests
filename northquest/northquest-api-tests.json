@@ -26390,6 +26390,40 @@
 							"item": [
 								{
 									"name": "Get Transfer Beneficiaries",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2bfbec7f-c228-47b2-8b14-7c1be2e30368",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"\r",
+													"    pm.environment.set(\"userFetchedBenefId\", data.beneficiaries[0].id);\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "7ecb1be3-9e6e-4c5f-bdf9-af9c57b5aa92",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
