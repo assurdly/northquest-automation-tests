@@ -25784,6 +25784,38 @@
 								},
 								{
 									"name": "Create Transfer Beneficiary-Empty fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7fd12094-1310-4ead-88e7-c52d2cb9d12e",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"Account Number can not be greater or less than 10 digits\");\r",
+													"        pm.expect(message).includes(\"Account Number cannot be empty\");\r",
+													"        pm.expect(message).includes(\"Bank Code can only be numbers\");\r",
+													"        pm.expect(message).includes(\"Bank Code can not be greater or less than 6 digits\");\r",
+													"        pm.expect(message).includes(\"Bank Code cannot be empty\");\r",
+													"        pm.expect(message).includes(\"Account ID must be a valid UUID\");\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "61869b33-06be-4945-a1f4-5f23a5dbc265",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -25915,6 +25947,33 @@
 								},
 								{
 									"name": "Create Transfer Beneficiary-Account num>10",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "dcb6570b-54ac-43c8-8646-05cf47041be7",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"Account Number can not be greater or less than 10 digits\");\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "91ab70c3-5f8a-4c3d-9628-16edd7231738",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
