@@ -29057,6 +29057,21 @@
 					"item": [
 						{
 							"name": "Get Account",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0bac8f99-d836-453a-95f0-f9e1ea511b15",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "7dc7d485-90af-44cb-8774-ccc346a14247",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -29083,11 +29098,11 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
+											"value": "{{userProfileId}}"
 										},
 										{
 											"key": "account_id",
-											"value": "{{userFetchedAccountId}}"
+											"value": "{{benefAccId}}"
 										}
 									]
 								}
@@ -29178,6 +29193,21 @@
 						},
 						{
 							"name": "Get Account-Invalid Profile Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ba1b6844-a297-42dd-8e6f-63e44a783cae",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "111727d3-fb28-42fa-933c-4afa1bbaa885",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -29299,6 +29329,21 @@
 						},
 						{
 							"name": "Get Account-Invalid account Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bb33e07-3613-4555-99a5-d77b774a2798",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "807787bd-e6d0-4edd-b77b-66f7e6ca1ec1",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
