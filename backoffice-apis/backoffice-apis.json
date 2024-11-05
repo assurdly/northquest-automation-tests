@@ -10019,7 +10019,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/profiles?filter[type]=individual",
+											"raw": "{{base_url}}/admin/profiles?filter[type]=personal",
 											"host": [
 												"{{base_url}}"
 											],
@@ -10030,7 +10030,7 @@
 											"query": [
 												{
 													"key": "filter[type]",
-													"value": "individual"
+													"value": "personal"
 												},
 												{
 													"key": "filter[status]",
