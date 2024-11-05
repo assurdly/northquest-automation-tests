@@ -20179,6 +20179,39 @@
 					"item": [
 						{
 							"name": "List Bill Categories",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "eec83402-4dfe-41a1-a26b-b7ba3e0b1f4f",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "f8a44b53-1991-4c34-99ee-7a234289821c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
