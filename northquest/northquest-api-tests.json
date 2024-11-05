@@ -28125,6 +28125,21 @@
 					"item": [
 						{
 							"name": "Create Account",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1ef9f7ac-b39e-4f3a-a36c-929cb78476f7",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "94b4d9b9-5d3a-4ce7-8e85-4da8b5b58947",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -28254,6 +28269,21 @@
 						},
 						{
 							"name": "Create Account-Invalid Profile Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c881226a-f9a4-4cdd-a9f7-c6420a2a9abf",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "ece1e329-fa81-41bc-8016-10d838dd6c0a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -28383,6 +28413,21 @@
 						},
 						{
 							"name": "Create Account-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b5cc6f1e-3f45-42ad-92d4-af4f9053ee53",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "a918d28a-c7b3-4965-b200-e6481645425d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
