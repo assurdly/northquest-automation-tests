@@ -26846,6 +26846,7 @@
 													"\r",
 													"\r",
 													"    pm.environment.set(\"userFetchedBenefId\", data.beneficiaries[0].id);\r",
+													"     pm.environment.set(\"benefAccId\", data.beneficiaries[0].account_id);\r",
 													"\r",
 													"    pm.test(\"Status code is 200\", function () {\r",
 													"        pm.response.to.have.status(200);\r",
