@@ -26855,6 +26855,37 @@
 							"item": [
 								{
 									"name": "Get Transfer Beneficiary",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b8126c8a-bb36-42ff-84bf-59ec0df4b1b4",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "b8cacd48-551b-4dc2-a3ce-9b22257f205d",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -26886,7 +26917,7 @@
 												},
 												{
 													"key": "beneficiary_id",
-													"value": "0192edb4-d36b-7111-a063-94f06e3ec25e"
+													"value": "{{userFetchedBenefId}}"
 												}
 											]
 										}
@@ -26894,6 +26925,459 @@
 									"response": [
 										{
 											"id": "544f6f3a-e073-4a76-b06c-49899dd5d88d",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transfer-beneficiaries"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "505"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1f9-AfKBIDXtb8C1dgZUKNNmBacbCfM\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 16:58:36 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"bank_code\": \"999998\",\n        \"account_number\": \"0112345678\",\n        \"account_name\": \"vee Test\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"id\": \"0192e383-c2b7-7446-891e-7b148d063ad5\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-10-31T16:58:36.086Z\",\n        \"modified_on\": \"2024-10-31T16:58:36.086Z\",\n        \"deleted_on\": null\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Transfer Beneficiary Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b8126c8a-bb36-42ff-84bf-59ec0df4b1b4",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "36d7261d-1d14-4461-9063-fe46b036a755",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transfer-beneficiaries",
+												":beneficiary_id"
+											],
+											"variable": [
+												{
+													"id": "511920c0-b41a-4a32-a254-ea8d2b2b6923",
+													"key": "profile_id",
+													"value": "{{userProfileId}}"
+												},
+												{
+													"id": "fd60e1a9-81e0-4b4a-86e7-e38b920dbbab",
+													"key": "beneficiary_id",
+													"value": "{{userFetchedBenefId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "d66731e6-7c0f-4b4e-9dc2-f359b2c3b4ff",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transfer-beneficiaries"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "505"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1f9-AfKBIDXtb8C1dgZUKNNmBacbCfM\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 16:58:36 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"bank_code\": \"999998\",\n        \"account_number\": \"0112345678\",\n        \"account_name\": \"vee Test\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"id\": \"0192e383-c2b7-7446-891e-7b148d063ad5\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-10-31T16:58:36.086Z\",\n        \"modified_on\": \"2024-10-31T16:58:36.086Z\",\n        \"deleted_on\": null\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Transfer Beneficiary Copy 2",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b8126c8a-bb36-42ff-84bf-59ec0df4b1b4",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "0d773c81-c75c-4a05-a80e-600242e1f155",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transfer-beneficiaries",
+												":beneficiary_id"
+											],
+											"variable": [
+												{
+													"id": "511920c0-b41a-4a32-a254-ea8d2b2b6923",
+													"key": "profile_id",
+													"value": "{{userProfileId}}"
+												},
+												{
+													"id": "fd60e1a9-81e0-4b4a-86e7-e38b920dbbab",
+													"key": "beneficiary_id",
+													"value": "{{userFetchedBenefId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "1ba43a4b-e8d7-421c-a039-f9266c5b8e1b",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transfer-beneficiaries"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "505"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1f9-AfKBIDXtb8C1dgZUKNNmBacbCfM\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 16:58:36 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"bank_code\": \"999998\",\n        \"account_number\": \"0112345678\",\n        \"account_name\": \"vee Test\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"id\": \"0192e383-c2b7-7446-891e-7b148d063ad5\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-10-31T16:58:36.086Z\",\n        \"modified_on\": \"2024-10-31T16:58:36.086Z\",\n        \"deleted_on\": null\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Transfer Beneficiary Copy 3",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b8126c8a-bb36-42ff-84bf-59ec0df4b1b4",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "9c356395-ed1d-48c8-b02d-eb3cce5d9508",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transfer-beneficiaries",
+												":beneficiary_id"
+											],
+											"variable": [
+												{
+													"id": "511920c0-b41a-4a32-a254-ea8d2b2b6923",
+													"key": "profile_id",
+													"value": "{{userProfileId}}"
+												},
+												{
+													"id": "fd60e1a9-81e0-4b4a-86e7-e38b920dbbab",
+													"key": "beneficiary_id",
+													"value": "{{userFetchedBenefId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "b22ec773-40b6-4a3f-bc61-e783ce5cc430",
 											"name": "Success",
 											"originalRequest": {
 												"method": "POST",
