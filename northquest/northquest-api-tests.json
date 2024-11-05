@@ -19241,11 +19241,17 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"otp\": \"786709\",\n    \"pin\": \"1234\",\n    \"confirm_pin\": \"1234\"\n}",
+							"raw": "{\n    \"otp\": \"750079\",\n    \"pin\": \"1234\",\n    \"confirm_pin\": \"1234\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
