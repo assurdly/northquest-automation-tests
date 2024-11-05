@@ -10636,18 +10636,20 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/profiles?filter[type]=Business",
+											"raw": "{{base_url}}/admin/profiles/:profile_id",
 											"host": [
 												"{{base_url}}"
 											],
 											"path": [
 												"admin",
-												"profiles"
+												"profiles",
+												":profile_id"
 											],
 											"query": [
 												{
 													"key": "filter[type]",
-													"value": "Business"
+													"value": "Business",
+													"disabled": true
 												},
 												{
 													"key": "filter[status]",
@@ -10661,9 +10663,15 @@
 												},
 												{
 													"key": "id",
-													"value": "019252e1-1a4c-7447-bcc2-b2c6d18d6486",
+													"value": "01925343-fbc8-7886-abfb-41c8746fc8ce",
 													"type": "text",
 													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
