@@ -1909,7 +1909,12 @@
 											}
 										},
 										"method": "GET",
-										"header": [],
+										"header": [
+											{
+												"key": "Origin",
+												"value": "https://dev.admin.cashdrive.co"
+											}
+										],
 										"url": {
 											"raw": "{{base_url}}/admin/users",
 											"host": [
@@ -11478,7 +11483,14 @@
 					"id": "3ba1a014-6e87-4c99-90ec-73fac93dc15f"
 				}
 			],
-			"id": "176166ee-98f6-4c86-a569-26cd9d7f114c"
+			"id": "176166ee-98f6-4c86-a569-26cd9d7f114c",
+			"auth": {
+				"type": "apikey",
+				"apikey": {
+					"value": "https://dev.admin.cashdrive.co",
+					"key": "origin"
+				}
+			}
 		}
 	],
 	"auth": {
