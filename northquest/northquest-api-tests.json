@@ -26679,8 +26679,39 @@
 									]
 								},
 								{
-									"name": "Delete Transfer Beneficiary Copy 3",
-									"id": "ceb71201-3515-41e5-b411-9312ea1b4495",
+									"name": "Get Transfer Beneficiary-Get deleted beneficiary",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b8126c8a-bb36-42ff-84bf-59ec0df4b1b4",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "b38552f5-d7f5-4971-9880-e17ebaa1aa90",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -26691,7 +26722,7 @@
 												"token": "{{userAccessToken}}"
 											}
 										},
-										"method": "DELETE",
+										"method": "GET",
 										"header": [],
 										"url": {
 											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
@@ -26706,35 +26737,32 @@
 											],
 											"variable": [
 												{
-													"id": "40bfebbb-4643-4b10-8d56-59cf013ed9ea",
 													"key": "profile_id",
 													"value": "{{userProfileId}}"
 												},
 												{
-													"id": "e81c2d95-3a71-4588-b402-a4e8908dd2c3",
 													"key": "beneficiary_id",
-													"value": "{{userFetchedBenefId}}"
+													"value": "0192fb60-754c-7bb0-9caf-fce39a919b03"
 												}
 											]
 										}
 									},
 									"response": [
 										{
-											"id": "029ab5ab-b7f6-4497-bcef-681e29a2395f",
+											"id": "6893279a-65a0-4c1d-8a33-2b880fdf0cf9",
 											"name": "Success",
 											"originalRequest": {
-												"method": "DELETE",
+												"method": "POST",
 												"header": [],
 												"url": {
-													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e383-c2b7-7446-891e-7b148d063ad5",
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
 														"profiles",
 														":profile_id",
-														"transfer-beneficiaries",
-														"0192e383-c2b7-7446-891e-7b148d063ad5"
+														"transfer-beneficiaries"
 													],
 													"variable": [
 														{
@@ -26744,8 +26772,8 @@
 													]
 												}
 											},
-											"status": "OK",
-											"code": 200,
+											"status": "Created",
+											"code": 201,
 											"_postman_previewlanguage": "json",
 											"header": [
 												{
@@ -26774,15 +26802,15 @@
 												},
 												{
 													"key": "Content-Length",
-													"value": "32"
+													"value": "505"
 												},
 												{
 													"key": "ETag",
-													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+													"value": "W/\"1f9-AfKBIDXtb8C1dgZUKNNmBacbCfM\""
 												},
 												{
 													"key": "Date",
-													"value": "Thu, 31 Oct 2024 17:13:03 GMT"
+													"value": "Thu, 31 Oct 2024 16:58:36 GMT"
 												},
 												{
 													"key": "Connection",
@@ -26795,7 +26823,7 @@
 											],
 											"cookie": [],
 											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"bank_code\": \"999998\",\n        \"account_number\": \"0112345678\",\n        \"account_name\": \"vee Test\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"id\": \"0192e383-c2b7-7446-891e-7b148d063ad5\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-10-31T16:58:36.086Z\",\n        \"modified_on\": \"2024-10-31T16:58:36.086Z\",\n        \"deleted_on\": null\n    }\n}"
 										}
 									]
 								}
