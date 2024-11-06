@@ -29452,21 +29452,6 @@
 					"item": [
 						{
 							"name": "Update Account",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "6a58428b-ff5f-4657-9596-24660d1278b5",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
 							"id": "e73f05ba-099d-4a59-a7f2-6fdb532f3381",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -29476,7 +29461,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"restricted\": false\n}",
+									"raw": "{\n    \"restricted\": true\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -29484,11 +29469,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts",
 										":account_id"
