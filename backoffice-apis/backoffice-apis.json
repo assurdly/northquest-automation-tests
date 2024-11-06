@@ -10731,7 +10731,7 @@
 												"id": "2121e089-ee2a-4c64-86b5-bfa44359ddef",
 												"exec": [
 													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
+													"    const { status, data} = pm.response.json()\r",
 													"\r",
 													"\r",
 													"    pm.test(\"Status code is 200\", function () {\r",
@@ -10746,6 +10746,8 @@
 													"    pm.test(\"Test for valid error message\", () => {\r",
 													"        pm.expect(data).to.be.an(\"object\")\r",
 													"    })\r",
+													"\r",
+													"    \r",
 													"\r",
 													"} catch (error) {\r",
 													"    console.error(\"Error from test:\", error);\r",
