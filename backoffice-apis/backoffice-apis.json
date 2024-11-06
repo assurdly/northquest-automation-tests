@@ -10926,7 +10926,7 @@
 									]
 								},
 								{
-									"name": "Get Transactions Copy",
+									"name": "Get Transactions-No Auth",
 									"event": [
 										{
 											"listen": "test",
@@ -10934,24 +10934,18 @@
 												"id": "2121e089-ee2a-4c64-86b5-bfa44359ddef",
 												"exec": [
 													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
+													"    const { message, statusCode } = pm.response.json()\r",
 													"\r",
-													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
 													"    })\r",
 													"\r",
-													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"object\")\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
 													"    })\r",
 													"\r",
 													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
+													"    console.error(error)\r",
 													"}"
 												],
 												"type": "text/javascript",
@@ -10964,6 +10958,9 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
