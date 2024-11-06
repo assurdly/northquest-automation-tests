@@ -11603,16 +11603,27 @@
 									]
 								},
 								{
-									"name": "Export Transactions Copy",
+									"name": "Export Transactions-No Auth",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
 												"id": "0f4bd1fd-cd89-4a93-a9d2-cff4e63b7c4d",
 												"exec": [
-													" pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"    });"
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -11977,6 +11988,195 @@
 											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"totalFailedTransaction\": 0,\n        \"totalSuccessfulTransaction\": 0,\n        \"totalTransaction\": 2,\n        \"totalFailedTransactionAmount\": 0,\n        \"totalSuccessfulTransactionAmount\": 0,\n        \"totalTransactionAmount\": 200.46\n    }\n}"
 										}
 									]
+								},
+								{
+									"name": "Get Transactions Stats-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "5953894e-a2d0-4af0-a08b-3bfb47895f4c",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "df5a1c77-b0ce-4beb-8008-d07400c79bfd",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/transactions/stats",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"transactions",
+												"stats"
+											],
+											"query": [
+												{
+													"key": "filter[status]",
+													"value": "failed",
+													"disabled": true
+												},
+												{
+													"key": "filter[account_id]",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee",
+													"disabled": true
+												},
+												{
+													"key": "filter[profile_id]",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee",
+													"disabled": true
+												},
+												{
+													"key": "filter[transaction_type]",
+													"value": "funding",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "762f82c6-aeaf-4d7f-8559-34e4384182ba",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/admin/transactions/stats?filter[status]=failed&filter[account_id]=0192b537-3f83-719b-8ec4-df689454f0ee&filter[profile_id]=0192b537-3f83-719b-8ec4-df689454f0ee&filter[transaction_type]=funding&filter[transaction_date]",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"transactions",
+														"stats"
+													],
+													"query": [
+														{
+															"key": "filter[status]",
+															"value": "failed"
+														},
+														{
+															"key": "filter[account_id]",
+															"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+														},
+														{
+															"key": "filter[profile_id]",
+															"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+														},
+														{
+															"key": "filter[transaction_type]",
+															"value": "funding"
+														},
+														{
+															"key": "filter[transaction_date]",
+															"value": null
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "210"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"d2-9wHKSyn2SZF56E81QsxRUaAeOok\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 05 Nov 2024 22:00:18 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"totalFailedTransaction\": 0,\n        \"totalSuccessfulTransaction\": 0,\n        \"totalTransaction\": 2,\n        \"totalFailedTransactionAmount\": 0,\n        \"totalSuccessfulTransactionAmount\": 0,\n        \"totalTransactionAmount\": 200.46\n    }\n}"
+										}
+									]
 								}
 							],
 							"id": "e9da703e-3a45-449a-80ce-4d6f1a713160"
@@ -11991,6 +12191,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{base_url}}/admin/transactions/disputes"
