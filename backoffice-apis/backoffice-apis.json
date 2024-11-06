@@ -10905,258 +10905,131 @@
 							"id": "260d9c3f-1bf0-4aad-86c9-89a9c9fdf087"
 						},
 						{
-							"name": "New Folder",
-							"item": [],
-							"id": "abdc33d6-5998-4227-8953-b20544beca13"
-						},
-						{
-							"name": "Get Disputes",
-							"id": "b1421edd-9670-4adb-9c06-c6e58cefc590",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{base_url}}/admin/transactions/disputes"
-							},
-							"response": [
+							"name": "Get Transaction",
+							"item": [
 								{
-									"id": "d162af7e-4751-4d4c-a422-75202ccc514d",
-									"name": "Success",
-									"originalRequest": {
+									"name": "Get Transaction",
+									"id": "cc8a4259-33e5-4ae3-a44c-016aecc2f36a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "GET",
 										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"transactions",
-												"disputes"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
 												}
-											]
-										}
+											}
+										},
+										"url": "{{base_url}}/admin/transactions/0192e39c-3492-7445-bc38-6977bba60b85"
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "580"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"244-e0G2ujU7nbRM8EJvCMPSRDrsXpM\""
-										},
-										{
-											"key": "Date",
-											"value": "Mon, 04 Nov 2024 19:00:24 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"disputes\": [\n            {\n                \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n                \"meta\": null,\n                \"created_on\": \"2024-11-04T19:00:19.265Z\",\n                \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n                \"status\": \"pending\",\n                \"note\": \"djdjd\",\n                \"comment\": null,\n                \"reviewed_on\": null,\n                \"reviewed_by\": null,\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Get Dispute",
-							"id": "d74b6200-5b29-4e96-9d63-0284c80df61d",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{base_url}}/admin/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e"
-							},
-							"response": [
-								{
-									"id": "fad57088-5de8-47dd-b244-2b029718f9ad",
-									"name": "Success",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/admin/profiles/:profile_id/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"admin",
-												"profiles",
-												":profile_id",
-												"transactions",
-												"disputes",
-												"0192f88c-a2c1-7115-af2b-27552469196e"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
+											"id": "c20df746-b25c-4cf3-b29f-f9732cb6f8b0",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transactions/0192e39c-3492-7445-bc38-6977bba60b85",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transactions",
+														"0192e39c-3492-7445-bc38-6977bba60b85"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
 												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "519"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"207-fTAseIB7SVRW4or2mu3JrBo9Wqw\""
-										},
-										{
-											"key": "Date",
-											"value": "Mon, 04 Nov 2024 20:59:51 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-04T19:00:19.265Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n        \"status\": \"pending\",\n        \"note\": \"djdjd\",\n        \"comment\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Export Transactions",
-							"id": "bd4b809a-ac92-4994-9405-23f4510ac4eb",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/admin/transactions/export",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"transactions",
-										"export"
-									],
-									"query": [
-										{
-											"key": "filter[amount]",
-											"value": "100.23",
-											"disabled": true
-										},
-										{
-											"key": "filter[status]",
-											"value": "failed",
-											"disabled": true
-										},
-										{
-											"key": "filter[reference]",
-											"value": "Tktfesdlkqg",
-											"disabled": true
-										},
-										{
-											"key": "filter[account_id]",
-											"value": "0192b537-3f83-719b-8ec4-df689454f0ee",
-											"disabled": true
-										},
-										{
-											"key": "filter[end_date]",
-											"value": "2024-10-31T17:19:32.710Z",
-											"disabled": true
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "1060"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"424-9uXGszOeoMd+9gZcrxEFfWfRUcM\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 23:35:28 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192e39c-3492-7445-bc38-6977bba60b85\",\n        \"meta\": {\n            \"type\": \"transfer\",\n            \"amount\": 100,\n            \"errorResponse\": {\n                \"responseMessage\": \"Account Number can only be numbers,Account Number is required,Destination Institution Code is required,Destination Institution Code can only be numbers\",\n                \"sessionID\": \"000404241031182518185048155930\"\n            }\n        },\n        \"created_on\": \"2024-10-31T17:25:18.098Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-10-31T17:25:19.834Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"currency\": \"NGN\",\n        \"amount\": \"100.00\",\n        \"reference\": \"Tmihuulssxa\",\n        \"processor_reference\": null,\n        \"processor_status\": \"failed\",\n        \"processor_message\": \"Unable to locate record\",\n        \"status\": \"failed\",\n        \"entry_type\": \"debit\",\n        \"narration\": \"Sodiq\",\n        \"transaction_date\": \"2024-10-31T17:25:18.096Z\",\n        \"transaction_type\": \"transfer\",\n        \"processor\": \"nip\",\n        \"approved_on\": null,\n        \"approved_by\": null,\n        \"batch_id\": null\n    }\n}"
 										}
 									]
 								}
-							},
-							"response": [
+							],
+							"id": "abdc33d6-5998-4227-8953-b20544beca13"
+						},
+						{
+							"name": "Export Transactions",
+							"item": [
 								{
-									"id": "0f19c746-6c5b-4207-baca-233b5f0f9c71",
-									"name": "Success",
-									"originalRequest": {
+									"name": "Export Transactions",
+									"id": "bd4b809a-ac92-4994-9405-23f4510ac4eb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "GET",
 										"header": [],
 										"body": {
@@ -11169,14 +11042,12 @@
 											}
 										},
 										"url": {
-											"raw": "{{base_url}}/admin/profiles/:profile_id/transactions/export",
+											"raw": "{{base_url}}/admin/transactions/export",
 											"host": [
 												"{{base_url}}"
 											],
 											"path": [
 												"admin",
-												"profiles",
-												":profile_id",
 												"transactions",
 												"export"
 											],
@@ -11206,251 +11077,136 @@
 													"value": "2024-10-31T17:19:32.710Z",
 													"disabled": true
 												}
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
-												}
 											]
 										}
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "plain",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "text/csv"
-										},
-										{
-											"key": "Date",
-											"value": "Sun, 03 Nov 2024 19:46:12 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "Amount,Narration,Status,Entry Type,reference,Reference,Transaction Date\n100.00,Sodiq,failed,debit,Twwlpboeppx,Twwlpboeppx,10/26/24\n100.00,Sodiq,failed,debit,Tjanxyydmab,Tjanxyydmab,10/26/24\n100.00,Sodiq,failed,debit,Tdtktsdttgc,Tdtktsdttgc,10/26/24\n100.00,Sodiq,failed,debit,Tksmngncppr,Tksmngncppr,10/26/24\n100.00,Sodiq,failed,debit,Tccdciqpsgc,Tccdciqpsgc,10/26/24\n100.00,Sodiq,failed,debit,Txmkqnzlayz,Txmkqnzlayz,10/26/24\n100.00,Sodiq,failed,debit,Tvqjhwmovjl,Tvqjhwmovjl,10/26/24\n100.00,Sodiq,failed,debit,Tfvczmzfxem,Tfvczmzfxem,10/26/24\n100.00,Sodiq,failed,debit,Tkhkcpecjxr,Tkhkcpecjxr,10/26/24\n100.00,Sodiq,failed,debit,Tzjomypkhwv,Tzjomypkhwv,10/26/24\n100.00,Sodiq,failed,debit,Titmvpfqkzg,Titmvpfqkzg,10/26/24\n100.00,Sodiq,failed,debit,Tjojptfyrqd,Tjojptfyrqd,10/26/24\n100.00,Sodiq,failed,debit,Tprkgvqkwzm,Tprkgvqkwzm,10/26/24\n100.00,Sodiq,failed,debit,Tiyvngvhuzp,Tiyvngvhuzp,10/26/24\n100.00,Sodiq,failed,debit,Tkgxfvdyykh,Tkgxfvdyykh,10/26/24\n100.23,Sodiq,failed,debit,Tkzztnzopcb,Tkzztnzopcb,10/26/24\n100.00,Sodiq,failed,debit,Tsfkbqsztpo,Tsfkbqsztpo,10/31/24\n100.23,Sodiq,processing,debit,Tsbiuexrknz,Tsbiuexrknz,10/26/24\n100.23,Sodiq,failed,debit,Tfpnxdkwpmv,Tfpnxdkwpmv,10/26/24\n100.23,Sodiq,failed,debit,Tkscovzoygv,Tkscovzoygv,10/26/24\n100.23,Sodiq,processing,debit,Tcrukjjsijy,Tcrukjjsijy,10/28/24\n100.23,Sodiq,processing,debit,Tiyqjmvsnsa,Tiyqjmvsnsa,10/28/24\n100.23,Sodiq,failed,debit,Tvgikonyvkc,Tvgikonyvkc,10/31/24\n100.23,Sodiq,failed,debit,Tbbivvxwprd,Tbbivvxwprd,10/31/24\n100.23,Sodiq,failed,debit,Tvianaeuhgh,Tvianaeuhgh,10/31/24\n100.23,Sodiq,failed,debit,Tktfesdlkqg,Tktfesdlkqg,10/31/24\n100.00,Sodiq,failed,debit,Trmgijsrnex,Trmgijsrnex,10/31/24\n100.00,Sodiq,failed,debit,Tefsoywplgi,Tefsoywplgi,10/31/24\n100.00,Sodiq,failed,debit,Tkdahalajcq,Tkdahalajcq,10/31/24\n100.00,Sodiq,failed,debit,Tmihuulssxa,Tmihuulssxa,10/31/24\n100.00,Sodiq,failed,debit,Tdwiyplsxxn,Tdwiyplsxxn,10/31/24\n100.00,Sodiq,failed,debit,Tfvhfhnlmcz,Tfvhfhnlmcz,10/31/24\n100.00,Sodiq,failed,debit,Taxnztpenox,Taxnztpenox,10/31/24\n100.00,Sodiq,processing,debit,Tgivbtoullg,Tgivbtoullg,10/31/24\n100.00,Sodiq,processing,debit,Tychzskreks,Tychzskreks,10/31/24\n100.00,Sodiq,processing,debit,Tjnaqbbtynj,Tjnaqbbtynj,10/31/24\n100.00,Sodiq,processing,debit,Tefcvvzwfar,Tefcvvzwfar,10/31/24\n100.00,Sodiq,failed,debit,Tvskdgleemt,Tvskdgleemt,10/31/24\n100.00,Sodiq,failed,debit,Tnwgfeyknxs,Tnwgfeyknxs,10/31/24\n100.00,Sodiq,failed,debit,Tkcubcfysls,Tkcubcfysls,10/31/24\n100.00,Sodiq,failed,debit,Tlcwspghvxc,Tlcwspghvxc,10/31/24\n100.00,Sodiq,failed,debit,Turjbtzselr,Turjbtzselr,10/31/24\n100.23,Sodiq,failed,debit,Tjnniyxzjzu,Tjnniyxzjzu,11/1/24\n100.00,Sodiq,failed,debit,Trdmsrleslk,Trdmsrleslk,10/31/24\n100.00,Sodiq,failed,debit,Tvsfzlsuyqf,Tvsfzlsuyqf,10/31/24\n100.23,Sodiq,failed,debit,Tnbwghylatr,Tnbwghylatr,11/1/24\n100.00,Sodiq,failed,debit,Timatgditxl,Timatgditxl,10/31/24\n100.00,Sodiq,failed,debit,Tbwsbiatecp,Tbwsbiatecp,10/31/24\n100.00,Sodiq,failed,debit,Tlosxqvlilf,Tlosxqvlilf,10/31/24\n100.00,Sodiq,failed,debit,Taahsalnzpw,Taahsalnzpw,10/31/24\n100.00,Sodiq,processing,debit,Tjdtyzulcur,Tjdtyzulcur,10/31/24\n100.00,Sodiq,failed,debit,Tcutqtrpmvc,Tcutqtrpmvc,10/31/24\n100.00,Sodiq,failed,debit,Tpnujbixozz,Tpnujbixozz,10/31/24"
-								}
-							]
-						},
-						{
-							"name": "Get Transaction",
-							"id": "cc8a4259-33e5-4ae3-a44c-016aecc2f36a",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/transactions/0192e39c-3492-7445-bc38-6977bba60b85"
-							},
-							"response": [
-								{
-									"id": "c20df746-b25c-4cf3-b29f-f9732cb6f8b0",
-									"name": "Success",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
+											"id": "0f19c746-6c5b-4207-baca-233b5f0f9c71",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/admin/profiles/:profile_id/transactions/export",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"profiles",
+														":profile_id",
+														"transactions",
+														"export"
+													],
+													"query": [
+														{
+															"key": "filter[amount]",
+															"value": "100.23",
+															"disabled": true
+														},
+														{
+															"key": "filter[status]",
+															"value": "failed",
+															"disabled": true
+														},
+														{
+															"key": "filter[reference]",
+															"value": "Tktfesdlkqg",
+															"disabled": true
+														},
+														{
+															"key": "filter[account_id]",
+															"value": "0192b537-3f83-719b-8ec4-df689454f0ee",
+															"disabled": true
+														},
+														{
+															"key": "filter[end_date]",
+															"value": "2024-10-31T17:19:32.710Z",
+															"disabled": true
+														}
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
 												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transactions/0192e39c-3492-7445-bc38-6977bba60b85",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"transactions",
-												"0192e39c-3492-7445-bc38-6977bba60b85"
-											],
-											"variable": [
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "plain",
+											"header": [
 												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "text/csv"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 03 Nov 2024 19:46:12 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
 												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "1060"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"424-9uXGszOeoMd+9gZcrxEFfWfRUcM\""
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 31 Oct 2024 23:35:28 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192e39c-3492-7445-bc38-6977bba60b85\",\n        \"meta\": {\n            \"type\": \"transfer\",\n            \"amount\": 100,\n            \"errorResponse\": {\n                \"responseMessage\": \"Account Number can only be numbers,Account Number is required,Destination Institution Code is required,Destination Institution Code can only be numbers\",\n                \"sessionID\": \"000404241031182518185048155930\"\n            }\n        },\n        \"created_on\": \"2024-10-31T17:25:18.098Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-10-31T17:25:19.834Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"currency\": \"NGN\",\n        \"amount\": \"100.00\",\n        \"reference\": \"Tmihuulssxa\",\n        \"processor_reference\": null,\n        \"processor_status\": \"failed\",\n        \"processor_message\": \"Unable to locate record\",\n        \"status\": \"failed\",\n        \"entry_type\": \"debit\",\n        \"narration\": \"Sodiq\",\n        \"transaction_date\": \"2024-10-31T17:25:18.096Z\",\n        \"transaction_type\": \"transfer\",\n        \"processor\": \"nip\",\n        \"approved_on\": null,\n        \"approved_by\": null,\n        \"batch_id\": null\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Update Dispute",
-							"id": "6ae764c2-27fe-4925-8165-f1b389d9864a",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"comment\": \"Test\",\n    \"status\": \"resolved\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e"
-							},
-							"response": []
-						},
-						{
-							"name": "Get Transactions Stats",
-							"id": "31a31187-ca7a-4375-9ef2-af1f65e289e4",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/admin/transactions/stats?filter[status]=failed&filter[account_id]=0192b537-3f83-719b-8ec4-df689454f0ee&filter[profile_id]=0192b537-3f83-719b-8ec4-df689454f0ee&filter[transaction_type]=funding",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"transactions",
-										"stats"
-									],
-									"query": [
-										{
-											"key": "filter[status]",
-											"value": "failed"
-										},
-										{
-											"key": "filter[account_id]",
-											"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-										},
-										{
-											"key": "filter[profile_id]",
-											"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-										},
-										{
-											"key": "filter[transaction_type]",
-											"value": "funding"
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "Amount,Narration,Status,Entry Type,reference,Reference,Transaction Date\n100.00,Sodiq,failed,debit,Twwlpboeppx,Twwlpboeppx,10/26/24\n100.00,Sodiq,failed,debit,Tjanxyydmab,Tjanxyydmab,10/26/24\n100.00,Sodiq,failed,debit,Tdtktsdttgc,Tdtktsdttgc,10/26/24\n100.00,Sodiq,failed,debit,Tksmngncppr,Tksmngncppr,10/26/24\n100.00,Sodiq,failed,debit,Tccdciqpsgc,Tccdciqpsgc,10/26/24\n100.00,Sodiq,failed,debit,Txmkqnzlayz,Txmkqnzlayz,10/26/24\n100.00,Sodiq,failed,debit,Tvqjhwmovjl,Tvqjhwmovjl,10/26/24\n100.00,Sodiq,failed,debit,Tfvczmzfxem,Tfvczmzfxem,10/26/24\n100.00,Sodiq,failed,debit,Tkhkcpecjxr,Tkhkcpecjxr,10/26/24\n100.00,Sodiq,failed,debit,Tzjomypkhwv,Tzjomypkhwv,10/26/24\n100.00,Sodiq,failed,debit,Titmvpfqkzg,Titmvpfqkzg,10/26/24\n100.00,Sodiq,failed,debit,Tjojptfyrqd,Tjojptfyrqd,10/26/24\n100.00,Sodiq,failed,debit,Tprkgvqkwzm,Tprkgvqkwzm,10/26/24\n100.00,Sodiq,failed,debit,Tiyvngvhuzp,Tiyvngvhuzp,10/26/24\n100.00,Sodiq,failed,debit,Tkgxfvdyykh,Tkgxfvdyykh,10/26/24\n100.23,Sodiq,failed,debit,Tkzztnzopcb,Tkzztnzopcb,10/26/24\n100.00,Sodiq,failed,debit,Tsfkbqsztpo,Tsfkbqsztpo,10/31/24\n100.23,Sodiq,processing,debit,Tsbiuexrknz,Tsbiuexrknz,10/26/24\n100.23,Sodiq,failed,debit,Tfpnxdkwpmv,Tfpnxdkwpmv,10/26/24\n100.23,Sodiq,failed,debit,Tkscovzoygv,Tkscovzoygv,10/26/24\n100.23,Sodiq,processing,debit,Tcrukjjsijy,Tcrukjjsijy,10/28/24\n100.23,Sodiq,processing,debit,Tiyqjmvsnsa,Tiyqjmvsnsa,10/28/24\n100.23,Sodiq,failed,debit,Tvgikonyvkc,Tvgikonyvkc,10/31/24\n100.23,Sodiq,failed,debit,Tbbivvxwprd,Tbbivvxwprd,10/31/24\n100.23,Sodiq,failed,debit,Tvianaeuhgh,Tvianaeuhgh,10/31/24\n100.23,Sodiq,failed,debit,Tktfesdlkqg,Tktfesdlkqg,10/31/24\n100.00,Sodiq,failed,debit,Trmgijsrnex,Trmgijsrnex,10/31/24\n100.00,Sodiq,failed,debit,Tefsoywplgi,Tefsoywplgi,10/31/24\n100.00,Sodiq,failed,debit,Tkdahalajcq,Tkdahalajcq,10/31/24\n100.00,Sodiq,failed,debit,Tmihuulssxa,Tmihuulssxa,10/31/24\n100.00,Sodiq,failed,debit,Tdwiyplsxxn,Tdwiyplsxxn,10/31/24\n100.00,Sodiq,failed,debit,Tfvhfhnlmcz,Tfvhfhnlmcz,10/31/24\n100.00,Sodiq,failed,debit,Taxnztpenox,Taxnztpenox,10/31/24\n100.00,Sodiq,processing,debit,Tgivbtoullg,Tgivbtoullg,10/31/24\n100.00,Sodiq,processing,debit,Tychzskreks,Tychzskreks,10/31/24\n100.00,Sodiq,processing,debit,Tjnaqbbtynj,Tjnaqbbtynj,10/31/24\n100.00,Sodiq,processing,debit,Tefcvvzwfar,Tefcvvzwfar,10/31/24\n100.00,Sodiq,failed,debit,Tvskdgleemt,Tvskdgleemt,10/31/24\n100.00,Sodiq,failed,debit,Tnwgfeyknxs,Tnwgfeyknxs,10/31/24\n100.00,Sodiq,failed,debit,Tkcubcfysls,Tkcubcfysls,10/31/24\n100.00,Sodiq,failed,debit,Tlcwspghvxc,Tlcwspghvxc,10/31/24\n100.00,Sodiq,failed,debit,Turjbtzselr,Turjbtzselr,10/31/24\n100.23,Sodiq,failed,debit,Tjnniyxzjzu,Tjnniyxzjzu,11/1/24\n100.00,Sodiq,failed,debit,Trdmsrleslk,Trdmsrleslk,10/31/24\n100.00,Sodiq,failed,debit,Tvsfzlsuyqf,Tvsfzlsuyqf,10/31/24\n100.23,Sodiq,failed,debit,Tnbwghylatr,Tnbwghylatr,11/1/24\n100.00,Sodiq,failed,debit,Timatgditxl,Timatgditxl,10/31/24\n100.00,Sodiq,failed,debit,Tbwsbiatecp,Tbwsbiatecp,10/31/24\n100.00,Sodiq,failed,debit,Tlosxqvlilf,Tlosxqvlilf,10/31/24\n100.00,Sodiq,failed,debit,Taahsalnzpw,Taahsalnzpw,10/31/24\n100.00,Sodiq,processing,debit,Tjdtyzulcur,Tjdtyzulcur,10/31/24\n100.00,Sodiq,failed,debit,Tcutqtrpmvc,Tcutqtrpmvc,10/31/24\n100.00,Sodiq,failed,debit,Tpnujbixozz,Tpnujbixozz,10/31/24"
 										}
 									]
 								}
-							},
-							"response": [
+							],
+							"id": "e3f72662-81ae-4cbb-9ec0-ca35d713460b"
+						},
+						{
+							"name": "Get Transaction Stats",
+							"item": [
 								{
-									"id": "6b831b51-7dd7-44cb-88f3-7310dcf30430",
-									"name": "Success",
-									"originalRequest": {
+									"name": "Get Transactions Stats",
+									"id": "31a31187-ca7a-4375-9ef2-af1f65e289e4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "GET",
 										"header": [],
 										"body": {
@@ -11463,7 +11219,7 @@
 											}
 										},
 										"url": {
-											"raw": "{{base_url}}/admin/transactions/stats?filter[status]=failed&filter[account_id]=0192b537-3f83-719b-8ec4-df689454f0ee&filter[profile_id]=0192b537-3f83-719b-8ec4-df689454f0ee&filter[transaction_type]=funding&filter[transaction_date]",
+											"raw": "{{base_url}}/admin/transactions/stats?filter[status]=failed&filter[account_id]=0192b537-3f83-719b-8ec4-df689454f0ee&filter[profile_id]=0192b537-3f83-719b-8ec4-df689454f0ee&filter[transaction_type]=funding",
 											"host": [
 												"{{base_url}}"
 											],
@@ -11488,68 +11244,343 @@
 												{
 													"key": "filter[transaction_type]",
 													"value": "funding"
-												},
-												{
-													"key": "filter[transaction_date]",
-													"value": null
 												}
 											]
 										}
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "210"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"d2-9wHKSyn2SZF56E81QsxRUaAeOok\""
-										},
-										{
-											"key": "Date",
-											"value": "Tue, 05 Nov 2024 22:00:18 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"id": "6b831b51-7dd7-44cb-88f3-7310dcf30430",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/admin/transactions/stats?filter[status]=failed&filter[account_id]=0192b537-3f83-719b-8ec4-df689454f0ee&filter[profile_id]=0192b537-3f83-719b-8ec4-df689454f0ee&filter[transaction_type]=funding&filter[transaction_date]",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"transactions",
+														"stats"
+													],
+													"query": [
+														{
+															"key": "filter[status]",
+															"value": "failed"
+														},
+														{
+															"key": "filter[account_id]",
+															"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+														},
+														{
+															"key": "filter[profile_id]",
+															"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+														},
+														{
+															"key": "filter[transaction_type]",
+															"value": "funding"
+														},
+														{
+															"key": "filter[transaction_date]",
+															"value": null
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "210"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"d2-9wHKSyn2SZF56E81QsxRUaAeOok\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 05 Nov 2024 22:00:18 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"totalFailedTransaction\": 0,\n        \"totalSuccessfulTransaction\": 0,\n        \"totalTransaction\": 2,\n        \"totalFailedTransactionAmount\": 0,\n        \"totalSuccessfulTransactionAmount\": 0,\n        \"totalTransactionAmount\": 200.46\n    }\n}"
 										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"totalFailedTransaction\": 0,\n        \"totalSuccessfulTransaction\": 0,\n        \"totalTransaction\": 2,\n        \"totalFailedTransactionAmount\": 0,\n        \"totalSuccessfulTransactionAmount\": 0,\n        \"totalTransactionAmount\": 200.46\n    }\n}"
+									]
 								}
-							]
+							],
+							"id": "e9da703e-3a45-449a-80ce-4d6f1a713160"
+						},
+						{
+							"name": "Get Disputes",
+							"item": [
+								{
+									"name": "Get Disputes",
+									"id": "b1421edd-9670-4adb-9c06-c6e58cefc590",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/transactions/disputes"
+									},
+									"response": [
+										{
+											"id": "d162af7e-4751-4d4c-a422-75202ccc514d",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transactions",
+														"disputes"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "580"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"244-e0G2ujU7nbRM8EJvCMPSRDrsXpM\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 04 Nov 2024 19:00:24 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"disputes\": [\n            {\n                \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n                \"meta\": null,\n                \"created_on\": \"2024-11-04T19:00:19.265Z\",\n                \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n                \"status\": \"pending\",\n                \"note\": \"djdjd\",\n                \"comment\": null,\n                \"reviewed_on\": null,\n                \"reviewed_by\": null,\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "345ee6b8-516a-43af-b0a6-a84ef9af85af"
+						},
+						{
+							"name": "Get Dispute",
+							"item": [
+								{
+									"name": "Get Dispute",
+									"id": "d74b6200-5b29-4e96-9d63-0284c80df61d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e"
+									},
+									"response": [
+										{
+											"id": "fad57088-5de8-47dd-b244-2b029718f9ad",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/profiles/:profile_id/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"profiles",
+														":profile_id",
+														"transactions",
+														"disputes",
+														"0192f88c-a2c1-7115-af2b-27552469196e"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "519"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"207-fTAseIB7SVRW4or2mu3JrBo9Wqw\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 04 Nov 2024 20:59:51 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-04T19:00:19.265Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n        \"status\": \"pending\",\n        \"note\": \"djdjd\",\n        \"comment\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\"\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "f5218f09-67e9-44cb-9ab1-947dc87cc185"
+						},
+						{
+							"name": "Update Dispute",
+							"item": [
+								{
+									"name": "Update Dispute",
+									"id": "6ae764c2-27fe-4925-8165-f1b389d9864a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"comment\": \"Test\",\n    \"status\": \"resolved\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e"
+									},
+									"response": []
+								}
+							],
+							"id": "f8005207-ebf4-4e98-acd4-355398f479cf"
 						}
 					],
 					"id": "692865e4-7ce2-412b-aa2d-75aec51ea94a"
