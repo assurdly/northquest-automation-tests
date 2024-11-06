@@ -11412,11 +11412,32 @@
 							"item": [
 								{
 									"name": "Export Transactions",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "0f4bd1fd-cd89-4a93-a9d2-cff4e63b7c4d",
+												"exec": [
+													" pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "bd4b809a-ac92-4994-9405-23f4510ac4eb",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"body": {
