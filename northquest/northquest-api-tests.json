@@ -29028,21 +29028,6 @@
 					"item": [
 						{
 							"name": "Create Account",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "1ef9f7ac-b39e-4f3a-a36c-929cb78476f7",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
 							"id": "94b4d9b9-5d3a-4ce7-8e85-4da8b5b58947",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -29058,7 +29043,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Rent\",\n    \"currency\": \"NGN\"\n}",
+									"raw": "{\n    \"name\": \"Rent2\",\n    \"currency\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -29066,11 +29051,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts"
 									],
@@ -29578,11 +29564,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts"
 									],
