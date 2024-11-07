@@ -22676,7 +22676,24 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{base_url}}/bill-payments/categories"
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"bill-payments",
+										"categories"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": ""
+										}
+									]
+								}
 							},
 							"response": [
 								{
