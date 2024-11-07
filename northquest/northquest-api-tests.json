@@ -23195,7 +23195,7 @@
 							]
 						},
 						{
-							"name": "List Billers-Airtime Copy",
+							"name": "List Billers-Data",
 							"event": [
 								{
 									"listen": "test",
@@ -23262,7 +23262,7 @@
 										},
 										{
 											"key": "category_id",
-											"value": "data"
+											"value": "databundle"
 										}
 									]
 								}
@@ -23530,7 +23530,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": ""
+											"value": "{{userFetchedProfileId}}"
 										},
 										{
 											"key": "category_id",
