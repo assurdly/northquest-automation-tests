@@ -5545,7 +5545,24 @@
 										},
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/admin/roles"
+										"url": {
+											"raw": "{{base_url}}/admin/roles",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles"
+											],
+											"query": [
+												{
+													"key": "filter[status]",
+													"value": "",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										}
 									},
 									"response": [
 										{
