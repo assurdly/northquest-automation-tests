@@ -20853,6 +20853,33 @@
 						},
 						{
 							"name": "Create Dispute-Invalid Profile Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "10affae1-f296-40a3-9b13-65f44be53d56",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", () => {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).include(\"Profile ID must be a valid UUID\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "8ceb8e7a-19f2-40f0-a06e-9fdd4d1966a4",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -20888,9 +20915,8 @@
 									],
 									"variable": [
 										{
-											"id": "dee61d14-9181-4360-a7ed-a4bfb7d719cf",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userProfileId}}1"
 										}
 									]
 								}
@@ -20987,6 +21013,33 @@
 						},
 						{
 							"name": "Create Dispute-Non existing profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "95366be7-4a6f-409d-ad37-470bc2962dfc",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 404\", () => {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).include(\"Profile not found\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "857e0a05-6b97-44f9-84ad-b54bc0dd8f8f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
