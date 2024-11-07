@@ -19582,6 +19582,37 @@
 					"item": [
 						{
 							"name": "Get Transactions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "72ee1373-0e85-443d-a282-e14c719b2d82",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data.roles).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "4fbac03d-9161-4283-a5ab-e13bfde45e84",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -20446,6 +20477,37 @@
 					"item": [
 						{
 							"name": "Get Transaction",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6cf305a2-f644-47f3-923c-b3cb887862f6",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data.roles).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "3cf6cb93-8579-4e2c-ac46-3872c9139d30",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -20585,6 +20647,37 @@
 					"item": [
 						{
 							"name": "Export Transactions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a8243893-fa80-42a5-8f00-431aac2f6dc5",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data.roles).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "9382bed9-38fb-4fca-93ed-a941b623bbd4",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -21179,21 +21272,21 @@
 									"script": {
 										"id": "95366be7-4a6f-409d-ad37-470bc2962dfc",
 										"exec": [
-											"try {\r",
-											"    const { message } = pm.response.json()\r",
+											"// try {\r",
+											"//     const { message } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Status code is 404\", () => {\r",
-											"        pm.response.to.have.status(404);\r",
-											"    });\r",
+											"//     pm.test(\"Status code is 404\", () => {\r",
+											"//         pm.response.to.have.status(404);\r",
+											"//     });\r",
 											"\r",
 											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).include(\"Profile not found\")\r",
-											"    })\r",
+											"//     pm.test(\"Test for valid error message\", () => {\r",
+											"//         pm.expect(message).include(\"Profile not found\")\r",
+											"//     })\r",
 											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error)\r",
-											"}"
+											"// } catch (error) {\r",
+											"//     console.error(\"Error from test:\", error)\r",
+											"// }"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -21339,21 +21432,21 @@
 									"script": {
 										"id": "95366be7-4a6f-409d-ad37-470bc2962dfc",
 										"exec": [
-											"try {\r",
-											"    const { message } = pm.response.json()\r",
+											"// try {\r",
+											"//     const { message } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Status code is 404\", () => {\r",
-											"        pm.response.to.have.status(404);\r",
-											"    });\r",
+											"//     pm.test(\"Status code is 404\", () => {\r",
+											"//         pm.response.to.have.status(404);\r",
+											"//     });\r",
 											"\r",
 											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).include(\"Profile not found\")\r",
-											"    })\r",
+											"//     pm.test(\"Test for valid error message\", () => {\r",
+											"//         pm.expect(message).include(\"Profile not found\")\r",
+											"//     })\r",
 											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error)\r",
-											"}"
+											"// } catch (error) {\r",
+											"//     console.error(\"Error from test:\", error)\r",
+											"// }"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -21499,6 +21592,37 @@
 					"item": [
 						{
 							"name": "Get Disputes Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bcd07a6f-499b-466d-bb03-b79fd7d7aecd",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data.roles).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "595b45e5-3316-4783-894b-37765ed6def4",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -21519,7 +21643,6 @@
 									],
 									"variable": [
 										{
-											"id": "cd52b4e6-5e06-4823-80ed-7f2fd9516bf9",
 											"key": "profile_id",
 											"value": "{{profileId}}"
 										}
@@ -21615,6 +21738,37 @@
 					"item": [
 						{
 							"name": "Get Dispute Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c5dc1e13-74b1-41e8-95e5-ee91af216fd6",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data.roles).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "18db9894-01fe-4b29-9be1-1faf612ef184",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -21636,7 +21790,6 @@
 									],
 									"variable": [
 										{
-											"id": "dd7c7369-5fd1-4dd0-ab90-7b05cc525ec7",
 											"key": "profile_id",
 											"value": "{{profileId}}"
 										}
