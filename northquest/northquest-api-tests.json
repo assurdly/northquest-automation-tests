@@ -20664,6 +20664,336 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192e39c-3492-7445-bc38-6977bba60b85\",\n        \"meta\": {\n            \"type\": \"transfer\",\n            \"amount\": 100,\n            \"errorResponse\": {\n                \"responseMessage\": \"Account Number can only be numbers,Account Number is required,Destination Institution Code is required,Destination Institution Code can only be numbers\",\n                \"sessionID\": \"000404241031182518185048155930\"\n            }\n        },\n        \"created_on\": \"2024-10-31T17:25:18.098Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-10-31T17:25:19.834Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"currency\": \"NGN\",\n        \"amount\": \"100.00\",\n        \"reference\": \"Tmihuulssxa\",\n        \"processor_reference\": null,\n        \"processor_status\": \"failed\",\n        \"processor_message\": \"Unable to locate record\",\n        \"status\": \"failed\",\n        \"entry_type\": \"debit\",\n        \"narration\": \"Sodiq\",\n        \"transaction_date\": \"2024-10-31T17:25:18.096Z\",\n        \"transaction_type\": \"transfer\",\n        \"processor\": \"nip\",\n        \"approved_on\": null,\n        \"approved_by\": null,\n        \"batch_id\": null\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "Get Transaction-Invalid Profile Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6cf305a2-f644-47f3-923c-b3cb887862f6",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data.roles).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "280059f2-4920-4877-9fd8-d605a69dc3f3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/0192e39c-3492-7445-bc38-6977bba60b85",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"0192e39c-3492-7445-bc38-6977bba60b85"
+									],
+									"variable": [
+										{
+											"id": "6799dfde-c092-4ed5-a626-f95dc7f6baff",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "6a7f5350-fb0b-4b5b-bc35-14c8aecbd699",
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/0192e39c-3492-7445-bc38-6977bba60b85",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"0192e39c-3492-7445-bc38-6977bba60b85"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1060"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"424-9uXGszOeoMd+9gZcrxEFfWfRUcM\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 31 Oct 2024 23:35:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192e39c-3492-7445-bc38-6977bba60b85\",\n        \"meta\": {\n            \"type\": \"transfer\",\n            \"amount\": 100,\n            \"errorResponse\": {\n                \"responseMessage\": \"Account Number can only be numbers,Account Number is required,Destination Institution Code is required,Destination Institution Code can only be numbers\",\n                \"sessionID\": \"000404241031182518185048155930\"\n            }\n        },\n        \"created_on\": \"2024-10-31T17:25:18.098Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-10-31T17:25:19.834Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"currency\": \"NGN\",\n        \"amount\": \"100.00\",\n        \"reference\": \"Tmihuulssxa\",\n        \"processor_reference\": null,\n        \"processor_status\": \"failed\",\n        \"processor_message\": \"Unable to locate record\",\n        \"status\": \"failed\",\n        \"entry_type\": \"debit\",\n        \"narration\": \"Sodiq\",\n        \"transaction_date\": \"2024-10-31T17:25:18.096Z\",\n        \"transaction_type\": \"transfer\",\n        \"processor\": \"nip\",\n        \"approved_on\": null,\n        \"approved_by\": null,\n        \"batch_id\": null\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Transaction-Invalid Profile Id Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6cf305a2-f644-47f3-923c-b3cb887862f6",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data.roles).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "81823b4e-0918-4a7b-9541-a234e59a070d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/0192e39c-3492-7445-bc38-6977bba60b85",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"0192e39c-3492-7445-bc38-6977bba60b85"
+									],
+									"variable": [
+										{
+											"id": "6799dfde-c092-4ed5-a626-f95dc7f6baff",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "1a461425-332e-4175-904b-7373b3a3d4d8",
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/0192e39c-3492-7445-bc38-6977bba60b85",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"0192e39c-3492-7445-bc38-6977bba60b85"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1060"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"424-9uXGszOeoMd+9gZcrxEFfWfRUcM\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 31 Oct 2024 23:35:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192e39c-3492-7445-bc38-6977bba60b85\",\n        \"meta\": {\n            \"type\": \"transfer\",\n            \"amount\": 100,\n            \"errorResponse\": {\n                \"responseMessage\": \"Account Number can only be numbers,Account Number is required,Destination Institution Code is required,Destination Institution Code can only be numbers\",\n                \"sessionID\": \"000404241031182518185048155930\"\n            }\n        },\n        \"created_on\": \"2024-10-31T17:25:18.098Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-10-31T17:25:19.834Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"currency\": \"NGN\",\n        \"amount\": \"100.00\",\n        \"reference\": \"Tmihuulssxa\",\n        \"processor_reference\": null,\n        \"processor_status\": \"failed\",\n        \"processor_message\": \"Unable to locate record\",\n        \"status\": \"failed\",\n        \"entry_type\": \"debit\",\n        \"narration\": \"Sodiq\",\n        \"transaction_date\": \"2024-10-31T17:25:18.096Z\",\n        \"transaction_type\": \"transfer\",\n        \"processor\": \"nip\",\n        \"approved_on\": null,\n        \"approved_by\": null,\n        \"batch_id\": null\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "7a5b7193-d413-48cf-8a1b-18b0237d7969"
