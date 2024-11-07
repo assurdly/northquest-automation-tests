@@ -20707,7 +20707,7 @@
 					"name": "Create Dispute",
 					"item": [
 						{
-							"name": "Create Dispute Copy",
+							"name": "Create Dispute",
 							"id": "82fcd596-85e7-4fca-86d5-9e3c6f9c548c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -20744,7 +20744,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userProfileId}}"
 										}
 									]
 								}
@@ -20752,6 +20752,274 @@
 							"response": [
 								{
 									"id": "4b1c2526-cedc-4cca-845c-33d8418c2448",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n    \"note\": \"djdjd\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"disputes"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "519"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"207-gqs6n4Ie6yU4K9tthf53aHMjXqo\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 04 Nov 2024 19:00:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n        \"note\": \"djdjd\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"comment\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"created_on\": \"2024-11-04T19:00:19.265Z\",\n        \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n        \"deleted_on\": null,\n        \"status\": \"pending\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Create Dispute-Invalid Profile Id",
+							"id": "8ceb8e7a-19f2-40f0-a06e-9fdd4d1966a4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n    \"note\": \"e no\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"disputes"
+									],
+									"variable": [
+										{
+											"id": "dee61d14-9181-4360-a7ed-a4bfb7d719cf",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "0000413b-720a-4f5c-9252-c64e3dc6ed09",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n    \"note\": \"djdjd\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"disputes"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "519"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"207-gqs6n4Ie6yU4K9tthf53aHMjXqo\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 04 Nov 2024 19:00:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n        \"note\": \"djdjd\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"comment\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"created_on\": \"2024-11-04T19:00:19.265Z\",\n        \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n        \"deleted_on\": null,\n        \"status\": \"pending\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Create Dispute-Non existing profile",
+							"id": "857e0a05-6b97-44f9-84ad-b54bc0dd8f8f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n    \"note\": \"e no\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"disputes"
+									],
+									"variable": [
+										{
+											"id": "dee61d14-9181-4360-a7ed-a4bfb7d719cf",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "2d22cafe-c1ea-412e-8959-67ddb215de37",
 									"name": "Success",
 									"originalRequest": {
 										"method": "POST",
