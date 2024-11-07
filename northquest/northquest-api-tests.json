@@ -23195,6 +23195,160 @@
 							]
 						},
 						{
+							"name": "List Billers-Airtime Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "688ef1e0-3af6-4a9f-99a2-b0f4c3013042",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "16cf8b07-ed16-4d1f-a6a3-19ca845d41da",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"bill-payments",
+										"categories",
+										":category_id",
+										"billers"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"key": "category_id",
+											"value": "data"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "50291bf6-0c0f-4976-a300-195a08d0e00c",
+									"name": "List Billers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"bill-payments",
+												"categories",
+												":category_id",
+												"billers"
+											],
+											"variable": [
+												{
+													"key": "category_id",
+													"value": "airtime"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "543"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21f-Nyh1SS4LuUAwL5YWh8SzQWMiCJc\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 27 Oct 2024 19:54:09 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"9mobile\",\n            \"name\": \"9Mobile Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/9mobile.jpg\"\n        },\n        {\n            \"id\": \"airtel\",\n            \"name\": \"Airtel Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/airtel.png\"\n        },\n        {\n            \"id\": \"glo\",\n            \"name\": \"Glo Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/glo.jpg\"\n        },\n        {\n            \"id\": \"mtn\",\n            \"name\": \"MTN Prepaid Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/mtn.png\"\n        },\n        {\n            \"id\": \"smile\",\n            \"name\": \"Smile Recharge\",\n            \"logo\": \"https://payments.baxipay.com.ng/images/smile.png\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
 							"name": "List Billers-electricity",
 							"event": [
 								{
