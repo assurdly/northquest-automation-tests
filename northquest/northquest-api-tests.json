@@ -21170,6 +21170,326 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n        \"note\": \"djdjd\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"comment\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"created_on\": \"2024-11-04T19:00:19.265Z\",\n        \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n        \"deleted_on\": null,\n        \"status\": \"pending\"\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "Create Dispute-Invalid transaction id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "95366be7-4a6f-409d-ad37-470bc2962dfc",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 404\", () => {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).include(\"Profile not found\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "6980d14e-10d1-435f-a4b8-8f8f20b6317d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457\",\n    \"note\": \"e no\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"disputes"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "01925882-f353-7002-8052-04c8be2c03da"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "60ed2513-06f5-492d-b898-33fd7f09bb4d",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n    \"note\": \"djdjd\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"disputes"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "519"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"207-gqs6n4Ie6yU4K9tthf53aHMjXqo\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 04 Nov 2024 19:00:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n        \"note\": \"djdjd\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"comment\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"created_on\": \"2024-11-04T19:00:19.265Z\",\n        \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n        \"deleted_on\": null,\n        \"status\": \"pending\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Create Dispute-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "95366be7-4a6f-409d-ad37-470bc2962dfc",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 404\", () => {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).include(\"Profile not found\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "c63a12ae-d0f6-4080-9887-bf5778de18d1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"transaction_id\": \"\",\n    \"note\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"disputes"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "01925882-f353-7002-8052-04c8be2c03da"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "e1abab1f-a579-4076-81ff-1e9c063af4fc",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n    \"note\": \"djdjd\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"disputes"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "519"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"207-gqs6n4Ie6yU4K9tthf53aHMjXqo\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 04 Nov 2024 19:00:19 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n        \"note\": \"djdjd\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"comment\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"created_on\": \"2024-11-04T19:00:19.265Z\",\n        \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n        \"deleted_on\": null,\n        \"status\": \"pending\"\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "0a09dd37-a9a6-4029-9f76-a59322fb6d5a"
