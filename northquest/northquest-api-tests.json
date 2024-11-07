@@ -26532,11 +26532,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
+														"profiles",
+														":profile_id",
 														"bill-payments",
 														"categories",
 														":category_id",
@@ -26545,6 +26547,10 @@
 														"pay"
 													],
 													"variable": [
+														{
+															"key": "profile_id",
+															"value": ""
+														},
 														{
 															"key": "category_id",
 															"value": "cabletv"
@@ -26604,11 +26610,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
+														"profiles",
+														":profile_id",
 														"bill-payments",
 														"categories",
 														":category_id",
@@ -26617,6 +26625,10 @@
 														"pay"
 													],
 													"variable": [
+														{
+															"key": "profile_id",
+															"value": ""
+														},
 														{
 															"key": "category_id",
 															"value": "cabletv"
@@ -26655,11 +26667,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
+														"profiles",
+														":profile_id",
 														"bill-payments",
 														"categories",
 														":category_id",
@@ -26669,12 +26683,14 @@
 													],
 													"variable": [
 														{
-															"id": "ac753e5b-7c17-48c7-8896-f2551e5779cd",
+															"key": "profile_id",
+															"value": ""
+														},
+														{
 															"key": "category_id",
 															"value": ""
 														},
 														{
-															"id": "98c8e350-90e6-4360-a21a-fa1f4a8b614c",
 															"key": "biller_id",
 															"value": ""
 														}
@@ -26708,11 +26724,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
+														"profiles",
+														":profile_id",
 														"bill-payments",
 														"categories",
 														":category_id",
@@ -26722,12 +26740,14 @@
 													],
 													"variable": [
 														{
-															"id": "aa04674c-12ad-427d-af03-cf95f7eb9c28",
+															"key": "profile_id",
+															"value": ""
+														},
+														{
 															"key": "category_id",
 															"value": "cabletv1"
 														},
 														{
-															"id": "ab12eb4d-a1e8-4b1d-9b38-a62faadeb902",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -26761,11 +26781,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
+														"profiles",
+														":profile_id",
 														"bill-payments",
 														"categories",
 														":category_id",
@@ -26775,12 +26797,14 @@
 													],
 													"variable": [
 														{
-															"id": "f1c442e8-f889-4a51-9ada-a2e033aefb06",
+															"key": "profile_id",
+															"value": ""
+														},
+														{
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "e3738ad1-ec4c-446e-9c7e-8978be4dba25",
 															"key": "biller_id",
 															"value": "dstv1"
 														}
@@ -26814,11 +26838,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
+														"profiles",
+														":profile_id",
 														"bill-payments",
 														"categories",
 														":category_id",
@@ -26828,12 +26854,14 @@
 													],
 													"variable": [
 														{
-															"id": "b153542e-d2f5-4932-b273-2f1f3a181927",
+															"key": "profile_id",
+															"value": ""
+														},
+														{
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "87cc95a1-01a6-41e6-bd3c-4d4dcb9cff89",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -26888,11 +26916,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
+														"profiles",
+														":profile_id",
 														"bill-payments",
 														"categories",
 														":category_id",
@@ -26901,6 +26931,10 @@
 														"pay"
 													],
 													"variable": [
+														{
+															"key": "profile_id",
+															"value": ""
+														},
 														{
 															"key": "category_id",
 															"value": "cabletv"
@@ -26939,11 +26973,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
+														"profiles",
+														":profile_id",
 														"bill-payments",
 														"categories",
 														":category_id",
@@ -26953,12 +26989,14 @@
 													],
 													"variable": [
 														{
-															"id": "ac753e5b-7c17-48c7-8896-f2551e5779cd",
+															"key": "profile_id",
+															"value": ""
+														},
+														{
 															"key": "category_id",
 															"value": ""
 														},
 														{
-															"id": "98c8e350-90e6-4360-a21a-fa1f4a8b614c",
 															"key": "biller_id",
 															"value": ""
 														}
@@ -26992,11 +27030,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
+														"profiles",
+														":profile_id",
 														"bill-payments",
 														"categories",
 														":category_id",
@@ -27006,12 +27046,14 @@
 													],
 													"variable": [
 														{
-															"id": "aa04674c-12ad-427d-af03-cf95f7eb9c28",
+															"key": "profile_id",
+															"value": ""
+														},
+														{
 															"key": "category_id",
 															"value": "cabletv1"
 														},
 														{
-															"id": "ab12eb4d-a1e8-4b1d-9b38-a62faadeb902",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -27045,11 +27087,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
+														"profiles",
+														":profile_id",
 														"bill-payments",
 														"categories",
 														":category_id",
@@ -27059,12 +27103,14 @@
 													],
 													"variable": [
 														{
-															"id": "f1c442e8-f889-4a51-9ada-a2e033aefb06",
+															"key": "profile_id",
+															"value": ""
+														},
+														{
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "e3738ad1-ec4c-446e-9c7e-8978be4dba25",
 															"key": "biller_id",
 															"value": "dstv1"
 														}
@@ -27098,11 +27144,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
+														"profiles",
+														":profile_id",
 														"bill-payments",
 														"categories",
 														":category_id",
@@ -27112,12 +27160,14 @@
 													],
 													"variable": [
 														{
-															"id": "b153542e-d2f5-4932-b273-2f1f3a181927",
+															"key": "profile_id",
+															"value": ""
+														},
+														{
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "87cc95a1-01a6-41e6-bd3c-4d4dcb9cff89",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -27175,11 +27225,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+											"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 											"host": [
 												"{{base_url}}"
 											],
 											"path": [
+												"profiles",
+												":profile_id",
 												"bill-payments",
 												"categories",
 												":category_id",
@@ -27188,6 +27240,10 @@
 												"pay"
 											],
 											"variable": [
+												{
+													"key": "profile_id",
+													"value": ""
+												},
 												{
 													"key": "category_id",
 													"value": "electricity"
@@ -27226,11 +27282,13 @@
 											}
 										},
 										"url": {
-											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+											"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 											"host": [
 												"{{base_url}}"
 											],
 											"path": [
+												"profiles",
+												":profile_id",
 												"bill-payments",
 												"categories",
 												":category_id",
@@ -27239,6 +27297,10 @@
 												"pay"
 											],
 											"variable": [
+												{
+													"key": "profile_id",
+													"value": ""
+												},
 												{
 													"key": "category_id",
 													"value": "electricity1"
