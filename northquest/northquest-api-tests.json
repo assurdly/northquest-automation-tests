@@ -30905,6 +30905,21 @@
 					"item": [
 						{
 							"name": "Update Account",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a423570d-915a-4a1a-a020-4a61b59a4985",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "e73f05ba-099d-4a59-a7f2-6fdb532f3381",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
