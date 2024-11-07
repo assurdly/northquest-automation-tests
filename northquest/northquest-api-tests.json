@@ -20839,24 +20839,19 @@
 										"id": "6cf305a2-f644-47f3-923c-b3cb887862f6",
 										"exec": [
 											"try {\r",
-											"    const { status, data } = pm.response.json()\r",
+											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
+											"    pm.test(\"Test for valid status code\", () => {\r",
+											"        pm.expect(statusCode).to.eql(401)\r",
 											"    })\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data.roles).to.be.an(\"array\")\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}\r",
-											""
+											"    console.error(error)\r",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -20898,7 +20893,6 @@
 									],
 									"variable": [
 										{
-											"id": "6799dfde-c092-4ed5-a626-f95dc7f6baff",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
@@ -21170,24 +21164,19 @@
 										"id": "a8243893-fa80-42a5-8f00-431aac2f6dc5",
 										"exec": [
 											"try {\r",
-											"    const { status, data } = pm.response.json()\r",
+											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
+											"    pm.test(\"Test for valid status code\", () => {\r",
+											"        pm.expect(statusCode).to.eql(401)\r",
 											"    })\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data.roles).to.be.an(\"array\")\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}\r",
-											""
+											"    console.error(error)\r",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -21229,7 +21218,6 @@
 									],
 									"variable": [
 										{
-											"id": "77089b58-519f-4103-92be-23fbabb24fbf",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
@@ -22108,7 +22096,7 @@
 					"name": "Get Disputes",
 					"item": [
 						{
-							"name": "Get Disputes Copy",
+							"name": "Get Disputes",
 							"event": [
 								{
 									"listen": "test",
@@ -22169,6 +22157,144 @@
 							"response": [
 								{
 									"id": "de2c3eb5-64c9-424e-824e-fef332dd473c",
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"disputes"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "580"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"244-e0G2ujU7nbRM8EJvCMPSRDrsXpM\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 04 Nov 2024 19:00:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"disputes\": [\n            {\n                \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n                \"meta\": null,\n                \"created_on\": \"2024-11-04T19:00:19.265Z\",\n                \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n                \"status\": \"pending\",\n                \"note\": \"djdjd\",\n                \"comment\": null,\n                \"reviewed_on\": null,\n                \"reviewed_by\": null,\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Disputes-No Auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bcd07a6f-499b-466d-bb03-b79fd7d7aecd",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Test for valid status code\", () => {\r",
+											"        pm.expect(statusCode).to.eql(401)\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "54441061-5909-4e36-87d3-3736f1c74b46",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"disputes"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "0fd7f9b3-f0e1-4e0d-aff3-5ae8308f3ee9",
 									"name": "Success",
 									"originalRequest": {
 										"method": "GET",
