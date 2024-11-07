@@ -24354,12 +24354,12 @@
 							]
 						},
 						{
-							"name": "List Biller Options-Electricity",
+							"name": "List Biller Options-Startimes Copy",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "24fb2ced-6ebd-490c-b83a-67dd49d09731",
+										"id": "d4bba51b-0b0c-422c-9c97-53afad5a98eb",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -24370,7 +24370,7 @@
 									}
 								}
 							],
-							"id": "52ca2b27-c93c-49fc-82b3-d5aaae0a2cfe",
+							"id": "c4d9187e-4b17-43e5-a658-afb9d6b8ac3b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -24400,14 +24400,17 @@
 									],
 									"variable": [
 										{
+											"id": "11b045ce-40b8-4456-ab98-42d2615fdfda",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
+											"id": "6e1e166a-b65d-4375-a0d0-5416c70d8985",
 											"key": "category_id",
 											"value": "cabletv"
 										},
 										{
+											"id": "af2a2b8c-44ed-463f-b656-1364f5e67e66",
 											"key": "biller_id",
 											"value": "startimes"
 										}
@@ -24416,7 +24419,7 @@
 							},
 							"response": [
 								{
-									"id": "d921a5dd-0bbb-47a2-9dc4-c38d1086b950",
+									"id": "80017673-d460-4146-9a25-9bd5a9567fa5",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -24549,7 +24552,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": ""
+											"value": "{{userFetchedProfileId}}"
 										},
 										{
 											"key": "category_id",
