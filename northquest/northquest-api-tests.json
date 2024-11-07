@@ -20036,6 +20036,32 @@
 						},
 						{
 							"name": "Get Transactions-No Auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ce5d9a43-496d-452c-bbe6-d30209002ab1",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Test for valid status code\", () => {\r",
+											"        pm.expect(statusCode).to.eql(401)\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "6a291884-3957-4242-8813-053463a4056b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
