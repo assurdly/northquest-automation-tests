@@ -24650,7 +24650,7 @@
 							]
 						},
 						{
-							"name": "List Biller Options-Data-Glo Copy",
+							"name": "List Biller Options-Data-9mobile",
 							"event": [
 								{
 									"listen": "test",
@@ -24696,19 +24696,16 @@
 									],
 									"variable": [
 										{
-											"id": "0e4feab8-50cf-4824-a731-e091e177833a",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "bee165ef-5e8a-464f-88da-476e3b2bdac2",
 											"key": "category_id",
 											"value": "databundle"
 										},
 										{
-											"id": "0e65be47-0ce7-4c69-99fe-ae7594030f3b",
 											"key": "biller_id",
-											"value": "glo"
+											"value": "9mobile"
 										}
 									]
 								}
@@ -24716,6 +24713,154 @@
 							"response": [
 								{
 									"id": "9f52a22d-79ef-47ce-8f27-d2dea5ad4900",
+									"name": "List Biller Options",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/options",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"bill-payments",
+												"categories",
+												":category_id",
+												"billers",
+												":biller_id",
+												"options"
+											],
+											"variable": [
+												{
+													"key": "category_id",
+													"value": "cabletv"
+												},
+												{
+													"key": "biller_id",
+													"value": "dstv"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "546"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"222-Cn071q1n9J/Z01urzHR1Xuxah7w\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 27 Oct 2024 20:40:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"PRWFRNSE36\",\n            \"name\": \"DStv Premium French\",\n            \"amount\": 29300\n        },\n        {\n            \"id\": \"NLTESE36\",\n            \"name\": \"Padi\",\n            \"amount\": 2150\n        },\n        {\n            \"id\": \"COMPE36\",\n            \"name\": \"DStv Compact\",\n            \"amount\": 9000\n        },\n        {\n            \"id\": \"COMPLE36\",\n            \"name\": \"DStv Compact Plus\",\n            \"amount\": 14250\n        },\n        {\n            \"id\": \"PRWE36\",\n            \"name\": \"DStv Premium\",\n            \"amount\": 21000\n        },\n        {\n            \"id\": \"PRWASIE36\",\n            \"name\": \"DStv Premium Asia\",\n            \"amount\": 23500\n        },\n        {\n            \"id\": \"ASIAE36\",\n            \"name\": \"Asian Bouqet\",\n            \"amount\": 7100\n        },\n        {\n            \"id\": \"NNJ1E36\",\n            \"name\": \"DStv Yanga Bouquet E36\",\n            \"amount\": 2950\n        },\n        {\n            \"id\": \"NNJ2E36\",\n            \"name\": \"DStv Confam Bouquet E36\",\n            \"amount\": 5300\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Biller Options-Data-Airtel",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d4bba51b-0b0c-422c-9c97-53afad5a98eb",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "f2a8ce2b-6c11-4035-b088-6b2c2e593790",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/options",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"bill-payments",
+										"categories",
+										":category_id",
+										"billers",
+										":biller_id",
+										"options"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"key": "category_id",
+											"value": "databundle"
+										},
+										{
+											"key": "biller_id",
+											"value": "airtel"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "f226ed4d-e78b-443b-b048-e30992ffc1c5",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -24864,6 +25009,157 @@
 							"response": [
 								{
 									"id": "193594f8-93e9-4b23-aa1c-811c4d0e6970",
+									"name": "List Biller Options",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/options",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"bill-payments",
+												"categories",
+												":category_id",
+												"billers",
+												":biller_id",
+												"options"
+											],
+											"variable": [
+												{
+													"key": "category_id",
+													"value": "cabletv"
+												},
+												{
+													"key": "biller_id",
+													"value": "dstv"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "546"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"222-Cn071q1n9J/Z01urzHR1Xuxah7w\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 27 Oct 2024 20:40:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"PRWFRNSE36\",\n            \"name\": \"DStv Premium French\",\n            \"amount\": 29300\n        },\n        {\n            \"id\": \"NLTESE36\",\n            \"name\": \"Padi\",\n            \"amount\": 2150\n        },\n        {\n            \"id\": \"COMPE36\",\n            \"name\": \"DStv Compact\",\n            \"amount\": 9000\n        },\n        {\n            \"id\": \"COMPLE36\",\n            \"name\": \"DStv Compact Plus\",\n            \"amount\": 14250\n        },\n        {\n            \"id\": \"PRWE36\",\n            \"name\": \"DStv Premium\",\n            \"amount\": 21000\n        },\n        {\n            \"id\": \"PRWASIE36\",\n            \"name\": \"DStv Premium Asia\",\n            \"amount\": 23500\n        },\n        {\n            \"id\": \"ASIAE36\",\n            \"name\": \"Asian Bouqet\",\n            \"amount\": 7100\n        },\n        {\n            \"id\": \"NNJ1E36\",\n            \"name\": \"DStv Yanga Bouquet E36\",\n            \"amount\": 2950\n        },\n        {\n            \"id\": \"NNJ2E36\",\n            \"name\": \"DStv Confam Bouquet E36\",\n            \"amount\": 5300\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Biller Options-Education Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "aaf8ebb9-537d-4eac-bd8c-bbe1b8700670",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "03cb384b-e056-4d78-8e1b-a0b2b232fdd7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/options",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"bill-payments",
+										"categories",
+										":category_id",
+										"billers",
+										":biller_id",
+										"options"
+									],
+									"variable": [
+										{
+											"id": "27da8a98-9601-486f-9bdd-448835ef9b6a",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"id": "b8691c89-03bc-4439-9bc3-64cd539fa49a",
+											"key": "category_id",
+											"value": "epin"
+										},
+										{
+											"id": "46f3ccc9-14e5-46d9-bf15-ab11067f45b2",
+											"key": "biller_id",
+											"value": "waec"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "ffaf6c60-aa0e-44c7-9094-9f5abf8323c7",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
