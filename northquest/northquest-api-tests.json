@@ -23608,7 +23608,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": ""
+											"value": "{{userFetchedProfileId}}"
 										},
 										{
 											"key": "category_id",
@@ -24886,11 +24886,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/verify",
+									"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/verify",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
+										":profile_id",
 										"bill-payments",
 										"categories",
 										":category_id",
@@ -24899,6 +24901,10 @@
 										"verify"
 									],
 									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
 										{
 											"key": "category_id",
 											"value": "cabletv"
@@ -25348,11 +25354,13 @@
 													}
 												},
 												"url": {
-													"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
 													"host": [
 														"{{base_url}}"
 													],
 													"path": [
+														"profiles",
+														":profile_id",
 														"bill-payments",
 														"categories",
 														":category_id",
@@ -25361,6 +25369,10 @@
 														"pay"
 													],
 													"variable": [
+														{
+															"key": "profile_id",
+															"value": ""
+														},
 														{
 															"key": "category_id",
 															"value": "airtime"
