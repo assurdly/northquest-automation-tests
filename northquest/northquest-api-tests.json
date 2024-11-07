@@ -33585,6 +33585,193 @@
 				}
 			],
 			"id": "804127ad-4d2d-4303-b951-836a31a59380"
+		},
+		{
+			"name": "Tiers",
+			"item": [
+				{
+					"name": "List Tiers",
+					"id": "fa3f41f4-9f23-4c41-95bc-6b494283bb73",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/tiers"
+					},
+					"response": [
+						{
+							"id": "bbb687fb-11af-4fa2-baa2-c2f26f121c3f",
+							"name": "List Tiers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/tiers"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "725"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d5-Us9ylAEjK1GOhXpt4CwYEki072w\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Nov 2024 15:08:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-15T07:56:10.789Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-04T04:24:02.653Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": \"personal\",\n            \"name\": \"Tier 2\",\n            \"description\": \"Tier 2\",\n            \"level\": 1,\n            \"enabled\": true,\n            \"single_sending_limit\": 0,\n            \"single_receiving_limit\": 0,\n            \"period_sending_limit\": 0,\n            \"period_sending_limit_time_unit\": \"day\",\n            \"period_receiving_limit\": 0,\n            \"period_receiving_limit_time_unit\": \"day\",\n            \"requirements\": [\n                {\n                    \"type\": \"documents\",\n                    \"type_id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\"\n                },\n                {\n                    \"type\": \"definitions\",\n                    \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Tier",
+					"id": "dc0adaa2-3e64-4020-bd2c-b25e18310837",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/tiers/:tier_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tiers",
+								":tier_id"
+							],
+							"variable": [
+								{
+									"id": "95d1c403-2bcd-4b0a-96e3-88e30249bd5c",
+									"key": "tier_id",
+									"value": "01928f2d-6756-755b-8a9d-c8094db2af27"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "5242b61d-9087-47e8-80ab-507241081b2c",
+							"name": "Get Tier",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tiers/:tier_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tiers",
+										":tier_id"
+									],
+									"variable": [
+										{
+											"key": "tier_id",
+											"value": "01928f2d-6756-755b-8a9d-c8094db2af27"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "723"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2d3-7SDufsfETYp9SvnOfcTl91HGhcI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 07 Nov 2024 15:09:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-15T07:56:10.789Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-04T04:24:02.653Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_type\": \"personal\",\n        \"name\": \"Tier 2\",\n        \"description\": \"Tier 2\",\n        \"level\": 1,\n        \"enabled\": true,\n        \"single_sending_limit\": 0,\n        \"single_receiving_limit\": 0,\n        \"period_sending_limit\": 0,\n        \"period_sending_limit_time_unit\": \"day\",\n        \"period_receiving_limit\": 0,\n        \"period_receiving_limit_time_unit\": \"day\",\n        \"requirements\": [\n            {\n                \"type\": \"documents\",\n                \"type_id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\"\n            },\n            {\n                \"type\": \"definitions\",\n                \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			],
+			"id": "ac1cc779-0d38-4124-9ef9-e16fb832b8d9"
 		}
 	],
 	"auth": {
