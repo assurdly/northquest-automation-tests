@@ -11211,7 +11211,35 @@
 										},
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/admin/transactions/{{adminFetchedTransactionId}}"
+										"url": {
+											"raw": "{{base_url}}/admin/transactions/{{adminFetchedTransactionId}}?relations=disputes&relations=transfer&relations=transfer&relations=transfer",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"transactions",
+												"{{adminFetchedTransactionId}}"
+											],
+											"query": [
+												{
+													"key": "relations",
+													"value": "disputes"
+												},
+												{
+													"key": "relations",
+													"value": "transfer"
+												},
+												{
+													"key": "relations",
+													"value": "transfer"
+												},
+												{
+													"key": "relations",
+													"value": "transfer"
+												}
+											]
+										}
 									},
 									"response": [
 										{
