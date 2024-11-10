@@ -19441,7 +19441,7 @@
 									]
 								},
 								{
-									"name": "Verify TwoFA - Invalid Code Copy",
+									"name": "Verify TwoFA - Code > 6 Digits",
 									"event": [
 										{
 											"listen": "test",
@@ -19456,7 +19456,7 @@
 													"    })",
 													"",
 													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(message).to.eql(\"Invalid code\")",
+													"        pm.expect(message).to.include(\"code must be shorter than or equal to 6 characters\")",
 													"    })",
 													"",
 													"} catch (error) {",
@@ -19483,7 +19483,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"code\": \"dfks12\"\n}",
+											"raw": "{\n    \"code\": \"11111111\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -19495,6 +19495,131 @@
 									"response": [
 										{
 											"id": "849c648b-a4e5-487e-9cb1-32c40e886fea",
+											"name": "Verify TwoFA",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"code\": \"674624\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/users/two-fa"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 03 Nov 2024 07:21:59 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Verify TwoFA - Code < 6 Digits",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c9953a39-b28f-4d54-ba82-8fc4269f521e",
+												"exec": [
+													"try {",
+													"    const { message, statusCode } = pm.response.json()",
+													"",
+													"    pm.test(\"Test for valid status code\", () => {",
+													"        pm.expect(statusCode).to.eql(400)",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).to.include(\"code must be longer than or equal to 6 characters\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "e6090eaf-76de-4eb8-9ed0-e6e27ee9100c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"code\": \"11\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/users/two-fa"
+									},
+									"response": [
+										{
+											"id": "e07bea7b-0261-40ef-a9e6-b28b1bb7b242",
 											"name": "Verify TwoFA",
 											"originalRequest": {
 												"method": "PATCH",
