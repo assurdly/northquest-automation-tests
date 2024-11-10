@@ -18997,6 +18997,16 @@
 					"name": "Two-FA",
 					"item": [
 						{
+							"name": "Generate Two-FA",
+							"item": [],
+							"id": "bbe59525-4273-471e-87b9-bea92efe6cee"
+						},
+						{
+							"name": "Verify Two-FA",
+							"item": [],
+							"id": "609280bf-3bca-460a-859d-48f4768eb857"
+						},
+						{
 							"name": "Generate TwoFA",
 							"id": "aafec6f3-3049-46a0-8829-7c04717cf374",
 							"protocolProfileBehavior": {
