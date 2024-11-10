@@ -19737,7 +19737,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/transactions?filter[start_date]=2024-10-31T17:19:32.710Z&filter[transaction_type]=transfer",
+									"raw": "{{base_url}}/profiles/:profile_id/transactions",
 									"host": [
 										"{{base_url}}"
 									],
@@ -19773,7 +19773,8 @@
 										},
 										{
 											"key": "filter[start_date]",
-											"value": "2024-10-31T17:19:32.710Z"
+											"value": "2024-10-31T17:19:32.710Z",
+											"disabled": true
 										},
 										{
 											"key": "filter[end_date]",
@@ -19783,13 +19784,14 @@
 										},
 										{
 											"key": "filter[transaction_type]",
-											"value": "transfer"
+											"value": "transfer",
+											"disabled": true
 										}
 									],
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "0192fd03-bfec-7118-a7b6-495a6ed20efc"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
