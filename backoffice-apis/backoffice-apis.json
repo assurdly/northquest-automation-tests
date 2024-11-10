@@ -10780,6 +10780,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -10815,6 +10821,16 @@
 												{
 													"key": "filter[transaction_type]",
 													"value": "transfer",
+													"disabled": true
+												},
+												{
+													"key": "filter[created_at][lt]",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "filter[created_at][gt]",
+													"value": "2024-11-11",
 													"disabled": true
 												}
 											]
