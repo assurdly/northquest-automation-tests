@@ -10749,6 +10749,7 @@
 												"exec": [
 													"try {\r",
 													"    const { status, data} = pm.response.json()\r",
+													"    pm.environment.set(\"adminFetchedTransactionId\", data.transactions[0].id)\r",
 													"\r",
 													"\r",
 													"    pm.test(\"Status code is 200\", function () {\r",
@@ -10789,7 +10790,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/transactions?filter[transaction_type]=transferr",
+											"raw": "{{base_url}}/admin/transactions?filter[reference]=Thojncfbqze",
 											"host": [
 												"{{base_url}}"
 											],
@@ -10810,8 +10811,7 @@
 												},
 												{
 													"key": "filter[reference]",
-													"value": "Toyoztjyoym",
-													"disabled": true
+													"value": "Thojncfbqze"
 												},
 												{
 													"key": "filter[account_id]",
@@ -10820,7 +10820,8 @@
 												},
 												{
 													"key": "filter[transaction_type]",
-													"value": "transferr"
+													"value": "transfer",
+													"disabled": true
 												},
 												{
 													"key": "filter[created_at][lt]",
@@ -11214,7 +11215,7 @@
 										},
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/admin/transactions/0192e710-83d1-766f-9de2-69f1361c26d9"
+										"url": "{{base_url}}/admin/transactions/{{adminFetchedTransactionId}}"
 									},
 									"response": [
 										{
