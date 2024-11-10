@@ -12219,6 +12219,40 @@
 							"item": [
 								{
 									"name": "Get Disputes",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7bfb0b6d-7f34-4cb5-8c9c-32f77c444c86",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    if (data.disputes > 0) {",
+													"        pm.environment.set(\"adminFetchedDisputeId\", data.disputes[0].id)",
+													"    }",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for data structure\", () => {",
+													"        pm.expect(data.disputes).to.be.an(\"array\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "b1421edd-9670-4adb-9c06-c6e58cefc590",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -12237,6 +12271,138 @@
 									"response": [
 										{
 											"id": "d162af7e-4751-4d4c-a422-75202ccc514d",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transactions/disputes",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transactions",
+														"disputes"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "580"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"244-e0G2ujU7nbRM8EJvCMPSRDrsXpM\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 04 Nov 2024 19:00:24 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"disputes\": [\n            {\n                \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n                \"meta\": null,\n                \"created_on\": \"2024-11-04T19:00:19.265Z\",\n                \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n                \"status\": \"pending\",\n                \"note\": \"djdjd\",\n                \"comment\": null,\n                \"reviewed_on\": null,\n                \"reviewed_by\": null,\n                \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Disputes - No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7bfb0b6d-7f34-4cb5-8c9c-32f77c444c86",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    if (data.disputes > 0) {",
+													"        pm.environment.set(\"adminFetchedDisputeId\", data.disputes[0].id)",
+													"    }",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for data structure\", () => {",
+													"        pm.expect(data.disputes).to.be.an(\"array\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "5cc55c4c-a095-4771-b0e3-9a07ce14e887",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/transactions/disputes"
+									},
+									"response": [
+										{
+											"id": "836d0a6a-514f-4b07-911c-f01ff3d039c8",
 											"name": "Success",
 											"originalRequest": {
 												"method": "GET",
@@ -12414,6 +12580,129 @@
 											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-04T19:00:19.265Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n        \"status\": \"pending\",\n        \"note\": \"djdjd\",\n        \"comment\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\"\n    }\n}"
 										}
 									]
+								},
+								{
+									"name": "Get Dispute - No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "0d0221fc-004e-49fe-948f-322611235a63",
+												"exec": [
+													"try {",
+													"    const { message, statusCode } = pm.response.json()",
+													"",
+													"    pm.test(\"Test for valid status code\", () => {",
+													"        pm.expect(statusCode).to.eql(401)",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).to.eql(\"Access token is required\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "9c3bf615-f224-42c7-8d88-fa610f481bb7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e"
+									},
+									"response": [
+										{
+											"id": "01d5bb66-4690-4f50-a2eb-5d448c1dbd51",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/profiles/:profile_id/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"profiles",
+														":profile_id",
+														"transactions",
+														"disputes",
+														"0192f88c-a2c1-7115-af2b-27552469196e"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "519"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"207-fTAseIB7SVRW4or2mu3JrBo9Wqw\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 04 Nov 2024 20:59:51 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192f88c-a2c1-7115-af2b-27552469196e\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-04T19:00:19.265Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-11-04T19:00:19.265Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n        \"status\": \"pending\",\n        \"note\": \"djdjd\",\n        \"comment\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\"\n    }\n}"
+										}
+									]
 								}
 							],
 							"id": "f5218f09-67e9-44cb-9ab1-947dc87cc185"
@@ -12428,6 +12717,57 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"comment\": \"Test\",\n    \"status\": \"resolved\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Dispute - No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b00bcce7-6c4b-41d5-8379-4c8ea91b99c5",
+												"exec": [
+													"try {",
+													"    const { message, statusCode } = pm.response.json()",
+													"",
+													"    pm.test(\"Test for valid status code\", () => {",
+													"        pm.expect(statusCode).to.eql(401)",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).to.eql(\"Access token is required\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "10df9e86-151f-457e-9739-9a61bb5f8478",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "PATCH",
 										"header": [],
 										"body": {
