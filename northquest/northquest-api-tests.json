@@ -34264,6 +34264,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -34272,7 +34278,7 @@
 										{
 											"key": "file",
 											"type": "file",
-											"src": "/Users/horla/Downloads/sample_accounts.csv"
+											"src": "DZ-SAg3qa/sample_accounts.csv"
 										}
 									]
 								},
