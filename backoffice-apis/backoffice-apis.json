@@ -10789,7 +10789,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/transactions",
+											"raw": "{{base_url}}/admin/transactions?filter[transaction_type]=transferr",
 											"host": [
 												"{{base_url}}"
 											],
@@ -10820,8 +10820,7 @@
 												},
 												{
 													"key": "filter[transaction_type]",
-													"value": "transfer",
-													"disabled": true
+													"value": "transferr"
 												},
 												{
 													"key": "filter[created_at][lt]",
