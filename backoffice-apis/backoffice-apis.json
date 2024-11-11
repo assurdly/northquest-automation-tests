@@ -12818,18 +12818,24 @@
 					"item": [
 						{
 							"name": "List Verification Types",
-							"id": "560a8648-1b1a-45c6-9e8b-f79e1961bbde",
+							"id": "a90f909e-ae2d-4455-ab3f-f3f6415a212b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [],
 								"url": "{{base_url}}/admin/verification-types"
 							},
 							"response": [
 								{
-									"id": "187f7acc-4714-4a2c-9241-a0c7053d094a",
+									"id": "1412a84b-f549-481f-a4b4-7fae56abeacd",
 									"name": "List Verification Types",
 									"originalRequest": {
 										"method": "GET",
@@ -12893,7 +12899,7 @@
 						},
 						{
 							"name": "Create Verification Type",
-							"id": "cabd08fc-50f8-4d2e-b13e-89235da39351",
+							"id": "1794546e-083d-4421-b9df-71a34198d8ba",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -12913,7 +12919,7 @@
 							},
 							"response": [
 								{
-									"id": "95835464-4e07-4a86-b4b7-f731d545cd18",
+									"id": "4427bef8-3392-4778-a82c-e51e15a51e62",
 									"name": "Create Verification Type",
 									"originalRequest": {
 										"method": "POST",
@@ -12985,14 +12991,14 @@
 							]
 						}
 					],
-					"id": "e2d7d16d-4517-4828-87de-eff0a97c65d4"
+					"id": "f4b87d94-34f1-4654-bbc6-b5e8fe036134"
 				},
 				{
 					"name": "Verifications",
 					"item": [
 						{
 							"name": "List Verifications",
-							"id": "d9222f34-22ca-4236-b13d-59aab2b9cca2",
+							"id": "26da6600-bfb6-4239-ad9a-1231e2941809",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -13021,7 +13027,7 @@
 						},
 						{
 							"name": "Get Verification",
-							"id": "17ecee42-1726-4d63-ac85-c14440bc81a9",
+							"id": "c586600c-9b04-4a19-9fcf-22211ca3db79",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -13040,7 +13046,7 @@
 									],
 									"variable": [
 										{
-											"id": "5e28ca8e-b801-4cb7-a242-5d376a5a7aa1",
+											"id": "3c1f771c-e184-4bef-a5b1-9a2f555912d1",
 											"key": "verification_id",
 											"value": ""
 										}
@@ -13051,7 +13057,7 @@
 						},
 						{
 							"name": "Delete Verification",
-							"id": "ee27bad1-a178-4def-8241-09c963da1a3d",
+							"id": "469122e8-5c94-4dd8-b83e-3c0ea554fcd2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -13070,7 +13076,7 @@
 									],
 									"variable": [
 										{
-											"id": "f44d6ddb-3373-4947-a65a-9bfdf6cbfd81",
+											"id": "3fdd7637-dbec-4ea2-85fe-64c56dc2ce70",
 											"key": "verification_id",
 											"value": ""
 										}
@@ -13080,7 +13086,7 @@
 							"response": []
 						}
 					],
-					"id": "53d2d608-501c-4c87-a621-53bfc86420f0"
+					"id": "15f97b48-1f0d-4d14-967f-9b8d6f6223d2"
 				}
 			],
 			"id": "176166ee-98f6-4c86-a569-26cd9d7f114c",
