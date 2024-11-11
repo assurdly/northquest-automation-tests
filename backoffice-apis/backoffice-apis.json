@@ -12812,6 +12812,275 @@
 						}
 					],
 					"id": "692865e4-7ce2-412b-aa2d-75aec51ea94a"
+				},
+				{
+					"name": "Verification Types",
+					"item": [
+						{
+							"name": "List Verification Types",
+							"id": "560a8648-1b1a-45c6-9e8b-f79e1961bbde",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/admin/verification-types"
+							},
+							"response": [
+								{
+									"id": "187f7acc-4714-4a2c-9241-a0c7053d094a",
+									"name": "List Verification Types",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/verification-types"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "414"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"19e-4ABY0ZjQeywtQ2EQyfoVVfAhQnM\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 07 Nov 2024 16:02:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193075c-26ac-7778-9a2b-3565f061e4e3\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-07T16:01:40.269Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-07T16:01:40.269Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": null,\n            \"name\": \"Business Verification\",\n            \"slug\": \"business\",\n            \"description\": \"Business Verification\",\n            \"enabled\": true\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Create Verification Type",
+							"id": "cabd08fc-50f8-4d2e-b13e-89235da39351",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"slug\": \"business\",\n    \"name\": \"Business Verification\",\n    \"description\": \"Business Verification\",\n    \"enabled\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/verification-types"
+							},
+							"response": [
+								{
+									"id": "95835464-4e07-4a86-b4b7-f731d545cd18",
+									"name": "Create Verification Type",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"slug\": \"business\",\n    \"name\": \"Business Verification\",\n    \"description\": \"Business Verification\",\n    \"enabled\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/verification-types"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "412"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"19c-EPfWQLBq6GC/1cgy1+G8XPM5cEg\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 07 Nov 2024 16:01:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Business Verification\",\n        \"slug\": \"business\",\n        \"description\": \"Business Verification\",\n        \"enabled\": true,\n        \"id\": \"0193075c-26ac-7778-9a2b-3565f061e4e3\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"profile_type\": null,\n        \"created_on\": \"2024-11-07T16:01:40.269Z\",\n        \"modified_on\": \"2024-11-07T16:01:40.269Z\",\n        \"deleted_on\": null\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "e2d7d16d-4517-4828-87de-eff0a97c65d4"
+				},
+				{
+					"name": "Verifications",
+					"item": [
+						{
+							"name": "List Verifications",
+							"id": "d9222f34-22ca-4236-b13d-59aab2b9cca2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/verifications",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"verifications"
+									],
+									"query": [
+										{
+											"key": "filter[profile_id]",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Verification",
+							"id": "17ecee42-1726-4d63-ac85-c14440bc81a9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/verifications/:verification_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"verifications",
+										":verification_id"
+									],
+									"variable": [
+										{
+											"id": "5e28ca8e-b801-4cb7-a242-5d376a5a7aa1",
+											"key": "verification_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Verification",
+							"id": "ee27bad1-a178-4def-8241-09c963da1a3d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/verifications/:verification_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"verifications",
+										":verification_id"
+									],
+									"variable": [
+										{
+											"id": "f44d6ddb-3373-4947-a65a-9bfdf6cbfd81",
+											"key": "verification_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "53d2d608-501c-4c87-a621-53bfc86420f0"
 				}
 			],
 			"id": "176166ee-98f6-4c86-a569-26cd9d7f114c",
