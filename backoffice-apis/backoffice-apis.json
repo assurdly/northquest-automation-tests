@@ -73,6 +73,7 @@
 									"script": {
 										"id": "1c5bf75c-8fe6-4983-a763-d052fbd25662",
 										"exec": [
+											"pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')",
 											""
 										],
 										"type": "text/javascript",
