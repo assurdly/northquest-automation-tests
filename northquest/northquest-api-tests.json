@@ -18099,6 +18099,7 @@
 										"exec": [
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
+											"    pm.environment.set(\"adminFetchedDefinitionId\", data[0].id)\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -18516,7 +18517,7 @@
 									"variable": [
 										{
 											"key": "slug",
-											"value": "profiles"
+											"value": "{{adminFetchedDefinitionId}}"
 										}
 									]
 								}
