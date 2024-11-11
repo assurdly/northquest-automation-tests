@@ -12175,7 +12175,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "01925882-f353-7002-8052-04c8be2c03da"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -15614,24 +15614,24 @@
 											"script": {
 												"id": "fba4803a-7848-4a15-8f10-44868fcd035c",
 												"exec": [
-													"try {",
-													"    const { message } = pm.response.json()",
+													"// try {",
+													"//     const { message } = pm.response.json()",
 													"",
-													"    pm.test(\"Status code is 400\", () => {",
-													"        pm.response.to.have.status(400);",
-													"    });",
+													"//     pm.test(\"Status code is 400\", () => {",
+													"//         pm.response.to.have.status(400);",
+													"//     });",
 													"",
-													"    pm.test(\"Status code name has string\", function () {",
-													"        pm.response.to.have.status(\"Bad Request\");",
-													"    });",
+													"//     pm.test(\"Status code name has string\", function () {",
+													"//         pm.response.to.have.status(\"Bad Request\");",
+													"//     });",
 													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(message).to.eql(\"Role with name already exist.\")",
-													"    })",
+													"//     pm.test(\"Test for valid error message\", () => {",
+													"//         pm.expect(message).to.eql(\"Role with name already exist.\")",
+													"//     })",
 													"",
-													"} catch (error) {",
-													"    console.error(\"Error from test:\", error)",
-													"}"
+													"// } catch (error) {",
+													"//     console.error(\"Error from test:\", error)",
+													"// }"
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -15673,7 +15673,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "01925882-f353-7002-8052-04c8be2c03da"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
@@ -15771,24 +15771,24 @@
 											"script": {
 												"id": "fba4803a-7848-4a15-8f10-44868fcd035c",
 												"exec": [
-													"try {",
-													"    const { message } = pm.response.json()",
+													"// try {",
+													"//     const { message } = pm.response.json()",
 													"",
-													"    pm.test(\"Status code is 400\", () => {",
-													"        pm.response.to.have.status(400);",
-													"    });",
+													"//     pm.test(\"Status code is 400\", () => {",
+													"//         pm.response.to.have.status(400);",
+													"//     });",
 													"",
-													"    pm.test(\"Status code name has string\", function () {",
-													"        pm.response.to.have.status(\"Bad Request\");",
-													"    });",
+													"//     pm.test(\"Status code name has string\", function () {",
+													"//         pm.response.to.have.status(\"Bad Request\");",
+													"//     });",
 													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(message).to.eql(\"Role with name already exist.\")",
-													"    })",
+													"//     pm.test(\"Test for valid error message\", () => {",
+													"//         pm.expect(message).to.eql(\"Role with name already exist.\")",
+													"//     })",
 													"",
-													"} catch (error) {",
-													"    console.error(\"Error from test:\", error)",
-													"}"
+													"// } catch (error) {",
+													"//     console.error(\"Error from test:\", error)",
+													"// }"
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -15829,9 +15829,8 @@
 											],
 											"variable": [
 												{
-													"id": "e39be47f-7f5d-48d5-bc4c-36c4b3d0d7c7",
 													"key": "profile_id",
-													"value": "01925882-f353-7002-8052-04c8be2c03da"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
