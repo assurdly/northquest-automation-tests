@@ -19697,7 +19697,7 @@
 							"name": "Disable Two-FA",
 							"item": [
 								{
-									"name": "Disable TwoFA",
+									"name": "Disable TwoFA - Valid",
 									"id": "4e81a5c4-60eb-4ed3-a6fe-2a7ebc8fc1dc",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -19719,6 +19719,131 @@
 									"response": [
 										{
 											"id": "a86ab1c1-b7de-4162-b78e-509371032022",
+											"name": "Disable TwoFA",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"code\": \"485377\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/users/two-fa/disable"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 03 Nov 2024 07:23:40 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Disable TwoFA - Invalid",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "11cc8371-777d-49e0-be5f-9712600ed5fa",
+												"exec": [
+													"try {",
+													"    const { message, statusCode } = pm.response.json()",
+													"",
+													"    pm.test(\"Test for valid status code\", () => {",
+													"        pm.expect(statusCode).to.eql(400)",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).to.eql(\"TwoFA is already disabled\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "b0d4d1ca-7611-41cc-8365-7685c0fe9cb4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"code\": \"485377\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/users/two-fa/disable"
+									},
+									"response": [
+										{
+											"id": "ad8c0d5b-2cef-4f1d-ac12-6ea952dc4fcd",
 											"name": "Disable TwoFA",
 											"originalRequest": {
 												"method": "PATCH",
