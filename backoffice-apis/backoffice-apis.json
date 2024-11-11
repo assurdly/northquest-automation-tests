@@ -12997,7 +12997,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/admin/verifications",
+									"raw": "{{base_url}}/admin/verifications?filter[profile_id]=01931947-9fea-744d-8f66-118c138292e3",
 									"host": [
 										"{{base_url}}"
 									],
@@ -13008,8 +13008,7 @@
 									"query": [
 										{
 											"key": "filter[profile_id]",
-											"value": null,
-											"disabled": true
+											"value": "01931947-9fea-744d-8f66-118c138292e3"
 										}
 									]
 								}
