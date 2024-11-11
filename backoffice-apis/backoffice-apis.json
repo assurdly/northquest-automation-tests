@@ -7896,7 +7896,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "[\n    {\n        \"slug\": \"name\",\n        \"name\": \"Name\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 1,\n        \"storage_strategy\": \"plain\"\n    },\n    {\n        \"slug\": \"gender\",\n        \"name\": \"Gender\",\n        \"options\": [\"male\", \"female\"],\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 2,\n        \"storage_strategy\": \"plain\"\n    }\n]",
+											"raw": "[\n    {\n        \"slug\": \"name\",\n        \"name\": \"Name\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 1,\n        \"storage_strategy\": \"plain\"\n    },\n    {\n        \"slug\": \"gender\",\n        \"name\": \"Gender\",\n        \"options\": [\"male\", \"female\"],\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 2,\n        \"storage_strategy\": \"plain\"\n    }\n]",
 											"options": {
 												"raw": {
 													"language": "json"
