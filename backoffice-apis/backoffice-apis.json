@@ -9781,7 +9781,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Tier 2\",\n    \"description\": \"Tier 2\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 0,\n    \"single_receiving_limit\": 0,\n    \"period_sending_limit\": 0,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 0,\n    \"period_receiving_limit_time_unit\": \"day\",\n    \"requirements\": [\n        {\n            \"type\": \"documents\",\n            \"type_id\": \"{{adminFetchedDocumentTypeId}}\"\n        },\n        {\n            \"type\": \"definitions\",\n            \"type_id\": \"{{adminFetchedDefinition}}\"\n        }\n    ]\n}",
+											"raw": "{\n    \"name\": \"Tier 1\",\n    \"description\": \"Tier 1\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 500000,\n    \"single_receiving_limit\": 500000,\n    \"period_sending_limit\": 500000,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 500000,\n    \"period_receiving_limit_time_unit\": \"day\",\n    \"requirements\": [\n        {\n            \"type\": \"definition\",\n            \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n        },\n        {\n            \"type\": \"verification\",\n            \"type_id\": \"019318f7-a251-744d-8f65-3e0746b58d6b\"\n        },\n        {\n            \"type\": \"verification\",\n            \"type_id\": \"019318f9-c895-744d-8f65-4636cc26dd1f\"\n        }\n    ]\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -9789,19 +9789,19 @@
 											}
 										},
 										"url": {
-											"raw": "{{base_url}}/admin/tiers/:tierId",
+											"raw": "{{base_url}}/admin/tiers/:tierIdd",
 											"host": [
 												"{{base_url}}"
 											],
 											"path": [
 												"admin",
 												"tiers",
-												":tierId"
+												":tierIdd"
 											],
 											"variable": [
 												{
-													"key": "tierId",
-													"value": "{{adminFetchedTierId}}"
+													"key": "tierIdd",
+													"value": ""
 												}
 											]
 										}
@@ -12383,26 +12383,18 @@
 												"id": "7bfb0b6d-7f34-4cb5-8c9c-32f77c444c86",
 												"exec": [
 													"try {",
-													"    const { status, data } = pm.response.json()",
+													"    const { message, statusCode } = pm.response.json()",
 													"",
-													"    if (data.disputes > 0) {",
-													"        pm.environment.set(\"adminFetchedDisputeId\", data.disputes[0].id)",
-													"    }",
-													"",
-													"    pm.test(\"Status code is 200\", function () {",
-													"        pm.response.to.have.status(200);",
-													"    });",
-													"",
-													"    pm.test(\"Test for valid status\", () => {",
-													"        pm.expect(status).to.eql(\"success\")",
+													"    pm.test(\"Test for valid status code\", () => {",
+													"        pm.expect(statusCode).to.eql(401)",
 													"    })",
 													"",
-													"    pm.test(\"Test for data structure\", () => {",
-													"        pm.expect(data.disputes).to.be.an(\"array\")",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).to.eql(\"Access token is required\")",
 													"    })",
 													"",
 													"} catch (error) {",
-													"    console.error(\"Error from test:\", error);",
+													"    console.error(error)",
 													"}"
 												],
 												"type": "text/javascript",
@@ -12416,10 +12408,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [],
