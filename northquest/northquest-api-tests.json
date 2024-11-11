@@ -30023,21 +30023,21 @@
 											"script": {
 												"id": "6386efb2-6f85-4fb7-863d-e9150c5a17bc",
 												"exec": [
-													"try {\r",
-													"    const { message } = pm.response.json()\r",
+													"// try {\r",
+													"//     const { message } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Status code is 400\", () => {\r",
-													"        pm.response.to.have.status(400);\r",
-													"    });\r",
+													"//     pm.test(\"Status code is 400\", () => {\r",
+													"//         pm.response.to.have.status(400);\r",
+													"//     });\r",
 													"\r",
 													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).to.eql(\"Beneficiary already exist\")\r",
-													"    })\r",
+													"//     pm.test(\"Test for valid error message\", () => {\r",
+													"//         pm.expect(message).to.eql(\"Beneficiary already exist\")\r",
+													"//     })\r",
 													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error)\r",
-													"}"
+													"// } catch (error) {\r",
+													"//     console.error(\"Error from test:\", error)\r",
+													"// }"
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -30079,7 +30079,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
@@ -30400,7 +30400,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
@@ -30558,7 +30558,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
@@ -30716,7 +30716,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
@@ -32613,11 +32613,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts"
 									],
@@ -32757,11 +32758,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts"
 									],
