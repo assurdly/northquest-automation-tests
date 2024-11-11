@@ -313,7 +313,7 @@
 											"        pm.response.to.have.status(\"Bad Request\");\r",
 											"    });\r",
 											"\r",
-											"    pm.test (\"Test for valid error message\", () => {\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).include(\"Invalid credentials\")\r",
 											"    })\r",
 											"\r",
