@@ -12908,14 +12908,14 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"slug\": \"business\",\n    \"name\": \"Business Verification\",\n    \"description\": \"Business Verification\",\n    \"enabled\": true\n}",
+									"raw": "{\n    \"slug\": \"image-liveness-check\",\n    \"name\": \"Image liveness check\",\n    \"description\": \"This step helps us verify your identity by matching your image with the credentials you’ve provided.\",\n    \"enabled\": true\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/verification-types"
+								"url": "{{base_url}}/admin/verification-typess"
 							},
 							"response": [
 								{
