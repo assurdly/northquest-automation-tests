@@ -19229,11 +19229,17 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
 										"method": "PATCH",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"code\": \"674624\"\n}",
+											"raw": "{\n    \"code\": \"573396\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -27012,7 +27018,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"123456\"\n}",
+													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -34427,9 +34433,30 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
-						"url": "{{base_url}}/tiers"
+						"url": {
+							"raw": "{{base_url}}/tiers?filter[profile_type]=personal",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"tiers"
+							],
+							"query": [
+								{
+									"key": "filter[profile_type]",
+									"value": "personal",
+									"type": "text"
+								}
+							]
+						}
 					},
 					"response": [
 						{
