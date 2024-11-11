@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'Tenant-APIs/**'
+      - 'backoffice-apis/**'
   schedule:
     - cron: '30 18 * * 3' # Runs every Wednesday at 7:30pm
     - cron: '30 18 * * 5' # Runs every Friday at 7:30pm
