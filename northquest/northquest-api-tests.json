@@ -20454,7 +20454,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "019317a4-dcd2-7eeb-a7eb-c3f1c21868ef"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -34109,6 +34109,41 @@
 					"id": "9f11d971-ab0d-4802-9f7e-3ca8b0a1d74d"
 				},
 				{
+					"name": "Batch Account Enquiry",
+					"item": [
+						{
+							"name": "Batch Account Enquiry",
+							"id": "d271ebf9-ef43-41fb-bdab-d7c5203c28b5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "DZ-SAg3qa/sample_accounts.csv"
+										}
+									]
+								},
+								"url": "{{base_url}}/verification/account/batch-upload"
+							},
+							"response": []
+						}
+					],
+					"id": "15670d1a-6e24-4e1f-93aa-17d92d5f53c7"
+				},
+				{
 					"name": "Bulk transfer",
 					"item": [
 						{
@@ -34385,41 +34420,6 @@
 						}
 					],
 					"id": "3731c059-b485-4088-8906-a1d0405457c6"
-				},
-				{
-					"name": "Batch Account Enquiry",
-					"item": [
-						{
-							"name": "Batch Account Enquiry",
-							"id": "d271ebf9-ef43-41fb-bdab-d7c5203c28b5",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "file",
-											"type": "file",
-											"src": "DZ-SAg3qa/sample_accounts.csv"
-										}
-									]
-								},
-								"url": "{{base_url}}/verification/account/batch-upload"
-							},
-							"response": []
-						}
-					],
-					"id": "15670d1a-6e24-4e1f-93aa-17d92d5f53c7"
 				}
 			],
 			"id": "804127ad-4d2d-4303-b951-836a31a59380"
