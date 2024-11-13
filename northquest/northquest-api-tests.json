@@ -34644,7 +34644,22 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"url": "{{base_url}}/files"
+						"url": {
+							"raw": "{{base_url}}/files?file=[object Object]",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"files"
+							],
+							"query": [
+								{
+									"key": "file",
+									"value": "[object Object]",
+									"type": "file"
+								}
+							]
+						}
 					},
 					"response": [
 						{
