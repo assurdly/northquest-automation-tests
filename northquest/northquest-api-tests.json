@@ -34631,6 +34631,203 @@
 				}
 			],
 			"id": "ac1cc779-0d38-4124-9ef9-e16fb832b8d9"
+		},
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "Upload File",
+					"id": "09403cfc-46d7-49e8-989b-7858ec96d9a6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{base_url}}/files"
+					},
+					"response": [
+						{
+							"id": "d3fc72db-0994-454c-a724-67d1d291e31e",
+							"name": "Upload File",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/thewunmi/Documents/gmail-icon.jpeg"
+										}
+									]
+								},
+								"url": "{{base_url}}/files"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "543"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21f-ov4l+3KBNl/YHgUmLSN1umUqwZg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 13:19:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"user_id\": \"01925343-fbc8-7886-abfb-41c8746fc8ce\",\n        \"file_name\": \"gmail-icon.jpeg\",\n        \"file_key\": \"00000000-0000-0000-0000-000000000000/01925343-fbc8-7886-abfb-41c8746fc8ce/gmail-icon.jpeg-1731417585187\",\n        \"id\": \"01932087-c004-7775-8dc6-7265f7c8bb41\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"profile_id\": null,\n        \"file_url\": null,\n        \"file_expires_on\": null,\n        \"created_on\": \"2024-11-12T13:19:48.011Z\",\n        \"modified_on\": \"2024-11-12T13:19:48.011Z\",\n        \"deleted_on\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get File",
+					"id": "86a8d699-37d2-48d8-b19b-c6404f095b2b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/files/:file_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"files",
+								":file_id"
+							],
+							"variable": [
+								{
+									"id": "f8e00946-fb83-4dcb-b3cf-31e8ca78f1b3",
+									"key": "file_id",
+									"value": "01932087-c004-7775-8dc6-7265f7c8bb41"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "41b46a6b-5a2b-406c-af7d-d2b78ba9114e",
+							"name": "Get File",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/files/:file_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"files",
+										":file_id"
+									],
+									"variable": [
+										{
+											"key": "file_id",
+											"value": "01932087-c004-7775-8dc6-7265f7c8bb41"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "543"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21f-OSXFXfe94fzeC8oIY59KWuMAncQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 13:20:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01932087-c004-7775-8dc6-7265f7c8bb41\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-12T13:19:48.011Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-12T13:19:48.011Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": null,\n        \"user_id\": \"01925343-fbc8-7886-abfb-41c8746fc8ce\",\n        \"file_name\": \"gmail-icon.jpeg\",\n        \"file_key\": \"00000000-0000-0000-0000-000000000000/01925343-fbc8-7886-abfb-41c8746fc8ce/gmail-icon.jpeg-1731417585187\",\n        \"file_url\": null,\n        \"file_expires_on\": null\n    }\n}"
+						}
+					]
+				}
+			],
+			"id": "220efd0f-b3d8-4b60-bb2d-9500248e86ba"
 		}
 	],
 	"auth": {
