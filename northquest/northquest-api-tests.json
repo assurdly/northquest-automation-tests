@@ -20145,7 +20145,23 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{base_url}}/documents"
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/documents",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"documents"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
 							},
 							"response": []
 						},
@@ -20256,18 +20272,40 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type_id\": \"\",\n    \"url\": \"\"\n}",
+									"raw": "{\n    \"type_id\": \"0192f2a4-ca56-7cc3-9e93-2f88c5ab082d\",\n    \"file_id\": \"01932b81-afff-7558-9daf-4cfbdf5d148a\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{base_url}}/documents"
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/documents",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"documents"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
 							},
 							"response": []
 						},
@@ -27020,7 +27058,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 5300,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
