@@ -34642,10 +34642,16 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/files?file=[object Object]",
+							"raw": "{{base_url}}/files?file",
 							"host": [
 								"{{base_url}}"
 							],
@@ -34655,8 +34661,7 @@
 							"query": [
 								{
 									"key": "file",
-									"value": "[object Object]",
-									"type": "file"
+									"value": null
 								}
 							]
 						}
