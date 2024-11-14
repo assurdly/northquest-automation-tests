@@ -34018,6 +34018,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -34030,20 +34036,25 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/accounts/:account_id/transfer",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/transfer",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
+										":profile_id",
 										"accounts",
 										":account_id",
 										"transfer"
 									],
 									"variable": [
 										{
-											"id": "ef611c55-50ec-4a74-a173-57ee857fb6b6",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
 											"key": "account_id",
-											"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+											"value": "01931ba9-9e60-7dda-b579-5d20aa9c5c3a"
 										}
 									]
 								}
