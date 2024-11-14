@@ -8359,7 +8359,23 @@
 										},
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/admin/documents"
+										"url": {
+											"raw": "{{base_url}}/admin/documents",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"documents"
+											],
+											"query": [
+												{
+													"key": "filter[profile_id]",
+													"value": "01931947-9fea-744d-8f66-118c138292e3",
+													"disabled": true
+												}
+											]
+										}
 									},
 									"response": []
 								}
@@ -8386,7 +8402,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"type_id\": \"{{adminFetchedDocumentTypeId}}\",\n    \"url\": \"\",\n    \"profile_id\": \"{{adminFetchedProfileId}}\"\n}",
+											"raw": "{\n    \"type_id\": \"{{adminFetchedDocumentTypeId}}\",\n    // \"url\": \"https://dev-api-backend-service.s3.us-east-2.amazonaws.com/00000000-0000-0000-0000-000000000000/019317a0-b7e5-7eeb-a7eb-bd18cf39a633/1731601738978-image-900x300.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAVVZPCHENU2WVOSAA%2F20241114%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20241114T162859Z&X-Amz-Expires=604800&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGgaCXVzLWVhc3QtMiJGMEQCIHyHOqY31i6EveUQEEF3V9ffZoepn4Erad6xwew5RmPJAiBNLy0LhDdQKUMeVpIzc8gFXJXOFh60DtaeczAZtFdzhyrmAwjx%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDM5MDQwMzg2NDg1OSIM87MotV4AA2YApFfZKroDm783MtPlzYXYJfLPuEXMHMQC5DVBZehOoHHamjq77E8jGanwWXsQge569pJGE1uFLVzBlQqla%2Fr1v6VRs8i2A1VyPWTx0Doohq9tvRx6CF8Si0WomojWR4xZlCvcSvihMftG%2FefXvcjY1DGfk6Bzzh7%2Fy212ZuIM87eFsezNDaJ4qLEQJ2TD%2FLmO3pEbx3qceZ3PBaU%2Fk%2Bhl8jkaIrryEdZce84CXKuNvldsxlQBE%2F0J4OfO8sl5UQf42cRByzAWtlUEs7%2FB6jG1do8SnnOIrg2Y8ZWHKk10%2B94OrFx2oR%2BPrYVLAKShHo4hZvvKhiIirzGggJPWVwZ0dGwh5uj3dWdjNhCiGfPWiiyy7vqMseeEcCFKAFThukixcWay0sZK07gkYnux32ms3DKZdh%2FQ3QOdxi2Xp1zI92k2nQPzR3XCi%2B%2BIg9%2BIXcDX4bKTS5tfjDiVnKEjjqJrXvSGwD6YbRaZURxCxZZYlLucW33LtH7%2Fp2iBesKmOIFpezJE8xveaXaLPeYN%2Bq%2FDeE7CwdXJK3nfO%2BJSP1mj%2FbGs%2FMUh7DUp4Xrv%2Fj62YCcUSUQDVkRB309O1AsKLKUDuTCvxti5BjqmAVnw60zKLJzQv4tjZedPESA5fhUT1Aw%2BxU21pkcbWhcgjV%2Fjhiq%2FontCU9t0r6ESC3TM4LH6sAVWjfyUAoGGF10u7jKcLR4efBylakcQ8RQs%2ByME5eASuI3xjcY0cEnvwP2T0kupUQIc%2F2hPp3JPovDySnBbrOdqHuY9wnAR1DHbdvVDLW1EMPwwaO6mB%2B9v4S1bWs4YQoGhXgIguArNcw7Wb9HG%2FbU%3D&X-Amz-Signature=d6d0e781df0e4f3ecff3bf88fdbe8200f47b55044343863e06db31174f681aa4&X-Amz-SignedHeaders=host&x-id=GetObject\",\n    \"profile_id\": \"01931947-9fea-744d-8f66-118c138292e3\",\n    \"file_id\": \"01932b81-afff-7558-9daf-4cfbdf5d148a\",\n    \"status\": \"approved\",\n    \"review\": \"This is done\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
