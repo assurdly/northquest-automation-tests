@@ -29782,18 +29782,41 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"cac\": \"9aad4e7b-b42c-49ff-a3cd-8db0dadf5311\"\n}",
+									"raw": "{\n    \"cac\": \"Neem\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{base_url}}/verification/business"
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/business",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"business"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
 							},
 							"response": []
 						}
@@ -29810,14 +29833,22 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/verification/business/:id/shareholders",
+									"raw": "{{base_url}}/profiles/:profile_id/verification/business/:id/shareholders",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
+										":profile_id",
 										"verification",
 										"business",
 										":id",
@@ -29825,9 +29856,12 @@
 									],
 									"variable": [
 										{
-											"id": "9fbe1c08-b027-47bd-953f-843e9cdc9413",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
 											"key": "id",
-											"value": ""
+											"value": "3369190"
 										}
 									]
 								}
@@ -29847,14 +29881,22 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/verification/business/:id/directors",
+									"raw": "{{base_url}}/profiles/:profile_id/verification/business/:id/directors",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
+										":profile_id",
 										"verification",
 										"business",
 										":id",
@@ -29862,9 +29904,12 @@
 									],
 									"variable": [
 										{
-											"id": "a01a60cf-c82c-4849-9449-397d676633f0",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
 											"key": "id",
-											"value": ""
+											"value": "3369190"
 										}
 									]
 								}
