@@ -11206,6 +11206,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [
 									{
@@ -11216,7 +11222,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+									"raw": "{\n    \"old_password\": \"131613\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
