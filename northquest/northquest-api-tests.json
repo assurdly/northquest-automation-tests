@@ -34029,7 +34029,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"6716780622\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
+									"raw": "{\n    // \"beneficiary_id\": \"01932f12-e38f-7445-8d7e-099680bac163\",\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
