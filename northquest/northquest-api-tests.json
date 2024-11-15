@@ -29284,14 +29284,31 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\"\n}",
+									"raw": "{\n    // \"account_number\": \"0112345678\",\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{base_url}}/verification/account"
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile:id/verification/account",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile:id",
+										"verification",
+										"account"
+									],
+									"variable": [
+										{
+											"key": "profile:id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
 							},
 							"response": [
 								{
