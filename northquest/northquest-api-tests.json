@@ -20,7 +20,8 @@
 										"id": "db8a99fb-c32a-495b-a2a3-1ab828f6c6ac",
 										"exec": [
 											"try {",
-											"    const { message } = pm.response.json()",
+											"    const { message, data } = pm.response.json()",
+											"pm.environment.set(\"otpId\", data.id)",
 											"",
 											"    // pm.test(\"Successful POST request\", function () {",
 											"    //     pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
@@ -68,7 +69,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\":\"{{$randomLastName}}@mailinator.com\"\n}",
+									"raw": "{\n    \"email\":\"sanford@mailinator.com\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
