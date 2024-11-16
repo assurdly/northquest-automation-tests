@@ -11351,8 +11351,8 @@
 											"        pm.expect(message).to.eql(\"Invalid old_password\")",
 											"    })",
 											"",
-											"    pm.test(\"Status code is 200\", function () {",
-											"        pm.response.to.have.status(200);",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
 											"    });",
 											"",
 											"} catch (error) {",
@@ -11385,7 +11385,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"old_password\": \"131613\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
+									"raw": "{\n    \"old_password\": \"\",\n    \"password\": \"\",\n    \"confirm_password\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -11487,11 +11487,9 @@
 											"    pm.test(\"Tests for Invalid old password\", () => {",
 											"        pm.expect(message).to.eql(\"Invalid old_password\")",
 											"    })",
-											"",
-											"    pm.test(\"Status code is 200\", function () {",
-											"        pm.response.to.have.status(200);",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
 											"    });",
-											"",
 											"} catch (error) {",
 											"    console.error(\"errors from tests\", error)",
 											"}"
