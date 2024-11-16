@@ -11348,7 +11348,7 @@
 											"    const { message } = pm.response.json()",
 											"",
 											"    pm.test(\"Tests for Invalid old password\", () => {",
-											"        pm.expect(message).to.eql(\"Invalid old_password\")",
+											"        pm.expect(message).to.eql(\"Current password is required\")",
 											"    })",
 											"",
 											"    pm.test(\"Status code is 400\", function () {",
@@ -11532,6 +11532,141 @@
 							"response": [
 								{
 									"id": "f26945e1-7c0c-4883-aa11-4bee064f004b",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password - Invalid Current Password Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for Invalid old password\", () => {",
+											"        pm.expect(message).to.eql(\"Invalid current password\")",
+											"    })",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "4c3fa245-3d97-41e9-afd9-3cb316ae5bc0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"131613\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "ff357509-015d-4592-8b92-300cc2f91900",
 									"name": "Change Password",
 									"originalRequest": {
 										"method": "PATCH",
