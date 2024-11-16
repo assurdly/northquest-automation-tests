@@ -11201,6 +11201,32 @@
 					"item": [
 						{
 							"name": "Change Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for Invalid old password\", () => {",
+											"        pm.expect(message).to.eql(\"Invalid old_password\")",
+											"    })",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "06d144ea-9e89-4227-af3e-df4e9d94e860",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -11234,6 +11260,280 @@
 							"response": [
 								{
 									"id": "e10651ed-46a1-4dfc-9bf7-a8a4bd56bdc3",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password - Empty Fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for Invalid old password\", () => {",
+											"        pm.expect(message).to.eql(\"Invalid old_password\")",
+											"    })",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "8642aaf4-f634-4a81-a6e7-dc2b8fb77898",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"131613\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "f46ffebd-c067-448b-8243-373dbe266870",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password - Invalid Current Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for Invalid old password\", () => {",
+											"        pm.expect(message).to.eql(\"Invalid old_password\")",
+											"    })",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "631b0a1c-767d-4279-9d2d-6d22a459f909",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"131613\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "f26945e1-7c0c-4883-aa11-4bee064f004b",
 									"name": "Change Password",
 									"originalRequest": {
 										"method": "PATCH",
