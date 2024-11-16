@@ -23469,7 +23469,7 @@
 											"    })\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data.roles).to.be.an(\"array\")\r",
+											"        pm.expect(data.disputes).to.be.an(\"array\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
@@ -23487,6 +23487,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -23503,7 +23509,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
