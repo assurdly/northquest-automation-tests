@@ -35091,7 +35091,24 @@
 				},
 				{
 					"name": "Banks",
-					"item": [],
+					"item": [
+						{
+							"name": "Get Banks",
+							"id": "ea91bda0-98d1-4dc4-948e-5b5e94bd958d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/misc/banks"
+							},
+							"response": []
+						}
+					],
 					"id": "c88fa448-fb4e-46f0-a754-97c257a6e176"
 				}
 			],
