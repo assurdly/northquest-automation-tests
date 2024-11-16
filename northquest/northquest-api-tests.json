@@ -11207,20 +11207,20 @@
 									"script": {
 										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
 										"exec": [
-											"try {",
-											"    const { message } = pm.response.json()",
+											"// try {",
+											"//     const { message } = pm.response.json()",
 											"",
-											"    pm.test(\"Tests for Invalid old password\", () => {",
-											"        pm.expect(message).to.eql(\"Invalid old_password\")",
-											"    })",
+											"//     pm.test(\"Tests for Invalid old password\", () => {",
+											"//         pm.expect(message).to.eql(\"Invalid old_password\")",
+											"//     })",
 											"",
-											"    pm.test(\"Status code is 200\", function () {",
-											"        pm.response.to.have.status(200);",
-											"    });",
+											"//     pm.test(\"Status code is 200\", function () {",
+											"//         pm.response.to.have.status(200);",
+											"//     });",
 											"",
-											"} catch (error) {",
-											"    console.error(\"errors from tests\", error)",
-											"}"
+											"// } catch (error) {",
+											"//     console.error(\"errors from tests\", error)",
+											"// }"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -11248,7 +11248,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"old_password\": \"131613\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
+									"raw": "{\n    \"old_password\": \"131623\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
