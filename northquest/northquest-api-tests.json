@@ -11485,7 +11485,7 @@
 											"    const { message } = pm.response.json()",
 											"",
 											"    pm.test(\"Tests for Invalid old password\", () => {",
-											"        pm.expect(message).to.eql(\"Invalid old_password\")",
+											"        pm.expect(message).to.eql(\"Invalid current password\")",
 											"    })",
 											"    pm.test(\"Status code is 400\", function () {",
 											"        pm.response.to.have.status(400);",
