@@ -10646,15 +10646,11 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "https://public.northquestfinance.com/api-backend/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-31&filter[created_on][lt]=2024-12-30&filter[format]=csv",
-											"protocol": "https",
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=",
 											"host": [
-												"public",
-												"northquestfinance",
-												"com"
+												"{{base_url}}"
 											],
 											"path": [
-												"api-backend",
 												"admin",
 												"profiles",
 												"export"
@@ -10666,15 +10662,11 @@
 												},
 												{
 													"key": "filter[created_on][gt]",
-													"value": "2024-10-31"
+													"value": "2024-10-04"
 												},
 												{
-													"key": "filter[created_on][lt]",
-													"value": "2024-12-30"
-												},
-												{
-													"key": "filter[format]",
-													"value": "csv"
+													"key": "format",
+													"value": ""
 												}
 											]
 										}
