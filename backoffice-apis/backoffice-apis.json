@@ -13096,7 +13096,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"slug\": \"image-liveness-check\",\n    \"name\": \"Image liveness check\",\n    \"description\": \"This step helps us verify your identity by matching your image with the credentials you’ve provided.\",\n    \"enabled\": true\n}",
+									"raw": "{\n    \"slug\": \"nin\",\n    \"name\": \"Verify NIN\",\n    \"description\": \"In compliance with CBN regulations, we need to verify your NIN to identify you and prevent fraud.\",\n    \"enabled\": true,\n    \"profile_type\": \"personal\"\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
