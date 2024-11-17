@@ -12753,7 +12753,56 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"comment\": \"Test\",\n    \"status\": \"resolved\"\n}",
+											"raw": "{\n    \"comment\": \"done\",\n    \"status\": \"pending\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/transactions/disputes/{{adminFetchedDisputeId}}"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Dispute Copy - Empty Fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "78e9ab1d-dff6-4270-a319-2f22814c8b8c",
+												"exec": [
+													"try {",
+													"    const { message } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", () => {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Valid error messages returned\", () => {",
+													"        pm.expect(message).includes('Comment cannot be empty')",
+													"        pm.expect(message).includes('Invalid Status')",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "dd5e9fc4-346d-417f-a06a-a883961a18c8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"comment\": \"\",\n    \"status\": \"\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
