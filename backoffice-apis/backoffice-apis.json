@@ -10084,7 +10084,6 @@
 													"        pm.expect(status).to.eql(\"success\")\r",
 													"    })\r",
 													"\r",
-													"\r",
 													"    pm.test(\"Test for valid success message\", () => {\r",
 													"        pm.expect(data).to.be.an(\"array\")\r",
 													"    })\r",
