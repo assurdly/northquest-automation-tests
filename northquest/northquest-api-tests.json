@@ -11074,11 +11074,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"enabled\": false,\n    \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
+									"raw": "{\n    \"enabled\": true\n    // \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -11097,9 +11103,8 @@
 									],
 									"variable": [
 										{
-											"id": "c51ffe44-5bd3-48cc-ba5d-d8a9ade76410",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
