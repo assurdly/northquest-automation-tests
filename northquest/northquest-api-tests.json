@@ -21,7 +21,7 @@
 										"exec": [
 											"try {",
 											"    const { message, data } = pm.response.json()",
-											"pm.environment.set(\"otpId\", data.id)",
+											"    pm.environment.set(\"otpId\", data.id)",
 											"",
 											"    // pm.test(\"Successful POST request\", function () {",
 											"    //     pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
@@ -34607,7 +34607,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    // \"beneficiary_id\": \"01932f12-e38f-7445-8d7e-099680bac163\",\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
+									"raw": "{\n    // \"beneficiary_id\": \"01932f12-e38f-7445-8d7e-099680bac163\",\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\",\n    \"pin\": \"1316\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
