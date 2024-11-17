@@ -10747,6 +10747,111 @@
 								}
 							],
 							"id": "1f3b29c9-6dd8-4e92-a65c-c12f10d0ee65"
+						},
+						{
+							"name": "Change Password",
+							"id": "42192bfb-506d-414d-bff5-9488292abf62",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "894566e0-8739-4185-8f11-2dbf91112f4b",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "3ba1a014-6e87-4c99-90ec-73fac93dc15f"
