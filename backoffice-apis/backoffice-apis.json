@@ -5569,7 +5569,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/roles",
+											"raw": "{{base_url}}/admin/roles?filter[name]=",
 											"host": [
 												"{{base_url}}"
 											],
@@ -5583,6 +5583,11 @@
 													"value": "",
 													"type": "text",
 													"disabled": true
+												},
+												{
+													"key": "filter[name]",
+													"value": "",
+													"type": "text"
 												}
 											]
 										}
