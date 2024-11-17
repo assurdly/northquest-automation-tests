@@ -30535,6 +30535,354 @@
 						}
 					],
 					"id": "0f33830f-745a-4079-ac38-9421eca93158"
+				},
+				{
+					"name": "Verify Email",
+					"item": [
+						{
+							"name": "Verify Email Copy",
+							"id": "6edc29f7-2724-4597-b559-f690d4663dfe",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"adewunmiakinsanya@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/email",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"email"
+									],
+									"variable": [
+										{
+											"id": "0243eee9-5786-4406-97d1-dab21dea1f16",
+											"key": "profile_id",
+											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "980d3dc4-d8af-401c-bb8c-9a9b45d4d5b5",
+									"name": "Verify Email",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"adewunmiakinsanya@gmail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/verification/email",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"verification",
+												"email"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-LpvOmjUM2g6vtazb7wSJ11MN1rM\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 12:35:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": true\n}"
+								}
+							]
+						},
+						{
+							"name": "Complete Verify Email Copy",
+							"id": "54dae50f-9881-455f-a223-3a75fa19bd8d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"adewunmiakinsanya@gmail.com\",\n    \"otp\": \"324253\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/email",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"email"
+									],
+									"variable": [
+										{
+											"id": "e82e05ef-c3e9-4dff-8487-f9afba1fbf24",
+											"key": "profile_id",
+											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "ed94fd00-a8cf-4eb1-b83b-76ee545b5202",
+									"name": "Complete Verify Email",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"adewunmiakinsanya@gmail.com\",\n    \"otp\": \"324253\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/verification/email",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"verification",
+												"email"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-LpvOmjUM2g6vtazb7wSJ11MN1rM\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 12:36:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": true\n}"
+								}
+							]
+						}
+					],
+					"id": "2b807f60-524b-4438-8232-356ab4118763"
+				},
+				{
+					"name": "Verify Phone",
+					"item": [
+						{
+							"name": "Verify Phone",
+							"id": "3767a91a-d5dc-4548-bedd-6c0c914826cf",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone\": \"+2348089722636\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/phone",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"phone"
+									],
+									"variable": [
+										{
+											"id": "70997ef8-dcd4-438a-9bb6-50c6f3d5dfcc",
+											"key": "profile_id",
+											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Complete Verify Phone Copy",
+							"id": "de8dd562-3551-4df5-a0c8-c635f3f0361e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone\": \"+2348089722636\",\n    \"otp\": \"776531\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/phone",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"phone"
+									],
+									"variable": [
+										{
+											"id": "4d1f63a3-0330-48c0-b283-18012508f9e2",
+											"key": "profile_id",
+											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "df4c6dcd-2268-4aff-828d-9af585990b71"
 				}
 			],
 			"id": "7bdbec5f-5e28-4db3-835e-14f721228976"
