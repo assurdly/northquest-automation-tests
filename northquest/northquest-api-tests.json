@@ -35090,6 +35090,272 @@
 					"id": "3731c059-b485-4088-8906-a1d0405457c6"
 				},
 				{
+					"name": "Schedule",
+					"item": [
+						{
+							"name": "Create Transfer Schedule",
+							"id": "15c4a3f5-0ef9-4bbc-9e0b-b00e55a2420c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"start_date\": \"2024-12-30T21:00:00.000Z\",\n    \"end_date\": \"2024-12-31T12:00:00.000Z\",\n    \"amount\": 100.23,\n    \"type\": \"transfer\",\n    \"frequency\": \"once\",\n    \"account_id\":\"0192b537-3f83-719b-8ec4-df689454f0ee\",\n    \"recipients\": [\n        {\n            \"narration\": \"Sodiq\",\n            // \"beneficiary_id\": \"0192e710-2759-766f-9de2-61a30f028e20\",\n            \"account_number\": \"1780004070\",\n            \"bank_code\": \"999998\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/transfer",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"schedules",
+										"transfer"
+									],
+									"variable": [
+										{
+											"id": "7b99a6a8-7a75-4370-9490-21e44dc48744",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "2e3093c9-fa1c-48bc-8cc0-6b6f5487adc8",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"start_date\": \"2024-11-14\",\n    \"end_date\": \"2024-11-15\",\n    \"amount\": 100.23,\n    \"type\": \"transfer\",\n    \"frequency\": \"once\",\n    \"account_id\":\"0192b537-3f83-719b-8ec4-df689454f0ee\",\n    \"recipients\": [\n        {\n            \"narration\": \"Sodiq\",\n            // \"beneficiary_id\": \"0192e710-2759-766f-9de2-61a30f028e20\",\n            \"account_number\": \"1780004070\",\n            \"bank_code\": \"999998\"\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/transfer",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"schedules",
+												"transfer"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "707"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2c3-wCVK2u4H1NUAsYPN/0e49reS55U\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 13:39:01 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"recipients\": [\n                {\n                    \"narration\": \"Sodiq\",\n                    \"account_number\": \"1780004070\",\n                    \"bank_code\": \"999998\"\n                }\n            ]\n        },\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"frequency\": \"once\",\n        \"type\": \"transfer\",\n        \"start_date\": \"2024-11-14T00:00:00.000Z\",\n        \"next_run_date\": \"2024-11-14T00:00:00.000Z\",\n        \"end_date\": \"2024-11-15T00:00:00.000Z\",\n        \"amount\": \"100.23\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"id\": \"01932099-593e-7ee1-a981-f481189c5401\",\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-11-12T13:39:01.053Z\",\n        \"modified_on\": \"2024-11-12T13:39:01.053Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Transfer Schedule",
+							"id": "f5942478-9173-4b1e-a8f7-ad7a92c883f6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"start_date\": \"2024-12-30\",\n    \"end_date\": \"2024-12-31\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/01932093-1a4c-788d-959b-18f7c7b68e05",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"schedules",
+										"01932093-1a4c-788d-959b-18f7c7b68e05"
+									],
+									"variable": [
+										{
+											"id": "fc1c2d5c-0ddc-40af-af1d-c2344e16738f",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "b39e5c39-b3c1-4365-a3dc-14f518a66b1b",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"start_date\": \"2024-12-30\",\n    \"end_date\": \"2024-12-31\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/01932093-1a4c-788d-959b-18f7c7b68e05",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"schedules",
+												"01932093-1a4c-788d-959b-18f7c7b68e05"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "707"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2c3-boOn3nUE7OjIaBswZMw0uHac720\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 13:39:45 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01932093-1a4c-788d-959b-18f7c7b68e05\",\n        \"meta\": {\n            \"recipients\": [\n                {\n                    \"narration\": \"Sodiq\",\n                    \"account_number\": \"1780004070\",\n                    \"bank_code\": \"999998\"\n                }\n            ]\n        },\n        \"created_on\": \"2024-11-12T13:32:11.723Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-11-12T13:39:45.578Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"frequency\": \"once\",\n        \"type\": \"transfer\",\n        \"start_date\": \"2024-12-30T00:00:00.000Z\",\n        \"next_run_date\": \"2024-12-30T00:00:00.000Z\",\n        \"end_date\": \"2024-12-31T00:00:00.000Z\",\n        \"status\": \"active\",\n        \"amount\": \"100.23\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "356ffef9-d0b4-44de-90ff-a2f932ddf6d2"
+				},
+				{
 					"name": "Banks",
 					"item": [
 						{
@@ -35100,7 +35366,10 @@
 							},
 							"request": {
 								"auth": {
-									"type": "noauth"
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
 								},
 								"method": "GET",
 								"header": [],
