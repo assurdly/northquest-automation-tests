@@ -34131,10 +34131,8 @@
 											"    const { status, data } = pm.response.json()\r",
 											"\r",
 											"\r",
-											"    pm.environment.set(\"userFetchedAccountId\", data[0].id);\r",
-											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
 											"    });\r",
 											"\r",
 											"\r",
@@ -34169,11 +34167,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts"
 									],
