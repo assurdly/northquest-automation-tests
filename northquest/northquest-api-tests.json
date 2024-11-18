@@ -28674,6 +28674,21 @@
 										},
 										{
 											"name": "Make bill payment-Empty fields",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "24c92921-3257-4fe9-94be-5d7ed9ff6683",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "b86ef66c-1420-4e9d-b448-cb2504fc4b73",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28731,6 +28746,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid category Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "60e9d1de-e5fa-465c-bee9-65f2dcb26495",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "db80fcc7-142d-4884-9aa5-c40619398b4b",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28788,6 +28818,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid biller Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "c913d784-e00e-49a7-8f09-dcd3a3e89988",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "b7bc892a-3add-49eb-ba10-91c9f0e710c7",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28803,7 +28848,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28828,7 +28873,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
@@ -28845,6 +28890,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid option Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "edc5a620-b18c-4554-806b-b50879cbf7d4",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "604f9e00-27ab-47a8-bc50-c1a1af9812c1",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28860,7 +28920,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28885,7 +28945,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
@@ -28980,6 +29040,21 @@
 										},
 										{
 											"name": "Make bill payment-Empty fields",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "a1d045a1-a97a-4904-87b4-cc99053967b1",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "e5e818e3-d4d6-4b24-93b9-9c5f0585764a",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -29037,6 +29112,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid category Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "413a1a7d-9877-4a09-9419-84f32c3b5f75",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "35581f72-d32e-4ac5-a04a-80ca5c6d2b04",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -29094,6 +29184,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid biller Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "c4205f04-1df9-4c26-a1fe-fe673b494653",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "24e0220d-4896-46f3-8065-676e29bd3eb4",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -29151,6 +29256,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid option Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "e02e32dd-9a0b-4dd6-ad0a-501cf5b5de6e",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "ddc6c2ad-689e-4681-8cac-78790876290f",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
