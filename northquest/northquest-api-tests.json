@@ -20948,6 +20948,7 @@
 										"exec": [
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
+											"    pm.environment.set(\"userFetchedTransactionId\", data.transactions[0].id)\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -21930,7 +21931,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
+											"value": "01931947-9fea-744d-8f66-118c138292e3"
 										}
 									]
 								}
