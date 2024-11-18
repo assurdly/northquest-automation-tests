@@ -7923,7 +7923,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "[\n    {\n        \"slug\": \"name\",\n        \"name\": \"Name\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 1,\n        \"storage_strategy\": \"plain\"\n    },\n    {\n        \"slug\": \"gender\",\n        \"name\": \"Gender\",\n        \"options\": [\"male\", \"female\"],\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 2,\n        \"storage_strategy\": \"plain\"\n    }\n]",
+											"raw": "// [\n//     {\n//         \"slug\": \"identification\",\n//         \"name\": \"Identifications\",\n//         \"options\": [\n//             {\n//                 \"name\": \"International Passport\",\n//                 \"description\": \"Upload a photo of the front page of your national passport.\",\n//                 \"type_id\": \"01933d1c-b704-7ddd-a344-750b3344040e\"\n//             },\n//             {\n//                 \"name\": \"Voter’s Card\",\n//                 \"description\": \"Upload a photo of your voter’s card.\",\n//                 \"type_id\": \"0192f2a4-ca56-7cc3-9e93-2f88c5ab082d\"\n//             },\n//             {\n//                 \"name\": \"National ID card\",\n//                 \"description\": \"Upload a photo of your national ID card.\",\n//                 \"type_id\": \"01933d1d-cfbc-7ddd-a344-7ab060497945\"\n//             },\n//             {\n//                 \"name\": \"Driver’s License\",\n//                 \"description\": \"Upload a photo of your driver’s license.\",\n//                 \"type_id\": \"01933d1e-507d-7ddd-a344-85601bd113ca\"\n//             }\n//         ],\n//         \"version\": 1,\n//         \"type\": \"select\",\n//         \"profile_type\": \"personal\",\n//         \"default\": null,\n//         \"enabled\": true,\n//         \"required\": false,\n//         \"order\": 1,\n//         \"storage_strategy\": \"plain\"\n//     }\n//     // {\n//     //     \"slug\": \"gender\",\n//     //     \"name\": \"Gender\",\n//     //     \"options\": [\"male\", \"female\"],\n//     //     \"version\": 1,\n//     //     \"type\": \"text\",\n//     //     \"default\": null,\n//     //     \"enabled\": true,\n//     //     \"required\": true,\n//     //     \"order\": 2,\n//     //     \"storage_strategy\": \"plain\"\n//     // }\n// ]",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -7944,7 +7944,7 @@
 											"variable": [
 												{
 													"key": "definitionId",
-													"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
+													"value": "0193203a-c7f0-700b-8891-b1151e81be94"
 												}
 											]
 										}
