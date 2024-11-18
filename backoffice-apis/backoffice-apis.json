@@ -9618,7 +9618,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Tier 1\",\n    \"description\": \"Tier 1\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 0,\n    \"single_receiving_limit\": 0,\n    \"period_sending_limit\": 0,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 0,\n    \"period_receiving_limit_time_unit\": \"day\",\n    \"requirements\": [\n        {\n            \"type\": \"documents\",\n            \"type_id\": \"{{adminFetchedDocumentTypeId}}\"\n        },\n        {\n            \"type\": \"definitions\",\n            \"type_id\": \"{{adminFetchedDefinition}}\"\n        }\n    ]\n}",
+											"raw": "// {\n//     \"name\": \"Tier 3\",\n//     \"description\": \"Tier 3\",\n//     \"profile_type\": \"personal\",\n//     \"level\": 3,\n//     \"enabled\": true,\n//     \"single_sending_limit\": 500000,\n//     \"single_receiving_limit\": 500000,\n//     \"period_sending_limit\": 500000,\n//     \"period_sending_limit_time_unit\": \"day\",\n//     \"period_receiving_limit\": 500000,\n//     \"period_receiving_limit_time_unit\": \"day\",\n//     \"requirements\": [\n//         {\n//             \"type\": \"definition\",\n//             \"type_id\": \"0193203a-c7f0-700b-8891-b1151e81be94\"\n//         },\n//         {\n//             \"type\": \"definition\",\n//             \"type_id\": \"0193203a-c7f0-700b-8891-b1151e81be94\"\n//         },\n//         {\n//             \"type\": \"verification\",\n//             \"type_id\": \"01933a66-8850-7335-a997-758238b72bd4\"\n//         }\n//     ]\n// }",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -9825,7 +9825,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Tier 1\",\n    \"description\": \"Tier 1\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 500000,\n    \"single_receiving_limit\": 500000,\n    \"period_sending_limit\": 500000,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 500000,\n    \"period_receiving_limit_time_unit\": \"day\",\n    \"requirements\": [\n        {\n            \"type\": \"definition\",\n            \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n        },\n        {\n            \"type\": \"verification\",\n            \"type_id\": \"019318f7-a251-744d-8f65-3e0746b58d6b\"\n        },\n        {\n            \"type\": \"verification\",\n            \"type_id\": \"019318f9-c895-744d-8f65-4636cc26dd1f\"\n        }\n    ]\n}",
+											"raw": "// {\n//     \"name\": \"Tier 1\",\n//     \"description\": \"Tier 1\",\n//     \"profile_type\": \"personal\",\n//     \"level\": 1,\n//     \"enabled\": true,\n//     \"single_sending_limit\": 500000,\n//     \"single_receiving_limit\": 500000,\n//     \"period_sending_limit\": 500000,\n//     \"period_sending_limit_time_unit\": \"day\",\n//     \"period_receiving_limit\": 500000,\n//     \"period_receiving_limit_time_unit\": \"day\",\n//     \"requirements\": [\n//         {\n//             \"type\": \"definition\",\n//             \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n//         },\n//         {\n//             \"type\": \"verification\",\n//             \"type_id\": \"019318f9-c895-744d-8f65-4636cc26fd1d\"\n//         },\n//         {\n//             \"type\": \"verification\",\n//             \"type_id\": \"019318f9-c895-744d-8f65-4636cc26dd1f\"\n//         }\n//     ]\n// }",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -9845,7 +9845,7 @@
 											"variable": [
 												{
 													"key": "tierIdd",
-													"value": ""
+													"value": "01928f2d-6756-755b-8a9d-c8094db2af27"
 												}
 											]
 										}
@@ -10790,14 +10790,14 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+									"raw": "// {\n//     \"old_password\": \"Password12@@\",\n//     \"password\": \"Password12@@\",\n//     \"confirm_password\": \"Password12@@\"\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{base_url}}/auth/change-password"
+								"url": "{{base_url}}/admin/auth/change-password"
 							},
 							"response": [
 								{
@@ -10934,7 +10934,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/transactions?filter[reference]=Thojncfbqze",
+											"raw": "{{base_url}}/admin/transactions?filter[reference]=Twdfoqiiyhr&relations=disputes&relations=transfer&relations=transfer_beneficiary&relations=batch&relations=account",
 											"host": [
 												"{{base_url}}"
 											],
@@ -10955,7 +10955,7 @@
 												},
 												{
 													"key": "filter[reference]",
-													"value": "Thojncfbqze"
+													"value": "Twdfoqiiyhr"
 												},
 												{
 													"key": "filter[account_id]",
@@ -10976,6 +10976,26 @@
 													"key": "filter[created_at][gt]",
 													"value": "2024-11-11",
 													"disabled": true
+												},
+												{
+													"key": "relations",
+													"value": "disputes"
+												},
+												{
+													"key": "relations",
+													"value": "transfer"
+												},
+												{
+													"key": "relations",
+													"value": "transfer_beneficiary"
+												},
+												{
+													"key": "relations",
+													"value": "batch"
+												},
+												{
+													"key": "relations",
+													"value": "account"
 												}
 											]
 										}
@@ -13193,7 +13213,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/admin/verifications?filter[profile_id]=01931947-9fea-744d-8f66-118c138292e3",
+									"raw": "{{base_url}}/admin/verifications",
 									"host": [
 										"{{base_url}}"
 									],
@@ -13204,7 +13224,8 @@
 									"query": [
 										{
 											"key": "filter[profile_id]",
-											"value": "01931947-9fea-744d-8f66-118c138292e3"
+											"value": "01931947-9fea-744d-8f66-118c138292e3",
+											"disabled": true
 										}
 									]
 								}
