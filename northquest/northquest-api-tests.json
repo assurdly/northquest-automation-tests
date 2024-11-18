@@ -69,7 +69,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\":\"sanford@mailinator.com\"\n}",
+									"raw": "{\n    \"email\":\"{{$randomFirstName}}@mailinator.com\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -30808,11 +30808,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"phone\": \"+2348089722636\"\n}",
+									"raw": "{\n    \"phone\": \"+2349055755671\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -30832,9 +30838,8 @@
 									],
 									"variable": [
 										{
-											"id": "70997ef8-dcd4-438a-9bb6-50c6f3d5dfcc",
 											"key": "profile_id",
-											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -35179,11 +35184,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "[\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    },\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    },\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    }\n]",
+									"raw": "// {\n//   \"transactions\": [\n//     {\n//       \"account_number\": \"1780004070\",\n//       \"bank_code\": \"999998\",\n//       \"amount\": 100,\n//       \"narration\": \"Sodiq\"\n//     },\n//     {\n//       \"account_number\": \"1780004070\",\n//       \"bank_code\": \"999998\",\n//       \"amount\": 100,\n//       \"narration\": \"Sodiq\"\n//     },\n//     {\n//       \"account_number\": \"1780004070\",\n//       \"bank_code\": \"999998\",\n//       \"amount\": 100,\n//       \"narration\": \"Sodiq\"\n//     }\n//   ],\n//   \"pin\": \"1316\"\n// }\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -35191,11 +35202,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts/:account_id/bulk-transfer",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/bulk-transfer",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts",
 										":account_id",
@@ -35203,14 +35215,12 @@
 									],
 									"variable": [
 										{
-											"id": "d1f5106e-ff38-43e8-9d24-47ca25728390",
 											"key": "profile_id",
-											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "13407455-ed1f-4814-a743-a5b23f039227",
 											"key": "account_id",
-											"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+											"value": "{{userFetchedAccountId}}"
 										}
 									]
 								}
@@ -35457,11 +35467,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"start_date\": \"2024-12-30T21:00:00.000Z\",\n    \"end_date\": \"2024-12-31T12:00:00.000Z\",\n    \"amount\": 100.23,\n    \"type\": \"transfer\",\n    \"frequency\": \"once\",\n    \"account_id\":\"0192b537-3f83-719b-8ec4-df689454f0ee\",\n    \"recipients\": [\n        {\n            \"narration\": \"Sodiq\",\n            // \"beneficiary_id\": \"0192e710-2759-766f-9de2-61a30f028e20\",\n            \"account_number\": \"1780004070\",\n            \"bank_code\": \"999998\"\n        }\n    ]\n}",
+									"raw": "{\n    \"start_date\": \"2024-12-31T:00:00.000Z\",\n    \"end_date\": \"2024-12-31T12:00:00.000Z\",\n    \"amount\": 900.23,\n    \"type\": \"transfer\",\n    \"frequency\": \"once\",\n    \"account_id\":\"0192b537-3f83-719b-8ec4-df689454f0ee\",\n    \"recipients\": [\n        {\n            \"narration\": \"Sodiq\",\n            // \"beneficiary_id\": \"0192e710-2759-766f-9de2-61a30f028e20\",\n            \"account_number\": \"1780004070\",\n            \"bank_code\": \"999998\"\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -35482,9 +35498,8 @@
 									],
 									"variable": [
 										{
-											"id": "7b99a6a8-7a75-4370-9490-21e44dc48744",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
