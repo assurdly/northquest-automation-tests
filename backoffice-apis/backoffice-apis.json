@@ -10791,7 +10791,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/profiles",
+											"raw": "{{base_url}}/admin/profiles?filter[type]=personal",
 											"host": [
 												"{{base_url}}"
 											],
@@ -10802,8 +10802,7 @@
 											"query": [
 												{
 													"key": "filter[type]",
-													"value": "business",
-													"disabled": true
+													"value": "personal"
 												},
 												{
 													"key": "filter[status]",
