@@ -29406,6 +29406,21 @@
 										},
 										{
 											"name": "Make bill payment-Empty fields",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "9c7a733d-fc35-4f33-9a5d-aeacd4abc621",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "43b275d8-69fb-4c3e-9727-abf590db0bf9",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -29421,7 +29436,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\"\n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29463,6 +29478,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid category Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "c1a70d7e-a495-42a5-ba0f-32ce5c42954f",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "4c6a2d60-aff0-4b05-8ddd-4c49b3751b7f",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -29478,7 +29508,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29520,6 +29550,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid biller Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "c43cd66b-5e6c-4406-891b-1f17dcc1758e",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "a81e15ab-9387-42f6-9748-a37e659ae7a9",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -29535,7 +29580,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29577,6 +29622,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid option Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "88ceaf17-c37c-4c5c-9994-cd3457f0cc44",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "6bf4cadc-1fad-466c-a8a2-a139bd9086b1",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -29592,7 +29652,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
