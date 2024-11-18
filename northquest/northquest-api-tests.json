@@ -27752,8 +27752,8 @@
 													"script": {
 														"id": "452c8d5d-cca0-403f-a532-3a25a3b76f62",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -27854,7 +27854,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    // \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27879,15 +27879,15 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
-															"value": "cabletv"
+															"value": "airtime"
 														},
 														{
 															"key": "biller_id",
-															"value": "dstv"
+															"value": "9mobile"
 														}
 													]
 												}
@@ -27908,8 +27908,8 @@
 													"script": {
 														"id": "fc979d2e-825e-4630-87f0-3db0753f6b66",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -27932,7 +27932,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    // \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27957,15 +27957,15 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
-															"value": "cabletv"
+															"value": "airtime"
 														},
 														{
 															"key": "biller_id",
-															"value": "dstv"
+															"value": "smile"
 														}
 													]
 												}
