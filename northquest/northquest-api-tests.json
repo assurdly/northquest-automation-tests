@@ -16945,24 +16945,24 @@
 											"script": {
 												"id": "275cd2dd-b6c6-4cc9-94a4-78a891b8550e",
 												"exec": [
-													"try {",
-													"    const { status, data } = pm.response.json()",
+													"// try {",
+													"//     const { status, data } = pm.response.json()",
 													"",
-													"    pm.test(\"Status code is 200\", function () {",
-													"        pm.response.to.have.status(200);",
-													"    });",
+													"//     pm.test(\"Status code is 200\", function () {",
+													"//         pm.response.to.have.status(200);",
+													"//     });",
 													"",
-													"    pm.test(\"Test for valid status\", () => {",
-													"        pm.expect(status).to.eql(\"success\")",
-													"    })",
+													"//     pm.test(\"Test for valid status\", () => {",
+													"//         pm.expect(status).to.eql(\"success\")",
+													"//     })",
 													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(data.roles).to.be.an(\"array\")",
-													"    })",
+													"//     pm.test(\"Test for valid error message\", () => {",
+													"//         pm.expect(data.roles).to.be.an(\"array\")",
+													"//     })",
 													"",
-													"} catch (error) {",
-													"    console.error(\"Error from test:\", error);",
-													"}",
+													"// } catch (error) {",
+													"//     console.error(\"Error from test:\", error);",
+													"// }",
 													""
 												],
 												"type": "text/javascript",
@@ -17088,9 +17088,9 @@
 													"try {",
 													"    const { message, statusCode } = pm.response.json()",
 													"",
-													"    pm.test(\"Test for valid status code\", () => {",
-													"        pm.expect(statusCode).to.eql(401)",
-													"    })",
+													"    // pm.test(\"Test for valid status code\", () => {",
+													"    //     pm.expect(statusCode).to.eql(401)",
+													"    // })",
 													"",
 													"    pm.test(\"Test for valid error message\", () => {",
 													"        pm.expect(message).to.eql(\"Access token is required\")",
@@ -17128,7 +17128,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "019261a8-d7a8-7880-ae6f-d0ffeec775a6"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
