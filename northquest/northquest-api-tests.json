@@ -33915,7 +33915,7 @@
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
-											"    });"
+											"    })"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -33937,7 +33937,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "// {\n//     \"restricted\": true\n\n// }",
+									"raw": "{\n    \"restricted\": false\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
