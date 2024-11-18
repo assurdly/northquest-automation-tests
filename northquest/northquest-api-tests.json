@@ -26973,10 +26973,9 @@
 											"try {\r",
 											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Test for valid status code\", () => {\r",
-											"        pm.expect(statusCode).to.eql(401)\r",
-											"    })\r",
-											"\r",
+											"    pm.test(\"Status code is 401\", function () {\r",
+											"        pm.response.to.have.status(401);\r",
+											"    });\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.eql(\"Access token is required\")\r",
 											"    })\r",
@@ -26996,10 +26995,7 @@
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
+									"type": "noauth"
 								},
 								"method": "GET",
 								"header": [],
@@ -27702,7 +27698,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27727,7 +27723,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
