@@ -11660,7 +11660,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"old_password\": \"131613\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
+									"raw": "{\n    \"old_password\": \"1234563\",\n    \"password\": \"Password12@@\",\n    \"confirm_password\": \"Password12@@\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -22693,7 +22693,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n    \"note\": \"e no\"\n}",
+									"raw": "{\n    \"transaction_id\": \"{{userFetchedTransactionId}}\",\n    \"note\": \"egbami, e no dey work\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -22714,7 +22714,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{userProfileId}}"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -32456,7 +32456,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries?filter[account_id]=0192b537-3f83-719b-8ec4-df689454f0ee",
 											"host": [
 												"{{base_url}}"
 											],
@@ -32465,10 +32465,17 @@
 												":profile_id",
 												"transfer-beneficiaries"
 											],
+											"query": [
+												{
+													"key": "filter[account_id]",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee",
+													"type": "text"
+												}
+											],
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "01931947-9fea-744d-8f66-118c138292e3"
 												}
 											]
 										}
@@ -35983,8 +35990,18 @@
 						},
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "lOndRtdBs/image-900x300.jpg"
+								}
+							]
+						},
 						"url": {
-							"raw": "{{base_url}}/files?file",
+							"raw": "{{base_url}}/files",
 							"host": [
 								"{{base_url}}"
 							],
@@ -35994,7 +36011,8 @@
 							"query": [
 								{
 									"key": "file",
-									"value": null
+									"value": null,
+									"disabled": true
 								}
 							]
 						}
