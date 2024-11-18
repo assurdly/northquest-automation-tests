@@ -27596,8 +27596,8 @@
 													"script": {
 														"id": "dac5be3a-b88a-480c-9245-47985e928e9d",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -27674,8 +27674,8 @@
 													"script": {
 														"id": "1972d135-8e94-4aff-9215-d06c1de5a2ff",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -27727,11 +27727,11 @@
 														},
 														{
 															"key": "category_id",
-															"value": "cabletv"
+															"value": "airtime"
 														},
 														{
 															"key": "biller_id",
-															"value": "dstv"
+															"value": "glo"
 														}
 													]
 												}
@@ -27776,7 +27776,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27801,7 +27801,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
