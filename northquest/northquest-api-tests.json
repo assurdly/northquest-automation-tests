@@ -29733,7 +29733,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300\n    \n}",
+											"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 29300,\n     \"pin\": \"1316\"\n    \n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -29758,7 +29758,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": ""
+													"value": "{{userFetchedProfileId}}"
 												},
 												{
 													"key": "category_id",
@@ -29815,7 +29815,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": ""
+													"value": "{{userFetchedProfileId}}"
 												},
 												{
 													"key": "category_id",
@@ -29868,7 +29868,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\"\n}",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\",\n     \"pin\": \"1316\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -29893,7 +29893,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": ""
+													"value": "{{userFetchedProfileId}}"
 												},
 												{
 													"key": "category_id",
@@ -29931,7 +29931,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\",\n     \"pin\": \"1316\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -29956,7 +29956,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": ""
+													"value": "{{userFetchedProfileId}}"
 												},
 												{
 													"key": "category_id",
