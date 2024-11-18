@@ -9,106 +9,91 @@
 			"name": "Backoffice",
 			"item": [
 				{
-					"name": "Login",
+					"name": "Auth",
 					"item": [
 						{
 							"name": "Login",
-							"event": [
+							"item": [
 								{
-									"listen": "test",
-									"script": {
-										"id": "1777b76b-bcd2-4f28-b618-6ea4e6ddf023",
-										"exec": [
-											"try {\r",
-											"    const {\r",
-											"        data: {\r",
-											"            token,\r",
-											"            user: {\r",
-											"                id: userId,\r",
-											"                meta,\r",
-											"                created_on: dateCreated,\r",
-											"                modified_on: dateModified,\r",
-											"                deleted_on: dateDeleted,\r",
-											"                tenant_id: tenantId,\r",
-											"                first_name: firstName,\r",
-											"                last_name: lastName,\r",
-											"                email,\r",
-											"                phone,\r",
-											"                role_id: roleId,\r",
-											"            }\r",
-											"        }\r",
-											"    } = pm.response.json();\r",
-											"\r",
-											"    pm.environment.set(\"adminAccessToken\", token)\r",
-											"    pm.environment.set(\"adminTenantId\", tenantId)\r",
-											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Validate names aren't null values\", () => {\r",
-											"        pm.expect(firstName).to.not.be.null;\r",
-											"        pm.expect(lastName).to.not.be.null;\r",
-											"    })\r",
-											"    pm.test(\"Validate User and Tenant IDs aren't null values\", () => {\r",
-											"        pm.expect(userId).to.not.be.null;\r",
-											"        pm.expect(tenantId).to.not.be.null;\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Validate that the user's password is not returned in the response\", () => {\r",
-											"        const user = pm.response.json().data.user;\r",
-											"        pm.expect(user).to.not.have.property('password');\r",
-											"    })\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "1c5bf75c-8fe6-4983-a763-d052fbd25662",
-										"exec": [
-											"pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "5f7142fc-ae50-4181-a8ca-ca7d806c2514",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Password12@@\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"name": "Login",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1777b76b-bcd2-4f28-b618-6ea4e6ddf023",
+												"exec": [
+													"try {\r",
+													"    const {\r",
+													"        data: {\r",
+													"            token,\r",
+													"            user: {\r",
+													"                id: userId,\r",
+													"                meta,\r",
+													"                created_on: dateCreated,\r",
+													"                modified_on: dateModified,\r",
+													"                deleted_on: dateDeleted,\r",
+													"                tenant_id: tenantId,\r",
+													"                first_name: firstName,\r",
+													"                last_name: lastName,\r",
+													"                email,\r",
+													"                phone,\r",
+													"                role_id: roleId,\r",
+													"            }\r",
+													"        }\r",
+													"    } = pm.response.json();\r",
+													"\r",
+													"    pm.environment.set(\"adminAccessToken\", token)\r",
+													"    pm.environment.set(\"adminTenantId\", tenantId)\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Validate names aren't null values\", () => {\r",
+													"        pm.expect(firstName).to.not.be.null;\r",
+													"        pm.expect(lastName).to.not.be.null;\r",
+													"    })\r",
+													"    pm.test(\"Validate User and Tenant IDs aren't null values\", () => {\r",
+													"        pm.expect(userId).to.not.be.null;\r",
+													"        pm.expect(tenantId).to.not.be.null;\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Validate that the user's password is not returned in the response\", () => {\r",
+													"        const user = pm.response.json().data.user;\r",
+													"        pm.expect(user).to.not.have.property('password');\r",
+													"    })\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"id": "1c5bf75c-8fe6-4983-a763-d052fbd25662",
+												"exec": [
+													"pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
 										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/login"
-							},
-							"response": [
-								{
-									"id": "9cc0fa14-4fd2-4791-b241-9201649ddf02",
-									"name": "Success",
-									"originalRequest": {
+									],
+									"id": "5f7142fc-ae50-4181-a8ca-ca7d806c2514",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
+											"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Password12@@\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -117,459 +102,622 @@
 										},
 										"url": "{{base_url}}/admin/auth/login"
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
+											"id": "9cc0fa14-4fd2-4791-b241-9201649ddf02",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/login"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "613"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"265-FkCRfi4dBIWVsV87NKqmf7NCL5c\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:55:25 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI3MjY1LTRlZDItNzljYy1hMGU2LWUxMTMzOWEzNTlmMyIsImlhdCI6MTcyODQ5NjUyNSwiZXhwIjoxNzI4NTAwMTI1fQ.JHJA9YkS36WwVd33K98HsercYhJuuLqHd21UFsmt_8s\",\n        \"user\": {\n            \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"sodiq@google.com\",\n            \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\"\n        }\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Login - Invalid email",
+									"event": [
 										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "613"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"265-FkCRfi4dBIWVsV87NKqmf7NCL5c\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:55:25 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"listen": "test",
+											"script": {
+												"id": "72d5ec90-1064-4dab-a8a7-8e0466360f1a",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Status code name has string\", function () {\r",
+													"        pm.response.to.have.status(\"Bad Request\");\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"Invalid email format\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
 										}
 									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI3MjY1LTRlZDItNzljYy1hMGU2LWUxMTMzOWEzNTlmMyIsImlhdCI6MTcyODQ5NjUyNSwiZXhwIjoxNzI4NTAwMTI1fQ.JHJA9YkS36WwVd33K98HsercYhJuuLqHd21UFsmt_8s\",\n        \"user\": {\n            \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"sodiq@google.com\",\n            \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\"\n        }\n    }\n}"
+									"id": "6cd49d7d-440f-4b66-9363-a63a5381a7fa",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"sodiq@googlecom\",\n    \"password\":\"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/login"
+									},
+									"response": [
+										{
+											"id": "e0305d23-ebe9-4f0c-a6c5-0235ce5f9ccf",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/login"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "613"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"265-FkCRfi4dBIWVsV87NKqmf7NCL5c\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:55:25 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI3MjY1LTRlZDItNzljYy1hMGU2LWUxMTMzOWEzNTlmMyIsImlhdCI6MTcyODQ5NjUyNSwiZXhwIjoxNzI4NTAwMTI1fQ.JHJA9YkS36WwVd33K98HsercYhJuuLqHd21UFsmt_8s\",\n        \"user\": {\n            \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"sodiq@google.com\",\n            \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\"\n        }\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Login - Invalid password",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "0dce7d0b-5323-43e2-a7c8-816e27520cc6",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Status code name has string\", function () {\r",
+													"        pm.response.to.have.status(\"Bad Request\");\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).include(\"Invalid credentials\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "ac0638b5-d61b-4514-97ab-fb94dd7d4773",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l2\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/login"
+									},
+									"response": [
+										{
+											"id": "d370a2ef-3c09-4802-a437-3800d0d6c0df",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/login"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "613"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"265-FkCRfi4dBIWVsV87NKqmf7NCL5c\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:55:25 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI3MjY1LTRlZDItNzljYy1hMGU2LWUxMTMzOWEzNTlmMyIsImlhdCI6MTcyODQ5NjUyNSwiZXhwIjoxNzI4NTAwMTI1fQ.JHJA9YkS36WwVd33K98HsercYhJuuLqHd21UFsmt_8s\",\n        \"user\": {\n            \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"sodiq@google.com\",\n            \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\"\n        }\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Login - Empty fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "037b81a2-1aca-454b-9652-149b95f770cb",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Valid error messages returned\", () => {\r",
+													"        pm.expect(message).includes('Email is required.')\r",
+													"        pm.expect(message).includes('Invalid email format')\r",
+													"        pm.expect(message).includes('Password is required.')\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "7f209da8-8fa5-4e3c-a13d-8e9d70a4135d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"\",\n    \"password\":\"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/login"
+									},
+									"response": [
+										{
+											"id": "c8eba4b9-715f-46a9-98cc-cf0ed9cb6f2c",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/login"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "613"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"265-FkCRfi4dBIWVsV87NKqmf7NCL5c\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:55:25 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI3MjY1LTRlZDItNzljYy1hMGU2LWUxMTMzOWEzNTlmMyIsImlhdCI6MTcyODQ5NjUyNSwiZXhwIjoxNzI4NTAwMTI1fQ.JHJA9YkS36WwVd33K98HsercYhJuuLqHd21UFsmt_8s\",\n        \"user\": {\n            \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"sodiq@google.com\",\n            \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\"\n        }\n    }\n}"
+										}
+									]
 								}
-							]
+							],
+							"id": "5b8bad53-ab89-408f-800b-3bc5bb476494"
 						},
-						{
-							"name": "Login - Invalid email",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "72d5ec90-1064-4dab-a8a7-8e0466360f1a",
-										"exec": [
-											"try {\r",
-											"    const { message } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Status code is 400\", () => {\r",
-											"        pm.response.to.have.status(400);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Status code name has string\", function () {\r",
-											"        pm.response.to.have.status(\"Bad Request\");\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).includes(\"Invalid email format\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error)\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "6cd49d7d-440f-4b66-9363-a63a5381a7fa",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\":\"sodiq@googlecom\",\n    \"password\":\"Baiwl@03l\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/login"
-							},
-							"response": [
-								{
-									"id": "e0305d23-ebe9-4f0c-a6c5-0235ce5f9ccf",
-									"name": "Success",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/login"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "613"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"265-FkCRfi4dBIWVsV87NKqmf7NCL5c\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:55:25 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI3MjY1LTRlZDItNzljYy1hMGU2LWUxMTMzOWEzNTlmMyIsImlhdCI6MTcyODQ5NjUyNSwiZXhwIjoxNzI4NTAwMTI1fQ.JHJA9YkS36WwVd33K98HsercYhJuuLqHd21UFsmt_8s\",\n        \"user\": {\n            \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"sodiq@google.com\",\n            \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\"\n        }\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Login - Invalid password",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "0dce7d0b-5323-43e2-a7c8-816e27520cc6",
-										"exec": [
-											"try {\r",
-											"    const { message } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Status code is 400\", () => {\r",
-											"        pm.response.to.have.status(400);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Status code name has string\", function () {\r",
-											"        pm.response.to.have.status(\"Bad Request\");\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).include(\"Invalid credentials\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error)\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "ac0638b5-d61b-4514-97ab-fb94dd7d4773",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l2\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/login"
-							},
-							"response": [
-								{
-									"id": "d370a2ef-3c09-4802-a437-3800d0d6c0df",
-									"name": "Success",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/login"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "613"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"265-FkCRfi4dBIWVsV87NKqmf7NCL5c\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:55:25 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI3MjY1LTRlZDItNzljYy1hMGU2LWUxMTMzOWEzNTlmMyIsImlhdCI6MTcyODQ5NjUyNSwiZXhwIjoxNzI4NTAwMTI1fQ.JHJA9YkS36WwVd33K98HsercYhJuuLqHd21UFsmt_8s\",\n        \"user\": {\n            \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"sodiq@google.com\",\n            \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\"\n        }\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Login - Empty fields",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "037b81a2-1aca-454b-9652-149b95f770cb",
-										"exec": [
-											"try {\r",
-											"    const { message } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Status code is 400\", () => {\r",
-											"        pm.response.to.have.status(400);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Valid error messages returned\", () => {\r",
-											"        pm.expect(message).includes('Email is required.')\r",
-											"        pm.expect(message).includes('Invalid email format')\r",
-											"        pm.expect(message).includes('Password is required.')\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error)\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "7f209da8-8fa5-4e3c-a13d-8e9d70a4135d",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\":\"\",\n    \"password\":\"\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/login"
-							},
-							"response": [
-								{
-									"id": "c8eba4b9-715f-46a9-98cc-cf0ed9cb6f2c",
-									"name": "Success",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Baiwl@03l\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/login"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "613"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"265-FkCRfi4dBIWVsV87NKqmf7NCL5c\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:55:25 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI3MjY1LTRlZDItNzljYy1hMGU2LWUxMTMzOWEzNTlmMyIsImlhdCI6MTcyODQ5NjUyNSwiZXhwIjoxNzI4NTAwMTI1fQ.JHJA9YkS36WwVd33K98HsercYhJuuLqHd21UFsmt_8s\",\n        \"user\": {\n            \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T17:49:49.700Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"Dare\",\n            \"email\": \"sodiq@google.com\",\n            \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\"\n        }\n    }\n}"
-								}
-							]
-						}
-					],
-					"id": "5b8bad53-ab89-408f-800b-3bc5bb476494"
-				},
-				{
-					"name": "Forgot Password",
-					"item": [
 						{
 							"name": "Forgot Password",
-							"id": "c5b849d5-5106-4952-ac9a-27ce2cf88fcc",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\":\"sodiq@google.com\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/forgot-password"
-							},
-							"response": [
+							"item": [
 								{
-									"id": "4d6414ba-f687-4c6e-9822-c6159c4d75c8",
-									"name": "Success",
-									"originalRequest": {
+									"name": "Forgot Password",
+									"id": "c5b849d5-5106-4952-ac9a-27ce2cf88fcc",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"sodiq@google.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/forgot-password"
+									},
+									"response": [
+										{
+											"id": "4d6414ba-f687-4c6e-9822-c6159c4d75c8",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@google.com\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/forgot-password"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "63"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"3f-ZdCUUP9bxwcFOFNmTxH0hdInijI\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:52:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"OTP sent successfully\"\n    }\n}"
+										},
+										{
+											"id": "9212b062-f57f-4816-ae3d-dbb6c1e144fe",
+											"name": "Not Exist",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@googles.com\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/forgot-password"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "127"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"7f-10MAwP8EHccM2yRtyzK83UK7kCo\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:53:06 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Email does not exist\",\n    \"timestamp\": \"2024-10-09T17:53:06.122Z\",\n    \"path\": \"/admin/auth/forgot-password\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Forgot Password-Non existing user",
+									"id": "6b51df77-453a-4ee8-a646-ddd3e911db5e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "POST",
 										"header": [],
 										"body": {
@@ -581,653 +729,490 @@
 												}
 											}
 										},
-										"url": "{{base_url}}/admin/auth/forgot-password"
+										"url": "{{base_url}}/admin/auth/login"
 									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
+											"id": "ea170a17-0dbd-44a0-b92e-d68e1580e6df",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@google.com\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/forgot-password"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "63"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"3f-ZdCUUP9bxwcFOFNmTxH0hdInijI\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:52:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"OTP sent successfully\"\n    }\n}"
 										},
 										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "63"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"3f-ZdCUUP9bxwcFOFNmTxH0hdInijI\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:52:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"id": "a03d690c-e7ff-4c19-a4e2-f56d783144d8",
+											"name": "Not Exist",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@googles.com\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/forgot-password"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "127"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"7f-10MAwP8EHccM2yRtyzK83UK7kCo\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:53:06 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Email does not exist\",\n    \"timestamp\": \"2024-10-09T17:53:06.122Z\",\n    \"path\": \"/admin/auth/forgot-password\"\n}"
 										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"OTP sent successfully\"\n    }\n}"
+									]
 								},
 								{
-									"id": "9212b062-f57f-4816-ae3d-dbb6c1e144fe",
-									"name": "Not Exist",
-									"originalRequest": {
+									"name": "Forgot Password-Invalid email",
+									"id": "3db09926-fcf0-4387-94ae-590e8d013863",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@googles.com\"\n}",
+											"raw": "{\n    \"email\":\"sodiq@google.com\"}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "{{base_url}}/admin/auth/forgot-password"
+										"url": "{{base_url}}/admin/auth/login"
 									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
+											"id": "37b2a917-a8d4-4824-b5ef-29d9d03e6323",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@google.com\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/forgot-password"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "63"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"3f-ZdCUUP9bxwcFOFNmTxH0hdInijI\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:52:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"OTP sent successfully\"\n    }\n}"
 										},
 										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "127"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"7f-10MAwP8EHccM2yRtyzK83UK7kCo\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:53:06 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"id": "c7e2236b-729b-4c2f-872a-72e6c77784ba",
+											"name": "Not Exist",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@googles.com\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/forgot-password"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "127"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"7f-10MAwP8EHccM2yRtyzK83UK7kCo\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:53:06 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Email does not exist\",\n    \"timestamp\": \"2024-10-09T17:53:06.122Z\",\n    \"path\": \"/admin/auth/forgot-password\"\n}"
 										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Email does not exist\",\n    \"timestamp\": \"2024-10-09T17:53:06.122Z\",\n    \"path\": \"/admin/auth/forgot-password\"\n}"
+									]
+								},
+								{
+									"name": "Forgot Password-Empty fields",
+									"id": "3090da57-00e1-4554-a390-a817ef04363c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\":\"sodiq@google.com\"}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/login"
+									},
+									"response": [
+										{
+											"id": "5a90fc64-6c9d-4eeb-ab3c-e22934a3b2bf",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@google.com\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/forgot-password"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "63"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"3f-ZdCUUP9bxwcFOFNmTxH0hdInijI\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:52:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"OTP sent successfully\"\n    }\n}"
+										},
+										{
+											"id": "c69ea113-77ba-4008-9cd0-18dd15de5db3",
+											"name": "Not Exist",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@googles.com\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/forgot-password"
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "127"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"7f-10MAwP8EHccM2yRtyzK83UK7kCo\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:53:06 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Email does not exist\",\n    \"timestamp\": \"2024-10-09T17:53:06.122Z\",\n    \"path\": \"/admin/auth/forgot-password\"\n}"
+										}
+									]
 								}
-							]
+							],
+							"id": "6bbc5ab7-af28-44db-b2ed-7ad39c8ce7cc"
 						},
-						{
-							"name": "Forgot Password-Non existing user",
-							"id": "6b51df77-453a-4ee8-a646-ddd3e911db5e",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/login"
-							},
-							"response": [
-								{
-									"id": "ea170a17-0dbd-44a0-b92e-d68e1580e6df",
-									"name": "Success",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@google.com\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/forgot-password"
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "63"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"3f-ZdCUUP9bxwcFOFNmTxH0hdInijI\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:52:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"OTP sent successfully\"\n    }\n}"
-								},
-								{
-									"id": "a03d690c-e7ff-4c19-a4e2-f56d783144d8",
-									"name": "Not Exist",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@googles.com\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/forgot-password"
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "127"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"7f-10MAwP8EHccM2yRtyzK83UK7kCo\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:53:06 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Email does not exist\",\n    \"timestamp\": \"2024-10-09T17:53:06.122Z\",\n    \"path\": \"/admin/auth/forgot-password\"\n}"
-								}
-							]
-						},
-						{
-							"name": "Forgot Password-Invalid email",
-							"id": "3db09926-fcf0-4387-94ae-590e8d013863",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\":\"sodiq@google.com\"}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/login"
-							},
-							"response": [
-								{
-									"id": "37b2a917-a8d4-4824-b5ef-29d9d03e6323",
-									"name": "Success",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@google.com\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/forgot-password"
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "63"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"3f-ZdCUUP9bxwcFOFNmTxH0hdInijI\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:52:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"OTP sent successfully\"\n    }\n}"
-								},
-								{
-									"id": "c7e2236b-729b-4c2f-872a-72e6c77784ba",
-									"name": "Not Exist",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@googles.com\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/forgot-password"
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "127"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"7f-10MAwP8EHccM2yRtyzK83UK7kCo\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:53:06 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Email does not exist\",\n    \"timestamp\": \"2024-10-09T17:53:06.122Z\",\n    \"path\": \"/admin/auth/forgot-password\"\n}"
-								}
-							]
-						},
-						{
-							"name": "Forgot Password-Empty fields",
-							"id": "3090da57-00e1-4554-a390-a817ef04363c",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\":\"sodiq@google.com\"}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/login"
-							},
-							"response": [
-								{
-									"id": "5a90fc64-6c9d-4eeb-ab3c-e22934a3b2bf",
-									"name": "Success",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@google.com\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/forgot-password"
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "63"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"3f-ZdCUUP9bxwcFOFNmTxH0hdInijI\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:52:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"OTP sent successfully\"\n    }\n}"
-								},
-								{
-									"id": "c69ea113-77ba-4008-9cd0-18dd15de5db3",
-									"name": "Not Exist",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@googles.com\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/forgot-password"
-									},
-									"status": "Bad Request",
-									"code": 400,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "127"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"7f-10MAwP8EHccM2yRtyzK83UK7kCo\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:53:06 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"statusCode\": 400,\n    \"message\": \"Email does not exist\",\n    \"timestamp\": \"2024-10-09T17:53:06.122Z\",\n    \"path\": \"/admin/auth/forgot-password\"\n}"
-								}
-							]
-						}
-					],
-					"id": "6bbc5ab7-af28-44db-b2ed-7ad39c8ce7cc"
-				},
-				{
-					"name": "Reset Password",
-					"item": [
 						{
 							"name": "Reset Password",
-							"id": "25f31496-213f-4118-b48e-ad761fd9bfe2",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/reset-password"
-							},
-							"response": [
+							"item": [
 								{
-									"id": "9224ca63-4a33-49ba-ad12-13ccd74bc6a7",
-									"name": "Success",
-									"originalRequest": {
+									"name": "Reset Password",
+									"id": "25f31496-213f-4118-b48e-ad761fd9bfe2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "PATCH",
 										"header": [],
 										"body": {
@@ -1241,621 +1226,658 @@
 										},
 										"url": "{{base_url}}/admin/auth/reset-password"
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "70"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:55:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"id": "9224ca63-4a33-49ba-ad12-13ccd74bc6a7",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/reset-password"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "70"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:55:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
 										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+									]
+								},
+								{
+									"name": "Reset Password-Empty fields",
+									"id": "3ce36ce3-d163-4588-a68d-2b3b1c89cba2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/reset-password"
+									},
+									"response": [
+										{
+											"id": "ce957120-1f6c-4ac8-bc49-b0ab532e1418",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/reset-password"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "70"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:55:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Reset Password-Password complexity",
+									"id": "95ad7867-d5fe-48eb-8e9e-b38d4ef0c58b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/reset-password"
+									},
+									"response": [
+										{
+											"id": "8e77f03f-9057-45e7-8edd-a29c47391926",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/reset-password"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "70"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:55:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Reset Password-Password Mismatch",
+									"id": "e1b2e0ae-2256-43bf-b634-80bfd84a731f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/reset-password"
+									},
+									"response": [
+										{
+											"id": "62633ed9-55be-4919-8e96-7cf39f1e4cb4",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/reset-password"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "70"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:55:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Reset Password-Empty confirm password field",
+									"id": "926cb2eb-fedd-43ca-9445-630c507bf8b7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/reset-password"
+									},
+									"response": [
+										{
+											"id": "1528b1d6-5ad8-4f75-bd25-6db4e709334b",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/reset-password"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "70"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:55:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Reset Password-Invalid OTP",
+									"id": "02175604-c6fc-4aad-ac8b-355351d23875",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/reset-password"
+									},
+									"response": [
+										{
+											"id": "2daa17a7-3688-463f-bbf4-4ae93d9e47c3",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/reset-password"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "70"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:55:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Reset Password-Invalid Email",
+									"id": "e8a8d9c7-3f06-4e04-9c6d-7364e729919b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/auth/reset-password"
+									},
+									"response": [
+										{
+											"id": "5c7df250-79c8-49a8-b21a-b3f0d4d35398",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/auth/reset-password"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "70"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 17:55:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+										}
+									]
 								}
-							]
+							],
+							"id": "03aa7ca2-100d-47c3-a27e-2f9ed878df6d"
 						},
 						{
-							"name": "Reset Password-Empty fields",
-							"id": "3ce36ce3-d163-4588-a68d-2b3b1c89cba2",
+							"name": "Logout",
+							"id": "3a5d2e89-3869-4da3-84f3-b7d3258e8635",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+								"auth": {
+									"type": "noauth"
 								},
-								"url": "{{base_url}}/admin/auth/reset-password"
-							},
-							"response": [
-								{
-									"id": "ce957120-1f6c-4ac8-bc49-b0ab532e1418",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/reset-password"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "70"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:55:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Reset Password-Password complexity",
-							"id": "95ad7867-d5fe-48eb-8e9e-b38d4ef0c58b",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
+								"method": "DELETE",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/reset-password"
+								"url": "{{base_url}}/admin/auth/logout"
 							},
-							"response": [
-								{
-									"id": "8e77f03f-9057-45e7-8edd-a29c47391926",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/reset-password"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "70"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:55:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Reset Password-Password Mismatch",
-							"id": "e1b2e0ae-2256-43bf-b634-80bfd84a731f",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/reset-password"
-							},
-							"response": [
-								{
-									"id": "62633ed9-55be-4919-8e96-7cf39f1e4cb4",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/reset-password"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "70"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:55:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Reset Password-Empty confirm password field",
-							"id": "926cb2eb-fedd-43ca-9445-630c507bf8b7",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/reset-password"
-							},
-							"response": [
-								{
-									"id": "1528b1d6-5ad8-4f75-bd25-6db4e709334b",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/reset-password"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "70"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:55:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Reset Password-Invalid OTP",
-							"id": "02175604-c6fc-4aad-ac8b-355351d23875",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/reset-password"
-							},
-							"response": [
-								{
-									"id": "2daa17a7-3688-463f-bbf4-4ae93d9e47c3",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/reset-password"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "70"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:55:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Reset Password-Invalid Email",
-							"id": "e8a8d9c7-3f06-4e04-9c6d-7364e729919b",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/admin/auth/reset-password"
-							},
-							"response": [
-								{
-									"id": "5c7df250-79c8-49a8-b21a-b3f0d4d35398",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/auth/reset-password"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "70"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 17:55:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
-								}
-							]
+							"response": []
 						}
 					],
-					"id": "03aa7ca2-100d-47c3-a27e-2f9ed878df6d"
+					"id": "2c482e38-36c1-4c8c-97be-ae4705d3d4f6"
 				},
 				{
 					"name": "User",
@@ -5547,7 +5569,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/roles",
+											"raw": "{{base_url}}/admin/roles?filter[name]=",
 											"host": [
 												"{{base_url}}"
 											],
@@ -5561,6 +5583,11 @@
 													"value": "",
 													"type": "text",
 													"disabled": true
+												},
+												{
+													"key": "filter[name]",
+													"value": "",
+													"type": "text"
 												}
 											]
 										}
@@ -6966,7 +6993,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"slug\": \"\",\n    \"name\": \"\",\n    \"description\": \"\"\n}",
+											"raw": "// {\n//     \"slug\": \"pep-status\",\n//     \"name\": \"Confirm your PEP status\",\n//     \"profile_type\": \"personal\",\n//     \"description\": \"This information helps us ensure compliance with regulatory requirements and maintain the security of your account.\"\n// }",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -7808,7 +7835,7 @@
 											"variable": [
 												{
 													"key": "definitionId",
-													"value": "01926438-2db9-7ccd-88ef-fb76284a72f1"
+													"value": "01933d30-fa26-7ddd-a344-b6ad8c8998e0"
 												}
 											]
 										}
@@ -7896,7 +7923,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "[\n    {\n        \"slug\": \"name\",\n        \"name\": \"Name\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 1,\n        \"storage_strategy\": \"plain\"\n    },\n    {\n        \"slug\": \"gender\",\n        \"name\": \"Gender\",\n        \"options\": [\"male\", \"female\"],\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": true,\n        \"order\": 2,\n        \"storage_strategy\": \"plain\"\n    }\n]",
+											"raw": "// [\n//     {\n//         \"slug\": \"employment-status\",\n//         \"name\": \"What’s your employment status\",\n//         \"options\": [\n//             {\n//                 \"name\": \"Full-time\"\n//             },\n//             {\n//                 \"name\": \"Part-time\"\n//             },\n//             {\n//                 \"name\": \"Self-employed\"\n//             },\n//             {\n//                 \"name\": \"Freelance\"\n//             },\n//             {\n//                 \"name\": \"Temporary/Contract\"\n//             },\n//             {\n//                 \"name\": \"Internship\"\n//             },\n//             {\n//                 \"name\": \"Seasonal\"\n//             },\n//             {\n//                 \"name\": \"Unemployed\"\n//             },\n//             {\n//                 \"name\": \"Retired\"\n//             },\n//             {\n//                 \"name\": \"Student\"\n//             },\n//             {\n//                 \"name\": \"Other\"\n//             }\n//         ],\n//         \"version\": 1,\n//         \"type\": \"select\",\n//         \"profile_type\": \"personal\",\n//         \"default\": null,\n//         \"enabled\": true,\n//         \"required\": false,\n//         \"order\": 1,\n//         \"storage_strategy\": \"plain\"\n//     },\n//     {\n//         \"slug\": \"sector\",\n//         \"name\": \"What sector do you work in?\",\n//         \"options\": [\n//             {\n//                 \"name\": \"Technology\"\n//             },\n//             {\n//                 \"name\": \"Healthcare\"\n//             },\n//             {\n//                 \"name\": \"Education\"\n//             },\n//             {\n//                 \"name\": \"Finance\"\n//             },\n//             {\n//                 \"name\": \"Construction\"\n//             },\n//             {\n//                 \"name\": \"Retail\"\n//             },\n//             {\n//                 \"name\": \"Hospitality\"\n//             },\n//             {\n//                 \"name\": \"Transportation\"\n//             },\n//             {\n//                 \"name\": \"Government\"\n//             },\n//             {\n//                 \"name\": \"Manufacturing\"\n//             },\n//             {\n//                 \"name\": \"Nonprofit\"\n//             },\n//             {\n//                 \"name\": \"Arts and Entertainment\"\n//             },\n//             {\n//                 \"name\": \"Agriculture\"\n//             },\n//             {\n//                 \"name\": \"Energy\"\n//             },\n//             {\n//                 \"name\": \"Other\"\n//             }\n//         ],\n//         \"version\": 1,\n//         \"type\": \"select\",\n//         \"profile_type\": \"personal\",\n//         \"default\": null,\n//         \"enabled\": true,\n//         \"required\": false,\n//         \"order\": 2,\n//         \"storage_strategy\": \"plain\"\n//     },\n//     {\n//         \"slug\": \"occupation\",\n//         \"name\": \"What’s your occupation?\",\n//         \"options\": [\n//             {\n//                 \"name\": \"Software Engineer\"\n//             },\n//             {\n//                 \"name\": \"Doctor\"\n//             },\n//             {\n//                 \"name\": \"Teacher\"\n//             },\n//             {\n//                 \"name\": \"Artist\"\n//             },\n//             {\n//                 \"name\": \"Lawyer\"\n//             },\n//             {\n//                 \"name\": \"Accountant\"\n//             },\n//             {\n//                 \"name\": \"Nurse\"\n//             },\n//             {\n//                 \"name\": \"Scientist\"\n//             },\n//             {\n//                 \"name\": \"Engineer\"\n//             },\n//             {\n//                 \"name\": \"Writer\"\n//             },\n//             {\n//                 \"name\": \"Mechanic\"\n//             },\n//             {\n//                 \"name\": \"Chef\"\n//             },\n//             {\n//                 \"name\": \"Architect\"\n//             },\n//             {\n//                 \"name\": \"Police Officer\"\n//             },\n//             {\n//                 \"name\": \"Entrepreneur\"\n//             },\n//             {\n//                 \"name\": \"Other\"\n//             }\n//         ],\n//         \"version\": 1,\n//         \"type\": \"select\",\n//         \"profile_type\": \"personal\",\n//         \"default\": null,\n//         \"enabled\": true,\n//         \"required\": false,\n//         \"order\": 3,\n//         \"storage_strategy\": \"plain\"\n//     },\n//     {\n//         \"slug\": \"currency\",\n//         \"name\": \"What currency do you earn in?\",\n//         \"options\": [\n//             {\n//                 \"name\": \"USD - United States Dollar\"\n//             },\n//             {\n//                 \"name\": \"EUR - Euro\"\n//             },\n//             {\n//                 \"name\": \"GBP - British Pound\"\n//             },\n//             {\n//                 \"name\": \"NGN - Nigerian Naira\"\n//             },\n//             {\n//                 \"name\": \"INR - Indian Rupee\"\n//             },\n//             {\n//                 \"name\": \"AUD - Australian Dollar\"\n//             },\n//             {\n//                 \"name\": \"CAD - Canadian Dollar\"\n//             },\n//             {\n//                 \"name\": \"JPY - Japanese Yen\"\n//             },\n//             {\n//                 \"name\": \"CNY - Chinese Yuan\"\n//             },\n//             {\n//                 \"name\": \"ZAR - South African Rand\"\n//             },\n//             {\n//                 \"name\": \"BRL - Brazilian Real\"\n//             },\n//             {\n//                 \"name\": \"KES - Kenyan Shilling\"\n//             },\n//             {\n//                 \"name\": \"Other\"\n//             }\n//         ],\n//         \"version\": 1,\n//         \"type\": \"select\",\n//         \"profile_type\": \"personal\",\n//         \"default\": null,\n//         \"enabled\": true,\n//         \"required\": false,\n//         \"order\": 4,\n//         \"storage_strategy\": \"plain\"\n//     },\n//     {\n//         \"slug\": \"monthly-income\",\n//         \"name\": \"How much do you earn monthly?\",\n//         \"options\": [\n//             {\n//                 \"name\": \"Less than $500\"\n//             },\n//             {\n//                 \"name\": \"$500 - $1,000\"\n//             },\n//             {\n//                 \"name\": \"$1,000 - $2,000\"\n//             },\n//             {\n//                 \"name\": \"$2,000 - $5,000\"\n//             },\n//             {\n//                 \"name\": \"$5,000 - $10,000\"\n//             },\n//             {\n//                 \"name\": \"$10,000 - $20,000\"\n//             },\n//             {\n//                 \"name\": \"Over $20,000\"\n//             }\n//         ],\n//         \"version\": 1,\n//         \"type\": \"select\",\n//         \"profile_type\": \"personal\",\n//         \"default\": null,\n//         \"enabled\": true,\n//         \"required\": false,\n//         \"order\": 5,\n//         \"storage_strategy\": \"plain\"\n//     }\n// ]",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -7917,7 +7944,7 @@
 											"variable": [
 												{
 													"key": "definitionId",
-													"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
+													"value": "01933d2f-aa30-7ddd-a344-aa4e37d9f705"
 												}
 											]
 										}
@@ -8359,7 +8386,23 @@
 										},
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/admin/documents"
+										"url": {
+											"raw": "{{base_url}}/admin/documents",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"documents"
+											],
+											"query": [
+												{
+													"key": "filter[profile_id]",
+													"value": "01931947-9fea-744d-8f66-118c138292e3",
+													"disabled": true
+												}
+											]
+										}
 									},
 									"response": []
 								}
@@ -8386,7 +8429,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"type_id\": \"{{adminFetchedDocumentTypeId}}\",\n    \"url\": \"\",\n    \"profile_id\": \"{{adminFetchedProfileId}}\"\n}",
+											"raw": "{\n    \"type_id\": \"{{adminFetchedDocumentTypeId}}\",\n    // \"url\": \"https://dev-api-backend-service.s3.us-east-2.amazonaws.com/00000000-0000-0000-0000-000000000000/019317a0-b7e5-7eeb-a7eb-bd18cf39a633/1731601738978-image-900x300.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAVVZPCHENU2WVOSAA%2F20241114%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20241114T162859Z&X-Amz-Expires=604800&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGgaCXVzLWVhc3QtMiJGMEQCIHyHOqY31i6EveUQEEF3V9ffZoepn4Erad6xwew5RmPJAiBNLy0LhDdQKUMeVpIzc8gFXJXOFh60DtaeczAZtFdzhyrmAwjx%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDM5MDQwMzg2NDg1OSIM87MotV4AA2YApFfZKroDm783MtPlzYXYJfLPuEXMHMQC5DVBZehOoHHamjq77E8jGanwWXsQge569pJGE1uFLVzBlQqla%2Fr1v6VRs8i2A1VyPWTx0Doohq9tvRx6CF8Si0WomojWR4xZlCvcSvihMftG%2FefXvcjY1DGfk6Bzzh7%2Fy212ZuIM87eFsezNDaJ4qLEQJ2TD%2FLmO3pEbx3qceZ3PBaU%2Fk%2Bhl8jkaIrryEdZce84CXKuNvldsxlQBE%2F0J4OfO8sl5UQf42cRByzAWtlUEs7%2FB6jG1do8SnnOIrg2Y8ZWHKk10%2B94OrFx2oR%2BPrYVLAKShHo4hZvvKhiIirzGggJPWVwZ0dGwh5uj3dWdjNhCiGfPWiiyy7vqMseeEcCFKAFThukixcWay0sZK07gkYnux32ms3DKZdh%2FQ3QOdxi2Xp1zI92k2nQPzR3XCi%2B%2BIg9%2BIXcDX4bKTS5tfjDiVnKEjjqJrXvSGwD6YbRaZURxCxZZYlLucW33LtH7%2Fp2iBesKmOIFpezJE8xveaXaLPeYN%2Bq%2FDeE7CwdXJK3nfO%2BJSP1mj%2FbGs%2FMUh7DUp4Xrv%2Fj62YCcUSUQDVkRB309O1AsKLKUDuTCvxti5BjqmAVnw60zKLJzQv4tjZedPESA5fhUT1Aw%2BxU21pkcbWhcgjV%2Fjhiq%2FontCU9t0r6ESC3TM4LH6sAVWjfyUAoGGF10u7jKcLR4efBylakcQ8RQs%2ByME5eASuI3xjcY0cEnvwP2T0kupUQIc%2F2hPp3JPovDySnBbrOdqHuY9wnAR1DHbdvVDLW1EMPwwaO6mB%2B9v4S1bWs4YQoGhXgIguArNcw7Wb9HG%2FbU%3D&X-Amz-Signature=d6d0e781df0e4f3ecff3bf88fdbe8200f47b55044343863e06db31174f681aa4&X-Amz-SignedHeaders=host&x-id=GetObject\",\n    \"profile_id\": \"01931947-9fea-744d-8f66-118c138292e3\",\n    \"file_id\": \"01932b81-afff-7558-9daf-4cfbdf5d148a\",\n    \"status\": \"approved\",\n    \"review\": \"This is done\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -8681,7 +8724,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\":\"Voter document\",\n    \"description\": \"Voters document\",\n    \"enabled\": true,\n    \"required\": true\n}",
+											"raw": "// {\n//     \"name\":\"Driver’s License\",\n//     \"description\": \"Upload a photo of your driver’s license.\",\n//     \"profile_type\": \"personal\",\n//     \"enabled\": true,\n//     \"required\": false\n// }",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -9575,7 +9618,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Tier 1\",\n    \"description\": \"Tier 1\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 0,\n    \"single_receiving_limit\": 0,\n    \"period_sending_limit\": 0,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 0,\n    \"period_receiving_limit_time_unit\": \"day\",\n    \"requirements\": [\n        {\n            \"type\": \"documents\",\n            \"type_id\": \"{{adminFetchedDocumentTypeId}}\"\n        },\n        {\n            \"type\": \"definitions\",\n            \"type_id\": \"{{adminFetchedDefinition}}\"\n        }\n    ]\n}",
+											"raw": "// {\n//     \"name\": \"Tier 3\",\n//     \"description\": \"Tier 3\",\n//     \"profile_type\": \"personal\",\n//     \"level\": 3,\n//     \"enabled\": true,\n//     \"single_sending_limit\": 500000,\n//     \"single_receiving_limit\": 500000,\n//     \"period_sending_limit\": 500000,\n//     \"period_sending_limit_time_unit\": \"day\",\n//     \"period_receiving_limit\": 500000,\n//     \"period_receiving_limit_time_unit\": \"day\",\n//     \"requirements\": [\n//         {\n//             \"type\": \"definition\",\n//             \"type_id\": \"0193203a-c7f0-700b-8891-b1151e81be94\"\n//         },\n//         {\n//             \"type\": \"definition\",\n//             \"type_id\": \"0193203a-c7f0-700b-8891-b1151e81be94\"\n//         },\n//         {\n//             \"type\": \"verification\",\n//             \"type_id\": \"01933a66-8850-7335-a997-758238b72bd4\"\n//         }\n//     ]\n// }",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -9782,7 +9825,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Tier 1\",\n    \"description\": \"Tier 1\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 500000,\n    \"single_receiving_limit\": 500000,\n    \"period_sending_limit\": 500000,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 500000,\n    \"period_receiving_limit_time_unit\": \"day\",\n    \"requirements\": [\n        {\n            \"type\": \"definition\",\n            \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n        },\n        {\n            \"type\": \"verification\",\n            \"type_id\": \"019318f7-a251-744d-8f65-3e0746b58d6b\"\n        },\n        {\n            \"type\": \"verification\",\n            \"type_id\": \"019318f9-c895-744d-8f65-4636cc26dd1f\"\n        }\n    ]\n}",
+											"raw": "// {\n//     \"name\": \"Tier 1\",\n//     \"description\": \"Tier 1\",\n//     \"profile_type\": \"personal\",\n//     \"level\": 1,\n//     \"enabled\": true,\n//     \"single_sending_limit\": 500000,\n//     \"single_receiving_limit\": 500000,\n//     \"period_sending_limit\": 500000,\n//     \"period_sending_limit_time_unit\": \"day\",\n//     \"period_receiving_limit\": 500000,\n//     \"period_receiving_limit_time_unit\": \"day\",\n//     \"requirements\": [\n//         {\n//             \"type\": \"definition\",\n//             \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n//         },\n//         {\n//             \"type\": \"verification\",\n//             \"type_id\": \"019318f9-c895-744d-8f65-4636cc26fd1d\"\n//         },\n//         {\n//             \"type\": \"verification\",\n//             \"type_id\": \"019318f9-c895-744d-8f65-4636cc26dd1f\"\n//         }\n//     ]\n// }",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -9802,7 +9845,7 @@
 											"variable": [
 												{
 													"key": "tierIdd",
-													"value": ""
+													"value": "01928f2d-6756-755b-8a9d-c8094db2af27"
 												}
 											]
 										}
@@ -10040,7 +10083,6 @@
 													"    pm.test(\"Test for valid status\", () => {\r",
 													"        pm.expect(status).to.eql(\"success\")\r",
 													"    })\r",
-													"\r",
 													"\r",
 													"    pm.test(\"Test for valid success message\", () => {\r",
 													"        pm.expect(data).to.be.an(\"array\")\r",
@@ -10604,7 +10646,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=csv",
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=",
 											"host": [
 												"{{base_url}}"
 											],
@@ -10624,8 +10666,7 @@
 												},
 												{
 													"key": "format",
-													"value": "csv",
-													"description": "csv|xlsx"
+													"value": ""
 												}
 											]
 										}
@@ -10722,7 +10763,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{adminFetchedProfileId}}"
+													"value": "019233c5-f357-7ffa-922e-9ff5318f8678"
 												}
 											]
 										}
@@ -10731,6 +10772,111 @@
 								}
 							],
 							"id": "1f3b29c9-6dd8-4e92-a65c-c12f10d0ee65"
+						},
+						{
+							"name": "Change Password",
+							"id": "42192bfb-506d-414d-bff5-9488292abf62",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "// {\n//     \"old_password\": \"Password12@@\",\n//     \"password\": \"Password12@@\",\n//     \"confirm_password\": \"Password12@@\"\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "894566e0-8739-4185-8f11-2dbf91112f4b",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "3ba1a014-6e87-4c99-90ec-73fac93dc15f"
@@ -10788,7 +10934,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/transactions?filter[reference]=Thojncfbqze",
+											"raw": "{{base_url}}/admin/transactions?filter[reference]=Twdfoqiiyhr&relations=disputes&relations=transfer&relations=transfer_beneficiary&relations=batch&relations=account",
 											"host": [
 												"{{base_url}}"
 											],
@@ -10809,7 +10955,7 @@
 												},
 												{
 													"key": "filter[reference]",
-													"value": "Thojncfbqze"
+													"value": "Twdfoqiiyhr"
 												},
 												{
 													"key": "filter[account_id]",
@@ -10830,6 +10976,26 @@
 													"key": "filter[created_at][gt]",
 													"value": "2024-11-11",
 													"disabled": true
+												},
+												{
+													"key": "relations",
+													"value": "disputes"
+												},
+												{
+													"key": "relations",
+													"value": "transfer"
+												},
+												{
+													"key": "relations",
+													"value": "transfer_beneficiary"
+												},
+												{
+													"key": "relations",
+													"value": "batch"
+												},
+												{
+													"key": "relations",
+													"value": "account"
 												}
 											]
 										}
@@ -12253,10 +12419,11 @@
 												"exec": [
 													"try {",
 													"    const { status, data } = pm.response.json()",
+													"    pm.environment.set(\"adminFetchedDisputeId\", data.disputes[0].id)",
 													"",
-													"    if (data.disputes > 0) {",
-													"        pm.environment.set(\"adminFetchedDisputeId\", data.disputes[0].id)",
-													"    }",
+													"    // if (data.disputes > 0) {",
+													"",
+													"    // }",
 													"",
 													"    pm.test(\"Status code is 200\", function () {",
 													"        pm.response.to.have.status(200);",
@@ -12511,7 +12678,7 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/admin/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e"
+										"url": "{{base_url}}/admin/transactions/disputes/{{adminFetchedDisputeId}}"
 									},
 									"response": [
 										{
@@ -12736,14 +12903,63 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"comment\": \"Test\",\n    \"status\": \"resolved\"\n}",
+											"raw": "{\n    \"comment\": \"done\",\n    \"status\": \"pending\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "{{base_url}}/admin/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e"
+										"url": "{{base_url}}/admin/transactions/disputes/{{adminFetchedDisputeId}}"
+									},
+									"response": []
+								},
+								{
+									"name": "Update Dispute Copy - Empty Fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "78e9ab1d-dff6-4270-a319-2f22814c8b8c",
+												"exec": [
+													"try {",
+													"    const { message } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", () => {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Valid error messages returned\", () => {",
+													"        pm.expect(message).includes('Comment cannot be empty')",
+													"        pm.expect(message).includes('Invalid Status')",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "dd5e9fc4-346d-417f-a06a-a883961a18c8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"comment\": \"\",\n    \"status\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/transactions/disputes/{{adminFetchedDisputeId}}"
 									},
 									"response": []
 								},
@@ -12899,7 +13115,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"slug\": \"image-liveness-check\",\n    \"name\": \"Image liveness check\",\n    \"description\": \"This step helps us verify your identity by matching your image with the credentials you’ve provided.\",\n    \"enabled\": true\n}",
+									"raw": "{\n    \"slug\": \"nin\",\n    \"name\": \"Verify NIN\",\n    \"description\": \"In compliance with CBN regulations, we need to verify your NIN to identify you and prevent fraud.\",\n    \"enabled\": true,\n    \"profile_type\": \"personal\"\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -13008,7 +13224,7 @@
 									"query": [
 										{
 											"key": "filter[profile_id]",
-											"value": null,
+											"value": "01931947-9fea-744d-8f66-118c138292e3",
 											"disabled": true
 										}
 									]
@@ -13078,6 +13294,691 @@
 						}
 					],
 					"id": "15f97b48-1f0d-4d14-967f-9b8d6f6223d2"
+				},
+				{
+					"name": "Loan Products",
+					"item": [
+						{
+							"name": "Create Loan Product",
+							"id": "c7b00de3-f4ee-478c-acca-ed51b462a472",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// {\n//     \"name\": \"Loan Product I\",\n//     \"description\": \"This is the demo Product\",\n//     \"currency\": \"NGN\",\n//     \"interest_rate\": 5,\n//     \"interest_period\": \"flat\", // flat | days | weeks | months | years\n//     \"min_amount\": 0,\n//     \"max_amount\": 1000,\n//     \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n//     \"min_tenor_value\": 1,\n//     \"min_tenor_period\": \"days\", // days | weeks | months | years\n//     \"max_tenor_value\": 7,\n//     \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n//     \"enabled\": true,\n//     \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\"\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/loan-products"
+							},
+							"response": [
+								{
+									"id": "f1fa98d6-65d5-4986-a78a-51839bbdef2d",
+									"name": "Create Loan Product",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/loan-products"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "611"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"263-cPiCJrYwltSh1AWCKt7h/5A5ESc\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 16:31:27 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Demo Product\",\n        \"description\": \"This is the demo Product\",\n        \"currency\": \"NGN\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"min_amount\": \"0.00\",\n        \"max_amount\": \"1000.00\",\n        \"frequency\": \"daily\",\n        \"min_tenor_value\": 1,\n        \"min_tenor_period\": \"days\",\n        \"max_tenor_value\": 7,\n        \"max_tenor_period\": \"weeks\",\n        \"enabled\": true,\n        \"id\": \"019316ea-8050-7668-80ac-8191f1697c7c\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"cba_product_id\": null,\n        \"created_on\": \"2024-11-10T16:31:27.427Z\",\n        \"modified_on\": \"2024-11-10T16:31:27.427Z\",\n        \"deleted_on\": null\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Loan Product",
+							"id": "b4337363-e42c-4c24-a6f4-fac5c45fa718",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/loan-products/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loan-products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "01931742-f612-722b-8de7-7729782689de"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "21d8432f-394e-4572-8cd0-b2e5a57f1231",
+									"name": "Get Loan Product",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/loan-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loan-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "01931742-f612-722b-8de7-7729782689de"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1058"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"422-9yy7dY0YBDb/KPF3k1kyldXdqXI\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 18:09:37 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01931742-f612-722b-8de7-7729782689de\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-10T18:08:04.842Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-10T18:08:04.842Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Demo Product\",\n        \"description\": \"This is the demo Product\",\n        \"currency\": \"NGN\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"min_amount\": \"0.00\",\n        \"max_amount\": \"1000.00\",\n        \"frequency\": \"daily\",\n        \"min_tenor_value\": 1,\n        \"min_tenor_period\": \"days\",\n        \"max_tenor_value\": 7,\n        \"max_tenor_period\": \"weeks\",\n        \"enabled\": true,\n        \"cba_product_id\": null,\n        \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n        \"offer_letter_template\": {\n            \"id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T18:07:03.773Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-10T18:07:03.773Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"slug\": \"offer-letter\",\n            \"configurable\": false,\n            \"title\": \"Offer Letter\",\n            \"body\": \"<html>Offer</html>\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "List Loan Products",
+							"id": "d0126a5f-29b9-47de-9410-b9422ac9c73c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/admin/loan-products"
+							},
+							"response": [
+								{
+									"id": "a7863cb6-1e01-4dc1-8842-c94ea9e18ead",
+									"name": "List Loan Products",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/loan-products"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "613"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"265-5yBDdxKjHFy5xnpKLW+7PKaxkaE\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 16:32:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019316ea-8050-7668-80ac-8191f1697c7c\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T16:31:27.427Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-10T16:31:27.427Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Demo Product\",\n            \"description\": \"This is the demo Product\",\n            \"currency\": \"NGN\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"1000.00\",\n            \"frequency\": \"daily\",\n            \"min_tenor_value\": 1,\n            \"min_tenor_period\": \"days\",\n            \"max_tenor_value\": 7,\n            \"max_tenor_period\": \"weeks\",\n            \"enabled\": true,\n            \"cba_product_id\": null\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Loan Product",
+							"id": "84e4e692-b865-4287-af8c-f09c838c8330",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"name\": \"Demo Product\",\n    // \"description\": \"This is the demo Product\",\n    // \"currency\": \"NGN\",\n    // \"interest_rate\": 2,\n    // \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    // \"min_amount\": 0,\n    // \"max_amount\": 1000,\n    // \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    // \"min_tenor_value\": 1,\n    // \"min_tenor_period\": \"days\", // days | weeks | months | years\n    // \"max_tenor_value\": 7,\n    // \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": false\n    // \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/loan-products/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loan-products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "01931742-f612-722b-8de7-7729782689de"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "cc55eb0f-401e-410f-8cb3-9cd08cc38f9d",
+									"name": "Update Loan Product",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/loan-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loan-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "019316ea-8050-7668-80ac-8191f1697c7c"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "611"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"263-BrWVj1+O3PO3HuHycjV4NiK4Vm0\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 16:32:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"019316ea-8050-7668-80ac-8191f1697c7c\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-10T16:31:27.427Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-10T16:31:27.427Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Demo Product\",\n        \"description\": \"This is the demo Product\",\n        \"currency\": \"NGN\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"min_amount\": \"0.00\",\n        \"max_amount\": \"1000.00\",\n        \"frequency\": \"daily\",\n        \"min_tenor_value\": 1,\n        \"min_tenor_period\": \"days\",\n        \"max_tenor_value\": 7,\n        \"max_tenor_period\": \"weeks\",\n        \"enabled\": true,\n        \"cba_product_id\": null\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Loan Product",
+							"id": "86a6db5a-c28c-425a-855c-c52cfd28974b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/loan-products/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loan-products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"id": "d99e67f7-e6e8-4901-9244-fc846a5c0128",
+											"key": "product_id",
+											"value": "019316ea-8050-7668-80ac-8191f1697c7c"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "6be6c47f-1125-4ef3-84c7-4120fbdccc95",
+									"name": "Delete Loan Product",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/loan-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loan-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "019316ea-8050-7668-80ac-8191f1697c7c"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 16:34:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "Set Loan Product Fees",
+							"id": "d362b0e5-99a7-4b2b-b1bb-e55f42a03d28",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"name\": \"Processing Fee\",\n        \"description\": \"Processing Fee\",\n        \"type\": \"flat\", // flat | percentage\n        \"category\": \"processing\", // processing | insurance | disbursement | other\n        \"currency\": \"NGN\",\n        \"amount\": 100,\n        \"min_amount\": 300,\n        \"max_amount\": 500,\n        \"percentage\": null,\n        \"applicable_to\": \"all\" // all | principal | interest\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/loan-products/:product_id/fees",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loan-products",
+										":product_id",
+										"fees"
+									],
+									"variable": [
+										{
+											"id": "ee1ae1f4-c952-4adc-8a73-e582658a66ac",
+											"key": "product_id",
+											"value": "01931742-f612-722b-8de7-7729782689de"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "29f3cb4d-89ba-48c5-a413-479744d3e40e",
+									"name": "Set Loan Product Fees",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n    {\n        \"name\": \"Processing Fee\",\n        \"description\": \"Processing Fee\",\n        \"type\": \"flat\", // flat | percentage\n        \"category\": \"processing\", // processing | insurance | disbursement | other\n        \"currency\": \"NGN\",\n        \"amount\": 100,\n        \"min_amount\": 300,\n        \"max_amount\": 500,\n        \"percentage\": null,\n        \"applicable_to\": \"all\" // all | principal | interest\n    }\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/loan-products/:product_id/fees",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loan-products",
+												":product_id",
+												"fees"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "01931742-f612-722b-8de7-7729782689de"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "228"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"e4-DF/lSKbrba1NQVx/IA8ojLk91VA\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 15:05:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": \"Processing Fee\",\n            \"description\": \"Processing Fee\",\n            \"type\": \"flat\",\n            \"category\": \"processing\",\n            \"currency\": \"NGN\",\n            \"amount\": 100,\n            \"min_amount\": 300,\n            \"max_amount\": 500,\n            \"percentage\": null,\n            \"applicable_to\": \"all\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Set Loan Product Documents",
+							"id": "38ca706a-8e12-4f56-af68-304b6f7873db",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/loan-products/:product_id/documents",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loan-products",
+										":product_id",
+										"documents"
+									],
+									"variable": [
+										{
+											"id": "3950a55a-8286-41ff-a604-74d1c29e93be",
+											"key": "product_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "46d9ab6b-07a9-4411-bd97-a3c6e444949d"
 				}
 			],
 			"id": "176166ee-98f6-4c86-a569-26cd9d7f114c",

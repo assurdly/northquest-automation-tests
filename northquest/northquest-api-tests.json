@@ -20,7 +20,8 @@
 										"id": "db8a99fb-c32a-495b-a2a3-1ab828f6c6ac",
 										"exec": [
 											"try {",
-											"    const { message } = pm.response.json()",
+											"    const { message, data } = pm.response.json()",
+											"    pm.environment.set(\"otpId\", data.id)",
 											"",
 											"    // pm.test(\"Successful POST request\", function () {",
 											"    //     pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
@@ -68,7 +69,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\":\"{{$randomLastName}}@mailinator.com\"\n}",
+									"raw": "{\n    \"email\":\"{{$randomFirstName}}@mailinator.com\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2473,7 +2474,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email_otp_id\": \"0192f26e-a89b-7aaf-b273-1217818230df\",\n    // \"phone_otp_id\": \"0191fa72-78bd-7553-aff4-e97226e6478b\",\n    \"email_otp\": \"585686\",\n    // \"phone_otp\": \"439034\",\n    \"password\": \"123456\",\n    \"referral_code\": \"\",\n    \"last_name\": \"Testing\",\n    \"first_name\": \"Sunday\"\n}",
+									"raw": "{\n    \"email_otp_id\": \"{{otpId}}\",\n    // \"phone_otp_id\": \"{{otpId}}\",\n    \"email_otp\": \"180662\",\n    // \"phone_otp\": \"439034\",\n    \"password\": \"123456\",\n    \"referral_code\": \"\",\n    \"last_name\": \"Testing\",\n    \"first_name\": \"Sunday\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -8443,7 +8444,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"\",\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
+									"raw": "// {\n//     // \"type\": \"personal\",\n//     // \"name\": \"\",\n//     // \"first_name\": \"Azeez\",\n//     // \"last_name\": \"Ibrahim\",\n//     \"nin\": \"1234567890\"\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -8462,7 +8463,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "01925882-f353-7002-8052-04c8be2c03da"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -11073,11 +11074,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"enabled\": false,\n    \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
+									"raw": "{\n    \"enabled\": true\n    // \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -11096,9 +11103,8 @@
 									],
 									"variable": [
 										{
-											"id": "c51ffe44-5bd3-48cc-ba5d-d8a9ade76410",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -11194,6 +11200,556 @@
 						}
 					],
 					"id": "d4acfd3a-9763-4f10-8a3c-01f655ff1cbb"
+				},
+				{
+					"name": "Change Password",
+					"item": [
+						{
+							"name": "Change Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"// try {",
+											"//     const { message } = pm.response.json()",
+											"",
+											"//     pm.test(\"Tests for Invalid old password\", () => {",
+											"//         pm.expect(message).to.eql(\"Invalid old_password\")",
+											"//     })",
+											"",
+											"//     pm.test(\"Status code is 200\", function () {",
+											"//         pm.response.to.have.status(200);",
+											"//     });",
+											"",
+											"// } catch (error) {",
+											"//     console.error(\"errors from tests\", error)",
+											"// }"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "06d144ea-9e89-4227-af3e-df4e9d94e860",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"131623\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "e10651ed-46a1-4dfc-9bf7-a8a4bd56bdc3",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password - Empty Fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for Invalid old password\", () => {",
+											"        pm.expect(message).to.eql(\"Current password is required\")",
+											"    })",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "8642aaf4-f634-4a81-a6e7-dc2b8fb77898",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"\",\n    \"password\": \"\",\n    \"confirm_password\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "f46ffebd-c067-448b-8243-373dbe266870",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password - Invalid Current Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for Invalid old password\", () => {",
+											"        pm.expect(message).to.eql(\"Invalid current password\")",
+											"    })",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "631b0a1c-767d-4279-9d2d-6d22a459f909",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"131613\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "f26945e1-7c0c-4883-aa11-4bee064f004b",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password - Invalid Current Password Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for Invalid old password\", () => {",
+											"        pm.expect(message).to.eql(\"Invalid current password\")",
+											"    })",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "4c3fa245-3d97-41e9-afd9-3cb316ae5bc0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"1234563\",\n    \"password\": \"Password12@@\",\n    \"confirm_password\": \"Password12@@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "ff357509-015d-4592-8b92-300cc2f91900",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "f36fc071-083f-4b4f-9495-9ce112fe1d87"
 				}
 			],
 			"id": "5f372b21-b7d6-4c78-a4b5-268f0d1cb9c4"
@@ -20145,7 +20701,23 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": "{{base_url}}/documents"
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/documents",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"documents"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
 							},
 							"response": []
 						},
@@ -20256,18 +20828,40 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type_id\": \"\",\n    \"url\": \"\"\n}",
+									"raw": "{\n    \"type_id\": \"0192f2a4-ca56-7cc3-9e93-2f88c5ab082d\",\n    \"file_id\": \"01932b81-afff-7558-9daf-4cfbdf5d148a\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{base_url}}/documents"
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/documents",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"documents"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
 							},
 							"response": []
 						},
@@ -20354,6 +20948,7 @@
 										"exec": [
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
+											"    pm.environment.set(\"userFetchedTransactionId\", data.transactions[0].id)\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -20454,7 +21049,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "019317a4-dcd2-7eeb-a7eb-c3f1c21868ef"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -21336,7 +21931,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
+											"value": "01931947-9fea-744d-8f66-118c138292e3"
 										}
 									]
 								}
@@ -22098,7 +22693,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"transaction_id\": \"0192c9e2-18c7-7dd3-ac9c-4b4afd53457d\",\n    \"note\": \"e no\"\n}",
+									"raw": "{\n    \"transaction_id\": \"{{userFetchedTransactionId}}\",\n    \"note\": \"egbami, e no dey work\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -22119,7 +22714,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{userProfileId}}"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -22880,7 +23475,7 @@
 											"    })\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data.roles).to.be.an(\"array\")\r",
+											"        pm.expect(data.disputes).to.be.an(\"array\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
@@ -22898,6 +23493,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -22914,7 +23515,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -27020,7 +27621,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 5300,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29245,14 +29846,31 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\"\n}",
+									"raw": "{\n    // \"account_number\": \"0112345678\",\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{base_url}}/verification/account"
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile:id/verification/account",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile:id",
+										"verification",
+										"account"
+									],
+									"variable": [
+										{
+											"key": "profile:id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
 							},
 							"response": [
 								{
@@ -29782,18 +30400,41 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"cac\": \"9aad4e7b-b42c-49ff-a3cd-8db0dadf5311\"\n}",
+									"raw": "{\n    \"cac\": \"Neem\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{base_url}}/verification/business"
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/business",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"business"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
 							},
 							"response": []
 						}
@@ -29810,14 +30451,22 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/verification/business/:id/shareholders",
+									"raw": "{{base_url}}/profiles/:profile_id/verification/business/:id/shareholders",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
+										":profile_id",
 										"verification",
 										"business",
 										":id",
@@ -29825,9 +30474,12 @@
 									],
 									"variable": [
 										{
-											"id": "9fbe1c08-b027-47bd-953f-843e9cdc9413",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
 											"key": "id",
-											"value": ""
+											"value": "3369190"
 										}
 									]
 								}
@@ -29847,14 +30499,22 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/verification/business/:id/directors",
+									"raw": "{{base_url}}/profiles/:profile_id/verification/business/:id/directors",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
+										":profile_id",
 										"verification",
 										"business",
 										":id",
@@ -29862,9 +30522,12 @@
 									],
 									"variable": [
 										{
-											"id": "a01a60cf-c82c-4849-9449-397d676633f0",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
 											"key": "id",
-											"value": ""
+											"value": "336919"
 										}
 									]
 								}
@@ -29873,6 +30536,364 @@
 						}
 					],
 					"id": "0f33830f-745a-4079-ac38-9421eca93158"
+				},
+				{
+					"name": "Verify Email",
+					"item": [
+						{
+							"name": "Verify Email Copy",
+							"id": "6edc29f7-2724-4597-b559-f690d4663dfe",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"adewunmiakinsanya@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/email",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"email"
+									],
+									"variable": [
+										{
+											"id": "0243eee9-5786-4406-97d1-dab21dea1f16",
+											"key": "profile_id",
+											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "980d3dc4-d8af-401c-bb8c-9a9b45d4d5b5",
+									"name": "Verify Email",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"adewunmiakinsanya@gmail.com\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/verification/email",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"verification",
+												"email"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-LpvOmjUM2g6vtazb7wSJ11MN1rM\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 12:35:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": true\n}"
+								}
+							]
+						},
+						{
+							"name": "Complete Verify Email Copy",
+							"id": "54dae50f-9881-455f-a223-3a75fa19bd8d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"adewunmiakinsanya@gmail.com\",\n    \"otp\": \"324253\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/email",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"email"
+									],
+									"variable": [
+										{
+											"id": "e82e05ef-c3e9-4dff-8487-f9afba1fbf24",
+											"key": "profile_id",
+											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "ed94fd00-a8cf-4eb1-b83b-76ee545b5202",
+									"name": "Complete Verify Email",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"email\": \"adewunmiakinsanya@gmail.com\",\n    \"otp\": \"324253\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/verification/email",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"verification",
+												"email"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-LpvOmjUM2g6vtazb7wSJ11MN1rM\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 12:36:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": true\n}"
+								}
+							]
+						}
+					],
+					"id": "2b807f60-524b-4438-8232-356ab4118763"
+				},
+				{
+					"name": "Verify Phone",
+					"item": [
+						{
+							"name": "Verify Phone",
+							"id": "3767a91a-d5dc-4548-bedd-6c0c914826cf",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone\": \"+2349055755671\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/phone",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"phone"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Complete Verify Phone",
+							"id": "de8dd562-3551-4df5-a0c8-c635f3f0361e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone\": \"+2349055755671\",\n    \"otp\": \"930941\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/phone",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"phone"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "df4c6dcd-2268-4aff-828d-9af585990b71"
 				}
 			],
 			"id": "7bdbec5f-5e28-4db3-835e-14f721228976"
@@ -29923,7 +30944,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
@@ -31435,7 +32456,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries?filter[account_id]=0192b537-3f83-719b-8ec4-df689454f0ee",
 											"host": [
 												"{{base_url}}"
 											],
@@ -31444,10 +32465,17 @@
 												":profile_id",
 												"transfer-beneficiaries"
 											],
+											"query": [
+												{
+													"key": "filter[account_id]",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee",
+													"type": "text"
+												}
+											],
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "01931947-9fea-744d-8f66-118c138292e3"
 												}
 											]
 										}
@@ -32903,7 +33931,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"restricted\": false\n\n}",
+									"raw": "// {\n//     \"restricted\": true\n\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -32951,15 +33979,12 @@
 										"exec": [
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
-											"\r",
-											"\r",
 											"    pm.environment.set(\"userFetchedAccountId\", data[0].id);\r",
 											"    pm.environment.set(\"userFetchedAccountnumber\", data[0].account_number);\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
 											"    });\r",
-											"\r",
 											"\r",
 											"    pm.test(\"Test for valid status\", () => {\r",
 											"        pm.expect(status).to.eql(\"success\")\r",
@@ -33938,11 +34963,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
+									"raw": "{\n    // \"beneficiary_id\": \"01932f12-e38f-7445-8d7e-099680bac163\",\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\",\n    \"pin\": \"1316\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -33950,20 +34981,25 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/accounts/:account_id/transfer",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/transfer",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
+										":profile_id",
 										"accounts",
 										":account_id",
 										"transfer"
 									],
 									"variable": [
 										{
-											"id": "ef611c55-50ec-4a74-a173-57ee857fb6b6",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
 											"key": "account_id",
-											"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+											"value": "01931ba9-9e60-7dda-b579-5d20aa9c5c3a"
 										}
 									]
 								}
@@ -34112,6 +35148,41 @@
 					"id": "9f11d971-ab0d-4802-9f7e-3ca8b0a1d74d"
 				},
 				{
+					"name": "Batch Account Enquiry",
+					"item": [
+						{
+							"name": "Batch Account Enquiry",
+							"id": "d271ebf9-ef43-41fb-bdab-d7c5203c28b5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "DZ-SAg3qa/sample_accounts.csv"
+										}
+									]
+								},
+								"url": "{{base_url}}/verification/account/batch-upload"
+							},
+							"response": []
+						}
+					],
+					"id": "15670d1a-6e24-4e1f-93aa-17d92d5f53c7"
+				},
+				{
 					"name": "Bulk transfer",
 					"item": [
 						{
@@ -34121,11 +35192,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "[\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    },\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    },\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    }\n]",
+									"raw": "// {\n//   \"transactions\": [\n//     {\n//       \"account_number\": \"1780004070\",\n//       \"bank_code\": \"999998\",\n//       \"amount\": 100,\n//       \"narration\": \"Sodiq\"\n//     },\n//     {\n//       \"account_number\": \"1780004070\",\n//       \"bank_code\": \"999998\",\n//       \"amount\": 100,\n//       \"narration\": \"Sodiq\"\n//     },\n//     {\n//       \"account_number\": \"1780004070\",\n//       \"bank_code\": \"999998\",\n//       \"amount\": 100,\n//       \"narration\": \"Sodiq\"\n//     }\n//   ],\n//   \"pin\": \"1316\"\n// }\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -34133,11 +35210,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts/:account_id/bulk-transfer",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/bulk-transfer",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts",
 										":account_id",
@@ -34145,14 +35223,12 @@
 									],
 									"variable": [
 										{
-											"id": "d1f5106e-ff38-43e8-9d24-47ca25728390",
 											"key": "profile_id",
-											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "13407455-ed1f-4814-a743-a5b23f039227",
 											"key": "account_id",
-											"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+											"value": "{{userFetchedAccountId}}"
 										}
 									]
 								}
@@ -34390,11 +35466,11 @@
 					"id": "3731c059-b485-4088-8906-a1d0405457c6"
 				},
 				{
-					"name": "Batch Account Enquiry",
+					"name": "Schedule",
 					"item": [
 						{
-							"name": "Batch Account Enquiry",
-							"id": "d271ebf9-ef43-41fb-bdab-d7c5203c28b5",
+							"name": "Create Transfer Schedule",
+							"id": "15c4a3f5-0ef9-4bbc-9e0b-b00e55a2420c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -34408,21 +35484,282 @@
 								"method": "POST",
 								"header": [],
 								"body": {
-									"mode": "formdata",
-									"formdata": [
+									"mode": "raw",
+									"raw": "{\n    \"start_date\": \"2024-12-31T:00:00.000Z\",\n    \"end_date\": \"2024-12-31T12:00:00.000Z\",\n    \"amount\": 900.23,\n    \"type\": \"transfer\",\n    \"frequency\": \"once\",\n    \"account_id\":\"0192b537-3f83-719b-8ec4-df689454f0ee\",\n    \"recipients\": [\n        {\n            \"narration\": \"Sodiq\",\n            // \"beneficiary_id\": \"0192e710-2759-766f-9de2-61a30f028e20\",\n            \"account_number\": \"1780004070\",\n            \"bank_code\": \"999998\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/transfer",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"schedules",
+										"transfer"
+									],
+									"variable": [
 										{
-											"key": "file",
-											"type": "file",
-											"src": "DZ-SAg3qa/sample_accounts.csv"
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
+								}
+							},
+							"response": [
+								{
+									"id": "2e3093c9-fa1c-48bc-8cc0-6b6f5487adc8",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"start_date\": \"2024-11-14\",\n    \"end_date\": \"2024-11-15\",\n    \"amount\": 100.23,\n    \"type\": \"transfer\",\n    \"frequency\": \"once\",\n    \"account_id\":\"0192b537-3f83-719b-8ec4-df689454f0ee\",\n    \"recipients\": [\n        {\n            \"narration\": \"Sodiq\",\n            // \"beneficiary_id\": \"0192e710-2759-766f-9de2-61a30f028e20\",\n            \"account_number\": \"1780004070\",\n            \"bank_code\": \"999998\"\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/transfer",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"schedules",
+												"transfer"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "707"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2c3-wCVK2u4H1NUAsYPN/0e49reS55U\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 13:39:01 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"recipients\": [\n                {\n                    \"narration\": \"Sodiq\",\n                    \"account_number\": \"1780004070\",\n                    \"bank_code\": \"999998\"\n                }\n            ]\n        },\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"frequency\": \"once\",\n        \"type\": \"transfer\",\n        \"start_date\": \"2024-11-14T00:00:00.000Z\",\n        \"next_run_date\": \"2024-11-14T00:00:00.000Z\",\n        \"end_date\": \"2024-11-15T00:00:00.000Z\",\n        \"amount\": \"100.23\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"id\": \"01932099-593e-7ee1-a981-f481189c5401\",\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-11-12T13:39:01.053Z\",\n        \"modified_on\": \"2024-11-12T13:39:01.053Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Transfer Schedule",
+							"id": "f5942478-9173-4b1e-a8f7-ad7a92c883f6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"start_date\": \"2024-12-30\",\n    \"end_date\": \"2024-12-31\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
-								"url": "{{base_url}}/verification/account/batch-upload"
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/01932093-1a4c-788d-959b-18f7c7b68e05",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"schedules",
+										"01932093-1a4c-788d-959b-18f7c7b68e05"
+									],
+									"variable": [
+										{
+											"id": "fc1c2d5c-0ddc-40af-af1d-c2344e16738f",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "b39e5c39-b3c1-4365-a3dc-14f518a66b1b",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"start_date\": \"2024-12-30\",\n    \"end_date\": \"2024-12-31\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/01932093-1a4c-788d-959b-18f7c7b68e05",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"schedules",
+												"01932093-1a4c-788d-959b-18f7c7b68e05"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "707"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2c3-boOn3nUE7OjIaBswZMw0uHac720\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 13:39:45 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01932093-1a4c-788d-959b-18f7c7b68e05\",\n        \"meta\": {\n            \"recipients\": [\n                {\n                    \"narration\": \"Sodiq\",\n                    \"account_number\": \"1780004070\",\n                    \"bank_code\": \"999998\"\n                }\n            ]\n        },\n        \"created_on\": \"2024-11-12T13:32:11.723Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-11-12T13:39:45.578Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"frequency\": \"once\",\n        \"type\": \"transfer\",\n        \"start_date\": \"2024-12-30T00:00:00.000Z\",\n        \"next_run_date\": \"2024-12-30T00:00:00.000Z\",\n        \"end_date\": \"2024-12-31T00:00:00.000Z\",\n        \"status\": \"active\",\n        \"amount\": \"100.23\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "356ffef9-d0b4-44de-90ff-a2f932ddf6d2"
+				},
+				{
+					"name": "Banks",
+					"item": [
+						{
+							"name": "Get Banks",
+							"id": "ea91bda0-98d1-4dc4-948e-5b5e94bd958d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/misc/banks"
 							},
 							"response": []
 						}
 					],
-					"id": "15670d1a-6e24-4e1f-93aa-17d92d5f53c7"
+					"id": "c88fa448-fb4e-46f0-a754-97c257a6e176"
 				}
 			],
 			"id": "804127ad-4d2d-4303-b951-836a31a59380"
@@ -34634,6 +35971,234 @@
 				}
 			],
 			"id": "ac1cc779-0d38-4124-9ef9-e16fb832b8d9"
+		},
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "Upload File",
+					"id": "09403cfc-46d7-49e8-989b-7858ec96d9a6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "lOndRtdBs/image-900x300.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/files",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"files"
+							],
+							"query": [
+								{
+									"key": "file",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "d3fc72db-0994-454c-a724-67d1d291e31e",
+							"name": "Upload File",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/Users/thewunmi/Documents/gmail-icon.jpeg"
+										}
+									]
+								},
+								"url": "{{base_url}}/files"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "543"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21f-ov4l+3KBNl/YHgUmLSN1umUqwZg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 13:19:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"user_id\": \"01925343-fbc8-7886-abfb-41c8746fc8ce\",\n        \"file_name\": \"gmail-icon.jpeg\",\n        \"file_key\": \"00000000-0000-0000-0000-000000000000/01925343-fbc8-7886-abfb-41c8746fc8ce/gmail-icon.jpeg-1731417585187\",\n        \"id\": \"01932087-c004-7775-8dc6-7265f7c8bb41\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"profile_id\": null,\n        \"file_url\": null,\n        \"file_expires_on\": null,\n        \"created_on\": \"2024-11-12T13:19:48.011Z\",\n        \"modified_on\": \"2024-11-12T13:19:48.011Z\",\n        \"deleted_on\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get File",
+					"id": "86a8d699-37d2-48d8-b19b-c6404f095b2b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/files/:file_id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"files",
+								":file_id"
+							],
+							"variable": [
+								{
+									"id": "f8e00946-fb83-4dcb-b3cf-31e8ca78f1b3",
+									"key": "file_id",
+									"value": "01932087-c004-7775-8dc6-7265f7c8bb41"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "41b46a6b-5a2b-406c-af7d-d2b78ba9114e",
+							"name": "Get File",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/files/:file_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"files",
+										":file_id"
+									],
+									"variable": [
+										{
+											"key": "file_id",
+											"value": "01932087-c004-7775-8dc6-7265f7c8bb41"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "543"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21f-OSXFXfe94fzeC8oIY59KWuMAncQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 12 Nov 2024 13:20:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01932087-c004-7775-8dc6-7265f7c8bb41\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-12T13:19:48.011Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-12T13:19:48.011Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": null,\n        \"user_id\": \"01925343-fbc8-7886-abfb-41c8746fc8ce\",\n        \"file_name\": \"gmail-icon.jpeg\",\n        \"file_key\": \"00000000-0000-0000-0000-000000000000/01925343-fbc8-7886-abfb-41c8746fc8ce/gmail-icon.jpeg-1731417585187\",\n        \"file_url\": null,\n        \"file_expires_on\": null\n    }\n}"
+						}
+					]
+				}
+			],
+			"id": "220efd0f-b3d8-4b60-bb2d-9500248e86ba"
 		}
 	],
 	"auth": {
