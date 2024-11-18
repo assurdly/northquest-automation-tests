@@ -2418,7 +2418,7 @@
 												"token": "{{adminAccessToken}}"
 											}
 										},
-										"method": "PATCH",
+										"method": "GET",
 										"header": [],
 										"url": {
 											"raw": "{{base_url}}/admin/users/me",
@@ -16849,22 +16849,28 @@
 				},
 				{
 					"name": "Logout",
-					"id": "968f2c18-be46-4471-9752-48320f7a4f7d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{adminAccessToken}}"
-							}
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": "{{base_url}}/admin/auth/logout"
-					},
-					"response": []
+					"item": [
+						{
+							"name": "Logout",
+							"id": "968f2c18-be46-4471-9752-48320f7a4f7d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": "{{base_url}}/admin/auth/logout"
+							},
+							"response": []
+						}
+					],
+					"id": "5310db30-9af7-42f1-a91a-bb18b4223d57"
 				}
 			],
 			"id": "176166ee-98f6-4c86-a569-26cd9d7f114c",
