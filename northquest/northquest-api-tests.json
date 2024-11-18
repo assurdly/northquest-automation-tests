@@ -28974,8 +28974,8 @@
 													"script": {
 														"id": "c2b73ab1-81b9-45e8-a9b8-c80ecbe8290a",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -28998,7 +28998,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29023,7 +29023,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
@@ -29070,7 +29070,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\"\n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29142,7 +29142,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29214,7 +29214,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29286,7 +29286,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29340,8 +29340,8 @@
 													"script": {
 														"id": "79114f97-bfa9-45ba-a44c-e83396e169c2",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -29364,7 +29364,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29389,7 +29389,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
