@@ -27992,8 +27992,8 @@
 													"script": {
 														"id": "b668a63d-f327-42df-ba3f-7b1e1839bdd2",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -28016,7 +28016,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    \"option_id\":\"100\"\n   \n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 100,\n    \"option_id\":\"100\",\n    \"pin\": \"1316\"\n   \n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28041,7 +28041,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
@@ -28058,6 +28058,21 @@
 										},
 										{
 											"name": "Mtn Data-Empty fields",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "3187ebbc-6000-43ba-a4f8-55c0c592df04",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "1abf9384-9e41-4394-bba8-fb1b1aa6efab",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28073,7 +28088,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\": 100,\n    \"option_id\":\"\"\n   \n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\": 100,\n    \"option_id\":\"\",\n    \"pin\": \"1316\"\n   \n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28098,7 +28113,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
