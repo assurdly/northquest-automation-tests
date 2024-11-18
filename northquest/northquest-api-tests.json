@@ -34128,7 +34128,7 @@
 										"id": "138b1920-998c-448a-a73f-748df9713c47",
 										"exec": [
 											"try {\r",
-											"    const { status, data } = pm.response.json()\r",
+											"    const { status, message } = pm.response.json()\r",
 											"\r",
 											"\r",
 											"    pm.test(\"Status code is 400\", function () {\r",
@@ -34137,11 +34137,11 @@
 											"\r",
 											"\r",
 											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
+											"        pm.expect(status).to.eql(\"error\")\r",
 											"    })\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data).to.be.an(\"array\")\r",
+											"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
@@ -34274,9 +34274,11 @@
 											"try {\r",
 											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Test for valid status code\", () => {\r",
-											"        pm.expect(statusCode).to.eql(401)\r",
-											"    })\r",
+											"     pm.test(\"Status code is 401\", function () {\r",
+											"        pm.response.to.have.status(401);\r",
+											"    });\r",
+											"\r",
+											"    \r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.eql(\"Access token is required\")\r",
@@ -34302,11 +34304,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts"
 									],
