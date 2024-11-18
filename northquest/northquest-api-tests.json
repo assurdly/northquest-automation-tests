@@ -8444,7 +8444,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"\",\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
+									"raw": "// {\n//     // \"type\": \"personal\",\n//     // \"name\": \"\",\n//     // \"first_name\": \"Azeez\",\n//     // \"last_name\": \"Ibrahim\",\n//     \"nin\": \"1234567890\"\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -8463,7 +8463,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "01925882-f353-7002-8052-04c8be2c03da"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -30848,11 +30848,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"phone\": \"+2348089722636\",\n    \"otp\": \"776531\"\n}",
+									"raw": "{\n    \"phone\": \"+2349055755671\",\n    \"otp\": \"930941\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -30872,9 +30878,8 @@
 									],
 									"variable": [
 										{
-											"id": "4d1f63a3-0330-48c0-b283-18012508f9e2",
 											"key": "profile_id",
-											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
