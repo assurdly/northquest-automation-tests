@@ -34437,11 +34437,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts",
 										":account_id"
@@ -34449,11 +34450,11 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{userProfileId}}"
+											"value": "{{userFetchedProfileId}}"
 										},
 										{
 											"key": "account_id",
-											"value": "{{benefAccId}}"
+											"value": "{{userFetchedAccountId}}"
 										}
 									]
 								}
@@ -34573,11 +34574,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts",
 										":account_id"
@@ -34709,11 +34711,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts",
 										":account_id"
@@ -34825,9 +34828,9 @@
 											"try {\r",
 											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Test for valid status code\", () => {\r",
-											"        pm.expect(statusCode).to.eql(401)\r",
-											"    })\r",
+											"   pm.test(\"Status code is 401\", function () {\r",
+											"        pm.response.to.have.status(401);\r",
+											"    });\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.eql(\"Access token is required\")\r",
@@ -34853,11 +34856,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts",
 										":account_id"
