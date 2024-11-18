@@ -13273,6 +13273,681 @@
 						}
 					],
 					"id": "15f97b48-1f0d-4d14-967f-9b8d6f6223d2"
+				},
+				{
+					"name": "Loan Products",
+					"item": [
+						{
+							"name": "Create Loan Product",
+							"id": "c7b00de3-f4ee-478c-acca-ed51b462a472",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/loan-products"
+							},
+							"response": [
+								{
+									"id": "f1fa98d6-65d5-4986-a78a-51839bbdef2d",
+									"name": "Create Loan Product",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/loan-products"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "611"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"263-cPiCJrYwltSh1AWCKt7h/5A5ESc\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 16:31:27 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Demo Product\",\n        \"description\": \"This is the demo Product\",\n        \"currency\": \"NGN\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"min_amount\": \"0.00\",\n        \"max_amount\": \"1000.00\",\n        \"frequency\": \"daily\",\n        \"min_tenor_value\": 1,\n        \"min_tenor_period\": \"days\",\n        \"max_tenor_value\": 7,\n        \"max_tenor_period\": \"weeks\",\n        \"enabled\": true,\n        \"id\": \"019316ea-8050-7668-80ac-8191f1697c7c\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"cba_product_id\": null,\n        \"created_on\": \"2024-11-10T16:31:27.427Z\",\n        \"modified_on\": \"2024-11-10T16:31:27.427Z\",\n        \"deleted_on\": null\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Loan Product",
+							"id": "b4337363-e42c-4c24-a6f4-fac5c45fa718",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/loan-products/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loan-products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"id": "77c012e7-bdb2-474f-b15f-73e3319ae150",
+											"key": "product_id",
+											"value": "01931742-f612-722b-8de7-7729782689de"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "21d8432f-394e-4572-8cd0-b2e5a57f1231",
+									"name": "Get Loan Product",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/loan-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loan-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "01931742-f612-722b-8de7-7729782689de"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1058"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"422-9yy7dY0YBDb/KPF3k1kyldXdqXI\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 18:09:37 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01931742-f612-722b-8de7-7729782689de\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-10T18:08:04.842Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-10T18:08:04.842Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Demo Product\",\n        \"description\": \"This is the demo Product\",\n        \"currency\": \"NGN\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"min_amount\": \"0.00\",\n        \"max_amount\": \"1000.00\",\n        \"frequency\": \"daily\",\n        \"min_tenor_value\": 1,\n        \"min_tenor_period\": \"days\",\n        \"max_tenor_value\": 7,\n        \"max_tenor_period\": \"weeks\",\n        \"enabled\": true,\n        \"cba_product_id\": null,\n        \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n        \"offer_letter_template\": {\n            \"id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T18:07:03.773Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-10T18:07:03.773Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"slug\": \"offer-letter\",\n            \"configurable\": false,\n            \"title\": \"Offer Letter\",\n            \"body\": \"<html>Offer</html>\"\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "List Loan Products",
+							"id": "d0126a5f-29b9-47de-9410-b9422ac9c73c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/admin/loan-products"
+							},
+							"response": [
+								{
+									"id": "a7863cb6-1e01-4dc1-8842-c94ea9e18ead",
+									"name": "List Loan Products",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/loan-products"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "613"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"265-5yBDdxKjHFy5xnpKLW+7PKaxkaE\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 16:32:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019316ea-8050-7668-80ac-8191f1697c7c\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T16:31:27.427Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-10T16:31:27.427Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Demo Product\",\n            \"description\": \"This is the demo Product\",\n            \"currency\": \"NGN\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"1000.00\",\n            \"frequency\": \"daily\",\n            \"min_tenor_value\": 1,\n            \"min_tenor_period\": \"days\",\n            \"max_tenor_value\": 7,\n            \"max_tenor_period\": \"weeks\",\n            \"enabled\": true,\n            \"cba_product_id\": null\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Loan Product",
+							"id": "84e4e692-b865-4287-af8c-f09c838c8330",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/loan-products/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loan-products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"id": "68461e4d-dcf4-43c7-b205-9274dd9d7b96",
+											"key": "product_id",
+											"value": "019316ea-8050-7668-80ac-8191f1697c7c"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "cc55eb0f-401e-410f-8cb3-9cd08cc38f9d",
+									"name": "Update Loan Product",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/loan-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loan-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "019316ea-8050-7668-80ac-8191f1697c7c"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "611"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"263-BrWVj1+O3PO3HuHycjV4NiK4Vm0\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 16:32:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"019316ea-8050-7668-80ac-8191f1697c7c\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-10T16:31:27.427Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-10T16:31:27.427Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Demo Product\",\n        \"description\": \"This is the demo Product\",\n        \"currency\": \"NGN\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"min_amount\": \"0.00\",\n        \"max_amount\": \"1000.00\",\n        \"frequency\": \"daily\",\n        \"min_tenor_value\": 1,\n        \"min_tenor_period\": \"days\",\n        \"max_tenor_value\": 7,\n        \"max_tenor_period\": \"weeks\",\n        \"enabled\": true,\n        \"cba_product_id\": null\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Loan Product",
+							"id": "86a6db5a-c28c-425a-855c-c52cfd28974b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/loan-products/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loan-products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"id": "d99e67f7-e6e8-4901-9244-fc846a5c0128",
+											"key": "product_id",
+											"value": "019316ea-8050-7668-80ac-8191f1697c7c"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "6be6c47f-1125-4ef3-84c7-4120fbdccc95",
+									"name": "Delete Loan Product",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/loan-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loan-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "019316ea-8050-7668-80ac-8191f1697c7c"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 16:34:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "Set Loan Product Fees",
+							"id": "d362b0e5-99a7-4b2b-b1bb-e55f42a03d28",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"name\": \"Processing Fee\",\n        \"description\": \"Processing Fee\",\n        \"type\": \"flat\", // flat | percentage\n        \"category\": \"processing\", // processing | insurance | disbursement | other\n        \"currency\": \"NGN\",\n        \"amount\": 100,\n        \"min_amount\": 300,\n        \"max_amount\": 500,\n        \"percentage\": null,\n        \"applicable_to\": \"all\" // all | principal | interest\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/loan-products/:product_id/fees",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loan-products",
+										":product_id",
+										"fees"
+									],
+									"variable": [
+										{
+											"id": "ee1ae1f4-c952-4adc-8a73-e582658a66ac",
+											"key": "product_id",
+											"value": "01931742-f612-722b-8de7-7729782689de"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "29f3cb4d-89ba-48c5-a413-479744d3e40e",
+									"name": "Set Loan Product Fees",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n    {\n        \"name\": \"Processing Fee\",\n        \"description\": \"Processing Fee\",\n        \"type\": \"flat\", // flat | percentage\n        \"category\": \"processing\", // processing | insurance | disbursement | other\n        \"currency\": \"NGN\",\n        \"amount\": 100,\n        \"min_amount\": 300,\n        \"max_amount\": 500,\n        \"percentage\": null,\n        \"applicable_to\": \"all\" // all | principal | interest\n    }\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/loan-products/:product_id/fees",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loan-products",
+												":product_id",
+												"fees"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "01931742-f612-722b-8de7-7729782689de"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "228"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"e4-DF/lSKbrba1NQVx/IA8ojLk91VA\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 15:05:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": \"Processing Fee\",\n            \"description\": \"Processing Fee\",\n            \"type\": \"flat\",\n            \"category\": \"processing\",\n            \"currency\": \"NGN\",\n            \"amount\": 100,\n            \"min_amount\": 300,\n            \"max_amount\": 500,\n            \"percentage\": null,\n            \"applicable_to\": \"all\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Set Loan Product Documents",
+							"id": "38ca706a-8e12-4f56-af68-304b6f7873db",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/loan-products/:product_id/documents",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loan-products",
+										":product_id",
+										"documents"
+									],
+									"variable": [
+										{
+											"id": "3950a55a-8286-41ff-a604-74d1c29e93be",
+											"key": "product_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "46d9ab6b-07a9-4411-bd97-a3c6e444949d"
 				}
 			],
 			"id": "176166ee-98f6-4c86-a569-26cd9d7f114c",
