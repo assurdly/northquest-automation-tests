@@ -11976,7 +11976,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\"\n}",
+									"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n    \"collection_method\": \"manual\", // manual | automatic | all\n    \"payment_method\": \"card\" // card | account | all\n}",
 									"options": {
 										"raw": {
 											"language": "json"
