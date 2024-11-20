@@ -13480,7 +13480,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/admin/admin-audit-logs/?relations=user",
+									"raw": "{{base_url}}/admin/admin-audit-logs/?relations=user&limit=100",
 									"host": [
 										"{{base_url}}"
 									],
@@ -13498,6 +13498,11 @@
 											"key": "relations",
 											"value": "profile",
 											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "100",
+											"type": "text"
 										}
 									]
 								}
