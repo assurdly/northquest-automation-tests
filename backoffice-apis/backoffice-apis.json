@@ -14019,7 +14019,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/transactions?filter[reference]=Twdfoqiiyhr&relations=disputes&relations=transfer&relations=transfer_beneficiary&relations=batch&relations=account",
+											"raw": "{{base_url}}/admin/transactions?relations=disputes&relations=transfer&relations=transfer_beneficiary&relations=batch&relations=account&relations=profile",
 											"host": [
 												"{{base_url}}"
 											],
@@ -14040,7 +14040,8 @@
 												},
 												{
 													"key": "filter[reference]",
-													"value": "Twdfoqiiyhr"
+													"value": "Twdfoqiiyhr",
+													"disabled": true
 												},
 												{
 													"key": "filter[account_id]",
@@ -14081,6 +14082,10 @@
 												{
 													"key": "relations",
 													"value": "account"
+												},
+												{
+													"key": "relations",
+													"value": "profile"
 												}
 											]
 										}
