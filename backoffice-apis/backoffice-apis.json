@@ -14019,7 +14019,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/transactions?relations=disputes&relations=transfer&relations=transfer_beneficiary&relations=batch&relations=account&relations=profile",
+											"raw": "{{base_url}}/admin/transactions?filter[transaction_type]=transfer&relations=disputes&relations=transfer&relations=transfer_beneficiary&relations=batch&relations=account",
 											"host": [
 												"{{base_url}}"
 											],
@@ -14050,8 +14050,7 @@
 												},
 												{
 													"key": "filter[transaction_type]",
-													"value": "transfer",
-													"disabled": true
+													"value": "transfer"
 												},
 												{
 													"key": "filter[created_at][lt]",
@@ -14085,7 +14084,8 @@
 												},
 												{
 													"key": "relations",
-													"value": "profile"
+													"value": "prim",
+													"disabled": true
 												}
 											]
 										}
