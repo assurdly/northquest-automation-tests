@@ -35948,7 +35948,7 @@
 											"try {",
 											"    const { status, data } = pm.response.json()",
 											"",
-											"    pm.environment.set(\"userFetchedTierId\", data[0].id);",
+											"    pm.environment.set(\"userFetchedPersonalTierId\", data[0].id);",
 											"",
 											"    pm.test(\"Status code is 200\", function () {",
 											"        pm.response.to.have.status(200);",
@@ -36079,7 +36079,7 @@
 											"try {",
 											"    const { status, data } = pm.response.json()",
 											"",
-											"    pm.environment.set(\"userFetchedTierId\", data[0].id);",
+											"    pm.environment.set(\"userBusinessTierId\", data[0].id);",
 											"",
 											"    pm.test(\"Status code is 200\", function () {",
 											"        pm.response.to.have.status(200);",
@@ -36094,7 +36094,7 @@
 											"    })",
 											"",
 											"    pm.test(\"Test for valid personal tiers\", () => {",
-											"        pm.expect(data[0].profile_type).to.eql(\"personal\")",
+											"        pm.expect(data[0].profile_type).to.eql(\"business\")",
 											"    })",
 											"",
 											"} catch (error) {",
@@ -36212,25 +36212,15 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "{{base_url}}/tiers/:tier_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"tiers",
-										":tier_id"
-									],
-									"variable": [
-										{
-											"id": "95d1c403-2bcd-4b0a-96e3-88e30249bd5c",
-											"key": "tier_id",
-											"value": "01928f2d-6756-755b-8a9d-c8094db2af27"
-										}
-									]
-								}
+								"url": "{{base_url}}/tiers/{{userFetchedTierId}}"
 							},
 							"response": [
 								{
