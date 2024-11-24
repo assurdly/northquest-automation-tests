@@ -36433,6 +36433,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -36446,9 +36452,8 @@
 							],
 							"variable": [
 								{
-									"id": "f8e00946-fb83-4dcb-b3cf-31e8ca78f1b3",
 									"key": "file_id",
-									"value": "01932087-c004-7775-8dc6-7265f7c8bb41"
+									"value": "01935bfe-02f1-7ee0-a50b-01c376f9a679"
 								}
 							]
 						}
