@@ -8935,257 +8935,6 @@
 					"id": "2a9cdb68-c147-4994-8797-f28f8b453f2a"
 				},
 				{
-					"name": "Get Profile",
-					"item": [
-						{
-							"name": "Get Profile",
-							"id": "659af82a-1b3a-4f06-8ffe-94660b0bb3e5",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "019317a4-dcd2-7eeb-a7eb-c3f1c21868ef"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "9d197409-c37c-44a7-8152-f8aad0dc0703",
-									"name": "Success",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "851"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"353-l8vQO5LXg6vdnlk9ODHRVaNt9D4\""
-										},
-										{
-											"key": "Date",
-											"value": "Tue, 08 Oct 2024 20:01:06 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {},\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Sodiq Inc again\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"userProfile\": {\n            \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T11:48:50.239Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"status\": \"active\",\n            \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n        }\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Get Profile-No auth",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "b9fa3625-6bf2-4c47-86e5-ff06d373553b",
-										"exec": [
-											"try {\r",
-											"    const { message, statusCode } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Test for valid status code\", () => {\r",
-											"        pm.expect(statusCode).to.eql(401)\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).to.eql(\"Access token is required\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(error)\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "69c40ae3-3660-4a02-8f7d-fb1137f1f396",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{profileId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "8b9971d6-bae7-4ff4-972f-04bed99957ad",
-									"name": "Success",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "851"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"353-l8vQO5LXg6vdnlk9ODHRVaNt9D4\""
-										},
-										{
-											"key": "Date",
-											"value": "Tue, 08 Oct 2024 20:01:06 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {},\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Sodiq Inc again\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"userProfile\": {\n            \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T11:48:50.239Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"status\": \"active\",\n            \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n        }\n    }\n}"
-								}
-							]
-						}
-					],
-					"id": "d1e9274f-ce02-465d-a025-108c2dd485b9"
-				},
-				{
 					"name": "Update User Profile",
 					"item": [
 						{
@@ -9332,6 +9081,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
@@ -9356,12 +9111,10 @@
 									],
 									"variable": [
 										{
-											"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
 											"key": "profile_id",
 											"value": "01925236-19c0-7112-9440-aa8162716104"
 										},
 										{
-											"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
 											"key": "id",
 											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
 										}
@@ -9469,6 +9222,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
@@ -9493,12 +9252,10 @@
 									],
 									"variable": [
 										{
-											"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
 											"key": "profile_id",
 											"value": "01925236-19c0-7112-9440-aa8162716104"
 										},
 										{
-											"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
 											"key": "id",
 											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
 										}
@@ -10297,11 +10054,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+									"raw": "// {\n//     \"name\": \"wunmi\",\n//     \"first_name\": \"Sodiq\",\n//     \"last_name\": \"DA\",\n//     \"nin\": \"232\"\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10319,9 +10082,8 @@
 									],
 									"variable": [
 										{
-											"id": "9b4548f0-1cf6-4b1b-a6a9-7fbb1dec3a5b",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -10432,23 +10194,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id"
-									],
-									"variable": [
-										{
-											"id": "9b4548f0-1cf6-4b1b-a6a9-7fbb1dec3a5b",
-											"key": "profile_id",
-											"value": "{{profileId}}"
-										}
-									]
-								}
+								"url": "{{base_url}}/profiles/{{userFetchedProfileId}}"
 							},
 							"response": [
 								{
