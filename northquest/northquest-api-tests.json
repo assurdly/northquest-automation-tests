@@ -8113,22 +8113,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "019317a4-dcd2-7eeb-a7eb-c3f1c21868ef"
-										}
-									]
-								}
+								"url": "{{base_url}}/profiles/{{userFetchedProfileId}}"
 							},
 							"response": [
 								{
@@ -31236,6 +31221,134 @@
 						}
 					],
 					"id": "df4c6dcd-2268-4aff-828d-9af585990b71"
+				},
+				{
+					"name": "Match Contacts Copy",
+					"id": "5dde1a80-61a1-4269-aeaf-9af2e784820a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contacts\": [\n        \"+2348149583661\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/accounts/match-contacts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"accounts",
+								"match-contacts"
+							],
+							"variable": [
+								{
+									"id": "7a9d2403-7a8b-4e61-8a48-d21e5767c3c3",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "3b0700b0-1729-4fee-8c3a-b876f035f2e3",
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contacts\": [\n        \"+2348149583661\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/match-contacts",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										"match-contacts"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4f-AwvIbAEuSTjtpuoHs8jfRE9mo0s\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 16:28:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": \"John Doe\",\n            \"account_number\": \"8149583661\"\n        }\n    ]\n}"
+						}
+					]
 				}
 			],
 			"id": "7bdbec5f-5e28-4db3-835e-14f721228976"
