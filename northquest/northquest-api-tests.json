@@ -10178,11 +10178,47 @@
 						},
 						{
 							"name": "Update Profile-Invalid Profile ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "31ea47fc-a3ac-48c1-8edf-d0f14e3a94f2",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 404\", () => {",
+											"        pm.response.to.have.status(404);",
+											"    });",
+											"",
+											"    pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Not Found\");",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"Profile not found\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "e18b2037-3793-4c3c-9ebe-257804bfa9ac",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
@@ -10194,7 +10230,7 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/profiles/{{userFetchedProfileId}}"
+								"url": "{{base_url}}/profiles/01933e62-ed51-7bb7-8355-f0e0e6dee332"
 							},
 							"response": [
 								{
@@ -10286,11 +10322,47 @@
 						},
 						{
 							"name": "Update Profile-Empty profile ID field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "44da6a21-dc2a-40df-8d42-7d7019ac1e6b",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", () => {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Bad Request\");",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "de791c23-bd9e-4d3d-adac-8b78e56b59ac",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
@@ -10313,9 +10385,8 @@
 									],
 									"variable": [
 										{
-											"id": "9b4548f0-1cf6-4b1b-a6a9-7fbb1dec3a5b",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": ""
 										}
 									]
 								}
