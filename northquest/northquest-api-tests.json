@@ -35954,13 +35954,16 @@
 											"        pm.response.to.have.status(200);",
 											"    });",
 											"",
-											"",
 											"    pm.test(\"Test for valid status\", () => {",
 											"        pm.expect(status).to.eql(\"success\")",
 											"    })",
 											"",
 											"    pm.test(\"Test for valid error message\", () => {",
 											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid personal tiers\", () => {",
+											"        pm.expect(data[0].profile_type).to.eql(\"personal\")",
 											"    })",
 											"",
 											"} catch (error) {",
@@ -35986,7 +35989,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tiers",
+									"raw": "{{base_url}}/tiers?filter[profile_type]=personal",
 									"host": [
 										"{{base_url}}"
 									],
@@ -35996,8 +35999,7 @@
 									"query": [
 										{
 											"key": "filter[profile_type]",
-											"value": "personal",
-											"disabled": true
+											"value": "personal"
 										}
 									]
 								}
@@ -36005,6 +36007,137 @@
 							"response": [
 								{
 									"id": "ad7198aa-e8f3-41fb-814a-94706e94e33e",
+									"name": "List Tiers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/tiers"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "725"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2d5-Us9ylAEjK1GOhXpt4CwYEki072w\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 07 Nov 2024 15:08:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-15T07:56:10.789Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-04T04:24:02.653Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": \"personal\",\n            \"name\": \"Tier 2\",\n            \"description\": \"Tier 2\",\n            \"level\": 1,\n            \"enabled\": true,\n            \"single_sending_limit\": 0,\n            \"single_receiving_limit\": 0,\n            \"period_sending_limit\": 0,\n            \"period_sending_limit_time_unit\": \"day\",\n            \"period_receiving_limit\": 0,\n            \"period_receiving_limit_time_unit\": \"day\",\n            \"requirements\": [\n                {\n                    \"type\": \"documents\",\n                    \"type_id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\"\n                },\n                {\n                    \"type\": \"definitions\",\n                    \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n                }\n            ]\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Tiers - Business",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "25932d2c-4732-4552-ac30-8b6a8805f5b4",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.environment.set(\"userFetchedTierId\", data[0].id);",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid personal tiers\", () => {",
+											"        pm.expect(data[0].profile_type).to.eql(\"personal\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "bc49e8a4-4d75-48c0-b08a-b7f490370590",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tiers?filter[profile_type]=business",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tiers"
+									],
+									"query": [
+										{
+											"key": "filter[profile_type]",
+											"value": "business"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "4df8de15-6930-4656-9197-15571eacca31",
 									"name": "List Tiers",
 									"originalRequest": {
 										"method": "GET",
