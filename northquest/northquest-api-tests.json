@@ -8113,22 +8113,7 @@
 								},
 								"method": "GET",
 								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "019317a4-dcd2-7eeb-a7eb-c3f1c21868ef"
-										}
-									]
-								}
+								"url": "{{base_url}}/profiles/{{userFetchedProfileId}}"
 							},
 							"response": [
 								{
@@ -8321,10 +8306,10 @@
 										"id": "33d37f85-2475-4645-88f0-58b0fd0dd02f",
 										"exec": [
 											"try {\r",
-											"    const { message, statusCode } = pm.response.json()\r",
+											"    const { message, status } = pm.response.json()\r",
 											"\r",
 											"    pm.test(\"Test for valid status code\", () => {\r",
-											"        pm.expect(statusCode).to.eql(401)\r",
+											"        pm.expect(status).to.eql(\"error\")\r",
 											"    })\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
@@ -8505,101 +8490,6 @@
 							"response": [
 								{
 									"id": "97010828-ff50-438e-bae6-c288844eb9ab",
-									"name": "Create Profile",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"wunmi\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"1234567890\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/profiles"
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Fri, 27 Sep 2024 13:57:44 GMT"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "445"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1bd-FAijTRuS60lyD9Xj8CumelVWbXU\""
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"nin\": \"1234567890\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"personal\",\n        \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\",\n        \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-09-27T13:57:43.894Z\",\n        \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Create Profile Copy",
-							"id": "d66e8895-efc5-4a4e-a12f-ec940d8fc798",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"\", // Left this empty for a reason, please ignore - Azeez\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/profiles"
-							},
-							"response": [
-								{
-									"id": "2e5f9148-7d66-4856-962c-0896bef13c49",
 									"name": "Create Profile",
 									"originalRequest": {
 										"method": "POST",
@@ -9045,257 +8935,6 @@
 					"id": "2a9cdb68-c147-4994-8797-f28f8b453f2a"
 				},
 				{
-					"name": "Get Profile",
-					"item": [
-						{
-							"name": "Get Profile",
-							"id": "659af82a-1b3a-4f06-8ffe-94660b0bb3e5",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "019317a4-dcd2-7eeb-a7eb-c3f1c21868ef"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "9d197409-c37c-44a7-8152-f8aad0dc0703",
-									"name": "Success",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "851"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"353-l8vQO5LXg6vdnlk9ODHRVaNt9D4\""
-										},
-										{
-											"key": "Date",
-											"value": "Tue, 08 Oct 2024 20:01:06 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {},\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Sodiq Inc again\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"userProfile\": {\n            \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T11:48:50.239Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"status\": \"active\",\n            \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n        }\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Get Profile-No auth",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "b9fa3625-6bf2-4c47-86e5-ff06d373553b",
-										"exec": [
-											"try {\r",
-											"    const { message, statusCode } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Test for valid status code\", () => {\r",
-											"        pm.expect(statusCode).to.eql(401)\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).to.eql(\"Access token is required\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(error)\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "69c40ae3-3660-4a02-8f7d-fb1137f1f396",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{profileId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "8b9971d6-bae7-4ff4-972f-04bed99957ad",
-									"name": "Success",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "851"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"353-l8vQO5LXg6vdnlk9ODHRVaNt9D4\""
-										},
-										{
-											"key": "Date",
-											"value": "Tue, 08 Oct 2024 20:01:06 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {},\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Sodiq Inc again\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"userProfile\": {\n            \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-03T11:48:50.239Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-03T11:48:50.239Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"status\": \"active\",\n            \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\"\n        }\n    }\n}"
-								}
-							]
-						}
-					],
-					"id": "d1e9274f-ce02-465d-a025-108c2dd485b9"
-				},
-				{
 					"name": "Update User Profile",
 					"item": [
 						{
@@ -9442,6 +9081,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
@@ -9466,12 +9111,10 @@
 									],
 									"variable": [
 										{
-											"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
 											"key": "profile_id",
 											"value": "01925236-19c0-7112-9440-aa8162716104"
 										},
 										{
-											"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
 											"key": "id",
 											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
 										}
@@ -9579,6 +9222,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
@@ -9603,12 +9252,10 @@
 									],
 									"variable": [
 										{
-											"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
 											"key": "profile_id",
 											"value": "01925236-19c0-7112-9440-aa8162716104"
 										},
 										{
-											"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
 											"key": "id",
 											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
 										}
@@ -10407,11 +10054,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+									"raw": "// {\n//     \"name\": \"wunmi\",\n//     \"first_name\": \"Sodiq\",\n//     \"last_name\": \"DA\",\n//     \"nin\": \"232\"\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10429,9 +10082,8 @@
 									],
 									"variable": [
 										{
-											"id": "9b4548f0-1cf6-4b1b-a6a9-7fbb1dec3a5b",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -10526,11 +10178,47 @@
 						},
 						{
 							"name": "Update Profile-Invalid Profile ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "31ea47fc-a3ac-48c1-8edf-d0f14e3a94f2",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 404\", () => {",
+											"        pm.response.to.have.status(404);",
+											"    });",
+											"",
+											"    pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Not Found\");",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"Profile not found\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "e18b2037-3793-4c3c-9ebe-257804bfa9ac",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
@@ -10542,23 +10230,7 @@
 										}
 									}
 								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id"
-									],
-									"variable": [
-										{
-											"id": "9b4548f0-1cf6-4b1b-a6a9-7fbb1dec3a5b",
-											"key": "profile_id",
-											"value": "{{profileId}}"
-										}
-									]
-								}
+								"url": "{{base_url}}/profiles/01933e62-ed51-7bb7-8355-f0e0e6dee332"
 							},
 							"response": [
 								{
@@ -10650,11 +10322,47 @@
 						},
 						{
 							"name": "Update Profile-Empty profile ID field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "44da6a21-dc2a-40df-8d42-7d7019ac1e6b",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", () => {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Bad Request\");",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "de791c23-bd9e-4d3d-adac-8b78e56b59ac",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
@@ -10677,9 +10385,8 @@
 									],
 									"variable": [
 										{
-											"id": "9b4548f0-1cf6-4b1b-a6a9-7fbb1dec3a5b",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": ""
 										}
 									]
 								}
@@ -10773,40 +10480,60 @@
 							]
 						},
 						{
-							"name": "Update Profile-Empty fields",
+							"name": "Update Profile - Updating Profile Type",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ef428cb6-da5a-4d0a-baa8-2328a8d2a7e0",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", () => {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Bad Request\");",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).includes(\"You cannot update profile type.\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "d3a196a9-8a2a-4bfe-b04e-63caf2f15131",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+									"raw": "{\n    \"name\": \"\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"\",\n    \"type\": \"me\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id"
-									],
-									"variable": [
-										{
-											"id": "9b4548f0-1cf6-4b1b-a6a9-7fbb1dec3a5b",
-											"key": "profile_id",
-											"value": "{{profileId}}"
-										}
-									]
-								}
+								"url": "{{base_url}}/profiles/{{userFetchedProfileId}}"
 							},
 							"response": [
 								{
@@ -10895,174 +10622,9 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"DA\",\n            \"nin\": \"232\"\n        },\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\"\n    }\n}"
 								}
 							]
-						},
-						{
-							"name": "Update Profile-Invalid nin",
-							"id": "86266dbc-6dce-4a8f-ad9b-030d1de303a0",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id"
-									],
-									"variable": [
-										{
-											"id": "9b4548f0-1cf6-4b1b-a6a9-7fbb1dec3a5b",
-											"key": "profile_id",
-											"value": "{{profileId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "856f4e48-723e-4c37-bc02-ded56c1544ac",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "445"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1bd-dP++nxfyxaGAnvdHt2QshJ2yNTU\""
-										},
-										{
-											"key": "Date",
-											"value": "Tue, 08 Oct 2024 20:16:25 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"DA\",\n            \"nin\": \"232\"\n        },\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\"\n    }\n}"
-								}
-							]
 						}
 					],
 					"id": "a4ba5004-ecb1-4448-a2ac-6a6545a04f2f"
-				},
-				{
-					"name": "List KYC",
-					"item": [
-						{
-							"name": "List KYC",
-							"id": "95d4aa12-a4be-4682-bc4e-889d6f617cf7",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/kyc",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"kyc"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": ""
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"id": "e63ddf54-6643-43e5-8a32-40555b377bfb"
 				},
 				{
 					"name": "Update Maker Checker",
@@ -24047,9 +23609,9 @@
 											"try {\r",
 											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Test for valid status code\", () => {\r",
-											"        pm.expect(statusCode).to.eql(401)\r",
-											"    })\r",
+											"   pm.test(\"Status code is 401\", function () {\r",
+											"        pm.response.to.have.status(401);\r",
+											"    });\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.eql(\"Access token is required\")\r",
@@ -25044,9 +24606,9 @@
 											"try {\r",
 											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Test for valid status code\", () => {\r",
-											"        pm.expect(statusCode).to.eql(401)\r",
-											"    })\r",
+											"    pm.test(\"Status code is 401\", function () {\r",
+											"        pm.response.to.have.status(401);\r",
+											"    });\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.eql(\"Access token is required\")\r",
@@ -25067,10 +24629,7 @@
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
+									"type": "noauth"
 								},
 								"method": "GET",
 								"header": [],
@@ -26223,6 +25782,154 @@
 							]
 						},
 						{
+							"name": "List Biller Options-Data-Smile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d4bba51b-0b0c-422c-9c97-53afad5a98eb",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "da6df01e-5a65-42ca-9dac-a0ad82e237dc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/options",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"bill-payments",
+										"categories",
+										":category_id",
+										"billers",
+										":biller_id",
+										"options"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"key": "category_id",
+											"value": "databundle"
+										},
+										{
+											"key": "biller_id",
+											"value": "smile"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "91d2c139-d14e-48d8-a4a4-0b8a7f0ba7ce",
+									"name": "List Biller Options",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/bill-payments/categories/:category_id/billers/:biller_id/options",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"bill-payments",
+												"categories",
+												":category_id",
+												"billers",
+												":biller_id",
+												"options"
+											],
+											"variable": [
+												{
+													"key": "category_id",
+													"value": "cabletv"
+												},
+												{
+													"key": "biller_id",
+													"value": "dstv"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "546"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"222-Cn071q1n9J/Z01urzHR1Xuxah7w\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 27 Oct 2024 20:40:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"PRWFRNSE36\",\n            \"name\": \"DStv Premium French\",\n            \"amount\": 29300\n        },\n        {\n            \"id\": \"NLTESE36\",\n            \"name\": \"Padi\",\n            \"amount\": 2150\n        },\n        {\n            \"id\": \"COMPE36\",\n            \"name\": \"DStv Compact\",\n            \"amount\": 9000\n        },\n        {\n            \"id\": \"COMPLE36\",\n            \"name\": \"DStv Compact Plus\",\n            \"amount\": 14250\n        },\n        {\n            \"id\": \"PRWE36\",\n            \"name\": \"DStv Premium\",\n            \"amount\": 21000\n        },\n        {\n            \"id\": \"PRWASIE36\",\n            \"name\": \"DStv Premium Asia\",\n            \"amount\": 23500\n        },\n        {\n            \"id\": \"ASIAE36\",\n            \"name\": \"Asian Bouqet\",\n            \"amount\": 7100\n        },\n        {\n            \"id\": \"NNJ1E36\",\n            \"name\": \"DStv Yanga Bouquet E36\",\n            \"amount\": 2950\n        },\n        {\n            \"id\": \"NNJ2E36\",\n            \"name\": \"DStv Confam Bouquet E36\",\n            \"amount\": 5300\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
 							"name": "List Biller Options-Education-Waec",
 							"event": [
 								{
@@ -26976,10 +26683,9 @@
 											"try {\r",
 											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Test for valid status code\", () => {\r",
-											"        pm.expect(statusCode).to.eql(401)\r",
-											"    })\r",
-											"\r",
+											"    pm.test(\"Status code is 401\", function () {\r",
+											"        pm.response.to.have.status(401);\r",
+											"    });\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.eql(\"Access token is required\")\r",
 											"    })\r",
@@ -26999,10 +26705,7 @@
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
+									"type": "noauth"
 								},
 								"method": "GET",
 								"header": [],
@@ -27603,8 +27306,8 @@
 													"script": {
 														"id": "dac5be3a-b88a-480c-9245-47985e928e9d",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -27681,8 +27384,8 @@
 													"script": {
 														"id": "1972d135-8e94-4aff-9215-d06c1de5a2ff",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -27705,7 +27408,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    // \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27730,15 +27433,15 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
-															"value": "cabletv"
+															"value": "airtime"
 														},
 														{
 															"key": "biller_id",
-															"value": "dstv"
+															"value": "glo"
 														}
 													]
 												}
@@ -27759,8 +27462,8 @@
 													"script": {
 														"id": "452c8d5d-cca0-403f-a532-3a25a3b76f62",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -27783,7 +27486,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    // \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27808,15 +27511,15 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
-															"value": "cabletv"
+															"value": "airtime"
 														},
 														{
 															"key": "biller_id",
-															"value": "dstv"
+															"value": "airtel"
 														}
 													]
 												}
@@ -27861,7 +27564,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    // \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27886,15 +27589,15 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
-															"value": "cabletv"
+															"value": "airtime"
 														},
 														{
 															"key": "biller_id",
-															"value": "dstv"
+															"value": "9mobile"
 														}
 													]
 												}
@@ -27915,8 +27618,8 @@
 													"script": {
 														"id": "fc979d2e-825e-4630-87f0-3db0753f6b66",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -27939,7 +27642,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    // \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27964,15 +27667,15 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
-															"value": "cabletv"
+															"value": "airtime"
 														},
 														{
 															"key": "biller_id",
-															"value": "dstv"
+															"value": "smile"
 														}
 													]
 												}
@@ -27999,8 +27702,8 @@
 													"script": {
 														"id": "b668a63d-f327-42df-ba3f-7b1e1839bdd2",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -28023,7 +27726,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    \"option_id\":\"100\"\n   \n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 100,\n    \"option_id\":\"100\",\n    \"pin\": \"1316\"\n   \n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28048,7 +27751,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
@@ -28065,6 +27768,21 @@
 										},
 										{
 											"name": "Mtn Data-Empty fields",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "3187ebbc-6000-43ba-a4f8-55c0c592df04",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "1abf9384-9e41-4394-bba8-fb1b1aa6efab",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28080,7 +27798,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\": 100,\n    \"option_id\":\"\"\n   \n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\": 100,\n    \"option_id\":\"\",\n    \"pin\": \"1316\"\n   \n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28105,7 +27823,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
@@ -28134,8 +27852,8 @@
 													"script": {
 														"id": "27693d0c-b80b-4212-b5ec-8c3cb2834ab6",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -28158,7 +27876,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 25,\n    \"option_id\": \"DATA-32\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28183,15 +27901,15 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
-															"value": "cabletv"
+															"value": "databundle"
 														},
 														{
 															"key": "biller_id",
-															"value": "dstv"
+															"value": "glo"
 														}
 													]
 												}
@@ -28212,8 +27930,8 @@
 													"script": {
 														"id": "8df629ea-ad57-4d1d-953b-59e1fb9a40bd",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -28236,7 +27954,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 50,\n    \"option_id\": \"49.99\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28261,15 +27979,15 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
-															"value": "cabletv"
+															"value": "databundle"
 														},
 														{
 															"key": "biller_id",
-															"value": "dstv"
+															"value": "airtel"
 														}
 													]
 												}
@@ -28290,8 +28008,8 @@
 													"script": {
 														"id": "13d83dd5-511d-4103-a1c3-426d63179c4c",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -28314,7 +28032,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 200,\n    \"option_id\": \"200\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28339,15 +28057,15 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
-															"value": "cabletv"
+															"value": "databundle"
 														},
 														{
 															"key": "biller_id",
-															"value": "dstv"
+															"value": "9mobile"
 														}
 													]
 												}
@@ -28368,8 +28086,8 @@
 													"script": {
 														"id": "37eb89c7-e02c-4f7d-8ae4-7863e4ce83a7",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -28392,7 +28110,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 1800,\n    \"option_id\": \"101\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28417,15 +28135,15 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
-															"value": "cabletv"
+															"value": "databundle"
 														},
 														{
 															"key": "biller_id",
-															"value": "dstv"
+															"value": "smile"
 														}
 													]
 												}
@@ -28452,8 +28170,8 @@
 													"script": {
 														"id": "ad6c086c-932b-4e78-906f-264caa840876",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -28476,7 +28194,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28501,7 +28219,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
@@ -28518,6 +28236,21 @@
 										},
 										{
 											"name": "Make bill payment-Empty fields",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "24c92921-3257-4fe9-94be-5d7ed9ff6683",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "b86ef66c-1420-4e9d-b448-cb2504fc4b73",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28533,7 +28266,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\"\n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28575,6 +28308,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid category Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "60e9d1de-e5fa-465c-bee9-65f2dcb26495",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "db80fcc7-142d-4884-9aa5-c40619398b4b",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28590,7 +28338,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28615,7 +28363,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
@@ -28632,6 +28380,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid biller Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "c913d784-e00e-49a7-8f09-dcd3a3e89988",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "b7bc892a-3add-49eb-ba10-91c9f0e710c7",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28647,7 +28410,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28672,7 +28435,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
@@ -28689,6 +28452,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid option Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "edc5a620-b18c-4554-806b-b50879cbf7d4",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "604f9e00-27ab-47a8-bc50-c1a1af9812c1",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28704,7 +28482,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28729,7 +28507,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
@@ -28758,8 +28536,8 @@
 													"script": {
 														"id": "c2b73ab1-81b9-45e8-a9b8-c80ecbe8290a",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -28782,7 +28560,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28807,7 +28585,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
@@ -28824,6 +28602,21 @@
 										},
 										{
 											"name": "Make bill payment-Empty fields",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "a1d045a1-a97a-4904-87b4-cc99053967b1",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "e5e818e3-d4d6-4b24-93b9-9c5f0585764a",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28839,7 +28632,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\"\n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28881,6 +28674,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid category Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "413a1a7d-9877-4a09-9419-84f32c3b5f75",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "35581f72-d32e-4ac5-a04a-80ca5c6d2b04",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28896,7 +28704,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28938,6 +28746,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid biller Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "c4205f04-1df9-4c26-a1fe-fe673b494653",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "24e0220d-4896-46f3-8065-676e29bd3eb4",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -28953,7 +28776,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28995,6 +28818,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid option Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "e02e32dd-9a0b-4dd6-ad0a-501cf5b5de6e",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "ddc6c2ad-689e-4681-8cac-78790876290f",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -29010,7 +28848,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29064,8 +28902,8 @@
 													"script": {
 														"id": "79114f97-bfa9-45ba-a44c-e83396e169c2",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -29088,7 +28926,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29113,7 +28951,7 @@
 													"variable": [
 														{
 															"key": "profile_id",
-															"value": ""
+															"value": "{{userFetchedProfileId}}"
 														},
 														{
 															"key": "category_id",
@@ -29130,6 +28968,21 @@
 										},
 										{
 											"name": "Make bill payment-Empty fields",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "9c7a733d-fc35-4f33-9a5d-aeacd4abc621",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "43b275d8-69fb-4c3e-9727-abf590db0bf9",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -29145,7 +28998,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\"\n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29187,6 +29040,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid category Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "c1a70d7e-a495-42a5-ba0f-32ce5c42954f",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "4c6a2d60-aff0-4b05-8ddd-4c49b3751b7f",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -29202,7 +29070,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29244,6 +29112,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid biller Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "c43cd66b-5e6c-4406-891b-1f17dcc1758e",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "a81e15ab-9387-42f6-9748-a37e659ae7a9",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -29259,7 +29142,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29301,6 +29184,21 @@
 										},
 										{
 											"name": "Make bill payment-Invalid option Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "88ceaf17-c37c-4c5c-9994-cd3457f0cc44",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "6bf4cadc-1fad-466c-a8a2-a139bd9086b1",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -29316,7 +29214,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1316\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -29397,7 +29295,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300\n    \n}",
+											"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 29300,\n     \"pin\": \"1316\"\n    \n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -29422,7 +29320,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": ""
+													"value": "{{userFetchedProfileId}}"
 												},
 												{
 													"key": "category_id",
@@ -29479,7 +29377,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": ""
+													"value": "{{userFetchedProfileId}}"
 												},
 												{
 													"key": "category_id",
@@ -29532,7 +29430,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\"\n}",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\",\n     \"pin\": \"1316\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -29557,7 +29455,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": ""
+													"value": "{{userFetchedProfileId}}"
 												},
 												{
 													"key": "category_id",
@@ -29595,7 +29493,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\"\n}",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\",\n     \"pin\": \"1316\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -29620,7 +29518,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": ""
+													"value": "{{userFetchedProfileId}}"
 												},
 												{
 													"key": "category_id",
@@ -30900,6 +30798,134 @@
 						}
 					],
 					"id": "df4c6dcd-2268-4aff-828d-9af585990b71"
+				},
+				{
+					"name": "Match Contacts Copy",
+					"id": "5dde1a80-61a1-4269-aeaf-9af2e784820a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"contacts\": [\n        \"+2348149583661\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/accounts/match-contacts",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"accounts",
+								"match-contacts"
+							],
+							"variable": [
+								{
+									"id": "7a9d2403-7a8b-4e61-8a48-d21e5767c3c3",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "3b0700b0-1729-4fee-8c3a-b876f035f2e3",
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contacts\": [\n        \"+2348149583661\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/match-contacts",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										"match-contacts"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4f-AwvIbAEuSTjtpuoHs8jfRE9mo0s\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 19 Nov 2024 16:28:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": \"John Doe\",\n            \"account_number\": \"8149583661\"\n        }\n    ]\n}"
+						}
+					]
 				}
 			],
 			"id": "7bdbec5f-5e28-4db3-835e-14f721228976"
@@ -33915,7 +33941,7 @@
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
-											"    });"
+											"    })"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -33937,7 +33963,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "// {\n//     \"restricted\": true\n\n// }",
+									"raw": "{\n    \"restricted\": false\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -34128,22 +34154,20 @@
 										"id": "138b1920-998c-448a-a73f-748df9713c47",
 										"exec": [
 											"try {\r",
-											"    const { status, data } = pm.response.json()\r",
+											"    const { status, message } = pm.response.json()\r",
 											"\r",
 											"\r",
-											"    pm.environment.set(\"userFetchedAccountId\", data[0].id);\r",
-											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
 											"    });\r",
 											"\r",
 											"\r",
 											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
+											"        pm.expect(status).to.eql(\"error\")\r",
 											"    })\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data).to.be.an(\"array\")\r",
+											"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
@@ -34169,11 +34193,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts"
 									],
@@ -34275,9 +34300,11 @@
 											"try {\r",
 											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Test for valid status code\", () => {\r",
-											"        pm.expect(statusCode).to.eql(401)\r",
-											"    })\r",
+											"     pm.test(\"Status code is 401\", function () {\r",
+											"        pm.response.to.have.status(401);\r",
+											"    });\r",
+											"\r",
+											"    \r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.eql(\"Access token is required\")\r",
@@ -34303,11 +34330,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts"
 									],
@@ -34435,11 +34463,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts",
 										":account_id"
@@ -34447,11 +34476,11 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{userProfileId}}"
+											"value": "{{userFetchedProfileId}}"
 										},
 										{
 											"key": "account_id",
-											"value": "{{benefAccId}}"
+											"value": "{{userFetchedAccountId}}"
 										}
 									]
 								}
@@ -34571,11 +34600,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts",
 										":account_id"
@@ -34707,11 +34737,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts",
 										":account_id"
@@ -34823,9 +34854,9 @@
 											"try {\r",
 											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Test for valid status code\", () => {\r",
-											"        pm.expect(statusCode).to.eql(401)\r",
-											"    })\r",
+											"   pm.test(\"Status code is 401\", function () {\r",
+											"        pm.response.to.have.status(401);\r",
+											"    });\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.eql(\"Access token is required\")\r",
@@ -34851,11 +34882,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
+										"profiles",
 										":profile_id",
 										"accounts",
 										":account_id"
@@ -35774,206 +35806,503 @@
 			"name": "Tiers",
 			"item": [
 				{
-					"name": "List Tiers",
-					"id": "fa3f41f4-9f23-4c41-95bc-6b494283bb73",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/tiers?filter[profile_type]=personal",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"tiers"
-							],
-							"query": [
-								{
-									"key": "filter[profile_type]",
-									"value": "personal",
-									"type": "text"
-								}
-							]
-						}
-					},
-					"response": [
+					"name": "Fetch Teirs",
+					"item": [
 						{
-							"id": "bbb687fb-11af-4fa2-baa2-c2f26f121c3f",
 							"name": "List Tiers",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": "{{base_url}}/tiers"
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "25932d2c-4732-4552-ac30-8b6a8805f5b4",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.environment.set(\"userFetchedTierId\", data[0].id);",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "fa3f41f4-9f23-4c41-95bc-6b494283bb73",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
 								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "725"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"2d5-Us9ylAEjK1GOhXpt4CwYEki072w\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 07 Nov 2024 15:08:33 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-15T07:56:10.789Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-04T04:24:02.653Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": \"personal\",\n            \"name\": \"Tier 2\",\n            \"description\": \"Tier 2\",\n            \"level\": 1,\n            \"enabled\": true,\n            \"single_sending_limit\": 0,\n            \"single_receiving_limit\": 0,\n            \"period_sending_limit\": 0,\n            \"period_sending_limit_time_unit\": \"day\",\n            \"period_receiving_limit\": 0,\n            \"period_receiving_limit_time_unit\": \"day\",\n            \"requirements\": [\n                {\n                    \"type\": \"documents\",\n                    \"type_id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\"\n                },\n                {\n                    \"type\": \"definitions\",\n                    \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n                }\n            ]\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "Get Tier",
-					"id": "dc0adaa2-3e64-4020-bd2c-b25e18310837",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/tiers/:tier_id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"tiers",
-								":tier_id"
-							],
-							"variable": [
-								{
-									"id": "95d1c403-2bcd-4b0a-96e3-88e30249bd5c",
-									"key": "tier_id",
-									"value": "01928f2d-6756-755b-8a9d-c8094db2af27"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "5242b61d-9087-47e8-80ab-507241081b2c",
-							"name": "Get Tier",
-							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/tiers/:tier_id",
+									"raw": "{{base_url}}/tiers",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"tiers",
-										":tier_id"
+										"tiers"
 									],
-									"variable": [
+									"query": [
 										{
-											"key": "tier_id",
-											"value": "01928f2d-6756-755b-8a9d-c8094db2af27"
+											"key": "filter[profile_type]",
+											"value": "personal",
+											"disabled": true
 										}
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
+									"id": "bbb687fb-11af-4fa2-baa2-c2f26f121c3f",
+									"name": "List Tiers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/tiers"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "725"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2d5-Us9ylAEjK1GOhXpt4CwYEki072w\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 07 Nov 2024 15:08:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-15T07:56:10.789Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-04T04:24:02.653Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": \"personal\",\n            \"name\": \"Tier 2\",\n            \"description\": \"Tier 2\",\n            \"level\": 1,\n            \"enabled\": true,\n            \"single_sending_limit\": 0,\n            \"single_receiving_limit\": 0,\n            \"period_sending_limit\": 0,\n            \"period_sending_limit_time_unit\": \"day\",\n            \"period_receiving_limit\": 0,\n            \"period_receiving_limit_time_unit\": \"day\",\n            \"requirements\": [\n                {\n                    \"type\": \"documents\",\n                    \"type_id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\"\n                },\n                {\n                    \"type\": \"definitions\",\n                    \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n                }\n            ]\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Tiers - Personal",
+							"event": [
 								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "723"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"2d3-7SDufsfETYp9SvnOfcTl91HGhcI\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 07 Nov 2024 15:09:58 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"listen": "test",
+									"script": {
+										"id": "25932d2c-4732-4552-ac30-8b6a8805f5b4",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.environment.set(\"userFetchedPersonalTierId\", data[0].id);",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid personal tiers\", () => {",
+											"        pm.expect(data[0].profile_type).to.eql(\"personal\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
 								}
 							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-15T07:56:10.789Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-04T04:24:02.653Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_type\": \"personal\",\n        \"name\": \"Tier 2\",\n        \"description\": \"Tier 2\",\n        \"level\": 1,\n        \"enabled\": true,\n        \"single_sending_limit\": 0,\n        \"single_receiving_limit\": 0,\n        \"period_sending_limit\": 0,\n        \"period_sending_limit_time_unit\": \"day\",\n        \"period_receiving_limit\": 0,\n        \"period_receiving_limit_time_unit\": \"day\",\n        \"requirements\": [\n            {\n                \"type\": \"documents\",\n                \"type_id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\"\n            },\n            {\n                \"type\": \"definitions\",\n                \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n            }\n        ]\n    }\n}"
+							"id": "c16d8518-ef4b-4cee-9245-91c28149c200",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tiers?filter[profile_type]=personal",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tiers"
+									],
+									"query": [
+										{
+											"key": "filter[profile_type]",
+											"value": "personal"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "ad7198aa-e8f3-41fb-814a-94706e94e33e",
+									"name": "List Tiers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/tiers"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "725"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2d5-Us9ylAEjK1GOhXpt4CwYEki072w\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 07 Nov 2024 15:08:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-15T07:56:10.789Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-04T04:24:02.653Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": \"personal\",\n            \"name\": \"Tier 2\",\n            \"description\": \"Tier 2\",\n            \"level\": 1,\n            \"enabled\": true,\n            \"single_sending_limit\": 0,\n            \"single_receiving_limit\": 0,\n            \"period_sending_limit\": 0,\n            \"period_sending_limit_time_unit\": \"day\",\n            \"period_receiving_limit\": 0,\n            \"period_receiving_limit_time_unit\": \"day\",\n            \"requirements\": [\n                {\n                    \"type\": \"documents\",\n                    \"type_id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\"\n                },\n                {\n                    \"type\": \"definitions\",\n                    \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n                }\n            ]\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Tiers - Business",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "25932d2c-4732-4552-ac30-8b6a8805f5b4",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.environment.set(\"userBusinessTierId\", data[0].id);",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid personal tiers\", () => {",
+											"        pm.expect(data[0].profile_type).to.eql(\"business\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "bc49e8a4-4d75-48c0-b08a-b7f490370590",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/tiers?filter[profile_type]=business",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"tiers"
+									],
+									"query": [
+										{
+											"key": "filter[profile_type]",
+											"value": "business"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "4df8de15-6930-4656-9197-15571eacca31",
+									"name": "List Tiers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/tiers"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "725"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2d5-Us9ylAEjK1GOhXpt4CwYEki072w\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 07 Nov 2024 15:08:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-15T07:56:10.789Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-04T04:24:02.653Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": \"personal\",\n            \"name\": \"Tier 2\",\n            \"description\": \"Tier 2\",\n            \"level\": 1,\n            \"enabled\": true,\n            \"single_sending_limit\": 0,\n            \"single_receiving_limit\": 0,\n            \"period_sending_limit\": 0,\n            \"period_sending_limit_time_unit\": \"day\",\n            \"period_receiving_limit\": 0,\n            \"period_receiving_limit_time_unit\": \"day\",\n            \"requirements\": [\n                {\n                    \"type\": \"documents\",\n                    \"type_id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\"\n                },\n                {\n                    \"type\": \"definitions\",\n                    \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n                }\n            ]\n        }\n    ]\n}"
+								}
+							]
 						}
-					]
+					],
+					"id": "33e59354-481e-4b4b-ac6c-7dda107cb48d"
+				},
+				{
+					"name": "Get Tier",
+					"item": [
+						{
+							"name": "Get Tier",
+							"id": "dc0adaa2-3e64-4020-bd2c-b25e18310837",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/tiers/{{userFetchedTierId}}"
+							},
+							"response": [
+								{
+									"id": "5242b61d-9087-47e8-80ab-507241081b2c",
+									"name": "Get Tier",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/tiers/:tier_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"tiers",
+												":tier_id"
+											],
+											"variable": [
+												{
+													"key": "tier_id",
+													"value": "01928f2d-6756-755b-8a9d-c8094db2af27"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "723"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2d3-7SDufsfETYp9SvnOfcTl91HGhcI\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 07 Nov 2024 15:09:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-15T07:56:10.789Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-04T04:24:02.653Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_type\": \"personal\",\n        \"name\": \"Tier 2\",\n        \"description\": \"Tier 2\",\n        \"level\": 1,\n        \"enabled\": true,\n        \"single_sending_limit\": 0,\n        \"single_receiving_limit\": 0,\n        \"period_sending_limit\": 0,\n        \"period_sending_limit_time_unit\": \"day\",\n        \"period_receiving_limit\": 0,\n        \"period_receiving_limit_time_unit\": \"day\",\n        \"requirements\": [\n            {\n                \"type\": \"documents\",\n                \"type_id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\"\n            },\n            {\n                \"type\": \"definitions\",\n                \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n            }\n        ]\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "19edd519-a8da-47dd-a604-867ea4f585f3"
 				}
 			],
 			"id": "ac1cc779-0d38-4124-9ef9-e16fb832b8d9"
@@ -36104,6 +36433,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -36117,9 +36452,8 @@
 							],
 							"variable": [
 								{
-									"id": "f8e00946-fb83-4dcb-b3cf-31e8ca78f1b3",
 									"key": "file_id",
-									"value": "01932087-c004-7775-8dc6-7265f7c8bb41"
+									"value": "01935bfe-02f1-7ee0-a50b-01c376f9a679"
 								}
 							]
 						}
