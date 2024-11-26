@@ -7180,7 +7180,23 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/auth/verify-nin"
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/nin",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"nin"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
 							},
 							"response": [
 								{
