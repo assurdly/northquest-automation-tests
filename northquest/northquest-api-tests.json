@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "8f1b9c0b-ff23-4660-97b6-af8992063024",
-		"name": "QA -Client Public API",
+		"name": "QA - Cashdrive APIs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -8491,14 +8491,14 @@
 										"auth": {
 											"type": "bearer",
 											"bearer": {
-												"token": "{{userAccessToken}}"
+												"token": "{{createdUserToken}}"
 											}
 										},
 										"method": "POST",
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"\", // Left this empty for a reason, please ignore - Azeez\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
+											"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"The Best\", \n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
