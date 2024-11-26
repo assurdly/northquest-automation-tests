@@ -9073,7 +9073,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "[\n    {\n        \"slug\": \"business-types\",\n        \"name\": \"Business Type\",\n        \"options\": [\n            {\n                \"name\": \"Sole Proprietorship\"\n            },\n            {\n                \"name\": \"Partnership\"\n            },\n            {\n                \"name\": \"Corporation\"\n            },\n            {\n                \"name\": \"Limited Liability Partnership (LLP)\"\n            },\n            {\n                \"name\": \"Nonprofit Organization\"\n            },\n            {\n                \"name\": \"Cooperative (Co-op)\"\n            },\n            {\n                \"name\": \"Joint Venture\"\n            },\n            {\n                \"name\": \"Franchise\"\n            }\n        ],\n        \"version\": 1,\n        \"type\": \"select\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 1,\n        \"storage_strategy\": \"plain\",\n        \"profile_type\": \"business\"\n    },\n    {\n        \"slug\": \"rc-number\",\n        \"name\": \"RC/BN Number\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 2,\n        \"storage_strategy\": \"plain\",\n        \"profile_type\": \"business\"\n    },\n    {\n        \"slug\": \"business-name\",\n        \"name\": \"Business Name\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 3,\n        \"storage_strategy\": \"plain\",\n        \"profile_type\": \"business\"\n    },\n    {\n        \"slug\": \"business-email\",\n        \"name\": \"Business Email\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"email\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 4,\n        \"storage_strategy\": \"plain\",\n        \"profile_type\": \"business\"\n    },\n        {\n        \"slug\": \"business-phone\",\n        \"name\": \"Business phone number\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"number\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 5,\n        \"storage_strategy\": \"plain\",\n        \"profile_type\": \"business\"\n    },\n            {\n        \"slug\": \"business-address\",\n        \"name\": \"Business address\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 6,\n        \"storage_strategy\": \"plain\",\n        \"profile_type\": \"business\"\n    }\n]",
+											"raw": "[\n    {\n        \"slug\": \"business-types\",\n        \"name\": \"Business Type\",\n        \"options\": [\n            {\n                \"name\": \"Sole Proprietorship\"\n            },\n            {\n                \"name\": \"Partnership\"\n            },\n            {\n                \"name\": \"Corporation\"\n            },\n            {\n                \"name\": \"Limited Liability Partnership (LLP)\"\n            },\n            {\n                \"name\": \"Nonprofit Organization\"\n            },\n            {\n                \"name\": \"Cooperative (Co-op)\"\n            },\n            {\n                \"name\": \"Joint Venture\"\n            },\n            {\n                \"name\": \"Franchise\"\n            }\n        ],\n        \"version\": 1,\n        \"type\": \"select\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 1,\n        \"storage_strategy\": \"plain\",\n        \"profile_type\": \"business\"\n    },\n    {\n        \"slug\": \"rc-number\",\n        \"name\": \"RC/BN Number\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"select\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 2,\n        \"storage_strategy\": \"plain\",\n        \"profile_type\": \"business\"\n    },\n    {\n        \"slug\": \"business-name\",\n        \"name\": \"Business Name\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 3,\n        \"storage_strategy\": \"plain\",\n        \"profile_type\": \"business\"\n    },\n    {\n        \"slug\": \"business-email\",\n        \"name\": \"Business Email\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"email\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 4,\n        \"storage_strategy\": \"plain\",\n        \"profile_type\": \"business\"\n    },\n        {\n        \"slug\": \"business-phone\",\n        \"name\": \"Business phone number\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"number\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 5,\n        \"storage_strategy\": \"plain\",\n        \"profile_type\": \"business\"\n    },\n            {\n        \"slug\": \"business-address\",\n        \"name\": \"Business address\",\n        \"options\": null,\n        \"version\": 1,\n        \"type\": \"text\",\n        \"default\": null,\n        \"enabled\": true,\n        \"required\": false,\n        \"order\": 6,\n        \"storage_strategy\": \"plain\",\n        \"profile_type\": \"business\"\n    }\n]",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -9094,7 +9094,7 @@
 											"variable": [
 												{
 													"key": "definitionId",
-													"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
+													"value": "019367b2-0af9-7115-b8f1-dc685d92e97f"
 												}
 											]
 										}
@@ -12214,6 +12214,43 @@
 							]
 						},
 						{
+							"name": "Export Profiles",
+							"id": "66a24065-1e62-4f2b-a9f5-ad7bee4589f4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=xlsx",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"profiles",
+										"export"
+									],
+									"query": [
+										{
+											"key": "filter[type]",
+											"value": "business"
+										},
+										{
+											"key": "filter[created_on][gt]",
+											"value": "2024-10-04"
+										},
+										{
+											"key": "format",
+											"value": "xlsx"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Change Password",
 							"id": "42192bfb-506d-414d-bff5-9488292abf62",
 							"protocolProfileBehavior": {
@@ -12616,7 +12653,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n    \"collection_method\": \"manual\", // manual | automatic | all\n    \"payment_method\": \"card\" // card | account | all\n}",
+									"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n    \"profile_type\":\"personal\",\n    \"collection_method\": \"manual\", // manual | automatic | all\n    \"payment_method\": \"card\" // card | account | all\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -12708,7 +12745,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/admin/loan-products/:product_id",
+									"raw": "{{base_url}}/admin/loan-products/:product_id?name=Test Product",
 									"host": [
 										"{{base_url}}"
 									],
@@ -12717,11 +12754,21 @@
 										"loan-products",
 										":product_id"
 									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Test Product"
+										},
+										{
+											"key": "name",
+											"value": "Demo product",
+											"disabled": true
+										}
+									],
 									"variable": [
 										{
-											"id": "593fb423-3774-41e1-a660-8e14770ee1da",
 											"key": "product_id",
-											"value": "01931742-f612-722b-8de7-7729782689de"
+											"value": ""
 										}
 									]
 								}
@@ -12892,7 +12939,22 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{base_url}}/admin/loan-products"
+								"url": {
+									"raw": "{{base_url}}/admin/loan-products?name=Demo product",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loan-products"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Demo product"
+										}
+									]
+								}
 							},
 							"response": [
 								{
@@ -14547,10 +14609,100 @@
 										"header": [],
 										"url": "{{base_url}}/admin/transactions/fees"
 									},
-									"response": []
+									"response": [
+										{
+											"id": "721610a6-9f4a-4c41-9b41-e960a1f193ee",
+											"name": "Get Fees",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/transactions/fees"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Thu, 21 Nov 2024 18:50:39 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"612-3Mpd6ovxJfWtlS9ACApCLq5e/Kk\""
+												},
+												{
+													"key": "cf-cache-status",
+													"value": "DYNAMIC"
+												},
+												{
+													"key": "Report-To",
+													"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=F%2FjGfX5L9T%2FVy%2BIk1%2BYwlZx0%2FuTJS%2BYb8QroehGjP4SHZciJh1lB%2BN7lVot%2FpFve8%2F%2F2xxJvBSVP%2FqwoyVahCcdCxNJL8RRA%2FpjYz1t0CX%2FQITiMXIiVgDoga%2Bhzw3K5mOStshlw%2B%2FgL3agqYedl\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+												},
+												{
+													"key": "NEL",
+													"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+												},
+												{
+													"key": "Server",
+													"value": "cloudflare"
+												},
+												{
+													"key": "CF-RAY",
+													"value": "8e62dddb2f6aeb19-MAN"
+												},
+												{
+													"key": "Content-Encoding",
+													"value": "br"
+												},
+												{
+													"key": "alt-svc",
+													"value": "h3=\":443\"; ma=86400"
+												},
+												{
+													"key": "server-timing",
+													"value": "cfL4;desc=\"?proto=TCP&rtt=9327&sent=10&recv=9&lost=0&retrans=0&sent_bytes=4372&recv_bytes=1710&delivery_rate=462176&cwnd=254&unsent_bytes=0&cid=d97ace7fafa5a414&ts=3232&x=0\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01934ea4-9d45-7442-bd77-3328576697e4\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-21T12:13:51.301Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-21T12:13:51.301Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Transfer Fee - Low Range\",\n            \"description\": \"Flat fee for transfers between 0 and 5000\",\n            \"type\": \"flat\",\n            \"category\": \"internal-transfer\",\n            \"currency\": \"NGN\",\n            \"amount\": \"10.00\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"5000.00\",\n            \"percentage\": null\n        },\n        {\n            \"id\": \"01934eb8-50a2-7442-bd77-41ae9c5984b9\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-21T12:35:22.402Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-21T12:35:22.402Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Transfer Fee - Low Range\",\n            \"description\": \"Flat fee for transfers between 0 and 5000\",\n            \"type\": \"flat\",\n            \"category\": \"internal-transfer\",\n            \"currency\": \"NGN\",\n            \"amount\": \"10.00\",\n            \"min_amount\": \"10000.00\",\n            \"max_amount\": null,\n            \"percentage\": null\n        },\n        {\n            \"id\": \"01934ea4-9d45-7442-bd77-3328576697e8\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-21T12:13:51.301Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-21T12:13:51.301Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Transfer Fee - Low Range\",\n            \"description\": \"Flat fee for transfers between 0 and 5000\",\n            \"type\": \"flat\",\n            \"category\": \"transfer\",\n            \"currency\": \"NGN\",\n            \"amount\": \"10.00\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"5000.00\",\n            \"percentage\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 3\n    }\n}"
+										}
+									]
 								},
 								{
-									"name": "Get Fees",
+									"name": "Get Fee",
 									"id": "55229cca-dcd5-45c8-b68c-e0704ae628fe",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -14563,7 +14715,7 @@
 									"response": []
 								},
 								{
-									"name": "Update Fees",
+									"name": "Update Fee",
 									"id": "fab921ff-4bd0-4447-9b30-b424153144c5",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -14573,14 +14725,27 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"comment\": \"Test\",\n    \"status\": \"resolved\"\n}",
+											"raw": "{\n    \"amount\": 10.00,\n    \"min_amount\": 0,\n    \"max_amount\": 2000\n}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "{{base_url}}/admin/transactions/disputes/0192f88c-a2c1-7115-af2b-27552469196e"
+										"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-3328576697e4"
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Fee",
+									"id": "9b10a5c5-374e-427d-83a8-ea4e023d4afe",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-3328576697e4"
 									},
 									"response": []
 								},
@@ -14595,7 +14760,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Transfer Fee - Low Range\",\n    \"description\": \"Flat fee for transfers between 0 and 5000\",\n    \"type\": \"flat\",\n    \"category\": \"internal-transfer\",\n    \"currency\": \"NGN\",\n    \"amount\": 10.00,\n    \"min_amount\": 10000,\n    \"max_amount\": null,\n    \"percentage\": null\n}",
+											"raw": "{\n    \"name\": \"Transfer Fee - Low Range\",\n    \"description\": \"Flat fee for transfers between 0 and 5000\",\n    \"type\": \"flat\",\n    \"category\": \"internal-transfer\",\n    \"currency\": \"NGN\",\n    \"amount\": 10.00,\n    \"min_amount\": 2000,\n    \"max_amount\": 5000,\n    \"percentage\": null\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -14659,7 +14824,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/transactions?filter[status]=pending_approval",
+											"raw": "{{base_url}}/admin/transactions?filter[status]=pending_approval&filter[transaction_type]=transfer",
 											"host": [
 												"{{base_url}}"
 											],
@@ -14689,8 +14854,7 @@
 												},
 												{
 													"key": "filter[transaction_type]",
-													"value": "transfer",
-													"disabled": true
+													"value": "transfer"
 												},
 												{
 													"key": "filter[created_at][lt]",
@@ -16810,6 +16974,220 @@
 					"id": "692865e4-7ce2-412b-aa2d-75aec51ea94a"
 				},
 				{
+					"name": "Files",
+					"item": [
+						{
+							"name": "Upload File",
+							"id": "64bbe16d-a676-4b59-ae61-8bf6302a93a1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
+											"filesNotInWorkingDirectory": [
+												"/Users/thewunmi/Documents/gmail-icon.jpeg",
+												"/Users/horla/Downloads/sample-images/image-3.jpg"
+											],
+											"src": "/Users/horla/Downloads/sample-images/image-3.jpg"
+										}
+									]
+								},
+								"url": "{{base_url}}/admin/files"
+							},
+							"response": [
+								{
+									"id": "911f9a00-dc7a-4ab0-b973-7b69fc256ab5",
+									"name": "Upload File",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"type": "file",
+													"src": "/Users/thewunmi/Documents/gmail-icon.jpeg"
+												}
+											]
+										},
+										"url": "{{base_url}}/admin/files"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "543"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21f-ov4l+3KBNl/YHgUmLSN1umUqwZg\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 13:19:48 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"user_id\": \"01925343-fbc8-7886-abfb-41c8746fc8ce\",\n        \"file_name\": \"gmail-icon.jpeg\",\n        \"file_key\": \"00000000-0000-0000-0000-000000000000/01925343-fbc8-7886-abfb-41c8746fc8ce/gmail-icon.jpeg-1731417585187\",\n        \"id\": \"01932087-c004-7775-8dc6-7265f7c8bb41\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"profile_id\": null,\n        \"file_url\": null,\n        \"file_expires_on\": null,\n        \"created_on\": \"2024-11-12T13:19:48.011Z\",\n        \"modified_on\": \"2024-11-12T13:19:48.011Z\",\n        \"deleted_on\": null\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get File",
+							"id": "4d84274a-d4af-4b73-b3a5-15a164ad1cad",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/files/:file_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"files",
+										":file_id"
+									],
+									"variable": [
+										{
+											"id": "097699cb-7dcd-4182-aa2b-32e033b17910",
+											"key": "file_id",
+											"value": "01932087-c004-7775-8dc6-7265f7c8bb41"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "abc53aa6-476c-4965-80b5-0fabcba05ba4",
+									"name": "Get File",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/files/:file_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"files",
+												":file_id"
+											],
+											"variable": [
+												{
+													"key": "file_id",
+													"value": "01932087-c004-7775-8dc6-7265f7c8bb41"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "543"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21f-OSXFXfe94fzeC8oIY59KWuMAncQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Nov 2024 13:20:36 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01932087-c004-7775-8dc6-7265f7c8bb41\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-12T13:19:48.011Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-12T13:19:48.011Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": null,\n        \"user_id\": \"01925343-fbc8-7886-abfb-41c8746fc8ce\",\n        \"file_name\": \"gmail-icon.jpeg\",\n        \"file_key\": \"00000000-0000-0000-0000-000000000000/01925343-fbc8-7886-abfb-41c8746fc8ce/gmail-icon.jpeg-1731417585187\",\n        \"file_url\": null,\n        \"file_expires_on\": null\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "4d0a55a0-4f93-4228-8357-cde622f825f0"
+				},
+				{
 					"name": "Verification Types",
 					"item": [
 						{
@@ -17840,8 +18218,14 @@
 	],
 	"variable": [
 		{
+			"id": "c4b0621d-b860-480b-82e4-030b245f9a9e",
 			"key": "token",
 			"value": ""
+		},
+		{
+			"id": "3a12ba90-c8ce-4531-a17f-a266e02b1c40",
+			"key": "template_id",
+			"value": "01933c2e-dddf-766c-8e67-c77c58b74a0b"
 		}
 	]
 }
