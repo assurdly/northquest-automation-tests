@@ -5565,6 +5565,125 @@
 											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"sodiq@google.com\",\n                \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n                \"status\": \"pending\",\n                \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"role\": {\n                    \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"name\": \"Admin\",\n                    \"slug\": \"admin\",\n                    \"description\": null,\n                    \"status\": \"active\"\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
 										}
 									]
+								},
+								{
+									"name": "Get Admin User-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "57ad4fcc-abd8-4a9d-a48d-dc4520bdcae4",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.environment.set(\"adminFetchedUserId\", data.users[0].id);",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"object\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "14a3f4db-fdb5-4b2e-91e4-7327e959b1af",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Origin",
+												"value": "https://dev.admin.cashdrive.co"
+											}
+										],
+										"url": "{{base_url}}/admin/users/me"
+									},
+									"response": [
+										{
+											"id": "1efe7362-8eb9-4927-8b31-bc7487970d66",
+											"name": "New Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/users"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "894"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"37e-SHXwF7TNBq+jnDgvGGnjVt2AzIo\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 15 Oct 2024 20:42:09 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"sodiq@google.com\",\n                \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n                \"status\": \"pending\",\n                \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"role\": {\n                    \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"name\": \"Admin\",\n                    \"slug\": \"admin\",\n                    \"description\": null,\n                    \"status\": \"active\"\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
+										}
+									]
 								}
 							],
 							"id": "7a559ae5-d53b-4030-8976-7e9dc2bde95a"
@@ -5606,6 +5725,134 @@
 									"response": [
 										{
 											"id": "9a92848d-ab2e-445f-a1c1-fec9b5966dc4",
+											"name": "New Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/users"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "894"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"37e-SHXwF7TNBq+jnDgvGGnjVt2AzIo\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 15 Oct 2024 20:42:09 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"sodiq@google.com\",\n                \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n                \"status\": \"pending\",\n                \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"role\": {\n                    \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"name\": \"Admin\",\n                    \"slug\": \"admin\",\n                    \"description\": null,\n                    \"status\": \"active\"\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Admin User-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ee885c20-4ed3-4b8a-a6cf-2c4f4fb7bb00",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.environment.set(\"adminFetchedUserId\", data.users[0].id);\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "71a67d99-bf25-4166-9c64-3d53e39e2c47",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Origin",
+												"value": "https://dev.admin.cashdrive.co"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "// {\n//     \"first_name\": \"Sodiq\",\n//     \"last_name\": \"Daress\"\n// }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/users/me"
+									},
+									"response": [
+										{
+											"id": "4fbe83ac-930a-4cde-9d56-cf50a117911e",
 											"name": "New Request",
 											"originalRequest": {
 												"method": "GET",
@@ -5864,7 +6111,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"code\": \"705350\"\n}",
+											"raw": "{\n    \"code\": \"817196\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -14037,7 +14284,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/transactions?filter[transaction_type]=transfer&relations=disputes&relations=transfer&relations=transfer_beneficiary&relations=batch&relations=account",
+											"raw": "{{base_url}}/admin/transactions?filter[status]=pending_approval",
 											"host": [
 												"{{base_url}}"
 											],
@@ -14053,8 +14300,7 @@
 												},
 												{
 													"key": "filter[status]",
-													"value": "failed",
-													"disabled": true
+													"value": "pending_approval"
 												},
 												{
 													"key": "filter[reference]",
@@ -14068,7 +14314,8 @@
 												},
 												{
 													"key": "filter[transaction_type]",
-													"value": "transfer"
+													"value": "transfer",
+													"disabled": true
 												},
 												{
 													"key": "filter[created_at][lt]",
@@ -14082,23 +14329,28 @@
 												},
 												{
 													"key": "relations",
-													"value": "disputes"
+													"value": "disputes",
+													"disabled": true
 												},
 												{
 													"key": "relations",
-													"value": "transfer"
+													"value": "transfer",
+													"disabled": true
 												},
 												{
 													"key": "relations",
-													"value": "transfer_beneficiary"
+													"value": "transfer_beneficiary",
+													"disabled": true
 												},
 												{
 													"key": "relations",
-													"value": "batch"
+													"value": "batch",
+													"disabled": true
 												},
 												{
 													"key": "relations",
-													"value": "account"
+													"value": "account",
+													"disabled": true
 												},
 												{
 													"key": "relations",
