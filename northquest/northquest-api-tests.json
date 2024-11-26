@@ -30839,9 +30839,8 @@
 									],
 									"variable": [
 										{
-											"id": "78078b25-7bbc-47e2-b645-f21978a881d4",
 											"key": "profile_id",
-											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -30861,6 +30860,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -30885,9 +30890,8 @@
 									],
 									"variable": [
 										{
-											"id": "5fff1a08-a8b7-42c2-bc4e-0f27ff22bc93",
 											"key": "profile_id",
-											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -30922,9 +30926,8 @@
 									],
 									"variable": [
 										{
-											"id": "325fd198-0010-45c5-8427-4d92c9e19a83",
 											"key": "profile_id",
-											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
