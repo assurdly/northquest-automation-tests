@@ -36710,13 +36710,11 @@
 													"try {",
 													"    const { status, data } = pm.response.json()",
 													"",
-													"",
-													"    pm.environment.set(\"userFetchedProfileId\", data[0].id);",
+													"    pm.environment.set(\"userFetchedPersonalProfileId\", data.find((item) => item.type === \"personal\").id);",
 													"",
 													"    pm.test(\"Status code is 200\", function () {",
 													"        pm.response.to.have.status(200);",
 													"    });",
-													"",
 													"",
 													"    pm.test(\"Test for valid status\", () => {",
 													"        pm.expect(status).to.eql(\"success\")",
@@ -40235,7 +40233,22 @@
 										},
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/profiles"
+										"url": {
+											"raw": "{{base_url}}/profiles?limit=100",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles"
+											],
+											"query": [
+												{
+													"key": "limit",
+													"value": "100",
+													"type": "text"
+												}
+											]
+										}
 									},
 									"response": [
 										{
