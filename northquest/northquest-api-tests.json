@@ -36689,6 +36689,3498 @@
 				}
 			],
 			"id": "220efd0f-b3d8-4b60-bb2d-9500248e86ba"
+		},
+		{
+			"name": "Individual",
+			"item": [],
+			"id": "ec828148-f313-4293-8e91-038c0242e9e3"
+		},
+		{
+			"name": "Business",
+			"item": [
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Get Profiles",
+							"item": [
+								{
+									"name": "Get Profiles",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "40c13de3-a391-4468-a153-3b8d84b8f85a",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"",
+													"    pm.environment.set(\"userFetchedProfileId\", data[0].id);",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"array\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "2ab7732e-a4ec-4225-a323-a41de22adc14",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/profiles"
+									},
+									"response": [
+										{
+											"id": "88bffebe-bef2-4baf-ba2e-e908ddac0e83",
+											"name": "Get Profiles",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/profiles"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 13:58:13 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "447"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bf-MNyzZTZvL4Dqi8uWF0cXgf41aMA\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n            \"meta\": {\n                \"first_name\": \"\",\n                \"last_name\": \"\",\n                \"nin\": \"1234567890\"\n            },\n            \"created_on\": \"2024-09-27T13:57:43.894Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"wunmi\",\n            \"type\": \"personal\",\n            \"status\": \"active\",\n            \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\"\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Profiles - No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "46438a94-62a7-4f9e-a5aa-f35e25820d89",
+												"exec": [
+													"try {",
+													"    const { message, statusCode } = pm.response.json()",
+													"",
+													"    pm.test(\"Test for valid status code\", () => {",
+													"        pm.expect(statusCode).to.eql(401)",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).to.eql(\"Access token is required\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "0ffb5c25-ed91-47d3-96a5-31c328bbcd96",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/profiles"
+									},
+									"response": [
+										{
+											"id": "80980150-2a45-4a7e-a878-a29828da2d34",
+											"name": "Get Profiles",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/profiles"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 13:58:13 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "447"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bf-MNyzZTZvL4Dqi8uWF0cXgf41aMA\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n            \"meta\": {\n                \"first_name\": \"\",\n                \"last_name\": \"\",\n                \"nin\": \"1234567890\"\n            },\n            \"created_on\": \"2024-09-27T13:57:43.894Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"wunmi\",\n            \"type\": \"personal\",\n            \"status\": \"active\",\n            \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\"\n        }\n    ]\n}"
+										}
+									]
+								}
+							],
+							"id": "f4dcdbe4-0be7-4f3d-93d8-a532d0199cce"
+						},
+						{
+							"name": "Get Profile by ID",
+							"item": [
+								{
+									"name": "Get Profile by ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a6c36842-c55c-4668-84d7-b2d23c87527a",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "3ffdc294-c567-4e47-a4a4-0df02172fdcd",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/profiles/{{userFetchedProfileId}}"
+									},
+									"response": [
+										{
+											"id": "4312e3a9-afeb-4c06-aae6-e202310797da",
+											"name": "Get Profiles",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/profiles"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 13:58:13 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "447"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bf-MNyzZTZvL4Dqi8uWF0cXgf41aMA\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n            \"meta\": {\n                \"first_name\": \"\",\n                \"last_name\": \"\",\n                \"nin\": \"1234567890\"\n            },\n            \"created_on\": \"2024-09-27T13:57:43.894Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"wunmi\",\n            \"type\": \"personal\",\n            \"status\": \"active\",\n            \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\"\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Profile by ID -Invalid ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "94784b9a-fce5-4f6d-963a-84d82dcd3fd3",
+												"exec": [
+													"try {\r",
+													"    const { status, message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", function () {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    // pm.test(\"Test for valid status\", () => {\r",
+													"    //     pm.expect(status).to.eql(\"success\")\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.include(\"Profile ID must be a valid UUID\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "8b0c469a-1b7f-4d5a-aa17-b7781afcd6d6",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id"
+											],
+											"variable": [
+												{
+													"id": "f864a0cb-72d1-4840-ac2f-95b90b4e8a28",
+													"key": "profile_id",
+													"value": "01925882-f353-7002-8052-04c8be2c03da2@/"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "29325a81-c7a0-4e96-b95f-67f9ce484e03",
+											"name": "Get Profiles",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/profiles"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 13:58:13 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "447"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bf-MNyzZTZvL4Dqi8uWF0cXgf41aMA\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n            \"meta\": {\n                \"first_name\": \"\",\n                \"last_name\": \"\",\n                \"nin\": \"1234567890\"\n            },\n            \"created_on\": \"2024-09-27T13:57:43.894Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"wunmi\",\n            \"type\": \"personal\",\n            \"status\": \"active\",\n            \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\"\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Profile by ID -No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "33d37f85-2475-4645-88f0-58b0fd0dd02f",
+												"exec": [
+													"try {\r",
+													"    const { message, status } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(status).to.eql(\"error\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "3a39e52c-6dab-442c-8a56-e0b1ef2e073f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id"
+											],
+											"variable": [
+												{
+													"id": "6c47d1ab-38f5-4b7a-a79e-334207ad5d0c",
+													"key": "profile_id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "20d7482e-ca71-4e34-af0b-c4045bb90bf5",
+											"name": "Get Profiles",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/profiles"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 13:58:13 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "447"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bf-MNyzZTZvL4Dqi8uWF0cXgf41aMA\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n            \"meta\": {\n                \"first_name\": \"\",\n                \"last_name\": \"\",\n                \"nin\": \"1234567890\"\n            },\n            \"created_on\": \"2024-09-27T13:57:43.894Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"wunmi\",\n            \"type\": \"personal\",\n            \"status\": \"active\",\n            \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\"\n        }\n    ]\n}"
+										}
+									]
+								}
+							],
+							"id": "b5930dbd-9598-4569-a457-8d47d0b4804a"
+						},
+						{
+							"name": "Update Profile",
+							"item": [
+								{
+									"name": "Update Profile",
+									"id": "936ce258-5a18-49d1-9aa5-c810595caf2c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "// {\n//     // \"type\": \"personal\",\n//     // \"name\": \"\",\n//     // \"first_name\": \"Azeez\",\n//     // \"last_name\": \"Ibrahim\",\n//     \"nin\": \"1234567890\"\n// }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "9e0cc341-8ae1-47a3-9347-6007c0569d01",
+													"key": "id",
+													"value": "{{userFetchedProfileId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "465fc1d0-b7eb-4624-b6e8-3c36f6fa2bd9"
+						},
+						{
+							"name": "Create Profile",
+							"item": [
+								{
+									"name": "Create Profile",
+									"id": "b7a45ec0-ebe5-4d82-ba15-1c845f909e7c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"\", // Left this empty for a reason, please ignore - Azeez\n    \"first_name\": \"Azeez\",\n    \"last_name\": \"Ibrahim\",\n    \"nin\": \"1234567890\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/profiles"
+									},
+									"response": [
+										{
+											"id": "d192e870-6a84-41ee-bede-5a71263870b7",
+											"name": "Create Profile",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"wunmi\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"1234567890\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/profiles"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 13:57:44 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "445"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bd-FAijTRuS60lyD9Xj8CumelVWbXU\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"nin\": \"1234567890\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"personal\",\n        \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\",\n        \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-09-27T13:57:43.894Z\",\n        \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Create Profile - Empty Fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7b7fd739-c560-4484-ad3a-e9eaa492a78d",
+												"exec": [
+													"try {",
+													"    const { message } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", () => {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Status code name has string\", function () {",
+													"        pm.response.to.have.status(\"Bad Request\");",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).includes(\"Type is required \")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "92fd2899-17d2-4313-9832-2846ba16d4ee",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": \"\",\n    \"name\": \"\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/profiles"
+									},
+									"response": [
+										{
+											"id": "6a94bba7-f10d-4ea5-9366-287e88e1d73a",
+											"name": "Create Profile",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"wunmi\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"1234567890\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/profiles"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 13:57:44 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "445"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bd-FAijTRuS60lyD9Xj8CumelVWbXU\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"nin\": \"1234567890\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"personal\",\n        \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\",\n        \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-09-27T13:57:43.894Z\",\n        \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Create Profile - Undefined Profile Type",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7b7fd739-c560-4484-ad3a-e9eaa492a78d",
+												"exec": [
+													"try {",
+													"    const { message } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", () => {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Status code name has string\", function () {",
+													"        pm.response.to.have.status(\"Bad Request\");",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).includes(\"Type is required and must be either 'business' or 'personal'.\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "a436cadd-da17-4a75-a7a0-57a12e8065cb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": \"Test\",\n    \"name\": \"Test\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"\",\n    \"gender\": \"Male\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/profiles"
+									},
+									"response": [
+										{
+											"id": "b270bddf-46b4-4f38-981c-a689b593d966",
+											"name": "Create Profile",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"wunmi\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"1234567890\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/profiles"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 13:57:44 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "445"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bd-FAijTRuS60lyD9Xj8CumelVWbXU\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"nin\": \"1234567890\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"personal\",\n        \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\",\n        \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-09-27T13:57:43.894Z\",\n        \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Create Profile - Already Existing Profile Name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7b7fd739-c560-4484-ad3a-e9eaa492a78d",
+												"exec": [
+													"// try {",
+													"//     const { message } = pm.response.json()",
+													"",
+													"//     pm.test(\"Status code is 400\", () => {",
+													"//         pm.response.to.have.status(400);",
+													"//     });",
+													"",
+													"//     pm.test(\"Status code name has string\", function () {",
+													"//         pm.response.to.have.status(\"Bad Request\");",
+													"//     });",
+													"",
+													"//     pm.test(\"Test for valid error message\", () => {",
+													"//         pm.expect(message).includes(\"name should not be empty\")",
+													"//     })",
+													"",
+													"// } catch (error) {",
+													"//     console.error(\"Error from test:\", error)",
+													"// }"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "3bb05165-6b92-442a-8e7e-805e5591d3b6",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": \"\",\n    \"name\": \"Test\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"\",\n    \"gender\": \"male\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/profiles"
+									},
+									"response": [
+										{
+											"id": "3b0cc202-8406-4fcd-92c9-94a0574c0367",
+											"name": "Create Profile",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"wunmi\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"1234567890\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/profiles"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 13:57:44 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "445"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bd-FAijTRuS60lyD9Xj8CumelVWbXU\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"nin\": \"1234567890\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"personal\",\n        \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\",\n        \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-09-27T13:57:43.894Z\",\n        \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "3ab726d4-a355-40fb-b39e-f7968e61988f"
+						},
+						{
+							"name": "Update User Profile",
+							"item": [
+								{
+									"name": "Update User Profile",
+									"id": "0e35a7ed-8b13-4af4-8ebe-594a01d3f586",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "3c905e25-5705-47cb-b8ab-8e7cc96690fb",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01925236-19c0-7112-9440-aa8162716104"
+														},
+														{
+															"key": "id",
+															"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "458"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update User Profile-Invalid profile id",
+									"id": "214667f9-5f88-4307-b939-e86f5745a08c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "f5a8d5c7-8047-4b5f-8147-6044d9b72c65",
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"id": "ab60ca4c-2ec8-4e0e-bdad-5c730503a456",
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "fbac4d94-8a55-45a7-9932-d0dbc646d4a4",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01925236-19c0-7112-9440-aa8162716104"
+														},
+														{
+															"key": "id",
+															"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "458"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update User Profile-Invalid id",
+									"id": "61a9ed50-ca4c-466e-b04a-140918f95208",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "bb8460a2-4243-49dc-b2ca-cf6887620989",
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"id": "7bcbaef0-57f1-4e22-afb0-f873f8ae7257",
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "5e763d39-6521-4a3f-911a-f8992635d134",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01925236-19c0-7112-9440-aa8162716104"
+														},
+														{
+															"key": "id",
+															"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "458"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update User Profile-Empty id field",
+									"id": "babc9515-e263-4b92-a3ea-37d9081f0479",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "626f940f-b30b-4b15-b1dd-de0ae0e04e60",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01925236-19c0-7112-9440-aa8162716104"
+														},
+														{
+															"key": "id",
+															"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "458"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update User Profile-Empty profile id field",
+									"id": "a0a521c0-46da-4678-8ffc-e93a5c87e80d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "00fbc87f-848e-49a2-ad5a-3b0a0e91534f",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01925236-19c0-7112-9440-aa8162716104"
+														},
+														{
+															"key": "id",
+															"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "458"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update User Profile-Invalid status",
+									"id": "c208ff6d-9d72-4286-a207-58e01e4f0f91",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "3abd6897-21d6-459b-a52f-1b179767a5a3",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01925236-19c0-7112-9440-aa8162716104"
+														},
+														{
+															"key": "id",
+															"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "458"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update User Profile-Invalid role ID",
+									"id": "a3d468ac-14d3-462c-ad6a-b9b7b8642e6f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "e3be6f3b-a5a9-4bfe-9f04-e46a005a2f40",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01925236-19c0-7112-9440-aa8162716104"
+														},
+														{
+															"key": "id",
+															"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "458"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update User Profile-Empty fields",
+									"id": "3887ba3c-e924-48b0-b523-8bf166877e89",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "54c198a6-a895-4904-b500-ff21dd91526a",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"users",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01925236-19c0-7112-9440-aa8162716104"
+														},
+														{
+															"key": "id",
+															"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "458"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "bd80d0b3-9a0a-49cf-a5e6-8e0aab8e290c"
+						},
+						{
+							"name": "Update Profile",
+							"item": [
+								{
+									"name": "Update Profile",
+									"id": "9fa23336-7f1e-413e-9fb4-ab82a003866a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "// {\n//     \"name\": \"wunmi\",\n//     \"first_name\": \"Sodiq\",\n//     \"last_name\": \"DA\",\n//     \"nin\": \"232\"\n// }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id"
+											],
+											"variable": [
+												{
+													"id": "1abb3b1c-e1ee-41e3-b167-3c98c67ad946",
+													"key": "profile_id",
+													"value": "{{userFetchedProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "581eeaa9-f3a4-4c17-9e58-e7b62283b0ed",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "445"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bd-dP++nxfyxaGAnvdHt2QshJ2yNTU\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 08 Oct 2024 20:16:25 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"DA\",\n            \"nin\": \"232\"\n        },\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Profile-Invalid Profile ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "31ea47fc-a3ac-48c1-8edf-d0f14e3a94f2",
+												"exec": [
+													"try {",
+													"    const { message } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 404\", () => {",
+													"        pm.response.to.have.status(404);",
+													"    });",
+													"",
+													"    pm.test(\"Status code name has string\", function () {",
+													"        pm.response.to.have.status(\"Not Found\");",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).includes(\"Profile not found\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "a930eb9c-8428-47ba-a5af-c1694349cb83",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/profiles/01933e62-ed51-7bb7-8355-f0e0e6dee332"
+									},
+									"response": [
+										{
+											"id": "5720d24e-3fba-4231-bf4e-e1a8d0d9f723",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "445"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bd-dP++nxfyxaGAnvdHt2QshJ2yNTU\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 08 Oct 2024 20:16:25 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"DA\",\n            \"nin\": \"232\"\n        },\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Profile-Empty profile ID field",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "44da6a21-dc2a-40df-8d42-7d7019ac1e6b",
+												"exec": [
+													"try {",
+													"    const { message } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", () => {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Status code name has string\", function () {",
+													"        pm.response.to.have.status(\"Bad Request\");",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "4114562c-5424-485e-8beb-21b669445af4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id"
+											],
+											"variable": [
+												{
+													"id": "784082a7-5af7-489d-ae71-057cf36fd9d4",
+													"key": "profile_id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "08ede44d-d428-4e04-a7cc-a5bfdcabc151",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "445"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bd-dP++nxfyxaGAnvdHt2QshJ2yNTU\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 08 Oct 2024 20:16:25 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"DA\",\n            \"nin\": \"232\"\n        },\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Profile - Updating Profile Type",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ef428cb6-da5a-4d0a-baa8-2328a8d2a7e0",
+												"exec": [
+													"try {",
+													"    const { message } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", () => {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Status code name has string\", function () {",
+													"        pm.response.to.have.status(\"Bad Request\");",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).includes(\"You cannot update profile type.\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "81103042-5fce-4228-b3ec-2755a4d66b09",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"\",\n    \"type\": \"me\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/profiles/{{userFetchedProfileId}}"
+									},
+									"response": [
+										{
+											"id": "5f415b5c-cf30-42b4-b365-0c54c86c094d",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"wunmi\",\n    \"first_name\": \"Sodiq\",\n    \"last_name\": \"DA\",\n    \"nin\": \"232\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "445"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bd-dP++nxfyxaGAnvdHt2QshJ2yNTU\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 08 Oct 2024 20:16:25 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"meta\": {\n            \"first_name\": \"Sodiq\",\n            \"last_name\": \"DA\",\n            \"nin\": \"232\"\n        },\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"business\",\n        \"status\": \"active\",\n        \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\"\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "f6e6ec8b-4675-4b55-8ccc-579f27a59338"
+						},
+						{
+							"name": "Update Maker Checker",
+							"item": [
+								{
+									"name": "Update Maker Checker",
+									"id": "aaab945b-e25e-462d-a9a1-9b0fc455f480",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"enabled\": true\n    // \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/maker-checker",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"maker-checker"
+											],
+											"variable": [
+												{
+													"id": "ac60772f-4135-4d17-bbd2-cf067556142a",
+													"key": "profile_id",
+													"value": "{{userFetchedProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "a36697b4-687c-4adf-9a3c-059afc30d5c1",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"enabled\": false,\n    \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/maker-checker",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"maker-checker"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "73"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"49-Jxaxu7Xyoh2Jj4rkF8B+9bGtVig\""
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 26 Oct 2024 20:50:27 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Permission Updated Successfully\"\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "1a68a8b1-5e0a-4167-bfa8-9901e33bdaee"
+						},
+						{
+							"name": "Change Password",
+							"item": [
+								{
+									"name": "Change Password",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+												"exec": [
+													"// try {",
+													"//     const { message } = pm.response.json()",
+													"",
+													"//     pm.test(\"Tests for Invalid old password\", () => {",
+													"//         pm.expect(message).to.eql(\"Invalid old_password\")",
+													"//     })",
+													"",
+													"//     pm.test(\"Status code is 200\", function () {",
+													"//         pm.response.to.have.status(200);",
+													"//     });",
+													"",
+													"// } catch (error) {",
+													"//     console.error(\"errors from tests\", error)",
+													"// }"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "6f80ef4c-4510-44ff-b26c-2863aaee4bc9",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"131623\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"response": [
+										{
+											"id": "a9415e5e-b0f1-45cd-9bb5-1f7a7d0c06c8",
+											"name": "Change Password",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{token}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/auth/change-password"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "70"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Change Password - Empty Fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+												"exec": [
+													"try {",
+													"    const { message } = pm.response.json()",
+													"",
+													"    pm.test(\"Tests for Invalid old password\", () => {",
+													"        pm.expect(message).to.eql(\"Current password is required\")",
+													"    })",
+													"",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"} catch (error) {",
+													"    console.error(\"errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "c19c99ce-9fd5-4811-902e-5154ad1abaa1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"\",\n    \"password\": \"\",\n    \"confirm_password\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"response": [
+										{
+											"id": "ae1d8a66-3923-45f3-bada-ab9d7d181671",
+											"name": "Change Password",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{token}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/auth/change-password"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "70"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Change Password - Invalid Current Password",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+												"exec": [
+													"try {",
+													"    const { message } = pm.response.json()",
+													"",
+													"    pm.test(\"Tests for Invalid old password\", () => {",
+													"        pm.expect(message).to.eql(\"Invalid current password\")",
+													"    })",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"} catch (error) {",
+													"    console.error(\"errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "20144fa4-af84-4b9d-8c06-999b96461885",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"131613\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"response": [
+										{
+											"id": "679bcc90-4043-47e3-9226-6d29aec5dc70",
+											"name": "Change Password",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{token}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/auth/change-password"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "70"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Change Password - Invalid Current Password Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+												"exec": [
+													"try {",
+													"    const { message } = pm.response.json()",
+													"",
+													"    pm.test(\"Tests for Invalid old password\", () => {",
+													"        pm.expect(message).to.eql(\"Invalid current password\")",
+													"    })",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"} catch (error) {",
+													"    console.error(\"errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "3b34691c-c716-4962-aa77-36155d99a40a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"1234563\",\n    \"password\": \"Password12@@\",\n    \"confirm_password\": \"Password12@@\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"response": [
+										{
+											"id": "14f4e5ab-a2d2-4f8e-b817-c5c76eb573e1",
+											"name": "Change Password",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Authorization",
+														"value": "Bearer {{token}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/auth/change-password"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "70"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "443f7d3b-b77e-4ab0-9254-3380d119492f"
+						}
+					],
+					"id": "caad0e57-f93d-402e-9e14-2d35d61448f4"
+				}
+			],
+			"id": "a3e16556-395a-4938-92f3-e249cd17e299"
 		}
 	],
 	"auth": {
