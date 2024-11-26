@@ -5922,6 +5922,21 @@
 							"item": [
 								{
 									"name": "Generate TwoFA",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "61c67878-f82e-4c0a-a9e0-b97bdaac00fc",
+												"exec": [
+													" pm.test(\"Status code is 200\", () => {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "8e5db1d0-7c88-40e1-b606-68e4464765bb",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
