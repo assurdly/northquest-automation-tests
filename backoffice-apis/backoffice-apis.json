@@ -1995,6 +1995,1035 @@
 					"id": "2c482e38-36c1-4c8c-97be-ae4705d3d4f6"
 				},
 				{
+					"name": "Role and Permissions",
+					"item": [
+						{
+							"name": "Get Permissions",
+							"item": [
+								{
+									"name": "Get Permissions",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ca6e6890-aea9-4cc9-97ef-89b133158279",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "b004bd73-edae-4588-93a9-e5114d88b124",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/permissions"
+									},
+									"response": []
+								},
+								{
+									"name": "Get Permissions-No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "97bcf2a4-a3fe-464c-890f-90218a81f153",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "bc982cd7-07da-41e9-84ca-3a57e4e8ca51",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/permissions"
+									},
+									"response": []
+								}
+							],
+							"id": "25f8f272-3301-42c1-a25d-becca73f9e46"
+						},
+						{
+							"name": "Get Roles",
+							"item": [
+								{
+									"name": "Get Roles",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "368066d5-09a1-4aa9-847b-9e5132b1f15f",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"    pm.environment.set(\"adminFetchedRole\", data.roles[0].id)\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data.roles).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "bf0333d4-d88b-4ddc-b9e2-be9362f5b4d8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/roles",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles"
+											],
+											"query": [
+												{
+													"key": "filter[status]",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "filter[name]",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "47efbc8b-9996-4104-a694-47c289cd91a1",
+											"name": "Get Roles",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/roles"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "758"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2f6-AVtWRZV0/21U72HzRqvbKK+bDVo\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 15 Oct 2024 20:46:28 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"roles\": [\n            {\n                \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Admin\",\n                \"slug\": \"admin\",\n                \"description\": null,\n                \"status\": \"active\"\n            },\n            {\n                \"id\": \"019291e9-5a4f-766a-8e6a-98ebea7542f8\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-15T20:40:42.310Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-15T20:40:42.310Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"sodsiqsnst\",\n                \"slug\": \"sodsiqsnst\",\n                \"description\": \"sodiq\",\n                \"status\": \"active\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Roles-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "365e18df-1e06-4da2-92ac-115f8183a12c",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "2d06137c-0929-4e07-b432-f18c25f4b730",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/roles"
+									},
+									"response": [
+										{
+											"id": "25f3fcc2-32d2-4b14-ab1b-84e2736b09e2",
+											"name": "Get Roles",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/roles"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "758"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2f6-AVtWRZV0/21U72HzRqvbKK+bDVo\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 15 Oct 2024 20:46:28 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"roles\": [\n            {\n                \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Admin\",\n                \"slug\": \"admin\",\n                \"description\": null,\n                \"status\": \"active\"\n            },\n            {\n                \"id\": \"019291e9-5a4f-766a-8e6a-98ebea7542f8\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-15T20:40:42.310Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-15T20:40:42.310Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"sodsiqsnst\",\n                \"slug\": \"sodsiqsnst\",\n                \"description\": \"sodiq\",\n                \"status\": \"active\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "8d738af2-c668-4945-8bfa-54b62af41609"
+						},
+						{
+							"name": "Update Role",
+							"item": [
+								{
+									"name": "Update Role",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "bd3be5db-15e8-4e1d-8937-aa8541ca202e",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "cc46142d-8b3e-4426-9e33-e5e703ddb5bf",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    // \"permissions\": [\n    //     \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n    //     \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n    //     \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n    //     \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n    //     \"019291bb-74c2-7d09-b969-5395961a0650\",\n    //     \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n    //     \"019291bc-4e74-769e-ab34-984446abf18d\",\n    //     \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n    //     \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\"\n    // ]\n    \"status\": \"active\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0192f1ed-5fdd-7aaf-b272-a9d471b41c87"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Role-Invalid Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7e1705fd-e829-41b6-a00c-8993112259e7",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 404\", function () {\r",
+													"        pm.response.to.have.status(404);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).include(\"Role not found\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "779d56fd-18b1-4a12-be77-0e10e655aa76",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\",\n        \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n        \"019291bc-4e74-769e-ab34-984446abf18d\",\n        \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n        \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "01927265-d8bc-7195-996f-e131d5e13320"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Role-Empty Id field",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "705f76c9-9015-48ad-868e-ee32c295b530",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", function () {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).include(\"Role ID must be a valid UUID\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "79702bc3-db57-4755-9d7d-66d10e738644",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\",\n        \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n        \"019291bc-4e74-769e-ab34-984446abf18d\",\n        \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n        \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Role-Invalid permission ID",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "662499d7-ef7b-46f5-8188-39a8b7a19521",
+												"exec": [
+													"try {",
+													"    const { message } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", () => {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).includes(\"Some of the specified permissions do not exist.\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "96199204-2e9f-42a1-9bfc-030d656af47e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"permissions\": [\n    \"01929211-b54f-7970-87e1-91950a529d45\",\n    \"01929211-b54f-74dd-92c6-f81b2e09c062\",\n    \"01929211-b54f-7427-bfe8-147d59ec6edd\",\n    \"01929211-b54f-7320-95b1-a8c5d4028b6f\",\n    \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\",\n    \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n    \"019291bc-4e74-769e-ab34-984446abf18d\",\n    \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n    \"019291bb-74c2-7d09-b969-5395961a0651\",\n    \"019291bb-74c2-7d09-b969-5395961a0630\",\n    \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n    \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n    \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n    \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n    \"01929211-b54f-77d3-9d4d-112d965f2761\",\n    \"01929211-b54f-74dd-92c6-f81b2e09c062\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "01927265-d8bc-7195-996f-e131d5e13329"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "943af4fe-a15d-47ba-b8ef-7d95b60c7107"
+						},
+						{
+							"name": "Get Role",
+							"item": [
+								{
+									"name": "Get Role",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "6fb41269-f21f-4260-92a3-3762ac2e221d",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "b5704a75-394c-4f60-8eb0-fa34a700a32a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{adminFetchedRole}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Get Role- No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "15fff6d1-4589-4cf1-b62e-da808329c58f",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "96402659-d3fc-4851-ba4a-255ce247a1a7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "01927265-d8bc-7195-996f-e131d5e13329"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "3b7ff3c3-5ae1-4535-96fb-8ce33acf686f"
+						},
+						{
+							"name": "Create Role",
+							"item": [
+								{
+									"name": "Create Role",
+									"id": "c78dcf99-c7ab-451b-af52-671d64d4374e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"admin manager\",\n    \"description\": \"Approver\",\n    \"permissions\": [\n        \"01929211-b54f-7970-87e1-91950a529d45\",\n        \"01929211-b54f-7427-bfe8-147d59ec6edd\",\n        \"01929211-b54f-7320-95b1-a8c5d4028b6f\",\n        \"01929211-b54f-74dd-92c6-f81b2e09c062\",\n        \"019291bb-74c2-7d09-b969-5395961a0651\",\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\",\n        \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n        \"019291bc-4e74-769e-ab34-984446abf18d\",\n        \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n        \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\",\n        \"01929211-b54f-77d3-9d4d-112d965f2761\",\n        \"01929211-b54f-74dd-92c6-f81b2e09c063\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/roles"
+									},
+									"response": []
+								},
+								{
+									"name": "Create Role-Empty fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "65bf16a7-5474-4d51-9698-4b3af6ab98b5",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Status code name has string\", function () {\r",
+													"        pm.response.to.have.status(\"Bad Request\");\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.include(\"Name cannot be empty\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "8c8cf83a-0dcc-4faa-a53a-7e540bdb2273",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"description\": \"\",\n    \"permissions\": []\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/roles"
+									},
+									"response": []
+								},
+								{
+									"name": "Create Role-Existing name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "3877434a-40b9-4ad8-8caa-8322929477a6",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Status code name has string\", function () {\r",
+													"        pm.response.to.have.status(\"Bad Request\");\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Role with name already exist.\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "acd83fbd-4899-4f26-84fd-1c80b80a4d1b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Manager\",\n    \"description\": \"Manager\",\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/roles"
+									},
+									"response": []
+								}
+							],
+							"id": "d0c536b8-b2d0-4dc3-bdff-343fd6ae5e8f"
+						},
+						{
+							"name": "Delete Role",
+							"item": [
+								{
+									"name": "Delete Role",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "01c45508-e191-4a9d-a7dc-58930b5a4553",
+												"exec": [
+													"// pm.test(\"Status code is 200\", function () {\r",
+													"//         pm.response.to.have.status(200);\r",
+													"//     });\r",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "e6005d20-0749-4516-a195-b848546ad364",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0192fc90-1703-7002-904c-af6f3df248a6"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Role",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "bd3be5db-15e8-4e1d-8937-aa8541ca202e",
+												"exec": [
+													"// try {\r",
+													"//     const { status, data } = pm.response.json()\r",
+													"\r",
+													"//     pm.test(\"Status code is 200\", function () {\r",
+													"//         pm.response.to.have.status(200);\r",
+													"//     });\r",
+													"\r",
+													"//     pm.test(\"Test for valid status\", () => {\r",
+													"//         pm.expect(status).to.eql(\"success\")\r",
+													"//     })\r",
+													"\r",
+													"//     pm.test(\"Test for valid error message\", () => {\r",
+													"//         pm.expect(data).to.be.an(\"object\")\r",
+													"//     })\r",
+													"\r",
+													"// } catch (error) {\r",
+													"//     console.error(\"Error from test:\", error);\r",
+													"// }"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "95a53faa-07b4-468d-9e59-f5644474f640",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/roles/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"roles",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0192f395-fe6d-7993-8e68-6bbc791530c0"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "0d18c382-d28b-467d-a99a-b2bb86910645"
+						}
+					],
+					"id": "99866b42-f310-4b29-9299-7e8291c73c2d"
+				},
+				{
 					"name": "User",
 					"item": [
 						{
@@ -6573,1035 +7602,6 @@
 						}
 					],
 					"id": "c57a73f3-b42d-4203-93b9-9796b9217437"
-				},
-				{
-					"name": "Role and Permissions",
-					"item": [
-						{
-							"name": "Get Permissions",
-							"item": [
-								{
-									"name": "Get Permissions",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "ca6e6890-aea9-4cc9-97ef-89b133158279",
-												"exec": [
-													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
-													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
-													"    })\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"array\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "b004bd73-edae-4588-93a9-e5114d88b124",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": "{{base_url}}/admin/permissions"
-									},
-									"response": []
-								},
-								{
-									"name": "Get Permissions-No Auth",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "97bcf2a4-a3fe-464c-890f-90218a81f153",
-												"exec": [
-													"try {\r",
-													"    const { message, statusCode } = pm.response.json()\r",
-													"\r",
-													"    // pm.test(\"Test for valid status code\", () => {\r",
-													"    //     pm.expect(statusCode).to.eql(401)\r",
-													"    // })\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).to.eql(\"Access token is required\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(error)\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "bc982cd7-07da-41e9-84ca-3a57e4e8ca51",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": "{{base_url}}/admin/permissions"
-									},
-									"response": []
-								}
-							],
-							"id": "25f8f272-3301-42c1-a25d-becca73f9e46"
-						},
-						{
-							"name": "Get Roles",
-							"item": [
-								{
-									"name": "Get Roles",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "368066d5-09a1-4aa9-847b-9e5132b1f15f",
-												"exec": [
-													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
-													"    pm.environment.set(\"adminFetchedRole\", data.roles[0].id)\r",
-													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
-													"    })\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(data.roles).to.be.an(\"array\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "bf0333d4-d88b-4ddc-b9e2-be9362f5b4d8",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/admin/roles",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"admin",
-												"roles"
-											],
-											"query": [
-												{
-													"key": "filter[status]",
-													"value": "",
-													"disabled": true
-												},
-												{
-													"key": "filter[name]",
-													"value": "",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"id": "47efbc8b-9996-4104-a694-47c289cd91a1",
-											"name": "Get Roles",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": "{{base_url}}/admin/roles"
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "758"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"2f6-AVtWRZV0/21U72HzRqvbKK+bDVo\""
-												},
-												{
-													"key": "Date",
-													"value": "Tue, 15 Oct 2024 20:46:28 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"roles\": [\n            {\n                \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Admin\",\n                \"slug\": \"admin\",\n                \"description\": null,\n                \"status\": \"active\"\n            },\n            {\n                \"id\": \"019291e9-5a4f-766a-8e6a-98ebea7542f8\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-15T20:40:42.310Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-15T20:40:42.310Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"sodsiqsnst\",\n                \"slug\": \"sodsiqsnst\",\n                \"description\": \"sodiq\",\n                \"status\": \"active\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
-										}
-									]
-								},
-								{
-									"name": "Get Roles-No auth",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "365e18df-1e06-4da2-92ac-115f8183a12c",
-												"exec": [
-													"try {\r",
-													"    const { message, statusCode } = pm.response.json()\r",
-													"\r",
-													"    // pm.test(\"Test for valid status code\", () => {\r",
-													"    //     pm.expect(statusCode).to.eql(401)\r",
-													"    // })\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).to.eql(\"Access token is required\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(error)\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "2d06137c-0929-4e07-b432-f18c25f4b730",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": "{{base_url}}/admin/roles"
-									},
-									"response": [
-										{
-											"id": "25f3fcc2-32d2-4b14-ab1b-84e2736b09e2",
-											"name": "Get Roles",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": "{{base_url}}/admin/roles"
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "758"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"2f6-AVtWRZV0/21U72HzRqvbKK+bDVo\""
-												},
-												{
-													"key": "Date",
-													"value": "Tue, 15 Oct 2024 20:46:28 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"roles\": [\n            {\n                \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Admin\",\n                \"slug\": \"admin\",\n                \"description\": null,\n                \"status\": \"active\"\n            },\n            {\n                \"id\": \"019291e9-5a4f-766a-8e6a-98ebea7542f8\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-15T20:40:42.310Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-15T20:40:42.310Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"sodsiqsnst\",\n                \"slug\": \"sodsiqsnst\",\n                \"description\": \"sodiq\",\n                \"status\": \"active\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
-										}
-									]
-								}
-							],
-							"id": "8d738af2-c668-4945-8bfa-54b62af41609"
-						},
-						{
-							"name": "Update Role",
-							"item": [
-								{
-									"name": "Update Role",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "bd3be5db-15e8-4e1d-8937-aa8541ca202e",
-												"exec": [
-													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
-													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
-													"    })\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"object\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "cc46142d-8b3e-4426-9e33-e5e703ddb5bf",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    // \"permissions\": [\n    //     \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n    //     \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n    //     \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n    //     \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n    //     \"019291bb-74c2-7d09-b969-5395961a0650\",\n    //     \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n    //     \"019291bc-4e74-769e-ab34-984446abf18d\",\n    //     \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n    //     \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\"\n    // ]\n    \"status\": \"active\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/admin/roles/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"admin",
-												"roles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id",
-													"value": "0192f1ed-5fdd-7aaf-b272-a9d471b41c87"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update Role-Invalid Id",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "7e1705fd-e829-41b6-a00c-8993112259e7",
-												"exec": [
-													"try {\r",
-													"    const { message } = pm.response.json()\r",
-													"\r",
-													"    pm.test(\"Status code is 404\", function () {\r",
-													"        pm.response.to.have.status(404);\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).include(\"Role not found\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "779d56fd-18b1-4a12-be77-0e10e655aa76",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\",\n        \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n        \"019291bc-4e74-769e-ab34-984446abf18d\",\n        \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n        \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\"\n    ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/admin/roles/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"admin",
-												"roles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id",
-													"value": "01927265-d8bc-7195-996f-e131d5e13320"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update Role-Empty Id field",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "705f76c9-9015-48ad-868e-ee32c295b530",
-												"exec": [
-													"try {\r",
-													"    const { message } = pm.response.json()\r",
-													"\r",
-													"    pm.test(\"Status code is 400\", function () {\r",
-													"        pm.response.to.have.status(400);\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).include(\"Role ID must be a valid UUID\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "79702bc3-db57-4755-9d7d-66d10e738644",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\",\n        \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n        \"019291bc-4e74-769e-ab34-984446abf18d\",\n        \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n        \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\"\n    ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/admin/roles/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"admin",
-												"roles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id",
-													"value": ""
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Update Role-Invalid permission ID",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "662499d7-ef7b-46f5-8188-39a8b7a19521",
-												"exec": [
-													"try {",
-													"    const { message } = pm.response.json()",
-													"",
-													"    pm.test(\"Status code is 400\", () => {",
-													"        pm.response.to.have.status(400);",
-													"    });",
-													"",
-													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(message).includes(\"Some of the specified permissions do not exist.\")",
-													"    })",
-													"",
-													"} catch (error) {",
-													"    console.error(\"Error from test:\", error)",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "96199204-2e9f-42a1-9bfc-030d656af47e",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"permissions\": [\n    \"01929211-b54f-7970-87e1-91950a529d45\",\n    \"01929211-b54f-74dd-92c6-f81b2e09c062\",\n    \"01929211-b54f-7427-bfe8-147d59ec6edd\",\n    \"01929211-b54f-7320-95b1-a8c5d4028b6f\",\n    \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\",\n    \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n    \"019291bc-4e74-769e-ab34-984446abf18d\",\n    \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n    \"019291bb-74c2-7d09-b969-5395961a0651\",\n    \"019291bb-74c2-7d09-b969-5395961a0630\",\n    \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n    \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n    \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n    \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n    \"01929211-b54f-77d3-9d4d-112d965f2761\",\n    \"01929211-b54f-74dd-92c6-f81b2e09c062\"\n    ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/admin/roles/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"admin",
-												"roles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id",
-													"value": "01927265-d8bc-7195-996f-e131d5e13329"
-												}
-											]
-										}
-									},
-									"response": []
-								}
-							],
-							"id": "943af4fe-a15d-47ba-b8ef-7d95b60c7107"
-						},
-						{
-							"name": "Get Role",
-							"item": [
-								{
-									"name": "Get Role",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "6fb41269-f21f-4260-92a3-3762ac2e221d",
-												"exec": [
-													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
-													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
-													"    })\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"object\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "b5704a75-394c-4f60-8eb0-fa34a700a32a",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/admin/roles/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"admin",
-												"roles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id",
-													"value": "{{adminFetchedRole}}"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Get Role- No auth",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "15fff6d1-4589-4cf1-b62e-da808329c58f",
-												"exec": [
-													"try {\r",
-													"    const { message, statusCode } = pm.response.json()\r",
-													"\r",
-													"    // pm.test(\"Test for valid status code\", () => {\r",
-													"    //     pm.expect(statusCode).to.eql(401)\r",
-													"    // })\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).to.eql(\"Access token is required\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(error)\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "96402659-d3fc-4851-ba4a-255ce247a1a7",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/admin/roles/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"admin",
-												"roles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id",
-													"value": "01927265-d8bc-7195-996f-e131d5e13329"
-												}
-											]
-										}
-									},
-									"response": []
-								}
-							],
-							"id": "3b7ff3c3-5ae1-4535-96fb-8ce33acf686f"
-						},
-						{
-							"name": "Create Role",
-							"item": [
-								{
-									"name": "Create Role",
-									"id": "c78dcf99-c7ab-451b-af52-671d64d4374e",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"superadmin\",\n    \"description\": \"Approver\",\n    \"permissions\": [\n        \"01929211-b54f-7970-87e1-91950a529d45\",\n        \"01929211-b54f-7427-bfe8-147d59ec6edd\",\n        \"01929211-b54f-7320-95b1-a8c5d4028b6f\",\n        \"01929211-b54f-74dd-92c6-f81b2e09c062\",\n        \"019291bb-74c2-7d09-b969-5395961a0651\",\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\",\n        \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n        \"019291bc-4e74-769e-ab34-984446abf18d\",\n        \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n        \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\",\n        \"01929211-b54f-77d3-9d4d-112d965f2761\",\n        \"01929211-b54f-74dd-92c6-f81b2e09c063\"\n    ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/roles"
-									},
-									"response": []
-								},
-								{
-									"name": "Create Role-Empty fields",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "65bf16a7-5474-4d51-9698-4b3af6ab98b5",
-												"exec": [
-													"try {\r",
-													"    const { message } = pm.response.json()\r",
-													"\r",
-													"    pm.test(\"Status code is 400\", () => {\r",
-													"        pm.response.to.have.status(400);\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Status code name has string\", function () {\r",
-													"        pm.response.to.have.status(\"Bad Request\");\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).to.include(\"Name cannot be empty\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error)\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "8c8cf83a-0dcc-4faa-a53a-7e540bdb2273",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"description\": \"\",\n    \"permissions\": []\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/roles"
-									},
-									"response": []
-								},
-								{
-									"name": "Create Role-Existing name",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "3877434a-40b9-4ad8-8caa-8322929477a6",
-												"exec": [
-													"try {\r",
-													"    const { message } = pm.response.json()\r",
-													"\r",
-													"    pm.test(\"Status code is 400\", () => {\r",
-													"        pm.response.to.have.status(400);\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Status code name has string\", function () {\r",
-													"        pm.response.to.have.status(\"Bad Request\");\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).to.eql(\"Role with name already exist.\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error)\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "acd83fbd-4899-4f26-84fd-1c80b80a4d1b",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Manager\",\n    \"description\": \"Manager\",\n    \"permissions\": [\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-7d09-b969-5395961a0650\"\n    ]\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/roles"
-									},
-									"response": []
-								}
-							],
-							"id": "d0c536b8-b2d0-4dc3-bdff-343fd6ae5e8f"
-						},
-						{
-							"name": "Delete Role",
-							"item": [
-								{
-									"name": "Delete Role",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "01c45508-e191-4a9d-a7dc-58930b5a4553",
-												"exec": [
-													"// pm.test(\"Status code is 200\", function () {\r",
-													"//         pm.response.to.have.status(200);\r",
-													"//     });\r",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "e6005d20-0749-4516-a195-b848546ad364",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/admin/roles/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"admin",
-												"roles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id",
-													"value": "0192fc90-1703-7002-904c-af6f3df248a6"
-												}
-											]
-										}
-									},
-									"response": []
-								},
-								{
-									"name": "Delete Role",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "bd3be5db-15e8-4e1d-8937-aa8541ca202e",
-												"exec": [
-													"// try {\r",
-													"//     const { status, data } = pm.response.json()\r",
-													"\r",
-													"//     pm.test(\"Status code is 200\", function () {\r",
-													"//         pm.response.to.have.status(200);\r",
-													"//     });\r",
-													"\r",
-													"//     pm.test(\"Test for valid status\", () => {\r",
-													"//         pm.expect(status).to.eql(\"success\")\r",
-													"//     })\r",
-													"\r",
-													"//     pm.test(\"Test for valid error message\", () => {\r",
-													"//         pm.expect(data).to.be.an(\"object\")\r",
-													"//     })\r",
-													"\r",
-													"// } catch (error) {\r",
-													"//     console.error(\"Error from test:\", error);\r",
-													"// }"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "95a53faa-07b4-468d-9e59-f5644474f640",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/admin/roles/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"admin",
-												"roles",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "id",
-													"value": "0192f395-fe6d-7993-8e68-6bbc791530c0"
-												}
-											]
-										}
-									},
-									"response": []
-								}
-							],
-							"id": "0d18c382-d28b-467d-a99a-b2bb86910645"
-						}
-					],
-					"id": "99866b42-f310-4b29-9299-7e8291c73c2d"
 				},
 				{
 					"name": "Definitions",
