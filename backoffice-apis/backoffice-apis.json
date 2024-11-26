@@ -93,7 +93,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Password12@@\"\n    // , \"code\": \"992036\"\n}",
+											"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Password12@@\"\n    // , \"code\": \"270624\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -5934,6 +5934,81 @@
 									"response": [
 										{
 											"id": "790449ea-b6cc-40d0-a29d-f972beb38aa0",
+											"name": "Generate TwoFA",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"url": "{{base_url}}/admin/users/two-fa"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "2785"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"ae1-EE5/aeDHSUkCUNjFuxnsfVBnISk\""
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 10 Nov 2024 19:19:26 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"otp_auth_secret\": \"HRYF26L5JBAC6VJGNYYS45C5NR2H223U\",\n        \"otp_auth_url\": \"otpauth://totp/SecretKey?secret=HRYF26L5JBAC6VJGNYYS45C5NR2H223U\",\n        \"qr_code_image\": \"data:image/png;base64,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\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Generate TwoFA Copy",
+									"id": "210722e5-7e0b-483f-86d4-74dbc3ba1629",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"url": "{{base_url}}/admin/users/two-fa"
+									},
+									"response": [
+										{
+											"id": "092a73fc-d106-47a5-bb42-8762388d4ae6",
 											"name": "Generate TwoFA",
 											"originalRequest": {
 												"method": "POST",
