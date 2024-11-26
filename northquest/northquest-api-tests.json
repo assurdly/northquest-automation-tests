@@ -30800,53 +30800,26 @@
 					"id": "df4c6dcd-2268-4aff-828d-9af585990b71"
 				},
 				{
-					"name": "Match Contacts Copy",
-					"id": "5dde1a80-61a1-4269-aeaf-9af2e784820a",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"contacts\": [\n        \"+2348149583661\"\n    ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/accounts/match-contacts",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"accounts",
-								"match-contacts"
-							],
-							"variable": [
-								{
-									"id": "7a9d2403-7a8b-4e61-8a48-d21e5767c3c3",
-									"key": "profile_id",
-									"value": "{{profileId}}"
-								}
-							]
-						}
-					},
-					"response": [
+					"name": "Verify BVN",
+					"item": [
 						{
-							"id": "3b0700b0-1729-4fee-8c3a-b876f035f2e3",
-							"name": "Success",
-							"originalRequest": {
+							"name": "Verify BVN",
+							"id": "34601931-5cc2-4f20-b944-fdc4b12f965e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"contacts\": [\n        \"+2348149583661\"\n    ]\n}",
+									"raw": "{\n    \"bvn\": \"22211231110\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -30854,20 +30827,127 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts/match-contacts",
+									"raw": "{{base_url}}/profiles/:profile_id/verification/bvn",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"profiles",
 										":profile_id",
-										"accounts",
-										"match-contacts"
+										"verification",
+										"bvn"
+									],
+									"variable": [
+										{
+											"id": "78078b25-7bbc-47e2-b645-f21978a881d4",
+											"key": "profile_id",
+											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "3554e2b9-83a6-4246-91e6-36d833e54d5d"
+				},
+				{
+					"name": "Complete BVN Verification",
+					"item": [
+						{
+							"name": "Complete Verify BVN Copy",
+							"id": "7a1db792-7c41-450f-969b-a5c839936670",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bvn\": \"22211231110\",\n    \"date_of_birth\": \"2000-01-01\",\n    \"phone_last_digits\": \"12345\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/bvn",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"bvn"
+									],
+									"variable": [
+										{
+											"id": "5fff1a08-a8b7-42c2-bc4e-0f27ff22bc93",
+											"key": "profile_id",
+											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "006b8300-9eff-4bf7-a8bc-81a6f16deda2"
+				},
+				{
+					"name": "Verify Liveness Copy",
+					"id": "74c24223-fba1-4877-87a9-2c5169926b44",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/verification/liveness",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"verification",
+								"liveness"
+							],
+							"variable": [
+								{
+									"id": "325fd198-0010-45c5-8427-4d92c9e19a83",
+									"key": "profile_id",
+									"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "20f69b38-97ae-456e-851f-38eb09ba0be0",
+							"name": "Verify Liveness",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/liveness",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"liveness"
 									],
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
 										}
 									]
 								}
@@ -30902,15 +30982,15 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "79"
+									"value": "1183"
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"4f-AwvIbAEuSTjtpuoHs8jfRE9mo0s\""
+									"value": "W/\"49f-hiJqjuqywPWfjGrXPxDKOmhphXk\""
 								},
 								{
 									"key": "Date",
-									"value": "Tue, 19 Nov 2024 16:28:37 GMT"
+									"value": "Wed, 13 Nov 2024 15:01:26 GMT"
 								},
 								{
 									"key": "Connection",
@@ -30923,9 +31003,49 @@
 							],
 							"cookie": [],
 							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": \"John Doe\",\n            \"account_number\": \"8149583661\"\n        }\n    ]\n}"
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJraWQiOiJ1cy1lYXN0LTItNiIsInR5cCI6IkpXUyIsImFsZyI6IlJTNTEyIn0.eyJzdWIiOiJ1cy1lYXN0LTI6NWFlNWUyMzktMWJiMS1jNzc1LTk1ZjctZDFiNzE0YWNjYmU5IiwiYXVkIjoidXMtZWFzdC0yOjE0MGFlYzllLTY0NDQtNGFkNi1hZjc1LTcwOGRmNjUzZjJlNCIsImFtciI6WyJhdXRoZW50aWNhdGVkIiwiYXBpLWJhY2tlbmQtc2VydmljZSIsImFwaS1iYWNrZW5kLXNlcnZpY2U6dXMtZWFzdC0yOjE0MGFlYzllLTY0NDQtNGFkNi1hZjc1LTcwOGRmNjUzZjJlNDowMTkyNTM0My1mYmM4LTc4ODYtYWJmYi00MWM4NzQ2ZmM4Y2UiXSwiaXNzIjoiaHR0cHM6Ly9jb2duaXRvLWlkZW50aXR5LmFtYXpvbmF3cy5jb20iLCJodHRwczovL2NvZ25pdG8taWRlbnRpdHkuYW1hem9uYXdzLmNvbS9pZGVudGl0eS1wb29sLWFybiI6ImFybjphd3M6Y29nbml0by1pZGVudGl0eTp1cy1lYXN0LTI6MzkwNDAzODY0ODU5OmlkZW50aXR5cG9vbC91cy1lYXN0LTI6MTQwYWVjOWUtNjQ0NC00YWQ2LWFmNzUtNzA4ZGY2NTNmMmU0IiwiZXhwIjoxNzMxNTEwOTg1LCJpYXQiOjE3MzE1MTAwODV9.K8xqyR9S4qKpPQA4BfUgFS_lGcfZdZbgsIEsQo_nf4ojIUl5bLVqbUi-JddizQlbngQkF1iNN0VfcS58iuZ7UpA2QFC9mVtnyM7EjcoFS3Jxz9KXsf-Bn0UGLZ4GxVUBbBeNWp5WxkLqhd7EJBT9Vwekgetco_OnHus80BtUz9Ky2_lQ69RqAZc-J7K6HMrels2u_hTbQuln39104bwu4DEV6fcfWeKQWaqJEqhfW0Ga-YJx6EQekM57xlN63bxBtZYfY5Q_gt_7OkaaXPtrH_K34nTAEXmq8v8Gy-D578kUYfBqKH3UkFgQCYu2D9McHoTeyb9umTPAkCddYzuKKw\",\n        \"session_id\": \"e3ea88d2-e9e6-40f4-8589-85db9477bbe7\"\n    }\n}"
 						}
 					]
+				},
+				{
+					"name": "Complete Verify Liveness Copy",
+					"id": "bf35c048-97d5-4a64-9d35-6ca4fbcc65e8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"session_id\": \"e3ea88d2-e9e6-40f4-8589-85db9477bbe7\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/verification/liveness",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"verification",
+								"liveness"
+							],
+							"variable": [
+								{
+									"id": "e0782935-f35c-41e6-9953-7c3f7fdf1498",
+									"key": "profile_id",
+									"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "7bdbec5f-5e28-4db3-835e-14f721228976"
