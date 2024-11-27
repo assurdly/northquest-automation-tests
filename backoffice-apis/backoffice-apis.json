@@ -10157,6 +10157,35 @@
 								},
 								{
 									"name": "Create Document-Empty description field",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d49b46ff-ccc9-4f2c-adeb-432a01182c5b",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", function () {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"error\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.includes(\"description should not be empty\")\r",
+													"    })\r",
+													"} catch (error) {\r",
+													"    console.error(\"Errors from tests\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "73f350c0-46b2-486c-b90e-473379f325c4",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -10256,6 +10285,35 @@
 								},
 								{
 									"name": "Create Document -Duplicate document type",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "54ccabb8-97e5-4604-be28-f88056ec6e65",
+												"exec": [
+													"try {\r",
+													"    const { message, status } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", function () {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"error\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.includes(\"Document type Business document already exists\")\r",
+													"    })\r",
+													"} catch (error) {\r",
+													"    console.error(\"Errors from tests\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "7f8c0221-0c6e-4924-9816-9246434d1971",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
