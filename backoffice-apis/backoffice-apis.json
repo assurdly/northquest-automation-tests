@@ -10029,6 +10029,35 @@
 							"item": [
 								{
 									"name": "Create Document Type",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "2116f256-4718-49ae-8d5f-9824643f7b5f",
+												"exec": [
+													"// try {\r",
+													"//     const { status, data } = pm.response.json()\r",
+													"\r",
+													"//     pm.test(\"Status code is 201\", function () {\r",
+													"//         pm.response.to.have.status(201);\r",
+													"//     });\r",
+													"\r",
+													"//     pm.test(\"Test for valid status\", () => {\r",
+													"//         pm.expect(status).to.eql(\"success\")\r",
+													"//     })\r",
+													"\r",
+													"//     pm.test(\"Test for valid error message\", () => {\r",
+													"//         pm.expect(data).to.be.an(\"object\")\r",
+													"//     })\r",
+													"// } catch (error) {\r",
+													"//     console.error(\"Errors from tests\", error)\r",
+													"// }"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "acbba226-1e36-4544-a261-2a10d2ad38f3",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -10044,7 +10073,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "// {\n//     \"name\":\"Driver’s License\",\n//     \"description\": \"Upload a photo of your driver’s license.\",\n//     \"profile_type\": \"personal\",\n//     \"enabled\": true,\n//     \"required\": false\n// }",
+											"raw": "// {\n//     \"name\":\"Driver's Licence\",\n//     \"description\": \"Upload a photo of your driver’s license.\",\n//     \"profile_type\": \"personal\",\n//     \"enabled\": true,\n//     \"required\": false\n// }",
 											"options": {
 												"raw": {
 													"language": "json"
