@@ -9576,37 +9576,14 @@
 						},
 						{
 							"name": "Get Setting",
-							"id": "71fd12e0-eca6-4454-811c-72c7194c3797",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/admin/settings/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"settings",
-										":id"
-									],
-									"variable": [
-										{
-											"id": "1ea0909d-8a19-4cb3-8812-1335b201248c",
-											"key": "id",
-											"value": "0192720c-9a93-7926-a576-d28eb25a58f3"
-										}
-									]
-								}
-							},
-							"response": [
+							"item": [
 								{
-									"id": "ae632875-8754-42c9-99ad-a45825f38132",
 									"name": "Get Setting",
-									"originalRequest": {
+									"id": "71fd12e0-eca6-4454-811c-72c7194c3797",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -9621,66 +9598,95 @@
 											],
 											"variable": [
 												{
+													"id": "1ea0909d-8a19-4cb3-8812-1335b201248c",
 													"key": "id",
 													"value": "0192720c-9a93-7926-a576-d28eb25a58f3"
 												}
 											]
 										}
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "673"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"2a1-4EpYvKRuFzcesjUWheOq8Zjbrho\""
-										},
-										{
-											"key": "Date",
-											"value": "Mon, 18 Nov 2024 02:59:05 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"id": "ae632875-8754-42c9-99ad-a45825f38132",
+											"name": "Get Setting",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/settings/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"settings",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "0192720c-9a93-7926-a576-d28eb25a58f3"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "673"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2a1-4EpYvKRuFzcesjUWheOq8Zjbrho\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 18 Nov 2024 02:59:05 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192720c-9a93-7926-a576-d28eb25a58f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T20:54:54.116Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T20:54:54.116Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"name\": \"Nibss auth code\",\n        \"slug\": \"nibss-auth-code\",\n        \"description\": null,\n        \"default_value\": \"AQICAHhOSJZhVg/I2coLSYKPsLpMAB9RmmnTyzbI/dG9G9SQ4gFsFkZuowQdE4/s/IE4lGDHAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCh/wSn19jg2Q98ynwIBEIA/+S+AaISkheidOAgnXcYpSdiLtA3kfivckJgF+LM2yf0YMg6EHbgwZAutMIwJLHFqmI+HqiA9+4h+sl5rJP1S\",\n        \"encrypted\": true,\n        \"regex\": null,\n        \"parent_id\": null,\n        \"value\": \"d3VubWk6b0Fx************UHN6T1E2WUk=\"\n    }\n}"
 										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192720c-9a93-7926-a576-d28eb25a58f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T20:54:54.116Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T20:54:54.116Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"name\": \"Nibss auth code\",\n        \"slug\": \"nibss-auth-code\",\n        \"description\": null,\n        \"default_value\": \"AQICAHhOSJZhVg/I2coLSYKPsLpMAB9RmmnTyzbI/dG9G9SQ4gFsFkZuowQdE4/s/IE4lGDHAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCh/wSn19jg2Q98ynwIBEIA/+S+AaISkheidOAgnXcYpSdiLtA3kfivckJgF+LM2yf0YMg6EHbgwZAutMIwJLHFqmI+HqiA9+4h+sl5rJP1S\",\n        \"encrypted\": true,\n        \"regex\": null,\n        \"parent_id\": null,\n        \"value\": \"d3VubWk6b0Fx************UHN6T1E2WUk=\"\n    }\n}"
+									]
 								}
-							]
+							],
+							"id": "c3d784e6-b16b-47bb-a2f0-13af2380614b"
 						}
 					],
 					"id": "255081b6-b631-4cf7-9a34-03c80541a7e1"
