@@ -12094,45 +12094,18 @@
 						},
 						{
 							"name": "Get Stats",
-							"id": "2ac55d79-594b-498c-83d1-22e2274a9e33",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/admin/profiles/stats?filter[type]=Personal",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"profiles",
-										"stats"
-									],
-									"query": [
-										{
-											"key": "filter[type]",
-											"value": "Personal"
-										},
-										{
-											"key": "filter[status]",
-											"value": "active",
-											"disabled": true
-										}
-									]
-								}
-							},
-							"response": [
+							"item": [
 								{
-									"id": "490482c2-edeb-4c04-8518-c004b02f098e",
 									"name": "Get Stats",
-									"originalRequest": {
+									"id": "2ac55d79-594b-498c-83d1-22e2274a9e33",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/profiles/stats?filter[type]=Personal&filter[status]=active",
+											"raw": "{{base_url}}/admin/profiles/stats?filter[type]=Personal",
 											"host": [
 												"{{base_url}}"
 											],
@@ -12148,7 +12121,303 @@
 												},
 												{
 													"key": "filter[status]",
-													"value": "active"
+													"value": "active",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "490482c2-edeb-4c04-8518-c004b02f098e",
+											"name": "Get Stats",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/profiles/stats?filter[type]=Personal&filter[status]=active",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"profiles",
+														"stats"
+													],
+													"query": [
+														{
+															"key": "filter[type]",
+															"value": "Personal"
+														},
+														{
+															"key": "filter[status]",
+															"value": "active"
+														},
+														{
+															"key": "filter[name]",
+															"value": "",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "130"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"82-NQDzvxHcvaHS7b51VcMgR+HHkzQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 10 Nov 2024 17:33:32 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"count\": \"0\",\n            \"value\": \"inactive\"\n        },\n        {\n            \"count\": \"0\",\n            \"value\": \"blacklisted\"\n        },\n        {\n            \"count\": \"16\",\n            \"value\": \"active\"\n        }\n    ]\n}"
+										}
+									]
+								}
+							],
+							"id": "04d34f7c-516a-4ef5-893b-dc3423123ec2"
+						},
+						{
+							"name": "Export Profiles",
+							"item": [
+								{
+									"name": "Export Profiles",
+									"id": "66a24065-1e62-4f2b-a9f5-ad7bee4589f4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=xlsx",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												"export"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "business"
+												},
+												{
+													"key": "filter[created_on][gt]",
+													"value": "2024-10-04"
+												},
+												{
+													"key": "format",
+													"value": "xlsx"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "fcf38593-feb2-4058-a8a7-4ec1ab9b3761"
+						}
+					],
+					"id": "3ba1a014-6e87-4c99-90ec-73fac93dc15f"
+				},
+				{
+					"name": "Profiles Copy",
+					"item": [
+						{
+							"name": "List Profiles",
+							"item": [
+								{
+									"name": "List Profiles",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "38d9e072-4318-4825-91d6-e89d6391a64c",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.environment.set(\"adminFetchedProfileId\", data[0].id);\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid success message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "645cddd5-3859-4278-821d-ae81e46ff2d2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles?filter[type]=personal",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "personal"
+												},
+												{
+													"key": "filter[status]",
+													"value": "inactive",
+													"disabled": true
+												},
+												{
+													"key": "filter[name]",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "id",
+													"value": "019252e1-1a4c-7447-bcc2-b2c6d18d6486",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "List Profiles-Invalid type",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "38d9e072-4318-4825-91d6-e89d6391a64c",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.environment.set(\"adminFetchedProfileId\", data[0].id);\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid success message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "f36bd884-937f-47e7-a39f-c49b72790f1b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles?filter[type]=businessss",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "businessss"
+												},
+												{
+													"key": "filter[status]",
+													"value": "inactive",
+													"disabled": true
 												},
 												{
 													"key": "filter[name]",
@@ -12158,205 +12427,736 @@
 											]
 										}
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "130"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"82-NQDzvxHcvaHS7b51VcMgR+HHkzQ\""
-										},
-										{
-											"key": "Date",
-											"value": "Sun, 10 Nov 2024 17:33:32 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"count\": \"0\",\n            \"value\": \"inactive\"\n        },\n        {\n            \"count\": \"0\",\n            \"value\": \"blacklisted\"\n        },\n        {\n            \"count\": \"16\",\n            \"value\": \"active\"\n        }\n    ]\n}"
-								}
-							]
-						},
-						{
-							"name": "Export Profiles",
-							"id": "66a24065-1e62-4f2b-a9f5-ad7bee4589f4",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=xlsx",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"profiles",
-										"export"
-									],
-									"query": [
-										{
-											"key": "filter[type]",
-											"value": "business"
-										},
-										{
-											"key": "filter[created_on][gt]",
-											"value": "2024-10-04"
-										},
-										{
-											"key": "format",
-											"value": "xlsx"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Change Password",
-							"id": "42192bfb-506d-414d-bff5-9488292abf62",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "// {\n//     \"old_password\": \"Password12@@\",\n//     \"password\": \"Password12@@\",\n//     \"confirm_password\": \"Password12@@\"\n// }",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"response": []
 								},
-								"url": "{{base_url}}/admin/auth/change-password"
-							},
-							"response": [
 								{
-									"id": "894566e0-8739-4185-8f11-2dbf91112f4b",
-									"name": "Change Password",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{token}}",
-												"type": "text"
+									"name": "List Profiles-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "38d9e072-4318-4825-91d6-e89d6391a64c",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
 											}
-										],
+										}
+									],
+									"id": "f4179b15-cdfd-4ac6-900d-c7880db5ccc8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles?filter[name]=",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "business",
+													"disabled": true
+												},
+												{
+													"key": "filter[status]",
+													"value": "inactive",
+													"disabled": true
+												},
+												{
+													"key": "filter[name]",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "29355cd3-77e7-45cb-8718-275a9d096c74"
+						},
+						{
+							"name": "Update Profile",
+							"item": [
+								{
+									"name": "Update Profile",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b5421043-bb51-4c1c-aea1-f54e602fc1fb",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid success message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "ee41f1c1-2b9d-4798-9184-2ae3e574d442",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"raw": "{\n    \"name\": \"wunmi\",\n    \"type\": \"business\",\n    \"status\": \"active\",\n    \"phone\": \"09089789078\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
 												}
 											}
 										},
-										"url": "{{base_url}}/auth/change-password"
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profileId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profileId"
+											],
+											"variable": [
+												{
+													"id": "545877c4-10a7-4893-8c4e-40f50471f060",
+													"key": "profileId",
+													"value": "{{adminFetchedProfileId}}"
+												}
+											]
+										}
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": []
+								},
+								{
+									"name": "Update Profile-Empty Profile Id",
+									"event": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "70"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"listen": "test",
+											"script": {
+												"id": "b5421043-bb51-4c1c-aea1-f54e602fc1fb",
+												"exec": [
+													"try {\r",
+													"    const {message} = pm.response.json()\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", function () {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
 										}
 									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+									"id": "412883d0-d3af-49de-b501-470d6f02319c",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"wunmi\",\n    \"type\": \"business\",\n    \"status\": \"active\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profileId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profileId"
+											],
+											"variable": [
+												{
+													"id": "0d895a48-2022-4f49-aec9-96e1de474b02",
+													"key": "profileId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Profile-Invalid Profile Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b5421043-bb51-4c1c-aea1-f54e602fc1fb",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", function () {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    \r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"not found\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "bd7115fc-41a3-4454-a687-910597886fb1",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"wunmi\",\n    \"type\": \"business\",\n    \"status\": \"active\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profileId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profileId"
+											],
+											"variable": [
+												{
+													"id": "5bdb5f6d-c00f-433a-a57c-c9ae880ac3eb",
+													"key": "profileId",
+													"value": "019233c5-f357-7ffa-922e-9ff5318f8670"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Profile-Empty fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b5421043-bb51-4c1c-aea1-f54e602fc1fb",
+												"exec": [
+													"try {\r",
+													"    const { message} = pm.response.json()\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", function () {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"type must be one of the following values: personal, business\");\r",
+													"        pm.expect(message).includes(\"status must be one of the following values: active, inactive, blacklisted\");\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "69f2386c-e938-4473-b55b-da2a47edd63e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"type\": \"\",\n    \"status\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profileId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profileId"
+											],
+											"variable": [
+												{
+													"id": "be692dfb-23b0-4035-bf62-9d1de5884713",
+													"key": "profileId",
+													"value": "{{adminFetchedProfileId}}"
+												}
+											]
+										}
+									},
+									"response": []
 								}
-							]
+							],
+							"id": "96b48b14-2118-45b8-acdd-afa3b82a16cd"
+						},
+						{
+							"name": "Delete Profile",
+							"item": [
+								{
+									"name": "Delete Profile",
+									"id": "81fddeb3-bcf8-4a82-b868-cf525931fc9e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profileId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profileId"
+											],
+											"variable": [
+												{
+													"id": "7af8b8fc-020e-4f1a-82a3-72d621c968ba",
+													"key": "profileId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "4de73473-a867-4add-a374-0e0e4607139b"
+						},
+						{
+							"name": "Export Profiles",
+							"item": [
+								{
+									"name": "Export Profiles",
+									"id": "da00a206-afe6-4535-a7e2-a33ec66e1193",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												"export"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "business"
+												},
+												{
+													"key": "filter[created_on][gt]",
+													"value": "2024-10-04"
+												},
+												{
+													"key": "format",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "fc03faa1-25ee-4a46-8776-31053a500967"
+						},
+						{
+							"name": "Get Profile",
+							"item": [
+								{
+									"name": "Get Profile",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "38d9e072-4318-4825-91d6-e89d6391a64c",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.environment.set(\"adminFetchedProfileId\", data[0].id);\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid success message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "368b457e-1f4f-4a72-bef4-1db029ad9794",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profile_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profile_id"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "Business",
+													"disabled": true
+												},
+												{
+													"key": "filter[status]",
+													"value": "inactive",
+													"disabled": true
+												},
+												{
+													"key": "filter[name]",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "id",
+													"value": "01925343-fbc8-7886-abfb-41c8746fc8ce",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "db40a835-c17a-487f-9e00-816e4181d47a",
+													"key": "profile_id",
+													"value": "019233c5-f357-7ffa-922e-9ff5318f8678"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "fd6597c4-ad80-4a61-959e-6d3500d44a3e"
+						},
+						{
+							"name": "Get Stats",
+							"item": [
+								{
+									"name": "Get Stats",
+									"id": "d278fc96-0fd6-4210-8a12-c49c895308bc",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/stats?filter[type]=Personal",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												"stats"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "Personal"
+												},
+												{
+													"key": "filter[status]",
+													"value": "active",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "8b03f5fa-0abf-4548-8fa6-51d55d88175d",
+											"name": "Get Stats",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/profiles/stats?filter[type]=Personal&filter[status]=active",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"profiles",
+														"stats"
+													],
+													"query": [
+														{
+															"key": "filter[type]",
+															"value": "Personal"
+														},
+														{
+															"key": "filter[status]",
+															"value": "active"
+														},
+														{
+															"key": "filter[name]",
+															"value": "",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "130"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"82-NQDzvxHcvaHS7b51VcMgR+HHkzQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 10 Nov 2024 17:33:32 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"count\": \"0\",\n            \"value\": \"inactive\"\n        },\n        {\n            \"count\": \"0\",\n            \"value\": \"blacklisted\"\n        },\n        {\n            \"count\": \"16\",\n            \"value\": \"active\"\n        }\n    ]\n}"
+										}
+									]
+								}
+							],
+							"id": "cf16876c-6ef2-41cc-87dd-49cf437467c0"
+						},
+						{
+							"name": "Export Profiles",
+							"item": [
+								{
+									"name": "Export Profiles",
+									"id": "27b46654-f9d0-4fd9-b957-34fa234d585d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=xlsx",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												"export"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "business"
+												},
+												{
+													"key": "filter[created_on][gt]",
+													"value": "2024-10-04"
+												},
+												{
+													"key": "format",
+													"value": "xlsx"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "9e45364e-a487-40c3-b437-2f5ad1c3dae1"
 						}
 					],
-					"id": "3ba1a014-6e87-4c99-90ec-73fac93dc15f"
+					"id": "5cea69a0-9dea-4ae3-a4b1-4d9b9e34de4b"
 				},
 				{
 					"name": "Verification Types",
