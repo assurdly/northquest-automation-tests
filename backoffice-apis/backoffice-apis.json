@@ -9699,6 +9699,36 @@
 							"item": [
 								{
 									"name": "List Documents",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "eed808fc-e020-4913-9415-d89f5dfc3c80",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "c09d576f-1bf1-41ac-8af4-0adea36b4042",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -9733,16 +9763,39 @@
 								},
 								{
 									"name": "List Documents-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ef65169b-999c-4167-a166-55eb071d322c",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "abbed162-6578-42b4-acb4-96dddc110839",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [],
@@ -12120,16 +12173,39 @@
 								},
 								{
 									"name": "Export Profiles-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "f8837632-8c51-4811-bad2-f592ed08f652",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "86840c9a-ea87-45cb-8bfc-61b95deff0e2",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [],
@@ -12257,6 +12333,87 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Get Profile-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "38d9e072-4318-4825-91d6-e89d6391a64c",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "bd17f841-f834-43bd-b0f1-6489137ae9dc",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profile_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profile_id"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "Business",
+													"disabled": true
+												},
+												{
+													"key": "filter[status]",
+													"value": "inactive",
+													"disabled": true
+												},
+												{
+													"key": "filter[name]",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "id",
+													"value": "01925343-fbc8-7886-abfb-41c8746fc8ce",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "019233c5-f357-7ffa-922e-9ff5318f8678"
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"id": "1f3b29c9-6dd8-4e92-a65c-c12f10d0ee65"
@@ -12299,6 +12456,153 @@
 									"response": [
 										{
 											"id": "490482c2-edeb-4c04-8518-c004b02f098e",
+											"name": "Get Stats",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/profiles/stats?filter[type]=Personal&filter[status]=active",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"profiles",
+														"stats"
+													],
+													"query": [
+														{
+															"key": "filter[type]",
+															"value": "Personal"
+														},
+														{
+															"key": "filter[status]",
+															"value": "active"
+														},
+														{
+															"key": "filter[name]",
+															"value": "",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "130"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"82-NQDzvxHcvaHS7b51VcMgR+HHkzQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 10 Nov 2024 17:33:32 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"count\": \"0\",\n            \"value\": \"inactive\"\n        },\n        {\n            \"count\": \"0\",\n            \"value\": \"blacklisted\"\n        },\n        {\n            \"count\": \"16\",\n            \"value\": \"active\"\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Stats-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e248c902-3cf3-413f-a707-6c733cb4d2d6",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "6d59472c-3c87-4f12-a2ca-6a15d16e9f74",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/stats?filter[type]=Personal",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												"stats"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "Personal"
+												},
+												{
+													"key": "filter[status]",
+													"value": "active",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "b65fa915-868c-42f4-928e-e49ebcc67ed1",
 											"name": "Get Stats",
 											"originalRequest": {
 												"method": "GET",
