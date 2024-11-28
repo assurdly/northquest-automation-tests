@@ -10938,6 +10938,45 @@
 								}
 							],
 							"id": "57872c0c-0ad0-4efc-9fe1-109f0def43b3"
+						},
+						{
+							"name": "Update Document Type",
+							"id": "30db3196-e8c2-43c6-9917-c594e8e4ab68",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"profile_type\": null,\n    \"name\": \"Proof of address\",\n    \"description\": \"Proof of address\",\n    \"enabled\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/document-types/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"document-types",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "21d150e9-3518-4d93-a95b-6b98763e59c0",
+											"key": "id",
+											"value": "019289f1-8d87-766b-8bff-1ee5c22d9add"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"id": "40854e65-028c-40d1-9c8e-5738edbb43db"
@@ -15227,7 +15266,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/admin/loan-products?name=Demo product",
+									"raw": "{{base_url}}/admin/loan-products?filter[name]=Demo",
 									"host": [
 										"{{base_url}}"
 									],
@@ -15237,8 +15276,18 @@
 									],
 									"query": [
 										{
-											"key": "name",
-											"value": "Demo product"
+											"key": "filter[name]",
+											"value": "Demo"
+										},
+										{
+											"key": "filter[enabled]",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "filter[type]",
+											"value": "term-loan",
+											"disabled": true
 										}
 									]
 								}
