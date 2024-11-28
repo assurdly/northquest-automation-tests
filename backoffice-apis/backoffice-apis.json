@@ -9730,6 +9730,40 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "List Documents-No auth",
+									"id": "abbed162-6578-42b4-acb4-96dddc110839",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/documents?filter[profile_id]=019306e3-0c51-7331-97b6-8e3ef8ad1260",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"documents"
+											],
+											"query": [
+												{
+													"key": "filter[profile_id]",
+													"value": "019306e3-0c51-7331-97b6-8e3ef8ad1260"
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"id": "f0656ab8-a0b0-419f-a50b-cab6e41cd34f"
