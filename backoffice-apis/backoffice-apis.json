@@ -10946,11 +10946,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"profile_type\": null,\n    \"name\": \"Proof of address\",\n    \"description\": \"Proof of address\",\n    \"enabled\": false\n}",
+									"raw": "{\n    \"profile_type\": \"personal\",\n    \"name\": \"Test Document\",\n    \"description\": \"Proof of address\",\n    \"enabled\": false,\n    \"required\": false\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10969,9 +10975,8 @@
 									],
 									"variable": [
 										{
-											"id": "21d150e9-3518-4d93-a95b-6b98763e59c0",
 											"key": "id",
-											"value": "019289f1-8d87-766b-8bff-1ee5c22d9add"
+											"value": "01936d3d-abaf-755c-bc30-d3f9a6d73656"
 										}
 									]
 								}
