@@ -13791,7 +13791,33 @@
 									]
 								},
 								{
-									"name": "Get Stats Copy",
+									"name": "Get Stats-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "213ae9a8-a71a-45a1-ac95-0c95171e795e",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "7f2cb5f8-9572-40ae-8bd0-6f40d7c245fb",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -13953,6 +13979,72 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Export Profiles-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "80ff89f2-cce7-4eeb-b69f-bde06139902a",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "1cd69b18-a155-4160-9abe-19797b766c82",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=xlsx",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												"export"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "business"
+												},
+												{
+													"key": "filter[created_on][gt]",
+													"value": "2024-10-04"
+												},
+												{
+													"key": "format",
+													"value": "xlsx"
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"id": "9e45364e-a487-40c3-b437-2f5ad1c3dae1"
@@ -13965,84 +14057,194 @@
 					"item": [
 						{
 							"name": "List Verification Types",
-							"id": "f8a213c9-60e9-4400-ad9a-8bc001d26f4a",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{adminAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": "{{base_url}}/admin/verification-types"
-							},
-							"response": [
+							"item": [
 								{
-									"id": "7e7167d6-0921-4af4-9bc0-4d17847ff2b7",
 									"name": "List Verification Types",
-									"originalRequest": {
+									"id": "f8a213c9-60e9-4400-ad9a-8bc001d26f4a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{base_url}}/admin/verification-types"
 									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
+									"response": [
 										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
+											"id": "7e7167d6-0921-4af4-9bc0-4d17847ff2b7",
+											"name": "List Verification Types",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/verification-types"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "414"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"19e-4ABY0ZjQeywtQ2EQyfoVVfAhQnM\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 07 Nov 2024 16:02:12 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193075c-26ac-7778-9a2b-3565f061e4e3\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-07T16:01:40.269Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-07T16:01:40.269Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": null,\n            \"name\": \"Business Verification\",\n            \"slug\": \"business\",\n            \"description\": \"Business Verification\",\n            \"enabled\": true\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "List Verification Types-No auth",
+									"event": [
 										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "414"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"19e-4ABY0ZjQeywtQ2EQyfoVVfAhQnM\""
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 07 Nov 2024 16:02:12 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
+											"listen": "test",
+											"script": {
+												"id": "0754083a-8d56-47b5-8e82-280a6f0bd22a",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
 										}
 									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193075c-26ac-7778-9a2b-3565f061e4e3\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-07T16:01:40.269Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-07T16:01:40.269Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": null,\n            \"name\": \"Business Verification\",\n            \"slug\": \"business\",\n            \"description\": \"Business Verification\",\n            \"enabled\": true\n        }\n    ]\n}"
+									"id": "e2d09228-da86-46ce-8a79-01dc15ea5f69",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/verification-types"
+									},
+									"response": [
+										{
+											"id": "c489cfe5-fa13-4cf3-bdd4-a6372ed8fad8",
+											"name": "List Verification Types",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/verification-types"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "414"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"19e-4ABY0ZjQeywtQ2EQyfoVVfAhQnM\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 07 Nov 2024 16:02:12 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193075c-26ac-7778-9a2b-3565f061e4e3\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-07T16:01:40.269Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-07T16:01:40.269Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": null,\n            \"name\": \"Business Verification\",\n            \"slug\": \"business\",\n            \"description\": \"Business Verification\",\n            \"enabled\": true\n        }\n    ]\n}"
+										}
+									]
 								}
-							]
+							],
+							"id": "9366ff5b-68c6-454c-a337-8673a4257e07"
 						},
 						{
 							"name": "Set Verification Type",
