@@ -14834,7 +14834,7 @@
 									]
 								},
 								{
-									"name": "Create Loan Product-Dupliacate Copy",
+									"name": "Create Loan Product-Empty fields",
 									"id": "37d03867-ea1b-432e-a714-dd407f774ddf",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -14856,6 +14856,99 @@
 									"response": [
 										{
 											"id": "6fe145b0-caa4-4fe7-ae0c-86ebbf750860",
+											"name": "Create Loan Product",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"collection_method\": \"manual\", // manual | automatic | all\n    \"payment_method\": \"card\" // card | account | all\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/loan-products"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "611"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"263-cPiCJrYwltSh1AWCKt7h/5A5ESc\""
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 10 Nov 2024 16:31:27 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Demo Product\",\n        \"description\": \"This is the demo Product\",\n        \"currency\": \"NGN\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"min_amount\": \"0.00\",\n        \"max_amount\": \"1000.00\",\n        \"frequency\": \"daily\",\n        \"min_tenor_value\": 1,\n        \"min_tenor_period\": \"days\",\n        \"max_tenor_value\": 7,\n        \"max_tenor_period\": \"weeks\",\n        \"enabled\": true,\n        \"id\": \"019316ea-8050-7668-80ac-8191f1697c7c\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"cba_product_id\": null,\n        \"created_on\": \"2024-11-10T16:31:27.427Z\",\n        \"modified_on\": \"2024-11-10T16:31:27.427Z\",\n        \"deleted_on\": null\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Create Loan Product-No auth",
+									"id": "b6d8ba30-278d-46fa-8958-2a28800bed27",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n    \"profile_type\":\"personal\",\n    \"collection_method\": \"manual\", // manual | automatic | all\n    \"payment_method\": \"card\" // card | account | all\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/loan-products"
+									},
+									"response": [
+										{
+											"id": "673848c9-52b4-472b-85f5-9a3849654e0e",
 											"name": "Create Loan Product",
 											"originalRequest": {
 												"method": "POST",
