@@ -12117,6 +12117,49 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Export Profiles-No auth",
+									"id": "86840c9a-ea87-45cb-8bfc-61b95deff0e2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												"export"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "business"
+												},
+												{
+													"key": "filter[created_on][gt]",
+													"value": "2024-10-04"
+												},
+												{
+													"key": "format",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"id": "da73be8c-4c30-4ec8-9b1f-eed609efc9db"
