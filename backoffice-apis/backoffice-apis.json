@@ -12144,7 +12144,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=",
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=personal&filter[created_on][gt]=2024-10-04&format=",
 											"host": [
 												"{{base_url}}"
 											],
@@ -12156,7 +12156,7 @@
 											"query": [
 												{
 													"key": "filter[type]",
-													"value": "business"
+													"value": "personal"
 												},
 												{
 													"key": "filter[created_on][gt]",
@@ -12705,7 +12705,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=xlsx",
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=personal&filter[created_on][gt]=2024-10-04&format=xlsx",
 											"host": [
 												"{{base_url}}"
 											],
@@ -12717,7 +12717,7 @@
 											"query": [
 												{
 													"key": "filter[type]",
-													"value": "business"
+													"value": "personal"
 												},
 												{
 													"key": "filter[created_on][gt]",
@@ -13307,6 +13307,64 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Delete Profile-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "02ce6310-8dca-4290-8f5c-612fc3955dc6",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "ce2ca944-eb5f-4961-b281-8bdd8fa57bb3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profileId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profileId"
+											],
+											"variable": [
+												{
+													"key": "profileId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"id": "4de73473-a867-4add-a374-0e0e4607139b"
@@ -13317,6 +13375,75 @@
 								{
 									"name": "Export Profiles",
 									"id": "da00a206-afe6-4535-a7e2-a33ec66e1193",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=business&filter[created_on][gt]=2024-10-04&format=",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												"export"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "business"
+												},
+												{
+													"key": "filter[created_on][gt]",
+													"value": "2024-10-04"
+												},
+												{
+													"key": "format",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Export Profiles-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "020aa372-4019-4253-8ff8-ce9dfd743b2b",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "19ffc24b-6bc9-494a-aa59-ec355d2052ea",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -13454,6 +13581,87 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Get Profile-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "38d9e072-4318-4825-91d6-e89d6391a64c",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "395d96cc-58cf-4dba-b08b-c06662c61a8b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/:profile_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												":profile_id"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "Business",
+													"disabled": true
+												},
+												{
+													"key": "filter[status]",
+													"value": "inactive",
+													"disabled": true
+												},
+												{
+													"key": "filter[name]",
+													"value": "",
+													"disabled": true
+												},
+												{
+													"key": "id",
+													"value": "01925343-fbc8-7886-abfb-41c8746fc8ce",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "019233c5-f357-7ffa-922e-9ff5318f8678"
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"id": "fd6597c4-ad80-4a61-959e-6d3500d44a3e"
@@ -13496,6 +13704,127 @@
 									"response": [
 										{
 											"id": "8b03f5fa-0abf-4548-8fa6-51d55d88175d",
+											"name": "Get Stats",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/profiles/stats?filter[type]=Personal&filter[status]=active",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"profiles",
+														"stats"
+													],
+													"query": [
+														{
+															"key": "filter[type]",
+															"value": "Personal"
+														},
+														{
+															"key": "filter[status]",
+															"value": "active"
+														},
+														{
+															"key": "filter[name]",
+															"value": "",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "130"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"82-NQDzvxHcvaHS7b51VcMgR+HHkzQ\""
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 10 Nov 2024 17:33:32 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"count\": \"0\",\n            \"value\": \"inactive\"\n        },\n        {\n            \"count\": \"0\",\n            \"value\": \"blacklisted\"\n        },\n        {\n            \"count\": \"16\",\n            \"value\": \"active\"\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Stats Copy",
+									"id": "7f2cb5f8-9572-40ae-8bd0-6f40d7c245fb",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/stats?filter[type]=Personal",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												"stats"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "Personal"
+												},
+												{
+													"key": "filter[status]",
+													"value": "active",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "a56f43a6-8fbc-449a-9b7a-369872b8d0ae",
 											"name": "Get Stats",
 											"originalRequest": {
 												"method": "GET",
