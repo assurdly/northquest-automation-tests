@@ -9889,6 +9889,139 @@
 											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192720c-9a93-7926-a576-d28eb25a58f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T20:54:54.116Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T20:54:54.116Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"name\": \"Nibss auth code\",\n        \"slug\": \"nibss-auth-code\",\n        \"description\": null,\n        \"default_value\": \"AQICAHhOSJZhVg/I2coLSYKPsLpMAB9RmmnTyzbI/dG9G9SQ4gFsFkZuowQdE4/s/IE4lGDHAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCh/wSn19jg2Q98ynwIBEIA/+S+AaISkheidOAgnXcYpSdiLtA3kfivckJgF+LM2yf0YMg6EHbgwZAutMIwJLHFqmI+HqiA9+4h+sl5rJP1S\",\n        \"encrypted\": true,\n        \"regex\": null,\n        \"parent_id\": null,\n        \"value\": \"d3VubWk6b0Fx************UHN6T1E2WUk=\"\n    }\n}"
 										}
 									]
+								},
+								{
+									"name": "Get Setting-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "dfb61e43-ebdc-4c5d-a01f-767dd206b846",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "659cef76-3d44-4fce-8214-3d01d12c6bc8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/settings/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"settings",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0192720c-9a93-7926-a576-d28eb25a58f3"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "eb1c5e2a-5246-4b12-b666-48bd030a07af",
+											"name": "Get Setting",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/settings/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"settings",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "0192720c-9a93-7926-a576-d28eb25a58f3"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "673"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2a1-4EpYvKRuFzcesjUWheOq8Zjbrho\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 18 Nov 2024 02:59:05 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192720c-9a93-7926-a576-d28eb25a58f3\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-09T20:54:54.116Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T20:54:54.116Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"name\": \"Nibss auth code\",\n        \"slug\": \"nibss-auth-code\",\n        \"description\": null,\n        \"default_value\": \"AQICAHhOSJZhVg/I2coLSYKPsLpMAB9RmmnTyzbI/dG9G9SQ4gFsFkZuowQdE4/s/IE4lGDHAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCh/wSn19jg2Q98ynwIBEIA/+S+AaISkheidOAgnXcYpSdiLtA3kfivckJgF+LM2yf0YMg6EHbgwZAutMIwJLHFqmI+HqiA9+4h+sl5rJP1S\",\n        \"encrypted\": true,\n        \"regex\": null,\n        \"parent_id\": null,\n        \"value\": \"d3VubWk6b0Fx************UHN6T1E2WUk=\"\n    }\n}"
+										}
+									]
 								}
 							],
 							"id": "c3d784e6-b16b-47bb-a2f0-13af2380614b"
@@ -10060,6 +10193,60 @@
 								{
 									"name": "Set Document Empty fields",
 									"id": "f7847ad5-7589-4d20-932e-32a455b430f4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type_id\": \"{{adminFetchedDocumentTypeId}}\",\n    \"url\": \"\",\n    \"profile_id\": \"{{adminFetchedProfileId}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/documents"
+									},
+									"response": []
+								},
+								{
+									"name": "Set Document-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4e3031b7-06f7-418e-9565-a3b4386a0f07",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "5016ff38-bea7-4d4d-8e35-953743b9817e",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -11150,6 +11337,76 @@
 								{
 									"name": "Update Document Type",
 									"id": "30db3196-e8c2-43c6-9917-c594e8e4ab68",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"profile_type\": \"personal\",\n    \"name\": \"Test Document\",\n    \"description\": \"Proof of address\",\n    \"enabled\": false,\n    \"required\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/document-types/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"document-types",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "01936d3d-abaf-755c-bc30-d3f9a6d73656"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Document Type-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d9b1b694-487d-4ea2-9c9c-e7e3731877c7",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "562135fd-a28c-40fe-a6bb-6da52a6cf216",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
