@@ -9350,6 +9350,37 @@
 								},
 								{
 									"name": "Set Definition Schema-Empty fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d5941514-e552-406e-84e0-6447ccca61cb",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"//     pm.test(\"Test for valid status\", () => {\r",
+													"//         pm.expect(status).to.eql(\"success\")\r",
+													"//     })\r",
+													"\r",
+													"\r",
+													"//     pm.test(\"Test for valid error message\", () => {\r",
+													"//         pm.expect(data).to.be.an(\"object\")\r",
+													"//     })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "af3d4f10-9a99-4645-8386-4fca7b730bfb",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
