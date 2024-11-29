@@ -2953,31 +2953,27 @@
 									"response": []
 								},
 								{
-									"name": "Delete Role",
+									"name": "Delete Role-No auth",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
 												"id": "bd3be5db-15e8-4e1d-8937-aa8541ca202e",
 												"exec": [
-													"// try {\r",
-													"//     const { status, data } = pm.response.json()\r",
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
 													"\r",
-													"//     pm.test(\"Status code is 200\", function () {\r",
-													"//         pm.response.to.have.status(200);\r",
-													"//     });\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
 													"\r",
-													"//     pm.test(\"Test for valid status\", () => {\r",
-													"//         pm.expect(status).to.eql(\"success\")\r",
-													"//     })\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
 													"\r",
-													"//     pm.test(\"Test for valid error message\", () => {\r",
-													"//         pm.expect(data).to.be.an(\"object\")\r",
-													"//     })\r",
-													"\r",
-													"// } catch (error) {\r",
-													"//     console.error(\"Error from test:\", error);\r",
-													"// }"
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -2990,10 +2986,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "DELETE",
 										"header": [],
@@ -3217,6 +3210,9 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -3623,6 +3619,9 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -3637,7 +3636,6 @@
 											],
 											"variable": [
 												{
-													"id": "79042880-e001-430d-9f13-c2384ff62106",
 													"key": "id",
 													"value": "01927265-4ed2-79cc-a0e6-e11339a359f3"
 												}
@@ -6520,25 +6518,18 @@
 												"id": "57ad4fcc-abd8-4a9d-a48d-dc4520bdcae4",
 												"exec": [
 													"try {",
-													"    const { status, data } = pm.response.json()",
+													"    const { message, statusCode } = pm.response.json()",
 													"",
-													"    pm.environment.set(\"adminFetchedUserId\", data.users[0].id);",
-													"",
-													"    pm.test(\"Status code is 200\", function () {",
-													"        pm.response.to.have.status(200);",
-													"    });",
-													"",
-													"    pm.test(\"Test for valid status\", () => {",
-													"        pm.expect(status).to.eql(\"success\")",
+													"    pm.test(\"Test for valid status code\", () => {",
+													"        pm.expect(statusCode).to.eql(401)",
 													"    })",
 													"",
-													"",
 													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(data).to.be.an(\"object\")",
+													"        pm.expect(message).to.eql(\"Access token is required\")",
 													"    })",
 													"",
 													"} catch (error) {",
-													"    console.error(\"Error from test:\", error);",
+													"    console.error(error)",
 													"}"
 												],
 												"type": "text/javascript",
@@ -6552,10 +6543,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [
@@ -6740,25 +6728,18 @@
 												"id": "ee885c20-4ed3-4b8a-a6cf-2c4f4fb7bb00",
 												"exec": [
 													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
+													"    const { message, statusCode } = pm.response.json()\r",
 													"\r",
-													"    pm.environment.set(\"adminFetchedUserId\", data.users[0].id);\r",
-													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"    });\r",
-													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
 													"    })\r",
 													"\r",
-													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"object\")\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
 													"    })\r",
 													"\r",
 													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
+													"    console.error(error)\r",
 													"}"
 												],
 												"type": "text/javascript",
@@ -6772,10 +6753,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "PATCH",
 										"header": [
