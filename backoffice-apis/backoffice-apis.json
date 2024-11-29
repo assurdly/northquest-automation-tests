@@ -7110,8 +7110,8 @@
 													"//         pm.expect(data).to.be.an(\"object\")\r",
 													"//     })\r",
 													"\r",
-													"// } catch (error) {\r",
-													"//     console.error(\"Error from test:\", error);\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
 													"}"
 												],
 												"type": "text/javascript",
@@ -9527,6 +9527,28 @@
 								{
 									"name": "Set Setting",
 									"id": "813acf7e-e0da-46ec-917b-40227a80059a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"slug\": \"api-key\",\n    \"value\": \"ola ma\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/settings"
+									},
+									"response": []
+								},
+								{
+									"name": "Set Setting-No auth",
+									"id": "bcf15430-9ec0-4564-b6cc-6826775d36d8",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
