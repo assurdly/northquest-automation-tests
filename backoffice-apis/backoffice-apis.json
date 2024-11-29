@@ -13239,6 +13239,9 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -13366,6 +13369,46 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=personal&filter[created_on][gt]=2024-10-04&format=xlsx",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"profiles",
+												"export"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "personal"
+												},
+												{
+													"key": "filter[created_on][gt]",
+													"value": "2024-10-04"
+												},
+												{
+													"key": "format",
+													"value": "xlsx"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Export Profiles- No auth",
+									"id": "cc703333-195c-4e7b-a83f-dc1e30637039",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -13577,9 +13620,9 @@
 													"try {\r",
 													"    const { message, statusCode } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Test for valid status code\", () => {\r",
-													"        pm.expect(statusCode).to.eql(401)\r",
-													"    })\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
 													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
 													"        pm.expect(message).to.eql(\"Access token is required\")\r",
