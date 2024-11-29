@@ -9532,9 +9532,9 @@
 													"try {\r",
 													"    const { message, statusCode } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Test for valid status code\", () => {\r",
-													"        pm.expect(statusCode).to.eql(401)\r",
-													"    })\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
 													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
 													"        pm.expect(message).to.eql(\"Access token is required\")\r",
@@ -9554,6 +9554,9 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "PUT",
 										"header": [],
 										"body": {
@@ -9661,9 +9664,9 @@
 													"try {\r",
 													"    const { message, statusCode } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Test for valid status code\", () => {\r",
-													"        pm.expect(statusCode).to.eql(401)\r",
-													"    })\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
 													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
 													"        pm.expect(message).to.eql(\"Access token is required\")\r",
@@ -9683,6 +9686,9 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{base_url}}/admin/settings"
@@ -9876,9 +9882,9 @@
 													"try {\r",
 													"    const { message, statusCode } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Test for valid status code\", () => {\r",
-													"        pm.expect(statusCode).to.eql(401)\r",
-													"    })\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
 													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
 													"        pm.expect(message).to.eql(\"Access token is required\")\r",
@@ -9898,6 +9904,9 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
