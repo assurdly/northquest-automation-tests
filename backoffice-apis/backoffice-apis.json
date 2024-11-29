@@ -11223,10 +11223,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [],
@@ -11412,10 +11409,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "PATCH",
 										"header": [],
@@ -11562,10 +11556,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [],
@@ -11952,17 +11943,40 @@
 									"response": []
 								},
 								{
-									"name": "Update Tier-Empty tierId field Copy",
+									"name": "Update Tier-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ff893702-f4ae-4ea2-8660-ad5783c67445",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "8397c97e-aab4-430b-856b-1f57db6835e8",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "PATCH",
 										"header": [],
@@ -11987,7 +12001,6 @@
 											],
 											"variable": [
 												{
-													"id": "533624eb-45c3-4d69-9a3e-7491f636975b",
 													"key": "tierId",
 													"value": ""
 												}
@@ -12084,6 +12097,64 @@
 											"bearer": {
 												"token": "{{adminAccessToken}}"
 											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/tiers/:tierId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"tiers",
+												":tierId"
+											],
+											"variable": [
+												{
+													"key": "tierId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Delete Tier-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7fc0739f-e222-4f89-91d9-a0735175b900",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "28e9349f-62cf-4aae-9827-9617d76a955a",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
 										},
 										"method": "DELETE",
 										"header": [],
