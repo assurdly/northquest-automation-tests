@@ -7012,6 +7012,9 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "POST",
 										"header": [],
 										"url": "{{base_url}}/admin/users/two-fa"
@@ -7250,6 +7253,9 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "PATCH",
 										"header": [],
 										"body": {
@@ -7506,6 +7512,9 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "PATCH",
 										"header": [],
 										"body": {
