@@ -11950,6 +11950,51 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Update Tier-Empty tierId field Copy",
+									"id": "8397c97e-aab4-430b-856b-1f57db6835e8",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Tier 1\",\n    \"description\": \"Tier 1\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 0,\n    \"single_receiving_limit\": 0,\n    \"period_sending_limit\": 0,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 0,\n    \"period_receiving_limit_time_unit\": \"day\",\n    \"requirements\": [\n        {\n            \"type\": \"documents\",\n            \"type_id\": \"{{adminFetchedDocumentTypeId}}\"\n        },\n        {\n            \"type\": \"definitions\",\n            \"type_id\": \"{{adminFetchedDefinition}}\"\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/tiers/:tierId",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"tiers",
+												":tierId"
+											],
+											"variable": [
+												{
+													"id": "533624eb-45c3-4d69-9a3e-7491f636975b",
+													"key": "tierId",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"id": "aad4c1e7-9d2f-4807-8062-ac5d77f5ec5b"
