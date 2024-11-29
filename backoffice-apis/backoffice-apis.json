@@ -10940,48 +10940,54 @@
 							"id": "57872c0c-0ad0-4efc-9fe1-109f0def43b3"
 						},
 						{
-							"name": "Update Document Type",
-							"id": "30db3196-e8c2-43c6-9917-c594e8e4ab68",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{adminAccessToken}}"
-									}
-								},
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"profile_type\": \"personal\",\n    \"name\": \"Test Document\",\n    \"description\": \"Proof of address\",\n    \"enabled\": false,\n    \"required\": false\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+							"name": "Update document Types",
+							"item": [
+								{
+									"name": "Update Document Type",
+									"id": "30db3196-e8c2-43c6-9917-c594e8e4ab68",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{adminAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"profile_type\": \"personal\",\n    \"name\": \"Test Document\",\n    \"description\": \"Proof of address\",\n    \"enabled\": false,\n    \"required\": false\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/document-types/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"document-types",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "01936d3d-abaf-755c-bc30-d3f9a6d73656"
+												}
+											]
 										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/admin/document-types/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"document-types",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "id",
-											"value": "01936d3d-abaf-755c-bc30-d3f9a6d73656"
-										}
-									]
+									},
+									"response": []
 								}
-							},
-							"response": []
+							],
+							"id": "b66a4b00-793b-4b1f-9202-3e0c163e6c0e"
 						}
 					],
 					"id": "40854e65-028c-40d1-9c8e-5738edbb43db"
