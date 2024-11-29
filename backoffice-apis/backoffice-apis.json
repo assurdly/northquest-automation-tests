@@ -14420,7 +14420,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/verifications",
+											"raw": "{{base_url}}/admin/verifications?filter[profile_id]={{userFetchedPersonalProfileId}}",
 											"host": [
 												"{{base_url}}"
 											],
@@ -14431,8 +14431,7 @@
 											"query": [
 												{
 													"key": "filter[profile_id]",
-													"value": "",
-													"disabled": true
+													"value": "{{userFetchedPersonalProfileId}}"
 												}
 											]
 										}
