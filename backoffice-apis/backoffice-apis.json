@@ -4241,6 +4241,19 @@
 							"item": [
 								{
 									"name": "Invite User",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "7cda83d6-764c-4f26-b27a-45a1958ff272",
+												"exec": [
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "47961335-79ab-492d-9516-52ba25683fdc",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -4256,7 +4269,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\": \"gambo1@yopmail.com\",\n    \"role_id\":\"019295e4-b39f-7dd9-892d-46959f7d679d\"\n}",
+											"raw": "{\n    \"email\": \"soji@yopmail.com\",\n    \"role_id\":\"019295e4-b39f-7dd9-892d-46959f7d679d\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -9173,6 +9186,37 @@
 								},
 								{
 									"name": "Set Definition Schema-No slug and Name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "c71e7b7d-eaf5-455e-9a04-12d0e41d7ea2",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", function () {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"    // pm.test(\"Test for valid status\", () => {\r",
+													"    //     pm.expect(status).to.eql(\"success\")\r",
+													"    // })\r",
+													"\r",
+													"\r",
+													"    // pm.test(\"Test for valid error message\", () => {\r",
+													"    //     pm.expect(data).to.be.an(\"object\")\r",
+													"    // })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "767a6eed-3213-44c9-a3a6-e18ecc9d4476",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -9208,7 +9252,6 @@
 											],
 											"variable": [
 												{
-													"id": "7622797b-fd79-4d37-ae5f-549bfdce0883",
 													"key": "definitionId",
 													"value": "01923359-cd8b-755b-862f-22b00cdce2e8"
 												}
