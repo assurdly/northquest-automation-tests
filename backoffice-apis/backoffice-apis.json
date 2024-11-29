@@ -3300,103 +3300,6 @@
 											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"sodiq@google.com\",\n                \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n                \"status\": \"pending\",\n                \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"role\": {\n                    \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"name\": \"Admin\",\n                    \"slug\": \"admin\",\n                    \"description\": null,\n                    \"status\": \"active\"\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
 										}
 									]
-								},
-								{
-									"name": "Get Users Copy",
-									"id": "329abdec-2755-4998-a39f-e52f5d911528",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{adminAccessToken}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/admin/users",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"admin",
-												"users"
-											],
-											"query": [
-												{
-													"key": "search",
-													"value": "sodiq",
-													"disabled": true
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"id": "8c96166e-4015-49b3-b76a-2c4e1d297807",
-											"name": "New Request",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": "{{base_url}}/admin/users"
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "894"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"37e-SHXwF7TNBq+jnDgvGGnjVt2AzIo\""
-												},
-												{
-													"key": "Date",
-													"value": "Tue, 15 Oct 2024 20:42:09 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-09T17:55:02.473Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"sodiq@google.com\",\n                \"password\": \"$2b$10$0oR7lrjH9HETpAloHMzD.OBIkZjsH3YRm1liyjxVbtuHs32Gkl75i\",\n                \"status\": \"pending\",\n                \"role_id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                \"role\": {\n                    \"id\": \"01927265-d8bc-7195-996f-e131d5e13329\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-10-09T17:49:49.700Z\",\n                    \"modified_by\": null,\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"name\": \"Admin\",\n                    \"slug\": \"admin\",\n                    \"description\": null,\n                    \"status\": \"active\"\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 1\n    }\n}"
-										}
-									]
 								}
 							],
 							"id": "5a24c77b-d326-4a97-b04f-5ac4fc2c5e13"
@@ -6957,9 +6860,26 @@
 											"script": {
 												"id": "61c67878-f82e-4c0a-a9e0-b97bdaac00fc",
 												"exec": [
-													" pm.test(\"Status code is 200\", () => {\r",
+													" try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    \r",
+													"    pm.test(\"Status code is 200\", function () {\r",
 													"        pm.response.to.have.status(200);\r",
-													"    });"
+													"    });\r",
+													"\r",
+													"//     pm.test(\"Test for valid status\", () => {\r",
+													"//         pm.expect(status).to.eql(\"success\")\r",
+													"//     })\r",
+													"\r",
+													"\r",
+													"//     pm.test(\"Test for valid error message\", () => {\r",
+													"//         pm.expect(data).to.be.an(\"object\")\r",
+													"//     })\r",
+													"\r",
+													"// } catch (error) {\r",
+													"//     console.error(\"Error from test:\", error);\r",
+													"// }"
 												],
 												"type": "text/javascript",
 												"packages": {}
