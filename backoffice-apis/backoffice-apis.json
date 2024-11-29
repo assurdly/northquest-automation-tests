@@ -7075,6 +7075,37 @@
 							"item": [
 								{
 									"name": "Verify TwoFA",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4c351091-3823-4359-8ef5-8ed1f608591e",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"//     pm.test(\"Test for valid error message\", () => {\r",
+													"//         pm.expect(data).to.be.an(\"object\")\r",
+													"//     })\r",
+													"\r",
+													"// } catch (error) {\r",
+													"//     console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "e4ef0687-0ee8-42a4-9d4d-433022171c6f",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -7300,6 +7331,37 @@
 							"item": [
 								{
 									"name": "Disable TwoFA",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "255cbc9c-942e-4e28-94a9-c6c212f03f2f",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    // pm.test(\"Test for valid error message\", () => {\r",
+													"    //     pm.expect(data).to.be.an(\"object\")\r",
+													"    // })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "2071309d-21bd-4b08-bee1-37d17897d1a6",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -15196,7 +15258,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/admin/loan-products?filter[name]=Demo",
+									"raw": "{{base_url}}/admin/loan-products?filter[name]=Demo Product",
 									"host": [
 										"{{base_url}}"
 									],
@@ -15207,11 +15269,11 @@
 									"query": [
 										{
 											"key": "filter[name]",
-											"value": "Demo"
+											"value": "Demo Product"
 										},
 										{
 											"key": "filter[enabled]",
-											"value": "false",
+											"value": "true",
 											"disabled": true
 										},
 										{
