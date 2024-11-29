@@ -9548,6 +9548,32 @@
 								},
 								{
 									"name": "Set Setting-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "47660fe2-8f11-4bba-a4e9-37a9981e885b",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "bcf15430-9ec0-4564-b6cc-6826775d36d8",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -9588,6 +9614,107 @@
 									"response": [
 										{
 											"id": "deaff8a2-0316-4de8-b63b-be8e2473bf48",
+											"name": "Get Settings",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/settings"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "9384"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"24a8-msPAX85SlmKWyEK+7XDytv7bBx0\""
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 18 Nov 2024 02:50:07 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0192720c-9a93-7926-a576-d28eb25a58f7\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Password Pattern\",\n            \"slug\": \"password-pattern\",\n            \"description\": null,\n            \"default_value\": \"^\\\\d{6}$\",\n            \"encrypted\": false,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-7926-a576-d28eb25a58f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T20:54:54.116Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T20:54:54.116Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Nibss auth code\",\n            \"slug\": \"nibss-auth-code\",\n            \"description\": null,\n            \"default_value\": \"AQICAHhOSJZhVg/I2coLSYKPsLpMAB9RmmnTyzbI/dG9G9SQ4gFsFkZuowQdE4/s/IE4lGDHAAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCh/wSn19jg2Q98ynwIBEIA/+S+AaISkheidOAgnXcYpSdiLtA3kfivckJgF+LM2yf0YMg6EHbgwZAutMIwJLHFqmI+HqiA9+4h+sl5rJP1S\",\n            \"encrypted\": true,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-7926-a576-d28eb25a58f1\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"NIN Provider\",\n            \"slug\": \"nin-provider\",\n            \"description\": null,\n            \"default_value\": \"dojah\",\n            \"encrypted\": false,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-7926-a576-d28eb25a58f2\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Dojah App ID\",\n            \"slug\": \"dojah-app-id\",\n            \"description\": null,\n            \"default_value\": \"AQICAHhOSJZhVg/I2coLSYKPsLpMAB9RmmnTyzbI/dG9G9SQ4gHbyOWTaEJUeHgmLvrveo/SAAAAdjB0BgkqhkiG9w0BBwagZzBlAgEAMGAGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMjHqWE7pCietvO7VAAgEQgDNi+4Y6tIIIj6LXPEL5NN2rJlP3778fszvssL14Re5llOrz2ntoLKSBpQ9cPS6/ed+ByQ8=\",\n            \"encrypted\": true,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-7926-a576-d28eb25a58f5\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Dojah Secret Key\",\n            \"slug\": \"dojah-secret-key\",\n            \"description\": null,\n            \"default_value\": \"AQICAHhOSJZhVg/I2coLSYKPsLpMAB9RmmnTyzbI/dG9G9SQ4gEqp+VihVrREwDLLNZUMgktAAAAfzB9BgkqhkiG9w0BBwagcDBuAgEAMGkGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMGAeoyFlbfFuIfOcxAgEQgDzuwiNJZg0O5tOPdYefCN/Xmjo44S0Xp7x0aovUxfs/AJLSzTKsn3xiQ4Ag083T40//o0VOzpz0z4v3RCg=\",\n            \"encrypted\": true,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-7926-a576-d28eb25a58f8\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Dojah Base URL\",\n            \"slug\": \"dojah-base-url\",\n            \"description\": null,\n            \"default_value\": \"https://sandbox.dojah.io/api\",\n            \"encrypted\": false,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-7926-a576-d28eb25a58f9\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-29T03:54:24.390Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-29T03:54:24.390Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Pin Pattern\",\n            \"slug\": \"pin-pattern\",\n            \"description\": null,\n            \"default_value\": \"^\\\\d{4}$\",\n            \"encrypted\": false,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-7926-a576-d28eb25a58c9\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-29T04:04:10.698Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-29T04:04:10.698Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Bill Provider\",\n            \"slug\": \"bill-provider\",\n            \"description\": null,\n            \"default_value\": \"baxipay\",\n            \"encrypted\": false,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-7926-a576-d28eb25a59f9\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-29T04:06:23.905Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-29T04:06:23.905Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Baxipay Base URL\",\n            \"slug\": \"baxipay-base-url\",\n            \"description\": null,\n            \"default_value\": \"https://payments.baxipay.com.ng\",\n            \"encrypted\": false,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-7926-a576-d28eb25b59f9\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-29T04:08:38.855Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-29T04:08:38.855Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Baxipay Secret Key\",\n            \"slug\": \"baxipay-secret-key\",\n            \"description\": null,\n            \"default_value\": null,\n            \"encrypted\": true,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-7926-a576-d38eb25a58f8\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Password Pattern\",\n            \"slug\": \"okhi-base-url\",\n            \"description\": null,\n            \"default_value\": \"https://api.okhi.io/v5/v2\",\n            \"encrypted\": false,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-7976-a176-d38eb25a58f8\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Password Pattern\",\n            \"slug\": \"okhi-branch-id\",\n            \"description\": null,\n            \"default_value\": \"AQICAHhOSJZhVg/I2coLSYKPsLpMAB9RmmnTyzbI/dG9G9SQ4gGV8CMKZ0CEJco7qYGgMMbLAAAAdjB0BgkqhkiG9w0BBwagZzBlAgEAMGAGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMlhZV7rCv3w2Yh+MkAgEQgDOvdEFoG4ujKmMA5QwRy9zOXU3gIhLFX9Ka11TRp3yhrnaXx/DdaSSZ12oVZjXFKTUxC0M=\",\n            \"encrypted\": true,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-7976-a506-d38eb25a58f8\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Password Pattern\",\n            \"slug\": \"okhi-server-key\",\n            \"description\": null,\n            \"default_value\": \"AQICAHhOSJZhVg/I2coLSYKPsLpMAB9RmmnTyzbI/dG9G9SQ4gHvuw/VuouoHo/2avnrxNroAAAAeDB2BgkqhkiG9w0BBwagaTBnAgEAMGIGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMJAEk8wOrcHk1dUcHAgEQgDVTYOidv8jH1YOzH3YOXhpUcfPfwe8noEbOHw+Ia04Lz3gfS2xVIKqeOc0cdMCAVc3mJnVMMw==\",\n            \"encrypted\": true,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-9926-a576-d38eb25a58f8\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Password Pattern\",\n            \"slug\": \"address-provider\",\n            \"description\": null,\n            \"default_value\": \"okhi\",\n            \"encrypted\": false,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-9926-a936-d38eb73a58f8\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Refresh Token Expiry\",\n            \"slug\": \"refresh-token-expiry\",\n            \"description\": null,\n            \"default_value\": \"7d\",\n            \"encrypted\": false,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-9926-a076-d38eb93a58f8\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Refresh Token Secret\",\n            \"slug\": \"refresh-token-secret\",\n            \"description\": null,\n            \"default_value\": \"AQICAHhOSJZhVg/I2coLSYKPsLpMAB9RmmnTyzbI/dG9G9SQ4gGY8zLEiydz+E3N5GXJfBY5AAAAbDBqBgkqhkiG9w0BBwagXTBbAgEAMFYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8EXJDJypVTtTIZYtAgEQgClmodpI4hF0FXhdqN8sNAVlnLrk3YZqPwARUX56U9d3LzczTnafIqHmzA==\",\n            \"encrypted\": true,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-9026-a576-d38eb93a58f8\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Invite Token Secret\",\n            \"slug\": \"invite-token-secret\",\n            \"description\": null,\n            \"default_value\": \"AQICAHhOSJZhVg/I2coLSYKPsLpMAB9RmmnTyzbI/dG9G9SQ4gGY8zLEiydz+E3N5GXJfBY5AAAAbDBqBgkqhkiG9w0BBwagXTBbAgEAMFYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8EXJDJypVTtTIZYtAgEQgClmodpI4hF0FXhdqN8sNAVlnLrk3YZqPwARUX56U9d3LzczTnafIqHmzA==\",\n            \"encrypted\": true,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-3726-a936-d38eb73a58f8\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Invite Token Expiry\",\n            \"slug\": \"invite-token-expiry\",\n            \"description\": null,\n            \"default_value\": \"7d\",\n            \"encrypted\": false,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-9926-a576-d38eb93a58f8\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Access Token Secret\",\n            \"slug\": \"access-token-secret\",\n            \"description\": null,\n            \"default_value\": \"AQICAHhOSJZhVg/I2coLSYKPsLpMAB9RmmnTyzbI/dG9G9SQ4gGY8zLEiydz+E3N5GXJfBY5AAAAbDBqBgkqhkiG9w0BBwagXTBbAgEAMFYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM8EXJDJypVTtTIZYtAgEQgClmodpI4hF0FXhdqN8sNAVlnLrk3YZqPwARUX56U9d3LzczTnafIqHmzA==\",\n            \"encrypted\": true,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-9926-a576-d38eb73a58f8\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T16:11:45.322Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T16:11:45.322Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Access Token Expiry\",\n            \"slug\": \"access-token-expiry\",\n            \"description\": null,\n            \"default_value\": \"7d\",\n            \"encrypted\": false,\n            \"regex\": null,\n            \"parent_id\": null\n        },\n        {\n            \"id\": \"0192720c-9a93-9303-a576-d28eb25a58d2\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-09T20:54:54.116Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-09T20:54:54.116Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"name\": \"Tenant Bank Code\",\n            \"slug\": \"tenant-bank-code\",\n            \"description\": null,\n            \"default_value\": \"999482\",\n            \"encrypted\": false,\n            \"regex\": null,\n            \"parent_id\": null\n        }\n    ]\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Settings-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "a75e8dfc-9fc3-4c0f-9c20-f1cf1c4fa6a6",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Test for valid status code\", () => {\r",
+													"        pm.expect(statusCode).to.eql(401)\r",
+													"    })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "e3968b72-dbac-4716-b4e3-31ec56e0dc72",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/settings"
+									},
+									"response": [
+										{
+											"id": "f5096bed-6fbc-4950-a9db-e6fbab05b132",
 											"name": "Get Settings",
 											"originalRequest": {
 												"method": "GET",
