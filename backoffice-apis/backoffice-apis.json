@@ -12819,7 +12819,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/profiles/export?filter[type]=personal&filter[created_on][gt]=2024-10-04&format=",
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=personal&filter[created_on][gt]=2024-10-04&format=csv",
 											"host": [
 												"{{base_url}}"
 											],
@@ -12839,7 +12839,7 @@
 												},
 												{
 													"key": "format",
-													"value": ""
+													"value": "csv"
 												}
 											]
 										}
