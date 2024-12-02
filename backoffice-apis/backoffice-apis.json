@@ -53,6 +53,7 @@
 													"        pm.expect(firstName).to.not.be.null;\r",
 													"        pm.expect(lastName).to.not.be.null;\r",
 													"    })\r",
+													"    \r",
 													"    pm.test(\"Validate User and Tenant IDs aren't null values\", () => {\r",
 													"        pm.expect(userId).to.not.be.null;\r",
 													"        pm.expect(tenantId).to.not.be.null;\r",
@@ -67,8 +68,7 @@
 													"}\r",
 													""
 												],
-												"type": "text/javascript",
-												"packages": {}
+												"type": "text/javascript"
 											}
 										},
 										{
@@ -79,8 +79,7 @@
 													"pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')",
 													""
 												],
-												"type": "text/javascript",
-												"packages": {}
+												"type": "text/javascript"
 											}
 										}
 									],
@@ -1301,6 +1300,18 @@
 								},
 								{
 									"name": "Reset Password-Empty fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "04fe7870-8323-4809-81a5-d7ce4e4d7b89",
+												"exec": [
+													"console.log(\"Tests\")"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"id": "3ce36ce3-d163-4588-a68d-2b3b1c89cba2",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
