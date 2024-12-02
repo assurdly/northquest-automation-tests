@@ -8477,7 +8477,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"slug\": \"kyc\",\n    \"name\": \"KYC\",\n    \"description\": \"KYC definitions\"\n}",
+											"raw": "// {\n//     \"slug\": \"kyc\",\n//     \"name\": \"KYC\",\n//     \"description\": \"KYC definitions\"\n// }",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -11326,7 +11326,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"profile_type\": \"personal\",\n    \"name\": \"Test Document\",\n    \"description\": \"Proof of address\",\n    \"enabled\": false,\n    \"required\": false\n}",
+											"raw": "// {\n//     \"profile_type\": \"personal\",\n//     \"name\": \"Test Document\",\n//     \"description\": \"Proof of address\",\n//     \"enabled\": false,\n//     \"required\": false\n// }",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -12021,7 +12021,7 @@
 											"variable": [
 												{
 													"key": "tierId",
-													"value": "01928f2d-6756-755b-8a9d-c8094db2af24"
+													"value": "01928f2d-6756-755b-8a9d-c8094db2af24000"
 												}
 											]
 										}
