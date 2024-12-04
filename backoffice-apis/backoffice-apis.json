@@ -10561,7 +10561,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "// {\n//     \"name\":\"Driver's Licence\",\n//     \"description\": \"Upload a photo of your driver’s license.\",\n//     \"profile_type\": \"personal\",\n//     \"enabled\": true,\n//     \"required\": false\n// }",
+											"raw": "{\n    \"name\":\"Driver's Licence\",\n    \"description\": \"Upload a photo of your driver’s license.\",\n    \"profile_type\": \"personal\",\n    \"enabled\": true,\n    \"required\": false\n}",
 											"options": {
 												"raw": {
 													"language": "json"
