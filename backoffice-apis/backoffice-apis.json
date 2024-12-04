@@ -11352,7 +11352,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "// {\n//     \"profile_type\": \"personal\",\n//     \"name\": \"Test Document\",\n//     \"description\": \"Proof of address\",\n//     \"enabled\": false,\n//     \"required\": false\n// }",
+											"raw": "{\n    \"profile_type\": \"personal\",\n    \"name\": \"Test Document\",\n    \"description\": \"Proof of address\",\n    \"enabled\": false,\n    \"required\": false\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -11372,7 +11372,7 @@
 											"variable": [
 												{
 													"key": "id",
-													"value": "01936d3d-abaf-755c-bc30-d3f9a6d73656"
+													"value": "019289f1-8d87-766b-8bff-1ee5c22d9add"
 												}
 											]
 										}
