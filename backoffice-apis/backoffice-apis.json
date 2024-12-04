@@ -9598,7 +9598,22 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/admin/settings"
+										"url": {
+											"raw": "{{base_url}}/admin/settings?filter[parent_id]=null",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"settings"
+											],
+											"query": [
+												{
+													"key": "filter[parent_id]",
+													"value": "null"
+												}
+											]
+										}
 									},
 									"response": [
 										{
