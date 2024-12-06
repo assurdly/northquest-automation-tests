@@ -25286,78 +25286,6 @@
 													"response": []
 												},
 												{
-													"name": "Make bill payment-Invalid biller Id",
-													"event": [
-														{
-															"listen": "test",
-															"script": {
-																"id": "c43cd66b-5e6c-4406-891b-1f17dcc1758e",
-																"exec": [
-																	"pm.test(\"Status code is 400\", function () {\r",
-																	"    pm.response.to.have.status(400);\r",
-																	"});"
-																],
-																"type": "text/javascript",
-																"packages": {}
-															}
-														}
-													],
-													"id": "a81e15ab-9387-42f6-9748-a37e659ae7a9",
-													"protocolProfileBehavior": {
-														"disableBodyPruning": true
-													},
-													"request": {
-														"auth": {
-															"type": "bearer",
-															"bearer": {
-																"token": "{{userAccessToken}}"
-															}
-														},
-														"method": "POST",
-														"header": [],
-														"body": {
-															"mode": "raw",
-															"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
-															"options": {
-																"raw": {
-																	"language": "json"
-																}
-															}
-														},
-														"url": {
-															"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
-															"host": [
-																"{{base_url}}"
-															],
-															"path": [
-																"profiles",
-																":profile_id",
-																"bill-payments",
-																"categories",
-																":category_id",
-																"billers",
-																":biller_id",
-																"pay"
-															],
-															"variable": [
-																{
-																	"key": "profile_id",
-																	"value": ""
-																},
-																{
-																	"key": "category_id",
-																	"value": "cabletv"
-																},
-																{
-																	"key": "biller_id",
-																	"value": "dstv1"
-																}
-															]
-														}
-													},
-													"response": []
-												},
-												{
 													"name": "Make bill payment-Invalid option Id",
 													"event": [
 														{
@@ -25428,6 +25356,78 @@
 														}
 													},
 													"response": []
+												},
+												{
+													"name": "Make bill payment-Invalid biller Id",
+													"event": [
+														{
+															"listen": "test",
+															"script": {
+																"id": "c43cd66b-5e6c-4406-891b-1f17dcc1758e",
+																"exec": [
+																	"pm.test(\"Status code is 400\", function () {\r",
+																	"    pm.response.to.have.status(400);\r",
+																	"});"
+																],
+																"type": "text/javascript",
+																"packages": {}
+															}
+														}
+													],
+													"id": "a81e15ab-9387-42f6-9748-a37e659ae7a9",
+													"protocolProfileBehavior": {
+														"disableBodyPruning": true
+													},
+													"request": {
+														"auth": {
+															"type": "bearer",
+															"bearer": {
+																"token": "{{userAccessToken}}"
+															}
+														},
+														"method": "POST",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
+															"host": [
+																"{{base_url}}"
+															],
+															"path": [
+																"profiles",
+																":profile_id",
+																"bill-payments",
+																"categories",
+																":category_id",
+																"billers",
+																":biller_id",
+																"pay"
+															],
+															"variable": [
+																{
+																	"key": "profile_id",
+																	"value": ""
+																},
+																{
+																	"key": "category_id",
+																	"value": "cabletv"
+																},
+																{
+																	"key": "biller_id",
+																	"value": "dstv1"
+																}
+															]
+														}
+													},
+													"response": []
 												}
 											],
 											"id": "b73a6bb8-4508-4e25-b7ab-43090535563f"
@@ -25470,7 +25470,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 29300,\n     \"pin\": \"1316\"\n    \n}",
+													"raw": "{\n    \"account_number\": \"07034953306\",\n    \"amount\": 2300,\n     \"pin\": \"2222\",\n    \"account_id\":\"019390f5-db96-7335-b5bb-74eac1376a9c\"\n    \n}",
 													"options": {
 														"raw": {
 															"language": "json"
