@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'northquest/**'
+      - 'cashdrive/cashdrive-retail-api-tests.json'
   schedule:
     - cron: '30 18 * * 3' # Runs every Wednesday at 7:30pm
     - cron: '30 18 * * 5' # Runs every Friday at 7:30pm
@@ -28,7 +28,7 @@ jobs:
         if: always()
         continue-on-error: true
         run: |
-          newman run northquest/northquest-api-tests.json --reporters cli,allure
+          newman run cashdrive/cashdrive-retail-api-tests.json --reporters cli,allure
           echo "Postman tests run."
 
       - name: Get Allure history
