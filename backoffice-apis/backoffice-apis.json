@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "32aa101a-101a-4bfa-b435-8cd383a1794d",
-		"name": "QA - Admin APIs",
+		"name": "QA - Cashdrive / Admin",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -9598,7 +9598,22 @@
 									"request": {
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/admin/settings"
+										"url": {
+											"raw": "{{base_url}}/admin/settings?filter[parent_id]=null",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"settings"
+											],
+											"query": [
+												{
+													"key": "filter[parent_id]",
+													"value": "null"
+												}
+											]
+										}
 									},
 									"response": [
 										{
@@ -10546,7 +10561,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "// {\n//     \"name\":\"Driver's Licence\",\n//     \"description\": \"Upload a photo of your driver’s license.\",\n//     \"profile_type\": \"personal\",\n//     \"enabled\": true,\n//     \"required\": false\n// }",
+											"raw": "{\n    \"name\":\"Driver's Licence\",\n    \"description\": \"Upload a photo of your driver’s license.\",\n    \"profile_type\": \"personal\",\n    \"enabled\": true,\n    \"required\": false\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -11337,7 +11352,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "// {\n//     \"profile_type\": \"personal\",\n//     \"name\": \"Test Document\",\n//     \"description\": \"Proof of address\",\n//     \"enabled\": false,\n//     \"required\": false\n// }",
+											"raw": "{\n    \"profile_type\": \"personal\",\n    \"name\": \"Test Document\",\n    \"description\": \"Proof of address\",\n    \"enabled\": false,\n    \"required\": false\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -11357,7 +11372,7 @@
 											"variable": [
 												{
 													"key": "id",
-													"value": "01936d3d-abaf-755c-bc30-d3f9a6d73656"
+													"value": "019289f1-8d87-766b-8bff-1ee5c22d9add"
 												}
 											]
 										}
@@ -12819,7 +12834,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/profiles/export?filter[type]=personal&filter[created_on][gt]=2024-10-04&format=",
+											"raw": "{{base_url}}/admin/profiles/export?filter[type]=personal&filter[created_on][gt]=2024-10-04&format=csv",
 											"host": [
 												"{{base_url}}"
 											],
@@ -12839,7 +12854,7 @@
 												},
 												{
 													"key": "format",
-													"value": ""
+													"value": "csv"
 												}
 											]
 										}
@@ -15062,6 +15077,120 @@
 								}
 							],
 							"id": "c41edb16-c72d-4217-8a37-0f76dbd71211"
+						},
+						{
+							"name": "Delete Verification type",
+							"item": [
+								{
+									"name": "Delete Verification Type",
+									"id": "11beb330-6025-48ba-a915-cf0fb6cdc29b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/verification-types/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"verification-types",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "ce8474eb-6ae7-4876-8208-f43a4f6300ba",
+													"key": "id",
+													"value": "01938bf5-e2b8-7778-8dba-36255fd1c73e"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "d926b700-a860-4919-b271-87a6e0e036cb",
+											"name": "Delete Verification Type",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/admin/verification-types/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"admin",
+														"verification-types",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "01938bf5-e2b8-7778-8dba-36255fd1c73e"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 05 Dec 2024 15:22:52 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								}
+							],
+							"id": "4755636d-0d26-482a-9fc7-9270a23fcd92"
 						}
 					],
 					"id": "1abe3be7-0bee-4c9f-8449-6d90ff27eaca"
@@ -15354,6 +15483,131 @@
 								}
 							],
 							"id": "2f74074a-e59f-40e7-b2c1-b93d4376df27"
+						},
+						{
+							"name": "Update Verification",
+							"id": "05391c4c-54f4-4c26-a081-c3d9b348be66",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"approved\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/verifications/:verification_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"verifications",
+										":verification_id"
+									],
+									"variable": [
+										{
+											"key": "verification_id",
+											"value": "019387c1-8855-7ccf-8885-e56f3f298a1a"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "d00595ec-2637-40f9-bd5c-201134154948",
+									"name": "Update Verification",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"approved\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/verifications/:verification_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"verifications",
+												":verification_id"
+											],
+											"variable": [
+												{
+													"key": "verification_id",
+													"value": "0193205e-f692-777a-906d-e6912e9dc9ab"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "495"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1ef-RRtZcT6GAvMRTA7BW0mYvvuZyeE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 29 Nov 2024 16:53:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193205e-f692-777a-906d-e6912e9dc9ab\",\n        \"meta\": {\n            \"id\": \"0193205e-e543-777a-906d-de78da219786\"\n        },\n        \"created_on\": \"2024-11-12T12:35:15.202Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-12T12:36:22.899Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"identifier\": \"adewunmiakinsanya@gmail.com\",\n        \"status\": \"approved\",\n        \"type_id\": \"019318f9-c895-744d-8f65-4636cc26dd1d\"\n    }\n}"
+								}
+							]
 						}
 					],
 					"id": "ce6c23ea-81b6-48a6-8520-903103374679"
@@ -16524,6 +16778,553 @@
 						}
 					],
 					"id": "81800a2f-f621-420c-a9a6-388d8bc2e72b"
+				},
+				{
+					"name": "Savings Products",
+					"item": [
+						{
+							"name": "Create Saving Product",
+							"id": "b631e30f-a5c6-414b-8da0-8ed070701182",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Premium nSavings Pklans\",\n    \"description\": \"A high-yield savings product with flexible terms.\",\n    \"currency\": \"NGN\",\n    \"type\": \"standard\",\n    \"no_of_investors\": 100,\n    \"min_amount\": 5000.00,\n    \"deposit_amount\": 1000.00,\n    \"interest_rate\": 5.75,\n    \"interest_period\": \"days\",\n    \"tenor_value\": 12,\n    \"tenor_period\": \"days\",\n    \"withholding_tax\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/savings-products"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Saving Product",
+							"id": "cb0e7981-2fa6-4e60-8604-49ca959fe1ac",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/savings-products/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"savings-products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"id": "e6ed8876-a41a-4445-99e2-edc1d535d7be",
+											"key": "product_id",
+											"value": "0193939a-5b02-711c-8c3a-65782fa6c53a"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "18c84044-09e8-4f63-a32e-375f21fb0551",
+									"name": "Get Loan Product",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/loan-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loan-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "01931742-f612-722b-8de7-7729782689de"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1058"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"422-9yy7dY0YBDb/KPF3k1kyldXdqXI\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 18:09:37 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01931742-f612-722b-8de7-7729782689de\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-10T18:08:04.842Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-10T18:08:04.842Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Demo Product\",\n        \"description\": \"This is the demo Product\",\n        \"currency\": \"NGN\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"min_amount\": \"0.00\",\n        \"max_amount\": \"1000.00\",\n        \"frequency\": \"daily\",\n        \"min_tenor_value\": 1,\n        \"min_tenor_period\": \"days\",\n        \"max_tenor_value\": 7,\n        \"max_tenor_period\": \"weeks\",\n        \"enabled\": true,\n        \"cba_product_id\": null,\n        \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n        \"offer_letter_template\": {\n            \"id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T18:07:03.773Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-10T18:07:03.773Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"slug\": \"offer-letter\",\n            \"configurable\": false,\n            \"title\": \"Offer Letter\",\n            \"body\": \"<html>Offer</html>\"\n        }\n    }\n}"
+								},
+								{
+									"id": "3122852f-3d8d-4efb-9836-a352bec225aa",
+									"name": "Get Loan Product",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/loan-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loan-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "01931742-f612-722b-8de7-7729782689de"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1482"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5ca-dxuvFRWCu/NqQM28w5PlV67jJbQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 18 Nov 2024 10:05:25 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01931742-f612-722b-8de7-7729782689de\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-10T18:08:04.842Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-10T18:08:04.842Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Demo Product\",\n        \"description\": \"This is the demo Product\",\n        \"currency\": \"NGN\",\n        \"payment_method\": \"all\",\n        \"collection_method\": \"all\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"min_amount\": \"0.00\",\n        \"max_amount\": \"1000.00\",\n        \"frequency\": \"daily\",\n        \"min_tenor_value\": 1,\n        \"min_tenor_period\": \"days\",\n        \"max_tenor_value\": 7,\n        \"max_tenor_period\": \"weeks\",\n        \"enabled\": true,\n        \"cba_product_id\": null,\n        \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n        \"offer_letter_template\": {\n            \"id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T18:07:03.773Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-10T18:07:03.773Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"configurable\": false,\n            \"title\": \"Offer Letter\",\n            \"body\": \"<html>Offer</html>\"\n        },\n        \"fees\": [],\n        \"documents\": [\n            {\n                \"id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-14T07:32:42.240Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-14T07:32:42.240Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_type\": null,\n                \"name\": \"Proof of address\",\n                \"description\": \"Proof of address\",\n                \"enabled\": true,\n                \"required\": true\n            }\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "List Saving Products",
+							"id": "ee3e48a5-3c2b-4fa3-a150-9448f5cdf47e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/savings-products?filter[name]=premium",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"savings-products"
+									],
+									"query": [
+										{
+											"key": "filter[enabled]",
+											"value": "false",
+											"disabled": true
+										},
+										{
+											"key": "filter[type]",
+											"value": "term-loan",
+											"disabled": true
+										},
+										{
+											"key": "filter[name]",
+											"value": "premium"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "b669f0e2-b2c7-4d16-a86a-f5af4ebbecf8",
+									"name": "List Loan Products",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/loan-products"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "613"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"265-5yBDdxKjHFy5xnpKLW+7PKaxkaE\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 16:32:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019316ea-8050-7668-80ac-8191f1697c7c\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T16:31:27.427Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-10T16:31:27.427Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Demo Product\",\n            \"description\": \"This is the demo Product\",\n            \"currency\": \"NGN\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"1000.00\",\n            \"frequency\": \"daily\",\n            \"min_tenor_value\": 1,\n            \"min_tenor_period\": \"days\",\n            \"max_tenor_value\": 7,\n            \"max_tenor_period\": \"weeks\",\n            \"enabled\": true,\n            \"cba_product_id\": null\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Saving Product",
+							"id": "b0f37277-6e90-485e-b365-8f47a0909948",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 3,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n    \"profile_type\":\"personal\",\n    \"collection_method\": \"manual\", // manual | automatic | all\n    \"payment_method\": \"card\" // card | account | all\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/savings-products/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"savings-products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"id": "2f7eb668-bef5-479c-a093-79b902185a6b",
+											"key": "product_id",
+											"value": "019316ea-8050-7668-80ac-8191f1697c7c"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "ef3aa0c4-3a8c-4722-9ecc-df72540b1456",
+									"name": "Update Loan Product",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/loan-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loan-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "019316ea-8050-7668-80ac-8191f1697c7c"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "611"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"263-BrWVj1+O3PO3HuHycjV4NiK4Vm0\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 16:32:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"019316ea-8050-7668-80ac-8191f1697c7c\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-10T16:31:27.427Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-10T16:31:27.427Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Demo Product\",\n        \"description\": \"This is the demo Product\",\n        \"currency\": \"NGN\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"min_amount\": \"0.00\",\n        \"max_amount\": \"1000.00\",\n        \"frequency\": \"daily\",\n        \"min_tenor_value\": 1,\n        \"min_tenor_period\": \"days\",\n        \"max_tenor_value\": 7,\n        \"max_tenor_period\": \"weeks\",\n        \"enabled\": true,\n        \"cba_product_id\": null\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Saving Product",
+							"id": "7e9bbbab-3ed2-4854-932e-d456b35abf7e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/savings-products/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"savings-products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"id": "9d458605-8637-4687-853d-1c891004f1e8",
+											"key": "product_id",
+											"value": "019393a1-5270-755e-beac-f0ac9679694b"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "06c51815-55ee-4303-a567-de25a036e8d8",
+									"name": "Delete Saving Product",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/savings-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"savings-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "019393a1-5270-755e-beac-f0ac9679694b"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Dec 2024 21:44:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+								}
+							]
+						}
+					],
+					"id": "d8199411-bcff-4cb2-8af6-447c0283babd"
 				},
 				{
 					"name": "Templates",
@@ -17775,6 +18576,28 @@
 										"body": {
 											"mode": "raw",
 											"raw": "{\n    \"name\": \"Transfer Fee - Low Range\",\n    \"description\": \"Flat fee for transfers between 0 and 5000\",\n    \"type\": \"flat\",\n    \"category\": \"internal-transfer\",\n    \"currency\": \"NGN\",\n    \"amount\": 10.00,\n    \"min_amount\": 2000,\n    \"max_amount\": 5000,\n    \"percentage\": null\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/transactions/fees"
+									},
+									"response": []
+								},
+								{
+									"name": "Create VAT Fee",
+									"id": "a916f001-9417-4242-bbc0-7c6e9827649e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Vat\",\n    \"description\": \"Value added tax\",\n    \"type\": \"percentage\",\n    \"category\": \"vat\",\n    \"currency\": \"NGN\",\n    \"percentage\": 7.5\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -20005,12 +20828,7 @@
 										{
 											"key": "file",
 											"type": "file",
-											"fileNotInWorkingDirectoryWarning": "This file isn't in your working directory. Teammates you share this request with won't be able to use this file. To make collaboration easier you can setup your working directory in Settings.",
-											"filesNotInWorkingDirectory": [
-												"/Users/thewunmi/Documents/gmail-icon.jpeg",
-												"/Users/horla/Downloads/sample-images/image-3.jpg"
-											],
-											"src": "/Users/horla/Downloads/sample-images/image-3.jpg"
+											"src": "/Users/mohy/Desktop/Screenshot 2024-11-21 at 16.33.48.png"
 										}
 									]
 								},
@@ -20303,7 +21121,7 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/verification-typess"
+								"url": "{{base_url}}/admin/verification-types"
 							},
 							"response": [
 								{
@@ -21206,7 +22024,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "15178940-8354-450e-8389-a330e16d86db",
+				"id": "4e198f47-2f15-4e85-91a1-dcad01b956b8",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -21221,7 +22039,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "e3f6dc04-a257-45e3-a0e9-5e9ac01d8483",
+				"id": "3eca3323-c234-49f5-9018-b86214c87843",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [

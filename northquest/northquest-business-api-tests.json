@@ -1,0 +1,36 @@
+{
+	"info": {
+		"_postman_id": "0c02ab1b-e616-40cb-af2b-ff1b189c5d14",
+		"name": "QA - Cashdrive / Business",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3f84e37a-1ba7-41ab-bc70-8c2861d131fd",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.environment.set('origin', \"https://dev.admin.cashdrive.co\")",
+					"pm.request.headers.add({",
+					"    key: \"origin\",",
+					"    value: pm.environment.get(\"origin\")",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "16ab8381-c23f-48dd-b2b7-be95c2990c2a",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
