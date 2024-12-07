@@ -70,7 +70,7 @@ jobs:
       - name: Wait for Allure report to be generated
         if: always()
         continue-on-error: true
-        run: sleep 120
+        run: sleep 200
 
       - name: Find latest folder in gh-pages
         id: new_folder
