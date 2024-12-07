@@ -3795,6 +3795,7 @@
 													"        pm.expect(firstName).to.not.be.null;",
 													"        pm.expect(lastName).to.not.be.null;",
 													"    })",
+													"    ",
 													"    pm.test(\"Validate User and Tenant IDs aren't null values\", () => {",
 													"        pm.expect(userId).to.not.be.null;",
 													"        pm.expect(tenantId).to.not.be.null;",
