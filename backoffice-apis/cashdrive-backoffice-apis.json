@@ -18440,6 +18440,37 @@
 									"item": [
 										{
 											"name": "Get Fees",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "11da2dd1-37a9-4ee9-8a83-50dc60565e88",
+														"exec": [
+															"try {",
+															"    const { status, data } = pm.response.json()",
+															"    pm.environment.set(\"adminFetchedDefinition\", data[0].id)",
+															"",
+															"    pm.test(\"Status code is 200\", function () {",
+															"        pm.response.to.have.status(200);",
+															"    });",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(status).to.eql(\"success\")",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid error message\", () => {",
+															"        pm.expect(data).to.be.an(\"array\")",
+															"    })",
+															"",
+															"} catch (error) {",
+															"    console.error(\"Error from test:\", error);",
+															"}"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "5d1319c0-7b59-45d8-8fac-6bbf9e722e4c",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -18556,7 +18587,7 @@
 											"request": {
 												"method": "GET",
 												"header": [],
-												"url": "{{base_url}}/admin/transactions/fees/019340f8-4774-7336-a47a-ee9059ee8ffa"
+												"url": "{{base_url}}/admin/transactions/fees/{{adminFetchedFeeId}}"
 											},
 											"response": []
 										}
@@ -18569,6 +18600,28 @@
 										{
 											"name": "Update Fee",
 											"id": "fab921ff-4bd0-4447-9b30-b424153144c5",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"amount\": 10.00,\n    \"min_amount\": 0,\n    \"max_amount\": 2000\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-3328576697e4"
+											},
+											"response": []
+										},
+										{
+											"name": "Update Fee - Empty Fields",
+											"id": "e7e0fcea-a0e7-40d3-8467-eebf7b7a9273",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
