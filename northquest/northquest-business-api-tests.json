@@ -16992,7 +16992,8 @@
 													"//     console.error(\"Error from test:\", error);\r",
 													"// }"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {}
 											}
 										}
 									],
@@ -17010,7 +17011,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/users?search=Azeez",
+											"raw": "{{base_url}}/profiles/:profile_id/users",
 											"host": [
 												"{{base_url}}"
 											],
@@ -17022,7 +17023,8 @@
 											"query": [
 												{
 													"key": "search",
-													"value": "Azeez"
+													"value": "Azeez",
+													"disabled": true
 												},
 												{
 													"key": "status",
@@ -17037,7 +17039,6 @@
 											],
 											"variable": [
 												{
-													"id": "7721edef-c684-4c68-915d-177b1e2a1379",
 													"key": "profile_id",
 													"value": "{{userFetchedBusinessProfileId}}"
 												}
@@ -17676,13 +17677,13 @@
 					"id": "731128c9-c36f-448f-b830-d845adea7c92"
 				},
 				{
-					"name": "Accounts",
+					"name": "Wallets",
 					"item": [
 						{
-							"name": "Create account",
+							"name": "Create wallet",
 							"item": [
 								{
-									"name": "Create Account",
+									"name": "Create Wallet",
 									"id": "11928949-357d-48e2-a69e-6f1ca0f4cbe3",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
