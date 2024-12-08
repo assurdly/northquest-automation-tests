@@ -24747,7 +24747,7 @@
 														"header": [],
 														"body": {
 															"mode": "raw",
-															"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\",\n    \"pin\": \"1316\"\n}",
+															"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
 															"options": {
 																"raw": {
 																	"language": "json"
@@ -25113,7 +25113,7 @@
 														"header": [],
 														"body": {
 															"mode": "raw",
-															"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\",\n    \"pin\": \"1316\"\n}",
+															"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
 															"options": {
 																"raw": {
 																	"language": "json"
@@ -25482,7 +25482,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"07034953306\",\n    \"amount\": 2300,\n     \"pin\": \"2222\",\n    \"account_id\":\"019390f5-db96-7335-b5bb-74eac1376a9c\"\n    \n}",
+													"raw": "{\n    \"account_number\": \"07034953306\",\n    \"amount\": 2300,\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n    \n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -25593,8 +25593,8 @@
 													"script": {
 														"id": "9d9cb2bf-08a7-4a24-8f52-4f774cafb70b",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -25617,7 +25617,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\",\n     \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -25680,7 +25680,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\",\n     \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\",\n     \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
