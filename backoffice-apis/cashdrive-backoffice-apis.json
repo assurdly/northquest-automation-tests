@@ -7751,10 +7751,6 @@
 													"try {",
 													"    const { message, statusCode } = pm.response.json()",
 													"",
-													"    // pm.test(\"Test for valid status code\", () => {",
-													"    //     pm.expect(statusCode).to.eql(401)",
-													"    // })",
-													"",
 													"    pm.test(\"Test for valid error message\", () => {",
 													"        pm.expect(message).to.eql(\"Access token is required\")",
 													"    })",
@@ -18476,6 +18472,12 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{adminAccessToken}}"
+													}
+												},
 												"method": "GET",
 												"header": [],
 												"url": "{{base_url}}/admin/transactions/fees"
@@ -18483,6 +18485,134 @@
 											"response": [
 												{
 													"id": "721610a6-9f4a-4c41-9b41-e960a1f193ee",
+													"name": "Get Fees",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": "{{base_url}}/admin/transactions/fees"
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Date",
+															"value": "Thu, 21 Nov 2024 18:50:39 GMT"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Transfer-Encoding",
+															"value": "chunked"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "X-RateLimit-Limit",
+															"value": "100"
+														},
+														{
+															"key": "X-RateLimit-Remaining",
+															"value": "99"
+														},
+														{
+															"key": "X-RateLimit-Reset",
+															"value": "1"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"612-3Mpd6ovxJfWtlS9ACApCLq5e/Kk\""
+														},
+														{
+															"key": "cf-cache-status",
+															"value": "DYNAMIC"
+														},
+														{
+															"key": "Report-To",
+															"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=F%2FjGfX5L9T%2FVy%2BIk1%2BYwlZx0%2FuTJS%2BYb8QroehGjP4SHZciJh1lB%2BN7lVot%2FpFve8%2F%2F2xxJvBSVP%2FqwoyVahCcdCxNJL8RRA%2FpjYz1t0CX%2FQITiMXIiVgDoga%2Bhzw3K5mOStshlw%2B%2FgL3agqYedl\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+														},
+														{
+															"key": "NEL",
+															"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+														},
+														{
+															"key": "Server",
+															"value": "cloudflare"
+														},
+														{
+															"key": "CF-RAY",
+															"value": "8e62dddb2f6aeb19-MAN"
+														},
+														{
+															"key": "Content-Encoding",
+															"value": "br"
+														},
+														{
+															"key": "alt-svc",
+															"value": "h3=\":443\"; ma=86400"
+														},
+														{
+															"key": "server-timing",
+															"value": "cfL4;desc=\"?proto=TCP&rtt=9327&sent=10&recv=9&lost=0&retrans=0&sent_bytes=4372&recv_bytes=1710&delivery_rate=462176&cwnd=254&unsent_bytes=0&cid=d97ace7fafa5a414&ts=3232&x=0\""
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01934ea4-9d45-7442-bd77-3328576697e4\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-21T12:13:51.301Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-21T12:13:51.301Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Transfer Fee - Low Range\",\n            \"description\": \"Flat fee for transfers between 0 and 5000\",\n            \"type\": \"flat\",\n            \"category\": \"internal-transfer\",\n            \"currency\": \"NGN\",\n            \"amount\": \"10.00\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"5000.00\",\n            \"percentage\": null\n        },\n        {\n            \"id\": \"01934eb8-50a2-7442-bd77-41ae9c5984b9\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-21T12:35:22.402Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-21T12:35:22.402Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Transfer Fee - Low Range\",\n            \"description\": \"Flat fee for transfers between 0 and 5000\",\n            \"type\": \"flat\",\n            \"category\": \"internal-transfer\",\n            \"currency\": \"NGN\",\n            \"amount\": \"10.00\",\n            \"min_amount\": \"10000.00\",\n            \"max_amount\": null,\n            \"percentage\": null\n        },\n        {\n            \"id\": \"01934ea4-9d45-7442-bd77-3328576697e8\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-21T12:13:51.301Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-21T12:13:51.301Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Transfer Fee - Low Range\",\n            \"description\": \"Flat fee for transfers between 0 and 5000\",\n            \"type\": \"flat\",\n            \"category\": \"transfer\",\n            \"currency\": \"NGN\",\n            \"amount\": \"10.00\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"5000.00\",\n            \"percentage\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 3\n    }\n}"
+												}
+											]
+										},
+										{
+											"name": "Get Fees - No Auth",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "11da2dd1-37a9-4ee9-8a83-50dc60565e88",
+														"exec": [
+															"try {",
+															"    const { message, statusCode } = pm.response.json()",
+															"",
+															"    pm.test(\"Test for valid error message\", () => {",
+															"        pm.expect(message).to.eql(\"Access token is required\")",
+															"    })",
+															"",
+															"} catch (error) {",
+															"    console.error(error)",
+															"}"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"id": "8e5c8459-7de3-405b-9409-9e84f179cab1",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/transactions/fees"
+											},
+											"response": [
+												{
+													"id": "7bc6bb56-4ef6-43f6-99bc-47e7416354e4",
 													"name": "Get Fees",
 													"originalRequest": {
 														"method": "GET",
@@ -18585,6 +18715,50 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{adminAccessToken}}"
+													}
+												},
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/transactions/fees/{{adminFetchedFeeId}}"
+											},
+											"response": []
+										},
+										{
+											"name": "Get Fee - No Auth",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "35b170f3-1ca9-4218-a5bb-8d8b83b6205c",
+														"exec": [
+															"try {",
+															"    const { message, statusCode } = pm.response.json()",
+															"",
+															"    pm.test(\"Test for valid error message\", () => {",
+															"        pm.expect(message).to.eql(\"Access token is required\")",
+															"    })",
+															"",
+															"} catch (error) {",
+															"    console.error(error)",
+															"}"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"id": "69d8bbba-f8fa-4297-b457-a20c3930be15",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "noauth"
+												},
 												"method": "GET",
 												"header": [],
 												"url": "{{base_url}}/admin/transactions/fees/{{adminFetchedFeeId}}"
@@ -18604,6 +18778,12 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{adminAccessToken}}"
+													}
+												},
 												"method": "PATCH",
 												"header": [],
 												"body": {
@@ -18671,6 +18851,12 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{adminAccessToken}}"
+													}
+												},
 												"method": "PATCH",
 												"header": [],
 												"body": {
@@ -18699,6 +18885,12 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{adminAccessToken}}"
+													}
+												},
 												"method": "DELETE",
 												"header": [],
 												"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-332857600000"
@@ -18742,6 +18934,12 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{adminAccessToken}}"
+													}
+												},
 												"method": "DELETE",
 												"header": [],
 												"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-332857600000"
@@ -18761,6 +18959,12 @@
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{adminAccessToken}}"
+													}
+												},
 												"method": "POST",
 												"header": [],
 												"body": {
@@ -18778,16 +18982,103 @@
 										},
 										{
 											"name": "Create Fee - Empty Fields",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "177d739e-c9ef-4aa2-a2db-51dbea3e1db3",
+														"exec": [
+															"try {",
+															"    const { message, data } = pm.response.json()",
+															"",
+															"    pm.test(\"Status code is 400\", function () {",
+															"        pm.response.to.have.status(400);",
+															"    });",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(message).to.include(\"name should not be empty,type must be one of the following values: flat, percentage,type should not be empty,category must be one of the following values: transfer, internal-transfer, bill-payment, deposit, vat,category should not be empty,currency should not be empty,amount must be a number conforming to the specified constraints,min_amount must be a number conforming to the specified constraints,max_amount must be a number conforming to the specified constraints\")",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(data).to.include(\"name should not be empty\")",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(data).to.include(",
+															"            \"type must be one of the following values: flat, percentage\")",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(data).to.include(",
+															"            \"type should not be empty\",",
+															"        )",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(data).to.include(",
+															"            \"category must be one of the following values: transfer, internal-transfer, bill-payment, deposit, vat\",",
+															"        )",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(data).to.include(",
+															"            \"category should not be empty\",",
+															"        )",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(data).to.include(",
+															"            \"currency should not be empty\",",
+															"        )",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(data).to.include(",
+															"            \"amount must be a number conforming to the specified constraints\",",
+															"        )",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(data).to.include(",
+															"            \"min_amount must be a number conforming to the specified constraints\",",
+															"        )",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(data).to.include(",
+															"            \"max_amount must be a number conforming to the specified constraints\",",
+															"        )",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid error message\", () => {",
+															"        pm.expect(data).to.be.an(\"array\")",
+															"    })",
+															"",
+															"} catch (error) {",
+															"    console.error(\"Error from test:\", error);",
+															"}"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "f1ccb025-7139-4f40-8847-a14aced6c5d9",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
 											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{adminAccessToken}}"
+													}
+												},
 												"method": "POST",
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "// {\n//     \"name\": \"Transfer Fee - Low Range\",\n//     \"description\": \"Flat fee for transfers between 0 and 5000\",\n//     \"type\": \"flat\",\n//     \"category\": \"internal-transfer\",\n//     \"currency\": \"NGN\",\n//     \"amount\": 10.00,\n//     \"min_amount\": 2000,\n//     \"max_amount\": 5000,\n//     \"percentage\": null\n// }",
+													"raw": "{\n    \"name\": \"\",\n    \"description\": \"\",\n    \"type\": \"\",\n    \"category\": \"\",\n    \"currency\": \"\",\n    \"amount\": \"\",\n    \"min_amount\": \"\",\n    \"max_amount\": \"\",\n    \"percentage\": null\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -18815,7 +19106,29 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"name\": \"Vat\",\n    \"description\": \"Value added tax\",\n    \"type\": \"percentage\",\n    \"category\": \"vat\",\n    \"currency\": \"NGN\",\n    \"percentage\": 7.5\n}",
+													"raw": "// {\n//     \"name\": \"Vat\",\n//     \"description\": \"Value added tax\",\n//     \"type\": \"percentage\",\n//     \"category\": \"vat\",\n//     \"currency\": \"NGN\",\n//     \"percentage\": 7.5\n// }",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/transactions/fees"
+											},
+											"response": []
+										},
+										{
+											"name": "Create VAT Fee - Empty Fields",
+											"id": "643b6168-292d-4a84-8882-2a10c8a278de",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "// {\n//     \"name\": \"Vat\",\n//     \"description\": \"Value added tax\",\n//     \"type\": \"percentage\",\n//     \"category\": \"vat\",\n//     \"currency\": \"NGN\",\n//     \"percentage\": 7.5\n// }",
 													"options": {
 														"raw": {
 															"language": "json"
