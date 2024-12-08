@@ -35295,6 +35295,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"url": {
@@ -35309,9 +35315,8 @@
 									],
 									"variable": [
 										{
-											"id": "9de26e04-e83c-4112-b590-d206d3946b27",
 											"key": "profile_id",
-											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+											"value": "{{userFetchedBusinessProfileId}}"
 										}
 									]
 								}
