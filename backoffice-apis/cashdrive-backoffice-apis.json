@@ -18448,7 +18448,7 @@
 														"exec": [
 															"try {",
 															"    const { status, data } = pm.response.json()",
-															"    pm.environment.set(\"adminFetchedDefinition\", data[0].id)",
+															"    pm.environment.set(\"adminFetchedFeeId\", data[0].id)",
 															"",
 															"    pm.test(\"Status code is 200\", function () {",
 															"        pm.response.to.have.status(200);",
@@ -18621,6 +18621,51 @@
 										},
 										{
 											"name": "Update Fee - Empty Fields",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "c3ec4ea8-9804-4e44-a84e-95d3b51f67d3",
+														"exec": [
+															"try {",
+															"    const { message, data } = pm.response.json()",
+															"",
+															"    pm.test(\"Status code is 400\", function () {",
+															"        pm.response.to.have.status(400);",
+															"    });",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(message).to.include(\"amount must be a number conforming to the specified constraints,min_amount must be a number conforming to the specified constraints,max_amount must be a number conforming to the specified constraints\")",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(data).to.include(\"amount must be a number conforming to the specified constraints\")",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(data).to.include(",
+															"            \"max_amount must be a number conforming to the specified constraints\")",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(data).to.include(",
+															"            \"min_amount must be a number conforming to the specified constraints\",",
+															"        )",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid error message\", () => {",
+															"        pm.expect(data).to.be.an(\"array\")",
+															"    })",
+															"",
+															"} catch (error) {",
+															"    console.error(\"Error from test:\", error);",
+															"}"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "e7e0fcea-a0e7-40d3-8467-eebf7b7a9273",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -18630,14 +18675,14 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"amount\": 10.00,\n    \"min_amount\": 0,\n    \"max_amount\": 2000\n}",
+													"raw": "{\n    \"amount\": \"\",\n    \"min_amount\": \"\",\n    \"max_amount\": \"\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
 														}
 													}
 												},
-												"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-3328576697e4"
+												"url": "{{base_url}}/admin/transactions/fees/{{adminFetchedFeeId}}"
 											},
 											"response": []
 										}
@@ -18656,7 +18701,20 @@
 											"request": {
 												"method": "DELETE",
 												"header": [],
-												"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-3328576697e4"
+												"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-332857600000"
+											},
+											"response": []
+										},
+										{
+											"name": "Delete Fee - Transaction not found",
+											"id": "96f99f85-408c-48e5-b3b7-9cf8920a91d0",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-332857600000"
 											},
 											"response": []
 										}
