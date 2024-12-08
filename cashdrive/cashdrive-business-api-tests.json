@@ -13657,9 +13657,8 @@
 											],
 											"variable": [
 												{
-													"id": "591526b3-0287-4169-b0c7-e2090e69444b",
 													"key": "profile_id",
-													"value": "{{profileId}}"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
@@ -13905,9 +13904,8 @@
 											],
 											"variable": [
 												{
-													"id": "234ad751-afb5-46d3-afbc-07c212f1765e",
 													"key": "profile_id",
-													"value": "019317a4-dcd2-7eeb-a7eb-c3f1c21868ef"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
