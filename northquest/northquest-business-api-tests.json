@@ -17814,7 +17814,7 @@
 									]
 								},
 								{
-									"name": "Create Account-Invalid Profile Id",
+									"name": "Create Wallet - Invalid Profile Id",
 									"event": [
 										{
 											"listen": "test",
@@ -17960,7 +17960,7 @@
 									]
 								},
 								{
-									"name": "Create Account-Empty fields",
+									"name": "Create Wallet - Empty fields",
 									"event": [
 										{
 											"listen": "test",
@@ -18109,10 +18109,10 @@
 							"id": "a8f8a9fd-82dc-44c1-9b3f-d9983965e492"
 						},
 						{
-							"name": "Update account",
+							"name": "Update wallet",
 							"item": [
 								{
-									"name": "Update Account",
+									"name": "Update Wallet",
 									"event": [
 										{
 											"listen": "test",
@@ -18181,10 +18181,10 @@
 							"id": "7d93188f-aa5b-4a8e-bac2-a8e78e63d829"
 						},
 						{
-							"name": "List accounts",
+							"name": "List wallets",
 							"item": [
 								{
-									"name": "List Accounts",
+									"name": "List wallets",
 									"event": [
 										{
 											"listen": "test",
@@ -18329,7 +18329,7 @@
 									]
 								},
 								{
-									"name": "List Accounts-Invalid Profile Id",
+									"name": "List wallets - Invalid Profile Id",
 									"event": [
 										{
 											"listen": "test",
