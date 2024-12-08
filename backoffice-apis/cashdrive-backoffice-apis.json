@@ -22945,6 +22945,55 @@
 						}
 					],
 					"id": "b2cda79a-1c47-46d8-8c9d-f07e1eff2040"
+				},
+				{
+					"name": "Loans",
+					"item": [
+						{
+							"name": "List Loans",
+							"id": "e886a4d6-caee-4719-92fb-a5717e6d1e09",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/admin/loans"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Loan",
+							"id": "b80cc148-8534-4d67-800d-667ff1e8b093",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/loans/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loans",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "49e3ee24-ec3a-4f71-844f-93425f1b1fe3",
+											"key": "id",
+											"value": "0193a490-e865-733a-855f-615906ceb418"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "5e98add1-0fad-417a-8296-064b9c53501a"
 				}
 			],
 			"id": "176166ee-98f6-4c86-a569-26cd9d7f114c",
