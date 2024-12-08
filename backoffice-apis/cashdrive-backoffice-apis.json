@@ -18707,6 +18707,36 @@
 										},
 										{
 											"name": "Delete Fee - Transaction not found",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "23eecd3c-4574-4a4a-9875-745dbeb7ffcf",
+														"exec": [
+															"try {",
+															"    const { status, message } = pm.response.json()",
+															"",
+															"    pm.test(\"Status code is 404\", function () {",
+															"        pm.response.to.have.status(404);",
+															"    });",
+															"",
+															"    pm.test(\"Test for valid status\", () => {",
+															"        pm.expect(status).to.eql(\"error\")",
+															"    })",
+															"",
+															"    pm.test(\"Test for valid error message\", () => {",
+															"        pm.expect(message).to.eql(\"Transaction fee not found.\")",
+															"    })",
+															"",
+															"} catch (error) {",
+															"    console.error(\"Error from test:\", error);",
+															"}"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
 											"id": "96f99f85-408c-48e5-b3b7-9cf8920a91d0",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
@@ -18735,7 +18765,29 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"name\": \"Transfer Fee - Low Range\",\n    \"description\": \"Flat fee for transfers between 0 and 5000\",\n    \"type\": \"flat\",\n    \"category\": \"internal-transfer\",\n    \"currency\": \"NGN\",\n    \"amount\": 10.00,\n    \"min_amount\": 2000,\n    \"max_amount\": 5000,\n    \"percentage\": null\n}",
+													"raw": "// {\n//     \"name\": \"Transfer Fee - Low Range\",\n//     \"description\": \"Flat fee for transfers between 0 and 5000\",\n//     \"type\": \"flat\",\n//     \"category\": \"internal-transfer\",\n//     \"currency\": \"NGN\",\n//     \"amount\": 10.00,\n//     \"min_amount\": 2000,\n//     \"max_amount\": 5000,\n//     \"percentage\": null\n// }",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/transactions/fees"
+											},
+											"response": []
+										},
+										{
+											"name": "Create Fee - Empty Fields",
+											"id": "f1ccb025-7139-4f40-8847-a14aced6c5d9",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "// {\n//     \"name\": \"Transfer Fee - Low Range\",\n//     \"description\": \"Flat fee for transfers between 0 and 5000\",\n//     \"type\": \"flat\",\n//     \"category\": \"internal-transfer\",\n//     \"currency\": \"NGN\",\n//     \"amount\": 10.00,\n//     \"min_amount\": 2000,\n//     \"max_amount\": 5000,\n//     \"percentage\": null\n// }",
 													"options": {
 														"raw": {
 															"language": "json"
