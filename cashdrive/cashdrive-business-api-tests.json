@@ -17699,7 +17699,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"expenses\",\n    \"currency\": \"NGN\"\n}",
+											"raw": "// {\n//     \"name\": \"expenses\",\n//     \"currency\": \"NGN\"\n// }",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -17718,7 +17718,6 @@
 											],
 											"variable": [
 												{
-													"id": "cebebeb5-c553-4304-8f0d-b1e0ff1b1445",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												}
