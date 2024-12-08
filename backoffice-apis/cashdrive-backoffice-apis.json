@@ -22537,6 +22537,414 @@
 						}
 					],
 					"id": "5310db30-9af7-42f1-a91a-bb18b4223d57"
+				},
+				{
+					"name": "Credit Lines",
+					"item": [
+						{
+							"name": "Create Credit Line",
+							"id": "5038b79d-1d16-4982-936d-f152f92dcbe8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\": 5000,\n    \"currency\": \"NGN\",\n    \"interest_rate\": 3,\n    \"interest_period\": \"weeks\",\n    \"tenor_value\": 30,\n    \"tenor_period\": \"days\",\n    \"frequency\": \"daily\",\n    \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/credit-lines"
+							},
+							"response": [
+								{
+									"id": "ad5ee4ef-bc24-4729-b0d6-db1285dfba6c",
+									"name": "Create Credit Line",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"amount\": 5000,\n    \"currency\": \"NGN\",\n    \"interest_rate\": 3,\n    \"interest_period\": \"weeks\",\n    \"tenor_value\": 30,\n    \"tenor_period\": \"days\",\n    \"frequency\": \"daily\",\n    \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/credit-lines"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "538"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21a-al3u5zE2pcQQU+NtK88rYusEkJg\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 08 Dec 2024 04:39:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"amount\": \"5000.00\",\n        \"currency\": \"NGN\",\n        \"interest_rate\": \"3.00\",\n        \"interest_period\": \"weeks\",\n        \"tenor_value\": 30,\n        \"tenor_period\": \"days\",\n        \"frequency\": \"daily\",\n        \"id\": \"0193a490-e865-733a-855f-615906ceb418\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-12-08T04:39:40.530Z\",\n        \"modified_on\": \"2024-12-08T04:39:40.530Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "List Credit Lines",
+							"id": "7bf35023-0d27-474b-826f-e01ef6746d26",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/admin/credit-lines"
+							},
+							"response": [
+								{
+									"id": "15543851-8875-46eb-8e03-895aa4e7d3be",
+									"name": "List Credit Lines",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/credit-lines"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "590"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"24e-OQbcAkbGAbQdoo6z9xrWXKsEDKg\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 08 Dec 2024 04:40:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193a490-e865-733a-855f-615906ceb418\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-08T04:39:40.530Z\",\n            \"created_by\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n            \"modified_on\": \"2024-12-08T04:39:40.530Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"amount\": \"5000.00\",\n            \"currency\": \"NGN\",\n            \"interest_rate\": \"3.00\",\n            \"interest_period\": \"weeks\",\n            \"tenor_value\": 30,\n            \"tenor_period\": \"days\",\n            \"frequency\": \"daily\",\n            \"status\": \"active\"\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Credit Line",
+							"id": "4519bc88-a7e2-4e7d-9caa-1c89f0b5fa83",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/credit-lines/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"credit-lines",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "eb88bb5a-ed45-4f54-9b27-a9b92dd52a55",
+											"key": "id",
+											"value": "0193a490-e865-733a-855f-615906ceb418"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "e85864ef-88fe-4d20-a129-64d1c556332f",
+									"name": "Get Credit Line",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/credit-lines/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"credit-lines",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0193a490-e865-733a-855f-615906ceb418"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "538"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"21a-qVnySxA5cBKtXnbpZF7+d6j+00w\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 08 Dec 2024 04:40:49 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193a490-e865-733a-855f-615906ceb418\",\n        \"meta\": null,\n        \"created_on\": \"2024-12-08T04:39:40.530Z\",\n        \"created_by\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n        \"modified_on\": \"2024-12-08T04:39:40.530Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"amount\": \"5000.00\",\n        \"currency\": \"NGN\",\n        \"interest_rate\": \"3.00\",\n        \"interest_period\": \"weeks\",\n        \"tenor_value\": 30,\n        \"tenor_period\": \"days\",\n        \"frequency\": \"daily\",\n        \"status\": \"active\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Credit Line",
+							"id": "df9d6212-8a87-4913-be95-94e76fa30518",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\": 5000.00,\n    \"interest_rate\": 3.00,\n    \"interest_period\": \"weeks\",\n    \"tenor_value\": 40,\n    \"tenor_period\": \"days\",\n    \"frequency\": \"daily\",\n    \"status\": \"inactive\" // active | inactive\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/credit-lines/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"credit-lines",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "b010ce55-cb9a-4093-9d2a-90eaa54e1409",
+											"key": "id",
+											"value": "0193a490-e865-733a-855f-615906ceb418"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "1a75bd21-7290-4c2b-bd09-0f694bfd6890",
+									"name": "Update Credit Line",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"amount\": 5000.00,\n    \"interest_rate\": 3.00,\n    \"interest_period\": \"weeks\",\n    \"tenor_value\": 40,\n    \"tenor_period\": \"days\",\n    \"frequency\": \"daily\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/credit-lines/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"credit-lines",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0193a490-e865-733a-855f-615906ceb418"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "298"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"12a-KMV17aeZW4fOUHD8+amTrSDNu4E\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 08 Dec 2024 04:43:16 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193a490-e865-733a-855f-615906ceb418\",\n        \"amount\": 5000,\n        \"interest_rate\": 3,\n        \"interest_period\": \"weeks\",\n        \"tenor_value\": 40,\n        \"tenor_period\": \"days\",\n        \"frequency\": \"daily\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"modified_on\": \"2024-12-08T04:43:16.192Z\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "b2cda79a-1c47-46d8-8c9d-f07e1eff2040"
 				}
 			],
 			"id": "176166ee-98f6-4c86-a569-26cd9d7f114c",
