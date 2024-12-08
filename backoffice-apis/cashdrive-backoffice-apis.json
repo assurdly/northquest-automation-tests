@@ -18437,198 +18437,234 @@
 							"item": [
 								{
 									"name": "Get Fees",
-									"id": "5d1319c0-7b59-45d8-8fac-6bbf9e722e4c",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": "{{base_url}}/admin/transactions/fees"
-									},
-									"response": [
+									"item": [
 										{
-											"id": "721610a6-9f4a-4c41-9b41-e960a1f193ee",
 											"name": "Get Fees",
-											"originalRequest": {
+											"id": "5d1319c0-7b59-45d8-8fac-6bbf9e722e4c",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
 												"method": "GET",
 												"header": [],
 												"url": "{{base_url}}/admin/transactions/fees"
 											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
+											"response": [
 												{
-													"key": "Date",
-													"value": "Thu, 21 Nov 2024 18:50:39 GMT"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Transfer-Encoding",
-													"value": "chunked"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"612-3Mpd6ovxJfWtlS9ACApCLq5e/Kk\""
-												},
-												{
-													"key": "cf-cache-status",
-													"value": "DYNAMIC"
-												},
-												{
-													"key": "Report-To",
-													"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=F%2FjGfX5L9T%2FVy%2BIk1%2BYwlZx0%2FuTJS%2BYb8QroehGjP4SHZciJh1lB%2BN7lVot%2FpFve8%2F%2F2xxJvBSVP%2FqwoyVahCcdCxNJL8RRA%2FpjYz1t0CX%2FQITiMXIiVgDoga%2Bhzw3K5mOStshlw%2B%2FgL3agqYedl\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
-												},
-												{
-													"key": "NEL",
-													"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
-												},
-												{
-													"key": "Server",
-													"value": "cloudflare"
-												},
-												{
-													"key": "CF-RAY",
-													"value": "8e62dddb2f6aeb19-MAN"
-												},
-												{
-													"key": "Content-Encoding",
-													"value": "br"
-												},
-												{
-													"key": "alt-svc",
-													"value": "h3=\":443\"; ma=86400"
-												},
-												{
-													"key": "server-timing",
-													"value": "cfL4;desc=\"?proto=TCP&rtt=9327&sent=10&recv=9&lost=0&retrans=0&sent_bytes=4372&recv_bytes=1710&delivery_rate=462176&cwnd=254&unsent_bytes=0&cid=d97ace7fafa5a414&ts=3232&x=0\""
+													"id": "721610a6-9f4a-4c41-9b41-e960a1f193ee",
+													"name": "Get Fees",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": "{{base_url}}/admin/transactions/fees"
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Date",
+															"value": "Thu, 21 Nov 2024 18:50:39 GMT"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json; charset=utf-8"
+														},
+														{
+															"key": "Transfer-Encoding",
+															"value": "chunked"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														},
+														{
+															"key": "X-Powered-By",
+															"value": "Express"
+														},
+														{
+															"key": "Access-Control-Allow-Origin",
+															"value": "*"
+														},
+														{
+															"key": "X-RateLimit-Limit",
+															"value": "100"
+														},
+														{
+															"key": "X-RateLimit-Remaining",
+															"value": "99"
+														},
+														{
+															"key": "X-RateLimit-Reset",
+															"value": "1"
+														},
+														{
+															"key": "ETag",
+															"value": "W/\"612-3Mpd6ovxJfWtlS9ACApCLq5e/Kk\""
+														},
+														{
+															"key": "cf-cache-status",
+															"value": "DYNAMIC"
+														},
+														{
+															"key": "Report-To",
+															"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=F%2FjGfX5L9T%2FVy%2BIk1%2BYwlZx0%2FuTJS%2BYb8QroehGjP4SHZciJh1lB%2BN7lVot%2FpFve8%2F%2F2xxJvBSVP%2FqwoyVahCcdCxNJL8RRA%2FpjYz1t0CX%2FQITiMXIiVgDoga%2Bhzw3K5mOStshlw%2B%2FgL3agqYedl\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+														},
+														{
+															"key": "NEL",
+															"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+														},
+														{
+															"key": "Server",
+															"value": "cloudflare"
+														},
+														{
+															"key": "CF-RAY",
+															"value": "8e62dddb2f6aeb19-MAN"
+														},
+														{
+															"key": "Content-Encoding",
+															"value": "br"
+														},
+														{
+															"key": "alt-svc",
+															"value": "h3=\":443\"; ma=86400"
+														},
+														{
+															"key": "server-timing",
+															"value": "cfL4;desc=\"?proto=TCP&rtt=9327&sent=10&recv=9&lost=0&retrans=0&sent_bytes=4372&recv_bytes=1710&delivery_rate=462176&cwnd=254&unsent_bytes=0&cid=d97ace7fafa5a414&ts=3232&x=0\""
+														}
+													],
+													"cookie": [],
+													"responseTime": null,
+													"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01934ea4-9d45-7442-bd77-3328576697e4\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-21T12:13:51.301Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-21T12:13:51.301Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Transfer Fee - Low Range\",\n            \"description\": \"Flat fee for transfers between 0 and 5000\",\n            \"type\": \"flat\",\n            \"category\": \"internal-transfer\",\n            \"currency\": \"NGN\",\n            \"amount\": \"10.00\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"5000.00\",\n            \"percentage\": null\n        },\n        {\n            \"id\": \"01934eb8-50a2-7442-bd77-41ae9c5984b9\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-21T12:35:22.402Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-21T12:35:22.402Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Transfer Fee - Low Range\",\n            \"description\": \"Flat fee for transfers between 0 and 5000\",\n            \"type\": \"flat\",\n            \"category\": \"internal-transfer\",\n            \"currency\": \"NGN\",\n            \"amount\": \"10.00\",\n            \"min_amount\": \"10000.00\",\n            \"max_amount\": null,\n            \"percentage\": null\n        },\n        {\n            \"id\": \"01934ea4-9d45-7442-bd77-3328576697e8\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-21T12:13:51.301Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-21T12:13:51.301Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Transfer Fee - Low Range\",\n            \"description\": \"Flat fee for transfers between 0 and 5000\",\n            \"type\": \"flat\",\n            \"category\": \"transfer\",\n            \"currency\": \"NGN\",\n            \"amount\": \"10.00\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"5000.00\",\n            \"percentage\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 3\n    }\n}"
 												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01934ea4-9d45-7442-bd77-3328576697e4\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-21T12:13:51.301Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-21T12:13:51.301Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Transfer Fee - Low Range\",\n            \"description\": \"Flat fee for transfers between 0 and 5000\",\n            \"type\": \"flat\",\n            \"category\": \"internal-transfer\",\n            \"currency\": \"NGN\",\n            \"amount\": \"10.00\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"5000.00\",\n            \"percentage\": null\n        },\n        {\n            \"id\": \"01934eb8-50a2-7442-bd77-41ae9c5984b9\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-21T12:35:22.402Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-21T12:35:22.402Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Transfer Fee - Low Range\",\n            \"description\": \"Flat fee for transfers between 0 and 5000\",\n            \"type\": \"flat\",\n            \"category\": \"internal-transfer\",\n            \"currency\": \"NGN\",\n            \"amount\": \"10.00\",\n            \"min_amount\": \"10000.00\",\n            \"max_amount\": null,\n            \"percentage\": null\n        },\n        {\n            \"id\": \"01934ea4-9d45-7442-bd77-3328576697e8\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-21T12:13:51.301Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-21T12:13:51.301Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Transfer Fee - Low Range\",\n            \"description\": \"Flat fee for transfers between 0 and 5000\",\n            \"type\": \"flat\",\n            \"category\": \"transfer\",\n            \"currency\": \"NGN\",\n            \"amount\": \"10.00\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"5000.00\",\n            \"percentage\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 3\n    }\n}"
+											]
 										}
-									]
+									],
+									"id": "3faf0fd6-418d-4ff1-a11c-6abc0d7ef6b9"
 								},
 								{
 									"name": "Get Fee",
-									"id": "55229cca-dcd5-45c8-b68c-e0704ae628fe",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "GET",
-										"header": [],
-										"url": "{{base_url}}/admin/transactions/fees/019340f8-4774-7336-a47a-ee9059ee8ffa"
-									},
-									"response": []
+									"item": [
+										{
+											"name": "Get Fee",
+											"id": "55229cca-dcd5-45c8-b68c-e0704ae628fe",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": "{{base_url}}/admin/transactions/fees/019340f8-4774-7336-a47a-ee9059ee8ffa"
+											},
+											"response": []
+										}
+									],
+									"id": "dfa67a8c-d0a3-4967-b5b3-77ccae87a22d"
 								},
 								{
 									"name": "Update Fee",
-									"id": "fab921ff-4bd0-4447-9b30-b424153144c5",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"amount\": 10.00,\n    \"min_amount\": 0,\n    \"max_amount\": 2000\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-3328576697e4"
-									},
-									"response": []
+									"item": [
+										{
+											"name": "Update Fee",
+											"id": "fab921ff-4bd0-4447-9b30-b424153144c5",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"amount\": 10.00,\n    \"min_amount\": 0,\n    \"max_amount\": 2000\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-3328576697e4"
+											},
+											"response": []
+										}
+									],
+									"id": "da4174af-9e1c-4c80-ba48-ece70f361147"
 								},
 								{
 									"name": "Delete Fee",
-									"id": "9b10a5c5-374e-427d-83a8-ea4e023d4afe",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "DELETE",
-										"header": [],
-										"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-3328576697e4"
-									},
-									"response": []
+									"item": [
+										{
+											"name": "Delete Fee",
+											"id": "9b10a5c5-374e-427d-83a8-ea4e023d4afe",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": "{{base_url}}/admin/transactions/fees/01934ea4-9d45-7442-bd77-3328576697e4"
+											},
+											"response": []
+										}
+									],
+									"id": "5aa0f91a-b722-4c19-9652-9780f831bb9d"
 								},
 								{
 									"name": "Create Fee",
-									"id": "52d2b9ba-11b6-46e7-b738-4d0fd661f90a",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Transfer Fee - Low Range\",\n    \"description\": \"Flat fee for transfers between 0 and 5000\",\n    \"type\": \"flat\",\n    \"category\": \"internal-transfer\",\n    \"currency\": \"NGN\",\n    \"amount\": 10.00,\n    \"min_amount\": 2000,\n    \"max_amount\": 5000,\n    \"percentage\": null\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/transactions/fees"
-									},
-									"response": []
+									"item": [
+										{
+											"name": "Create Fee",
+											"id": "52d2b9ba-11b6-46e7-b738-4d0fd661f90a",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"Transfer Fee - Low Range\",\n    \"description\": \"Flat fee for transfers between 0 and 5000\",\n    \"type\": \"flat\",\n    \"category\": \"internal-transfer\",\n    \"currency\": \"NGN\",\n    \"amount\": 10.00,\n    \"min_amount\": 2000,\n    \"max_amount\": 5000,\n    \"percentage\": null\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/transactions/fees"
+											},
+											"response": []
+										}
+									],
+									"id": "18866ae2-c4a5-4f79-8bb2-496a5314cf47"
 								},
 								{
-									"name": "Create VAT Fee",
-									"id": "a916f001-9417-4242-bbc0-7c6e9827649e",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Vat\",\n    \"description\": \"Value added tax\",\n    \"type\": \"percentage\",\n    \"category\": \"vat\",\n    \"currency\": \"NGN\",\n    \"percentage\": 7.5\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/admin/transactions/fees"
-									},
-									"response": []
+									"name": "Create Vat Fee",
+									"item": [
+										{
+											"name": "Create VAT Fee",
+											"id": "a916f001-9417-4242-bbc0-7c6e9827649e",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"Vat\",\n    \"description\": \"Value added tax\",\n    \"type\": \"percentage\",\n    \"category\": \"vat\",\n    \"currency\": \"NGN\",\n    \"percentage\": 7.5\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/admin/transactions/fees"
+											},
+											"response": []
+										}
+									],
+									"id": "cefde991-2a4c-4c80-99cd-8c9fce5d46c3"
 								}
 							],
 							"id": "f47d8c4b-bc4d-4575-b73e-3c1eeefd326d"
