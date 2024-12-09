@@ -25733,11 +25733,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Vacation Funds\",\n    \"product_id\": \"0193a39c-abb3-7555-89eb-04e3e9127fd7\",\n    \"target\": 5000,\n    \"periodic_amount\": 500,\n    \"tenor_value\": 10,\n    \"tenor_period\": \"weeks\"\n}",
+									"raw": "{\n    \"name\": \"Vacation Funds\",\n    \"product_id\": \"0193aabc-0714-7aaf-8309-00b37d6bfeb1\",\n    \"target\": 5000,\n    \"periodic_amount\": 500,\n    \"tenor_value\": 10,\n    \"tenor_period\": \"weeks\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -25756,7 +25762,6 @@
 									],
 									"variable": [
 										{
-											"id": "36c278c1-a796-4068-954b-06ca5644a4f4",
 											"key": "profile_id",
 											"value": "{{profileId}}"
 										}
