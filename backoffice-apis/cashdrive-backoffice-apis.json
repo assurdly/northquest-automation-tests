@@ -19362,7 +19362,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "// {\n//     \"name\": \"Transfer Fee - Low Range\",\n//     \"description\": \"Flat fee for transfers between 0 and 5000\",\n//     \"type\": \"flat\",\n//     \"category\": \"internal-transfer\",\n//     \"currency\": \"NGN\",\n//     \"amount\": 10.00,\n//     \"min_amount\": 2000,\n//     \"max_amount\": 5000,\n//     \"percentage\": null\n// }",
+													"raw": "{\n    \"name\": \"Transfer Fee - Low Range\",\n    \"description\": \"Flat fee for transfers between 0 and 5000\",\n    \"type\": \"flat\",\n    \"category\": \"internal-transfer\",\n    \"currency\": \"NGN\",\n    \"amount\": 10.00,\n    \"min_amount\": 2000,\n    \"max_amount\": 5000,\n    \"percentage\": null\n}",
 													"options": {
 														"raw": {
 															"language": "json"
