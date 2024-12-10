@@ -9617,7 +9617,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/settings?filter[parent_id]=null",
+											"raw": "{{base_url}}/admin/settings?filter[parent_id]=01934380-6a81-7ff7-8592-14fc1a6f5131",
 											"host": [
 												"{{base_url}}"
 											],
@@ -9628,7 +9628,12 @@
 											"query": [
 												{
 													"key": "filter[parent_id]",
-													"value": "null"
+													"value": "01934380",
+													"disabled": true
+												},
+												{
+													"key": "filter[parent_id]",
+													"value": "01934380-6a81-7ff7-8592-14fc1a6f5131"
 												}
 											]
 										}
@@ -10357,7 +10362,22 @@
 										},
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/admin/document-types"
+										"url": {
+											"raw": "{{base_url}}/admin/document-types?",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"document-types"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null
+												}
+											]
+										}
 									},
 									"response": [
 										{
@@ -11657,7 +11677,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/tiers",
+											"raw": "{{base_url}}/admin/tiers?filter[profile_type]=business",
 											"host": [
 												"{{base_url}}"
 											],
@@ -11668,8 +11688,7 @@
 											"query": [
 												{
 													"key": "filter[profile_type]",
-													"value": "business",
-													"disabled": true
+													"value": "business"
 												}
 											]
 										}
