@@ -16456,7 +16456,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    // \"beneficiary_id\": \"01932f12-e38f-7445-8d7e-099680bac163\",\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\",\n    \"pin\": \"1316\"\n}",
+											"raw": "{\n    // \"beneficiary_id\": \"01932f12-e38f-7445-8d7e-099680bac163\",\n    \"account_number\": \"0000000074\",\n    \"bank_code\": \"050030\",\n    \"amount\": 100,\n    \"narration\": \"Sodiq\",\n    \"pin\": \"2222\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -16482,7 +16482,7 @@
 												},
 												{
 													"key": "account_id",
-													"value": "01931ba9-9e60-7dda-b579-5d20aa9c5c3a"
+													"value": "{{userFetchedAccountId}}"
 												}
 											]
 										}
