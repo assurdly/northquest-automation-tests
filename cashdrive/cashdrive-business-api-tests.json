@@ -20012,9 +20012,20 @@
 							"script": {
 								"id": "98914279-1787-4e78-907f-940abc33a72e",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
+									"try {",
+									"    const { status } = pm.response.json()",
+									"",
+									"    pm.test(\"Status code is 200\", () => {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"    pm.test(\"Test for valid error message\", () => {",
+									"        pm.expect(status).to.eql(\"success\")",
+									"    })",
+									"",
+									"} catch (error) {",
+									"    console.error(\"Error from test:\", error)",
+									"}"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -20065,6 +20076,172 @@
 					"response": [
 						{
 							"id": "08b762e2-43bd-492c-9486-d5f238945349",
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"category\": \"transfer\",\n    \"amount\": 5000,\n    \"bank_code\":\"433\" //optional only required for bank transfers\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/fees",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"fees"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-t3UmD63zcz1QQBLdfhp2nnVu5r0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Dec 2024 18:34:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"amount\": \"10.00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Fees - Empty Fields",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "98914279-1787-4e78-907f-940abc33a72e",
+								"exec": [
+									"try {",
+									"    const { status, message } = pm.response.json()",
+									"",
+									"    pm.test(\"Status code is 400\", () => {",
+									"        pm.response.to.have.status(400);",
+									"    });",
+									"",
+									"    pm.test(\"Test for valid error message\", () => {",
+									"        pm.expect(status).to.eql(\"error\")",
+									"    })",
+									"",
+									"    pm.test(\"Test for valid error message\", () => {",
+									"        pm.expect(message).to.include(\"category should not be empty\")",
+									"        pm.expect(message).to.include(\"amount should not be empty\")",
+									"        pm.expect(message).to.include(\"amount must be a number conforming to the specified constraints\")",
+									"",
+									"    })",
+									"",
+									"} catch (error) {",
+									"    console.error(\"Error from test:\", error)",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "1e659abd-41d4-4e74-9862-8aadcbbb4b2d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": \"\",\n    \"amount\": \"\",\n    \"bank_code\":\"\" //optional only required for bank transfers\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/transactions/fees",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"transactions",
+								"fees"
+							],
+							"variable": [
+								{
+									"key": "profile_id",
+									"value": "{{userFetchedBusinessProfileId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "6da38b72-b02a-4d93-ac6f-94c5253554d9",
 							"name": "Success",
 							"originalRequest": {
 								"method": "POST",
