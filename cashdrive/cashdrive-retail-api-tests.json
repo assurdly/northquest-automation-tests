@@ -14945,10 +14945,10 @@
 					"id": "89fe10a8-1610-4512-a0c8-8e647861c6c8"
 				},
 				{
-					"name": "Accounts",
+					"name": "Wallets",
 					"item": [
 						{
-							"name": "Create account",
+							"name": "Create wallet",
 							"item": [
 								{
 									"name": "Create Account",
@@ -15387,7 +15387,7 @@
 							"id": "a84064eb-e3fc-401e-ad74-f9a91922048d"
 						},
 						{
-							"name": "Update account",
+							"name": "Update wallet",
 							"item": [
 								{
 									"name": "Update Account",
@@ -15457,7 +15457,7 @@
 							"id": "e49ccf3a-c11b-4f82-aea7-cfb77ff5ddb2"
 						},
 						{
-							"name": "List accounts",
+							"name": "List wallets",
 							"item": [
 								{
 									"name": "List Accounts",
@@ -15888,7 +15888,7 @@
 							"id": "dae0ffdb-9e26-4f57-8be8-f5167d5077cb"
 						},
 						{
-							"name": "Get account",
+							"name": "Get wallet",
 							"item": [
 								{
 									"name": "Get Account",
@@ -16448,7 +16448,13 @@
 								}
 							],
 							"id": "6c21256a-bc01-4952-b7f8-b5d07d879867"
-						},
+						}
+					],
+					"id": "804127ad-4d2d-4303-b951-836a31a59380"
+				},
+				{
+					"name": "Transfers",
+					"item": [
 						{
 							"name": "Transfer",
 							"item": [
@@ -16591,57 +16597,6 @@
 								}
 							],
 							"id": "9bf4eb6c-29ec-4925-9366-e2362ef1ae1d"
-						},
-						{
-							"name": "Transaction approval",
-							"item": [
-								{
-									"name": "Transaction Approval",
-									"id": "ba763d20-485d-49df-b5cc-b04a552f2ad4",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"action\": \"approve\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/accounts/:account_id/transaction/:transaction_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"accounts",
-												":account_id",
-												"transaction",
-												":transaction_id"
-											],
-											"variable": [
-												{
-													"id": "e89f6794-7d56-4bed-9317-3e76ee7c5131",
-													"key": "account_id",
-													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-												},
-												{
-													"id": "36974a3f-4b9d-4c46-8d51-b624092bf203",
-													"key": "transaction_id",
-													"value": "0192ca7f-b385-7332-8e07-a78a9c67ebe1"
-												}
-											]
-										}
-									},
-									"response": []
-								}
-							],
-							"id": "9f11d971-ab0d-4802-9f7e-3ca8b0a1d74d"
 						},
 						{
 							"name": "Batch Account Enquiry",
@@ -17276,7 +17231,7 @@
 							"id": "c88fa448-fb4e-46f0-a754-97c257a6e176"
 						}
 					],
-					"id": "804127ad-4d2d-4303-b951-836a31a59380"
+					"id": "74d3495e-2777-4f0e-908e-27d189928dcc"
 				},
 				{
 					"name": "Beneficiaries",
