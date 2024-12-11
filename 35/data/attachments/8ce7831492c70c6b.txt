@@ -1,0 +1,19 @@
+{
+    "name": "Demo Product",
+    "description": "This is the demo Product",
+    "currency": "NGN",
+    "interest_rate": 3,
+    "interest_period": "flat", 
+    "min_amount": 0,
+    "max_amount": 100,
+    "frequency": "daily", 
+    "min_tenor_value": 1,
+    "min_tenor_period": "days", 
+    "max_tenor_value": 7,
+    "max_tenor_period": "weeks", 
+    "enabled": true,
+    "offer_letter_template_id": "01931742-0781-722b-8de7-6c42b6f4c2ea",
+    "profile_type":"personal",
+    "collection_method": "manual", 
+    "payment_method": "card" 
+}
