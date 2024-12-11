@@ -20006,6 +20006,21 @@
 			"item": [
 				{
 					"name": "Get Fees",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "98914279-1787-4e78-907f-940abc33a72e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "01cc4c6d-3f5b-4bf8-80b5-f4e4deae6f1b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
