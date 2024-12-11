@@ -35572,6 +35572,134 @@
 						}
 					],
 					"id": "0fbe1165-e672-4f62-9fa1-003c58258a57"
+				},
+				{
+					"name": "Get Fees",
+					"id": "01cc4c6d-3f5b-4bf8-80b5-f4e4deae6f1b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": \"transfer\",\n    \"amount\": 5000,\n    \"bank_code\":\"433\" //optional only required for bank transfers\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/transactions/fees",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"transactions",
+								"fees"
+							],
+							"variable": [
+								{
+									"id": "ebb0a695-765d-4e25-962c-0befa0cf137e",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "08b762e2-43bd-492c-9486-d5f238945349",
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"category\": \"transfer\",\n    \"amount\": 5000,\n    \"bank_code\":\"433\" //optional only required for bank transfers\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/fees",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"fees"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-t3UmD63zcz1QQBLdfhp2nnVu5r0\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Dec 2024 18:34:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"amount\": \"10.00\"\n    }\n}"
+						}
+					]
 				}
 			],
 			"id": "45107b76-264c-4f7e-aaaa-558a829b45f4"

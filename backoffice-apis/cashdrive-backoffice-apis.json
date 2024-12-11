@@ -9617,7 +9617,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/settings?filter[parent_id]=null",
+											"raw": "{{base_url}}/admin/settings?filter[parent_id]=01934380-6a81-7ff7-8592-14fc1a6f5131",
 											"host": [
 												"{{base_url}}"
 											],
@@ -9628,7 +9628,12 @@
 											"query": [
 												{
 													"key": "filter[parent_id]",
-													"value": "null"
+													"value": "01934380",
+													"disabled": true
+												},
+												{
+													"key": "filter[parent_id]",
+													"value": "01934380-6a81-7ff7-8592-14fc1a6f5131"
 												}
 											]
 										}
@@ -10357,7 +10362,22 @@
 										},
 										"method": "GET",
 										"header": [],
-										"url": "{{base_url}}/admin/document-types"
+										"url": {
+											"raw": "{{base_url}}/admin/document-types?",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"document-types"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null
+												}
+											]
+										}
 									},
 									"response": [
 										{
@@ -11657,7 +11677,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/tiers",
+											"raw": "{{base_url}}/admin/tiers?filter[profile_type]=business",
 											"host": [
 												"{{base_url}}"
 											],
@@ -11668,8 +11688,7 @@
 											"query": [
 												{
 													"key": "filter[profile_type]",
-													"value": "business",
-													"disabled": true
+													"value": "business"
 												}
 											]
 										}
@@ -15797,7 +15816,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"collection_method\": \"manual\", // manual | automatic | all\n    \"payment_method\": \"card\" // card | account | all\n}",
+													"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"collection_method\": \"manual\", // manual | automatic | all\n    \"payment_method\": \"card\", // card | account | all\n    \"disbursement_method\": \"account\", // account | funds-transfer\n    \"payment_model\": \"straight\" // straight | reducing | variable-reducing\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -16449,7 +16468,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 3,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 100,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n    \"profile_type\":\"personal\",\n    \"collection_method\": \"manual\", // manual | automatic | all\n    \"payment_method\": \"card\" // card | account | all\n}",
+									"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 3,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 100,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n    \"profile_type\": \"personal\",\n    \"collection_method\": \"manual\", // manual | automatic | all\n    \"payment_method\": \"card\", // card | account | all\n    \"disbursement_method\": \"account\", // account | funds-transfer\n    \"payment_model\": \"straight\" // straight | reducing | variable-reducing\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -16483,7 +16502,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true\n}",
+											"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 2,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"disbursement_method\": \"account\", // account | funds-transfer\n    \"payment_model\": \"straight\" // straight | reducing | variable-reducing\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -16930,10 +16949,10 @@
 					"id": "81800a2f-f621-420c-a9a6-388d8bc2e72b"
 				},
 				{
-					"name": "Savings Products",
+					"name": "Investment Products",
 					"item": [
 						{
-							"name": "Saving Plans",
+							"name": "Get Investment Plans",
 							"item": [
 								{
 									"name": "Get Saving Plans",
@@ -17129,6 +17148,38 @@
 							"id": "32c396f8-01ff-4927-8ead-1914497b9994"
 						},
 						{
+							"name": "Liquidations",
+							"item": [
+								{
+									"name": "Get Liquidations",
+									"id": "c0561d6d-dbf4-43c5-a75a-ad321d2e4f70",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/savings/liquidations"
+									},
+									"response": []
+								},
+								{
+									"name": "Get Liquidation",
+									"id": "b21e3d83-cd67-44cb-b441-fb70f55df352",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/savings/liquidations/0193a8a3-98e6-7ee3-8545-cd17beac6e87"
+									},
+									"response": []
+								}
+							],
+							"id": "3424bcfb-ab4e-4642-98bd-a1bed98bd95d"
+						},
+						{
 							"name": "Create Saving Product",
 							"id": "b631e30f-a5c6-414b-8da0-8ed070701182",
 							"protocolProfileBehavior": {
@@ -17139,7 +17190,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Premium Savings Plan Again {{$randomAbbreviation}}\",\n    \"description\": \"A high-yield savings product with flexible terms.\",\n    \"currency\": \"NGN\",\n    \"type\": \"standard\",\n    \"no_of_investors\": 100,\n    \"min_amount\": 5000.00,\n    \"deposit_amount\": 10.00,\n    \"interest_rate\": 0.75,\n    \"interest_period\": \"monthly\",\n    \"interest_compounding_period\": \"monthly\",\n    \"interest_posting_period\": \"monthly\",\n    \"withholding_tax\": 10,\n    \"min_deposit_term\": 10,\n    \"min_deposit_term_period\": \"weeks\",\n    \"max_deposit_term\": 24,\n    \"max_deposit_term_period\": \"months\"\n}",
+									"raw": "{\n    \"name\": \"Premium Savings Plan Again {{$randomAbbreviation}}\",\n    \"description\": \"A high-yield savings product with flexible terms.\",\n    \"currency\": \"NGN\",\n    \"type\": \"fixed\", // fixed, custom, structured\n    \"no_of_investors\": 100,\n    \"min_amount\": 5000.00,\n    \"interest_rate\": 0.75,\n    \"interest_period\": \"monthly\",\n    \"interest_compounding_period\": \"monthly\",\n    \"interest_posting_period\": \"monthly\",\n    \"withholding_tax\": 10,\n    \"min_deposit_term\": 10,\n    \"min_deposit_term_period\": \"weeks\",\n    \"max_deposit_term\": 24,\n    \"max_deposit_term_period\": \"months\"\n    // \"frequency\":\"\" // daily, monthly, yearly, weekly, custom\n    // \"allow_top_up\":\"false\"\n    //,\"terms_and_condition_file_id\": \"\" // optional\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -17446,7 +17497,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Demo Product\",\n    \"description\": \"This is the demo Product\",\n    \"currency\": \"NGN\",\n    \"interest_rate\": 3,\n    \"interest_period\": \"flat\", // flat | days | weeks | months | years\n    \"min_amount\": 0,\n    \"max_amount\": 1000,\n    \"frequency\": \"daily\", // fixed | daily | weekly | monthly | yearly\n    \"min_tenor_value\": 1,\n    \"min_tenor_period\": \"days\", // days | weeks | months | years\n    \"max_tenor_value\": 7,\n    \"max_tenor_period\": \"weeks\", // days | weeks | months | years\n    \"enabled\": true,\n    \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n    \"profile_type\":\"personal\",\n    \"collection_method\": \"manual\", // manual | automatic | all\n    \"payment_method\": \"card\" // card | account | all\n}",
+									"raw": "{\n    \"min_amount_before_liquidation_approval\": 0\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -17465,9 +17516,8 @@
 									],
 									"variable": [
 										{
-											"id": "2f7eb668-bef5-479c-a093-79b902185a6b",
 											"key": "product_id",
-											"value": "019316ea-8050-7668-80ac-8191f1697c7c"
+											"value": "0193a39c-abb3-7555-89eb-04e3e9127fd7"
 										}
 									]
 								}
@@ -19312,7 +19362,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "// {\n//     \"name\": \"Transfer Fee - Low Range\",\n//     \"description\": \"Flat fee for transfers between 0 and 5000\",\n//     \"type\": \"flat\",\n//     \"category\": \"internal-transfer\",\n//     \"currency\": \"NGN\",\n//     \"amount\": 10.00,\n//     \"min_amount\": 2000,\n//     \"max_amount\": 5000,\n//     \"percentage\": null\n// }",
+													"raw": "{\n    \"name\": \"Transfer Fee - Low Range\",\n    \"description\": \"Flat fee for transfers between 0 and 5000\",\n    \"type\": \"flat\",\n    \"category\": \"internal-transfer\",\n    \"currency\": \"NGN\",\n    \"amount\": 10.00,\n    \"min_amount\": 2000,\n    \"max_amount\": 5000,\n    \"percentage\": null\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -21701,7 +21751,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"amount\": 5000,\n    \"currency\": \"NGN\",\n    \"interest_rate\": 3,\n    \"interest_period\": \"weeks\",\n    \"tenor_value\": 30,\n    \"tenor_period\": \"days\",\n    \"frequency\": \"daily\",\n    \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\"\n}",
+									"raw": "{\n    \"amount\": 5000,\n    \"currency\": \"NGN\",\n    \"interest_rate\": 3,\n    \"interest_period\": \"weeks\",\n    \"tenor_value\": 30,\n    \"tenor_period\": \"days\",\n    \"frequency\": \"daily\",\n    \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n    \"disbursement_method\": \"account\", // account | funds-transfer\n    \"payment_model\": \"straight\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -21719,7 +21769,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"amount\": 5000,\n    \"currency\": \"NGN\",\n    \"interest_rate\": 3,\n    \"interest_period\": \"weeks\",\n    \"tenor_value\": 30,\n    \"tenor_period\": \"days\",\n    \"frequency\": \"daily\",\n    \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\"\n}",
+											"raw": "{\n    \"amount\": 5000,\n    \"currency\": \"NGN\",\n    \"interest_rate\": 3,\n    \"interest_period\": \"weeks\",\n    \"tenor_value\": 30,\n    \"tenor_period\": \"days\",\n    \"frequency\": \"daily\",\n    \"disbursement_method\": \"account\",\n    \"payment_model\": \"straight\",\n    \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -21977,7 +22027,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"amount\": 5000.00,\n    \"interest_rate\": 3.00,\n    \"interest_period\": \"weeks\",\n    \"tenor_value\": 40,\n    \"tenor_period\": \"days\",\n    \"frequency\": \"daily\",\n    \"status\": \"inactive\" // active | inactive\n}",
+									"raw": "{\n    \"amount\": 5000.00,\n    \"interest_rate\": 3.00,\n    \"interest_period\": \"weeks\",\n    \"tenor_value\": 40,\n    \"tenor_period\": \"days\",\n    \"frequency\": \"daily\",\n    \"disbursement_method\": \"account\", // account | funds-transfer\n    \"payment_model\": \"straight\",\n    \"status\": \"inactive\" // active | inactive\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -21996,7 +22046,6 @@
 									],
 									"variable": [
 										{
-											"id": "86fd30bb-1b5e-4f6d-9459-bbfc2e531267",
 											"key": "id",
 											"value": "0193a490-e865-733a-855f-615906ceb418"
 										}
@@ -22012,7 +22061,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"amount\": 5000.00,\n    \"interest_rate\": 3.00,\n    \"interest_period\": \"weeks\",\n    \"tenor_value\": 40,\n    \"tenor_period\": \"days\",\n    \"frequency\": \"daily\"\n}",
+											"raw": "{\n    \"amount\": 5000.00,\n    \"interest_rate\": 3.00,\n    \"interest_period\": \"weeks\",\n    \"tenor_value\": 40,\n    \"tenor_period\": \"days\",\n    \"frequency\": \"daily\",\n    \"disbursement_method\": \"account\",\n    \"payment_model\": \"straight\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -22109,7 +22158,69 @@
 								"header": [],
 								"url": "{{base_url}}/admin/loans"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "958b1b60-5811-450a-af88-997c569fc5cf",
+									"name": "List Loans",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/loans"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "3574"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"df6-BY6Tg/c1ktjzCZr/TYGrO0VrrO4\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 10 Dec 2024 13:48:23 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193b060-8374-733b-a822-306134abd4f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-10T11:42:15.756Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-10T11:42:15.756Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"tenor_value\": 2,\n            \"tenor_period\": \"months\",\n            \"frequency\": \"monthly\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"status\": \"pending\",\n            \"currency\": \"NGN\",\n            \"principal\": 5000,\n            \"interest\": 100,\n            \"amount_disbursed\": 0,\n            \"total\": 5100,\n            \"total_paid\": 0,\n            \"total_due\": 5100,\n            \"review\": null,\n            \"reviewed_on\": null,\n            \"reviewed_by\": null,\n            \"cba_id\": null,\n            \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n            \"credit_line_id\": null\n        },\n        {\n            \"id\": \"0193b09a-1ce3-700b-b38c-16bdf204336d\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-10T12:45:10.551Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-10T12:45:10.551Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"tenor_value\": 2,\n            \"tenor_period\": \"months\",\n            \"frequency\": \"monthly\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"status\": \"pending\",\n            \"currency\": \"NGN\",\n            \"principal\": 5000,\n            \"interest\": 100,\n            \"amount_disbursed\": 0,\n            \"total\": 5100,\n            \"total_paid\": 0,\n            \"total_due\": 5100,\n            \"review\": null,\n            \"reviewed_on\": null,\n            \"reviewed_by\": null,\n            \"cba_id\": null,\n            \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n            \"credit_line_id\": null\n        },\n        {\n            \"id\": \"0193b09b-0a0e-7cc2-bf4e-6b65575d95f7\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-10T12:46:11.265Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-10T12:46:11.265Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"tenor_value\": 2,\n            \"tenor_period\": \"months\",\n            \"frequency\": \"monthly\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"status\": \"pending\",\n            \"currency\": \"NGN\",\n            \"principal\": 5000,\n            \"interest\": 100,\n            \"amount_disbursed\": 0,\n            \"total\": 5100,\n            \"total_paid\": 0,\n            \"total_due\": 5100,\n            \"review\": null,\n            \"reviewed_on\": null,\n            \"reviewed_by\": null,\n            \"cba_id\": null,\n            \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n            \"credit_line_id\": null\n        },\n        {\n            \"id\": \"0193b0a7-8afe-7bb8-ba9c-3b45a17971d9\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-10T12:59:50.489Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-10T12:59:50.489Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"tenor_value\": 2,\n            \"tenor_period\": \"months\",\n            \"frequency\": \"monthly\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"status\": \"pending\",\n            \"currency\": \"NGN\",\n            \"principal\": 5000,\n            \"interest\": 100,\n            \"amount_disbursed\": 0,\n            \"total\": 5100,\n            \"total_paid\": 0,\n            \"total_due\": 5100,\n            \"review\": null,\n            \"reviewed_on\": null,\n            \"reviewed_by\": null,\n            \"cba_id\": null,\n            \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n            \"credit_line_id\": null\n        },\n        {\n            \"id\": \"0193b0a8-3a22-755e-a58b-d2bddcc3937d\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-10T13:00:35.315Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-10T13:00:35.315Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"tenor_value\": 2,\n            \"tenor_period\": \"months\",\n            \"frequency\": \"monthly\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"status\": \"pending\",\n            \"currency\": \"NGN\",\n            \"principal\": 5000,\n            \"interest\": 100,\n            \"amount_disbursed\": 0,\n            \"total\": 5100,\n            \"total_paid\": 0,\n            \"total_due\": 5100,\n            \"review\": null,\n            \"reviewed_on\": null,\n            \"reviewed_by\": null,\n            \"cba_id\": null,\n            \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n            \"credit_line_id\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 5\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Get Loan",
@@ -22132,9 +22243,245 @@
 									],
 									"variable": [
 										{
-											"id": "697477cd-fbe9-4214-97da-4f41a60568bb",
 											"key": "id",
-											"value": "0193a490-e865-733a-855f-615906ceb418"
+											"value": "0193b0a8-3a22-755e-a58b-d2bddcc3937d"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "e56ad8c8-7c1f-4741-be66-85f4c70f07c4",
+									"name": "Get Loan",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/loans/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loans",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0193b0a8-3a22-755e-a58b-d2bddcc3937d"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "2722"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"aa2-1gmAv16bYrzltj7sJ5gB0PVUVYM\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 10 Dec 2024 13:54:46 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193b0a8-3a22-755e-a58b-d2bddcc3937d\",\n        \"meta\": null,\n        \"created_on\": \"2024-12-10T13:00:35.315Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-12-10T13:00:35.315Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"tenor_value\": 2,\n        \"tenor_period\": \"months\",\n        \"frequency\": \"monthly\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"status\": \"pending\",\n        \"currency\": \"NGN\",\n        \"principal\": 5000,\n        \"interest\": 100,\n        \"amount_disbursed\": 0,\n        \"total\": 5100,\n        \"total_paid\": 0,\n        \"total_due\": 5100,\n        \"review\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"cba_id\": null,\n        \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n        \"credit_line_id\": null,\n        \"product\": {\n            \"id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-19T20:36:10.255Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-19T20:36:10.255Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Test Product\",\n            \"description\": \"This is the demo Product\",\n            \"currency\": \"NGN\",\n            \"profile_type\": \"personal\",\n            \"payment_method\": \"card\",\n            \"payment_model\": \"straight\",\n            \"disbursement_method\": \"account\",\n            \"collection_method\": \"manual\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"1000.00\",\n            \"frequencies\": null,\n            \"min_tenor_value\": 1,\n            \"min_tenor_period\": \"days\",\n            \"max_tenor_value\": 7,\n            \"max_tenor_period\": \"weeks\",\n            \"enabled\": true,\n            \"cba_id\": null,\n            \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\"\n        },\n        \"credit_line\": null,\n        \"schedules\": [\n            {\n                \"id\": \"0193b0a8-3b03-755e-a58b-dc280180b6f4\",\n                \"meta\": null,\n                \"created_on\": \"2024-12-10T13:00:35.315Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-12-10T13:00:35.315Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n                \"principal\": 2500,\n                \"principal_paid\": 0,\n                \"principal_due\": 0,\n                \"interest\": 50,\n                \"interest_paid\": 0,\n                \"interest_due\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"fee_due\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"penalty_due\": 0,\n                \"total\": 2550,\n                \"total_paid\": 0,\n                \"total_due\": 0,\n                \"loan_id\": \"0193b0a8-3a22-755e-a58b-d2bddcc3937d\"\n            },\n            {\n                \"id\": \"0193b0a8-3b03-755e-a58b-e17ecade73c8\",\n                \"meta\": null,\n                \"created_on\": \"2024-12-10T13:00:35.315Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-12-10T13:00:35.315Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n                \"principal\": 2500,\n                \"principal_paid\": 0,\n                \"principal_due\": 0,\n                \"interest\": 50,\n                \"interest_paid\": 0,\n                \"interest_due\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"fee_due\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"penalty_due\": 0,\n                \"total\": 2550,\n                \"total_paid\": 0,\n                \"total_due\": 0,\n                \"loan_id\": \"0193b0a8-3a22-755e-a58b-d2bddcc3937d\"\n            }\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Decline Loan",
+							"id": "234d519a-7cee-4182-b800-2f2fc79df26c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"review\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/loans/:id/decline",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loans",
+										":id",
+										"decline"
+									],
+									"variable": [
+										{
+											"id": "5b76a58c-79a8-4cc8-999a-46863ede97ee",
+											"key": "id",
+											"value": "0193b0a8-3a22-755e-a58b-d2bddcc3937d"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "312ecce1-de8a-45bf-9cda-d8570822ffd2",
+									"name": "Decline Loan",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/loans/:id/decline",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"loans",
+												":id",
+												"decline"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0193b0a8-3a22-755e-a58b-d2bddcc3937d"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "363"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"16b-HemUSb6WRM2w/dbTgR6+7masWFA\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 10 Dec 2024 13:55:42 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193b0a8-3a22-755e-a58b-d2bddcc3937d\",\n        \"status\": \"declined\",\n        \"review\": null,\n        \"reviewed_on\": \"2024-12-10T13:55:42.083Z\",\n        \"reviewed_by\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"cba_id\": null,\n        \"product_id\": null,\n        \"credit_line_id\": null,\n        \"modified_on\": \"2024-12-10T13:55:42.716Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Terminate Loan",
+							"id": "7a3623d0-5709-4f9b-9b82-9f8012745405",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"review\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/loans/:id/terminate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"loans",
+										":id",
+										"terminate"
+									],
+									"variable": [
+										{
+											"id": "7d9535cf-50a3-41da-a72d-2159b5424451",
+											"key": "id",
+											"value": "0193b060-8374-733b-a822-306134abd4f3"
 										}
 									]
 								}
