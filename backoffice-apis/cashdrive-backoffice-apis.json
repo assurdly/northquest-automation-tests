@@ -24323,7 +24323,7 @@
 					]
 				},
 				{
-					"name": "List Virtual Accounts Copy",
+					"name": "Get Virtual Accounts",
 					"id": "98a17a40-4c54-4b38-b09c-9f3b5b235d4a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -24332,12 +24332,28 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{userAccessToken}}"
+								"token": "{{adminAccessToken}}"
 							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": "{{base_url}}/admin/virtual-accounts"
+						"url": {
+							"raw": "{{base_url}}/admin/virtual-accounts/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"admin",
+								"virtual-accounts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "0193b65f-e12e-7ccf-9845-39ec8ceb70b2"
+								}
+							]
+						}
 					},
 					"response": [
 						{
