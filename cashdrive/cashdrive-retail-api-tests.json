@@ -25740,22 +25740,16 @@
 			"item": [
 				{
 					"name": "Create Saving Plan",
-					"id": "35b77da2-9955-4b82-a127-515a960ee8a7",
+					"id": "a3bfa1f0-85c3-4f34-b9d7-d690e3225a5e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Vacation Funds\",\n    \"product_id\": \"0193aabc-0714-7aaf-8309-00b37d6bfeb1\",\n    \"target\": 5000,\n    \"periodic_amount\": 500,\n    \"tenor_value\": 10,\n    \"tenor_period\": \"weeks\"\n}",
+							"raw": "{\n    \"name\": \"Vacation Funds\",\n    \"product_id\": \"0193b0a2-cf3c-777f-a47d-bfd87e79d692\",\n    \"periodic_amount\": 500,\n    \"tenor_value\": 10,\n    \"tenor_period\": \"months\",\n    \"account_id\":\"0193912b-6f5e-7335-b5bc-3302dcc08103\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -25774,6 +25768,7 @@
 							],
 							"variable": [
 								{
+									"id": "757c2f92-2252-485c-87db-f4b53d02201b",
 									"key": "profile_id",
 									"value": "{{profileId}}"
 								}
@@ -25784,7 +25779,7 @@
 				},
 				{
 					"name": "Get Saving Products",
-					"id": "fc990116-ee57-462f-8c49-8f83516431aa",
+					"id": "c9374850-5ba3-4890-af8a-dd8e7f7e5b6c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -25797,7 +25792,7 @@
 				},
 				{
 					"name": "Get Saving Product",
-					"id": "286ba3dc-d5e2-4c44-b699-2cb17a44ce91",
+					"id": "5acafccf-626f-49db-86a7-17fe8a760606",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -25810,7 +25805,7 @@
 				},
 				{
 					"name": "Get Saving Plans",
-					"id": "024f4098-e74b-403e-b3e2-b4414aae96c6",
+					"id": "9cd79d96-1233-494b-832c-15750a1ff460",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -25829,7 +25824,7 @@
 							],
 							"variable": [
 								{
-									"id": "91fcf731-d6e1-43f4-a821-7d14588612c2",
+									"id": "d4da904f-0024-4cad-b75d-cc97db1662f6",
 									"key": "profile_id",
 									"value": "{{profileId}}"
 								}
@@ -25840,7 +25835,7 @@
 				},
 				{
 					"name": "Get Saving Plan",
-					"id": "ee287792-44d0-4a7b-aa95-bc6ecd259d17",
+					"id": "69b4cbff-865b-499e-992a-804c5b208c3b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -25860,7 +25855,7 @@
 							],
 							"variable": [
 								{
-									"id": "764ba6ff-58dc-46b3-ae7c-7f7e355881d0",
+									"id": "631e189c-8ad2-4dc2-abe6-830a30a78e85",
 									"key": "profile_id",
 									"value": "{{profileId}}"
 								}
@@ -25871,7 +25866,7 @@
 				},
 				{
 					"name": "Withdraw Savings Plan",
-					"id": "3f14a726-1205-45a6-a580-b0fb758bb0fb",
+					"id": "b19f3ebf-4ef1-4b52-baf1-815bafc3ed27",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -25901,7 +25896,80 @@
 							],
 							"variable": [
 								{
-									"id": "d789366b-50c8-4b3d-82aa-088fff01e698",
+									"id": "0373d508-8941-4c97-a625-de0bffef0527",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Withdraw Savings Plan Copy",
+					"id": "63e0bf85-d40d-43be-a950-e98c9a05ea24",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/withdraw",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"savings",
+								"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
+								"withdraw"
+							],
+							"variable": [
+								{
+									"id": "22aeee5f-3a2c-417e-a33e-b2f19898abfe",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Saving Plan Certificate",
+					"id": "39320b92-fd51-44a7-9546-4901589c5f23",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/certificate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"savings",
+								"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
+								"certificate"
+							],
+							"variable": [
+								{
+									"id": "344435dd-ade7-4a8d-935b-56b94b80590f",
 									"key": "profile_id",
 									"value": "{{profileId}}"
 								}
@@ -25911,7 +25979,7 @@
 					"response": []
 				}
 			],
-			"id": "28dbf073-5613-4d0b-aba2-bf95ef3a2eec"
+			"id": "8a482a0d-6425-438a-8df7-cf39458f48e4"
 		},
 		{
 			"name": "Loans",
