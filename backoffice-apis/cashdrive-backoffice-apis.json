@@ -19496,7 +19496,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "// {\n//     \"name\": \"Vat\",\n//     \"description\": \"Value added tax\",\n//     \"type\": \"percentage\",\n//     \"category\": \"vat\",\n//     \"currency\": \"NGN\",\n//     \"percentage\": 7.5\n// }",
+											"raw": "{\n    \"name\": \"Vat\",\n    \"description\": \"Value added tax\",\n    \"type\": \"percentage\",\n    \"category\": \"vat\",\n    \"currency\": \"NGN\",\n    \"percentage\": 7.5\n}",
 											"options": {
 												"raw": {
 													"language": "json"
