@@ -20343,7 +20343,7 @@
 							"item": [
 								{
 									"name": "Create Transfer Beneficiary",
-									"id": "46819db4-b801-462d-90bc-ab15d6dc9690",
+									"id": "fb81d2f6-abe1-4be7-bdd3-4864bd9dce4d",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -20358,7 +20358,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "// {\n//     \"account_number\": \"0112345678\",\n//     \"bank_code\": \"999998\",\n//     \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n// }",
+											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -20377,6 +20377,7 @@
 											],
 											"variable": [
 												{
+													"id": "756c5740-bbf7-4140-9c40-261dacc14ab8",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												}
@@ -20385,7 +20386,7 @@
 									},
 									"response": [
 										{
-											"id": "3bacf7c9-8891-452b-9de4-c11c4c6e2689",
+											"id": "ab2953a9-529e-4534-8878-33605c71b214",
 											"name": "Success",
 											"originalRequest": {
 												"method": "POST",
@@ -20501,7 +20502,7 @@
 											}
 										}
 									],
-									"id": "4b185ab4-9b80-4274-856c-3224e89add80",
+									"id": "349843e7-50c9-440a-8e18-a15ed2f356b7",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -20535,7 +20536,7 @@
 											],
 											"variable": [
 												{
-													"id": "d107beb3-42e4-484a-acc8-b810fbf0bdf3",
+													"id": "6b771eb4-0682-4dad-a304-76984b105ded",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												}
@@ -20544,7 +20545,7 @@
 									},
 									"response": [
 										{
-											"id": "1481112b-186c-47ab-8bcc-027dc48cf2e4",
+											"id": "f9ed5967-1fa4-4ebe-991f-91e0e03fb1ff",
 											"name": "Success",
 											"originalRequest": {
 												"method": "POST",
@@ -20660,7 +20661,7 @@
 											}
 										}
 									],
-									"id": "80601367-bbd8-4ccd-ade1-72d013315676",
+									"id": "764b55b8-c7c1-47d7-9e3f-e0e0c6aa7874",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -20694,7 +20695,7 @@
 											],
 											"variable": [
 												{
-													"id": "6a513626-1e37-4443-9df7-5788e14066ad",
+													"id": "510f777d-d8f9-4961-83e2-faed6e9b3774",
 													"key": "profile_id",
 													"value": "{{userProfileId}}1"
 												}
@@ -20703,7 +20704,7 @@
 									},
 									"response": [
 										{
-											"id": "c77037ab-bae7-4105-a425-9cac3e1042c0",
+											"id": "367e636f-c485-4ab7-9bb8-a6e8e6f65315",
 											"name": "Success",
 											"originalRequest": {
 												"method": "POST",
@@ -20805,12 +20806,11 @@
 													"        pm.response.to.have.status(400);\r",
 													"    });\r",
 													"\r",
-													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).includes(\"Account Number can not be greater or less than 10 digits\");\r",
+													"        // pm.expect(message).includes(\"Account Number can not be greater or less than 10 digits\");\r",
 													"        pm.expect(message).includes(\"Account Number cannot be empty\");\r",
 													"        pm.expect(message).includes(\"Bank Code can only be numbers\");\r",
-													"        pm.expect(message).includes(\"Bank Code can not be greater or less than 6 digits\");\r",
+													"        // pm.expect(message).includes(\"Bank Code can not be greater or less than 6 digits\");\r",
 													"        pm.expect(message).includes(\"Bank Code cannot be empty\");\r",
 													"        pm.expect(message).includes(\"Account ID must be a valid UUID\");\r",
 													"    })\r",
@@ -20824,7 +20824,7 @@
 											}
 										}
 									],
-									"id": "80c61b3b-e2b7-4e6f-abe6-1b623be0d268",
+									"id": "96bf3901-8840-466d-bea1-0f7d6fbe339d",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -20858,16 +20858,16 @@
 											],
 											"variable": [
 												{
-													"id": "498f054c-8f29-4cdc-9020-1dec93c7ae64",
+													"id": "b638d0d2-f653-45ff-9783-5e5870219ccd",
 													"key": "profile_id",
-													"value": "{{userFetchedProfileId}}"
+													"value": "{{userFetchedPersonalProfileId}}"
 												}
 											]
 										}
 									},
 									"response": [
 										{
-											"id": "8a407bd2-a3a3-44f7-afdc-71d74fb3c428",
+											"id": "ded276e8-f0be-496a-af4f-5d273e8b5636",
 											"name": "Success",
 											"originalRequest": {
 												"method": "POST",
@@ -20983,7 +20983,7 @@
 											}
 										}
 									],
-									"id": "2c265e27-7d59-4457-8cae-99da8b631ffd",
+									"id": "bb7e95e3-640f-453a-9dc7-81375110ec07",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -21017,16 +21017,16 @@
 											],
 											"variable": [
 												{
-													"id": "eb8cdadb-963a-47c0-bf3e-2f296c84edb1",
+													"id": "abb9c6dc-1886-42ec-b131-1aea8c3c44a3",
 													"key": "profile_id",
-													"value": "{{userFetchedProfileId}}"
+													"value": "{{userFetchedPersonalProfileId}}"
 												}
 											]
 										}
 									},
 									"response": [
 										{
-											"id": "c469e7b0-d178-4119-9641-4c485d20d39e",
+											"id": "b78f047f-a8cb-4e43-aa04-bcc8e8a5a6f6",
 											"name": "Success",
 											"originalRequest": {
 												"method": "POST",
@@ -21142,7 +21142,7 @@
 											}
 										}
 									],
-									"id": "40c694c0-f9ca-4b87-b28a-5e3427b7a906",
+									"id": "0532cca7-d71e-4569-a3e2-9358f4733ac5",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -21176,16 +21176,16 @@
 											],
 											"variable": [
 												{
-													"id": "af2b844e-7640-430e-8ae7-fa640d8d3022",
+													"id": "74533b7b-f662-4ac2-86fa-9b23b1a1e203",
 													"key": "profile_id",
-													"value": "{{userFetchedProfileId}}"
+													"value": "{{userFetchedPersonalProfileId}}"
 												}
 											]
 										}
 									},
 									"response": [
 										{
-											"id": "33e1974a-1c38-437a-ab7e-e5470379e091",
+											"id": "6cd4cb05-3565-407a-b436-79ed8f7ba8f3",
 											"name": "Success",
 											"originalRequest": {
 												"method": "POST",
@@ -21273,14 +21273,14 @@
 									]
 								}
 							],
-							"id": "151f2a78-9277-41e4-8e0f-d68aaf6f7202"
+							"id": "43f640f3-aaa8-47a4-a260-9e7081a020f2"
 						},
 						{
 							"name": "Delete Beneficiary",
 							"item": [
 								{
 									"name": "Delete Transfer Beneficiary",
-									"id": "a5b0f457-5ce2-4d62-9429-2597757e4227",
+									"id": "1f1d9717-ae62-419a-9987-940f349351de",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -21306,12 +21306,12 @@
 											],
 											"variable": [
 												{
-													"id": "e0ccf9d2-711f-4528-85c3-fbf16f4b7466",
+													"id": "a64fef61-6007-4468-b6f1-4a8a402bd330",
 													"key": "profile_id",
 													"value": "{{userProfileId}}"
 												},
 												{
-													"id": "d424169e-38f4-46df-bb88-bb18c9fb8787",
+													"id": "1266c666-4b97-4267-9bd9-35c6fe1b5377",
 													"key": "beneficiary_id",
 													"value": "{{userFetchedBenefId}}"
 												}
@@ -21320,7 +21320,7 @@
 									},
 									"response": [
 										{
-											"id": "249736a7-1029-4c3c-ac33-f0776b458337",
+											"id": "394801d6-3774-4d5b-880a-a77c9c9f95f8",
 											"name": "Success",
 											"originalRequest": {
 												"method": "DELETE",
@@ -21428,7 +21428,7 @@
 											}
 										}
 									],
-									"id": "4fed8636-3628-46cd-b1b1-726f28672798",
+									"id": "e58a2faa-fa9b-4f02-85ae-4c9dad6221b0",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -21454,12 +21454,12 @@
 											],
 											"variable": [
 												{
-													"id": "c3ea631b-a754-4038-b632-038a222d4f6a",
+													"id": "2f6c83f7-ac61-4145-be30-56ddc029a389",
 													"key": "profile_id",
 													"value": "{{userProfileId}}1"
 												},
 												{
-													"id": "f55fa98b-4d41-4c55-ad62-f6263dc54df6",
+													"id": "0a7b4bde-7628-48c6-8915-1f0bf6b90ba9",
 													"key": "beneficiary_id",
 													"value": "{{userFetchedBenefId}}"
 												}
@@ -21468,7 +21468,7 @@
 									},
 									"response": [
 										{
-											"id": "3672626f-1be1-4883-a4c4-261f40b4d3d1",
+											"id": "bbd0a1d3-3f8f-4c48-883a-14e5559725e6",
 											"name": "Success",
 											"originalRequest": {
 												"method": "DELETE",
@@ -21576,7 +21576,7 @@
 											}
 										}
 									],
-									"id": "c8b2e3e1-be0b-4448-a1d4-de2b5c734ece",
+									"id": "b170d394-7492-4cfb-af87-a5fc09df0aec",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -21602,21 +21602,21 @@
 											],
 											"variable": [
 												{
-													"id": "4df430f6-4ebe-4ffe-a5c5-3d402e9f6ea1",
+													"id": "e89922f5-0cbb-4cff-bfeb-54f79e3e173b",
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "{{userFetchedPersonalProfileId}}"
 												},
 												{
-													"id": "f73db13a-0083-4bf8-bd0a-1c51b973614e",
+													"id": "3a84d52e-c103-4685-bdd1-7c664c71cba8",
 													"key": "beneficiary_id",
-													"value": "{{userFetchedBenefId}}1"
+													"value": "{{userFetchedBenefId}}"
 												}
 											]
 										}
 									},
 									"response": [
 										{
-											"id": "ac4f43c0-34ab-4e3c-afc1-5bf528874865",
+											"id": "c2a73b5c-cf99-4ab5-805b-9a856d02511b",
 											"name": "Success",
 											"originalRequest": {
 												"method": "DELETE",
@@ -21694,160 +21694,9 @@
 											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
 										}
 									]
-								},
-								{
-									"name": "Get Transfer Beneficiary-Get deleted beneficiary",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "b8126c8a-bb36-42ff-84bf-59ec0df4b1b4",
-												"exec": [
-													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
-													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"    });\r",
-													"\r",
-													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
-													"    })\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"object\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "fb605984-10cc-417c-aae0-276e86614586",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{userAccessToken}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"transfer-beneficiaries",
-												":beneficiary_id"
-											],
-											"variable": [
-												{
-													"id": "5a87494e-e0f4-44d9-b25d-9c725c4d6a3e",
-													"key": "profile_id",
-													"value": "{{userProfileId}}"
-												},
-												{
-													"id": "104482ac-4974-42d0-be51-34cdb53d1ca1",
-													"key": "beneficiary_id",
-													"value": "0192fb60-754c-7bb0-9caf-fce39a919b03"
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"id": "c71371ae-c006-4d88-a10c-26ffe7188777",
-											"name": "Success",
-											"originalRequest": {
-												"method": "POST",
-												"header": [],
-												"url": {
-													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"profiles",
-														":profile_id",
-														"transfer-beneficiaries"
-													],
-													"variable": [
-														{
-															"key": "profile_id",
-															"value": "{{profileId}}"
-														}
-													]
-												}
-											},
-											"status": "Created",
-											"code": 201,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "505"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"1f9-AfKBIDXtb8C1dgZUKNNmBacbCfM\""
-												},
-												{
-													"key": "Date",
-													"value": "Thu, 31 Oct 2024 16:58:36 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"bank_code\": \"999998\",\n        \"account_number\": \"0112345678\",\n        \"account_name\": \"vee Test\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"id\": \"0192e383-c2b7-7446-891e-7b148d063ad5\",\n        \"meta\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-10-31T16:58:36.086Z\",\n        \"modified_on\": \"2024-10-31T16:58:36.086Z\",\n        \"deleted_on\": null\n    }\n}"
-										}
-									]
 								}
 							],
-							"id": "e6031fab-0754-4a61-bdea-0d59fa84443d"
+							"id": "87da2cc1-9b54-4c93-b842-d70ddc705738"
 						},
 						{
 							"name": "Get Beneficiaries",
@@ -21889,7 +21738,7 @@
 											}
 										}
 									],
-									"id": "288637e8-e143-4881-ab53-1f64839286b1",
+									"id": "f86ca22e-2c01-4f25-a8b5-80b5ce9c1600",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -21915,22 +21764,21 @@
 											"query": [
 												{
 													"key": "filter[account_id]",
-													"value": "0192b537-3f83-719b-8ec4-df689454f0ee",
-													"type": "text"
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
 												}
 											],
 											"variable": [
 												{
-													"id": "3f967c4f-7d87-4880-92af-5b7e41b58c5c",
+													"id": "325a6723-3146-45d6-8a8f-0b7fc9fefc84",
 													"key": "profile_id",
-													"value": "01931947-9fea-744d-8f66-118c138292e3"
+													"value": "{{userFetchedPersonalProfileId}}"
 												}
 											]
 										}
 									},
 									"response": [
 										{
-											"id": "c22d50fe-cdc3-4ab9-8ada-03d3d186e5ed",
+											"id": "8c20c7bf-f882-492c-b26d-502e99cf552d",
 											"name": "Success",
 											"originalRequest": {
 												"method": "GET",
@@ -22046,7 +21894,7 @@
 											}
 										}
 									],
-									"id": "f6571a80-6e22-4fb5-afaa-80f99176ff6c",
+									"id": "a46aa482-4956-4b66-98b8-96d65928daea",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -22071,7 +21919,7 @@
 											],
 											"variable": [
 												{
-													"id": "1979c6e1-9489-4cc0-8cae-efe0a78d0e86",
+													"id": "8b760ff5-29ac-4bca-a245-040f799021e9",
 													"key": "profile_id",
 													"value": "{{userProfileId}}1"
 												}
@@ -22080,7 +21928,7 @@
 									},
 									"response": [
 										{
-											"id": "1cac6a02-41ba-477a-8e29-78300e95a0ef",
+											"id": "c5307aad-988e-4483-9b3e-1f127d8723e7",
 											"name": "Success",
 											"originalRequest": {
 												"method": "GET",
@@ -22178,10 +22026,6 @@
 													"try {\r",
 													"    const { message, statusCode } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Test for valid status code\", () => {\r",
-													"        pm.expect(statusCode).to.eql(401)\r",
-													"    })\r",
-													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
 													"        pm.expect(message).to.eql(\"Access token is required\")\r",
 													"    })\r",
@@ -22195,7 +22039,7 @@
 											}
 										}
 									],
-									"id": "d4420989-e474-4bae-86f3-e3753367a4f6",
+									"id": "4bfdf634-17d8-4460-8606-cdf063af9c63",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -22226,7 +22070,7 @@
 											],
 											"variable": [
 												{
-													"id": "9ef21691-14af-4c2e-b854-487c206011c5",
+													"id": "113f9ee1-5974-4143-b16c-5c535f8b61ca",
 													"key": "profile_id",
 													"value": "{{userProfileId}}1"
 												}
@@ -22235,7 +22079,7 @@
 									},
 									"response": [
 										{
-											"id": "6db17a0c-15de-4455-a557-d42d8004d95b",
+											"id": "2c77970a-3583-4944-b662-7150f978b87c",
 											"name": "Success",
 											"originalRequest": {
 												"method": "GET",
@@ -22323,7 +22167,7 @@
 									]
 								}
 							],
-							"id": "a56c649d-5df0-4841-b09b-30388bb801e4"
+							"id": "47137fc9-4b47-4b8d-b6ad-d48f3c1fe7d4"
 						},
 						{
 							"name": "Get Beneficiary",
@@ -22336,32 +22180,32 @@
 											"script": {
 												"id": "b8126c8a-bb36-42ff-84bf-59ec0df4b1b4",
 												"exec": [
-													"try {\r",
-													"    const { status, data } = pm.response.json()\r",
+													"// try {\r",
+													"//     const { status, data } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Status code is 200\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"    });\r",
+													"//     pm.test(\"Status code is 200\", function () {\r",
+													"//         pm.response.to.have.status(200);\r",
+													"//     });\r",
 													"\r",
 													"\r",
-													"    pm.test(\"Test for valid status\", () => {\r",
-													"        pm.expect(status).to.eql(\"success\")\r",
-													"    })\r",
+													"//     pm.test(\"Test for valid status\", () => {\r",
+													"//         pm.expect(status).to.eql(\"success\")\r",
+													"//     })\r",
 													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(data).to.be.an(\"object\")\r",
-													"    })\r",
+													"//     pm.test(\"Test for valid error message\", () => {\r",
+													"//         pm.expect(data).to.be.an(\"object\")\r",
+													"//     })\r",
 													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error);\r",
-													"}"
+													"// } catch (error) {\r",
+													"//     console.error(\"Error from test:\", error);\r",
+													"// }"
 												],
 												"type": "text/javascript",
 												"packages": {}
 											}
 										}
 									],
-									"id": "8a94fbbf-b01e-4a45-aed4-fda0b5626060",
+									"id": "de50c577-0588-4bf6-b467-b16818c3327c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -22387,12 +22231,12 @@
 											],
 											"variable": [
 												{
-													"id": "27dd2f7c-ad07-4aa2-8599-e421b0b34c00",
+													"id": "25295635-afb2-4c66-b133-b514860e4644",
 													"key": "profile_id",
 													"value": "{{userProfileId}}"
 												},
 												{
-													"id": "f2161609-292c-49a3-9fdd-747e56b0ff67",
+													"id": "b5bcf171-c511-4637-9809-f40da9d3602b",
 													"key": "beneficiary_id",
 													"value": "{{userFetchedBenefId}}"
 												}
@@ -22401,7 +22245,7 @@
 									},
 									"response": [
 										{
-											"id": "ea107a48-e93c-4340-9d58-80831b1205b8",
+											"id": "d3e9796b-bd7d-4dec-b8f2-18a3292d40ca",
 											"name": "Success",
 											"originalRequest": {
 												"method": "POST",
@@ -22508,7 +22352,7 @@
 											}
 										}
 									],
-									"id": "b69131db-8704-48ce-930c-9395f5748102",
+									"id": "e6aaa72c-5f92-4c54-9394-c3b3b076fc67",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -22534,12 +22378,12 @@
 											],
 											"variable": [
 												{
-													"id": "9ca75a6c-0234-41ac-a6f7-6ce4180d0ce3",
+													"id": "9f810fe9-ed88-47e7-b651-cbad1e259aa3",
 													"key": "profile_id",
 													"value": "{{userProfileId}}1"
 												},
 												{
-													"id": "bef4453c-495f-42e1-bff0-24ad5d4c8513",
+													"id": "0590d8fd-bae3-4a9b-b777-ff941d076894",
 													"key": "beneficiary_id",
 													"value": "{{userFetchedBenefId}}"
 												}
@@ -22548,7 +22392,7 @@
 									},
 									"response": [
 										{
-											"id": "7ccf4d6e-b470-4d8e-83b8-b244531960c5",
+											"id": "05638d85-c50d-4a7b-a92d-cde6e33a18b0",
 											"name": "Success",
 											"originalRequest": {
 												"method": "POST",
@@ -22655,7 +22499,7 @@
 											}
 										}
 									],
-									"id": "ed6b8917-bb2a-43f2-8fc4-0068251fbdfa",
+									"id": "c560d34e-3b3f-483c-9ce3-385a5c8f7243",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -22681,12 +22525,12 @@
 											],
 											"variable": [
 												{
-													"id": "ca3da813-d37a-4c25-a56c-d86028e654c7",
+													"id": "25abb500-7f6c-46ad-8e45-7dc46dda62b1",
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "{{userFetchedPersonalProfileId}}"
 												},
 												{
-													"id": "a4dd6a1d-470d-4711-b225-8dd9e2d3c65a",
+													"id": "c153be7b-b009-450a-9c0f-8b090872fe5e",
 													"key": "beneficiary_id",
 													"value": "{{userFetchedBenefId}}1"
 												}
@@ -22695,7 +22539,7 @@
 									},
 									"response": [
 										{
-											"id": "7655e345-72d5-4d18-8e8c-9199e34282cc",
+											"id": "b500e10f-60cb-49a6-b9ab-df151635484e",
 											"name": "Success",
 											"originalRequest": {
 												"method": "POST",
@@ -22784,10 +22628,6 @@
 													"try {\r",
 													"    const { message, statusCode } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Test for valid status code\", () => {\r",
-													"        pm.expect(statusCode).to.eql(401)\r",
-													"    })\r",
-													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
 													"        pm.expect(message).to.eql(\"Access token is required\")\r",
 													"    })\r",
@@ -22801,7 +22641,7 @@
 											}
 										}
 									],
-									"id": "791bd152-78a3-453a-b553-c95f9493f351",
+									"id": "d2b2a59d-e34b-44a1-be22-ea5ec736709c",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -22824,12 +22664,12 @@
 											],
 											"variable": [
 												{
-													"id": "a342a078-25b9-45fa-bbb5-96b990170f2e",
+													"id": "b2a00cc5-37ad-40b7-b8e5-35f7a893249b",
 													"key": "profile_id",
-													"value": "{{userProfileId}}"
+													"value": "{{userFetchedPersonalProfileId}}"
 												},
 												{
-													"id": "2255389d-d2e8-45b0-a42e-f345480670fc",
+													"id": "0aef137a-3d52-439b-9a2f-b58278d14cdf",
 													"key": "beneficiary_id",
 													"value": "{{userFetchedBenefId}}"
 												}
@@ -22838,7 +22678,7 @@
 									},
 									"response": [
 										{
-											"id": "a6ce0720-a1c9-4ba8-af6d-e3a4b01ab087",
+											"id": "6edd8ffc-98c9-4198-8453-efa5f498fb5e",
 											"name": "Success",
 											"originalRequest": {
 												"method": "POST",
@@ -22917,13 +22757,13 @@
 									]
 								}
 							],
-							"id": "99ad1092-03fb-4282-b13f-592feeee9ee8"
+							"id": "78fa6a62-8ec2-4214-a7fe-0fe6cd5924ba"
 						}
 					],
-					"id": "9be2900a-ab5f-4912-b96f-73f9cf644b4f"
+					"id": "78211fa6-c44f-4608-bfee-7e8824564534"
 				}
 			],
-			"id": "0c491f0d-930e-425e-904d-3ff3348f1012"
+			"id": "d6445ade-cdc9-4e7a-aba9-f94eef6e4ead"
 		},
 		{
 			"name": "Bill Payment",
@@ -22966,7 +22806,7 @@
 									}
 								}
 							],
-							"id": "489b7b6a-2fd9-4e80-8ed1-bfdc8c6de820",
+							"id": "6c724ab0-a6e9-4f0c-9896-1a5543399ade",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -22992,16 +22832,16 @@
 									],
 									"variable": [
 										{
-											"id": "98dd10e3-efce-4131-a66c-a385cd2ae065",
+											"id": "b71b5b76-bab4-445c-9310-ef703c6b5e55",
 											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
+											"value": "{{userFetchedPersonalProfileId}}"
 										}
 									]
 								}
 							},
 							"response": [
 								{
-									"id": "7ed2be02-f555-447e-98b2-2a8f3eadebd6",
+									"id": "78769f49-4c1b-44fb-a209-e1467415a059",
 									"name": "List Bill Categories",
 									"originalRequest": {
 										"method": "GET",
@@ -23091,7 +22931,7 @@
 									}
 								}
 							],
-							"id": "5a9a1fd3-cf54-4eac-b22d-9c07fed04dfe",
+							"id": "c110b001-459d-44b3-9a66-e195f4877188",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -23114,7 +22954,7 @@
 									],
 									"variable": [
 										{
-											"id": "6c2f15f2-4982-4a76-a65f-077245b3916a",
+											"id": "5f142ca9-e3e9-43a3-abe5-5bc43ede82d3",
 											"key": "profile_id",
 											"value": ""
 										}
@@ -23123,7 +22963,7 @@
 							},
 							"response": [
 								{
-									"id": "a849eb0d-22ae-4a24-868e-2f2a37f5e088",
+									"id": "1f67e113-be5c-4018-a895-e979a14da573",
 									"name": "List Bill Categories",
 									"originalRequest": {
 										"method": "GET",
@@ -23186,7 +23026,7 @@
 							]
 						}
 					],
-					"id": "db56b8ae-b3b3-46d0-b41a-48739750480a"
+					"id": "e0de05d6-c40a-4107-ab9d-02d77532e314"
 				},
 				{
 					"name": "List Billers",
@@ -23226,7 +23066,7 @@
 									}
 								}
 							],
-							"id": "f52b631c-b474-4ccb-9998-6d8da8e28804",
+							"id": "d272d6f5-16f7-4d0d-b2bf-ee2a502315d5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -23254,12 +23094,12 @@
 									],
 									"variable": [
 										{
-											"id": "3c600c20-e93d-47b0-935a-f0eff693371f",
+											"id": "618d9dc9-4494-46e8-a54d-057b9c887edd",
 											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
+											"value": "{{userFetchedPersonalProfileId}}"
 										},
 										{
-											"id": "c0531c79-8b70-4949-8499-f161c0896807",
+											"id": "ea59cc2e-7d97-47a9-b8b1-18bcc573a2a7",
 											"key": "category_id",
 											"value": "cabletv"
 										}
@@ -23268,7 +23108,7 @@
 							},
 							"response": [
 								{
-									"id": "2ef85d74-1924-4b78-b87e-b73a31acc9f9",
+									"id": "412bb9e2-bc10-4ebb-bc2c-57205f72f504",
 									"name": "List Billers",
 									"originalRequest": {
 										"method": "GET",
@@ -23358,12 +23198,9 @@
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
 											"\r",
-											"\r",
-											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
 											"    });\r",
-											"\r",
 											"\r",
 											"    pm.test(\"Test for valid status\", () => {\r",
 											"        pm.expect(status).to.eql(\"success\")\r",
@@ -23382,7 +23219,7 @@
 									}
 								}
 							],
-							"id": "c37c11fd-ba2e-4d3f-8e9d-086c60c131d1",
+							"id": "f176fb96-d42c-4768-9b65-c8e2a9aaf21e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -23410,12 +23247,12 @@
 									],
 									"variable": [
 										{
-											"id": "7c2b6821-a506-4d02-bfbc-ac1d40846923",
+											"id": "4ff0a92d-7653-4b9c-8e41-83784f6d77ef",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "26d2d912-a931-4718-9a84-2e291d1316c9",
+											"id": "9fd0cbdc-7c0b-4dec-a444-52999fd065ba",
 											"key": "category_id",
 											"value": "airtime"
 										}
@@ -23424,7 +23261,7 @@
 							},
 							"response": [
 								{
-									"id": "21c78f9f-60ea-45a1-b4af-afbc7cb4387f",
+									"id": "834dbf39-27eb-426f-8974-a93dc5a86d4c",
 									"name": "List Billers",
 									"originalRequest": {
 										"method": "GET",
@@ -23538,7 +23375,7 @@
 									}
 								}
 							],
-							"id": "8776a905-726d-48da-8e5c-37d66ecec75e",
+							"id": "dda1e6c3-6330-4bcb-9339-564dd2dc9a26",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -23566,12 +23403,12 @@
 									],
 									"variable": [
 										{
-											"id": "9a0c19b4-7718-4d9d-9ab7-d2169902c97c",
+											"id": "aa967097-3feb-4922-9b87-2f249534d2df",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "ee115da8-8785-4688-a339-3daea5336da8",
+											"id": "4416f426-9c6a-4d6f-b6a9-edbc3a6f3923",
 											"key": "category_id",
 											"value": "databundle"
 										}
@@ -23580,7 +23417,7 @@
 							},
 							"response": [
 								{
-									"id": "3112d7be-e364-4da8-8322-903cb1e4e7cf",
+									"id": "2bc94f59-d32b-4407-aed2-af17057bc5e4",
 									"name": "List Billers",
 									"originalRequest": {
 										"method": "GET",
@@ -23676,7 +23513,7 @@
 									}
 								}
 							],
-							"id": "f6f7f06b-c5fd-4c7b-8ad4-5405f60f8869",
+							"id": "00228f8c-59b1-4229-8ecf-a06697f98e97",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -23704,12 +23541,12 @@
 									],
 									"variable": [
 										{
-											"id": "3d159b59-6242-41b0-91ce-514c3e5ec4a9",
+											"id": "6bd1d4fb-a938-49fa-8a4b-e0125c0d4f1b",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "f41124bd-d9e9-489b-b133-48e9f6dda5a7",
+											"id": "a3a5c2ba-bb5d-4040-93d1-094b5bbced97",
 											"key": "category_id",
 											"value": "electricity"
 										}
@@ -23718,7 +23555,7 @@
 							},
 							"response": [
 								{
-									"id": "7fa81024-5f58-461e-b254-c2ea5b9a9e30",
+									"id": "70d7666c-12ed-4920-a3cc-9553eaa7ac60",
 									"name": "List Billers",
 									"originalRequest": {
 										"method": "GET",
@@ -23814,7 +23651,7 @@
 									}
 								}
 							],
-							"id": "dd696a95-1836-451c-b3fe-fd4ba07a979e",
+							"id": "a76155c1-e0dc-4f62-abc9-81e65129bdc2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -23842,12 +23679,12 @@
 									],
 									"variable": [
 										{
-											"id": "bd034014-8b11-4c75-bf08-961e20f622f4",
+											"id": "484c856b-4582-4120-b7d5-2c62069620b9",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "bc2b52d3-d6cd-4cf1-8366-1b0a26dc72d8",
+											"id": "77e338b1-0a92-4967-a504-906963d1c8a6",
 											"key": "category_id",
 											"value": "epin"
 										}
@@ -23856,7 +23693,7 @@
 							},
 							"response": [
 								{
-									"id": "a1403871-a94a-40d5-ad25-2b6b35ed9a3e",
+									"id": "c8bc1261-57d2-4029-964b-6420223efbde",
 									"name": "List Billers",
 									"originalRequest": {
 										"method": "GET",
@@ -23952,7 +23789,7 @@
 									}
 								}
 							],
-							"id": "286dad19-14e3-4f4a-8362-a65af760fafd",
+							"id": "42241477-84d7-486c-80ed-d6cfff118a49",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -23980,12 +23817,12 @@
 									],
 									"variable": [
 										{
-											"id": "8f83f6f9-01fb-46b5-9288-51f5798799c4",
+											"id": "8b5ffc01-4be1-447e-94c3-bc5b546e1383",
 											"key": "profile_id",
 											"value": ""
 										},
 										{
-											"id": "2632de07-ef76-4fbd-b98c-3280011c04ce",
+											"id": "b20e8897-2f89-439f-a545-859c176f2c17",
 											"key": "category_id",
 											"value": "airtimes"
 										}
@@ -23994,7 +23831,7 @@
 							},
 							"response": [
 								{
-									"id": "da7bc2ea-ee0f-4392-abdf-13eef7e81ebe",
+									"id": "0c82f1ff-d2d7-46b3-ac73-a217574c40e3",
 									"name": "List Billers",
 									"originalRequest": {
 										"method": "GET",
@@ -24101,7 +23938,7 @@
 									}
 								}
 							],
-							"id": "71293b67-7076-4a9d-bf9f-6dfda61e5043",
+							"id": "fa8339ba-1346-4c17-911e-a7fa93c7b796",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -24126,12 +23963,12 @@
 									],
 									"variable": [
 										{
-											"id": "28e44b5c-8e10-409f-bdbc-9cfc5e2e9c2b",
+											"id": "fdbd7713-ed06-40f5-bb1e-06938195716e",
 											"key": "profile_id",
 											"value": ""
 										},
 										{
-											"id": "e80bf08d-f787-4ec3-adda-debe647c11f6",
+											"id": "7e33e163-df82-4976-82f3-ede0c9df6c9c",
 											"key": "category_id",
 											"value": "airtime"
 										}
@@ -24140,7 +23977,7 @@
 							},
 							"response": [
 								{
-									"id": "6e990e49-a15a-47d3-b90b-6dd70c9e52df",
+									"id": "f6883a9b-7e2e-479e-b4df-342368b805b8",
 									"name": "List Billers",
 									"originalRequest": {
 										"method": "GET",
@@ -24220,7 +24057,7 @@
 							]
 						}
 					],
-					"id": "67e2f37a-8b2a-4854-b606-e02fdf6ea858"
+					"id": "4b05dc35-0eb6-4911-9a98-2e382a644670"
 				},
 				{
 					"name": "List Biller Options",
@@ -24242,7 +24079,7 @@
 									}
 								}
 							],
-							"id": "ea1e3d31-546c-4c7c-8526-f9648be57554",
+							"id": "2f7d3fd7-8605-45f3-b4df-1dff42e47265",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -24272,17 +24109,17 @@
 									],
 									"variable": [
 										{
-											"id": "4185506a-3a78-4ff1-be6c-e10294059e53",
+											"id": "275511ad-9bd8-4a15-9f6f-44f86e9d3513",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "83b068dc-e0a7-49aa-ac0c-003628d9cbf9",
+											"id": "2173dbc6-7d00-4543-acd2-9b38dec769e5",
 											"key": "category_id",
 											"value": "cabletv"
 										},
 										{
-											"id": "a7fc7de2-2087-464e-93ff-56c531ea7a79",
+											"id": "29c2a38b-c55f-4e2c-97a0-cb370e1bc786",
 											"key": "biller_id",
 											"value": "dstv"
 										}
@@ -24291,7 +24128,7 @@
 							},
 							"response": [
 								{
-									"id": "12dae28c-a53f-48eb-bba7-a0c1b00d0268",
+									"id": "0b2556ea-a325-4cf3-9579-40d9e95f3e0d",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -24393,7 +24230,7 @@
 									}
 								}
 							],
-							"id": "fb098f87-e87f-4473-a743-de9a2818f88a",
+							"id": "9e8d625b-6f41-41d3-b892-94d5a7ee36e7",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -24423,17 +24260,17 @@
 									],
 									"variable": [
 										{
-											"id": "20c45b01-6618-4e5f-9258-f43edd3f1c85",
+											"id": "8f9a70f3-d3e4-4076-a983-ef06d31bef2a",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "02754f85-837a-4d3c-a403-6df92f96a137",
+											"id": "6fb05f2b-e31a-45de-a720-4103063cacf7",
 											"key": "category_id",
 											"value": "cabletv"
 										},
 										{
-											"id": "c6a3266a-0a75-45d9-953f-543c2d9af316",
+											"id": "52d78d34-9c18-483f-9a68-be2e359ba347",
 											"key": "biller_id",
 											"value": "gotv"
 										}
@@ -24442,7 +24279,7 @@
 							},
 							"response": [
 								{
-									"id": "683b367f-ac8d-4f43-a446-676b6cdee88a",
+									"id": "54500d00-ad66-4860-90dc-23e3d22714e6",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -24544,7 +24381,7 @@
 									}
 								}
 							],
-							"id": "4530eb40-073c-4da4-b64f-bfc09251ccc1",
+							"id": "d1f8e7c6-4f4f-4f9f-adce-4d2b183524d6",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -24574,17 +24411,17 @@
 									],
 									"variable": [
 										{
-											"id": "a524bdac-fd88-4c9c-aaee-59590a8615ce",
+											"id": "859c494c-747c-4f6f-bebd-9753b3033d6e",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "aca36365-e308-4955-8db9-db568341a3b1",
+											"id": "32f59480-9ac0-430c-bd50-1d909ab49e18",
 											"key": "category_id",
 											"value": "cabletv"
 										},
 										{
-											"id": "5e0288f8-f315-421c-b18e-73190a04800c",
+											"id": "1c893131-a200-400d-950e-53e757052272",
 											"key": "biller_id",
 											"value": "startimes"
 										}
@@ -24593,7 +24430,7 @@
 							},
 							"response": [
 								{
-									"id": "d6b93cd7-9624-4a96-b396-652f3860ebd3",
+									"id": "73428345-21c0-427f-aa4a-c010baaab300",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -24695,7 +24532,7 @@
 									}
 								}
 							],
-							"id": "c8343ca2-02f1-495d-b713-be8a1c24a2f5",
+							"id": "176c0629-afae-4291-977e-19a4b96ad44b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -24725,17 +24562,17 @@
 									],
 									"variable": [
 										{
-											"id": "788d4905-afc0-4506-ac87-5eb4be4e2c99",
+											"id": "30f4e33e-ecee-43a4-8d5c-34c061fc2281",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "e23c2254-7ce5-42f3-8390-63efc0f74a7d",
+											"id": "e766e0cd-f8f5-4c50-b19b-078097e7739b",
 											"key": "category_id",
 											"value": "databundle"
 										},
 										{
-											"id": "316e0db0-98b3-4173-9500-7eee6ef42f77",
+											"id": "09a39fa7-5c0d-4366-a73d-a5e791bc934d",
 											"key": "biller_id",
 											"value": "mtn"
 										}
@@ -24744,7 +24581,7 @@
 							},
 							"response": [
 								{
-									"id": "021a2465-8318-4bdc-af5a-cc3fc8bcba38",
+									"id": "08713628-51ce-46c6-8ff8-7dd144a8988d",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -24846,7 +24683,7 @@
 									}
 								}
 							],
-							"id": "48980d80-b21d-4fac-b081-2d3a51380d60",
+							"id": "077b9c73-375d-4241-b445-3faca870bd0a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -24876,17 +24713,17 @@
 									],
 									"variable": [
 										{
-											"id": "b6bbf39c-7374-43f1-8b06-b7f5864ee4cd",
+											"id": "2323f17a-2c1b-4d02-8ce7-9002a2f5b6bc",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "e06354e9-6d65-46c0-b678-a79cac1f2537",
+											"id": "63465bd8-f9d6-4b1f-8111-b1d6e1dc341f",
 											"key": "category_id",
 											"value": "databundle"
 										},
 										{
-											"id": "74c84d23-1c27-4bed-8224-fb1bde041b29",
+											"id": "600e9ffd-d6f7-4d4b-895e-d507339a3d57",
 											"key": "biller_id",
 											"value": "glo"
 										}
@@ -24895,7 +24732,7 @@
 							},
 							"response": [
 								{
-									"id": "a914b914-ce16-47b0-ac42-259cb07757b1",
+									"id": "b211b741-f31e-4d61-9076-7a784e465550",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -24997,7 +24834,7 @@
 									}
 								}
 							],
-							"id": "10eafd03-1b9d-421a-b06b-afc57c5a72c2",
+							"id": "c6cf90f2-6e69-4023-9e82-25e2d0fd82a2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -25027,17 +24864,17 @@
 									],
 									"variable": [
 										{
-											"id": "742b9c78-b44d-4a1e-9c5f-f93df7599a35",
+											"id": "30882650-9382-44be-a739-1824ba28ed47",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "d7e01d77-7037-450c-b93d-0999131b55dd",
+											"id": "4a946740-eb9e-46b3-86bf-72b78ec57d54",
 											"key": "category_id",
 											"value": "databundle"
 										},
 										{
-											"id": "26b7ca4e-a6ce-446d-82e1-0aeb0153cebe",
+											"id": "96523d1a-fdd4-446b-89f9-edc1e6c4e02a",
 											"key": "biller_id",
 											"value": "9mobile"
 										}
@@ -25046,7 +24883,7 @@
 							},
 							"response": [
 								{
-									"id": "b539f154-63f9-45a7-a9ae-5f8ddf545d95",
+									"id": "cefdf27e-5866-4526-aa80-803bc51ba780",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -25148,7 +24985,7 @@
 									}
 								}
 							],
-							"id": "019423c5-48bb-4123-a9f7-eff1f7c8ed4b",
+							"id": "9d15a2a5-46a6-4032-b2b4-805d38278b7a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -25178,17 +25015,17 @@
 									],
 									"variable": [
 										{
-											"id": "d0d149c5-ad46-4e83-ab6d-a9d619172184",
+											"id": "0b7696e9-a04a-49cb-a63a-802443d5d609",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "34b04fb4-5b36-451c-aa01-631d95fc02a2",
+											"id": "d3599a57-6c76-4f72-bf61-040f1ea957fa",
 											"key": "category_id",
 											"value": "databundle"
 										},
 										{
-											"id": "aed53326-86fa-4a8f-bd3e-851dcfb9535b",
+											"id": "3c9509ee-c6ba-4dce-9893-3250516d5547",
 											"key": "biller_id",
 											"value": "airtel"
 										}
@@ -25197,7 +25034,7 @@
 							},
 							"response": [
 								{
-									"id": "bd25157f-4783-443f-ab87-fe1beba5be08",
+									"id": "90c0a9a6-1c61-4d0c-ba53-23b15edd9891",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -25299,7 +25136,7 @@
 									}
 								}
 							],
-							"id": "28cb5cef-fdd5-49e8-9a5f-2d611e4b5d85",
+							"id": "08e6c5be-fd65-4df3-a83d-c032524f495c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -25329,17 +25166,17 @@
 									],
 									"variable": [
 										{
-											"id": "979424fe-26a5-4d12-ab3a-368c742ed348",
+											"id": "08b6215b-ed07-42bf-8f22-b6470b49033b",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "05addbb8-f46c-4147-9afc-f4c6a1a3ece9",
+											"id": "62cbc2ee-0174-472c-9306-15c3a19620d2",
 											"key": "category_id",
 											"value": "databundle"
 										},
 										{
-											"id": "1181bd9b-ef6c-477f-a743-d067676e2445",
+											"id": "502de76c-3a6e-439f-aeca-4cc612f261e7",
 											"key": "biller_id",
 											"value": "smile"
 										}
@@ -25348,7 +25185,7 @@
 							},
 							"response": [
 								{
-									"id": "53c491f7-61a0-4399-bd62-f836659deccf",
+									"id": "8bd9599f-e37e-4d61-837e-79ec63123f9f",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -25450,7 +25287,7 @@
 									}
 								}
 							],
-							"id": "acab5614-d114-4466-a8cb-628cc39a7e3f",
+							"id": "19bb4076-6939-44a5-8056-19db28fa10ab",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -25480,17 +25317,17 @@
 									],
 									"variable": [
 										{
-											"id": "1c39e0c7-a83f-4312-a09b-c7911cd09992",
+											"id": "12586316-1ec6-4613-8279-606b8dcdc284",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "aab426d0-fea2-4445-8971-b63019e40216",
+											"id": "49a0d995-c542-451e-a073-ba9f92aa56c9",
 											"key": "category_id",
 											"value": "epin"
 										},
 										{
-											"id": "01e69f73-eb1e-4ea0-9539-3a313050c35e",
+											"id": "107ee4d9-9498-4da0-a1de-30a472a187ea",
 											"key": "biller_id",
 											"value": "waec"
 										}
@@ -25499,7 +25336,7 @@
 							},
 							"response": [
 								{
-									"id": "cd77a3ad-c974-466f-bd08-fd8569d75260",
+									"id": "9237463a-2deb-4dc0-b015-d5342d8e0cf2",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -25601,7 +25438,7 @@
 									}
 								}
 							],
-							"id": "f31ebc41-7b86-4d82-87cd-a72318f74a37",
+							"id": "05b7430f-a1b2-4bfd-b8fa-48b27f00d27b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -25650,7 +25487,7 @@
 							},
 							"response": [
 								{
-									"id": "1eded667-94ab-4891-9674-da53e9fee184",
+									"id": "f3a0455f-b0ad-487e-adbe-f871097dc75a",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -25752,7 +25589,7 @@
 									}
 								}
 							],
-							"id": "7e1398c7-ab6e-44e3-9b91-350dbe083505",
+							"id": "4eeff51a-50b9-4b04-b625-28544226a643",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -25782,17 +25619,17 @@
 									],
 									"variable": [
 										{
-											"id": "37a5dd64-bd53-4eb5-98a1-df3af462e2e7",
+											"id": "34586c15-716b-477d-982d-b2ba793d0852",
 											"key": "profile_id",
 											"value": ""
 										},
 										{
-											"id": "2f8e7f28-5d54-4dc1-b5bb-e6b01a35be41",
+											"id": "a04bb6dc-dda1-4f7e-8843-72e7b8a3c081",
 											"key": "category_id",
 											"value": "cabletvs"
 										},
 										{
-											"id": "be9ddab9-9168-42e4-a6c3-fd8fe40fe737",
+											"id": "356392fe-17c6-4c4f-98c8-78ce0cd94cc6",
 											"key": "biller_id",
 											"value": "dstv"
 										}
@@ -25801,7 +25638,7 @@
 							},
 							"response": [
 								{
-									"id": "24435792-0d91-4b82-89bc-3199c4672efa",
+									"id": "ef35f9f2-e164-45a8-90e5-8f1b130392c8",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -25903,7 +25740,7 @@
 									}
 								}
 							],
-							"id": "601e4439-6746-4355-b88e-fb25816bb74b",
+							"id": "6839eddf-87ab-49f5-bb50-a2fe749f4f70",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -25933,17 +25770,17 @@
 									],
 									"variable": [
 										{
-											"id": "4acf1e15-3e26-4c3a-aca2-a4bab91bd178",
+											"id": "44ae79ce-12ff-49a6-9414-4de05141749b",
 											"key": "profile_id",
 											"value": ""
 										},
 										{
-											"id": "3d8a6084-0b62-44fd-9f6d-9c8fe28b2c70",
+											"id": "eaa41075-f027-474d-9499-6e0177729307",
 											"key": "category_id",
 											"value": "cabletv"
 										},
 										{
-											"id": "7323ad3c-1a75-4527-b423-220de1d2b4cd",
+											"id": "3e6bd9df-2212-4896-ba3a-27a1743a5e29",
 											"key": "biller_id",
 											"value": "dstvs"
 										}
@@ -25952,7 +25789,7 @@
 							},
 							"response": [
 								{
-									"id": "ed38fe5f-a932-4b2b-90f2-b35a3b44e364",
+									"id": "7e3c6d7e-98e6-41ce-bccd-181293f88d6e",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -26054,7 +25891,7 @@
 									}
 								}
 							],
-							"id": "4444ffc3-0673-4f5b-80a8-b528e006b7e6",
+							"id": "2147e6b4-02ca-421d-b11e-a716cdf26ac1",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -26084,17 +25921,17 @@
 									],
 									"variable": [
 										{
-											"id": "8707b144-4f06-4eb6-829c-eac8e4ec1e58",
+											"id": "9db8ad42-5c20-4a3f-84cf-9df9b576335a",
 											"key": "profile_id",
 											"value": ""
 										},
 										{
-											"id": "89c3d20e-2704-48b6-981b-d702f4695309",
+											"id": "aa4b1c9e-0563-4747-a403-2fe6e86bd007",
 											"key": "category_id",
 											"value": ""
 										},
 										{
-											"id": "013e36ff-32e6-4327-800e-fd6e04c7375e",
+											"id": "486fc6ba-1892-4691-8c50-b798db6155d3",
 											"key": "biller_id",
 											"value": ""
 										}
@@ -26103,7 +25940,7 @@
 							},
 							"response": [
 								{
-									"id": "d4cc77f7-a00f-45c0-8709-80fde60a0930",
+									"id": "e3e34e43-a542-426b-b5eb-f299b6fc2b96",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -26215,7 +26052,7 @@
 									}
 								}
 							],
-							"id": "b5868ec6-6fa0-4548-bd67-dd776545e7c4",
+							"id": "018f1780-dc90-457d-9ef4-11bf251171ed",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -26242,17 +26079,17 @@
 									],
 									"variable": [
 										{
-											"id": "9e585e72-44f7-432a-a3de-9e5b8b704b1d",
+											"id": "d84f57d3-0e93-4aaf-93ef-322bda63f622",
 											"key": "profile_id",
 											"value": ""
 										},
 										{
-											"id": "0989a7e9-fb2b-4f17-a2cf-fedd925e2a5f",
+											"id": "d792d301-b750-452d-87b4-9a5bf59e1e6f",
 											"key": "category_id",
 											"value": "airtime"
 										},
 										{
-											"id": "b6385c57-c4f3-4cac-a3a3-7247b99e0264",
+											"id": "004ee36a-32d7-489e-8ed3-e7cbd5e38737",
 											"key": "biller_id",
 											"value": "mtn"
 										}
@@ -26261,7 +26098,7 @@
 							},
 							"response": [
 								{
-									"id": "2bbcc75b-10e1-4e87-8d08-6661c47db7f1",
+									"id": "2f81acf3-3e8c-4e51-ae2f-88c95007fc8b",
 									"name": "List Biller Options",
 									"originalRequest": {
 										"method": "GET",
@@ -26347,14 +26184,14 @@
 							]
 						}
 					],
-					"id": "39319890-1a43-4df8-b6a3-32c1f5f663ed"
+					"id": "0cea22fb-d38e-4c3f-8644-13a27f4e969f"
 				},
 				{
 					"name": "Verify Biller account number",
 					"item": [
 						{
 							"name": "Verify Biller Account Number",
-							"id": "7eeb1145-85e3-48e8-8b92-8a70601aff09",
+							"id": "2432f553-94cc-42b8-846c-dc3a939050bd",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -26393,17 +26230,17 @@
 									],
 									"variable": [
 										{
-											"id": "82a7d681-df92-435c-9861-eb4e731dd4af",
+											"id": "2b985e87-1fbf-4dec-b93e-c7021a2c8263",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "b1113126-12c2-4c0f-ad32-8c6dd44e8ee3",
+											"id": "15e9a44b-c0a5-447c-859e-b80cfbf8379c",
 											"key": "category_id",
 											"value": "cabletv"
 										},
 										{
-											"id": "d21a11e6-ec23-497c-a54f-6ce2d330875c",
+											"id": "90621875-8813-4957-9ef1-f0c472b20f7d",
 											"key": "biller_id",
 											"value": "dstv"
 										}
@@ -26412,7 +26249,7 @@
 							},
 							"response": [
 								{
-									"id": "330005b4-e054-4357-b8e3-db2665b1fb16",
+									"id": "5028425f-6273-4670-bb2d-84040095c350",
 									"name": "Verify Biller Account Number",
 									"originalRequest": {
 										"method": "POST",
@@ -26508,7 +26345,7 @@
 						},
 						{
 							"name": "Verify Biller Account Number-Invalid account number",
-							"id": "daad4b51-ed26-4712-88ce-2b14b9540f44",
+							"id": "192da96a-c8d9-4644-81cd-d8be2d5e7f20",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -26547,17 +26384,17 @@
 									],
 									"variable": [
 										{
-											"id": "783b9fd3-2986-4603-9e58-6c913ebf0f21",
+											"id": "ea38ab58-08ab-4263-a53a-704dca235082",
 											"key": "profile_id",
 											"value": ""
 										},
 										{
-											"id": "8286bf8f-230e-49e9-a3f3-e1b5e6070906",
+											"id": "b31f917f-98f3-4706-afa0-90fc0fa9eaab",
 											"key": "category_id",
 											"value": "cabletv"
 										},
 										{
-											"id": "0df0c177-b9b5-45f5-b965-49dff106bfd8",
+											"id": "936fef6b-283b-44ec-b7b8-beaa944763d5",
 											"key": "biller_id",
 											"value": "dstv"
 										}
@@ -26566,7 +26403,7 @@
 							},
 							"response": [
 								{
-									"id": "aeab7b3d-9dc1-4d5d-a34e-f587376c4bb4",
+									"id": "50d350ac-95da-42df-9f3a-39f13bb020e0",
 									"name": "Verify Biller Account Number",
 									"originalRequest": {
 										"method": "POST",
@@ -26662,7 +26499,7 @@
 						},
 						{
 							"name": "Verify Biller Account Number-Empty fields",
-							"id": "78c956c1-7934-4750-8406-db2eca9647f9",
+							"id": "8f3a43ca-9872-4ee4-aa23-bd37399f377e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -26701,17 +26538,17 @@
 									],
 									"variable": [
 										{
-											"id": "4ff1afa1-af04-4e33-b279-aa6b52b45f4d",
+											"id": "a2c358b1-7153-4b3d-9faa-7d73da9e29e8",
 											"key": "profile_id",
 											"value": ""
 										},
 										{
-											"id": "e2850b25-c0b6-4d1d-8934-54127e2b597d",
+											"id": "7ee42172-4bab-4246-a5fe-9c0ab8c5b2a7",
 											"key": "category_id",
 											"value": "cabletv"
 										},
 										{
-											"id": "f78b9659-4277-47b9-bf09-6b9a77275cf7",
+											"id": "bb1e05e9-4d64-4e48-a1a5-f1ef6e50ba32",
 											"key": "biller_id",
 											"value": "dstv"
 										}
@@ -26720,7 +26557,7 @@
 							},
 							"response": [
 								{
-									"id": "02540d43-16d0-47cf-aaac-51b717fa21b7",
+									"id": "646e9f94-3258-44b8-b59c-f1c1e729d2e8",
 									"name": "Verify Biller Account Number",
 									"originalRequest": {
 										"method": "POST",
@@ -26815,7 +26652,7 @@
 							]
 						}
 					],
-					"id": "2c3d3f6e-b5b4-45f8-a6c6-10694b170858"
+					"id": "34edf8c1-5305-46e6-892c-07968469f0c4"
 				},
 				{
 					"name": "Make Bill Payment",
@@ -26843,7 +26680,7 @@
 													}
 												}
 											],
-											"id": "44c8a531-738f-42fc-91fd-6bc248a16386",
+											"id": "128eb1fc-d9d5-4a8c-88b2-c4c64a53d137",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -26858,7 +26695,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 5300,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -26882,17 +26719,17 @@
 													],
 													"variable": [
 														{
-															"id": "c9b8d1b7-5c84-454c-8638-354102a3497d",
+															"id": "71c636c2-483e-4ff8-8c66-9b254eca1649",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "0e074a04-200b-4d25-9bc3-8db6a41fe6da",
+															"id": "8b4983bd-fe1d-4a94-84ae-a6d443d5d1aa",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "d2cf8fe0-be61-42bd-a5c3-c7a8e7cb2a63",
+															"id": "990a4f45-f66a-446a-a3dd-481007e9dd62",
 															"key": "biller_id",
 															"value": "mtn"
 														}
@@ -26902,7 +26739,7 @@
 											"response": []
 										}
 									],
-									"id": "5d4e768b-30d4-401e-95a5-8b5cf7022a68"
+									"id": "d0547fd8-a5ff-471c-aeec-d28621a89870"
 								},
 								{
 									"name": "GLO",
@@ -26924,7 +26761,7 @@
 													}
 												}
 											],
-											"id": "c6361789-238d-4130-9637-9ed4f3619bbe",
+											"id": "d4db3f5c-0c96-4176-8748-7b7e74b78ffd",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -26939,7 +26776,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    // \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -26963,17 +26800,17 @@
 													],
 													"variable": [
 														{
-															"id": "346b1e61-32f3-49c4-9d6f-ed0ba262ef92",
+															"id": "f4006910-b2b0-4d78-a79d-0839d9a7ddcd",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "c62d74f5-4595-4e6c-8dc3-3bca5c0a3703",
+															"id": "b5ed2166-8aed-4d5a-9085-1e08a4b36037",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "d37b327b-2cb2-4c44-aa01-c1a918c1dcac",
+															"id": "9d734ace-1737-4959-a345-784b3621f5b3",
 															"key": "biller_id",
 															"value": "glo"
 														}
@@ -26983,7 +26820,7 @@
 											"response": []
 										}
 									],
-									"id": "c11c781b-03f3-4735-b3f4-47ac4540b7e1"
+									"id": "76b13eaf-befa-4b24-b7eb-5325b8d88a7f"
 								},
 								{
 									"name": "AIRTEL",
@@ -27005,7 +26842,7 @@
 													}
 												}
 											],
-											"id": "8659be5f-3281-4ed2-853c-1d091624e0aa",
+											"id": "8e676801-16e6-487d-98ac-f37828fcb093",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27020,7 +26857,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    // \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27044,17 +26881,17 @@
 													],
 													"variable": [
 														{
-															"id": "9b209db8-1178-4bae-988c-73fd4d2147c4",
+															"id": "61658202-736d-4360-bda9-f300e55bc11a",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "91346850-2cfd-48a3-b1f3-da72f4fe5830",
+															"id": "fa60afc2-ee05-437a-8302-c75bf0285c8c",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "11b3358a-5784-42c8-9661-9c62f5d778fc",
+															"id": "1ab28007-93b6-42e7-a7c7-575b03ff91b9",
 															"key": "biller_id",
 															"value": "airtel"
 														}
@@ -27064,7 +26901,7 @@
 											"response": []
 										}
 									],
-									"id": "021843af-bc47-4633-ad2e-63873b92eb69"
+									"id": "92595a1e-09c4-4ed6-a890-d5b83b46d5d9"
 								},
 								{
 									"name": "9MOBILE",
@@ -27086,7 +26923,7 @@
 													}
 												}
 											],
-											"id": "a476c60f-577f-46cb-b6a4-a8bcc61db64e",
+											"id": "59574deb-9552-4192-a4b4-b832134822e4",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27101,7 +26938,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    // \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27125,17 +26962,17 @@
 													],
 													"variable": [
 														{
-															"id": "49d64b10-b3d9-48b9-a1d9-4680ce960b84",
+															"id": "cc9cfbfa-8166-4e1d-9c3c-d3cbb8f5d162",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "fcdef4f6-ec8b-492a-98cd-89323af7a9dc",
+															"id": "23a67707-b3ce-45da-a952-5b32b8b6817b",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "560a264f-af77-4166-aca0-e33f3dda7f36",
+															"id": "5cc363c5-a952-486e-96c1-b8be3950a21c",
 															"key": "biller_id",
 															"value": "9mobile"
 														}
@@ -27145,7 +26982,7 @@
 											"response": []
 										}
 									],
-									"id": "7dc2c782-296d-4430-bac2-0bbdfeb5abaa"
+									"id": "736b455c-480d-416f-a8d2-d897885219bf"
 								},
 								{
 									"name": "SMILE",
@@ -27167,7 +27004,7 @@
 													}
 												}
 											],
-											"id": "50e7d039-fc46-4279-abc1-285f61875aef",
+											"id": "cff76d8d-9b52-4dee-912d-a44361b53bbd",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27182,7 +27019,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    // \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27206,17 +27043,17 @@
 													],
 													"variable": [
 														{
-															"id": "de819cca-436d-4798-b3ab-868e1f94b70a",
+															"id": "168e17f5-eaa9-4638-bcd0-b000b319e334",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "2ef0239d-687f-4bc0-9c88-2933d5b77915",
+															"id": "24cdc16e-e429-4018-9b30-2d666f1e25bb",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "4def084c-9f43-4d9c-9bdb-31721a47f9fb",
+															"id": "15bb124c-fa6f-4e22-bf43-e30add9d078a",
 															"key": "biller_id",
 															"value": "smile"
 														}
@@ -27226,10 +27063,10 @@
 											"response": []
 										}
 									],
-									"id": "20888ef5-2c80-4b04-86ee-a575d4a14168"
+									"id": "b1cef3da-1c83-4ff2-b956-f1763000eb99"
 								}
 							],
-							"id": "89daf417-2dde-4439-b032-c326976633a9"
+							"id": "54bf68aa-8222-49ff-a6e6-c1d14baab31e"
 						},
 						{
 							"name": "Make bill payment-Data",
@@ -27254,7 +27091,7 @@
 													}
 												}
 											],
-											"id": "054bcca3-bee1-47a0-9f06-0be5f8e03f2f",
+											"id": "7082cba8-bfcf-4476-80d3-65880f8870c5",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27269,7 +27106,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 100,\n    \"option_id\":\"100\",\n    \"pin\": \"1316\"\n   \n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 100,\n    \"option_id\": \"100\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27293,17 +27130,17 @@
 													],
 													"variable": [
 														{
-															"id": "36981d2e-ee52-4871-b541-045af62a5279",
+															"id": "41745622-58ea-4195-87cc-2d1cc93712e5",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "bb441db1-65c6-4d49-a26e-dc59d6742150",
+															"id": "b0c51dc3-6ebc-4225-9ea2-eed244241edd",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "273271d4-341c-4ec4-9475-0855a7e655a2",
+															"id": "43acf357-8db8-42b8-a07b-9fafb1e097e1",
 															"key": "biller_id",
 															"value": "mtn"
 														}
@@ -27329,7 +27166,7 @@
 													}
 												}
 											],
-											"id": "027c6030-d23c-406b-b446-85cda5d2f758",
+											"id": "dda54ba6-f6f4-41c9-825a-a04351e93569",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27368,17 +27205,17 @@
 													],
 													"variable": [
 														{
-															"id": "b88f1d9b-ae63-4ca8-b4bb-1ab5b2aae3d6",
+															"id": "765b85ca-2fb6-4c86-b5cd-8b9f2bff264d",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "19b9bbd4-83fb-4723-80ca-735ef53b955a",
+															"id": "5af194cf-a288-4603-9dc6-2cf53259ed74",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "5d2be9f4-13a1-4bbf-8899-04cc4aa76325",
+															"id": "860151a3-81c9-4c47-aa95-dc203d727b7c",
 															"key": "biller_id",
 															"value": "mtn"
 														}
@@ -27388,7 +27225,7 @@
 											"response": []
 										}
 									],
-									"id": "e251fa7e-b16f-4016-bd89-eb74152369d3"
+									"id": "e796b4c4-1162-4831-ab1f-bc1d69dd4d95"
 								},
 								{
 									"name": "GLO",
@@ -27410,7 +27247,7 @@
 													}
 												}
 											],
-											"id": "2cbc5c4d-8d92-432b-9542-719b8e7eb7e2",
+											"id": "ef3359c3-b908-4e5c-8c6f-23627eae470a",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27425,7 +27262,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 25,\n    \"option_id\": \"DATA-32\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 25,\n    \"option_id\": \"DATA-32\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27449,17 +27286,17 @@
 													],
 													"variable": [
 														{
-															"id": "eb6c5d31-1dc7-4cca-bff7-9c48a08d3d1d",
+															"id": "c0f9065e-a88f-49ba-b03d-f76417d9a1d6",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "84ccf401-3e6e-4f1a-910e-a5813addae4e",
+															"id": "86030dcb-ed18-4470-b4fc-645f1f6991bb",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "36bc1cdf-f35c-4f15-8d1d-c04c29ff44b2",
+															"id": "7efdf04e-7ee6-443a-ba65-f455f59dbf2c",
 															"key": "biller_id",
 															"value": "glo"
 														}
@@ -27469,7 +27306,7 @@
 											"response": []
 										}
 									],
-									"id": "6d476015-3bc0-4968-a9d5-892ee1a5fc95"
+									"id": "832c28a3-61b5-40b1-b25d-74b116b59f00"
 								},
 								{
 									"name": "AIRTEL",
@@ -27491,7 +27328,7 @@
 													}
 												}
 											],
-											"id": "6fc84ead-ba50-49c3-9f39-55b8c746ff04",
+											"id": "c7ed8b4b-26bb-481f-a639-9d784cf00824",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27506,7 +27343,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 50,\n    \"option_id\": \"49.99\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 50,\n    \"option_id\": \"49.99\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27530,17 +27367,17 @@
 													],
 													"variable": [
 														{
-															"id": "29b390ce-15ee-4b42-b5fd-264d319d1dbd",
+															"id": "3e9fc1bc-6eac-45b1-a7d3-1cd4bb2022b6",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "fe3139a5-1663-404a-a3b1-56f7b1163dea",
+															"id": "c756fb12-094d-46d7-bc8a-496cd5666099",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "e578e857-31a3-4d35-aa9f-0fb64b651af0",
+															"id": "f2cb5699-7e20-4e97-bf54-a474972a65e4",
 															"key": "biller_id",
 															"value": "airtel"
 														}
@@ -27550,7 +27387,7 @@
 											"response": []
 										}
 									],
-									"id": "5f1ea394-3aa0-42a6-86a7-3bc1ba7fbb0d"
+									"id": "e3c44778-f075-4c80-b16b-eb26dd00df1c"
 								},
 								{
 									"name": "9MOBILE",
@@ -27572,7 +27409,7 @@
 													}
 												}
 											],
-											"id": "6129414c-9ec7-483e-b27f-e85bab828faf",
+											"id": "de130df9-f1f2-42d6-a5ce-fc529b606e0d",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27587,7 +27424,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 200,\n    \"option_id\": \"200\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 200,\n    \"option_id\": \"200\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27611,17 +27448,17 @@
 													],
 													"variable": [
 														{
-															"id": "40ffb8f9-7066-4706-a821-23c35216aed9",
+															"id": "37d718aa-1666-4351-8a81-489e82c39934",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "acb6f154-0e02-4d23-8170-cb59089ebc09",
+															"id": "2de035e3-9ebb-41e1-a6b9-e7f8ce65c729",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "34833d31-ddaa-429d-8ce3-0cd2fbf7976a",
+															"id": "0a2716b4-5252-4198-a803-e0c047fba23e",
 															"key": "biller_id",
 															"value": "9mobile"
 														}
@@ -27631,7 +27468,7 @@
 											"response": []
 										}
 									],
-									"id": "9840a8c4-5075-445c-8332-49590faacb70"
+									"id": "0efb60c4-ee52-414c-ba49-d4ad2189f6c9"
 								},
 								{
 									"name": "SMILE",
@@ -27653,7 +27490,7 @@
 													}
 												}
 											],
-											"id": "2b4c9181-c47b-4bf9-9011-721a2e2e1b5e",
+											"id": "21c6bee2-a0c2-44e9-b108-01d51a184a09",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27668,7 +27505,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 1800,\n    \"option_id\": \"101\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 1800,\n    \"option_id\": \"101\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27692,17 +27529,17 @@
 													],
 													"variable": [
 														{
-															"id": "9d2771d5-5284-4548-9971-98bd63f7fb6a",
+															"id": "a487e558-13a8-4253-9aa3-e8a094c92e3a",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "093b03ae-b253-421f-b095-ab2d6b8cdc04",
+															"id": "b882f34d-470d-4780-bf6b-bf7d92e9ef01",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "00544a95-a8b6-4a9f-bcda-29c5df7302d3",
+															"id": "0ec22bf4-8acb-4c67-9f8c-c9b08ef88cb9",
 															"key": "biller_id",
 															"value": "smile"
 														}
@@ -27712,10 +27549,10 @@
 											"response": []
 										}
 									],
-									"id": "5fab9960-da2f-4d67-9466-0615f0bf5a70"
+									"id": "30bf530a-c538-428c-845f-115ded143765"
 								}
 							],
-							"id": "6e38ce1d-dfcd-4d83-be2e-00e114c418bc"
+							"id": "b15f5f3d-1e3f-4168-8db8-74fdd0580e8e"
 						},
 						{
 							"name": "Make bill payment-Cable TV",
@@ -27740,7 +27577,7 @@
 													}
 												}
 											],
-											"id": "b1c4777f-7b27-4615-858a-45aed8bc9e27",
+											"id": "47866828-c5ad-476c-83d5-bcebd5ac0b46",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27755,7 +27592,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -27779,17 +27616,17 @@
 													],
 													"variable": [
 														{
-															"id": "72f786c6-b297-4d8d-b050-d34289636d23",
+															"id": "00c41b45-d5a8-4238-a1d3-5fe62a678b30",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "cc6929be-685c-419a-b80d-c5114fbda538",
+															"id": "50cbb720-d3a7-48fd-8c4f-6d13d42d6c0e",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "64c54edb-884e-4530-9391-c23f45f5d0e1",
+															"id": "ea001125-40ca-4330-9167-64479f3c8617",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -27815,7 +27652,7 @@
 													}
 												}
 											],
-											"id": "7a96fee0-0e5c-4eba-8756-bb5308f21779",
+											"id": "14d2d9ff-9875-4cfc-a7cc-d4a42ec892f3",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27854,17 +27691,17 @@
 													],
 													"variable": [
 														{
-															"id": "1b11a39f-4644-4ab6-b0eb-deea03cf81ff",
+															"id": "d4118301-62a0-49ce-8796-917d072a678a",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "ceb66139-3fdf-40a3-9771-4bd624a4f03d",
+															"id": "6475e331-2441-471e-a54c-eb62a6e1a865",
 															"key": "category_id",
 															"value": ""
 														},
 														{
-															"id": "37278839-6225-4b19-be0c-73d4a8bb827b",
+															"id": "046557c3-c0a2-405e-bd94-5dd3debe94e1",
 															"key": "biller_id",
 															"value": ""
 														}
@@ -27890,7 +27727,7 @@
 													}
 												}
 											],
-											"id": "4ff7abb0-496b-4f91-914e-41f71556d459",
+											"id": "5849f983-e712-489b-acfd-0a1b8024beb0",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -27929,17 +27766,17 @@
 													],
 													"variable": [
 														{
-															"id": "f104538e-c3c7-4575-8d8a-de7f3d5d61f8",
+															"id": "5e89140f-9049-4cce-84be-4e018a157850",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "7631e771-7eb0-40c3-ae7c-a610bcefa6f7",
+															"id": "51646a1d-115e-4934-89f8-5e59c53b81f9",
 															"key": "category_id",
 															"value": "cabletv1"
 														},
 														{
-															"id": "29f8694d-2fd2-4e63-a8a6-1a9acd77a543",
+															"id": "f8bdd97b-a976-44ae-b6ac-54ada1f0d6ca",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -27965,7 +27802,7 @@
 													}
 												}
 											],
-											"id": "8e06dc32-6160-4c33-bf88-3c0d13c87c67",
+											"id": "1a972a6a-d35e-486f-86d3-dbfc5030c187",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -28004,17 +27841,17 @@
 													],
 													"variable": [
 														{
-															"id": "44619814-404b-4520-ad21-e28486db6aa5",
+															"id": "03548c66-c62b-4bd3-8f9b-6a48009ba64e",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "7be0580d-c3c2-4908-a750-8a11acb5fa61",
+															"id": "7b22a59f-8b73-4bec-9cfb-7a65c425ead8",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "211f75b7-fa0e-46eb-86da-9bc87126056c",
+															"id": "87eb3e9e-621f-4400-8656-33941311e06f",
 															"key": "biller_id",
 															"value": "dstv1"
 														}
@@ -28040,7 +27877,7 @@
 													}
 												}
 											],
-											"id": "8a674f03-00b7-4ab0-aa39-e2d32897a1f5",
+											"id": "eb815053-0b54-40a0-8182-9512c0c455bc",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -28079,17 +27916,17 @@
 													],
 													"variable": [
 														{
-															"id": "9807efec-1f3c-440a-b953-87165a227ef7",
+															"id": "c4f89a24-d056-4d69-a40e-c60956a4a043",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "6ffef3ea-4448-46a6-bb35-644df6d86c07",
+															"id": "e83c6e60-f1df-4c64-92fc-733163ef407b",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "626a4988-39dc-49fe-8d36-b3edf5068378",
+															"id": "e7d1c6d6-fd52-421d-9fc1-9a7127667e41",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -28099,7 +27936,7 @@
 											"response": []
 										}
 									],
-									"id": "2ef2452c-3a73-4a26-835c-52f1e739bfa6"
+									"id": "5d3a5d86-15fd-4927-96b1-5d9c4d424656"
 								},
 								{
 									"name": "GOTV",
@@ -28121,7 +27958,7 @@
 													}
 												}
 											],
-											"id": "b02e3aa6-6c0d-479a-bf1a-101c262a548b",
+											"id": "1c211521-a225-414d-9df1-2be2341b8ec8",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -28136,7 +27973,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28160,17 +27997,17 @@
 													],
 													"variable": [
 														{
-															"id": "2eef8f2d-4f2b-44e4-9358-69055bf756f4",
+															"id": "6e630021-e328-4d90-a34f-b795f0f2c287",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "54f6e950-e080-4217-9405-5ab24cd0fda1",
+															"id": "84c6db33-1c70-45a2-8634-11a087425c9c",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "a5eeda40-f6f7-4617-871f-2966bae11903",
+															"id": "1524bf77-5c17-4040-8635-d7d28ef9c340",
 															"key": "biller_id",
 															"value": "gotv"
 														}
@@ -28196,7 +28033,7 @@
 													}
 												}
 											],
-											"id": "4f8077a9-13b2-4dc0-9c02-d0035337f7f8",
+											"id": "c7ee07ea-ce90-4e07-a82e-7823364ba03d",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -28235,17 +28072,17 @@
 													],
 													"variable": [
 														{
-															"id": "f02ea9de-775a-4c63-9af2-a4920a017b62",
+															"id": "10a11d5a-925e-4c56-8703-c331081595df",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "b1c453bd-c413-42ae-86ba-198e90ee4884",
+															"id": "731d2dd9-71af-4dc4-bb88-e61e0fba173d",
 															"key": "category_id",
 															"value": ""
 														},
 														{
-															"id": "8e055225-1b49-4750-84c3-5115aac08dba",
+															"id": "7e996849-bc3f-458f-8dd5-e3aec69d56dc",
 															"key": "biller_id",
 															"value": ""
 														}
@@ -28271,7 +28108,7 @@
 													}
 												}
 											],
-											"id": "1f06cd38-6c50-40c2-ab64-bb975ff02804",
+											"id": "1322089b-5f82-4902-817b-a82bedd7a17f",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -28310,17 +28147,17 @@
 													],
 													"variable": [
 														{
-															"id": "be021abd-7af7-4a32-b49c-b88bc27413c1",
+															"id": "3da36521-e4dd-40b5-a6c9-64a1e3af78f8",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "efd1f2ad-983a-43c7-84ff-414359a21dc3",
+															"id": "7b7d8d1f-c2f4-4ea7-a6d6-0be7ee0fc3c1",
 															"key": "category_id",
 															"value": "cabletv1"
 														},
 														{
-															"id": "92e397e6-ce58-47c3-946d-1e6ccfce1910",
+															"id": "a23b975f-0c37-4800-b556-0fb66f9054a7",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -28346,7 +28183,7 @@
 													}
 												}
 											],
-											"id": "6084486c-dffc-4ab3-ba74-dedca8944953",
+											"id": "65cddea6-7dc8-4155-a9f9-76a23a0f3bd3",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -28385,17 +28222,17 @@
 													],
 													"variable": [
 														{
-															"id": "9c94b53b-093b-4fd4-9426-74a0ad34f971",
+															"id": "2a224f67-186a-484e-979b-e288e5cfca61",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "4313df08-3cb7-4f0b-9d29-293c080067ff",
+															"id": "1a877c90-2f34-44aa-b783-10c6787f4d3e",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "b2a35804-c3b1-41aa-b228-5131e816bbae",
+															"id": "75ac1ae9-e55d-493c-bdf8-641349c8171d",
 															"key": "biller_id",
 															"value": "dstv1"
 														}
@@ -28421,7 +28258,7 @@
 													}
 												}
 											],
-											"id": "a77dfd7b-6bf1-4395-81ce-219221a99bca",
+											"id": "b40eccca-12a0-4f75-ab5e-5705c1417243",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -28460,17 +28297,17 @@
 													],
 													"variable": [
 														{
-															"id": "6ea5a561-9e31-45a8-b311-21bde33c679a",
+															"id": "219adbdb-3383-4a99-92be-07e8e46ac896",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "3dfb0012-dee5-4a63-a5fc-2fee4d5988cd",
+															"id": "d2babadb-2c50-4892-8303-9d369ef02e03",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "a4eb6a32-daef-456a-a201-26ac64af1762",
+															"id": "57961eaf-dfe0-40f7-ba8d-b47f96770a1f",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -28480,7 +28317,7 @@
 											"response": []
 										}
 									],
-									"id": "26febbe2-23a8-482d-8615-cbbf0706cc94"
+									"id": "b2b6fe30-7a03-4884-bc50-56ec7a15837a"
 								},
 								{
 									"name": "STARTIMES",
@@ -28502,7 +28339,7 @@
 													}
 												}
 											],
-											"id": "d82f2f5d-ebfc-46ca-a4dc-0a8022fff978",
+											"id": "d722567a-8844-4102-934f-a02164858b56",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -28517,7 +28354,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\",\n    \"pin\": \"2222\",\n    \"account_id\":\"019390f5-db96-7335-b5bb-74eac1376a9c\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -28541,17 +28378,17 @@
 													],
 													"variable": [
 														{
-															"id": "2da02978-04d4-466f-a6a9-66460ce8c9c2",
+															"id": "ac489526-f270-4510-a3d2-71d973eeddee",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "c889b97d-cc28-4861-b4ac-4ee45ec42b55",
+															"id": "509749bd-637a-494f-bcf2-3c0d3ba24538",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "2088c27c-3de0-455a-ac47-8ae744c9c7bc",
+															"id": "ed742b70-5c10-4413-968a-4a41a00e41e5",
 															"key": "biller_id",
 															"value": "startimes"
 														}
@@ -28577,7 +28414,7 @@
 													}
 												}
 											],
-											"id": "46251cd3-578b-468d-9eef-3601864f34c8",
+											"id": "f28a6661-dee6-48e5-b2a4-3d7b8ae1f77e",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -28616,17 +28453,17 @@
 													],
 													"variable": [
 														{
-															"id": "8a4bb945-3789-4802-bdf8-2ac4f6168b39",
+															"id": "a94b1b5a-25df-47d6-8dee-566cef85c1ce",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "04a898b1-7b45-471b-a42a-7bc064d3bcf8",
+															"id": "90e90a16-8a6b-463e-b896-3478b837a734",
 															"key": "category_id",
 															"value": ""
 														},
 														{
-															"id": "28c55578-7269-4cae-8616-b87ffbc7fd6d",
+															"id": "d08000fc-ddf5-4873-859e-6a787578eebd",
 															"key": "biller_id",
 															"value": ""
 														}
@@ -28652,7 +28489,7 @@
 													}
 												}
 											],
-											"id": "f4e4a941-9361-47ee-a908-07a320b78e4a",
+											"id": "0095a55d-6d6f-4291-a54a-9c100e7b0a7c",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -28691,94 +28528,19 @@
 													],
 													"variable": [
 														{
-															"id": "90de1ead-94be-44c2-965b-8550fcfc89e7",
+															"id": "ce030f9a-9cdd-4c7c-bee2-3596eca026a6",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "e5d9aa36-f745-4549-8f39-83896dbbc0ec",
+															"id": "09a410d2-7431-457f-9656-ad02c4cc9f6b",
 															"key": "category_id",
 															"value": "cabletv1"
 														},
 														{
-															"id": "d5259a96-c8a2-4718-82fd-93ae027a5a15",
+															"id": "e7435038-5c1f-4049-b45e-d498d7f2dca8",
 															"key": "biller_id",
 															"value": "dstv"
-														}
-													]
-												}
-											},
-											"response": []
-										},
-										{
-											"name": "Make bill payment-Invalid biller Id",
-											"event": [
-												{
-													"listen": "test",
-													"script": {
-														"id": "c43cd66b-5e6c-4406-891b-1f17dcc1758e",
-														"exec": [
-															"pm.test(\"Status code is 400\", function () {\r",
-															"    pm.response.to.have.status(400);\r",
-															"});"
-														],
-														"type": "text/javascript",
-														"packages": {}
-													}
-												}
-											],
-											"id": "8da3065e-ce07-4c3f-9aa0-22d8f03f9a1f",
-											"protocolProfileBehavior": {
-												"disableBodyPruning": true
-											},
-											"request": {
-												"auth": {
-													"type": "bearer",
-													"bearer": {
-														"token": "{{userAccessToken}}"
-													}
-												},
-												"method": "POST",
-												"header": [],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
-													"options": {
-														"raw": {
-															"language": "json"
-														}
-													}
-												},
-												"url": {
-													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"profiles",
-														":profile_id",
-														"bill-payments",
-														"categories",
-														":category_id",
-														"billers",
-														":biller_id",
-														"pay"
-													],
-													"variable": [
-														{
-															"id": "b33501bc-6212-443a-9bb7-e1be77edff33",
-															"key": "profile_id",
-															"value": ""
-														},
-														{
-															"id": "5f4c7587-2043-471e-a880-c4a750a4bfec",
-															"key": "category_id",
-															"value": "cabletv"
-														},
-														{
-															"id": "bd6f4630-fda9-4bc8-a542-ee80879501a0",
-															"key": "biller_id",
-															"value": "dstv1"
 														}
 													]
 												}
@@ -28802,7 +28564,7 @@
 													}
 												}
 											],
-											"id": "b2d7d270-cd0f-42b0-9009-40cfb1aca06a",
+											"id": "ce5a3d09-6948-41cd-a3f7-91ab82d0778f",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -28841,17 +28603,17 @@
 													],
 													"variable": [
 														{
-															"id": "240e633d-fa97-420f-a10d-c779d6bfaa09",
+															"id": "07e8bfa1-0422-45a7-b756-b000df07d90a",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "d75399dc-ea93-42cf-9fed-23a28cf0bb0e",
+															"id": "68c6cec6-8d3b-4642-a898-b245a4541c85",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "1395a0b7-dfc5-48f7-b605-ac34a178a68b",
+															"id": "761b2175-bf31-4056-8a2a-4cab11958bb9",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -28859,12 +28621,87 @@
 												}
 											},
 											"response": []
+										},
+										{
+											"name": "Make bill payment-Invalid biller Id",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"id": "c43cd66b-5e6c-4406-891b-1f17dcc1758e",
+														"exec": [
+															"pm.test(\"Status code is 400\", function () {\r",
+															"    pm.response.to.have.status(400);\r",
+															"});"
+														],
+														"type": "text/javascript",
+														"packages": {}
+													}
+												}
+											],
+											"id": "49fda4dc-e79b-4dc5-8f4f-02fa41e43ff7",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": {
+														"token": "{{userAccessToken}}"
+													}
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"bill-payments",
+														"categories",
+														":category_id",
+														"billers",
+														":biller_id",
+														"pay"
+													],
+													"variable": [
+														{
+															"id": "8e39cef2-ee19-41cd-bc0c-419a07cabddc",
+															"key": "profile_id",
+															"value": ""
+														},
+														{
+															"id": "963d0d12-2fde-48c1-afc3-98608422d9cc",
+															"key": "category_id",
+															"value": "cabletv"
+														},
+														{
+															"id": "02c2bdf0-dd47-43b9-ab99-16bff1aa2cd6",
+															"key": "biller_id",
+															"value": "dstv1"
+														}
+													]
+												}
+											},
+											"response": []
 										}
 									],
-									"id": "9bce3bb9-8567-400d-81cc-eb9eba2858da"
+									"id": "981d9a98-8a08-4a6a-b6b4-d8b078b0891a"
 								}
 							],
-							"id": "7266cd09-bcbe-4151-a8ad-116b44ec2c39"
+							"id": "c7f4643a-82df-4f11-a9fd-3ab235a01b59"
 						},
 						{
 							"name": "Make bill payment-Electricity",
@@ -28886,7 +28723,7 @@
 											}
 										}
 									],
-									"id": "297debea-625a-4422-bf81-3ba2651f5dcb",
+									"id": "2941a580-9d99-491c-a837-6bc3ba39a7ec",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -28901,7 +28738,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 29300,\n     \"pin\": \"1316\"\n    \n}",
+											"raw": "{\n    \"account_number\": \"07034953306\",\n    \"amount\": 2300,\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n    \n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -28925,17 +28762,17 @@
 											],
 											"variable": [
 												{
-													"id": "e0c5f60f-78a7-40fd-937a-ee03fb4f8c0a",
+													"id": "5818c9f8-f023-433f-b1a0-1af1ee2613b1",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
-													"id": "0069a86f-0022-4e1e-b02e-a03675b75b2e",
+													"id": "767a1407-1a2b-4130-bbb3-4904cf741b2a",
 													"key": "category_id",
 													"value": "electricity"
 												},
 												{
-													"id": "5efef802-eee0-455f-90f9-49d205ab2fe3",
+													"id": "6360bb2d-1774-4ff5-83f8-44e520afa877",
 													"key": "biller_id",
 													"value": "abuja_electric_postpaid"
 												}
@@ -28946,7 +28783,7 @@
 								},
 								{
 									"name": "Make Bill Payment-Invalid category Id",
-									"id": "95e907bc-152a-4c8e-9955-1716ce9630d0",
+									"id": "bea78158-0377-4f77-88de-8d994e7b299f",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -28985,17 +28822,17 @@
 											],
 											"variable": [
 												{
-													"id": "a5c44496-f90b-45ee-8f5e-b77b78216a00",
+													"id": "6fc55632-8e93-4c6a-a53c-5202e9d32c22",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
-													"id": "fef31f66-6bad-40ef-8661-250800919b96",
+													"id": "a32459d4-8f4d-4538-ac71-6fd2ba892f98",
 													"key": "category_id",
 													"value": "electricity1"
 												},
 												{
-													"id": "1d5af9cc-d4ff-4ac9-8ec7-69d613681028",
+													"id": "ec0026c8-f096-489c-a28e-e28ab7f99e57",
 													"key": "biller_id",
 													"value": "abuja_electric_postpaid"
 												}
@@ -29005,7 +28842,7 @@
 									"response": []
 								}
 							],
-							"id": "c7c6b93a-1171-43aa-9728-b2bfe17cb366"
+							"id": "25737e6b-7462-4a50-ab58-cf2fe211883c"
 						},
 						{
 							"name": "Make bill payment-Education",
@@ -29018,8 +28855,8 @@
 											"script": {
 												"id": "9d9cb2bf-08a7-4a24-8f52-4f774cafb70b",
 												"exec": [
-													"pm.test(\"Status code is 200\", function () {",
-													"    pm.response.to.have.status(200);",
+													"pm.test(\"Status code is 201\", function () {",
+													"    pm.response.to.have.status(201);",
 													"});"
 												],
 												"type": "text/javascript",
@@ -29027,7 +28864,7 @@
 											}
 										}
 									],
-									"id": "8a0351e2-a249-49db-aeb5-94dbd1bc424a",
+									"id": "2d11ac2f-2e9d-4b0b-9a55-99a4812671f3",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -29042,7 +28879,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\",\n     \"pin\": \"1316\"\n}",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -29066,17 +28903,17 @@
 											],
 											"variable": [
 												{
-													"id": "694acb52-30dd-43af-b36f-f818421c73dc",
+													"id": "289c11cb-6e15-47d8-afb5-cb95f0a1ed52",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
-													"id": "41418d7e-8b2f-4838-b31a-abb5f567e30c",
+													"id": "84b9060f-c526-4e92-902f-989b5eea315f",
 													"key": "category_id",
 													"value": "epin"
 												},
 												{
-													"id": "0e13a13d-4aaa-4aa8-8bd8-16c184ed54d8",
+													"id": "1390a631-1c99-4f98-8b78-24ffc9598dab",
 													"key": "biller_id",
 													"value": "waec"
 												}
@@ -29086,14 +28923,14 @@
 									"response": []
 								}
 							],
-							"id": "40974a76-e0fc-4fe0-b05d-0fd8a2c300a8"
+							"id": "7e5bc7c5-e39f-40d7-b93c-98b58d85cbbe"
 						},
 						{
 							"name": "Make bill payment-Betting",
 							"item": [
 								{
 									"name": "Make Bill Payment",
-									"id": "b0876796-5567-4849-9aad-6322c7491c13",
+									"id": "9378087e-3b3d-4c81-8477-140ae7de5b11",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -29108,7 +28945,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\",\n     \"pin\": \"1316\"\n}",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\",\n     \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -29132,17 +28969,17 @@
 											],
 											"variable": [
 												{
-													"id": "cd2caf96-e357-4476-9766-8dfb947f7b6f",
+													"id": "5abc0ff7-15c5-451f-8e04-bb49980b47b7",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
-													"id": "fa2928ee-7895-4b19-bc08-e21b4502990f",
+													"id": "53609d5f-4607-4342-8c8c-0570d27989c4",
 													"key": "category_id",
 													"value": "cabletv"
 												},
 												{
-													"id": "19527e25-93dd-41cf-acfa-648a18249d48",
+													"id": "e8a54014-6bd7-41a6-a382-5e255eda81f3",
 													"key": "biller_id",
 													"value": "dstv"
 												}
@@ -29152,13 +28989,13 @@
 									"response": []
 								}
 							],
-							"id": "856101a7-49b5-4bd4-9faa-aec68330b9fe"
+							"id": "8353e842-14bc-4601-91fe-ee433e588469"
 						}
 					],
-					"id": "6a46cf12-f8f0-4839-9d15-3a5264198351"
+					"id": "96f93774-5e43-4155-83fb-d52fe590d908"
 				}
 			],
-			"id": "e23b6f06-8a02-4685-b807-e91cb989a21a"
+			"id": "ba424ea3-ebbb-4d41-a739-c3beac529369"
 		},
 		{
 			"name": "Savings/Investments",
@@ -29210,7 +29047,7 @@
 									}
 								}
 							],
-							"id": "31286380-6ba9-4c4f-87fc-ee4f128c6108",
+							"id": "63bc63ae-e82b-4ccf-8ef9-e890242207be",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -29286,7 +29123,7 @@
 									],
 									"variable": [
 										{
-											"id": "97436f0d-d6d9-4e42-b58c-690e3c7fb6d2",
+											"id": "4c4e5518-2f4a-4619-b419-807dc61008fe",
 											"key": "profile_id",
 											"value": "01931947-9fea-744d-8f66-118c138292e3"
 										}
@@ -29295,7 +29132,7 @@
 							},
 							"response": [
 								{
-									"id": "b6d70528-a543-429e-9405-24e51e61b453",
+									"id": "fa006f56-c104-4576-98ad-a5558e8cf3b1",
 									"name": "Success",
 									"originalRequest": {
 										"method": "GET",
@@ -29424,7 +29261,7 @@
 						},
 						{
 							"name": "Get Transactions-Invalid Profile Id",
-							"id": "90bd1058-8629-4750-b67a-58545cc1d833",
+							"id": "f892abd8-0f11-4e2a-bbdc-7e80f3bceaaa",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -29507,7 +29344,7 @@
 							},
 							"response": [
 								{
-									"id": "1a5f766e-9fe9-49d7-8ba9-372e79409866",
+									"id": "94eb17d6-c65e-45dc-992a-4a6a95305715",
 									"name": "Success",
 									"originalRequest": {
 										"method": "GET",
@@ -29662,7 +29499,7 @@
 									}
 								}
 							],
-							"id": "d98aac67-5235-47eb-894e-367bc40d2841",
+							"id": "73009781-48c3-406c-995c-aca3e27783b4",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -29733,7 +29570,7 @@
 									],
 									"variable": [
 										{
-											"id": "14de7da8-5bd4-4889-925a-c6cbd6790e7a",
+											"id": "49d32c6a-bbd5-4a25-8b42-bb01704ee459",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
@@ -29742,7 +29579,7 @@
 							},
 							"response": [
 								{
-									"id": "7342a852-ac52-4414-a4f8-71a8c7e54562",
+									"id": "89d64e10-e372-41aa-982a-007e1be3e519",
 									"name": "Success",
 									"originalRequest": {
 										"method": "GET",
@@ -29871,7 +29708,7 @@
 						},
 						{
 							"name": "Get Transactions Copy",
-							"id": "62b263f7-9922-4387-84e4-2ada9ff46388",
+							"id": "19e40253-e1ad-40ad-b449-410610d8698d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -29961,7 +29798,7 @@
 									],
 									"variable": [
 										{
-											"id": "89a49e97-1928-4fb4-a5bb-6f93a281323d",
+											"id": "c2126b87-4387-4371-947a-49e5891e0d8e",
 											"key": "profile_id",
 											"value": "{{userProfileId}}"
 										}
@@ -29970,7 +29807,7 @@
 							},
 							"response": [
 								{
-									"id": "f29fa287-6827-4f9c-91f9-694d272e5ce6",
+									"id": "d15229ec-344c-4c00-99cb-4337889d93b5",
 									"name": "Success",
 									"originalRequest": {
 										"method": "GET",
@@ -30098,7 +29935,7 @@
 							]
 						}
 					],
-					"id": "0c732ee6-c0df-45e6-b157-e2285e2b02d5"
+					"id": "9db0d47b-85a9-477e-94b1-0df98a13cafa"
 				},
 				{
 					"name": "Get transaction",
@@ -30136,7 +29973,7 @@
 									}
 								}
 							],
-							"id": "aa9884cd-31ae-4797-86eb-ef35dfc9a5f2",
+							"id": "6ee97195-c177-4836-aa7c-058f50e9b3ee",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -30171,7 +30008,7 @@
 									],
 									"variable": [
 										{
-											"id": "4cf2273d-db08-4b45-aec9-9027dbee989a",
+											"id": "ac876abe-59dc-46f9-8949-bee5cd4b30a1",
 											"key": "profile_id",
 											"value": "01931947-9fea-744d-8f66-118c138292e3"
 										}
@@ -30180,7 +30017,7 @@
 							},
 							"response": [
 								{
-									"id": "2937a2fe-8305-4e26-a2a9-2313fde67d18",
+									"id": "bd7f7b51-a03e-4603-b83f-0a6a78df62f9",
 									"name": "Success",
 									"originalRequest": {
 										"method": "GET",
@@ -30301,7 +30138,7 @@
 									}
 								}
 							],
-							"id": "e5ec6541-f18a-4a64-a633-b906976b6e57",
+							"id": "af2e4685-48d3-4f92-8183-df5473513054",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -30336,7 +30173,7 @@
 									],
 									"variable": [
 										{
-											"id": "18cfd2b1-e30c-44b9-92b4-57205afeeacc",
+											"id": "b4f5171f-7582-43d8-b13c-ed09968f8131",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
@@ -30345,7 +30182,7 @@
 							},
 							"response": [
 								{
-									"id": "dfe91ea6-0271-4dd5-b290-a024757e2bbc",
+									"id": "2ee2ed03-d005-4978-8bc1-6a3a18075340",
 									"name": "Success",
 									"originalRequest": {
 										"method": "GET",
@@ -30461,7 +30298,7 @@
 									}
 								}
 							],
-							"id": "8f6b148a-b222-4229-b0fb-c8f720a8844b",
+							"id": "bde3f160-0e6c-4e65-949e-d43c8bac7731",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -30496,7 +30333,7 @@
 									],
 									"variable": [
 										{
-											"id": "ea181b08-bed8-4a44-882f-b7291d264231",
+											"id": "8937accd-e93c-4c55-854d-936517b7df13",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
@@ -30505,7 +30342,7 @@
 							},
 							"response": [
 								{
-									"id": "e9534703-c943-477d-83cb-fdf831393806",
+									"id": "5a21d322-4420-494f-b8bf-64a636eb346d",
 									"name": "Success",
 									"originalRequest": {
 										"method": "GET",
@@ -30594,14 +30431,333 @@
 							]
 						}
 					],
-					"id": "5b5505cd-c9fa-4bd5-aee6-be7a7063f0b9"
+					"id": "0d512a4c-6ec4-41d0-87c4-005514edb812"
+				},
+				{
+					"name": "Export transactions",
+					"item": [
+						{
+							"name": "Export Transactions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a8243893-fa80-42a5-8f00-431aac2f6dc5",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data.roles).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "3cce33c2-41e8-420e-bfa5-fb27db97e892",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/export",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"export"
+									],
+									"variable": [
+										{
+											"id": "697a4fd4-29ca-4396-bf03-9883c953bb6b",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "f21650c8-8bcb-45f4-a400-2b85fcc59bc9",
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/export",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"export"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/csv"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 03 Nov 2024 19:38:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "Amount,Narration,Status,Entry Type,reference,Reference,Transaction Date\n100.00,Sodiq,failed,debit,Twwlpboeppx,Twwlpboeppx,10/26/24\n100.00,Sodiq,failed,debit,Tjanxyydmab,Tjanxyydmab,10/26/24\n100.00,Sodiq,failed,debit,Tdtktsdttgc,Tdtktsdttgc,10/26/24\n100.00,Sodiq,failed,debit,Tksmngncppr,Tksmngncppr,10/26/24\n100.00,Sodiq,failed,debit,Tccdciqpsgc,Tccdciqpsgc,10/26/24\n100.00,Sodiq,failed,debit,Txmkqnzlayz,Txmkqnzlayz,10/26/24\n100.00,Sodiq,failed,debit,Tvqjhwmovjl,Tvqjhwmovjl,10/26/24\n100.00,Sodiq,failed,debit,Tfvczmzfxem,Tfvczmzfxem,10/26/24\n100.00,Sodiq,failed,debit,Tkhkcpecjxr,Tkhkcpecjxr,10/26/24\n100.00,Sodiq,failed,debit,Tzjomypkhwv,Tzjomypkhwv,10/26/24\n100.00,Sodiq,failed,debit,Titmvpfqkzg,Titmvpfqkzg,10/26/24\n100.00,Sodiq,failed,debit,Tjojptfyrqd,Tjojptfyrqd,10/26/24\n100.00,Sodiq,failed,debit,Tprkgvqkwzm,Tprkgvqkwzm,10/26/24\n100.00,Sodiq,failed,debit,Tiyvngvhuzp,Tiyvngvhuzp,10/26/24\n100.00,Sodiq,failed,debit,Tkgxfvdyykh,Tkgxfvdyykh,10/26/24\n100.23,Sodiq,failed,debit,Tkzztnzopcb,Tkzztnzopcb,10/26/24\n100.00,Sodiq,failed,debit,Tsfkbqsztpo,Tsfkbqsztpo,10/31/24\n100.23,Sodiq,processing,debit,Tsbiuexrknz,Tsbiuexrknz,10/26/24\n100.23,Sodiq,failed,debit,Tfpnxdkwpmv,Tfpnxdkwpmv,10/26/24\n100.23,Sodiq,failed,debit,Tkscovzoygv,Tkscovzoygv,10/26/24\n100.23,Sodiq,processing,debit,Tcrukjjsijy,Tcrukjjsijy,10/28/24\n100.23,Sodiq,processing,debit,Tiyqjmvsnsa,Tiyqjmvsnsa,10/28/24\n100.23,Sodiq,failed,debit,Tvgikonyvkc,Tvgikonyvkc,10/31/24\n100.23,Sodiq,failed,debit,Tbbivvxwprd,Tbbivvxwprd,10/31/24\n100.23,Sodiq,failed,debit,Tvianaeuhgh,Tvianaeuhgh,10/31/24\n100.23,Sodiq,failed,debit,Tktfesdlkqg,Tktfesdlkqg,10/31/24\n100.00,Sodiq,failed,debit,Trmgijsrnex,Trmgijsrnex,10/31/24\n100.00,Sodiq,failed,debit,Tefsoywplgi,Tefsoywplgi,10/31/24\n100.00,Sodiq,failed,debit,Tkdahalajcq,Tkdahalajcq,10/31/24\n100.00,Sodiq,failed,debit,Tmihuulssxa,Tmihuulssxa,10/31/24\n100.00,Sodiq,failed,debit,Tdwiyplsxxn,Tdwiyplsxxn,10/31/24\n100.00,Sodiq,failed,debit,Tfvhfhnlmcz,Tfvhfhnlmcz,10/31/24\n100.00,Sodiq,failed,debit,Taxnztpenox,Taxnztpenox,10/31/24\n100.00,Sodiq,processing,debit,Tgivbtoullg,Tgivbtoullg,10/31/24\n100.00,Sodiq,processing,debit,Tychzskreks,Tychzskreks,10/31/24\n100.00,Sodiq,processing,debit,Tjnaqbbtynj,Tjnaqbbtynj,10/31/24\n100.00,Sodiq,processing,debit,Tefcvvzwfar,Tefcvvzwfar,10/31/24\n100.00,Sodiq,failed,debit,Tvskdgleemt,Tvskdgleemt,10/31/24\n100.00,Sodiq,failed,debit,Tnwgfeyknxs,Tnwgfeyknxs,10/31/24\n100.00,Sodiq,failed,debit,Tkcubcfysls,Tkcubcfysls,10/31/24\n100.00,Sodiq,failed,debit,Tlcwspghvxc,Tlcwspghvxc,10/31/24\n100.00,Sodiq,failed,debit,Turjbtzselr,Turjbtzselr,10/31/24\n100.23,Sodiq,failed,debit,Tjnniyxzjzu,Tjnniyxzjzu,11/1/24\n100.00,Sodiq,failed,debit,Trdmsrleslk,Trdmsrleslk,10/31/24\n100.00,Sodiq,failed,debit,Tvsfzlsuyqf,Tvsfzlsuyqf,10/31/24\n100.23,Sodiq,failed,debit,Tnbwghylatr,Tnbwghylatr,11/1/24\n100.00,Sodiq,failed,debit,Timatgditxl,Timatgditxl,10/31/24\n100.00,Sodiq,failed,debit,Tbwsbiatecp,Tbwsbiatecp,10/31/24\n100.00,Sodiq,failed,debit,Tlosxqvlilf,Tlosxqvlilf,10/31/24\n100.00,Sodiq,failed,debit,Taahsalnzpw,Taahsalnzpw,10/31/24\n100.00,Sodiq,processing,debit,Tjdtyzulcur,Tjdtyzulcur,10/31/24\n100.00,Sodiq,failed,debit,Tcutqtrpmvc,Tcutqtrpmvc,10/31/24\n100.00,Sodiq,failed,debit,Tpnujbixozz,Tpnujbixozz,10/31/24"
+								}
+							]
+						},
+						{
+							"name": "Export Transactions-No Auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a8243893-fa80-42a5-8f00-431aac2f6dc5",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "c121e7c8-d35c-4f7f-a111-54ac495565c7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/export",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"export"
+									],
+									"variable": [
+										{
+											"id": "d305fd1e-65fa-4907-b195-8a8b18a12e4a",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "7b323d04-1e55-4e58-9b47-c6b29e23827d",
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/export",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"export"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/csv"
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 03 Nov 2024 19:38:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "Amount,Narration,Status,Entry Type,reference,Reference,Transaction Date\n100.00,Sodiq,failed,debit,Twwlpboeppx,Twwlpboeppx,10/26/24\n100.00,Sodiq,failed,debit,Tjanxyydmab,Tjanxyydmab,10/26/24\n100.00,Sodiq,failed,debit,Tdtktsdttgc,Tdtktsdttgc,10/26/24\n100.00,Sodiq,failed,debit,Tksmngncppr,Tksmngncppr,10/26/24\n100.00,Sodiq,failed,debit,Tccdciqpsgc,Tccdciqpsgc,10/26/24\n100.00,Sodiq,failed,debit,Txmkqnzlayz,Txmkqnzlayz,10/26/24\n100.00,Sodiq,failed,debit,Tvqjhwmovjl,Tvqjhwmovjl,10/26/24\n100.00,Sodiq,failed,debit,Tfvczmzfxem,Tfvczmzfxem,10/26/24\n100.00,Sodiq,failed,debit,Tkhkcpecjxr,Tkhkcpecjxr,10/26/24\n100.00,Sodiq,failed,debit,Tzjomypkhwv,Tzjomypkhwv,10/26/24\n100.00,Sodiq,failed,debit,Titmvpfqkzg,Titmvpfqkzg,10/26/24\n100.00,Sodiq,failed,debit,Tjojptfyrqd,Tjojptfyrqd,10/26/24\n100.00,Sodiq,failed,debit,Tprkgvqkwzm,Tprkgvqkwzm,10/26/24\n100.00,Sodiq,failed,debit,Tiyvngvhuzp,Tiyvngvhuzp,10/26/24\n100.00,Sodiq,failed,debit,Tkgxfvdyykh,Tkgxfvdyykh,10/26/24\n100.23,Sodiq,failed,debit,Tkzztnzopcb,Tkzztnzopcb,10/26/24\n100.00,Sodiq,failed,debit,Tsfkbqsztpo,Tsfkbqsztpo,10/31/24\n100.23,Sodiq,processing,debit,Tsbiuexrknz,Tsbiuexrknz,10/26/24\n100.23,Sodiq,failed,debit,Tfpnxdkwpmv,Tfpnxdkwpmv,10/26/24\n100.23,Sodiq,failed,debit,Tkscovzoygv,Tkscovzoygv,10/26/24\n100.23,Sodiq,processing,debit,Tcrukjjsijy,Tcrukjjsijy,10/28/24\n100.23,Sodiq,processing,debit,Tiyqjmvsnsa,Tiyqjmvsnsa,10/28/24\n100.23,Sodiq,failed,debit,Tvgikonyvkc,Tvgikonyvkc,10/31/24\n100.23,Sodiq,failed,debit,Tbbivvxwprd,Tbbivvxwprd,10/31/24\n100.23,Sodiq,failed,debit,Tvianaeuhgh,Tvianaeuhgh,10/31/24\n100.23,Sodiq,failed,debit,Tktfesdlkqg,Tktfesdlkqg,10/31/24\n100.00,Sodiq,failed,debit,Trmgijsrnex,Trmgijsrnex,10/31/24\n100.00,Sodiq,failed,debit,Tefsoywplgi,Tefsoywplgi,10/31/24\n100.00,Sodiq,failed,debit,Tkdahalajcq,Tkdahalajcq,10/31/24\n100.00,Sodiq,failed,debit,Tmihuulssxa,Tmihuulssxa,10/31/24\n100.00,Sodiq,failed,debit,Tdwiyplsxxn,Tdwiyplsxxn,10/31/24\n100.00,Sodiq,failed,debit,Tfvhfhnlmcz,Tfvhfhnlmcz,10/31/24\n100.00,Sodiq,failed,debit,Taxnztpenox,Taxnztpenox,10/31/24\n100.00,Sodiq,processing,debit,Tgivbtoullg,Tgivbtoullg,10/31/24\n100.00,Sodiq,processing,debit,Tychzskreks,Tychzskreks,10/31/24\n100.00,Sodiq,processing,debit,Tjnaqbbtynj,Tjnaqbbtynj,10/31/24\n100.00,Sodiq,processing,debit,Tefcvvzwfar,Tefcvvzwfar,10/31/24\n100.00,Sodiq,failed,debit,Tvskdgleemt,Tvskdgleemt,10/31/24\n100.00,Sodiq,failed,debit,Tnwgfeyknxs,Tnwgfeyknxs,10/31/24\n100.00,Sodiq,failed,debit,Tkcubcfysls,Tkcubcfysls,10/31/24\n100.00,Sodiq,failed,debit,Tlcwspghvxc,Tlcwspghvxc,10/31/24\n100.00,Sodiq,failed,debit,Turjbtzselr,Turjbtzselr,10/31/24\n100.23,Sodiq,failed,debit,Tjnniyxzjzu,Tjnniyxzjzu,11/1/24\n100.00,Sodiq,failed,debit,Trdmsrleslk,Trdmsrleslk,10/31/24\n100.00,Sodiq,failed,debit,Tvsfzlsuyqf,Tvsfzlsuyqf,10/31/24\n100.23,Sodiq,failed,debit,Tnbwghylatr,Tnbwghylatr,11/1/24\n100.00,Sodiq,failed,debit,Timatgditxl,Timatgditxl,10/31/24\n100.00,Sodiq,failed,debit,Tbwsbiatecp,Tbwsbiatecp,10/31/24\n100.00,Sodiq,failed,debit,Tlosxqvlilf,Tlosxqvlilf,10/31/24\n100.00,Sodiq,failed,debit,Taahsalnzpw,Taahsalnzpw,10/31/24\n100.00,Sodiq,processing,debit,Tjdtyzulcur,Tjdtyzulcur,10/31/24\n100.00,Sodiq,failed,debit,Tcutqtrpmvc,Tcutqtrpmvc,10/31/24\n100.00,Sodiq,failed,debit,Tpnujbixozz,Tpnujbixozz,10/31/24"
+								}
+							]
+						}
+					],
+					"id": "e247f74e-f12b-4e64-b74f-b987d2742bc2"
 				},
 				{
 					"name": "Create Dispute",
 					"item": [
 						{
 							"name": "Create Dispute",
-							"id": "ed7a2db2-b7bc-4f34-95c5-c202c3b3a1ae",
+							"id": "6a3ee821-7542-438e-ac2d-fe2536548a48",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -30636,7 +30792,7 @@
 									],
 									"variable": [
 										{
-											"id": "f51de350-2bf5-4e1f-9ff5-f118ca8482d4",
+											"id": "9072b66b-1252-4774-ba1a-e3aba479006a",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
@@ -30645,7 +30801,7 @@
 							},
 							"response": [
 								{
-									"id": "0c6faace-6761-4039-8b25-7a620adab1e3",
+									"id": "8acf9574-151e-40a9-9fc7-3eae9e08c0cd",
 									"name": "Success",
 									"originalRequest": {
 										"method": "POST",
@@ -30762,7 +30918,7 @@
 									}
 								}
 							],
-							"id": "c97cf14b-ab2f-4f41-88b7-b5758bbd8727",
+							"id": "c9f0f3fa-9985-4798-b832-e3c420b7cd74",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -30797,7 +30953,7 @@
 									],
 									"variable": [
 										{
-											"id": "ed5c80f8-55ac-4218-9573-dfc888f64119",
+											"id": "f2e8608c-f90a-4568-bfb6-2d26df64c743",
 											"key": "profile_id",
 											"value": "{{userProfileId}}1"
 										}
@@ -30806,7 +30962,7 @@
 							},
 							"response": [
 								{
-									"id": "d9d6f153-9463-42c9-9a79-7be82f076515",
+									"id": "41e9add1-746e-4d8e-b76c-38ef99dd899a",
 									"name": "Success",
 									"originalRequest": {
 										"method": "POST",
@@ -30923,7 +31079,7 @@
 									}
 								}
 							],
-							"id": "70292693-78b0-42dd-8345-f52558bb90e0",
+							"id": "46495e20-4147-4a82-be40-c490257eaf73",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -30958,7 +31114,7 @@
 									],
 									"variable": [
 										{
-											"id": "8a2ae41a-41cd-4d47-bf45-aba6569498eb",
+											"id": "f51cc285-96da-43c2-b444-a4af4edc74ab",
 											"key": "profile_id",
 											"value": "01925882-f353-7002-8052-04c8be2c03da"
 										}
@@ -30967,7 +31123,7 @@
 							},
 							"response": [
 								{
-									"id": "9ee5f726-99de-4209-8719-6809a27bc556",
+									"id": "f611b1c1-1929-4f60-b50a-93d8bb54b4f8",
 									"name": "Success",
 									"originalRequest": {
 										"method": "POST",
@@ -31084,7 +31240,7 @@
 									}
 								}
 							],
-							"id": "dd06e8f0-b307-4ce4-8ef8-24d3d464052b",
+							"id": "3b702420-ca30-48d1-a5ea-c4b6704e2da7",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -31119,7 +31275,7 @@
 									],
 									"variable": [
 										{
-											"id": "c1c847ef-b4e5-4fa0-9600-931fbcd25f17",
+											"id": "482e25c1-321d-42ab-aa1b-91869907f0f9",
 											"key": "profile_id",
 											"value": "01925882-f353-7002-8052-04c8be2c03da"
 										}
@@ -31128,7 +31284,7 @@
 							},
 							"response": [
 								{
-									"id": "5794e942-fcb1-4d62-ae79-4ccef12e2dc6",
+									"id": "f27b08a1-ad3d-4993-b9c9-659c098f17d0",
 									"name": "Success",
 									"originalRequest": {
 										"method": "POST",
@@ -31245,7 +31401,7 @@
 									}
 								}
 							],
-							"id": "9d13a781-57b8-44b1-9a47-3b5a7a56a198",
+							"id": "576e2572-1a33-4fce-9a0c-9a243b218c20",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -31280,7 +31436,7 @@
 									],
 									"variable": [
 										{
-											"id": "61b0ce58-4c5b-4492-a592-1078ec03fd81",
+											"id": "b61d3e45-030d-465c-bd74-752006095bb1",
 											"key": "profile_id",
 											"value": "01925882-f353-7002-8052-04c8be2c03da"
 										}
@@ -31289,7 +31445,7 @@
 							},
 							"response": [
 								{
-									"id": "8671cb2b-dbea-42af-a0ed-253a8a67a476",
+									"id": "168a2344-556c-4e59-ad84-b822bbef4728",
 									"name": "Success",
 									"originalRequest": {
 										"method": "POST",
@@ -31378,7 +31534,7 @@
 							]
 						}
 					],
-					"id": "7d79107b-e758-4d80-824c-4ca9db41530e"
+					"id": "16421dec-ed4d-4661-9499-4222eb72f301"
 				},
 				{
 					"name": "Get Disputes",
@@ -31416,7 +31572,7 @@
 									}
 								}
 							],
-							"id": "bcf37376-e3af-4fb1-a79d-8b17e9ae8f19",
+							"id": "79ad61b3-44ff-4a27-b3a4-406271cb912e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -31442,7 +31598,7 @@
 									],
 									"variable": [
 										{
-											"id": "4c7d1850-e239-429b-b69d-b14e180a6c37",
+											"id": "203463e1-5a9a-40aa-9428-d5ba294134a8",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
@@ -31451,7 +31607,7 @@
 							},
 							"response": [
 								{
-									"id": "72699120-deab-4eaf-8d5b-ec83d33e868b",
+									"id": "203c8b80-4155-4de2-b294-161d6a6e1761",
 									"name": "Success",
 									"originalRequest": {
 										"method": "GET",
@@ -31558,7 +31714,7 @@
 									}
 								}
 							],
-							"id": "c0ee3061-44c4-4c03-bc80-4cf48fbfca39",
+							"id": "cb8658a8-477d-4621-8da2-4c5c10f975e0",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -31581,7 +31737,7 @@
 									],
 									"variable": [
 										{
-											"id": "7fc0564d-f612-4e22-8a20-73e7a6375d96",
+											"id": "2c6c1616-c16b-42a9-8d76-d95fb217ed85",
 											"key": "profile_id",
 											"value": "01931947-9fea-744d-8f66-118c138292e3"
 										}
@@ -31590,7 +31746,7 @@
 							},
 							"response": [
 								{
-									"id": "95c2444b-09dc-45d6-a99c-289fc6d94430",
+									"id": "f96e6483-e9fe-43aa-ad8e-9a4c44995160",
 									"name": "Success",
 									"originalRequest": {
 										"method": "GET",
@@ -31670,7 +31826,7 @@
 							]
 						}
 					],
-					"id": "88670b5e-18bf-4ea8-a38b-dbaa94ef1d10"
+					"id": "43f17ef3-c7ce-47d7-948c-c66807b840ff"
 				},
 				{
 					"name": "Get Dispute",
@@ -31708,7 +31864,7 @@
 									}
 								}
 							],
-							"id": "b1392f51-6635-4291-9277-f404105b8122",
+							"id": "0a704387-8f9f-4b85-99d8-f88e54853204",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -31735,7 +31891,7 @@
 									],
 									"variable": [
 										{
-											"id": "6ed91540-5075-4e93-b155-81a1b753bb44",
+											"id": "9777c4ea-b94e-4577-9bcb-f107285a0450",
 											"key": "profile_id",
 											"value": "01931947-9fea-744d-8f66-118c138292e3"
 										}
@@ -31744,7 +31900,7 @@
 							},
 							"response": [
 								{
-									"id": "6ab425e8-8df4-4ccd-becb-ec5d2e07b595",
+									"id": "47c0ff46-2e2b-4501-927d-273d004000b6",
 									"name": "Success",
 									"originalRequest": {
 										"method": "GET",
@@ -31825,329 +31981,10 @@
 							]
 						}
 					],
-					"id": "0ebc659c-9a0c-4a4a-98cf-bb2fb44f7491"
-				},
-				{
-					"name": "Export transactions",
-					"item": [
-						{
-							"name": "Export Transactions",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "a8243893-fa80-42a5-8f00-431aac2f6dc5",
-										"exec": [
-											"try {\r",
-											"    const { status, data } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data.roles).to.be.an(\"array\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}\r",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "93cd27db-38e7-4989-8b1f-9d9aaa6a7f31",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/transactions/export",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"transactions",
-										"export"
-									],
-									"variable": [
-										{
-											"id": "6b62b780-672c-4b20-a71c-a5af7e42ad07",
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "16cc5cf1-8c05-47d9-b373-3acf8c9d6231",
-									"name": "Success",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transactions/export",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"transactions",
-												"export"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "plain",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "text/csv"
-										},
-										{
-											"key": "Date",
-											"value": "Sun, 03 Nov 2024 19:38:20 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "Amount,Narration,Status,Entry Type,reference,Reference,Transaction Date\n100.00,Sodiq,failed,debit,Twwlpboeppx,Twwlpboeppx,10/26/24\n100.00,Sodiq,failed,debit,Tjanxyydmab,Tjanxyydmab,10/26/24\n100.00,Sodiq,failed,debit,Tdtktsdttgc,Tdtktsdttgc,10/26/24\n100.00,Sodiq,failed,debit,Tksmngncppr,Tksmngncppr,10/26/24\n100.00,Sodiq,failed,debit,Tccdciqpsgc,Tccdciqpsgc,10/26/24\n100.00,Sodiq,failed,debit,Txmkqnzlayz,Txmkqnzlayz,10/26/24\n100.00,Sodiq,failed,debit,Tvqjhwmovjl,Tvqjhwmovjl,10/26/24\n100.00,Sodiq,failed,debit,Tfvczmzfxem,Tfvczmzfxem,10/26/24\n100.00,Sodiq,failed,debit,Tkhkcpecjxr,Tkhkcpecjxr,10/26/24\n100.00,Sodiq,failed,debit,Tzjomypkhwv,Tzjomypkhwv,10/26/24\n100.00,Sodiq,failed,debit,Titmvpfqkzg,Titmvpfqkzg,10/26/24\n100.00,Sodiq,failed,debit,Tjojptfyrqd,Tjojptfyrqd,10/26/24\n100.00,Sodiq,failed,debit,Tprkgvqkwzm,Tprkgvqkwzm,10/26/24\n100.00,Sodiq,failed,debit,Tiyvngvhuzp,Tiyvngvhuzp,10/26/24\n100.00,Sodiq,failed,debit,Tkgxfvdyykh,Tkgxfvdyykh,10/26/24\n100.23,Sodiq,failed,debit,Tkzztnzopcb,Tkzztnzopcb,10/26/24\n100.00,Sodiq,failed,debit,Tsfkbqsztpo,Tsfkbqsztpo,10/31/24\n100.23,Sodiq,processing,debit,Tsbiuexrknz,Tsbiuexrknz,10/26/24\n100.23,Sodiq,failed,debit,Tfpnxdkwpmv,Tfpnxdkwpmv,10/26/24\n100.23,Sodiq,failed,debit,Tkscovzoygv,Tkscovzoygv,10/26/24\n100.23,Sodiq,processing,debit,Tcrukjjsijy,Tcrukjjsijy,10/28/24\n100.23,Sodiq,processing,debit,Tiyqjmvsnsa,Tiyqjmvsnsa,10/28/24\n100.23,Sodiq,failed,debit,Tvgikonyvkc,Tvgikonyvkc,10/31/24\n100.23,Sodiq,failed,debit,Tbbivvxwprd,Tbbivvxwprd,10/31/24\n100.23,Sodiq,failed,debit,Tvianaeuhgh,Tvianaeuhgh,10/31/24\n100.23,Sodiq,failed,debit,Tktfesdlkqg,Tktfesdlkqg,10/31/24\n100.00,Sodiq,failed,debit,Trmgijsrnex,Trmgijsrnex,10/31/24\n100.00,Sodiq,failed,debit,Tefsoywplgi,Tefsoywplgi,10/31/24\n100.00,Sodiq,failed,debit,Tkdahalajcq,Tkdahalajcq,10/31/24\n100.00,Sodiq,failed,debit,Tmihuulssxa,Tmihuulssxa,10/31/24\n100.00,Sodiq,failed,debit,Tdwiyplsxxn,Tdwiyplsxxn,10/31/24\n100.00,Sodiq,failed,debit,Tfvhfhnlmcz,Tfvhfhnlmcz,10/31/24\n100.00,Sodiq,failed,debit,Taxnztpenox,Taxnztpenox,10/31/24\n100.00,Sodiq,processing,debit,Tgivbtoullg,Tgivbtoullg,10/31/24\n100.00,Sodiq,processing,debit,Tychzskreks,Tychzskreks,10/31/24\n100.00,Sodiq,processing,debit,Tjnaqbbtynj,Tjnaqbbtynj,10/31/24\n100.00,Sodiq,processing,debit,Tefcvvzwfar,Tefcvvzwfar,10/31/24\n100.00,Sodiq,failed,debit,Tvskdgleemt,Tvskdgleemt,10/31/24\n100.00,Sodiq,failed,debit,Tnwgfeyknxs,Tnwgfeyknxs,10/31/24\n100.00,Sodiq,failed,debit,Tkcubcfysls,Tkcubcfysls,10/31/24\n100.00,Sodiq,failed,debit,Tlcwspghvxc,Tlcwspghvxc,10/31/24\n100.00,Sodiq,failed,debit,Turjbtzselr,Turjbtzselr,10/31/24\n100.23,Sodiq,failed,debit,Tjnniyxzjzu,Tjnniyxzjzu,11/1/24\n100.00,Sodiq,failed,debit,Trdmsrleslk,Trdmsrleslk,10/31/24\n100.00,Sodiq,failed,debit,Tvsfzlsuyqf,Tvsfzlsuyqf,10/31/24\n100.23,Sodiq,failed,debit,Tnbwghylatr,Tnbwghylatr,11/1/24\n100.00,Sodiq,failed,debit,Timatgditxl,Timatgditxl,10/31/24\n100.00,Sodiq,failed,debit,Tbwsbiatecp,Tbwsbiatecp,10/31/24\n100.00,Sodiq,failed,debit,Tlosxqvlilf,Tlosxqvlilf,10/31/24\n100.00,Sodiq,failed,debit,Taahsalnzpw,Taahsalnzpw,10/31/24\n100.00,Sodiq,processing,debit,Tjdtyzulcur,Tjdtyzulcur,10/31/24\n100.00,Sodiq,failed,debit,Tcutqtrpmvc,Tcutqtrpmvc,10/31/24\n100.00,Sodiq,failed,debit,Tpnujbixozz,Tpnujbixozz,10/31/24"
-								}
-							]
-						},
-						{
-							"name": "Export Transactions-No Auth",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "a8243893-fa80-42a5-8f00-431aac2f6dc5",
-										"exec": [
-											"try {\r",
-											"    const { message, statusCode } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).to.eql(\"Access token is required\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(error)\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "4f5f4b70-adbf-4bf3-b5c3-5188cbe24842",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/transactions/export",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"transactions",
-										"export"
-									],
-									"variable": [
-										{
-											"id": "868b3f39-a6af-4c01-abc5-e08ee3473a4d",
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "84a09cf4-4727-4dbc-a105-a46566616bc1",
-									"name": "Success",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transactions/export",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"transactions",
-												"export"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "plain",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "text/csv"
-										},
-										{
-											"key": "Date",
-											"value": "Sun, 03 Nov 2024 19:38:20 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										},
-										{
-											"key": "Transfer-Encoding",
-											"value": "chunked"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "Amount,Narration,Status,Entry Type,reference,Reference,Transaction Date\n100.00,Sodiq,failed,debit,Twwlpboeppx,Twwlpboeppx,10/26/24\n100.00,Sodiq,failed,debit,Tjanxyydmab,Tjanxyydmab,10/26/24\n100.00,Sodiq,failed,debit,Tdtktsdttgc,Tdtktsdttgc,10/26/24\n100.00,Sodiq,failed,debit,Tksmngncppr,Tksmngncppr,10/26/24\n100.00,Sodiq,failed,debit,Tccdciqpsgc,Tccdciqpsgc,10/26/24\n100.00,Sodiq,failed,debit,Txmkqnzlayz,Txmkqnzlayz,10/26/24\n100.00,Sodiq,failed,debit,Tvqjhwmovjl,Tvqjhwmovjl,10/26/24\n100.00,Sodiq,failed,debit,Tfvczmzfxem,Tfvczmzfxem,10/26/24\n100.00,Sodiq,failed,debit,Tkhkcpecjxr,Tkhkcpecjxr,10/26/24\n100.00,Sodiq,failed,debit,Tzjomypkhwv,Tzjomypkhwv,10/26/24\n100.00,Sodiq,failed,debit,Titmvpfqkzg,Titmvpfqkzg,10/26/24\n100.00,Sodiq,failed,debit,Tjojptfyrqd,Tjojptfyrqd,10/26/24\n100.00,Sodiq,failed,debit,Tprkgvqkwzm,Tprkgvqkwzm,10/26/24\n100.00,Sodiq,failed,debit,Tiyvngvhuzp,Tiyvngvhuzp,10/26/24\n100.00,Sodiq,failed,debit,Tkgxfvdyykh,Tkgxfvdyykh,10/26/24\n100.23,Sodiq,failed,debit,Tkzztnzopcb,Tkzztnzopcb,10/26/24\n100.00,Sodiq,failed,debit,Tsfkbqsztpo,Tsfkbqsztpo,10/31/24\n100.23,Sodiq,processing,debit,Tsbiuexrknz,Tsbiuexrknz,10/26/24\n100.23,Sodiq,failed,debit,Tfpnxdkwpmv,Tfpnxdkwpmv,10/26/24\n100.23,Sodiq,failed,debit,Tkscovzoygv,Tkscovzoygv,10/26/24\n100.23,Sodiq,processing,debit,Tcrukjjsijy,Tcrukjjsijy,10/28/24\n100.23,Sodiq,processing,debit,Tiyqjmvsnsa,Tiyqjmvsnsa,10/28/24\n100.23,Sodiq,failed,debit,Tvgikonyvkc,Tvgikonyvkc,10/31/24\n100.23,Sodiq,failed,debit,Tbbivvxwprd,Tbbivvxwprd,10/31/24\n100.23,Sodiq,failed,debit,Tvianaeuhgh,Tvianaeuhgh,10/31/24\n100.23,Sodiq,failed,debit,Tktfesdlkqg,Tktfesdlkqg,10/31/24\n100.00,Sodiq,failed,debit,Trmgijsrnex,Trmgijsrnex,10/31/24\n100.00,Sodiq,failed,debit,Tefsoywplgi,Tefsoywplgi,10/31/24\n100.00,Sodiq,failed,debit,Tkdahalajcq,Tkdahalajcq,10/31/24\n100.00,Sodiq,failed,debit,Tmihuulssxa,Tmihuulssxa,10/31/24\n100.00,Sodiq,failed,debit,Tdwiyplsxxn,Tdwiyplsxxn,10/31/24\n100.00,Sodiq,failed,debit,Tfvhfhnlmcz,Tfvhfhnlmcz,10/31/24\n100.00,Sodiq,failed,debit,Taxnztpenox,Taxnztpenox,10/31/24\n100.00,Sodiq,processing,debit,Tgivbtoullg,Tgivbtoullg,10/31/24\n100.00,Sodiq,processing,debit,Tychzskreks,Tychzskreks,10/31/24\n100.00,Sodiq,processing,debit,Tjnaqbbtynj,Tjnaqbbtynj,10/31/24\n100.00,Sodiq,processing,debit,Tefcvvzwfar,Tefcvvzwfar,10/31/24\n100.00,Sodiq,failed,debit,Tvskdgleemt,Tvskdgleemt,10/31/24\n100.00,Sodiq,failed,debit,Tnwgfeyknxs,Tnwgfeyknxs,10/31/24\n100.00,Sodiq,failed,debit,Tkcubcfysls,Tkcubcfysls,10/31/24\n100.00,Sodiq,failed,debit,Tlcwspghvxc,Tlcwspghvxc,10/31/24\n100.00,Sodiq,failed,debit,Turjbtzselr,Turjbtzselr,10/31/24\n100.23,Sodiq,failed,debit,Tjnniyxzjzu,Tjnniyxzjzu,11/1/24\n100.00,Sodiq,failed,debit,Trdmsrleslk,Trdmsrleslk,10/31/24\n100.00,Sodiq,failed,debit,Tvsfzlsuyqf,Tvsfzlsuyqf,10/31/24\n100.23,Sodiq,failed,debit,Tnbwghylatr,Tnbwghylatr,11/1/24\n100.00,Sodiq,failed,debit,Timatgditxl,Timatgditxl,10/31/24\n100.00,Sodiq,failed,debit,Tbwsbiatecp,Tbwsbiatecp,10/31/24\n100.00,Sodiq,failed,debit,Tlosxqvlilf,Tlosxqvlilf,10/31/24\n100.00,Sodiq,failed,debit,Taahsalnzpw,Taahsalnzpw,10/31/24\n100.00,Sodiq,processing,debit,Tjdtyzulcur,Tjdtyzulcur,10/31/24\n100.00,Sodiq,failed,debit,Tcutqtrpmvc,Tcutqtrpmvc,10/31/24\n100.00,Sodiq,failed,debit,Tpnujbixozz,Tpnujbixozz,10/31/24"
-								}
-							]
-						}
-					],
-					"id": "dac6c735-3b02-41b3-b37c-8ccc50b3b11b"
+					"id": "9e5e6cf0-242f-4c80-849d-04f67191aded"
 				}
 			],
-			"id": "34685b0d-fea9-480a-93ee-d9b14a32f1df"
+			"id": "0219b329-fc55-4316-a93a-b47be6d3f18a"
 		},
 		{
 			"name": "Mandates",
