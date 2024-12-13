@@ -32358,11 +32358,11 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "fb10443a-75c7-4501-aaf0-b33eada44a6e",
+				"id": "8bd6eab6-8127-439b-89cc-daad6145b2fb",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"pm.environment.set('origin', \"https://dev.admin.northquestfinance.com\")\r",
+					"pm.environment.set('origin', \"https://dev.app.northquestfinance.com\")\r",
 					"pm.request.headers.add({\r",
 					"    key: \"origin\",\r",
 					"    value: pm.environment.get(\"origin\")\r",
@@ -32373,7 +32373,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "0d954a89-42d1-4b3e-8084-29426ab32f3b",
+				"id": "c7a1c916-348e-4d44-816f-c988147970d7",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
