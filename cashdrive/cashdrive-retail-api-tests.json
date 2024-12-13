@@ -31045,6 +31045,38 @@
 				}
 			],
 			"id": "3d4e2c57-197a-4672-bc11-d45cb136c786"
+		},
+		{
+			"name": "Referral",
+			"item": [
+				{
+					"name": "Get Referral Activities",
+					"id": "d934589d-36a1-4717-848d-b001469887b9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/referrals/activities"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Referral Activity",
+					"id": "ce729dd5-cccb-42d0-be32-e4212f731f4b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/referrals/activities/id"
+					},
+					"response": []
+				}
+			],
+			"id": "8a3a9305-5965-4644-ac4f-0e5ba53e26aa"
 		}
 	],
 	"auth": {
