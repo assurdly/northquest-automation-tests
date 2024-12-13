@@ -23658,31 +23658,6 @@
 			"id": "46d9ab6b-07a9-4411-bd97-a3c6e444949d"
 		},
 		{
-			"name": "Logout",
-			"item": [
-				{
-					"name": "Logout",
-					"id": "968f2c18-be46-4471-9752-48320f7a4f7d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{adminAccessToken}}"
-							}
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": "{{base_url}}/admin/auth/logout"
-					},
-					"response": []
-				}
-			],
-			"id": "5310db30-9af7-42f1-a91a-bb18b4223d57"
-		},
-		{
 			"name": "Credit Lines",
 			"item": [
 				{
@@ -24655,6 +24630,98 @@
 				}
 			],
 			"id": "42719287-a840-4273-a87e-fdf4b0161bc9"
+		},
+		{
+			"name": "Logout",
+			"item": [
+				{
+					"name": "Logout",
+					"id": "968f2c18-be46-4471-9752-48320f7a4f7d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{adminAccessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/admin/auth/logout"
+					},
+					"response": []
+				}
+			],
+			"id": "5310db30-9af7-42f1-a91a-bb18b4223d57"
+		},
+		{
+			"name": "Referral Configurations",
+			"item": [
+				{
+					"name": "Get Referral Configuration",
+					"id": "e3a0ecc4-4f36-4cf6-a9b9-1b3fbcce3c70",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/admin/referrals"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Referral Configuration",
+					"id": "9d5e08f7-64ed-40b9-b276-6ac4a54b7bf9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"referrer_reward_amount\": \"100.00\",\n    \"referee_reward_amount\": \"100.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/admin/referrals"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Referral Activities",
+					"id": "7f6f1c05-340d-4585-bea6-513447e6f0d4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/admin/referrals/activities"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Referral Activity",
+					"id": "4d5a3f85-7a60-4e06-98cc-088ff3e0291e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/admin/referrals/activities/id"
+					},
+					"response": []
+				}
+			],
+			"id": "b19f40c2-56d6-4a24-ba47-e35feaf9c99a"
 		}
 	],
 	"auth": {
