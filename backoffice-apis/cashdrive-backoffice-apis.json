@@ -18145,41 +18145,99 @@
 						}
 					],
 					"id": "a132ead5-4f18-4f9c-bf03-703e9a5b65ab"
+				},
+				{
+					"name": "Liquidations",
+					"item": [
+						{
+							"name": "Get Liquidations",
+							"item": [
+								{
+									"name": "Get Liquidations",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "6f5f4ba0-f4fd-4541-b75f-21870482a7b1",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.environment.set(\"adminFetchedLoanProduct\", data.id);\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"array\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "c0561d6d-dbf4-43c5-a75a-ad321d2e4f70",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/savings/liquidations"
+									},
+									"response": []
+								},
+								{
+									"name": "Get Liquidations-No auth",
+									"id": "4fe281e1-7c31-49f4-b4e0-3b5d04a47136",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/savings/liquidations"
+									},
+									"response": []
+								}
+							],
+							"id": "8384a41d-f924-4c6e-a12a-22d994140956"
+						},
+						{
+							"name": "Get Liquidation",
+							"item": [
+								{
+									"name": "Get Liquidation",
+									"id": "b21e3d83-cd67-44cb-b441-fb70f55df352",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/savings/liquidations/0193a8a3-98e6-7ee3-8545-cd17beac6e87"
+									},
+									"response": []
+								}
+							],
+							"id": "1583daf5-052c-4819-a54e-adafa34a40c8"
+						}
+					],
+					"id": "3424bcfb-ab4e-4642-98bd-a1bed98bd95d"
 				}
 			],
 			"id": "d8199411-bcff-4cb2-8af6-447c0283babd"
-		},
-		{
-			"name": "Liquidations",
-			"item": [
-				{
-					"name": "Get Liquidations",
-					"id": "c0561d6d-dbf4-43c5-a75a-ad321d2e4f70",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{base_url}}/admin/savings/liquidations"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Liquidation",
-					"id": "b21e3d83-cd67-44cb-b441-fb70f55df352",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{base_url}}/admin/savings/liquidations/0193a8a3-98e6-7ee3-8545-cd17beac6e87"
-					},
-					"response": []
-				}
-			],
-			"id": "3424bcfb-ab4e-4642-98bd-a1bed98bd95d"
 		},
 		{
 			"name": "Templates",
