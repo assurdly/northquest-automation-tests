@@ -15652,45 +15652,14 @@
 				},
 				{
 					"name": "Update Verification",
-					"id": "05391c4c-54f4-4c26-a081-c3d9b348be66",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"status\": \"approved\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/admin/verifications/:verification_id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"admin",
-								"verifications",
-								":verification_id"
-							],
-							"variable": [
-								{
-									"key": "verification_id",
-									"value": "019387c1-8855-7ccf-8885-e56f3f298a1a"
-								}
-							]
-						}
-					},
-					"response": [
+					"item": [
 						{
-							"id": "d00595ec-2637-40f9-bd5c-201134154948",
 							"name": "Update Verification",
-							"originalRequest": {
+							"id": "05391c4c-54f4-4c26-a081-c3d9b348be66",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "PATCH",
 								"header": [],
 								"body": {
@@ -15715,65 +15684,102 @@
 									"variable": [
 										{
 											"key": "verification_id",
-											"value": "0193205e-f692-777a-906d-e6912e9dc9ab"
+											"value": "019387c1-8855-7ccf-8885-e56f3f298a1a"
 										}
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "495"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"1ef-RRtZcT6GAvMRTA7BW0mYvvuZyeE\""
-								},
-								{
-									"key": "Date",
-									"value": "Fri, 29 Nov 2024 16:53:10 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "d00595ec-2637-40f9-bd5c-201134154948",
+									"name": "Update Verification",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"approved\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/admin/verifications/:verification_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"verifications",
+												":verification_id"
+											],
+											"variable": [
+												{
+													"key": "verification_id",
+													"value": "0193205e-f692-777a-906d-e6912e9dc9ab"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "495"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1ef-RRtZcT6GAvMRTA7BW0mYvvuZyeE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 29 Nov 2024 16:53:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193205e-f692-777a-906d-e6912e9dc9ab\",\n        \"meta\": {\n            \"id\": \"0193205e-e543-777a-906d-de78da219786\"\n        },\n        \"created_on\": \"2024-11-12T12:35:15.202Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-12T12:36:22.899Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"identifier\": \"adewunmiakinsanya@gmail.com\",\n        \"status\": \"approved\",\n        \"type_id\": \"019318f9-c895-744d-8f65-4636cc26dd1d\"\n    }\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193205e-f692-777a-906d-e6912e9dc9ab\",\n        \"meta\": {\n            \"id\": \"0193205e-e543-777a-906d-de78da219786\"\n        },\n        \"created_on\": \"2024-11-12T12:35:15.202Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-12T12:36:22.899Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"identifier\": \"adewunmiakinsanya@gmail.com\",\n        \"status\": \"approved\",\n        \"type_id\": \"019318f9-c895-744d-8f65-4636cc26dd1d\"\n    }\n}"
+							]
 						}
-					]
+					],
+					"id": "fe8e4ce4-f91b-47d8-815c-3f78d89d80a2"
 				}
 			],
 			"id": "ce6c23ea-81b6-48a6-8520-903103374679"
