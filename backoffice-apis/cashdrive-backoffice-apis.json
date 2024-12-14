@@ -18219,6 +18219,39 @@
 							"item": [
 								{
 									"name": "Get Liquidation",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d7d46270-e094-4c96-b5ef-f4503864df04",
+												"exec": [
+													"try {\r",
+													"    const { status, data } = pm.response.json()\r",
+													"\r",
+													"    pm.environment.set(\"adminFetchedLoanProduct\", data.id);\r",
+													"\r",
+													"    pm.test(\"Status code is 200\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"    pm.test(\"Test for valid status\", () => {\r",
+													"        pm.expect(status).to.eql(\"success\")\r",
+													"    })\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(data).to.be.an(\"object\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error);\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "b21e3d83-cd67-44cb-b441-fb70f55df352",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
