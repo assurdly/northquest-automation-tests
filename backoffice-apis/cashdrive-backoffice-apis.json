@@ -18345,29 +18345,14 @@
 			"item": [
 				{
 					"name": "Create Template",
-					"id": "81aaad11-c6ef-4a4b-9f61-7cb48d075178",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"slug\": \"offer-letter\",\n    \"title\": \"Offer Letter\",\n    \"body\": \"<html>Offer</html>\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/admin/templates"
-					},
-					"response": [
+					"item": [
 						{
-							"id": "37063b9f-df23-46a0-b262-1cd428332d8c",
 							"name": "Create Template",
-							"originalRequest": {
+							"id": "4712c391-e71c-4a00-98da-61757a9c558e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -18381,184 +18366,173 @@
 								},
 								"url": "{{base_url}}/admin/templates"
 							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "384"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"180-IK+OZ+ACF/GSjEXpS+kI7PO1V8s\""
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 10 Nov 2024 18:07:04 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"slug\": \"offer-letter\",\n        \"configurable\": false,\n        \"title\": \"Offer Letter\",\n        \"body\": \"<html>Offer</html>\",\n        \"id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-11-10T18:07:03.773Z\",\n        \"modified_on\": \"2024-11-10T18:07:03.773Z\",\n        \"deleted_on\": null\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "List Templates",
-					"id": "7fb0e20e-c9b6-45bf-908b-bfa0571f3407",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/admin/templates?filter[name]",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"admin",
-								"templates"
-							],
-							"query": [
-								{
-									"key": "filter[name]",
-									"value": ""
+									"id": "4e5a0a5b-f7f4-4926-81d3-a65713d6575b",
+									"name": "Create Template",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"slug\": \"offer-letter\",\n    \"title\": \"Offer Letter\",\n    \"body\": \"<html>Offer</html>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/templates"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "384"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"180-IK+OZ+ACF/GSjEXpS+kI7PO1V8s\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 18:07:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"slug\": \"offer-letter\",\n        \"configurable\": false,\n        \"title\": \"Offer Letter\",\n        \"body\": \"<html>Offer</html>\",\n        \"id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-11-10T18:07:03.773Z\",\n        \"modified_on\": \"2024-11-10T18:07:03.773Z\",\n        \"deleted_on\": null\n    }\n}"
 								}
 							]
 						}
-					},
-					"response": [
+					],
+					"id": "0f0937e6-e3df-4599-9b97-a89566ed8633"
+				},
+				{
+					"name": "List Templates",
+					"item": [
 						{
-							"id": "ff3cd8f1-39fb-4b9e-9164-47c7875f67f9",
 							"name": "List Templates",
-							"originalRequest": {
+							"id": "1c0bc76b-8a10-4b32-9820-b191485f4d80",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "GET",
 								"header": [],
 								"url": "{{base_url}}/admin/templates"
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "386"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"182-oBIgqasLpdtysl/DY6Mgz7Jd1Uw\""
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 10 Nov 2024 18:07:14 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T18:07:03.773Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-10T18:07:03.773Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"slug\": \"offer-letter\",\n            \"configurable\": false,\n            \"title\": \"Offer Letter\",\n            \"body\": \"<html>Offer</html>\"\n        }\n    ]\n}"
-						}
-					]
-				},
-				{
-					"name": "Get Template",
-					"id": "24d02c80-3eb5-4061-8540-df7651c7a000",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/admin/templates/:template_id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"admin",
-								"templates",
-								":template_id"
-							],
-							"variable": [
-								{
-									"id": "3ca2dffb-9ed7-4188-b225-f3d3657822bf",
-									"key": "template_id",
-									"value": "01931742-0781-722b-8de7-6c42b6f4c2ea"
+									"id": "bcbee321-1b11-40c6-b314-8134245af2d3",
+									"name": "List Templates",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/templates"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "386"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"182-oBIgqasLpdtysl/DY6Mgz7Jd1Uw\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 18:07:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T18:07:03.773Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-10T18:07:03.773Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"slug\": \"offer-letter\",\n            \"configurable\": false,\n            \"title\": \"Offer Letter\",\n            \"body\": \"<html>Offer</html>\"\n        }\n    ]\n}"
 								}
 							]
 						}
-					},
-					"response": [
+					],
+					"id": "2b3a2a16-e155-46ad-8130-6e7c8b3d4b3f"
+				},
+				{
+					"name": "Get Template",
+					"item": [
 						{
-							"id": "b908c53d-55c0-4c7a-93b4-4d0412f97db1",
 							"name": "Get Template",
-							"originalRequest": {
+							"id": "6efd2a9c-5390-4aa3-bf76-982fc70b0017",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -18573,129 +18547,170 @@
 									],
 									"variable": [
 										{
+											"id": "3ca2dffb-9ed7-4188-b225-f3d3657822bf",
 											"key": "template_id",
 											"value": "01931742-0781-722b-8de7-6c42b6f4c2ea"
 										}
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "384"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"180-lOQ8p6O/V4iDRpixRiMMS6o48vo\""
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 10 Nov 2024 18:07:31 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "107e08b9-5158-45b3-a375-06f5884959eb",
+									"name": "Get Template",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/templates/:template_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"templates",
+												":template_id"
+											],
+											"variable": [
+												{
+													"key": "template_id",
+													"value": "01931742-0781-722b-8de7-6c42b6f4c2ea"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "384"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"180-lOQ8p6O/V4iDRpixRiMMS6o48vo\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 18:07:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-10T18:07:03.773Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-10T18:07:03.773Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"slug\": \"offer-letter\",\n        \"configurable\": false,\n        \"title\": \"Offer Letter\",\n        \"body\": \"<html>Offer</html>\"\n    }\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-10T18:07:03.773Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-10T18:07:03.773Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"slug\": \"offer-letter\",\n        \"configurable\": false,\n        \"title\": \"Offer Letter\",\n        \"body\": \"<html>Offer</html>\"\n    }\n}"
+							]
 						}
-					]
+					],
+					"id": "7ca7458a-1d46-438c-82d9-b48a09cc3f7c"
 				},
 				{
 					"name": "Update Template",
-					"id": "68a54b82-0182-4f95-9bd9-1963b48621fc",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/admin/templates/:template_id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"admin",
-								"templates",
-								":template_id"
-							],
-							"variable": [
-								{
-									"id": "ff6e9f19-0998-4776-876a-26266f68582c",
-									"key": "template_id",
-									"value": ""
+					"item": [
+						{
+							"name": "Update Template",
+							"id": "bc678337-bf2b-4b50-a0a9-004861a5b29f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/templates/:template_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"templates",
+										":template_id"
+									],
+									"variable": [
+										{
+											"id": "ff6e9f19-0998-4776-876a-26266f68582c",
+											"key": "template_id",
+											"value": ""
+										}
+									]
 								}
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					],
+					"id": "ea0576ff-0c19-46b9-86b9-aeb9ddefa6b7"
 				},
 				{
 					"name": "Delete Template",
-					"id": "a9cca9d6-e906-4ed6-a1fa-072fccebc5a7",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/admin/templates/:template_id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"admin",
-								"templates",
-								":template_id"
-							],
-							"variable": [
-								{
-									"id": "5d245af8-a797-46e4-b2f6-c336faaeb3da",
-									"key": "template_id",
-									"value": ""
+					"item": [
+						{
+							"name": "Delete Template",
+							"id": "35ba1611-c91f-4dd8-9b06-3f1d88f2cb5a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/templates/:template_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"templates",
+										":template_id"
+									],
+									"variable": [
+										{
+											"id": "5d245af8-a797-46e4-b2f6-c336faaeb3da",
+											"key": "template_id",
+											"value": ""
+										}
+									]
 								}
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					],
+					"id": "674e53d0-7931-48af-9efb-3bcc5cd78da8"
 				}
 			],
-			"id": "91346964-c729-444b-ab37-4b35aadb0d55"
+			"id": "fd7ed15d-a6d2-4b99-838b-10a0e140b2c4"
 		},
 		{
 			"name": "Audit Logs",
