@@ -18200,11 +18200,40 @@
 								},
 								{
 									"name": "Get Liquidations-No auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e3136c2f-dc74-475d-8e68-1e5f319639bf",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "4fe281e1-7c31-49f4-b4e0-3b5d04a47136",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "noauth"
+										},
 										"method": "GET",
 										"header": [],
 										"url": "{{base_url}}/admin/savings/liquidations"
@@ -18253,6 +18282,45 @@
 										}
 									],
 									"id": "b21e3d83-cd67-44cb-b441-fb70f55df352",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/savings/liquidations/0193a8a3-98e6-7ee3-8545-cd17beac6e87"
+									},
+									"response": []
+								},
+								{
+									"name": "Get Liquidation- No aut",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "d7d46270-e094-4c96-b5ef-f4503864df04",
+												"exec": [
+													"try {\r",
+													"    const { message, statusCode } = pm.response.json()\r",
+													"\r",
+													"    // pm.test(\"Test for valid status code\", () => {\r",
+													"    //     pm.expect(statusCode).to.eql(401)\r",
+													"    // })\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).to.eql(\"Access token is required\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "f23d0b51-2741-4a9a-8e39-14fbccd16802",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
