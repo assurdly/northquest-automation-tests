@@ -44,7 +44,14 @@
 												"id": "4f73f52b-38d7-462e-ad83-2a00667c9382",
 												"exec": [
 													"// pm.environment.set('origin', \"https://northquestfinance.com\")",
-													"pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')"
+													"pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')",
+													"",
+													"const emailToLowerCase = (email) => {",
+													"    return email.toLowerCase()",
+													"}",
+													"",
+													"pm.environment.set(\"lowerCaseEmail\", emailToLowerCase())",
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -11584,6 +11591,286 @@
 							"id": "c20aa17f-4a65-440b-aab2-1b647b2b4246"
 						},
 						{
+							"name": "Get Roles",
+							"item": [
+								{
+									"name": "Get Roles",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "275cd2dd-b6c6-4cc9-94a4-78a891b8550e",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data.roles).to.be.an(\"array\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "2ebbe627-b67a-4dcb-884b-643fe40076a0",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/roles",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"roles"
+											],
+											"variable": [
+												{
+													"id": "7601118d-5d2a-4148-b3ce-b8f59b0d1916",
+													"key": "profile_id",
+													"value": "{{userFetchedProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "084ad98f-fa19-4c51-b914-27cbdb580fe0",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/roles",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"roles"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Thu, 03 Oct 2024 16:54:22 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "867"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"363-HfvzU2IruI1gZzMhW8VzZ372rD4\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": \"0192533b-4fa0-7cca-8790-d1fb190cf492\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T16:34:08.904Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T16:34:08.904Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Owner\",\n                \"slug\": \"owner\",\n                \"description\": \"This is for the owner of the tenant\",\n                \"status\": \"active\",\n                \"profile_id\": null\n            },\n            {\n                \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T16:54:17.485Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T16:54:17.485Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Account Manager\",\n                \"slug\": \"account-manager\",\n                \"description\": null,\n                \"status\": \"active\",\n                \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Get Roles - No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "275cd2dd-b6c6-4cc9-94a4-78a891b8550e",
+												"exec": [
+													"try {",
+													"    const { message, statusCode } = pm.response.json()",
+													"",
+													"    // pm.test(\"Test for valid status code\", () => {",
+													"    //     pm.expect(statusCode).to.eql(401)",
+													"    // })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).to.eql(\"Access token is required\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "834e524f-00d6-4ca0-b6d3-415f50495dee",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "noauth"
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/roles",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"roles"
+											],
+											"variable": [
+												{
+													"id": "acb76a3b-ac32-4330-8aef-8d9d5ff66f78",
+													"key": "profile_id",
+													"value": "{{userFetchedProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "e1e5dbb1-4311-4282-850e-2c3c28362d74",
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/roles",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"roles"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Thu, 03 Oct 2024 16:54:22 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "867"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"363-HfvzU2IruI1gZzMhW8VzZ372rD4\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": \"0192533b-4fa0-7cca-8790-d1fb190cf492\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T16:34:08.904Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T16:34:08.904Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Owner\",\n                \"slug\": \"owner\",\n                \"description\": \"This is for the owner of the tenant\",\n                \"status\": \"active\",\n                \"profile_id\": null\n            },\n            {\n                \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T16:54:17.485Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T16:54:17.485Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Account Manager\",\n                \"slug\": \"account-manager\",\n                \"description\": null,\n                \"status\": \"active\",\n                \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "b901fbc1-1ff5-431e-a5d1-652e7065a740"
+						},
+						{
 							"name": "Get Role",
 							"item": [
 								{
@@ -11884,286 +12171,6 @@
 								}
 							],
 							"id": "f4830c56-dc15-4e0c-b4a0-1f035a9b7e9f"
-						},
-						{
-							"name": "Get Roles",
-							"item": [
-								{
-									"name": "Get Roles",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "275cd2dd-b6c6-4cc9-94a4-78a891b8550e",
-												"exec": [
-													"try {",
-													"    const { status, data } = pm.response.json()",
-													"",
-													"    pm.test(\"Status code is 200\", function () {",
-													"        pm.response.to.have.status(200);",
-													"    });",
-													"",
-													"    pm.test(\"Test for valid status\", () => {",
-													"        pm.expect(status).to.eql(\"success\")",
-													"    })",
-													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(data.roles).to.be.an(\"array\")",
-													"    })",
-													"",
-													"} catch (error) {",
-													"    console.error(\"Error from test:\", error);",
-													"}",
-													""
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "2ebbe627-b67a-4dcb-884b-643fe40076a0",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{userAccessToken}}"
-											}
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/roles",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"roles"
-											],
-											"variable": [
-												{
-													"id": "7601118d-5d2a-4148-b3ce-b8f59b0d1916",
-													"key": "profile_id",
-													"value": "{{userFetchedProfileId}}"
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"id": "084ad98f-fa19-4c51-b914-27cbdb580fe0",
-											"name": "Success",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": {
-													"raw": "{{base_url}}/profiles/:profile_id/roles",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"profiles",
-														":profile_id",
-														"roles"
-													],
-													"variable": [
-														{
-															"key": "profile_id",
-															"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-														}
-													]
-												}
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "Date",
-													"value": "Thu, 03 Oct 2024 16:54:22 GMT"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "867"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"363-HfvzU2IruI1gZzMhW8VzZ372rD4\""
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": \"0192533b-4fa0-7cca-8790-d1fb190cf492\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T16:34:08.904Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T16:34:08.904Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Owner\",\n                \"slug\": \"owner\",\n                \"description\": \"This is for the owner of the tenant\",\n                \"status\": \"active\",\n                \"profile_id\": null\n            },\n            {\n                \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T16:54:17.485Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T16:54:17.485Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Account Manager\",\n                \"slug\": \"account-manager\",\n                \"description\": null,\n                \"status\": \"active\",\n                \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
-										}
-									]
-								},
-								{
-									"name": "Get Roles - No Auth",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "275cd2dd-b6c6-4cc9-94a4-78a891b8550e",
-												"exec": [
-													"try {",
-													"    const { message, statusCode } = pm.response.json()",
-													"",
-													"    // pm.test(\"Test for valid status code\", () => {",
-													"    //     pm.expect(statusCode).to.eql(401)",
-													"    // })",
-													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(message).to.eql(\"Access token is required\")",
-													"    })",
-													"",
-													"} catch (error) {",
-													"    console.error(error)",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "834e524f-00d6-4ca0-b6d3-415f50495dee",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "noauth"
-										},
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/roles",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"roles"
-											],
-											"variable": [
-												{
-													"id": "acb76a3b-ac32-4330-8aef-8d9d5ff66f78",
-													"key": "profile_id",
-													"value": "{{userFetchedProfileId}}"
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"id": "e1e5dbb1-4311-4282-850e-2c3c28362d74",
-											"name": "Success",
-											"originalRequest": {
-												"method": "GET",
-												"header": [],
-												"url": {
-													"raw": "{{base_url}}/profiles/:profile_id/roles",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"profiles",
-														":profile_id",
-														"roles"
-													],
-													"variable": [
-														{
-															"key": "profile_id",
-															"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-														}
-													]
-												}
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "Date",
-													"value": "Thu, 03 Oct 2024 16:54:22 GMT"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "867"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"363-HfvzU2IruI1gZzMhW8VzZ372rD4\""
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": \"0192533b-4fa0-7cca-8790-d1fb190cf492\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T16:34:08.904Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T16:34:08.904Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Owner\",\n                \"slug\": \"owner\",\n                \"description\": \"This is for the owner of the tenant\",\n                \"status\": \"active\",\n                \"profile_id\": null\n            },\n            {\n                \"id\": \"0192534d-c08e-7886-abfb-7badcb2e11ff\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-03T16:54:17.485Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-03T16:54:17.485Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Account Manager\",\n                \"slug\": \"account-manager\",\n                \"description\": null,\n                \"status\": \"active\",\n                \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\"\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 2\n    }\n}"
-										}
-									]
-								}
-							],
-							"id": "b901fbc1-1ff5-431e-a5d1-652e7065a740"
 						},
 						{
 							"name": "Update Role",
