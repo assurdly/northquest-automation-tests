@@ -3824,7 +3824,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"identity\": \"lily@yopmail.com\",\n    \"password\": \"123456\"\n}",
+											"raw": "{\n    \"identity\": \"naima@yopmail.com\",\n    \"password\": \"123456\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -8283,6 +8283,95 @@
 									"response": [
 										{
 											"id": "fb45fafb-6f8b-4cb9-a41c-967b56afdf9d",
+											"name": "Create Profile",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"wunmi\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"1234567890\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": "{{base_url}}/profiles"
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Fri, 27 Sep 2024 13:57:44 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "445"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"1bd-FAijTRuS60lyD9Xj8CumelVWbXU\""
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"nin\": \"1234567890\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"personal\",\n        \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\",\n        \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-09-27T13:57:43.894Z\",\n        \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Create Profile Copy",
+									"id": "9e302ca3-d80d-48b4-b7ab-380666172b9b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"type\": \"personal\",\n    \"meta\": {\n        \"business-phone\": \"+2348089722636\",\n        \"business-email\": \"adewunmiakinsanya@gmail.com\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/profiles"
+									},
+									"response": [
+										{
+											"id": "5b0d8ae5-7ce3-44dc-becd-0bece65a60c2",
 											"name": "Create Profile",
 											"originalRequest": {
 												"method": "POST",
@@ -30686,6 +30775,370 @@
 						}
 					],
 					"id": "26891e3c-bec8-40cc-8637-ed174c34e797"
+				},
+				{
+					"name": "KYC",
+					"item": [
+						{
+							"name": "List KYCs",
+							"id": "f3d309b1-256c-45a5-a234-8b4f14eead3d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/kyc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"kyc"
+									],
+									"variable": [
+										{
+											"id": "e0245666-74e3-40ca-8f24-50b6ae90740c",
+											"key": "profile_id",
+											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "9acde50d-b8c7-442e-ad04-ee884427122a",
+									"name": "List KYCs",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/kyc",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"kyc"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "994"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3e2-7yWiLA6+4aRYbUqW48r0gANY+Eg\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 08 Dec 2024 19:13:22 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193a7af-0d1a-7cce-b60a-0ec78037d307\",\n            \"meta\": {\n                \"email\": \"adewunmiakinsanya@gmail.com\"\n            },\n            \"created_on\": \"2024-12-08T19:11:27.706Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-08T19:13:10.651Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"status\": \"pending\",\n            \"definition_id\": \"0193731a-59fe-788a-9877-8bef6d0c2cfc\",\n            \"definition\": {\n                \"id\": \"0193731a-59fe-788a-9877-8bef6d0c2cfc\",\n                \"meta\": null,\n                \"created_on\": \"2024-11-28T14:08:47.102Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-11-28T14:08:47.102Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_type\": \"personal\",\n                \"slug\": \"personal-information\",\n                \"name\": \"Personal Information\",\n                \"description\": \"Provide other personal information (gender, country) and verify your phone number and email address.\",\n                \"version\": 1\n            }\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get KYC",
+							"id": "bd3ad328-76d8-427e-a28d-dae4a8176e30",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/kyc/:kyc_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"kyc",
+										":kyc_id"
+									],
+									"variable": [
+										{
+											"id": "2c8d9733-eb4b-4352-846b-f49825fc022b",
+											"key": "profile_id",
+											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+										},
+										{
+											"id": "bfc57cd5-554e-452e-907e-67f098a1e030",
+											"key": "kyc_id",
+											"value": "0193a7af-0d1a-7cce-b60a-0ec78037d307"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "8f5497f5-05b8-45bc-b3bb-ce23101739f8",
+									"name": "Get KYC",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/kyc/:kyc_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"kyc",
+												":kyc_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+												},
+												{
+													"key": "kyc_id",
+													"value": "0193a7af-0d1a-7cce-b60a-0ec78037d307"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "3771"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ebb-gEo8uC0J+zjQyaSurboWlrxsnjU\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 08 Dec 2024 19:14:12 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193a7af-0d1a-7cce-b60a-0ec78037d307\",\n        \"meta\": {\n            \"email\": \"adewunmiakinsanya@gmail.com\"\n        },\n        \"created_on\": \"2024-12-08T19:11:27.706Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-12-08T19:13:10.651Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"status\": \"pending\",\n        \"definition_id\": \"0193731a-59fe-788a-9877-8bef6d0c2cfc\",\n        \"definition\": {\n            \"id\": \"0193731a-59fe-788a-9877-8bef6d0c2cfc\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-28T14:08:47.102Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-28T14:08:47.102Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": \"personal\",\n            \"slug\": \"personal-information\",\n            \"name\": \"Personal Information\",\n            \"description\": \"Provide other personal information (gender, country) and verify your phone number and email address.\",\n            \"version\": 1,\n            \"schemas\": [\n                {\n                    \"id\": \"0193732d-3883-788a-9877-bbde92f013c9\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-11-28T14:29:23.717Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-11-28T14:29:23.717Z\",\n                    \"modified_by\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"profile_type\": \"personal\",\n                    \"slug\": \"first_name\",\n                    \"name\": \"First name\",\n                    \"tags\": null,\n                    \"options\": null,\n                    \"version\": 1,\n                    \"type\": \"text\",\n                    \"default\": null,\n                    \"enabled\": true,\n                    \"required\": false,\n                    \"order\": 1,\n                    \"storage_strategy\": \"plain\",\n                    \"definition_id\": \"0193731a-59fe-788a-9877-8bef6d0c2cfc\"\n                },\n                {\n                    \"id\": \"0193732d-3883-788a-9877-c2da86c3a245\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-11-28T14:29:23.717Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-11-28T14:29:23.717Z\",\n                    \"modified_by\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"profile_type\": \"personal\",\n                    \"slug\": \"last_name\",\n                    \"name\": \"Last name\",\n                    \"tags\": null,\n                    \"options\": null,\n                    \"version\": 1,\n                    \"type\": \"text\",\n                    \"default\": null,\n                    \"enabled\": true,\n                    \"required\": false,\n                    \"order\": 2,\n                    \"storage_strategy\": \"plain\",\n                    \"definition_id\": \"0193731a-59fe-788a-9877-8bef6d0c2cfc\"\n                },\n                {\n                    \"id\": \"0193732d-3883-788a-9877-ce3b193d31c7\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-11-28T14:29:23.717Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-11-28T14:29:23.717Z\",\n                    \"modified_by\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"profile_type\": \"personal\",\n                    \"slug\": \"email\",\n                    \"name\": \"Email\",\n                    \"tags\": null,\n                    \"options\": null,\n                    \"version\": 1,\n                    \"type\": \"email\",\n                    \"default\": null,\n                    \"enabled\": true,\n                    \"required\": false,\n                    \"order\": 3,\n                    \"storage_strategy\": \"plain\",\n                    \"definition_id\": \"0193731a-59fe-788a-9877-8bef6d0c2cfc\"\n                },\n                {\n                    \"id\": \"0193732d-3883-788a-9877-d43d4729dd26\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-11-28T14:29:23.717Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-11-28T14:29:23.717Z\",\n                    \"modified_by\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"profile_type\": \"personal\",\n                    \"slug\": \"phone\",\n                    \"name\": \"Phone number\",\n                    \"tags\": null,\n                    \"options\": null,\n                    \"version\": 1,\n                    \"type\": \"number\",\n                    \"default\": null,\n                    \"enabled\": true,\n                    \"required\": false,\n                    \"order\": 4,\n                    \"storage_strategy\": \"plain\",\n                    \"definition_id\": \"0193731a-59fe-788a-9877-8bef6d0c2cfc\"\n                },\n                {\n                    \"id\": \"0193732d-3883-788a-9877-db7406ac23db\",\n                    \"meta\": null,\n                    \"created_on\": \"2024-11-28T14:29:23.717Z\",\n                    \"created_by\": null,\n                    \"modified_on\": \"2024-11-28T14:29:23.717Z\",\n                    \"modified_by\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                    \"deleted_on\": null,\n                    \"deleted_by\": null,\n                    \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                    \"profile_type\": \"personal\",\n                    \"slug\": \"gender\",\n                    \"name\": \"Gender\",\n                    \"tags\": null,\n                    \"options\": [\n                        {\n                            \"name\": \"Male\"\n                        },\n                        {\n                            \"name\": \"Female\"\n                        },\n                        {\n                            \"name\": \"Prefer not to say\"\n                        }\n                    ],\n                    \"version\": 1,\n                    \"type\": \"select\",\n                    \"default\": null,\n                    \"enabled\": true,\n                    \"required\": false,\n                    \"order\": 5,\n                    \"storage_strategy\": \"plain\",\n                    \"definition_id\": \"0193731a-59fe-788a-9877-8bef6d0c2cfc\"\n                }\n            ]\n        }\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Set KYC",
+							"id": "7c435665-ad70-486b-8b2c-57eaa0c96174",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"definition_id\": \"01938d53-9a73-7778-8dc0-4342b1e0a85d\",\n    \"meta\": {\n        \"email\": \"naima@yopmail.com\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/kyc",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"kyc"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "0193bff7-6011-7440-ba20-4b3c700c8231"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "1c26e53e-bbf3-4147-ac76-e951e899b78c",
+									"name": "Set KYC",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"definition_id\": \"0193731a-59fe-788a-9877-8bef6d0c2cfc\",\n    \"meta\": {\n        \"email\": \"adewunmiakinsanya@gmail.com\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/kyc",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"kyc"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "374"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"176-M+ibP2GlQjHKW3UECJH87buzPEE\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 08 Dec 2024 19:13:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193a7af-0d1a-7cce-b60a-0ec78037d307\",\n        \"meta\": {\n            \"email\": \"adewunmiakinsanya@gmail.com\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"definition_id\": \"0193731a-59fe-788a-9877-8bef6d0c2cfc\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"modified_on\": \"2024-12-08T19:13:10.651Z\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "27adbe68-1a8b-4be9-b690-a7919ecc5eb7"
 				}
 			],
 			"id": "f4197681-eadb-49c6-b4eb-df09e84162d3"
@@ -32358,11 +32811,11 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "fb10443a-75c7-4501-aaf0-b33eada44a6e",
+				"id": "8bd6eab6-8127-439b-89cc-daad6145b2fb",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"pm.environment.set('origin', \"https://dev.admin.northquestfinance.com\")\r",
+					"pm.environment.set('origin', \"https://dev.app.northquestfinance.com\")\r",
 					"pm.request.headers.add({\r",
 					"    key: \"origin\",\r",
 					"    value: pm.environment.get(\"origin\")\r",
@@ -32373,7 +32826,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "0d954a89-42d1-4b3e-8084-29426ab32f3b",
+				"id": "c7a1c916-348e-4d44-816f-c988147970d7",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
