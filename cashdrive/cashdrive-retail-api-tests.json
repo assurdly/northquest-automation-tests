@@ -30414,11 +30414,17 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"type\": \"update-email\",\n    \"email\": \"daresodiq000+3293933@gmail.com\"\n}",
+							"raw": "{\n    \"type\": \"update-email\",\n    \"email\": \"mikeangel@mailinator.com\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -30440,7 +30446,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"type\": \"update-phone\",\n    \"phone\": \"+2348149583661\"\n}",
+							"raw": "{\n    \"type\": \"update-phone\",\n    \"email\": \"mikeangel@mailinator.com\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
