@@ -7389,6 +7389,95 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n            \"meta\": {\n                \"first_name\": \"\",\n                \"last_name\": \"\",\n                \"nin\": \"1234567890\"\n            },\n            \"created_on\": \"2024-09-27T13:57:43.894Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"wunmi\",\n            \"type\": \"personal\",\n            \"status\": \"active\",\n            \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\"\n        }\n    ]\n}"
+								},
+								{
+									"id": "d1894ba6-bec5-4a5f-9379-4eec66f636d1",
+									"name": "Get Profiles",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/profiles"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Tue, 17 Dec 2024 08:26:38 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"746-2nfPL3R9EvtAWlKZbQZ2ihtgBWw\""
+										},
+										{
+											"key": "cf-cache-status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=Qb28Cwf15juSwz5N71i2IQUjxJrXyikdLJ49DNK7Qpw9bockDlP97W3tNV8%2BIXsMXcr2VEdXXpfZsQAVUAWLm2OntJOJqL2yK7CEqfwvzJi6M0MEexan7Z9K5oincnK%2BINUMdbdZXV6nTLVtfcQG\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "8f358784d9cdd110-CDG"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "server-timing",
+											"value": "cfL4;desc=\"?proto=TCP&rtt=147294&min_rtt=140464&rtt_var=7950&sent=57&recv=56&lost=0&retrans=0&sent_bytes=10177&recv_bytes=4454&delivery_rate=38433&cwnd=246&unsent_bytes=0&cid=a18fba86ab75ca9e&ts=45952&x=0\""
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01931947-9fea-744d-8f66-118c138292e3\",\n            \"meta\": {\n                \"first_name\": \"Azeeez\",\n                \"last_name\": \"Ibraheeem\",\n                \"nin\": \"70123456789\",\n                \"identification\": \"Voter’s Card\",\n                \"email\": \"azeez@gmail.com\",\n                \"phone\": \"07012345678\",\n                \"gender\": \"Male\"\n            },\n            \"created_on\": \"2024-11-11T03:32:24.682Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-16T16:10:15.957Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Profile\",\n            \"type\": \"personal\",\n            \"status\": \"active\",\n            \"review\": null,\n            \"primary_user_id\": \"019317a0-b7e5-7eeb-a7eb-bd18cf39a633\",\n            \"tier_id\": \"019367c1-ab3c-7115-b8f2-680b07e61445\",\n            \"userProfile\": {\n                \"id\": \"01931947-9fee-744d-8f66-1a402e77f59a\",\n                \"meta\": null,\n                \"created_on\": \"2024-11-11T03:32:24.682Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-11-11T03:32:24.682Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"01931947-9fea-744d-8f66-118c138292e3\",\n                \"status\": \"active\",\n                \"user_id\": \"019317a0-b7e5-7eeb-a7eb-bd18cf39a633\",\n                \"role_id\": \"01926788-704b-7336-86de-a5f24f6e9083\"\n            },\n            \"tier\": {\n                \"id\": \"019367c1-ab3c-7115-b8f2-680b07e61445\",\n                \"meta\": null,\n                \"created_on\": \"2024-11-26T09:16:05.741Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-11-26T09:16:05.741Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_type\": \"personal\",\n                \"name\": \"Tier 3\",\n                \"description\": \"Tier 3\",\n                \"level\": 3,\n                \"enabled\": true,\n                \"balance_limit\": 20000,\n                \"single_sending_limit\": 20000,\n                \"single_receiving_limit\": 20000,\n                \"period_sending_limit\": 20000,\n                \"period_sending_limit_time_unit\": \"day\",\n                \"period_receiving_limit\": 20000,\n                \"period_receiving_limit_time_unit\": \"day\",\n                \"requirements\": [\n                    {\n                        \"type\": \"kyc\",\n                        \"type_id\": \"01933d2f-aa30-7ddd-a344-aa4e37d9f705\"\n                    },\n                    {\n                        \"type\": \"kyc\",\n                        \"type_id\": \"019367b2-0af9-7115-b8f1-dc685d92e97f\"\n                    },\n                    {\n                        \"type\": \"kyc\",\n                        \"type_id\": \"019367be-267f-7115-b8f2-5b09dbcebec1\"\n                    }\n                ]\n            }\n        }\n    ]\n}"
 								}
 							]
 						},
