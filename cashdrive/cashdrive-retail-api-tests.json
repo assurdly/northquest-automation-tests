@@ -17304,6 +17304,63 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01932093-1a4c-788d-959b-18f7c7b68e05\",\n        \"meta\": {\n            \"recipients\": [\n                {\n                    \"narration\": \"Sodiq\",\n                    \"account_number\": \"1780004070\",\n                    \"bank_code\": \"999998\"\n                }\n            ]\n        },\n        \"created_on\": \"2024-11-12T13:32:11.723Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-11-12T13:39:45.578Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"frequency\": \"once\",\n        \"type\": \"transfer\",\n        \"start_date\": \"2024-12-30T00:00:00.000Z\",\n        \"next_run_date\": \"2024-12-30T00:00:00.000Z\",\n        \"end_date\": \"2024-12-31T00:00:00.000Z\",\n        \"status\": \"active\",\n        \"amount\": \"100.23\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "Get Transactions Schedules Copy",
+							"id": "e71129b2-b32e-480b-8402-9cad28d6d15e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"schedules"
+									],
+									"query": [
+										{
+											"key": "filter[amount]",
+											"value": "100.23",
+											"disabled": true
+										},
+										{
+											"key": "filter[account_id]",
+											"value": "0192b537-3f83-719b-8ec4-df689454f0ee",
+											"disabled": true
+										},
+										{
+											"key": "filter[type]",
+											"value": "bill_payment",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"id": "c78e18d1-2707-4468-8a09-fa02cbf4f789",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"id": "356ffef9-d0b4-44de-90ff-a2f932ddf6d2"
