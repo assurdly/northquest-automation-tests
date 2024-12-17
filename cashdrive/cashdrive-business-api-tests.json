@@ -35744,6 +35744,46 @@
 				}
 			],
 			"id": "0fbe1165-e672-4f62-9fa1-003c58258a57"
+		},
+		{
+			"name": "Director Verification",
+			"id": "10e12afb-6b9b-4037-a2c5-1c7865eda8cc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"first_name\": \"\",\n        \"last_name\": \"\",\n        \"email\": \"\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/profiles/:profile:id/verification/directors",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"profiles",
+						":profile:id",
+						"verification",
+						"directors"
+					],
+					"variable": [
+						{
+							"id": "1d4e77ea-55db-4d19-ab9c-10030fe40965",
+							"key": "profile:id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
