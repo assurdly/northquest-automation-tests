@@ -17361,6 +17361,47 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Create Bill Payment Schedule Copy",
+							"id": "277fed5d-36e0-42af-afb7-e1fc625d20f8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"start_date\": \"2024-12-30T21:00:00.000Z\",\n    \"end_date\": \"2024-12-31T12:00:00.000Z\",\n    \"amount\": 10000000000000000.23,\n    \"type\": \"bill_payment\",\n    \"frequency\": \"once\",\n    \"category_id\": \"\",\n    \"option_id\": \"\",\n    \"account_id\": \"\",\n    \"biller_id\":\"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/bill-payment",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"schedules",
+										"bill-payment"
+									],
+									"variable": [
+										{
+											"id": "956ea7f6-5d5a-4e20-b8d8-f93361ac21f7",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"id": "356ffef9-d0b4-44de-90ff-a2f932ddf6d2"
