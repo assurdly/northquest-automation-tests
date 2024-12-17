@@ -13183,7 +13183,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "019233c5-f357-7ffa-922e-9ff5318f8678"
+											"value": "0193a649-e3d0-7881-8b7f-2ef1d89a9aff"
 										}
 									]
 								}
@@ -24177,7 +24177,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{userAccessToken}}"
+								"token": "{{adminAccessToken}}"
 							}
 						},
 						"method": "GET",
@@ -24276,7 +24276,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "0193b65f-e12e-7ccf-9845-39ec8ceb70b2"
+									"value": "0193d546-f276-7ee1-ab27-6779ddca59fa"
 								}
 							]
 						}
@@ -24352,11 +24352,17 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{adminAccessToken}}"
+							}
+						},
 						"method": "PATCH",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"status\": \"inactive\" // inactive | active\n}",
+							"raw": "{\n    \"status\": \"active\" // inactive | active\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24375,9 +24381,8 @@
 							],
 							"variable": [
 								{
-									"id": "d893e411-09b2-470a-b8a8-d536d0238eaa",
 									"key": "id",
-									"value": "0193b640-033c-733e-97d9-b64ff322853c"
+									"value": "0193d546-f276-7ee1-ab27-6779ddca59fa"
 								}
 							]
 						}
@@ -24478,6 +24483,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{adminAccessToken}}"
+							}
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -24492,9 +24503,8 @@
 							],
 							"variable": [
 								{
-									"id": "69af8b7e-7a3d-4ea2-a64c-88e5bf0476c0",
 									"key": "id",
-									"value": "0193b640-033c-733e-97d9-b64ff322853c"
+									"value": "0193d546-f276-7ee1-ab27-6779ddca59fa"
 								}
 							]
 						}
@@ -24617,6 +24627,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{adminAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "{{base_url}}/admin/referrals"
