@@ -11690,7 +11690,121 @@
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"id": "1ce4d058-aaa7-45ba-bdb0-795d8a13ad5a",
+									"name": "List Tiers",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/tiers?filter[profile_type]=business&limit=3",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"tiers"
+											],
+											"query": [
+												{
+													"key": "filter[level]",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "filter[profile_type]",
+													"value": "business"
+												},
+												{
+													"key": "limit",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Wed, 18 Dec 2024 08:28:36 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"8bb-fTRCex6sBIva54nmSmYWTcEUa/0\""
+										},
+										{
+											"key": "cf-cache-status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=cnllUQrJf6I8ElJ5EEVJHTrBoRSPAmtkT5WO1iVch4RS0s1D%2F%2FoB%2BdcruyOgrSsfrlpQjo51TTRGuvtYbGZv7RulpggBrAnCM7RvFY3AZCrEA%2BKPfjOvmt8GqfgEyQ6aDEEHWVEtSUvuQxd85ZVt\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "8f3dc7c6d858701a-CDG"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "server-timing",
+											"value": "cfL4;desc=\"?proto=TCP&rtt=142372&min_rtt=136479&rtt_var=5614&sent=114&recv=112&lost=0&retrans=0&sent_bytes=10130&recv_bytes=4000&delivery_rate=37891&cwnd=248&unsent_bytes=0&cid=83404070327ceae7&ts=110657&x=0\""
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019368bf-decb-7dd8-85d8-fef30fab9092\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-26T13:53:45.163Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-26T13:53:45.163Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": \"business\",\n            \"name\": \"Tier 1\",\n            \"description\": \"Tier 1\",\n            \"level\": 1,\n            \"enabled\": true,\n            \"balance_limit\": 2000000,\n            \"single_sending_limit\": 500000,\n            \"single_receiving_limit\": 500000,\n            \"period_sending_limit\": 500000,\n            \"period_sending_limit_time_unit\": \"day\",\n            \"period_receiving_limit\": 500000,\n            \"period_receiving_limit_time_unit\": \"day\",\n            \"requirements\": [\n                {\n                    \"type\": \"kyc\",\n                    \"type_id\": \"01923359-cd8b-755b-862f-22b00cdce2e8\"\n                },\n                {\n                    \"type\": \"kyc\",\n                    \"type_id\": \"019368b2-54d3-7dd8-85d8-1e8eeb915459\"\n                }\n            ]\n        },\n        {\n            \"id\": \"019367c6-a25c-7115-b8f2-962812454475\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-26T09:21:31.229Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-26T09:21:31.229Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": \"business\",\n            \"name\": \"Tier 3\",\n            \"description\": \"Tier 3\",\n            \"level\": 3,\n            \"enabled\": true,\n            \"balance_limit\": 20000,\n            \"single_sending_limit\": 20000,\n            \"single_receiving_limit\": 20000,\n            \"period_sending_limit\": 20000,\n            \"period_sending_limit_time_unit\": \"day\",\n            \"period_receiving_limit\": 20000,\n            \"period_receiving_limit_time_unit\": \"day\",\n            \"requirements\": [\n                {\n                    \"type\": \"kyc\",\n                    \"type_id\": \"019367c5-1c25-7115-b8f2-70b1fbd2115e\"\n                },\n                {\n                    \"type\": \"kyc\",\n                    \"type_id\": \"019367b2-0af9-7115-b8f1-dc685d92e97f\"\n                },\n                {\n                    \"type\": \"kyc\",\n                    \"type_id\": \"019367be-267f-7115-b8f2-5b09dbcebec1\"\n                }\n            ]\n        },\n        {\n            \"id\": \"0193b131-7257-7cc9-bc92-a7663c2f4536\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-10T15:30:28.056Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-10T15:30:28.056Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_type\": \"business\",\n            \"name\": \"Tier 2\",\n            \"description\": \"Tier 2\",\n            \"level\": 2,\n            \"enabled\": false,\n            \"balance_limit\": 0,\n            \"single_sending_limit\": 0,\n            \"single_receiving_limit\": 0,\n            \"period_sending_limit\": 0,\n            \"period_sending_limit_time_unit\": \"day\",\n            \"period_receiving_limit\": 0,\n            \"period_receiving_limit_time_unit\": \"day\",\n            \"requirements\": [\n                {\n                    \"type_id\": \"019318f9-c895-744d-8f65-4636cc26fd1e\",\n                    \"type\": \"verification\"\n                }\n            ]\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 3\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "List Tiers-No auth",
