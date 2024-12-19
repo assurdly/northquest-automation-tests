@@ -18867,11 +18867,49 @@
 					"item": [
 						{
 							"name": "Delete Saving Product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "49b332f0-3e03-4e55-96e5-deeb60ad6bb8",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    \r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Check response body data is null\", () => {\r",
+											"        pm.expect(data).to.include(\"null\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "7e9bbbab-3ed2-4854-932e-d456b35abf7e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -18886,9 +18924,8 @@
 									],
 									"variable": [
 										{
-											"id": "9d458605-8637-4687-853d-1c891004f1e8",
 											"key": "product_id",
-											"value": "019393a1-5270-755e-beac-f0ac9679694b"
+											"value": "{{adminFetchedInvestmentId}}"
 										}
 									]
 								}
@@ -18896,6 +18933,152 @@
 							"response": [
 								{
 									"id": "06c51815-55ee-4303-a567-de25a036e8d8",
+									"name": "Delete Saving Product",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/savings-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"savings-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "019393a1-5270-755e-beac-f0ac9679694b"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 04 Dec 2024 21:44:11 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Saving Product-Already deleted product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "49b332f0-3e03-4e55-96e5-deeb60ad6bb8",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    \r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Check response body data is null\", () => {\r",
+											"        pm.expect(data).to.include(\"null\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "91185192-48fe-4d8d-871b-19bf7768936f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/savings-products/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"savings-products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"id": "c116ac19-ae0c-4878-a70a-37c75a66b592",
+											"key": "product_id",
+											"value": "{{adminFetchedInvestmentId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "d73ae9e1-fb77-4f08-9955-50b567ef5e9d",
 									"name": "Delete Saving Product",
 									"originalRequest": {
 										"method": "DELETE",
