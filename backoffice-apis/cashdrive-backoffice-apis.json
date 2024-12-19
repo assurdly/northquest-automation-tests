@@ -24920,7 +24920,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"min_transaction_count\": 2,\n    \"min_transaction_amount\": 100.00,\n    \"min_loan_count\": 0,\n    \"min_loan_amount\": 100.00,\n    \"min_investment_count\": 0,\n    \"min_investment_amount\": 100.00,\n    \"referrer_reward_amount\": 100.32,\n    \"referee_reward_amount\": 233.33\n}",
+									"raw": "{\n    \"min_transaction_count\": 2,\n    \"min_transaction_amount\": 100.00,\n    \"min_loan_count\": 0,\n    \"min_loan_amount\": 0.00,\n    \"min_investment_count\": 0,\n    \"min_investment_amount\": 0.00,\n    \"referrer_reward_amount\": 100.32,\n    \"referee_reward_amount\": 233.33\n}",
 									"options": {
 										"raw": {
 											"language": "json"
