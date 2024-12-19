@@ -24789,7 +24789,7 @@
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
 											"\r",
-											"    pm.environment.set(\"adminFetchedReferralId\", data[0].id);\r",
+											"    pm.environment.set(\"adminFetchedReferralId\", data.id[0]);\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
