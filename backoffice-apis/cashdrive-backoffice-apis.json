@@ -24839,25 +24839,18 @@
 										"id": "aad282ad-c88c-46e3-8899-60b5075fed9e",
 										"exec": [
 											"try {\r",
-											"    const { status, data } = pm.response.json()\r",
+											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.environment.set(\"adminFetchedReferralId\", data[0].id);\r",
-											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
-											"    })\r",
-											"\r",
+											"    // pm.test(\"Test for valid status code\", () => {\r",
+											"    //     pm.expect(statusCode).to.eql(401)\r",
+											"    // })\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data).to.be.an(\"object\")\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
+											"    console.error(error)\r",
 											"}"
 										],
 										"type": "text/javascript",
@@ -24871,10 +24864,7 @@
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{adminAccessToken}}"
-									}
+									"type": "noauth"
 								},
 								"method": "GET",
 								"header": [],
@@ -24886,26 +24876,32 @@
 					"id": "375d3894-d28f-4711-b71b-c524d919474e"
 				},
 				{
-					"name": "Update Referral Configuration",
-					"id": "44cf808b-d549-479c-bc0c-f368fb0efbf2",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"min_transaction_count\": 10,\n    \"min_transaction_amount\": 1000.00,\n    \"min_loan_count\": 0,\n    \"min_loan_amount\": 0.00,\n    \"min_investment_count\": 0,\n    \"min_investment_amount\": 0.00,\n    \"referrer_reward_amount\": 100.3,\n    \"referee_reward_amount\": 233.33\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/admin/referrals"
-					},
-					"response": []
+					"name": "Update Referral configuration",
+					"item": [
+						{
+							"name": "Update Referral Configuration",
+							"id": "44cf808b-d549-479c-bc0c-f368fb0efbf2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"min_transaction_count\": 10,\n    \"min_transaction_amount\": 1000.00,\n    \"min_loan_count\": 0,\n    \"min_loan_amount\": 0.00,\n    \"min_investment_count\": 0,\n    \"min_investment_amount\": 0.00,\n    \"referrer_reward_amount\": 100.3,\n    \"referee_reward_amount\": 233.33\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/referrals"
+							},
+							"response": []
+						}
+					],
+					"id": "6581fa91-e9b1-449d-9f49-f4942ff4073c"
 				},
 				{
 					"name": "Get Referral Activities",
