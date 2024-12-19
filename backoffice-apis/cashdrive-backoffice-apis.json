@@ -24829,6 +24829,58 @@
 								"url": "{{base_url}}/admin/referrals"
 							},
 							"response": []
+						},
+						{
+							"name": "Get Referral Configuration Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "aad282ad-c88c-46e3-8899-60b5075fed9e",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.environment.set(\"adminFetchedReferralId\", data[0].id);\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data).to.be.an(\"object\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "7e35e6b1-5363-462c-a764-8dc5f41fc88d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/admin/referrals"
+							},
+							"response": []
 						}
 					],
 					"id": "375d3894-d28f-4711-b71b-c524d919474e"
