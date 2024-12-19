@@ -17794,7 +17794,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Premium Savings Plan Again {{$randomAbbreviation}}\",\n    \"description\": \"A high-yield savings product with flexible terms.\",\n    \"currency\": \"NGN\",\n    \"type\": \"fixed\", // fixed, custom, structured\n    \"no_of_investors\": 100,\n    \"min_amount\": 5000.00,\n    \"interest_rate\": 0.75,\n    \"interest_period\": \"monthly\",\n    \"interest_compounding_period\": \"monthly\",\n    \"interest_posting_period\": \"monthly\",\n    \"withholding_tax\": 10,\n    \"min_deposit_term\": 10,\n    \"min_deposit_term_period\": \"weeks\",\n    \"max_deposit_term\": 24,\n    \"max_deposit_term_period\": \"months\"\n    // \"frequency\":\"\" // daily, monthly, yearly, weekly, custom\n    // \"allow_top_up\":\"false\"\n    //,\"terms_and_condition_file_id\": \"\" // optional\n}",
+									"raw": "{\n    \"name\": \"Premium Savings Plan Again GB\",\n    \"description\": \"A high-yield savings product with flexible terms.\",\n    \"currency\": \"NGN\",\n    \"type\": \"fixed\", // fixed, custom, structured\n    \"no_of_investors\": 100,\n    \"min_amount\": 5000.00,\n    \"interest_rate\": 0.75,\n    \"interest_period\": \"monthly\",\n    \"interest_compounding_period\": \"monthly\",\n    \"interest_posting_period\": \"monthly\",\n    \"withholding_tax\": 10,\n    \"min_deposit_term\": 10,\n    \"min_deposit_term_period\": \"weeks\",\n    \"max_deposit_term\": 24,\n    \"max_deposit_term_period\": \"months\"\n    // \"frequency\":\"\" // daily, monthly, yearly, weekly, custom\n    // \"allow_top_up\":\"false\"\n    //,\"terms_and_condition_file_id\": \"\" // optional\n}",
 									"options": {
 										"raw": {
 											"language": "json"
