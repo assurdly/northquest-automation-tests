@@ -31745,11 +31745,52 @@
 			"item": [
 				{
 					"name": "Get Referral Activities",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "94fabefb-4b4f-438d-bcb0-f657cf76a2f5",
+								"exec": [
+									"try {",
+									"    const { status, data } = pm.response.json()",
+									"",
+									"    pm.test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"    pm.test(\"Test for valid status\", () => {",
+									"        pm.expect(status).to.eql(\"success\")",
+									"    })",
+									"",
+									"    pm.test(\"Test for valid error message\", () => {",
+									"        pm.expect(data).to.not.eql([])",
+									"    })",
+									"",
+									"    pm.test(\"Test for valid error message\", () => {",
+									"        pm.expect(data).to.be.an(\"array\")",
+									"    })",
+									"",
+									"} catch (error) {",
+									"    console.error(\"Error from test:\", error);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"id": "d934589d-36a1-4717-848d-b001469887b9",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "{{base_url}}/referrals/activities"
