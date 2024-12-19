@@ -17785,6 +17785,38 @@
 						},
 						{
 							"name": "Create Saving Product-Already existing product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "df1d9e32-e735-4d5b-9651-a251a2e1b5c1",
+										"exec": [
+											"try {\r",
+											"    const { status, message } = pm.response.json()\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"error\")\r",
+											"    })\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.include(\"Saving Product Premium Savings Plan Again GB already exists\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "01f90a3b-31fa-4787-a1c7-aaebc6fd89c1",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
