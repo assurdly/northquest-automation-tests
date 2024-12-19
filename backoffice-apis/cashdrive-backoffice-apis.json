@@ -17731,7 +17731,61 @@
 					"item": [
 						{
 							"name": "Create Saving Product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1f8b131e-35c9-47c3-944e-057a7522739e",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Status code is 201\", function () {\r",
+											"        pm.response.to.have.status(201);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data).to.be.an(\"object\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "b631e30f-a5c6-414b-8da0-8ed070701182",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Premium Savings Plan Agains {{$randomAbbreviation}}\",\n    \"description\": \"A high-yield savings product with flexible terms.\",\n    \"currency\": \"NGN\",\n    \"type\": \"structured\", // fixed, custom, structured\n    \"no_of_investors\": 100,\n    \"min_amount\": 5000.00,\n    \"interest_rate\": 0.75,\n    \"interest_period\": \"monthly\",\n    \"interest_compounding_period\": \"monthly\",\n    \"interest_posting_period\": \"monthly\",\n    \"withholding_tax\": 10,\n    \"min_deposit_term\": 10,\n    \"min_deposit_term_period\": \"weeks\",\n    \"max_deposit_term\": 24,\n    \"max_deposit_term_period\": \"months\",\n    \"frequency\": \"monthly\" // daily, monthly, yearly, weekly, custom\n    // \"certificate_template_id\":\"\"\n    // \"min_amount_before_liquidation_approval\":1233\n    // \"allow_top_up\":\"false\"\n    //,\"terms_and_condition_file_id\": \"\" // optional\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/savings-products"
+							},
+							"response": []
+						},
+						{
+							"name": "Create Saving Product-Already existing product",
+							"id": "01f90a3b-31fa-4787-a1c7-aaebc6fd89c1",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
