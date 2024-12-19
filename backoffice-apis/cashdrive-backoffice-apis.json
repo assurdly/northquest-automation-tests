@@ -17836,6 +17836,60 @@
 								"url": "{{base_url}}/admin/savings-products"
 							},
 							"response": []
+						},
+						{
+							"name": "Create Saving Product-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "df1d9e32-e735-4d5b-9651-a251a2e1b5c1",
+										"exec": [
+											"try {\r",
+											"    const { status, message } = pm.response.json()\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"error\")\r",
+											"    })\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.include(\"Saving Product Premium Savings Plan Again GB already exists\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "4f6a1e36-2e51-4919-beac-0f5f13e6ef73",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Premium Savings Plan Again GB\",\n    \"description\": \"A high-yield savings product with flexible terms.\",\n    \"currency\": \"NGN\",\n    \"type\": \"fixed\", // fixed, custom, structured\n    \"no_of_investors\": 100,\n    \"min_amount\": 5000.00,\n    \"interest_rate\": 0.75,\n    \"interest_period\": \"monthly\",\n    \"interest_compounding_period\": \"monthly\",\n    \"interest_posting_period\": \"monthly\",\n    \"withholding_tax\": 10,\n    \"min_deposit_term\": 10,\n    \"min_deposit_term_period\": \"weeks\",\n    \"max_deposit_term\": 24,\n    \"max_deposit_term_period\": \"months\"\n    // \"frequency\":\"\" // daily, monthly, yearly, weekly, custom\n    // \"allow_top_up\":\"false\"\n    //,\"terms_and_condition_file_id\": \"\" // optional\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/savings-products"
+							},
+							"response": []
 						}
 					],
 					"id": "9f8985f4-9c82-4ce3-8326-3d70ebd68d5b"
