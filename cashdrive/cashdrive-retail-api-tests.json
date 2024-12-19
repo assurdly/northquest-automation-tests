@@ -31917,6 +31917,91 @@
 			"id": "8a3a9305-5965-4644-ac4f-0e5ba53e26aa"
 		},
 		{
+			"name": "Referral Copy",
+			"item": [
+				{
+					"name": "Get Referral Activities",
+					"item": [
+						{
+							"name": "Get Referral Activities",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "94fabefb-4b4f-438d-bcb0-f657cf76a2f5",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.not.eql([])",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "ac04ef10-d1ff-43aa-8550-845deb7bcf48",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/referrals/activities"
+							},
+							"response": []
+						}
+					],
+					"id": "535e1741-bdcb-48bb-913b-6981feac07dd"
+				},
+				{
+					"name": "Get Referral Activity",
+					"item": [
+						{
+							"name": "Get Referral Activity",
+							"id": "927d3ec9-aa9d-43bf-9b51-9d2f9b279463",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/referrals/activities/id"
+							},
+							"response": []
+						}
+					],
+					"id": "90fd65c4-dc28-4b42-a02f-feba48421746"
+				}
+			],
+			"id": "0600fe35-9cb9-416c-a39c-257a1e296b9c"
+		},
+		{
 			"name": "Calculate Loan",
 			"id": "d925551a-1cad-4122-b879-63e2a4abce4f",
 			"protocolProfileBehavior": {
