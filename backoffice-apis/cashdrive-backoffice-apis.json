@@ -18401,17 +18401,40 @@
 							]
 						},
 						{
-							"name": "Get Saving Product Copy 2",
+							"name": "Get Saving Product-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f82f2d28-b6a1-44e7-b94c-50d623710aff",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    // pm.test(\"Test for valid status code\", () => {\r",
+											"    //     pm.expect(statusCode).to.eql(401)\r",
+											"    // })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "73c015ec-8698-4852-a762-b55384cf127c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{adminAccessToken}}"
-									}
+									"type": "noauth"
 								},
 								"method": "GET",
 								"header": [],
@@ -18427,7 +18450,6 @@
 									],
 									"variable": [
 										{
-											"id": "dcaaa77b-45f2-47bc-9161-8b84bbccab82",
 											"key": "product_id",
 											"value": "{{adminFetchedInvestmentId}}"
 										}
