@@ -24987,78 +24987,84 @@
 				},
 				{
 					"name": "Get Referral Activities",
-					"id": "17950359-1a68-4c53-8efc-0088820be365",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{base_url}}/admin/referrals/activities"
-					},
-					"response": [
+					"item": [
 						{
-							"id": "75061f1b-a948-472f-ba9b-eebdd22b1981",
 							"name": "Get Referral Activities",
-							"originalRequest": {
+							"id": "17950359-1a68-4c53-8efc-0088820be365",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "GET",
 								"header": [],
 								"url": "{{base_url}}/admin/referrals/activities"
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "2799"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"aef-iipuuXl0zQd3F0dJlM5heB/c8PE\""
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 16 Dec 2024 17:42:30 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "75061f1b-a948-472f-ba9b-eebdd22b1981",
+									"name": "Get Referral Activities",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/referrals/activities"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "2799"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"aef-iipuuXl0zQd3F0dJlM5heB/c8PE\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 16 Dec 2024 17:42:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193c003-15b6-7ff0-aec5-ad4769c60623\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-13T12:34:07.925Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-13T12:34:07.925Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n            \"user_id\": \"01934be2-b0e4-7002-9244-42b4c2bded24\",\n            \"referrer_id\": \"01934be2-b0e4-7002-9244-42b4c2bded24\",\n            \"referree_earning\": \"233.33\",\n            \"referrer_earning\": \"100.30\",\n            \"user\": {\n                \"id\": \"01934be2-b0e4-7002-9244-42b4c2bded24\",\n                \"meta\": null,\n                \"created_on\": \"2024-11-20T23:22:47.907Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-12-16T17:42:06.817Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"darehorla@gmail.com\",\n                \"phone\": \"+2348149583661\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"gender\": null,\n                \"date_of_birth\": \"1997-08-04\",\n                \"cba_id\": \"30\",\n                \"photo_id\": null,\n                \"referral_code\": \"8EVVJX\",\n                \"password\": \"$2b$10$dGNeHihdd2A7QkL1wAZFI.mAHfO4CQw1H06gEhUBT9wmAUQJdLRoC\",\n                \"pin\": \"$2b$10$bpxlVSyUwab6CnKPDK7yD.HwDYFWIxqS5LWcJXVahp3IaU7mMa/Ri\",\n                \"twofa_secret\": null,\n                \"refresh_token\": \"77a352f8c8f77f03734308046d8efb010780b6175f9028b633485b18cc470bae\",\n                \"twofa_enabled\": false,\n                \"last_active\": \"2024-12-16T17:42:06.812Z\",\n                \"last_ip\": \"::1\",\n                \"last_time_zone\": null,\n                \"referred_by\": \"01934be2-b0e4-7002-9244-42b4c2bded24\"\n            },\n            \"referrer\": {\n                \"id\": \"01934be2-b0e4-7002-9244-42b4c2bded24\",\n                \"meta\": null,\n                \"created_on\": \"2024-11-20T23:22:47.907Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-12-16T17:42:06.817Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"darehorla@gmail.com\",\n                \"phone\": \"+2348149583661\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"gender\": null,\n                \"date_of_birth\": \"1997-08-04\",\n                \"cba_id\": \"30\",\n                \"photo_id\": null,\n                \"referral_code\": \"8EVVJX\",\n                \"password\": \"$2b$10$dGNeHihdd2A7QkL1wAZFI.mAHfO4CQw1H06gEhUBT9wmAUQJdLRoC\",\n                \"pin\": \"$2b$10$bpxlVSyUwab6CnKPDK7yD.HwDYFWIxqS5LWcJXVahp3IaU7mMa/Ri\",\n                \"twofa_secret\": null,\n                \"refresh_token\": \"77a352f8c8f77f03734308046d8efb010780b6175f9028b633485b18cc470bae\",\n                \"twofa_enabled\": false,\n                \"last_active\": \"2024-12-16T17:42:06.812Z\",\n                \"last_ip\": \"::1\",\n                \"last_time_zone\": null,\n                \"referred_by\": \"01934be2-b0e4-7002-9244-42b4c2bded24\"\n            },\n            \"profile\": {\n                \"id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"meta\": {\n                    \"nin\": \"233\"\n                },\n                \"created_on\": \"2024-12-13T12:04:30.711Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-12-13T12:34:07.899Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Sodiq\",\n                \"type\": \"personal\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01934be2-b0e4-7002-9244-42b4c2bded24\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193c003-15b6-7ff0-aec5-ad4769c60623\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-13T12:34:07.925Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-13T12:34:07.925Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n            \"user_id\": \"01934be2-b0e4-7002-9244-42b4c2bded24\",\n            \"referrer_id\": \"01934be2-b0e4-7002-9244-42b4c2bded24\",\n            \"referree_earning\": \"233.33\",\n            \"referrer_earning\": \"100.30\",\n            \"user\": {\n                \"id\": \"01934be2-b0e4-7002-9244-42b4c2bded24\",\n                \"meta\": null,\n                \"created_on\": \"2024-11-20T23:22:47.907Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-12-16T17:42:06.817Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"darehorla@gmail.com\",\n                \"phone\": \"+2348149583661\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"gender\": null,\n                \"date_of_birth\": \"1997-08-04\",\n                \"cba_id\": \"30\",\n                \"photo_id\": null,\n                \"referral_code\": \"8EVVJX\",\n                \"password\": \"$2b$10$dGNeHihdd2A7QkL1wAZFI.mAHfO4CQw1H06gEhUBT9wmAUQJdLRoC\",\n                \"pin\": \"$2b$10$bpxlVSyUwab6CnKPDK7yD.HwDYFWIxqS5LWcJXVahp3IaU7mMa/Ri\",\n                \"twofa_secret\": null,\n                \"refresh_token\": \"77a352f8c8f77f03734308046d8efb010780b6175f9028b633485b18cc470bae\",\n                \"twofa_enabled\": false,\n                \"last_active\": \"2024-12-16T17:42:06.812Z\",\n                \"last_ip\": \"::1\",\n                \"last_time_zone\": null,\n                \"referred_by\": \"01934be2-b0e4-7002-9244-42b4c2bded24\"\n            },\n            \"referrer\": {\n                \"id\": \"01934be2-b0e4-7002-9244-42b4c2bded24\",\n                \"meta\": null,\n                \"created_on\": \"2024-11-20T23:22:47.907Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-12-16T17:42:06.817Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"darehorla@gmail.com\",\n                \"phone\": \"+2348149583661\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"gender\": null,\n                \"date_of_birth\": \"1997-08-04\",\n                \"cba_id\": \"30\",\n                \"photo_id\": null,\n                \"referral_code\": \"8EVVJX\",\n                \"password\": \"$2b$10$dGNeHihdd2A7QkL1wAZFI.mAHfO4CQw1H06gEhUBT9wmAUQJdLRoC\",\n                \"pin\": \"$2b$10$bpxlVSyUwab6CnKPDK7yD.HwDYFWIxqS5LWcJXVahp3IaU7mMa/Ri\",\n                \"twofa_secret\": null,\n                \"refresh_token\": \"77a352f8c8f77f03734308046d8efb010780b6175f9028b633485b18cc470bae\",\n                \"twofa_enabled\": false,\n                \"last_active\": \"2024-12-16T17:42:06.812Z\",\n                \"last_ip\": \"::1\",\n                \"last_time_zone\": null,\n                \"referred_by\": \"01934be2-b0e4-7002-9244-42b4c2bded24\"\n            },\n            \"profile\": {\n                \"id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"meta\": {\n                    \"nin\": \"233\"\n                },\n                \"created_on\": \"2024-12-13T12:04:30.711Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-12-13T12:34:07.899Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Sodiq\",\n                \"type\": \"personal\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01934be2-b0e4-7002-9244-42b4c2bded24\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+							]
 						}
-					]
+					],
+					"id": "a2e9f1d8-16d3-4ae5-b173-981363e86a6a"
 				},
 				{
 					"name": "Get Referral Activity",
