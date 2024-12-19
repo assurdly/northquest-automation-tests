@@ -17978,7 +17978,7 @@
 							]
 						},
 						{
-							"name": "List Saving Products Copy",
+							"name": "List Saving Products-No auth",
 							"event": [
 								{
 									"listen": "test",
@@ -17986,25 +17986,18 @@
 										"id": "98b404be-ce3f-488f-898d-62d75b66f7cc",
 										"exec": [
 											"try {\r",
-											"    const { status, data } = pm.response.json()\r",
+											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.environment.set(\"adminFetchedInvestmentId\", data[0].id);\r",
+											"    // pm.test(\"Test for valid status code\", () => {\r",
+											"    //     pm.expect(statusCode).to.eql(401)\r",
+											"    // })\r",
 											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
-											"    })\r",
-											"\r",
-											"\r",
-											"    pm.test(\"Check response body is an array\", () => {\r",
-											"        pm.expect(data).to.be.an(\"array\")\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
+											"    console.error(error)\r",
 											"}"
 										],
 										"type": "text/javascript",
