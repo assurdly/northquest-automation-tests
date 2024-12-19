@@ -17750,7 +17750,7 @@
 											"    })\r",
 											"\r",
 											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
+											"    pm.test(\"Check response body is an object\", () => {\r",
 											"        pm.expect(data).to.be.an(\"object\")\r",
 											"    })\r",
 											"\r",
