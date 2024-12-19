@@ -18111,8 +18111,8 @@
 					"name": "Get Investment Plans",
 					"item": [
 						{
-							"name": "Get Saving Plans",
-							"id": "c8dbf7a0-37fc-420a-aca0-70d73aaa750b",
+							"name": "Get Saving Product",
+							"id": "6cd111a4-ab69-4b3c-a9cd-2d9a0116401e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -18120,52 +18120,45 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/admin/savings?filter[profile_id]=01925236-19c0-7112-9440-aa8162716104",
+									"raw": "{{base_url}}/admin/savings-products/:product_id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"admin",
-										"savings"
+										"savings-products",
+										":product_id"
 									],
-									"query": [
+									"variable": [
 										{
-											"key": "filter[profile_id]",
-											"value": "01925236-19c0-7112-9440-aa8162716104"
-										},
-										{
-											"key": "filter[name]",
-											"value": "ola",
-											"disabled": true
+											"id": "dd1c7329-aedd-4570-a56c-6fb80f83eda9",
+											"key": "product_id",
+											"value": "0193939a-5b02-711c-8c3a-65782fa6c53a"
 										}
 									]
 								}
 							},
 							"response": [
 								{
-									"id": "960f9b5a-9d79-4765-b29a-1792515f7ac3",
-									"name": "Success",
+									"id": "64613975-8c8d-40a0-a1d6-a0a3c30d6b43",
+									"name": "Get Saving Product",
 									"originalRequest": {
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/admin/savings?filter[profile_id]=01925236-19c0-7112-9440-aa8162716104",
+											"raw": "{{base_url}}/admin/savings-products/:product_id",
 											"host": [
 												"{{base_url}}"
 											],
 											"path": [
 												"admin",
-												"savings"
+												"savings-products",
+												":product_id"
 											],
-											"query": [
+											"variable": [
 												{
-													"key": "filter[profile_id]",
-													"value": "01925236-19c0-7112-9440-aa8162716104"
-												},
-												{
-													"key": "filter[name]",
-													"value": "ola",
-													"disabled": true
+													"key": "product_id",
+													"value": "0193a39c-abb3-7555-89eb-04e3e9127fd7"
 												}
 											]
 										}
@@ -18200,15 +18193,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "2260"
+											"value": "1037"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"8d4-MvfSs2s0YfUEtKM38bTJVYlaW9Y\""
+											"value": "W/\"40d-4Kvj6Ir8onyvkwWVS2fdfD0Rkow\""
 										},
 										{
 											"key": "Date",
-											"value": "Sun, 08 Dec 2024 10:07:20 GMT"
+											"value": "Thu, 19 Dec 2024 10:15:15 GMT"
 										},
 										{
 											"key": "Connection",
@@ -18221,82 +18214,7 @@
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193a39d-287d-7442-9d5a-eeaf88b5d09e\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-08T00:13:26.013Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-08T00:13:26.013Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193a39c-abb3-7555-89eb-04e3e9127fd7\",\n            \"cba_savings_id\": \"71\",\n            \"balance\": \"0.00\",\n            \"active\": true,\n            \"end_date\": \"2025-02-16T00:13:25.998Z\",\n            \"start_date\": \"2024-12-08T00:13:25.998Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"weeks\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\"\n        },\n        {\n            \"id\": \"0193a39f-d511-7663-8015-bcb8cfc92764\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-08T00:16:21.264Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-08T00:16:21.264Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193a39c-abb3-7555-89eb-04e3e9127fd7\",\n            \"cba_savings_id\": \"72\",\n            \"balance\": \"0.00\",\n            \"active\": true,\n            \"end_date\": \"2025-02-16T00:16:21.262Z\",\n            \"start_date\": \"2024-12-08T00:16:21.262Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"weeks\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\"\n        },\n        {\n            \"id\": \"0193a5bb-3506-7221-ab95-0854e439776f\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-08T10:05:29.733Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-08T10:05:29.733Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Ola mama\",\n            \"product_id\": \"0193a39c-abb3-7555-89eb-04e3e9127fd7\",\n            \"cba_savings_id\": \"73\",\n            \"balance\": \"0.00\",\n            \"active\": true,\n            \"end_date\": \"2025-02-16T10:05:29.727Z\",\n            \"start_date\": \"2024-12-08T10:05:29.727Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"weeks\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\"\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 3\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Get Saving Plan",
-							"id": "8eb69037-9eb0-4b75-9036-b4bb7f529e50",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": "{{base_url}}/admin/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e"
-							},
-							"response": [
-								{
-									"id": "c5945398-decd-4f1a-8ce5-1f2038b81917",
-									"name": "Get Saving Plan",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": "{{base_url}}/admin/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "756"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"2f4-6tUY1pMOF36fM1MkSG/+1PoVgq0\""
-										},
-										{
-											"key": "Date",
-											"value": "Sun, 08 Dec 2024 10:07:02 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193a39d-287d-7442-9d5a-eeaf88b5d09e\",\n        \"meta\": null,\n        \"created_on\": \"2024-12-08T00:13:26.013Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-12-08T00:13:26.013Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"name\": \"Vacation Funds\",\n        \"product_id\": \"0193a39c-abb3-7555-89eb-04e3e9127fd7\",\n        \"cba_savings_id\": \"71\",\n        \"balance\": \"0.00\",\n        \"active\": true,\n        \"end_date\": \"2025-02-16T00:13:25.998Z\",\n        \"start_date\": \"2024-12-08T00:13:25.998Z\",\n        \"periodic_amount\": 500,\n        \"interest_rate\": \"0.75\",\n        \"interest_period\": \"monthly\",\n        \"tenor_value\": 10,\n        \"tenor_period\": \"weeks\",\n        \"interest_compounding_period\": \"monthly\",\n        \"interest_posting_period\": \"monthly\",\n        \"status\": \"active\"\n    }\n}"
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193a39c-abb3-7555-89eb-04e3e9127fd7\",\n        \"meta\": null,\n        \"created_on\": \"2024-12-08T00:12:54.066Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-12-10T12:10:25.091Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"sodiq\",\n        \"description\": \"A high-yield savings product with flexible terms.\",\n        \"currency\": \"NGN\",\n        \"type\": \"structured\",\n        \"no_of_investors\": 100,\n        \"min_amount\": \"5000.00\",\n        \"deposit_amount\": \"10.00\",\n        \"interest_rate\": \"0.75\",\n        \"interest_period\": \"monthly\",\n        \"interest_compounding_period\": \"monthly\",\n        \"interest_posting_period\": \"monthly\",\n        \"enabled\": false,\n        \"cba_product_id\": \"54\",\n        \"early_termination\": \"dk\",\n        \"terms_and_condition_file_id\": null,\n        \"interest_payout_options\": {},\n        \"withholding_tax\": 10,\n        \"min_deposit_term\": 10,\n        \"min_deposit_term_period\": \"weeks\",\n        \"max_deposit_term\": null,\n        \"max_deposit_term_period\": null,\n        \"min_amount_before_liquidation_approval\": 0,\n        \"allow_top_up\": false,\n        \"frequency\": null,\n        \"certificate_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n        \"terms_and_condition\": null\n    }\n}"
 								}
 							]
 						}
