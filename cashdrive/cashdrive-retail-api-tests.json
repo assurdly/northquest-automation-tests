@@ -31248,9 +31248,157 @@
 			"name": "Virtual Accounts",
 			"item": [
 				{
-					"name": "New Folder",
+					"name": "Create Virtual Account",
 					"item": [],
 					"id": "be985f75-af63-4325-a802-435ddd59b294"
+				},
+				{
+					"name": "List Virtual Accounts",
+					"item": [],
+					"id": "9f933a14-7bb3-4a4e-a478-1c6592d7e9c7"
+				},
+				{
+					"name": "Update Virtual Account",
+					"item": [
+						{
+							"name": "Update Virtual Account",
+							"id": "d5290dbe-cf0d-43e4-86a8-6cc17bdd4e81",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"inactive\" // inactive | active\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"virtual-accounts",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "a2cd4c5f-18ef-46a1-946a-517dccdad3f8",
+											"key": "profile_id",
+											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+										},
+										{
+											"id": "6e683694-883a-4bcb-9274-1002764d5fb8",
+											"key": "id",
+											"value": "0193b640-033c-733e-97d9-b64ff322853c"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "e0f852c4-2530-42dd-8fff-6fd84bce14ed",
+									"name": "Update Virtual Account",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"inactive\" // inactive | active\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+												},
+												{
+													"key": "id",
+													"value": "0193b640-033c-733e-97d9-b64ff322853c"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "235"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"eb-XeK/B/dbMhV3EB4Yz4G+trpVNNw\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 11 Dec 2024 15:08:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"status\": \"inactive\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"modified_on\": \"2024-12-11T15:08:30.472Z\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "6a88798e-8c7c-467f-86ea-c1c289d21621"
 				},
 				{
 					"name": "Create Virtual Account",
@@ -31483,143 +31631,6 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-11T15:04:28.906Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"My Test\",\n            \"status\": \"active\",\n            \"type\": \"static\",\n            \"purpose\": \"Test\",\n            \"provider_id\": null,\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n            \"account_number\": \"1234567890\",\n            \"bank_id\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Update Virtual Account",
-					"id": "d5290dbe-cf0d-43e4-86a8-6cc17bdd4e81",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"status\": \"inactive\" // inactive | active\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"virtual-accounts",
-								":id"
-							],
-							"variable": [
-								{
-									"id": "a2cd4c5f-18ef-46a1-946a-517dccdad3f8",
-									"key": "profile_id",
-									"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
-								},
-								{
-									"id": "6e683694-883a-4bcb-9274-1002764d5fb8",
-									"key": "id",
-									"value": "0193b640-033c-733e-97d9-b64ff322853c"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "e0f852c4-2530-42dd-8fff-6fd84bce14ed",
-							"name": "Update Virtual Account",
-							"originalRequest": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"status\": \"inactive\" // inactive | active\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"virtual-accounts",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
-										},
-										{
-											"key": "id",
-											"value": "0193b640-033c-733e-97d9-b64ff322853c"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "235"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"eb-XeK/B/dbMhV3EB4Yz4G+trpVNNw\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 11 Dec 2024 15:08:30 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"status\": \"inactive\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"modified_on\": \"2024-12-11T15:08:30.472Z\"\n    }\n}"
 						}
 					]
 				},
