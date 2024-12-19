@@ -5139,6 +5139,33 @@
 					"item": [
 						{
 							"name": "Accept Invite",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0fb0740d-7f4e-49b8-a62b-09efb74b03e9",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", () => {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"User invite accepted successfully.\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "7d6dd70b-7347-4b55-8f80-6e1ad9e19e47",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
