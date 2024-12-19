@@ -18112,11 +18112,49 @@
 					"item": [
 						{
 							"name": "Get Saving Product",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6996a6bd-b810-4a83-b787-817724677afc",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    \r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Check response body is an object\", () => {\r",
+											"        pm.expect(data).to.be.an(\"object\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "6cd111a4-ab69-4b3c-a9cd-2d9a0116401e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -18131,9 +18169,8 @@
 									],
 									"variable": [
 										{
-											"id": "dd1c7329-aedd-4570-a56c-6fb80f83eda9",
 											"key": "product_id",
-											"value": "0193939a-5b02-711c-8c3a-65782fa6c53a"
+											"value": "{{adminFetchedInvestmentId}}"
 										}
 									]
 								}
@@ -18141,6 +18178,234 @@
 							"response": [
 								{
 									"id": "64613975-8c8d-40a0-a1d6-a0a3c30d6b43",
+									"name": "Get Saving Product",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/savings-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"savings-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "0193a39c-abb3-7555-89eb-04e3e9127fd7"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1037"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"40d-4Kvj6Ir8onyvkwWVS2fdfD0Rkow\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 19 Dec 2024 10:15:15 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193a39c-abb3-7555-89eb-04e3e9127fd7\",\n        \"meta\": null,\n        \"created_on\": \"2024-12-08T00:12:54.066Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-12-10T12:10:25.091Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"sodiq\",\n        \"description\": \"A high-yield savings product with flexible terms.\",\n        \"currency\": \"NGN\",\n        \"type\": \"structured\",\n        \"no_of_investors\": 100,\n        \"min_amount\": \"5000.00\",\n        \"deposit_amount\": \"10.00\",\n        \"interest_rate\": \"0.75\",\n        \"interest_period\": \"monthly\",\n        \"interest_compounding_period\": \"monthly\",\n        \"interest_posting_period\": \"monthly\",\n        \"enabled\": false,\n        \"cba_product_id\": \"54\",\n        \"early_termination\": \"dk\",\n        \"terms_and_condition_file_id\": null,\n        \"interest_payout_options\": {},\n        \"withholding_tax\": 10,\n        \"min_deposit_term\": 10,\n        \"min_deposit_term_period\": \"weeks\",\n        \"max_deposit_term\": null,\n        \"max_deposit_term_period\": null,\n        \"min_amount_before_liquidation_approval\": 0,\n        \"allow_top_up\": false,\n        \"frequency\": null,\n        \"certificate_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n        \"terms_and_condition\": null\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Saving Product-Invalid product Id",
+							"id": "ce53cdac-b9a5-416a-b267-09948c4e2fb7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/savings-products/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"savings-products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"id": "dcaaa77b-45f2-47bc-9161-8b84bbccab82",
+											"key": "product_id",
+											"value": "{{adminFetchedInvestmentId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "92019eb2-7173-441d-9bff-227e1dee4d93",
+									"name": "Get Saving Product",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/savings-products/:product_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"savings-products",
+												":product_id"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "0193a39c-abb3-7555-89eb-04e3e9127fd7"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1037"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"40d-4Kvj6Ir8onyvkwWVS2fdfD0Rkow\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 19 Dec 2024 10:15:15 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193a39c-abb3-7555-89eb-04e3e9127fd7\",\n        \"meta\": null,\n        \"created_on\": \"2024-12-08T00:12:54.066Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-12-10T12:10:25.091Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"sodiq\",\n        \"description\": \"A high-yield savings product with flexible terms.\",\n        \"currency\": \"NGN\",\n        \"type\": \"structured\",\n        \"no_of_investors\": 100,\n        \"min_amount\": \"5000.00\",\n        \"deposit_amount\": \"10.00\",\n        \"interest_rate\": \"0.75\",\n        \"interest_period\": \"monthly\",\n        \"interest_compounding_period\": \"monthly\",\n        \"interest_posting_period\": \"monthly\",\n        \"enabled\": false,\n        \"cba_product_id\": \"54\",\n        \"early_termination\": \"dk\",\n        \"terms_and_condition_file_id\": null,\n        \"interest_payout_options\": {},\n        \"withholding_tax\": 10,\n        \"min_deposit_term\": 10,\n        \"min_deposit_term_period\": \"weeks\",\n        \"max_deposit_term\": null,\n        \"max_deposit_term_period\": null,\n        \"min_amount_before_liquidation_approval\": 0,\n        \"allow_top_up\": false,\n        \"frequency\": null,\n        \"certificate_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n        \"terms_and_condition\": null\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Saving Product Copy 2",
+							"id": "73c015ec-8698-4852-a762-b55384cf127c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/savings-products/:product_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"savings-products",
+										":product_id"
+									],
+									"variable": [
+										{
+											"id": "dcaaa77b-45f2-47bc-9161-8b84bbccab82",
+											"key": "product_id",
+											"value": "{{adminFetchedInvestmentId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "dbfa5a0b-9f2f-4bd2-beb4-fc3c33f42b56",
 									"name": "Get Saving Product",
 									"originalRequest": {
 										"method": "GET",
