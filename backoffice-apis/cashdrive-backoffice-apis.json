@@ -17845,6 +17845,39 @@
 					"item": [
 						{
 							"name": "List Saving Products",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "98b404be-ce3f-488f-898d-62d75b66f7cc",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.environment.set(\"adminFetchedInvestmentId\", data[0].id);\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Check response body is an array\", () => {\r",
+											"        pm.expect(data).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "ee3e48a5-3c2b-4fa3-a150-9448f5cdf47e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -17853,7 +17886,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/admin/savings-products?filter[type]=standard",
+									"raw": "{{base_url}}/admin/savings-products",
 									"host": [
 										"{{base_url}}"
 									],
@@ -17869,7 +17902,8 @@
 										},
 										{
 											"key": "filter[type]",
-											"value": "standard"
+											"value": "standard",
+											"disabled": true
 										},
 										{
 											"key": "filter[name]",
@@ -17882,6 +17916,140 @@
 							"response": [
 								{
 									"id": "b669f0e2-b2c7-4d16-a86a-f5af4ebbecf8",
+									"name": "List Loan Products",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/loan-products"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "613"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"265-5yBDdxKjHFy5xnpKLW+7PKaxkaE\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 10 Nov 2024 16:32:07 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019316ea-8050-7668-80ac-8191f1697c7c\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T16:31:27.427Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-10T16:31:27.427Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Demo Product\",\n            \"description\": \"This is the demo Product\",\n            \"currency\": \"NGN\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"1000.00\",\n            \"frequency\": \"daily\",\n            \"min_tenor_value\": 1,\n            \"min_tenor_period\": \"days\",\n            \"max_tenor_value\": 7,\n            \"max_tenor_period\": \"weeks\",\n            \"enabled\": true,\n            \"cba_product_id\": null\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Saving Products Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "98b404be-ce3f-488f-898d-62d75b66f7cc",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.environment.set(\"adminFetchedInvestmentId\", data[0].id);\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Check response body is an array\", () => {\r",
+											"        pm.expect(data).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "02879a77-0286-4b4b-8ad2-eae32cf3986c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/savings-products",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"savings-products"
+									],
+									"query": [
+										{
+											"key": "filter[enabled]",
+											"value": "true",
+											"disabled": true
+										},
+										{
+											"key": "filter[type]",
+											"value": "standard",
+											"disabled": true
+										},
+										{
+											"key": "filter[name]",
+											"value": "http",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "74240bb7-9881-41f3-81e1-df6068556814",
 									"name": "List Loan Products",
 									"originalRequest": {
 										"method": "GET",
