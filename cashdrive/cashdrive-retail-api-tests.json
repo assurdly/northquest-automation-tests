@@ -31384,6 +31384,41 @@
 					"item": [
 						{
 							"name": "List Virtual Accounts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ef2dac15-fe85-402b-adfe-a036461c4f4c",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.not.eql([])",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "5bc87a42-34e3-4545-9411-60187b81749e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -31403,7 +31438,6 @@
 									],
 									"variable": [
 										{
-											"id": "75684bbb-3f25-482d-b608-aafa00d5d9ab",
 											"key": "profile_id",
 											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
 										}
@@ -31498,6 +31532,41 @@
 					"item": [
 						{
 							"name": "Update Virtual Account",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8efd929d-6bf5-424f-9df1-60fa0c186fce",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.not.eql([])",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "d5290dbe-cf0d-43e4-86a8-6cc17bdd4e81",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -31527,12 +31596,10 @@
 									],
 									"variable": [
 										{
-											"id": "a2cd4c5f-18ef-46a1-946a-517dccdad3f8",
 											"key": "profile_id",
 											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
 										},
 										{
-											"id": "6e683694-883a-4bcb-9274-1002764d5fb8",
 											"key": "id",
 											"value": "0193b640-033c-733e-97d9-b64ff322853c"
 										}
