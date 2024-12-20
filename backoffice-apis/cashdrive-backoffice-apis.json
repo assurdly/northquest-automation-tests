@@ -25864,6 +25864,37 @@
 						},
 						{
 							"name": "Create Virtual Account-Invalid Account Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "58f3ba40-94c3-42da-99eb-b2b70fc14f4e",
+										"exec": [
+											"try {\r",
+											"    const { status, message} = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.include(\"error\")\r",
+											"    })\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.include(\"account_id must be a UUID\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "4b30af73-7f43-44ca-8e09-fa83c9c4f0db",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -25879,7 +25910,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
+									"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c056\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
