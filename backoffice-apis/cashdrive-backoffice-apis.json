@@ -19541,44 +19541,15 @@
 					"id": "3424bcfb-ab4e-4642-98bd-a1bed98bd95d"
 				},
 				{
-					"name": "New Folder",
-					"item": [],
-					"id": "f4c70255-96c0-4328-9e98-44ec8a9b5c7f"
-				},
-				{
-					"name": "Get Saving Product Investors Copy",
-					"id": "96a1793d-bc47-478e-baf6-87ff247f3337",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/admin/savings-products/:product_id/investors",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"admin",
-								"savings-products",
-								":product_id",
-								"investors"
-							],
-							"variable": [
-								{
-									"id": "27798870-6bc3-4119-9717-38338aadc9e3",
-									"key": "product_id",
-									"value": "0193b562-6b7d-7114-9266-02a67be2dd64"
-								}
-							]
-						}
-					},
-					"response": [
+					"name": "Get Investment Product Investors",
+					"item": [
 						{
-							"id": "65594787-c7fe-41c8-b59b-f81fe14278c9",
-							"name": "Get Saving Product Investors",
-							"originalRequest": {
+							"name": "Get Saving Product Investors Copy",
+							"id": "96a1793d-bc47-478e-baf6-87ff247f3337",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -19594,66 +19565,96 @@
 									],
 									"variable": [
 										{
+											"id": "27798870-6bc3-4119-9717-38338aadc9e3",
 											"key": "product_id",
 											"value": "0193b562-6b7d-7114-9266-02a67be2dd64"
 										}
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "8857"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"2299-7dRaO5Yx1JR7OEF1qFTTrnbrRGE\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 19 Dec 2024 10:14:31 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "65594787-c7fe-41c8-b59b-f81fe14278c9",
+									"name": "Get Saving Product Investors",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/savings-products/:product_id/investors",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"savings-products",
+												":product_id",
+												"investors"
+											],
+											"variable": [
+												{
+													"key": "product_id",
+													"value": "0193b562-6b7d-7114-9266-02a67be2dd64"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "8857"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2299-7dRaO5Yx1JR7OEF1qFTTrnbrRGE\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 19 Dec 2024 10:14:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-16T18:13:08.791Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2802086bd0a\",\n            \"cba_savings_id\": \"87\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-10-16T18:13:08.768Z\",\n            \"start_date\": \"2024-12-16T18:13:08.768Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"months\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"meta\": {\n                    \"nin\": \"233\"\n                },\n                \"created_on\": \"2024-12-13T12:04:30.711Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-12-13T12:34:07.899Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Sodiq\",\n                \"type\": \"personal\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01934be2-b0e4-7002-9244-42b4c2bded24\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        },\n        {\n            \"id\": \"0193d933-3345-7228-884f-27ea1253117a\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-18T09:57:11.618Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-18T09:57:11.618Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2844086bd0a\",\n            \"cba_savings_id\": \"96\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-10-18T09:57:11.602Z\",\n            \"start_date\": \"2024-12-18T09:57:11.602Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"months\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"meta\": {\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"DA\",\n                    \"nin\": \"232\"\n                },\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"wunmi\",\n                \"type\": \"business\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        },\n        {\n            \"id\": \"0193d934-2854-7331-9fcd-764dd6ac1f69\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-18T09:58:14.355Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-18T09:58:14.355Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2844086bd0a\",\n            \"cba_savings_id\": \"97\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-10-18T09:58:14.337Z\",\n            \"start_date\": \"2024-12-18T09:58:14.337Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"months\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"meta\": {\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"DA\",\n                    \"nin\": \"232\"\n                },\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"wunmi\",\n                \"type\": \"business\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        },\n        {\n            \"id\": \"0193d935-931d-7bb0-af2b-0884be028510\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-18T09:59:47.228Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-18T09:59:47.228Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2844086bd0a\",\n            \"cba_savings_id\": \"98\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-10-18T09:59:47.219Z\",\n            \"start_date\": \"2024-12-18T09:59:47.219Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"months\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"meta\": {\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"DA\",\n                    \"nin\": \"232\"\n                },\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"wunmi\",\n                \"type\": \"business\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        },\n        {\n            \"id\": \"0193d975-7b23-733a-89d4-60a3df17996c\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-18T11:09:35.394Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-18T11:09:35.394Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2844086bd0a\",\n            \"cba_savings_id\": \"102\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-10-18T11:09:35.382Z\",\n            \"start_date\": \"2024-12-18T11:09:35.382Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"months\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"meta\": {\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"DA\",\n                    \"nin\": \"232\"\n                },\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"wunmi\",\n                \"type\": \"business\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        },\n        {\n            \"id\": \"0193de23-c60c-7006-aa72-3451aaee5d4e\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-19T08:58:26.699Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-19T08:58:26.699Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2844086bd0a\",\n            \"cba_savings_id\": \"103\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-02-27T08:58:26.670Z\",\n            \"start_date\": \"2024-12-19T08:58:26.670Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"weeks\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"meta\": {\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"DA\",\n                    \"nin\": \"232\"\n                },\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"wunmi\",\n                \"type\": \"business\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        },\n        {\n            \"id\": \"0193de24-1a4c-7006-aa72-56d5ea8b4de5\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-19T08:58:48.267Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-19T09:36:25.131Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2844086bd0a\",\n            \"cba_savings_id\": \"104\",\n            \"balance\": \"500.00\",\n            \"end_date\": \"2025-02-27T08:58:48.242Z\",\n            \"start_date\": \"2024-12-19T08:58:48.242Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"weeks\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"meta\": {\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"DA\",\n                    \"nin\": \"232\"\n                },\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"wunmi\",\n                \"type\": \"business\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 7\n    }\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-16T18:13:08.791Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2802086bd0a\",\n            \"cba_savings_id\": \"87\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-10-16T18:13:08.768Z\",\n            \"start_date\": \"2024-12-16T18:13:08.768Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"months\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"meta\": {\n                    \"nin\": \"233\"\n                },\n                \"created_on\": \"2024-12-13T12:04:30.711Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-12-13T12:34:07.899Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Sodiq\",\n                \"type\": \"personal\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01934be2-b0e4-7002-9244-42b4c2bded24\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        },\n        {\n            \"id\": \"0193d933-3345-7228-884f-27ea1253117a\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-18T09:57:11.618Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-18T09:57:11.618Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2844086bd0a\",\n            \"cba_savings_id\": \"96\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-10-18T09:57:11.602Z\",\n            \"start_date\": \"2024-12-18T09:57:11.602Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"months\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"meta\": {\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"DA\",\n                    \"nin\": \"232\"\n                },\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"wunmi\",\n                \"type\": \"business\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        },\n        {\n            \"id\": \"0193d934-2854-7331-9fcd-764dd6ac1f69\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-18T09:58:14.355Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-18T09:58:14.355Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2844086bd0a\",\n            \"cba_savings_id\": \"97\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-10-18T09:58:14.337Z\",\n            \"start_date\": \"2024-12-18T09:58:14.337Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"months\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"meta\": {\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"DA\",\n                    \"nin\": \"232\"\n                },\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"wunmi\",\n                \"type\": \"business\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        },\n        {\n            \"id\": \"0193d935-931d-7bb0-af2b-0884be028510\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-18T09:59:47.228Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-18T09:59:47.228Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2844086bd0a\",\n            \"cba_savings_id\": \"98\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-10-18T09:59:47.219Z\",\n            \"start_date\": \"2024-12-18T09:59:47.219Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"months\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"meta\": {\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"DA\",\n                    \"nin\": \"232\"\n                },\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"wunmi\",\n                \"type\": \"business\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        },\n        {\n            \"id\": \"0193d975-7b23-733a-89d4-60a3df17996c\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-18T11:09:35.394Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-18T11:09:35.394Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2844086bd0a\",\n            \"cba_savings_id\": \"102\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-10-18T11:09:35.382Z\",\n            \"start_date\": \"2024-12-18T11:09:35.382Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"months\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"meta\": {\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"DA\",\n                    \"nin\": \"232\"\n                },\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"wunmi\",\n                \"type\": \"business\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        },\n        {\n            \"id\": \"0193de23-c60c-7006-aa72-3451aaee5d4e\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-19T08:58:26.699Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-19T08:58:26.699Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2844086bd0a\",\n            \"cba_savings_id\": \"103\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-02-27T08:58:26.670Z\",\n            \"start_date\": \"2024-12-19T08:58:26.670Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"weeks\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"meta\": {\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"DA\",\n                    \"nin\": \"232\"\n                },\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"wunmi\",\n                \"type\": \"business\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        },\n        {\n            \"id\": \"0193de24-1a4c-7006-aa72-56d5ea8b4de5\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-19T08:58:48.267Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-19T09:36:25.131Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2844086bd0a\",\n            \"cba_savings_id\": \"104\",\n            \"balance\": \"500.00\",\n            \"end_date\": \"2025-02-27T08:58:48.242Z\",\n            \"start_date\": \"2024-12-19T08:58:48.242Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"weeks\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\",\n            \"profile\": {\n                \"id\": \"01925236-19c0-7112-9440-aa8162716104\",\n                \"meta\": {\n                    \"first_name\": \"Sodiq\",\n                    \"last_name\": \"DA\",\n                    \"nin\": \"232\"\n                },\n                \"created_on\": \"2024-10-03T11:48:50.239Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-08T20:15:37.725Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"wunmi\",\n                \"type\": \"business\",\n                \"status\": \"active\",\n                \"review\": null,\n                \"primary_user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"tier_id\": \"01928f2d-6756-755b-8a9d-c8094db2af27\"\n            }\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 7\n    }\n}"
+							]
 						}
-					]
+					],
+					"id": "f4c70255-96c0-4328-9e98-44ec8a9b5c7f"
 				}
 			],
 			"id": "d8199411-bcff-4cb2-8af6-447c0283babd"
