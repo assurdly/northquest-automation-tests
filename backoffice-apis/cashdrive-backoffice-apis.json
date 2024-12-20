@@ -26414,6 +26414,83 @@
 						}
 					],
 					"id": "6df36b21-0f95-4c54-bca4-eeb2ab78d05e"
+				},
+				{
+					"name": "Export Virtual account",
+					"item": [
+						{
+							"name": "Export Virtual Accounts",
+							"id": "54841bae-98bd-4535-b8b1-d0fb34af7188",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/admin/virtual-accounts/export"
+							},
+							"response": [
+								{
+									"id": "8c69ef17-ad49-48ca-aa70-c92d1b7ec0e9",
+									"name": "Export Virtual Accounts",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/virtual-accounts/export"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/csv"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 19 Dec 2024 16:09:05 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "Name,Status,Type,Purpose,Account Number,Timestamp\nMy bank,active,static,Test,7217945916,12/12/24\nMy Test,inactive,dynamic,Test,1656812277,12/12/24\nMy Testing,active,dynamic,Test,1171102508,12/12/24\nMy Test,active,static,Test,5246783524,12/19/24"
+								}
+							]
+						}
+					],
+					"id": "1aafabe0-4ad7-413c-bcb9-72b2f321f94b"
 				}
 			],
 			"id": "42719287-a840-4273-a87e-fdf4b0161bc9"
