@@ -24325,12 +24325,18 @@
 					"response": []
 				},
 				{
-					"name": "Export Loans Copy",
+					"name": "Export Loans",
 					"id": "46d784e6-879e-47fe-9608-a14e1775e69e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{adminAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": "{{base_url}}/admin/loans/export"
