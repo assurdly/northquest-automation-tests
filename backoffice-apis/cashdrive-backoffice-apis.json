@@ -24323,6 +24323,77 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Export Loans Copy",
+					"id": "46d784e6-879e-47fe-9608-a14e1775e69e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/admin/loans/export"
+					},
+					"response": [
+						{
+							"id": "c4006a9a-66c1-4bd9-87dd-5c790d01b0de",
+							"name": "Export Loans",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/admin/loans/export"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/csv"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 19 Dec 2024 16:02:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "Currency,Amount Disbursed,Principal,Interest,Interest Rate,Interest Period,Tenor Value,Tenor Period,Frequency,Status,Timestamp\nNGN,0,5000,100,2.00,flat,2,months,monthly,pending,12/10/24\nNGN,0,5000,100,2.00,flat,2,months,monthly,pending,12/10/24\nNGN,0,5000,100,2.00,flat,2,months,monthly,pending,12/10/24\nNGN,0,5000,100,2.00,flat,2,months,monthly,pending,12/10/24\nNGN,0,5000,100,2.00,flat,2,months,monthly,declined,12/10/24"
+						}
+					]
 				}
 			],
 			"id": "c1c91c35-4ce2-4656-9833-60473c1ee35e"
@@ -26425,6 +26496,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [],
 								"url": "{{base_url}}/admin/virtual-accounts/export"
