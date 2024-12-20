@@ -25272,46 +25272,26 @@
 			"name": "Virtual Accounts",
 			"item": [
 				{
-					"name": "New Folder",
-					"item": [],
-					"id": "f19a70da-ac7f-493a-9843-626892a008bf"
-				},
-				{
-					"name": "Create Virtual Account",
-					"id": "544de974-58b8-4804-b5c9-845a6775a3d6",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{adminAccessToken}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/admin/virtual-accounts"
-					},
-					"response": [
+					"name": "Create Virtual account",
+					"item": [
 						{
-							"id": "aafdd5c6-105d-4838-8c6a-9dc26c96c4b1",
 							"name": "Create Virtual Account",
-							"originalRequest": {
+							"id": "544de974-58b8-4804-b5c9-845a6775a3d6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\",\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
+									"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -25320,60 +25300,81 @@
 								},
 								"url": "{{base_url}}/admin/virtual-accounts"
 							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "526"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"20e-t2qwOztR87GiuzyjnQvkdWUFqQo\""
-								},
-								{
-									"key": "Date",
-									"value": "Wed, 11 Dec 2024 15:04:29 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "aafdd5c6-105d-4838-8c6a-9dc26c96c4b1",
+									"name": "Create Virtual Account",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\",\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/virtual-accounts"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "526"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20e-t2qwOztR87GiuzyjnQvkdWUFqQo\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 11 Dec 2024 15:04:29 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"My Test\",\n        \"type\": \"static\",\n        \"purpose\": \"Test\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n        \"account_number\": \"1234567890\",\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"created_on\": \"2024-12-11T15:04:28.906Z\",\n        \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"My Test\",\n        \"type\": \"static\",\n        \"purpose\": \"Test\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n        \"account_number\": \"1234567890\",\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"created_on\": \"2024-12-11T15:04:28.906Z\",\n        \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+							]
 						}
-					]
+					],
+					"id": "f19a70da-ac7f-493a-9843-626892a008bf"
 				},
 				{
 					"name": "List Virtual Accounts",
