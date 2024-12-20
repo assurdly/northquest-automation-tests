@@ -19544,12 +19544,18 @@
 					"name": "Get Investment Product Investors",
 					"item": [
 						{
-							"name": "Get Saving Product Investors Copy",
+							"name": "Get Investment Product Investors",
 							"id": "96a1793d-bc47-478e-baf6-87ff247f3337",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -19565,9 +19571,8 @@
 									],
 									"variable": [
 										{
-											"id": "27798870-6bc3-4119-9717-38338aadc9e3",
 											"key": "product_id",
-											"value": "0193b562-6b7d-7114-9266-02a67be2dd64"
+											"value": "{{adminFetchedInvestmentId}}"
 										}
 									]
 								}
