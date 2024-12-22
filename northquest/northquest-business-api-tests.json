@@ -10088,7 +10088,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"enabled\": true\n    // \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
+									"raw": "{\n    \"enabled\": true,\n    \"pin\": \"1234\"\n    // \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10107,7 +10107,6 @@
 									],
 									"variable": [
 										{
-											"id": "ac60772f-4135-4d17-bbd2-cf067556142a",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
