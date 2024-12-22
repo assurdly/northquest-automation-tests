@@ -19844,6 +19844,10 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {}
+								},
 								"method": "GET",
 								"header": [],
 								"body": {
@@ -19885,9 +19889,8 @@
 									],
 									"variable": [
 										{
-											"id": "c78e18d1-2707-4468-8a09-fa02cbf4f789",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedBusinessProfileId}}"
 										}
 									]
 								}
