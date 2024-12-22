@@ -19837,7 +19837,7 @@
 							]
 						},
 						{
-							"name": "Get Transactions Schedules Copy 2",
+							"name": "Get Transactions Schedules",
 							"id": "f87c9128-1994-47ad-a8ee-605e82ffdad4",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -19861,7 +19861,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules?filter[created_on]=2024-12-21",
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules?filter[next_run_date][gt]=2024-12-22",
 									"host": [
 										"{{base_url}}"
 									],
@@ -19890,7 +19890,20 @@
 										{
 											"key": "filter[created_on]",
 											"value": "2024-12-21",
+											"disabled": true
+										},
+										{
+											"key": "filter[next_run_date][gt]",
+											"value": "2024-12-22",
+											"description": "Upcoming",
 											"type": "text"
+										},
+										{
+											"key": "filter[next_run_date][lt]",
+											"value": "2024-12-22",
+											"description": "Past",
+											"type": "text",
+											"disabled": true
 										}
 									],
 									"variable": [
