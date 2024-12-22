@@ -19845,7 +19845,9 @@
 							"request": {
 								"auth": {
 									"type": "bearer",
-									"bearer": {}
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
 								},
 								"method": "GET",
 								"header": [],
@@ -19859,7 +19861,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules",
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules?filter[created_on]=2024-12-21",
 									"host": [
 										"{{base_url}}"
 									],
@@ -19884,6 +19886,11 @@
 											"key": "filter[type]",
 											"value": "bill_payment",
 											"disabled": true
+										},
+										{
+											"key": "filter[created_on]",
+											"value": "2024-12-21",
+											"type": "text"
 										}
 									],
 									"variable": [
