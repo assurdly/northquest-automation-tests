@@ -15314,7 +15314,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"slug\": \"bvn\",\n    \"name\": \"BVN\",\n    \"description\": \"BVN\",\n    \"enabled\": true,\n    \"profile_type\": \"personal\"\n}",
+									"raw": "{\n    \"slug\": \"bvn\",\n    // \"name\": \"BVN\",\n    // \"description\": \"BVN\",\n    \"enabled\": true\n    // \"profile_type\": \"personal\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
