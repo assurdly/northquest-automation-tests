@@ -32560,11 +32560,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Vacation Funds\",\n    \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n    \"periodic_amount\": 500,\n    \"tenor_value\": 10,\n    \"tenor_period\": \"months\",\n    \"account_id\": \"{{accountId}}\"\n}",
+									"raw": "// {\n//     \"name\": \"Vacation Funds\",\n//     \"product_id\": \"{{userFetchedSavingsProductId}}\",\n//     \"periodic_amount\": 500,\n//     \"tenor_value\": 3,\n//     \"tenor_period\": \"months\",\n//     \"account_id\": \"{{userFetchedAccountId}}\"\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -32583,9 +32589,8 @@
 									],
 									"variable": [
 										{
-											"id": "530f9d71-0b88-45a6-bfec-bc6d8ee489c9",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedBusinessProfileId}}"
 										}
 									]
 								}
@@ -32838,6 +32843,38 @@
 					"item": [
 						{
 							"name": "Get Saving Plan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4439a851-8b55-4a7d-8dfd-c6fbb0bd0366",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"    pm.environment.set(\"userFetchedSavingsPlanId\", data[0].id)",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "997b340e-7c1a-4e96-91b3-2b5793132bad",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -32866,6 +32903,10 @@
 										{
 											"key": "profile_id",
 											"value": "{{userFetchedBusinessProfileId}}"
+										},
+										{
+											"key": "plan_id",
+											"value": "{{userFetchedSavingsPlanId}}"
 										}
 									]
 								}
@@ -32932,11 +32973,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"amount\": 10\n}",
+									"raw": "{\n    \"account_id\": 10\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -32944,7 +32991,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/withdraw",
+									"raw": "{{base_url}}/profiles/:profile_id/savings/{{userFetchedSavingsPlanId}}/withdraw",
 									"host": [
 										"{{base_url}}"
 									],
@@ -32952,14 +32999,13 @@
 										"profiles",
 										":profile_id",
 										"savings",
-										"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
+										"{{userFetchedSavingsPlanId}}",
 										"withdraw"
 									],
 									"variable": [
 										{
-											"id": "22aeee5f-3a2c-417e-a33e-b2f19898abfe",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedBusinessProfileId}}"
 										}
 									]
 								}
