@@ -3115,7 +3115,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/admin/users",
+									"raw": "{{base_url}}/admin/users?filter[search]=a",
 									"host": [
 										"{{base_url}}"
 									],
@@ -3125,9 +3125,8 @@
 									],
 									"query": [
 										{
-											"key": "search",
-											"value": "Dare",
-											"disabled": true
+											"key": "filter[search]",
+											"value": "a"
 										},
 										{
 											"key": "filter[status]",
