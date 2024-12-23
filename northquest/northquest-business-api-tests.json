@@ -32481,7 +32481,7 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": "{{base_url}}/saving-products/0193a390-8deb-7220-b5e4-f5af6318af0a"
+								"url": "{{base_url}}/saving-products/{{userFetchedSavingsProductId}}"
 							},
 							"response": [
 								{
