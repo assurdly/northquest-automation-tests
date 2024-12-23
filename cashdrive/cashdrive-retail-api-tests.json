@@ -32131,7 +32131,7 @@
 												},
 												{
 													"key": "id",
-													"value": "{{userCreatedVirtualAccountId}}"
+													"value": "{{userCreatedDynamicVirtualAccountId}}"
 												}
 											]
 										}
@@ -32471,7 +32471,7 @@
 												},
 												{
 													"key": "id",
-													"value": "{{userCreatedVirtualAccountId}}"
+													"value": "{{userCreatedDynamicVirtualAccountId}}"
 												}
 											]
 										}
@@ -33374,10 +33374,10 @@
 												"exec": [
 													"try {",
 													"    const { status, data } = pm.response.json()",
-													"    const dynamicAccount = data.find((item) => item.type === \"dynamic\");",
+													"    const staticAccount = data.find((item) => item.type === \"dynamic\");",
 													"",
-													"    pm.environment.set(\"userfetchedDynamicAccountId\", dynamicAccount.id);",
-													"    pm.environment.set(\"userfetchedDynamicAccountNumber\", dynamicAccount.account_number);",
+													"    pm.environment.set(\"userfetchedStaticAccountId\", staticAccount.id);",
+													"    pm.environment.set(\"userfetchedStaticAccountNumber\", staticAccount.account_number);",
 													"",
 													"    pm.test(\"Status code is 200\", function () {",
 													"        pm.response.to.have.status(200);",
@@ -33434,7 +33434,6 @@
 											],
 											"variable": [
 												{
-													"id": "acaf73c9-e820-43fc-ae03-f970747db6eb",
 													"key": "profile_id",
 													"value": "{{userFetchedPersonalProfileId}}"
 												}
@@ -33748,14 +33747,12 @@
 											],
 											"variable": [
 												{
-													"id": "df32480d-68c0-445c-a53b-a667f2376ce9",
 													"key": "profile_id",
 													"value": "{{userFetchedPersonalProfileId}}"
 												},
 												{
-													"id": "43a538d2-6296-43fc-b8ef-ae222c2cd2dd",
 													"key": "id",
-													"value": "{{userCreatedVirtualAccountId}}"
+													"value": "{{userCreatedStaticVirtualAccountId}}"
 												}
 											]
 										}
@@ -34092,14 +34089,12 @@
 											],
 											"variable": [
 												{
-													"id": "83454128-ff86-41bb-91f4-15cfe47ad85c",
 													"key": "profile_id",
 													"value": "{{userFetchedPersonalProfileId}}"
 												},
 												{
-													"id": "8d4b694a-37bd-45e4-abb6-a6d305322666",
 													"key": "id",
-													"value": "{{userCreatedVirtualAccountId}}"
+													"value": "{{userCreatedStaticVirtualAccountId}}"
 												}
 											]
 										}
