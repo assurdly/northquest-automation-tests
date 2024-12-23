@@ -32687,6 +32687,38 @@
 					"item": [
 						{
 							"name": "Get Saving Plans",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dc6f684e-e173-415e-b304-ba56237e710c",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"    pm.environment.set(\"userFetchedSavingsPlanId\", data[0].id)",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "07c93918-cb28-496d-963c-fb95a0034c39",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
