@@ -2049,7 +2049,7 @@
 											"        pm.expect(status).to.eql(\"success\")\r",
 											"    })\r",
 											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
+											"    pm.test(\"Test for response format\", () => {\r",
 											"        pm.expect(data).to.be.an(\"array\")\r",
 											"    })\r",
 											"\r",
