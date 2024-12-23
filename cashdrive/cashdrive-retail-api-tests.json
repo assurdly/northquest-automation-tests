@@ -26180,8 +26180,298 @@
 		},
 		{
 			"name": "Loans",
-			"item": [],
-			"id": "a2b9388e-4657-41cc-ba3c-4c28b9c88720"
+			"item": [
+				{
+					"name": "Create Loan",
+					"id": "22caa8d8-20ad-4b80-a91a-ea12633a28cc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 5000,\n    \"tenor_period\": \"months\",\n    \"tenor_value\": 2,\n    \"frequency\": \"monthly\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/loans",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"loans"
+							],
+							"variable": [
+								{
+									"id": "9a642b11-71b3-4dcf-b9db-31bf77b0ecc0",
+									"key": "profile_id",
+									"value": "{{userFetchedBusinessProfileId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "41adac39-2bbf-42d7-afa2-b47dcf689ae0",
+							"name": "Create Loan",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\": 5000,\n    \"tenor_period\": \"months\",\n    \"tenor_value\": 2,\n    \"frequency\": \"monthly\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/loans",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"loans"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "865"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"361-zDmUc0kWGZ5sG7ahQCflez8vPUs\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Dec 2024 11:42:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"tenor_value\": 2,\n        \"tenor_period\": \"months\",\n        \"frequency\": \"monthly\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"status\": \"pending\",\n        \"currency\": \"NGN\",\n        \"principal\": 5000,\n        \"interest\": 100,\n        \"amount_disbursed\": 0,\n        \"total\": 5100,\n        \"total_paid\": 0,\n        \"total_due\": 5100,\n        \"cba_id\": null,\n        \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n        \"schedules\": [\n            {\n                \"principal\": 2500,\n                \"principal_paid\": 0,\n                \"interest\": 50,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 2550\n            },\n            {\n                \"principal\": 2500,\n                \"principal_paid\": 0,\n                \"interest\": 50,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 2550\n            }\n        ],\n        \"id\": \"0193b060-8374-733b-a822-306134abd4f3\",\n        \"created_on\": \"2024-12-10T11:42:15.756Z\",\n        \"modified_on\": \"2024-12-10T11:42:15.756Z\",\n        \"deleted_on\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List Loans",
+					"id": "c53a40d4-ef4e-439d-aa84-1d503d9237c6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/loans?filter[status]=pending",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"loans"
+							],
+							"query": [
+								{
+									"key": "filter[status]",
+									"value": "pending",
+									"description": "running | pending | approved | declined | terminated | past-due | cancelled"
+								}
+							],
+							"variable": [
+								{
+									"id": "bcc1d598-55b1-4830-9494-9a671e22ec86",
+									"key": "profile_id",
+									"value": "{{userFetchedBusinessProfileId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0bc9af8c-e8d3-463f-bcd8-ffdea1840628",
+							"name": "List Loans",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/loans",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"loans"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "778"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30a-mypWf4wT6OQzRxLli+PKJzMs8Ss\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Dec 2024 11:47:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193b060-8374-733b-a822-306134abd4f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-10T11:42:15.756Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-10T11:42:15.756Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"tenor_value\": 2,\n            \"tenor_period\": \"months\",\n            \"frequency\": \"monthly\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"status\": \"pending\",\n            \"currency\": \"NGN\",\n            \"principal\": 5000,\n            \"interest\": 100,\n            \"amount_disbursed\": 0,\n            \"total\": 5100,\n            \"total_paid\": 0,\n            \"total_due\": 5100,\n            \"review\": null,\n            \"reviewed_on\": null,\n            \"reviewed_by\": null,\n            \"cba_id\": null,\n            \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n            \"credit_line_id\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Loan",
+					"id": "61866876-eaf1-4ecc-b6b3-01656cf270c4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/loans/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"loans",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "a51169c1-ce20-4656-a41f-f1c8f2f2bf58",
+									"key": "profile_id",
+									"value": "{{userFetchedBusinessProfileId}}"
+								},
+								{
+									"id": "7aed5bfc-bed9-405c-b624-c393afada222",
+									"key": "id",
+									"value": "0193b0a8-3a22-755e-a58b-d2bddcc3937d"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "feb7ef15-436f-455a-ba33-6d33b43069db"
 		},
 		{
 			"name": "Transactions",
