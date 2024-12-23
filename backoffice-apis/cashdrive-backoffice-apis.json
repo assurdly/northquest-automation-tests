@@ -1938,6 +1938,33 @@
 						},
 						{
 							"name": "Reset Password-Invalid OTP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "70336fc8-c8ed-4960-bb83-2559ba881191",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    \r",
+											"\r",
+											"    pm.test(\"Validate error message\", () => {\r",
+											"        pm.expect(message).to.include('Invalid OTP.');\r",
+											"    })\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "02175604-c6fc-4aad-ac8b-355351d23875",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1947,7 +1974,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"9723251\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2031,6 +2058,33 @@
 						},
 						{
 							"name": "Reset Password-Invalid Email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a9b38193-7559-4bd3-9ed2-9d2fff127b8a",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    \r",
+											"\r",
+											"    pm.test(\"Validate error message\", () => {\r",
+											"        pm.expect(message).to.include('The identity must be a valid email address or phone number.');\r",
+											"    })\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "e8a8d9c7-3f06-4e04-9c6d-7364e729919b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2040,7 +2094,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+									"raw": "{\n    \"email\": \"sodiq@googlecom\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
