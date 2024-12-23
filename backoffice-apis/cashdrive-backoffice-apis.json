@@ -2846,6 +2846,36 @@
 					"item": [
 						{
 							"name": "Logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6b6a7016-eaa0-4276-8e50-496484f355d0",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    // pm.test(\"Test for valid status\", () => {\r",
+											"    //     pm.expect(status).to.eql(\"success\")\r",
+											"    // })\r",
+											"\r",
+											"    // pm.test(\"Test for response format\", () => {\r",
+											"    //     pm.expect(data).to.be.an(\"array\")\r",
+											"    // })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "3a5d2e89-3869-4da3-84f3-b7d3258e8635",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
