@@ -1462,9 +1462,26 @@
 									"script": {
 										"id": "04fe7870-8323-4809-81a5-d7ce4e4d7b89",
 										"exec": [
-											"console.log(\"Tests\")"
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    \r",
+											"\r",
+											"    pm.test(\"Validate error message\", () => {\r",
+											"        pm.expect(message).to.include('Email is required.');\r",
+											"        pm.expect(message).to.include('OTP cannot be empty');\r",
+											"         pm.expect(message).to.include('Password is required.');\r",
+											"    })\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1477,7 +1494,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+									"raw": "{\n    \"email\": \"\",\n    \"otp\": \"\",\n    \"password\": \"\",\n    \"confirm_password\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1561,6 +1578,33 @@
 						},
 						{
 							"name": "Reset Password-Password complexity",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "541502d3-dffb-4c00-8cd4-646381a94ef5",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    \r",
+											"\r",
+											"    pm.test(\"Validate error message\", () => {\r",
+											"        pm.expect(message).to.include('Password value must contain at least 1 number, 1 special character, 1 uppercase and 1 lowercase letter and be at least 8 characters long.');\r",
+											"    })\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "95ad7867-d5fe-48eb-8e9e-b38d4ef0c58b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1570,7 +1614,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"Baiwl@03l\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
+									"raw": "{\n    \"email\": \"sodiq@google.com\",\n    \"otp\": \"972325\",\n    \"password\": \"1234567\",\n    \"confirm_password\": \"Baiwl@03l\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
