@@ -2184,6 +2184,34 @@
 					"item": [
 						{
 							"name": "Change Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8186637f-8421-45e6-a670-50c2dd5c1141",
+										"exec": [
+											"try {\r",
+											"    const { data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    \r",
+											"\r",
+											"    pm.test(\"Validate success message\", () => {\r",
+											"        pm.expect(data.message).to.include('Password reset successfully.');\r",
+											"    })\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "59d2b4cb-5da1-4449-9c6d-f800362c28f6",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2286,7 +2314,35 @@
 							]
 						},
 						{
-							"name": "Change Password Copy",
+							"name": "Change Password-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "323f7da3-0b4d-4518-bfb1-7e11772f2690",
+										"exec": [
+											"try {\r",
+											"    const { data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    \r",
+											"\r",
+											"    pm.test(\"Validate success message\", () => {\r",
+											"        pm.expect(data.message).to.include('Password is required.');\r",
+											"    })\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "8659aaba-dc79-458f-9e65-9a04181834c2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -2301,7 +2357,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+									"raw": "{\n    \"old_password\": \"\",\n    \"password\": \"\",\n    \"confirm_password\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
