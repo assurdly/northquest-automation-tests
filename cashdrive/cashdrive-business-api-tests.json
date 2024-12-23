@@ -18194,8 +18194,10 @@
 										"exec": [
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
-											"    pm.environment.set(\"userFetchedAccountId\", data[0].id);\r",
-											"    pm.environment.set(\"userFetchedAccountnumber\", data[0].account_number);\r",
+											"    const accountWithMoney = data.find((item) => item.available_balance >= 1000);\r",
+											"\r",
+											"    pm.environment.set(\"userFetchedAccountId\", accountWithMoney.id);\r",
+											"    pm.environment.set(\"userFetchedAccountnumber\", accountWithMoney.account_number);\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -18243,9 +18245,8 @@
 									],
 									"variable": [
 										{
-											"id": "24a5740c-6ff4-45a6-a3bd-3ee13b94b54f",
 											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
+											"value": "{{userFetchedBusinessProfileId}}"
 										}
 									]
 								}
