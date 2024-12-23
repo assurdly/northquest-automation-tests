@@ -2330,7 +2330,7 @@
 											"\r",
 											"    \r",
 											"\r",
-											"    pm.test(\"Validate success message\", () => {\r",
+											"    pm.test(\"Validate error message\", () => {\r",
 											"        pm.expect(data.message).to.include('Password is required.');\r",
 											"    })\r",
 											"} catch (error) {\r",
