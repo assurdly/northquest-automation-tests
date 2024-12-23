@@ -29477,12 +29477,12 @@
 											"disabled": true
 										},
 										{
-											"key": "filter[start_date]",
-											"value": "2024-10-31T17:19:32.710Z",
+											"key": "filter[created_on][lt]",
+											"value": "2024-12-31T17:19:32.710Z",
 											"disabled": true
 										},
 										{
-											"key": "filter[end_date]",
+											"key": "filter[created_on][gt]",
 											"value": "2024-10-31T17:19:32.710Z",
 											"type": "text",
 											"disabled": true
@@ -29495,9 +29495,8 @@
 									],
 									"variable": [
 										{
-											"id": "4c4e5518-2f4a-4619-b419-807dc61008fe",
 											"key": "profile_id",
-											"value": "01931947-9fea-744d-8f66-118c138292e3"
+											"value": "{{userFetchedBusinessProfileId}}"
 										}
 									]
 								}
