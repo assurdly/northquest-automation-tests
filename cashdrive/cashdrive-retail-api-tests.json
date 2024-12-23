@@ -32078,7 +32078,7 @@
 													"    })",
 													"",
 													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(data).to.be.an(\"array\")",
+													"        pm.expect(data).to.be.an(\"object\")",
 													"    })",
 													"",
 													"} catch (error) {",
@@ -32241,12 +32241,12 @@
 													"try {",
 													"    const { status, data } = pm.response.json()",
 													"",
-													"    pm.test(\"Status code is 200\", function () {",
-													"        pm.response.to.have.status(200);",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
 													"    });",
 													"",
 													"    pm.test(\"Test for valid status\", () => {",
-													"        pm.expect(status).to.eql(\"success\")",
+													"        pm.expect(status).to.eql(\"error\")",
 													"    })",
 													"",
 													"    pm.test(\"Test for valid error message\", () => {",
@@ -32282,7 +32282,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"status\": \"inactive\" // inactive | active\n}",
+											"raw": "{\n    \"status\": \"\" // inactive | active\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -32302,12 +32302,10 @@
 											],
 											"variable": [
 												{
-													"id": "dde4aa3a-dee2-41c7-a5a1-c187e4ea89a2",
 													"key": "profile_id",
 													"value": "{{userFetchedPersonalProfileId}}"
 												},
 												{
-													"id": "86270b88-c6bf-4d7f-be8e-815410f49189",
 													"key": "id",
 													"value": "{{userCreatedVirtualAccountId}}"
 												}
@@ -32416,6 +32414,32 @@
 							"item": [
 								{
 									"name": "Delete Virtual Account",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "577b4cb4-868c-417a-8089-ed2bcf1a94bd",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
 									"id": "520b1577-0bd4-4c58-ba74-5a4377d60d27",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
@@ -32455,6 +32479,157 @@
 									"response": [
 										{
 											"id": "77732889-4d06-4eb5-9dd9-13ac186f2652",
+											"name": "Delete Virtual Account",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														},
+														{
+															"key": "id",
+															"value": "0193b640-033c-733e-97d9-b64ff322853c"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:10:14 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete Virtual Account - Empty Virtual Account Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "577b4cb4-868c-417a-8089-ed2bcf1a94bd",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "6531cc24-a8ab-4ece-93bd-ed30186cffb6",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "1f0003b8-be51-4896-9098-09fc69b90759",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												},
+												{
+													"id": "f3dcca8e-2857-4e39-bcd0-6c8b484b3480",
+													"key": "id",
+													"value": "{{userCreatedVirtualAccountId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "b2e6c4f6-84e5-4156-b4a7-89cf5e00afe6",
 											"name": "Delete Virtual Account",
 											"originalRequest": {
 												"method": "DELETE",
