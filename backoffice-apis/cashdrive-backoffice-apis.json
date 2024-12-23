@@ -27309,18 +27309,17 @@
 										"exec": [
 											"try {",
 											"    const { status, data } = pm.response.json()",
-											"    pm.environment.set(\"adminCreatedExchangeRateId\", data.id)",
 											"",
-											"    pm.test(\"Status code is 201\", function () {",
-											"        pm.response.to.have.status(201);",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
 											"    });",
 											"",
 											"    pm.test(\"Test for valid status\", () => {",
-											"        pm.expect(status).to.eql(\"success\")",
+											"        pm.expect(status).to.eql(\"error\")",
 											"    })",
 											"",
 											"    pm.test(\"Test for valid error message\", () => {",
-											"        pm.expect(data).to.be.an(\"object\")",
+											"        pm.expect(data).to.be.an(\"array\")",
 											"    })",
 											"} catch (error) {",
 											"    console.error(\"Errors from tests\", error)",
@@ -27346,7 +27345,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"buy_price\": 1,\n    \"sell_price\": 1,\n    \"buy_currency\": \"EUR\",\n    \"sell_currency\": \"BRL\",\n    \"expires_on\": \"2026-11-30\"\n}",
+									"raw": "{\n    \"buy_price\": \"\",\n    \"sell_price\": \"\",\n    \"buy_currency\": \"\",\n    \"sell_currency\": \"\",\n    \"expires_on\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -27358,6 +27357,138 @@
 							"response": [
 								{
 									"id": "a6acdfb2-10d5-46f7-a276-1bbe45d2bb47",
+									"name": "Create Exchange Rate",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"buy_price\": 1,\n    \"sell_price\": 1,\n    \"buy_currency\": \"NGN\",\n    \"sell_currency\": \"NGN\",\n    \"expires_on\": \"2024-12-31\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/exchange-rates"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "412"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"19c-MTfbvQvBGilxtwfxLajIyfzOETc\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 19 Dec 2024 15:33:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"buy_currency\": \"NGN\",\n        \"sell_currency\": \"NGN\",\n        \"buy_price\": \"1.00\",\n        \"sell_price\": \"1.00\",\n        \"expires_on\": \"2024-12-31T00:00:00.000Z\",\n        \"id\": \"0193df8d-4cf4-711a-8600-663f0a676683\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-12-19T15:33:20.035Z\",\n        \"modified_on\": \"2024-12-19T15:33:20.035Z\",\n        \"deleted_on\": null\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Create Exchange Rate - Existing Exchange Rate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "33c243f6-a35a-4e65-94d9-6ca6a690b319",
+										"exec": [
+											"try {",
+											"    const { status, message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"error\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error data type\", () => {",
+											"        pm.expect(message).to.be.a(\"string\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.eql(\"Similar Rate already exists\")",
+											"    })",
+											"} catch (error) {",
+											"    console.error(\"Errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "228cc433-ba1c-4028-a540-fac6ce2610d0",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"buy_price\": 1,\n    \"sell_price\": 1,\n    \"buy_currency\": \"USD\",\n    \"sell_currency\": \"NGN\",\n    \"expires_on\": \"2026-11-30\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/admin/exchange-rates"
+							},
+							"response": [
+								{
+									"id": "91440687-f25b-4931-832a-dd68a31e8459",
 									"name": "Create Exchange Rate",
 									"originalRequest": {
 										"method": "POST",
