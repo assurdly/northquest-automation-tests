@@ -46,11 +46,11 @@
 													"// pm.environment.set('origin', \"https://northquestfinance.com\")",
 													"pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')",
 													"",
-													"const emailToLowerCase = (email) => {",
-													"    return email.toLowerCase()",
-													"}",
+													"// const emailToLowerCase = (email) => {",
+													"//     return email.toLowerCase()",
+													"// }",
 													"",
-													"pm.environment.set(\"lowerCaseEmail\", emailToLowerCase())",
+													"// pm.environment.set(\"lowerCaseEmail\", emailToLowerCase())",
 													""
 												],
 												"type": "text/javascript",
@@ -3827,7 +3827,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"identity\": \"Ismael@mailinator.com\",\n    \"password\": \"123456\"\n}",
+									"raw": "{\n    // \"identity\": \"Calista@mailinator.com\",\n    \"identity\": \"Ismael@mailinator.com\",\n    \"password\": \"123456\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10088,7 +10088,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"enabled\": true\n    // \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
+									"raw": "{\n    \"enabled\": true,\n    \"pin\": \"1234\"\n    // \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -10107,7 +10107,6 @@
 									],
 									"variable": [
 										{
-											"id": "ac60772f-4135-4d17-bbd2-cf067556142a",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
@@ -18195,8 +18194,10 @@
 										"exec": [
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
-											"    pm.environment.set(\"userFetchedAccountId\", data[0].id);\r",
-											"    pm.environment.set(\"userFetchedAccountnumber\", data[0].account_number);\r",
+											"    const accountWithMoney = data.find((item) => item.available_balance >= 1000);\r",
+											"\r",
+											"    pm.environment.set(\"userFetchedAccountId\", accountWithMoney.id);\r",
+											"    pm.environment.set(\"userFetchedAccountnumber\", accountWithMoney.account_number);\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -18244,9 +18245,8 @@
 									],
 									"variable": [
 										{
-											"id": "24a5740c-6ff4-45a6-a3bd-3ee13b94b54f",
 											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
+											"value": "{{userFetchedBusinessProfileId}}"
 										}
 									]
 								}
@@ -19836,6 +19836,86 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01932093-1a4c-788d-959b-18f7c7b68e05\",\n        \"meta\": {\n            \"recipients\": [\n                {\n                    \"narration\": \"Sodiq\",\n                    \"account_number\": \"1780004070\",\n                    \"bank_code\": \"999998\"\n                }\n            ]\n        },\n        \"created_on\": \"2024-11-12T13:32:11.723Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-11-12T13:39:45.578Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"frequency\": \"once\",\n        \"type\": \"transfer\",\n        \"start_date\": \"2024-12-30T00:00:00.000Z\",\n        \"next_run_date\": \"2024-12-30T00:00:00.000Z\",\n        \"end_date\": \"2024-12-31T00:00:00.000Z\",\n        \"status\": \"active\",\n        \"amount\": \"100.23\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "Get Transactions Schedules",
+							"id": "f87c9128-1994-47ad-a8ee-605e82ffdad4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules?filter[next_run_date][gt]=2024-12-22",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"schedules"
+									],
+									"query": [
+										{
+											"key": "filter[amount]",
+											"value": "100.23",
+											"disabled": true
+										},
+										{
+											"key": "filter[account_id]",
+											"value": "0192b537-3f83-719b-8ec4-df689454f0ee",
+											"disabled": true
+										},
+										{
+											"key": "filter[type]",
+											"value": "bill_payment",
+											"disabled": true
+										},
+										{
+											"key": "filter[created_on]",
+											"value": "2024-12-21",
+											"disabled": true
+										},
+										{
+											"key": "filter[next_run_date][gt]",
+											"value": "2024-12-22",
+											"description": "Upcoming",
+											"type": "text"
+										},
+										{
+											"key": "filter[next_run_date][lt]",
+											"value": "2024-12-22",
+											"description": "Past",
+											"type": "text",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedBusinessProfileId}}"
+										}
+									]
+								}
+							},
+							"response": []
 						}
 					],
 					"id": "c294a293-66dd-4d52-a3b6-dedbf7fdc16d"
@@ -29005,14 +29085,295 @@
 			"id": "ba424ea3-ebbb-4d41-a739-c3beac529369"
 		},
 		{
-			"name": "Savings/Investments",
-			"item": [],
-			"id": "f31a7071-fd9c-4c80-afe5-791021e4b155"
-		},
-		{
 			"name": "Loans",
-			"item": [],
-			"id": "db2763d6-e4c9-42dc-93fb-7d8de17495b6"
+			"item": [
+				{
+					"name": "Create Loan",
+					"id": "200dc7f2-5d67-4eba-a739-3b21e43de679",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 5000,\n    \"tenor_period\": \"months\",\n    \"tenor_value\": 2,\n    \"frequency\": \"monthly\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/loans",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"loans"
+							],
+							"variable": [
+								{
+									"key": "profile_id",
+									"value": "{{userFetchedBusinessProfileId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "dce7bbfa-7850-47ba-a4b5-e32362174116",
+							"name": "Create Loan",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\": 5000,\n    \"tenor_period\": \"months\",\n    \"tenor_value\": 2,\n    \"frequency\": \"monthly\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/loans",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"loans"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "865"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"361-zDmUc0kWGZ5sG7ahQCflez8vPUs\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Dec 2024 11:42:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"tenor_value\": 2,\n        \"tenor_period\": \"months\",\n        \"frequency\": \"monthly\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"status\": \"pending\",\n        \"currency\": \"NGN\",\n        \"principal\": 5000,\n        \"interest\": 100,\n        \"amount_disbursed\": 0,\n        \"total\": 5100,\n        \"total_paid\": 0,\n        \"total_due\": 5100,\n        \"cba_id\": null,\n        \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n        \"schedules\": [\n            {\n                \"principal\": 2500,\n                \"principal_paid\": 0,\n                \"interest\": 50,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 2550\n            },\n            {\n                \"principal\": 2500,\n                \"principal_paid\": 0,\n                \"interest\": 50,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 2550\n            }\n        ],\n        \"id\": \"0193b060-8374-733b-a822-306134abd4f3\",\n        \"created_on\": \"2024-12-10T11:42:15.756Z\",\n        \"modified_on\": \"2024-12-10T11:42:15.756Z\",\n        \"deleted_on\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List Loans",
+					"id": "dea810c8-4aa5-4e93-a953-31318252efd4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/loans?filter[status]=pending",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"loans"
+							],
+							"query": [
+								{
+									"key": "filter[status]",
+									"value": "pending",
+									"description": "running | pending | approved | declined | terminated | past-due | cancelled"
+								}
+							],
+							"variable": [
+								{
+									"key": "profile_id",
+									"value": "{{userFetchedBusinessProfileId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "afc3aacb-f3b8-4934-8123-626956b64a5f",
+							"name": "List Loans",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/loans",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"loans"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "778"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30a-mypWf4wT6OQzRxLli+PKJzMs8Ss\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Dec 2024 11:47:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193b060-8374-733b-a822-306134abd4f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-10T11:42:15.756Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-10T11:42:15.756Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"tenor_value\": 2,\n            \"tenor_period\": \"months\",\n            \"frequency\": \"monthly\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"status\": \"pending\",\n            \"currency\": \"NGN\",\n            \"principal\": 5000,\n            \"interest\": 100,\n            \"amount_disbursed\": 0,\n            \"total\": 5100,\n            \"total_paid\": 0,\n            \"total_due\": 5100,\n            \"review\": null,\n            \"reviewed_on\": null,\n            \"reviewed_by\": null,\n            \"cba_id\": null,\n            \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n            \"credit_line_id\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Loan",
+					"id": "0a15cdb7-391a-476e-b2bf-b5697522739f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/loans/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"loans",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "profile_id",
+									"value": "{{userFetchedBusinessProfileId}}"
+								},
+								{
+									"key": "id",
+									"value": "0193b0a8-3a22-755e-a58b-d2bddcc3937d"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "c42a389e-f036-4782-ace3-899ee373e324"
 		},
 		{
 			"name": "Transactions",
@@ -29112,12 +29473,12 @@
 											"disabled": true
 										},
 										{
-											"key": "filter[start_date]",
-											"value": "2024-10-31T17:19:32.710Z",
+											"key": "filter[created_on][lt]",
+											"value": "2024-12-31T17:19:32.710Z",
 											"disabled": true
 										},
 										{
-											"key": "filter[end_date]",
+											"key": "filter[created_on][gt]",
 											"value": "2024-10-31T17:19:32.710Z",
 											"type": "text",
 											"disabled": true
@@ -29130,9 +29491,8 @@
 									],
 									"variable": [
 										{
-											"id": "4c4e5518-2f4a-4619-b419-807dc61008fe",
 											"key": "profile_id",
-											"value": "01931947-9fea-744d-8f66-118c138292e3"
+											"value": "{{userFetchedBusinessProfileId}}"
 										}
 									]
 								}
@@ -31992,6 +32352,714 @@
 				}
 			],
 			"id": "0219b329-fc55-4316-a93a-b47be6d3f18a"
+		},
+		{
+			"name": "Savings/Investments",
+			"item": [
+				{
+					"name": "Get Savings Products",
+					"item": [
+						{
+							"name": "Get Saving Products",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b8cbaf70-1c72-4e9f-af8c-d0ca4e94a33d",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"    pm.environment.set(\"userFetchedSavingsProductId\", data[0].id)",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "1c0c1cc8-f97c-4700-8c63-977e80e4a624",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/saving-products"
+							},
+							"response": [
+								{
+									"id": "90e8d392-8fb7-4b4c-b485-7c07bb9689b1",
+									"name": "Get Saving Products",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/saving-products"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "3994"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"f9a-m6qxAfGJ8yGnuy4vFBufR4lxPrE\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 16 Dec 2024 18:05:15 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193a37f-f9d2-7aa4-9f0a-ac323f14645c\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-07T23:41:33.520Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-07T23:41:33.520Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Premium Savings Plan Again HTTP\",\n            \"description\": \"A high-yield savings product with flexible terms.\",\n            \"currency\": \"NGN\",\n            \"type\": \"structured\",\n            \"no_of_investors\": 100,\n            \"min_amount\": \"5000.00\",\n            \"deposit_amount\": \"10.00\",\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"enabled\": true,\n            \"cba_product_id\": \"46\",\n            \"early_termination\": \"dk\",\n            \"terms_and_condition_file_id\": null,\n            \"interest_payout_options\": {},\n            \"withholding_tax\": 10,\n            \"min_deposit_term\": 10,\n            \"min_deposit_term_period\": \"months\",\n            \"max_deposit_term\": null,\n            \"max_deposit_term_period\": null,\n            \"min_amount_before_liquidation_approval\": null,\n            \"allow_top_up\": false,\n            \"frequency\": null,\n            \"certificate_template_id\": null\n        },\n        {\n            \"id\": \"0193b074-9cba-7773-8889-2aa903dcaeef\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-10T12:04:12.601Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-10T12:04:12.601Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Premium Savings Plan Again XSS\",\n            \"description\": \"A high-yield savings product with flexible terms.\",\n            \"currency\": \"NGN\",\n            \"type\": \"fixed\",\n            \"no_of_investors\": 100,\n            \"min_amount\": \"5000.00\",\n            \"deposit_amount\": \"0.00\",\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"enabled\": true,\n            \"cba_product_id\": \"64\",\n            \"early_termination\": \"dk\",\n            \"terms_and_condition_file_id\": null,\n            \"interest_payout_options\": {},\n            \"withholding_tax\": 10,\n            \"min_deposit_term\": 10,\n            \"min_deposit_term_period\": \"weeks\",\n            \"max_deposit_term\": 24,\n            \"max_deposit_term_period\": \"months\",\n            \"min_amount_before_liquidation_approval\": null,\n            \"allow_top_up\": false,\n            \"frequency\": null,\n            \"certificate_template_id\": null\n        },\n        {\n            \"id\": \"0193a390-8deb-7220-b5e4-f5af6318af0a\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-07T23:59:40.010Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-07T23:59:40.010Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Premium Savings Plan Again PNG\",\n            \"description\": \"A high-yield savings product with flexible terms.\",\n            \"currency\": \"NGN\",\n            \"type\": \"structured\",\n            \"no_of_investors\": 100,\n            \"min_amount\": \"5000.00\",\n            \"deposit_amount\": \"10.00\",\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"enabled\": true,\n            \"cba_product_id\": \"47\",\n            \"early_termination\": \"dk\",\n            \"terms_and_condition_file_id\": null,\n            \"interest_payout_options\": {},\n            \"withholding_tax\": 0,\n            \"min_deposit_term\": 10,\n            \"min_deposit_term_period\": \"months\",\n            \"max_deposit_term\": null,\n            \"max_deposit_term_period\": null,\n            \"min_amount_before_liquidation_approval\": null,\n            \"allow_top_up\": false,\n            \"frequency\": \"monthly\",\n            \"certificate_template_id\": null\n        },\n        {\n            \"id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-11T11:02:26.429Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-11T11:02:26.429Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Premium Savings Plan Agains SMTP\",\n            \"description\": \"A high-yield savings product with flexible terms.\",\n            \"currency\": \"NGN\",\n            \"type\": \"structured\",\n            \"no_of_investors\": 100,\n            \"min_amount\": \"5000.00\",\n            \"deposit_amount\": \"0.00\",\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"enabled\": true,\n            \"cba_product_id\": \"73\",\n            \"early_termination\": \"dk\",\n            \"terms_and_condition_file_id\": null,\n            \"interest_payout_options\": {},\n            \"withholding_tax\": 10,\n            \"min_deposit_term\": 10,\n            \"min_deposit_term_period\": \"weeks\",\n            \"max_deposit_term\": 24,\n            \"max_deposit_term_period\": \"months\",\n            \"min_amount_before_liquidation_approval\": null,\n            \"allow_top_up\": false,\n            \"frequency\": \"monthly\",\n            \"certificate_template_id\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 4\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "3c4d95ee-5a79-4009-b498-51c5416be1cf"
+				},
+				{
+					"name": "Get Savings Product",
+					"item": [
+						{
+							"name": "Get Saving Product",
+							"id": "65167ec6-e0c5-457b-8511-523fb84c1d65",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/saving-products/{{userFetchedSavingsProductId}}"
+							},
+							"response": [
+								{
+									"id": "4d0d5393-be49-481c-bfd9-3db71fb9a31a",
+									"name": "Get Saving Product",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/saving-products/0193a390-8deb-7220-b5e4-f5af6318af0a"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1035"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"40b-SWf1H+LBZzC2aZLRJugYz1VzoVY\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 16 Dec 2024 18:14:54 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193a390-8deb-7220-b5e4-f5af6318af0a\",\n        \"meta\": null,\n        \"created_on\": \"2024-12-07T23:59:40.010Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-12-07T23:59:40.010Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Premium Savings Plan Again PNG\",\n        \"description\": \"A high-yield savings product with flexible terms.\",\n        \"currency\": \"NGN\",\n        \"type\": \"structured\",\n        \"no_of_investors\": 100,\n        \"min_amount\": \"5000.00\",\n        \"deposit_amount\": \"10.00\",\n        \"interest_rate\": \"0.75\",\n        \"interest_period\": \"monthly\",\n        \"interest_compounding_period\": \"monthly\",\n        \"interest_posting_period\": \"monthly\",\n        \"enabled\": true,\n        \"cba_product_id\": \"47\",\n        \"early_termination\": \"dk\",\n        \"terms_and_condition_file_id\": null,\n        \"interest_payout_options\": {},\n        \"withholding_tax\": 0,\n        \"min_deposit_term\": 10,\n        \"min_deposit_term_period\": \"months\",\n        \"max_deposit_term\": null,\n        \"max_deposit_term_period\": null,\n        \"min_amount_before_liquidation_approval\": null,\n        \"allow_top_up\": false,\n        \"frequency\": \"monthly\",\n        \"certificate_template_id\": null,\n        \"terms_and_condition\": null\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "c3a54cda-463a-445a-8670-02524495cde8"
+				},
+				{
+					"name": "Create Saving Plan",
+					"item": [
+						{
+							"name": "Create Saving Plan",
+							"id": "fe243af9-3ded-4c42-bdad-828eed4b65cf",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// {\n//     \"name\": \"Vacation Funds\",\n//     \"product_id\": \"{{userFetchedSavingsProductId}}\",\n//     \"periodic_amount\": 500,\n//     \"tenor_value\": 3,\n//     \"tenor_period\": \"months\",\n//     \"account_id\": \"{{userFetchedAccountId}}\"\n// }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/savings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"savings"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedBusinessProfileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "9e7b4f79-3abe-46be-90b3-ca987527a9e1",
+									"name": "Create Saving Plan",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Vacation Funds\",\n    \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n    \"periodic_amount\": 500,\n    \"tenor_value\": 10,\n    \"tenor_period\": \"months\",\n    \"account_id\": \"{{accountId}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/savings",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"savings"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "5564"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"15bc-AuRYyam0SGzoVx+rWf78+KDMz4Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 16 Dec 2024 18:13:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n        \"name\": \"Vacation Funds\",\n        \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n        \"account_id\": \"01939143-e441-700b-b9ac-b2802086bd0a\",\n        \"cba_savings_id\": \"87\",\n        \"balance\": 0,\n        \"end_date\": \"2025-10-16T18:13:08.768Z\",\n        \"start_date\": \"2024-12-16T18:13:08.768Z\",\n        \"periodic_amount\": 500,\n        \"interest_rate\": \"0.75\",\n        \"interest_period\": \"monthly\",\n        \"tenor_value\": 10,\n        \"tenor_period\": \"months\",\n        \"interest_compounding_period\": \"monthly\",\n        \"interest_posting_period\": \"monthly\",\n        \"schedules\": [\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2024-12-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-1e5b4444ed25\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-01-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-23f49205efa5\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-02-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-283df4cec794\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-03-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-32bd4f19a003\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-04-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-3bacd530d41a\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-05-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-43aab4cee8e6\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-06-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-4fccea2c9d85\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-07-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-559d96156a97\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-08-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-582c6b9b8f2d\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-09-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-67bc31673d31\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            }\n        ],\n        \"id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-12-16T18:13:08.791Z\",\n        \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "3c319161-406f-4201-8c6e-f92c1d1f4565"
+				},
+				{
+					"name": "Get Savings Plans",
+					"item": [
+						{
+							"name": "Get Saving Plans",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dc6f684e-e173-415e-b304-ba56237e710c",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"    pm.environment.set(\"userFetchedSavingsPlanId\", data[0].id)",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "07c93918-cb28-496d-963c-fb95a0034c39",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/savings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"savings"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedBusinessProfileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "d52abb3c-d6fc-4672-a4a4-3bad62e2aca6",
+									"name": "Get Saving Plans",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/savings",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"savings"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "847"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"34f-wJyDsE2lD4UNZhrenrNKyRcxiB8\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 16 Dec 2024 18:14:59 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-16T18:13:08.791Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2802086bd0a\",\n            \"cba_savings_id\": \"87\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-10-16T18:13:08.768Z\",\n            \"start_date\": \"2024-12-16T18:13:08.768Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"months\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\"\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "40aa2dfa-3cf9-4775-91a4-21f6c9fef704"
+				},
+				{
+					"name": "Get Savings Plan",
+					"item": [
+						{
+							"name": "Get Saving Plan",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4439a851-8b55-4a7d-8dfd-c6fbb0bd0366",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"    pm.environment.set(\"userFetchedSavingsPlanId\", data[0].id)",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "997b340e-7c1a-4e96-91b3-2b5793132bad",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/savings/:plan_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"savings",
+										":plan_id"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedBusinessProfileId}}"
+										},
+										{
+											"key": "plan_id",
+											"value": "{{userFetchedSavingsPlanId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "4cc15e6f-cd66-47b2-81e8-a2679dd4146a"
+				},
+				{
+					"name": "Liquidate Savings Plan",
+					"item": [
+						{
+							"name": "Liquidate Savings Plan",
+							"id": "c8ccc651-f185-4468-b8a3-c52f40475acc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/withdraw",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"savings",
+										"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
+										"withdraw"
+									],
+									"variable": [
+										{
+											"id": "dee3d25b-bfe3-47e7-adba-05b457a8a994",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "88707368-083c-42cb-9dff-b1cffb8d778b"
+				},
+				{
+					"name": "Withdraw Savings Plans",
+					"item": [
+						{
+							"name": "Withdraw Savings Plan Copy",
+							"id": "eaac2714-2e0e-4ef9-8a03-f7ecc467ad97",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_id\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/savings/{{userFetchedSavingsPlanId}}/withdraw",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"savings",
+										"{{userFetchedSavingsPlanId}}",
+										"withdraw"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedBusinessProfileId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "4ad7f473-34b2-4455-bbec-7d4a7da5dc07"
+				},
+				{
+					"name": "Get Savings Plan Certificate",
+					"item": [
+						{
+							"name": "Get Saving Plan Certificate",
+							"id": "03f5e91b-7196-4180-9a89-b33211a69672",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/savings/{{userFetchedSavingsPlanId}}/certificate",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"savings",
+										"{{userFetchedSavingsPlanId}}",
+										"certificate"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedBusinessProfileId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "4d90e585-b27d-4b38-9a78-3ed6e245b1bd"
+				}
+			],
+			"id": "9f9dea24-c8e8-4be4-a7f8-c5b94d2952c7"
 		},
 		{
 			"name": "Mandates",
@@ -35744,6 +36812,3403 @@
 				}
 			],
 			"id": "0fbe1165-e672-4f62-9fa1-003c58258a57"
+		},
+		{
+			"name": "Virtual Accounts",
+			"item": [
+				{
+					"name": "Dynamic",
+					"item": [
+						{
+							"name": "Create Virtual Account",
+							"item": [
+								{
+									"name": "Create Virtual Account",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "95c596b0-a275-4966-a8fa-f792ec54abc9",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"    pm.environment.set(\"userCreatedVirtualAccountId\", data.id)",
+													"",
+													"    pm.test(\"Status code is 201\", function () {",
+													"        pm.response.to.have.status(201);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"object\")",
+													"    })",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "0ed8fffb-f379-47cb-8ee0-cade529330fe",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"dynamic\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts"
+											],
+											"variable": [
+												{
+													"id": "1d5cea78-9245-4ec1-a09a-31419e3bd0d9",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "ef10ac92-596d-4739-8a34-468b574164b0",
+											"name": "Create Virtual Account",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\",\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "526"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20e-t2qwOztR87GiuzyjnQvkdWUFqQo\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:04:29 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"My Test\",\n        \"type\": \"static\",\n        \"purpose\": \"Test\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n        \"account_number\": \"1234567890\",\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"created_on\": \"2024-12-11T15:04:28.906Z\",\n        \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Create Virtual Account - Empty Fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "95c596b0-a275-4966-a8fa-f792ec54abc9",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"error\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"array\")",
+													"    })",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "7e4fb5d4-c9b0-4d99-96bd-1fae08a86f6e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"type\": \"\", // static | dynamic\n    \"purpose\": \"\",\n    \"account_id\": \"\",\n    \"expires_on\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts"
+											],
+											"variable": [
+												{
+													"id": "2442a1df-09ee-4228-97e9-7a2d44d47e80",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "f3e5335b-9408-4d9f-8da4-389a4a75597c",
+											"name": "Create Virtual Account",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\",\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "526"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20e-t2qwOztR87GiuzyjnQvkdWUFqQo\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:04:29 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"My Test\",\n        \"type\": \"static\",\n        \"purpose\": \"Test\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n        \"account_number\": \"1234567890\",\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"created_on\": \"2024-12-11T15:04:28.906Z\",\n        \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Create Virtual Account Invalid Type",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "95c596b0-a275-4966-a8fa-f792ec54abc9",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"error\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"array\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.include(\"type must be one of the following values: static, dynamic\")",
+													"    })",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "1f9f983a-5993-47ff-b5fc-ffe41aebb8b5",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"bless\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts"
+											],
+											"variable": [
+												{
+													"id": "281c18ed-f208-4b57-b967-56dd1850079c",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "af3b63a2-2e3c-48fb-8dfa-644de1b330bb",
+											"name": "Create Virtual Account",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\",\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "526"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20e-t2qwOztR87GiuzyjnQvkdWUFqQo\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:04:29 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"My Test\",\n        \"type\": \"static\",\n        \"purpose\": \"Test\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n        \"account_number\": \"1234567890\",\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"created_on\": \"2024-12-11T15:04:28.906Z\",\n        \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "80f3a925-a641-4ae0-8c47-f029ef377eb5"
+						},
+						{
+							"name": "List Virtual Accounts",
+							"item": [
+								{
+									"name": "List Virtual Accounts",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ef2dac15-fe85-402b-adfe-a036461c4f4c",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"    const dynamicAccount = data.find((item) => item.type === \"dynamic\");",
+													"",
+													"    pm.environment.set(\"userfetchedDynamicAccountId\", dynamicAccount.id);",
+													"    pm.environment.set(\"userfetchedDynamicAccountNumber\", dynamicAccount.account_number);",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"array\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "abfdd110-6f1a-4fff-84d7-f0c9fc99d1f3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "",
+													"description": "Not working",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "824f1e16-a576-4a8d-800b-3d9d666770e2",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "270608f0-85be-4061-9b8f-8adbd425a71e",
+											"name": "List Virtual Accounts",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "578"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"242-jlB0tpY+gnDCfHrUe/LE+5/ibcA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:05:07 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-11T15:04:28.906Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"My Test\",\n            \"status\": \"active\",\n            \"type\": \"static\",\n            \"purpose\": \"Test\",\n            \"provider_id\": null,\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n            \"account_number\": \"1234567890\",\n            \"bank_id\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "List Virtual Accounts - No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ef2dac15-fe85-402b-adfe-a036461c4f4c",
+												"exec": [
+													"try {",
+													"    const { message, statusCode } = pm.response.json()",
+													"",
+													"     pm.test(\"Status code is 401\", function () {",
+													"        pm.response.to.have.status(401);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).to.eql(\"Access token is required\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "2c25540b-a291-4950-ab5e-1b88db040a38",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "",
+													"description": "Not working",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "8f21940f-c052-42d1-b686-ee9147edfb61",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "2e2c16b2-8616-41a8-8c59-f542bdf63b37",
+											"name": "List Virtual Accounts",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "578"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"242-jlB0tpY+gnDCfHrUe/LE+5/ibcA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:05:07 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-11T15:04:28.906Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"My Test\",\n            \"status\": \"active\",\n            \"type\": \"static\",\n            \"purpose\": \"Test\",\n            \"provider_id\": null,\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n            \"account_number\": \"1234567890\",\n            \"bank_id\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "ac59fee3-cfce-4e4c-b4e7-626acf89f723"
+						},
+						{
+							"name": "Update Virtual Account",
+							"item": [
+								{
+									"name": "Update Virtual Account",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8efd929d-6bf5-424f-9df1-60fa0c186fce",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.not.eql([])",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"object\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "fb3b74d6-c3e8-4bcf-8a43-863ceffff00d",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"inactive\" // inactive | active\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "bbdf47fb-fa7c-4b31-b066-eb3543ac7c26",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												},
+												{
+													"id": "4a1fa689-b595-41cb-8c15-247e4e6974c6",
+													"key": "id",
+													"value": "{{userCreatedDynamicVirtualAccountId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "237c3155-e395-45a4-a984-42f504141f78",
+											"name": "Update Virtual Account",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"inactive\" // inactive | active\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														},
+														{
+															"key": "id",
+															"value": "0193b640-033c-733e-97d9-b64ff322853c"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "235"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"eb-XeK/B/dbMhV3EB4Yz4G+trpVNNw\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:08:30 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"status\": \"inactive\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"modified_on\": \"2024-12-11T15:08:30.472Z\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Virtual Account - Empty Fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8efd929d-6bf5-424f-9df1-60fa0c186fce",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"error\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.not.eql([])",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"array\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "a6ba46bd-c87d-4c6c-a370-b89a2c19e6f7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"\" // inactive | active\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "e83a1c72-80ed-421d-8af3-f5ca081036be",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												},
+												{
+													"id": "6cb2b9ee-a8dd-4418-b994-0c44ca24c5a7",
+													"key": "id",
+													"value": "{{userCreatedVirtualAccountId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "25b55de9-c74d-435a-8283-b4e55bda0892",
+											"name": "Update Virtual Account",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"inactive\" // inactive | active\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														},
+														{
+															"key": "id",
+															"value": "0193b640-033c-733e-97d9-b64ff322853c"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "235"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"eb-XeK/B/dbMhV3EB4Yz4G+trpVNNw\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:08:30 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"status\": \"inactive\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"modified_on\": \"2024-12-11T15:08:30.472Z\"\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "7c671f9d-3d3b-49a4-9396-db5c1a13989a"
+						},
+						{
+							"name": "Delete Virtual Account",
+							"item": [
+								{
+									"name": "Delete Virtual Account",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "577b4cb4-868c-417a-8089-ed2bcf1a94bd",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "5b4b4660-4f33-4c4b-b491-10365d350ff5",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "4127c957-de75-47e8-801c-26d2ba24d8c8",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												},
+												{
+													"id": "87421308-5a46-45e3-ae71-5aa924e41eb3",
+													"key": "id",
+													"value": "{{userCreatedDynamicVirtualAccountId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "aa0dac16-4268-41ab-a24f-f2d0ccb25923",
+											"name": "Delete Virtual Account",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														},
+														{
+															"key": "id",
+															"value": "0193b640-033c-733e-97d9-b64ff322853c"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:10:14 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete Virtual Account - Empty Virtual Account Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "577b4cb4-868c-417a-8089-ed2bcf1a94bd",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"error\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "6668f562-fd7c-4388-a2a8-4eed3ae881f3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "b5286c85-6cf0-44ba-8046-2581ae3eb20f",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												},
+												{
+													"id": "04953ddb-21a8-4a7d-889d-46a0f46f3558",
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "3eb64022-8378-4d36-90b7-d111671f5577",
+											"name": "Delete Virtual Account",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														},
+														{
+															"key": "id",
+															"value": "0193b640-033c-733e-97d9-b64ff322853c"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:10:14 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete Virtual Account - Empty Virtual Account Id Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "577b4cb4-868c-417a-8089-ed2bcf1a94bd",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"error\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "b1e4d1ed-4fc1-4a03-b012-ff58a768ae8e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "c032e46e-5def-4c69-a005-fbd3d324bb68",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												},
+												{
+													"id": "a0346057-ba1a-45ea-9530-71ef2e8cbbe0",
+													"key": "id",
+													"value": "31931947-9fea-744d-8f66-118c138292e3"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "7d824894-849c-4b82-b44f-4ae9ab72aa4a",
+											"name": "Delete Virtual Account",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														},
+														{
+															"key": "id",
+															"value": "0193b640-033c-733e-97d9-b64ff322853c"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:10:14 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								}
+							],
+							"id": "063cca65-f402-4335-891e-00da59fe14b2"
+						}
+					],
+					"id": "3e8c2e88-48af-41ad-8508-0640c478d1fe"
+				},
+				{
+					"name": "Static",
+					"item": [
+						{
+							"name": "Create Virtual Account",
+							"item": [
+								{
+									"name": "Create Virtual Account",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "95c596b0-a275-4966-a8fa-f792ec54abc9",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"    pm.environment.set(\"userCreatedStaticVirtualAccountId\", data.id)",
+													"",
+													"    pm.test(\"Status code is 201\", function () {",
+													"        pm.response.to.have.status(201);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"object\")",
+													"    })",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "d2f4971f-29e4-4bdb-b86d-94b7cae72ce7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts"
+											],
+											"variable": [
+												{
+													"id": "fd61decf-84fb-4ba2-835d-8ab146c3179b",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "7bce5467-ae52-4fed-8ca2-023cf85131dd",
+											"name": "Create Virtual Account",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\",\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "526"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20e-t2qwOztR87GiuzyjnQvkdWUFqQo\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:04:29 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"My Test\",\n        \"type\": \"static\",\n        \"purpose\": \"Test\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n        \"account_number\": \"1234567890\",\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"created_on\": \"2024-12-11T15:04:28.906Z\",\n        \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Create Virtual Account - Empty Fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "95c596b0-a275-4966-a8fa-f792ec54abc9",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"error\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"array\")",
+													"    })",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "728ceefa-5095-4121-85de-1c795306c566",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"\",\n    \"type\": \"\", // static | dynamic\n    \"purpose\": \"\",\n    \"account_id\": \"\",\n    \"expires_on\": \"\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts"
+											],
+											"variable": [
+												{
+													"id": "5db54102-3772-4bd6-8261-bc41cb98820a",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "c8e4e5d3-3946-4286-9269-dd5681fa67f4",
+											"name": "Create Virtual Account",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\",\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "526"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20e-t2qwOztR87GiuzyjnQvkdWUFqQo\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:04:29 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"My Test\",\n        \"type\": \"static\",\n        \"purpose\": \"Test\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n        \"account_number\": \"1234567890\",\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"created_on\": \"2024-12-11T15:04:28.906Z\",\n        \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Create Virtual Account Invalid Type",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "95c596b0-a275-4966-a8fa-f792ec54abc9",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"error\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"array\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.include(\"type must be one of the following values: static, dynamic\")",
+													"    })",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "f42f44f3-9ae3-4c59-bcbd-0b44b791c1db",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"bless\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts"
+											],
+											"variable": [
+												{
+													"id": "0e29d025-f54f-4df8-abb9-d2f04d85456c",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "a325e073-c4c6-4e14-8641-6bf92afb8a56",
+											"name": "Create Virtual Account",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\",\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "526"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20e-t2qwOztR87GiuzyjnQvkdWUFqQo\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:04:29 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"My Test\",\n        \"type\": \"static\",\n        \"purpose\": \"Test\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n        \"account_number\": \"1234567890\",\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"created_on\": \"2024-12-11T15:04:28.906Z\",\n        \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "d97e7098-3d52-4f5f-b24b-02efe84ca3e7"
+						},
+						{
+							"name": "List Virtual Accounts",
+							"item": [
+								{
+									"name": "List Virtual Accounts",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ef2dac15-fe85-402b-adfe-a036461c4f4c",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"    const staticAccount = data.find((item) => item.type === \"dynamic\");",
+													"",
+													"    pm.environment.set(\"userfetchedStaticAccountId\", staticAccount.id);",
+													"    pm.environment.set(\"userfetchedStaticAccountNumber\", staticAccount.account_number);",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"array\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "73e3369a-1a29-41ef-a048-ce64d44e5b58",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "",
+													"description": "Not working",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "f28e3c5b-a467-494a-8cf8-81b8caede248",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "64a08bd2-9df7-42c7-8001-33aceb057c8d",
+											"name": "List Virtual Accounts",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "578"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"242-jlB0tpY+gnDCfHrUe/LE+5/ibcA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:05:07 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-11T15:04:28.906Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"My Test\",\n            \"status\": \"active\",\n            \"type\": \"static\",\n            \"purpose\": \"Test\",\n            \"provider_id\": null,\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n            \"account_number\": \"1234567890\",\n            \"bank_id\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "List Virtual Accounts - No Auth",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ef2dac15-fe85-402b-adfe-a036461c4f4c",
+												"exec": [
+													"try {",
+													"    const { message, statusCode } = pm.response.json()",
+													"",
+													"     pm.test(\"Status code is 401\", function () {",
+													"        pm.response.to.have.status(401);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(message).to.eql(\"Access token is required\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "e9abef7a-3032-44b8-933e-5b6a15db5057",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts"
+											],
+											"query": [
+												{
+													"key": "filter[type]",
+													"value": "",
+													"description": "Not working",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "b99decde-ec64-44c4-8a6f-319d567fc28a",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "983af175-8b06-4e48-9051-9cbea3a6e455",
+											"name": "List Virtual Accounts",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "578"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"242-jlB0tpY+gnDCfHrUe/LE+5/ibcA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:05:07 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-11T15:04:28.906Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-11T15:04:28.906Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"My Test\",\n            \"status\": \"active\",\n            \"type\": \"static\",\n            \"purpose\": \"Test\",\n            \"provider_id\": null,\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n            \"account_number\": \"1234567890\",\n            \"bank_id\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "4d2a84d9-0fc6-4990-90ac-2cd157bdd644"
+						},
+						{
+							"name": "Update Virtual Account",
+							"item": [
+								{
+									"name": "Update Virtual Account",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8efd929d-6bf5-424f-9df1-60fa0c186fce",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.not.eql([])",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"object\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "3d7584b9-e3ff-4c87-9ce9-f3214629dd57",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"inactive\" // inactive | active\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "d0983c14-c551-4b42-be70-c61a7428d60a",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												},
+												{
+													"id": "7d372b6a-3966-4097-beb9-ed1f5b30e902",
+													"key": "id",
+													"value": "{{userCreatedStaticVirtualAccountId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "1bcff8ba-b56a-4831-9c4e-2a5c2780cbec",
+											"name": "Update Virtual Account",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"inactive\" // inactive | active\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														},
+														{
+															"key": "id",
+															"value": "0193b640-033c-733e-97d9-b64ff322853c"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "235"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"eb-XeK/B/dbMhV3EB4Yz4G+trpVNNw\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:08:30 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"status\": \"inactive\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"modified_on\": \"2024-12-11T15:08:30.472Z\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Virtual Account - Empty Fields",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "8efd929d-6bf5-424f-9df1-60fa0c186fce",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"error\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.not.eql([])",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.be.an(\"array\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}",
+													""
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "f3ea6b7e-e4b3-4b2c-9ee8-c688e7e258bf",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"\" // inactive | active\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "666903cc-b42b-4f3f-9538-2386a39d0272",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												},
+												{
+													"id": "d1df91ea-9adf-4b3f-adf4-198c000c242b",
+													"key": "id",
+													"value": "{{userCreatedVirtualAccountId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "b8a0c1c4-4b7b-41eb-9137-07a661781bb8",
+											"name": "Update Virtual Account",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"status\": \"inactive\" // inactive | active\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														},
+														{
+															"key": "id",
+															"value": "0193b640-033c-733e-97d9-b64ff322853c"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "235"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"eb-XeK/B/dbMhV3EB4Yz4G+trpVNNw\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:08:30 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193b640-033c-733e-97d9-b64ff322853c\",\n        \"status\": \"inactive\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"provider_id\": null,\n        \"bank_id\": null,\n        \"modified_on\": \"2024-12-11T15:08:30.472Z\"\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "b8bacc86-8451-4218-97ef-e96e85d841cb"
+						},
+						{
+							"name": "Delete Virtual Account",
+							"item": [
+								{
+									"name": "Delete Virtual Account",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "577b4cb4-868c-417a-8089-ed2bcf1a94bd",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "143b4044-0be7-4a8e-b201-dea2e53b077f",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "6311443a-7b42-4745-885c-4c6f684baa9d",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												},
+												{
+													"id": "0ca5783a-9f5a-4821-bd70-f75dd88a993a",
+													"key": "id",
+													"value": "{{userCreatedStaticVirtualAccountId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "ce6b3c0e-91d4-4e6e-a28b-afa6da7daefc",
+											"name": "Delete Virtual Account",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														},
+														{
+															"key": "id",
+															"value": "0193b640-033c-733e-97d9-b64ff322853c"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:10:14 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete Virtual Account - Empty Virtual Account Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "577b4cb4-868c-417a-8089-ed2bcf1a94bd",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"error\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "b3b546fa-f8a5-4b6f-b278-5173097607fe",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "8101ae5a-8167-4cf1-bab0-573fb72cafc8",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												},
+												{
+													"id": "2aef25a0-b063-46d0-9300-f7be0b304cd5",
+													"key": "id",
+													"value": ""
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "0b362c72-838e-45b6-a86b-265d6154aa54",
+											"name": "Delete Virtual Account",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														},
+														{
+															"key": "id",
+															"value": "0193b640-033c-733e-97d9-b64ff322853c"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:10:14 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete Virtual Account - Empty Virtual Account Id Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "577b4cb4-868c-417a-8089-ed2bcf1a94bd",
+												"exec": [
+													"try {",
+													"    const { status, data } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 400\", function () {",
+													"        pm.response.to.have.status(400);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"error\")",
+													"    })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Errors from tests\", error)",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "aa812f53-8d20-4dcb-96cd-45badfd2e5ee",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"virtual-accounts",
+												":id"
+											],
+											"variable": [
+												{
+													"id": "d48dd31c-a67f-4042-8409-4f626f3a120d",
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												},
+												{
+													"id": "0c195d02-51c5-48f6-b09c-b5b1bf05637f",
+													"key": "id",
+													"value": "31931947-9fea-744d-8f66-118c138292e3"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "755007ee-cfdf-4cdc-abbd-91a4a3c60121",
+											"name": "Delete Virtual Account",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"virtual-accounts",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+														},
+														{
+															"key": "id",
+															"value": "0193b640-033c-733e-97d9-b64ff322853c"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 11 Dec 2024 15:10:14 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								}
+							],
+							"id": "3eec3a87-f62e-4680-8127-ac6650ffbe79"
+						}
+					],
+					"id": "e54d323c-90b9-41b8-99e5-d1e615a38875"
+				}
+			],
+			"id": "7bdc35ef-e5d9-4466-948b-932ac9f6fed0"
+		},
+		{
+			"name": "Referral",
+			"item": [
+				{
+					"name": "Get Referral Activities",
+					"item": [
+						{
+							"name": "Get Referral Activities",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "94fabefb-4b4f-438d-bcb0-f657cf76a2f5",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.not.eql([])",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "ac04ef10-d1ff-43aa-8550-845deb7bcf48",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/referrals/activities"
+							},
+							"response": []
+						}
+					],
+					"id": "535e1741-bdcb-48bb-913b-6981feac07dd"
+				},
+				{
+					"name": "Get Referral Activity",
+					"item": [
+						{
+							"name": "Get Referral Activity",
+							"id": "927d3ec9-aa9d-43bf-9b51-9d2f9b279463",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/referrals/activities/id"
+							},
+							"response": []
+						}
+					],
+					"id": "90fd65c4-dc28-4b42-a02f-feba48421746"
+				}
+			],
+			"id": "0600fe35-9cb9-416c-a39c-257a1e296b9c"
+		},
+		{
+			"name": "Director Verification",
+			"id": "10e12afb-6b9b-4037-a2c5-1c7865eda8cc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"first_name\": \"\",\n        \"last_name\": \"\",\n        \"email\": \"\"\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/profiles/:profile:id/verification/directors",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"profiles",
+						":profile:id",
+						"verification",
+						"directors"
+					],
+					"variable": [
+						{
+							"id": "1d4e77ea-55db-4d19-ab9c-10030fe40965",
+							"key": "profile:id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
