@@ -29084,11 +29084,6 @@
 			"id": "ba424ea3-ebbb-4d41-a739-c3beac529369"
 		},
 		{
-			"name": "Savings/Investments",
-			"item": [],
-			"id": "f31a7071-fd9c-4c80-afe5-791021e4b155"
-		},
-		{
 			"name": "Loans",
 			"item": [
 				{
@@ -32356,6 +32351,592 @@
 				}
 			],
 			"id": "0219b329-fc55-4316-a93a-b47be6d3f18a"
+		},
+		{
+			"name": "Savings/Investments",
+			"item": [
+				{
+					"name": "Create Saving Plan",
+					"item": [
+						{
+							"name": "Create Saving Plan",
+							"id": "fe243af9-3ded-4c42-bdad-828eed4b65cf",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Vacation Funds\",\n    \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n    \"periodic_amount\": 500,\n    \"tenor_value\": 10,\n    \"tenor_period\": \"months\",\n    \"account_id\": \"{{accountId}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/savings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"savings"
+									],
+									"variable": [
+										{
+											"id": "530f9d71-0b88-45a6-bfec-bc6d8ee489c9",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "9e7b4f79-3abe-46be-90b3-ca987527a9e1",
+									"name": "Create Saving Plan",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"name\": \"Vacation Funds\",\n    \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n    \"periodic_amount\": 500,\n    \"tenor_value\": 10,\n    \"tenor_period\": \"months\",\n    \"account_id\": \"{{accountId}}\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/savings",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"savings"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "5564"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"15bc-AuRYyam0SGzoVx+rWf78+KDMz4Y\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 16 Dec 2024 18:13:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n        \"name\": \"Vacation Funds\",\n        \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n        \"account_id\": \"01939143-e441-700b-b9ac-b2802086bd0a\",\n        \"cba_savings_id\": \"87\",\n        \"balance\": 0,\n        \"end_date\": \"2025-10-16T18:13:08.768Z\",\n        \"start_date\": \"2024-12-16T18:13:08.768Z\",\n        \"periodic_amount\": 500,\n        \"interest_rate\": \"0.75\",\n        \"interest_period\": \"monthly\",\n        \"tenor_value\": 10,\n        \"tenor_period\": \"months\",\n        \"interest_compounding_period\": \"monthly\",\n        \"interest_posting_period\": \"monthly\",\n        \"schedules\": [\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2024-12-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-1e5b4444ed25\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-01-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-23f49205efa5\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-02-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-283df4cec794\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-03-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-32bd4f19a003\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-04-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-3bacd530d41a\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-05-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-43aab4cee8e6\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-06-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-4fccea2c9d85\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-07-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-559d96156a97\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-08-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-582c6b9b8f2d\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            },\n            {\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n                \"amount\": 500,\n                \"due_date\": \"2025-09-16T18:13:08.768Z\",\n                \"id\": \"0193d0ac-8a3a-722c-ad2a-67bc31673d31\",\n                \"plan_id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n                \"meta\": null,\n                \"created_by\": null,\n                \"modified_by\": null,\n                \"deleted_by\": null,\n                \"completed_at\": null,\n                \"failure_reason\": null,\n                \"created_on\": \"2024-12-16T18:13:08.791Z\",\n                \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n                \"deleted_on\": null,\n                \"status\": \"pending\"\n            }\n        ],\n        \"id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-12-16T18:13:08.791Z\",\n        \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "3c319161-406f-4201-8c6e-f92c1d1f4565"
+				},
+				{
+					"name": "Get Savings Products",
+					"item": [
+						{
+							"name": "Get Saving Products",
+							"id": "1c0c1cc8-f97c-4700-8c63-977e80e4a624",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/saving-products"
+							},
+							"response": [
+								{
+									"id": "90e8d392-8fb7-4b4c-b485-7c07bb9689b1",
+									"name": "Get Saving Products",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/saving-products"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "3994"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"f9a-m6qxAfGJ8yGnuy4vFBufR4lxPrE\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 16 Dec 2024 18:05:15 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193a37f-f9d2-7aa4-9f0a-ac323f14645c\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-07T23:41:33.520Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-07T23:41:33.520Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Premium Savings Plan Again HTTP\",\n            \"description\": \"A high-yield savings product with flexible terms.\",\n            \"currency\": \"NGN\",\n            \"type\": \"structured\",\n            \"no_of_investors\": 100,\n            \"min_amount\": \"5000.00\",\n            \"deposit_amount\": \"10.00\",\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"enabled\": true,\n            \"cba_product_id\": \"46\",\n            \"early_termination\": \"dk\",\n            \"terms_and_condition_file_id\": null,\n            \"interest_payout_options\": {},\n            \"withholding_tax\": 10,\n            \"min_deposit_term\": 10,\n            \"min_deposit_term_period\": \"months\",\n            \"max_deposit_term\": null,\n            \"max_deposit_term_period\": null,\n            \"min_amount_before_liquidation_approval\": null,\n            \"allow_top_up\": false,\n            \"frequency\": null,\n            \"certificate_template_id\": null\n        },\n        {\n            \"id\": \"0193b074-9cba-7773-8889-2aa903dcaeef\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-10T12:04:12.601Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-10T12:04:12.601Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Premium Savings Plan Again XSS\",\n            \"description\": \"A high-yield savings product with flexible terms.\",\n            \"currency\": \"NGN\",\n            \"type\": \"fixed\",\n            \"no_of_investors\": 100,\n            \"min_amount\": \"5000.00\",\n            \"deposit_amount\": \"0.00\",\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"enabled\": true,\n            \"cba_product_id\": \"64\",\n            \"early_termination\": \"dk\",\n            \"terms_and_condition_file_id\": null,\n            \"interest_payout_options\": {},\n            \"withholding_tax\": 10,\n            \"min_deposit_term\": 10,\n            \"min_deposit_term_period\": \"weeks\",\n            \"max_deposit_term\": 24,\n            \"max_deposit_term_period\": \"months\",\n            \"min_amount_before_liquidation_approval\": null,\n            \"allow_top_up\": false,\n            \"frequency\": null,\n            \"certificate_template_id\": null\n        },\n        {\n            \"id\": \"0193a390-8deb-7220-b5e4-f5af6318af0a\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-07T23:59:40.010Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-07T23:59:40.010Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Premium Savings Plan Again PNG\",\n            \"description\": \"A high-yield savings product with flexible terms.\",\n            \"currency\": \"NGN\",\n            \"type\": \"structured\",\n            \"no_of_investors\": 100,\n            \"min_amount\": \"5000.00\",\n            \"deposit_amount\": \"10.00\",\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"enabled\": true,\n            \"cba_product_id\": \"47\",\n            \"early_termination\": \"dk\",\n            \"terms_and_condition_file_id\": null,\n            \"interest_payout_options\": {},\n            \"withholding_tax\": 0,\n            \"min_deposit_term\": 10,\n            \"min_deposit_term_period\": \"months\",\n            \"max_deposit_term\": null,\n            \"max_deposit_term_period\": null,\n            \"min_amount_before_liquidation_approval\": null,\n            \"allow_top_up\": false,\n            \"frequency\": \"monthly\",\n            \"certificate_template_id\": null\n        },\n        {\n            \"id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-11T11:02:26.429Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-11T11:02:26.429Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Premium Savings Plan Agains SMTP\",\n            \"description\": \"A high-yield savings product with flexible terms.\",\n            \"currency\": \"NGN\",\n            \"type\": \"structured\",\n            \"no_of_investors\": 100,\n            \"min_amount\": \"5000.00\",\n            \"deposit_amount\": \"0.00\",\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"enabled\": true,\n            \"cba_product_id\": \"73\",\n            \"early_termination\": \"dk\",\n            \"terms_and_condition_file_id\": null,\n            \"interest_payout_options\": {},\n            \"withholding_tax\": 10,\n            \"min_deposit_term\": 10,\n            \"min_deposit_term_period\": \"weeks\",\n            \"max_deposit_term\": 24,\n            \"max_deposit_term_period\": \"months\",\n            \"min_amount_before_liquidation_approval\": null,\n            \"allow_top_up\": false,\n            \"frequency\": \"monthly\",\n            \"certificate_template_id\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 4\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "3c4d95ee-5a79-4009-b498-51c5416be1cf"
+				},
+				{
+					"name": "Get Savings Product",
+					"item": [
+						{
+							"name": "Get Saving Product",
+							"id": "65167ec6-e0c5-457b-8511-523fb84c1d65",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/saving-products/0193a390-8deb-7220-b5e4-f5af6318af0a"
+							},
+							"response": [
+								{
+									"id": "4d0d5393-be49-481c-bfd9-3db71fb9a31a",
+									"name": "Get Saving Product",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/saving-products/0193a390-8deb-7220-b5e4-f5af6318af0a"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1035"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"40b-SWf1H+LBZzC2aZLRJugYz1VzoVY\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 16 Dec 2024 18:14:54 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0193a390-8deb-7220-b5e4-f5af6318af0a\",\n        \"meta\": null,\n        \"created_on\": \"2024-12-07T23:59:40.010Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-12-07T23:59:40.010Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Premium Savings Plan Again PNG\",\n        \"description\": \"A high-yield savings product with flexible terms.\",\n        \"currency\": \"NGN\",\n        \"type\": \"structured\",\n        \"no_of_investors\": 100,\n        \"min_amount\": \"5000.00\",\n        \"deposit_amount\": \"10.00\",\n        \"interest_rate\": \"0.75\",\n        \"interest_period\": \"monthly\",\n        \"interest_compounding_period\": \"monthly\",\n        \"interest_posting_period\": \"monthly\",\n        \"enabled\": true,\n        \"cba_product_id\": \"47\",\n        \"early_termination\": \"dk\",\n        \"terms_and_condition_file_id\": null,\n        \"interest_payout_options\": {},\n        \"withholding_tax\": 0,\n        \"min_deposit_term\": 10,\n        \"min_deposit_term_period\": \"months\",\n        \"max_deposit_term\": null,\n        \"max_deposit_term_period\": null,\n        \"min_amount_before_liquidation_approval\": null,\n        \"allow_top_up\": false,\n        \"frequency\": \"monthly\",\n        \"certificate_template_id\": null,\n        \"terms_and_condition\": null\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "c3a54cda-463a-445a-8670-02524495cde8"
+				},
+				{
+					"name": "Get Savings Plans",
+					"item": [
+						{
+							"name": "Get Saving Plans",
+							"id": "07c93918-cb28-496d-963c-fb95a0034c39",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/savings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"savings"
+									],
+									"variable": [
+										{
+											"id": "5998e2ee-262d-418c-a627-4a4f5112572b",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "d52abb3c-d6fc-4672-a4a4-3bad62e2aca6",
+									"name": "Get Saving Plans",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/savings",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"savings"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "847"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"34f-wJyDsE2lD4UNZhrenrNKyRcxiB8\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 16 Dec 2024 18:14:59 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193d0ac-8a39-722c-ad2a-132c4168639d\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-16T18:13:08.791Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-16T18:13:08.791Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"0193bfe7-f778-7446-bceb-2b0455dbf4f8\",\n            \"name\": \"Vacation Funds\",\n            \"product_id\": \"0193b562-6b7d-7114-9266-02a67be2dd64\",\n            \"account_id\": \"01939143-e441-700b-b9ac-b2802086bd0a\",\n            \"cba_savings_id\": \"87\",\n            \"balance\": \"0.00\",\n            \"end_date\": \"2025-10-16T18:13:08.768Z\",\n            \"start_date\": \"2024-12-16T18:13:08.768Z\",\n            \"periodic_amount\": 500,\n            \"interest_rate\": \"0.75\",\n            \"interest_period\": \"monthly\",\n            \"tenor_value\": 10,\n            \"tenor_period\": \"months\",\n            \"interest_compounding_period\": \"monthly\",\n            \"interest_posting_period\": \"monthly\",\n            \"status\": \"active\"\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "40aa2dfa-3cf9-4775-91a4-21f6c9fef704"
+				},
+				{
+					"name": "Get Savings Plan",
+					"item": [
+						{
+							"name": "Get Saving Plan",
+							"id": "997b340e-7c1a-4e96-91b3-2b5793132bad",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/savings/:plan_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"savings",
+										":plan_id"
+									],
+									"variable": [
+										{
+											"id": "affdfc58-13ed-487e-84fd-9affa3dd5606",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										},
+										{
+											"id": "2efd2dfd-52c4-4523-ae16-4b0f7a507209",
+											"key": "plan_id",
+											"value": "0193de24-1a4c-7006-aa72-56d5ea8b4de5"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "4cc15e6f-cd66-47b2-81e8-a2679dd4146a"
+				},
+				{
+					"name": "New Folder Copy",
+					"item": [
+						{
+							"name": "Liquidate Savings Plan",
+							"id": "c8ccc651-f185-4468-b8a3-c52f40475acc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/withdraw",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"savings",
+										"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
+										"withdraw"
+									],
+									"variable": [
+										{
+											"id": "dee3d25b-bfe3-47e7-adba-05b457a8a994",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "88707368-083c-42cb-9dff-b1cffb8d778b"
+				},
+				{
+					"name": "New Folder Copy 2",
+					"item": [],
+					"id": "4ad7f473-34b2-4455-bbec-7d4a7da5dc07"
+				},
+				{
+					"name": "New Folder Copy",
+					"item": [],
+					"id": "4d90e585-b27d-4b38-9a78-3ed6e245b1bd"
+				},
+				{
+					"name": "Withdraw Savings Plan Copy",
+					"id": "eaac2714-2e0e-4ef9-8a03-f7ecc467ad97",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/withdraw",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"savings",
+								"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
+								"withdraw"
+							],
+							"variable": [
+								{
+									"id": "22aeee5f-3a2c-417e-a33e-b2f19898abfe",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Saving Plan Certificate",
+					"id": "03f5e91b-7196-4180-9a89-b33211a69672",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/certificate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"savings",
+								"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
+								"certificate"
+							],
+							"variable": [
+								{
+									"id": "344435dd-ade7-4a8d-935b-56b94b80590f",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "9f9dea24-c8e8-4be4-a7f8-c5b94d2952c7"
 		},
 		{
 			"name": "Mandates",
