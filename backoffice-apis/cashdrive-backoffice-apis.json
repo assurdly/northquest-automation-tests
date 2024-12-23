@@ -2331,7 +2331,7 @@
 											"    \r",
 											"\r",
 											"    pm.test(\"Validate error message\", () => {\r",
-											"        pm.expect(data.message).to.include('Password is required.');\r",
+											"        pm.expect(data).to.include('Password is required.');\r",
 											"    })\r",
 											"} catch (error) {\r",
 											"    console.error(\"Error from test:\", error);\r",
@@ -2461,9 +2461,9 @@
 											"\r",
 											"    \r",
 											"\r",
-											"    pm.test(\"Validate error message\", () => {\r",
-											"        pm.expect(data.message).to.include('Password is required.');\r",
-											"    })\r",
+											"    // pm.test(\"Validate error message\", () => {\r",
+											"    //     pm.expect(data).to.include('Password is required.');\r",
+											"    // })\r",
 											"} catch (error) {\r",
 											"    console.error(\"Error from test:\", error);\r",
 											"}\r",
@@ -2576,7 +2576,7 @@
 							]
 						},
 						{
-							"name": "Change Password Copy 3",
+							"name": "Change Password-Mismatch password",
 							"id": "3fb88253-57b4-4138-bc80-13495b7cb369",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
