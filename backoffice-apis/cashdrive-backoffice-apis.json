@@ -759,6 +759,33 @@
 						},
 						{
 							"name": "Forgot Password-Non existing user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ba2a6fb9-352a-495d-b722-9c335d9105a9",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    \r",
+											"\r",
+											"    pm.test(\"Validate error message\", () => {\r",
+											"        pm.expect(message).to.include('Email does not exist');\r",
+											"    })\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "6b51df77-453a-4ee8-a646-ddd3e911db5e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -768,7 +795,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"sodiq@google.com\"\n}",
+									"raw": "{\n    \"email\": \"sodiq1@google.com\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
