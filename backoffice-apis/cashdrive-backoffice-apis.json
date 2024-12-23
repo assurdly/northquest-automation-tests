@@ -1139,6 +1139,33 @@
 						},
 						{
 							"name": "Forgot Password-Empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3a33ba3a-64c7-4aa6-b249-7d6bca3c771b",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    \r",
+											"\r",
+											"    pm.test(\"Validate error message\", () => {\r",
+											"        pm.expect(message).to.include('Email is required.');\r",
+											"    })\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "3090da57-00e1-4554-a390-a817ef04363c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -1148,7 +1175,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\":\"sodiq@google.com\"}",
+									"raw": "{\n    \"email\":\"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
