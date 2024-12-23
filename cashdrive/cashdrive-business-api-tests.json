@@ -32979,10 +32979,16 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/certificate",
+									"raw": "{{base_url}}/profiles/:profile_id/savings/{{userFetchedSavingsPlanId}}/certificate",
 									"host": [
 										"{{base_url}}"
 									],
@@ -32990,14 +32996,13 @@
 										"profiles",
 										":profile_id",
 										"savings",
-										"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
+										"{{userFetchedSavingsPlanId}}",
 										"certificate"
 									],
 									"variable": [
 										{
-											"id": "344435dd-ade7-4a8d-935b-56b94b80590f",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedBusinessProfileId}}"
 										}
 									]
 								}
