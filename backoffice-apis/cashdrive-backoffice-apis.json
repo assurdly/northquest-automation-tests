@@ -10350,245 +10350,6 @@
 			"name": "Document Types",
 			"item": [
 				{
-					"name": "List Document Types",
-					"item": [
-						{
-							"name": "List Document Types",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "427f882f-16b6-4df0-9d62-ace13465537c",
-										"exec": [
-											"try {\r",
-											"    const { status, data } = pm.response.json()\r",
-											"\r",
-											"    pm.environment.set(\"adminFetchedDocumentTypeId\", data[0].id);\r",
-											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
-											"    })\r",
-											"\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data).to.be.an(\"array\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "6d03ac8e-0ba8-431f-9d9c-9af851e46d3c",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{adminAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/admin/document-types?",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"admin",
-										"document-types"
-									],
-									"query": [
-										{
-											"key": "",
-											"value": null
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "2ceb9ebb-f1fc-468f-bcc8-96e5bce282ef",
-									"name": "List Document Types",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": "{{base_url}}/admin/document-types"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "382"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"17e-+6P+ihjYVZpYBUBZI77FoWgKQIU\""
-										},
-										{
-											"key": "Date",
-											"value": "Mon, 14 Oct 2024 07:32:50 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-14T07:32:42.240Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-14T07:32:42.240Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Proof of address\",\n            \"description\": \"Proof of address\",\n            \"enabled\": true,\n            \"required\": true\n        }\n    ]\n}"
-								}
-							]
-						},
-						{
-							"name": "List Document Types-No auth",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "427f882f-16b6-4df0-9d62-ace13465537c",
-										"exec": [
-											"try {\r",
-											"    const { message, statusCode } = pm.response.json()\r",
-											"\r",
-											"    // pm.test(\"Test for valid status code\", () => {\r",
-											"    //     pm.expect(statusCode).to.eql(401)\r",
-											"    // })\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).to.eql(\"Access token is required\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(error)\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "a649b084-10e2-4f6c-96b4-6af360f77086",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [],
-								"url": "{{base_url}}/admin/document-types"
-							},
-							"response": [
-								{
-									"id": "6750382b-6b29-48e0-85ca-4f81065cb2d2",
-									"name": "List Document Types",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": "{{base_url}}/admin/document-types"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "382"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"17e-+6P+ihjYVZpYBUBZI77FoWgKQIU\""
-										},
-										{
-											"key": "Date",
-											"value": "Mon, 14 Oct 2024 07:32:50 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-14T07:32:42.240Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-14T07:32:42.240Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Proof of address\",\n            \"description\": \"Proof of address\",\n            \"enabled\": true,\n            \"required\": true\n        }\n    ]\n}"
-								}
-							]
-						}
-					],
-					"id": "02fe2f66-c6b7-4a90-8abe-491d7db66094"
-				},
-				{
 					"name": "Create Document Type",
 					"item": [
 						{
@@ -10977,6 +10738,240 @@
 						}
 					],
 					"id": "31fbd446-2c13-43bf-bc7d-5ca5620f29bc"
+				},
+				{
+					"name": "List Document Types",
+					"item": [
+						{
+							"name": "List Document Types",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "427f882f-16b6-4df0-9d62-ace13465537c",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.environment.set(\"adminFetchedDocumentTypeId\", data[0].id);\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "6d03ac8e-0ba8-431f-9d9c-9af851e46d3c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/document-types?",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"document-types"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "2ceb9ebb-f1fc-468f-bcc8-96e5bce282ef",
+									"name": "List Document Types",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/document-types"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "382"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"17e-+6P+ihjYVZpYBUBZI77FoWgKQIU\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Oct 2024 07:32:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-14T07:32:42.240Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-14T07:32:42.240Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Proof of address\",\n            \"description\": \"Proof of address\",\n            \"enabled\": true,\n            \"required\": true\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "List Document Types - No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "427f882f-16b6-4df0-9d62-ace13465537c",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "a649b084-10e2-4f6c-96b4-6af360f77086",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/admin/document-types"
+							},
+							"response": [
+								{
+									"id": "6750382b-6b29-48e0-85ca-4f81065cb2d2",
+									"name": "List Document Types",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": "{{base_url}}/admin/document-types"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "382"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"17e-+6P+ihjYVZpYBUBZI77FoWgKQIU\""
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 14 Oct 2024 07:32:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\",\n            \"meta\": null,\n            \"created_on\": \"2024-10-14T07:32:42.240Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-10-14T07:32:42.240Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Proof of address\",\n            \"description\": \"Proof of address\",\n            \"enabled\": true,\n            \"required\": true\n        }\n    ]\n}"
+								}
+							]
+						}
+					],
+					"id": "02fe2f66-c6b7-4a90-8abe-491d7db66094"
 				},
 				{
 					"name": "Get Document Type",
@@ -27567,16 +27562,124 @@
 					"item": [
 						{
 							"name": "Update Exchange Rate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f9ebe7aa-1b40-4d4f-80d3-ce0993b2dde1",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"object\")",
+											"    })",
+											"} catch (error) {",
+											"    console.error(\"Errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "4d0f6d8b-5ee6-47fc-a13b-449fff803552",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
 								"method": "PATCH",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"expires_on\": \"2027-12-31\",\n    \"buy_price\": 10,\n    \"sell_price\": 100\n}",
+									"raw": "{\n    \"expires_on\": \"2027-12-31\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/exchange-rates/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"exchange-rates",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{adminCreatedExchangeRateId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Exchange Rate - Empty Fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f9ebe7aa-1b40-4d4f-80d3-ce0993b2dde1",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"error\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"} catch (error) {",
+											"    console.error(\"Errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "47d539a6-b9ee-4cc4-9114-fbeb2f23e310",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{adminAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"expires_on\": \"\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -27605,6 +27708,35 @@
 						},
 						{
 							"name": "Update Exchange Rate - Updates to Buy and Sell Price",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5f43ce4a-4cfd-440f-8232-d5d434e7a414",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"object\")",
+											"    })",
+											"} catch (error) {",
+											"    console.error(\"Errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "f9420b66-2d72-42c5-841f-d422c57c7339",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -27633,7 +27765,6 @@
 									],
 									"variable": [
 										{
-											"id": "f5832773-4fbc-4aa3-89be-f0ea60e76a51",
 											"key": "id",
 											"value": "{{adminCreatedExchangeRateId}}"
 										}
@@ -27650,6 +27781,38 @@
 					"item": [
 						{
 							"name": "List Exchange Rates",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7971b0af-dd47-4b8b-b81d-866ac6a96235",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.environment.set(\"adminFetchedExchangeRateId\", data[0].id);",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "031bc9cd-49e4-4c35-98f3-675befbf06fd",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -27658,7 +27821,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/admin/exchange-rates?filter[sell_currency]=NGN",
+									"raw": "{{base_url}}/admin/exchange-rates",
 									"host": [
 										"{{base_url}}"
 									],
@@ -27669,22 +27832,23 @@
 									"query": [
 										{
 											"key": "filter[buy_price]",
-											"value": null,
+											"value": "",
 											"disabled": true
 										},
 										{
 											"key": "filter[sell_price]",
-											"value": null,
+											"value": "",
 											"disabled": true
 										},
 										{
 											"key": "filter[buy_currency]",
-											"value": null,
+											"value": "",
 											"disabled": true
 										},
 										{
 											"key": "filter[sell_currency]",
-											"value": "NGN"
+											"value": "NGN",
+											"disabled": true
 										}
 									]
 								}
@@ -27692,6 +27856,167 @@
 							"response": [
 								{
 									"id": "ae33c6c6-a544-4856-a254-d8e33e4641dc",
+									"name": "List Exchange Rates",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/exchange-rates?filter[sell_currency]=NGN",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"exchange-rates"
+											],
+											"query": [
+												{
+													"key": "filter[buy_price]",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "filter[sell_price]",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "filter[buy_currency]",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "filter[sell_currency]",
+													"value": "NGN"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "464"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1d0-5X+LAKNtPRMyhTLuA6+Yg8E8A60\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 19 Dec 2024 15:35:59 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193df8d-4cf4-711a-8600-663f0a676683\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-19T15:33:20.035Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-19T15:34:17.558Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"buy_currency\": \"NGN\",\n            \"sell_currency\": \"NGN\",\n            \"buy_price\": \"1.00\",\n            \"sell_price\": \"1.00\",\n            \"expires_on\": \"2025-12-31T00:00:00.000Z\"\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "List Exchange Rates - No Auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7971b0af-dd47-4b8b-b81d-866ac6a96235",
+										"exec": [
+											"try {",
+											"    const { message, statusCode } = pm.response.json()",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.eql(\"Access token is required\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "618b6423-fb3c-4bb2-85a2-8085f7542df5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/exchange-rates",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"exchange-rates"
+									],
+									"query": [
+										{
+											"key": "filter[buy_price]",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "filter[sell_price]",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "filter[buy_currency]",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "filter[sell_currency]",
+											"value": "NGN",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "5388b53e-b0d3-4038-8d21-2e98dad207f1",
 									"name": "List Exchange Rates",
 									"originalRequest": {
 										"method": "GET",
