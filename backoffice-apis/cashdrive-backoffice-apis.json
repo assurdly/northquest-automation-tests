@@ -27576,7 +27576,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"expires_on\": \"2025-12-31\"\n}",
+									"raw": "{\n    \"expires_on\": \"2027-12-31\",\n    \"buy_price\": 10,\n    \"sell_price\": 100\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -27595,9 +27595,47 @@
 									],
 									"variable": [
 										{
-											"id": "b8b96c4b-52e2-4a67-99d1-ee2bb6d3147f",
 											"key": "id",
-											"value": "0193df8d-4cf4-711a-8600-663f0a676683"
+											"value": "{{adminCreatedExchangeRateId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Exchange Rate - Updates to Buy and Sell Price",
+							"id": "f9420b66-2d72-42c5-841f-d422c57c7339",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"expires_on\": \"2027-12-31\",\n    \"buy_price\": 10,\n    \"sell_price\": 100\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/exchange-rates/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"exchange-rates",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "f5832773-4fbc-4aa3-89be-f0ea60e76a51",
+											"key": "id",
+											"value": "{{adminCreatedExchangeRateId}}"
 										}
 									]
 								}
