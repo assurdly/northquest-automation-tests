@@ -31417,7 +31417,7 @@
 									]
 								},
 								{
-									"name": "Create Virtual Account",
+									"name": "Create Virtual Account - Empty Fields",
 									"event": [
 										{
 											"listen": "test",
@@ -31577,7 +31577,7 @@
 									]
 								},
 								{
-									"name": "Create Virtual Account Copy",
+									"name": "Create Virtual Account Invalid Type",
 									"event": [
 										{
 											"listen": "test",
@@ -31597,6 +31597,10 @@
 													"",
 													"    pm.test(\"Test for valid error message\", () => {",
 													"        pm.expect(data).to.be.an(\"array\")",
+													"    })",
+													"",
+													"    pm.test(\"Test for valid error message\", () => {",
+													"        pm.expect(data).to.include(\"type must be one of the following values: static, dynamic\")",
 													"    })",
 													"} catch (error) {",
 													"    console.error(\"Errors from tests\", error)",
@@ -31622,7 +31626,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"type\": \"\", // static | dynamic\n    \"purpose\": \"\",\n    \"account_id\": \"\",\n    \"expires_on\": \"\"\n}",
+											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"bless\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -31641,7 +31645,6 @@
 											],
 											"variable": [
 												{
-													"id": "33ce585d-ad47-4bf6-a660-caca07b3854c",
 													"key": "profile_id",
 													"value": "{{userFetchedPersonalProfileId}}"
 												}
@@ -31785,6 +31788,12 @@
 										"disableBodyPruning": true
 									},
 									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
 										"method": "GET",
 										"header": [],
 										"url": {
@@ -31800,7 +31809,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+													"value": "{{userFetchedPersonalProfileId}}"
 												}
 											]
 										}
