@@ -949,6 +949,33 @@
 						},
 						{
 							"name": "Forgot Password-Invalid email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "01f68102-ea2b-41fd-a422-d4f0b085055a",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    \r",
+											"\r",
+											"    pm.test(\"Validate error message\", () => {\r",
+											"        pm.expect(message).to.include('Invalid email format');\r",
+											"    })\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "3db09926-fcf0-4387-94ae-590e8d013863",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -958,7 +985,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\":\"sodiq@google.com\"}",
+									"raw": "{\n    \"email\":\"sodiq@googlecom\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
