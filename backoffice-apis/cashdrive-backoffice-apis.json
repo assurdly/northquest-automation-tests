@@ -27165,33 +27165,18 @@
 			"id": "13a45a4c-748a-44d6-a055-6b9251854e96"
 		},
 		{
-			"name": "Exchange Rate Copy",
+			"name": "Exchange Rate",
 			"item": [
 				{
 					"name": "Create Exchange Rate",
-					"id": "378af88f-50cf-454c-a136-7a61219304a3",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"buy_price\": 1,\n    \"sell_price\": 1,\n    \"buy_currency\": \"NGN\",\n    \"sell_currency\": \"NGN\",\n    \"expires_on\": \"2024-12-31\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/admin/exchange-rates"
-					},
-					"response": [
+					"item": [
 						{
-							"id": "b01039c0-25ce-4619-9ad8-27a65d0d9dfa",
 							"name": "Create Exchange Rate",
-							"originalRequest": {
+							"id": "378af88f-50cf-454c-a136-7a61219304a3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -27205,146 +27190,137 @@
 								},
 								"url": "{{base_url}}/admin/exchange-rates"
 							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "412"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"19c-MTfbvQvBGilxtwfxLajIyfzOETc\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 19 Dec 2024 15:33:20 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "b01039c0-25ce-4619-9ad8-27a65d0d9dfa",
+									"name": "Create Exchange Rate",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"buy_price\": 1,\n    \"sell_price\": 1,\n    \"buy_currency\": \"NGN\",\n    \"sell_currency\": \"NGN\",\n    \"expires_on\": \"2024-12-31\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/admin/exchange-rates"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "412"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"19c-MTfbvQvBGilxtwfxLajIyfzOETc\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 19 Dec 2024 15:33:20 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"buy_currency\": \"NGN\",\n        \"sell_currency\": \"NGN\",\n        \"buy_price\": \"1.00\",\n        \"sell_price\": \"1.00\",\n        \"expires_on\": \"2024-12-31T00:00:00.000Z\",\n        \"id\": \"0193df8d-4cf4-711a-8600-663f0a676683\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-12-19T15:33:20.035Z\",\n        \"modified_on\": \"2024-12-19T15:33:20.035Z\",\n        \"deleted_on\": null\n    }\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"buy_currency\": \"NGN\",\n        \"sell_currency\": \"NGN\",\n        \"buy_price\": \"1.00\",\n        \"sell_price\": \"1.00\",\n        \"expires_on\": \"2024-12-31T00:00:00.000Z\",\n        \"id\": \"0193df8d-4cf4-711a-8600-663f0a676683\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-12-19T15:33:20.035Z\",\n        \"modified_on\": \"2024-12-19T15:33:20.035Z\",\n        \"deleted_on\": null\n    }\n}"
+							]
 						}
-					]
+					],
+					"id": "9f68e19e-1907-4887-af9f-62213c54a81d"
 				},
 				{
 					"name": "Update Exchange Rate",
-					"id": "4d0f6d8b-5ee6-47fc-a13b-449fff803552",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"expires_on\": \"2025-12-31\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"item": [
+						{
+							"name": "Update Exchange Rate",
+							"id": "4d0f6d8b-5ee6-47fc-a13b-449fff803552",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"expires_on\": \"2025-12-31\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/admin/exchange-rates/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"exchange-rates",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "b8b96c4b-52e2-4a67-99d1-ee2bb6d3147f",
+											"key": "id",
+											"value": "0193df8d-4cf4-711a-8600-663f0a676683"
+										}
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/admin/exchange-rates/:id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"admin",
-								"exchange-rates",
-								":id"
-							],
-							"variable": [
-								{
-									"id": "b8b96c4b-52e2-4a67-99d1-ee2bb6d3147f",
-									"key": "id",
-									"value": "0193df8d-4cf4-711a-8600-663f0a676683"
-								}
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					],
+					"id": "ac615c42-6eca-4807-a0a5-730fc177cbb6"
 				},
 				{
 					"name": "List Exchange Rates",
-					"id": "031bc9cd-49e4-4c35-98f3-675befbf06fd",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/admin/exchange-rates?filter[sell_currency]=NGN",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"admin",
-								"exchange-rates"
-							],
-							"query": [
-								{
-									"key": "filter[buy_price]",
-									"value": null,
-									"disabled": true
-								},
-								{
-									"key": "filter[sell_price]",
-									"value": null,
-									"disabled": true
-								},
-								{
-									"key": "filter[buy_currency]",
-									"value": null,
-									"disabled": true
-								},
-								{
-									"key": "filter[sell_currency]",
-									"value": "NGN"
-								}
-							]
-						}
-					},
-					"response": [
+					"item": [
 						{
-							"id": "ae33c6c6-a544-4856-a254-d8e33e4641dc",
 							"name": "List Exchange Rates",
-							"originalRequest": {
+							"id": "031bc9cd-49e4-4c35-98f3-675befbf06fd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -27379,94 +27355,113 @@
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "464"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"1d0-5X+LAKNtPRMyhTLuA6+Yg8E8A60\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 19 Dec 2024 15:35:59 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193df8d-4cf4-711a-8600-663f0a676683\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-19T15:33:20.035Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-19T15:34:17.558Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"buy_currency\": \"NGN\",\n            \"sell_currency\": \"NGN\",\n            \"buy_price\": \"1.00\",\n            \"sell_price\": \"1.00\",\n            \"expires_on\": \"2025-12-31T00:00:00.000Z\"\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Delete Exchange Rate",
-					"id": "f7853175-63e1-4c0b-8142-2eb234ad6f9a",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/admin/exchange-rates/:id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"admin",
-								"exchange-rates",
-								":id"
-							],
-							"variable": [
-								{
-									"id": "6a6acaa9-0b03-4e47-a061-98bed32d8c58",
-									"key": "id",
-									"value": "0193df8d-4cf4-711a-8600-663f0a676683"
+									"id": "ae33c6c6-a544-4856-a254-d8e33e4641dc",
+									"name": "List Exchange Rates",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/exchange-rates?filter[sell_currency]=NGN",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"exchange-rates"
+											],
+											"query": [
+												{
+													"key": "filter[buy_price]",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "filter[sell_price]",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "filter[buy_currency]",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "filter[sell_currency]",
+													"value": "NGN"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "464"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1d0-5X+LAKNtPRMyhTLuA6+Yg8E8A60\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 19 Dec 2024 15:35:59 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193df8d-4cf4-711a-8600-663f0a676683\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-19T15:33:20.035Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-19T15:34:17.558Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"buy_currency\": \"NGN\",\n            \"sell_currency\": \"NGN\",\n            \"buy_price\": \"1.00\",\n            \"sell_price\": \"1.00\",\n            \"expires_on\": \"2025-12-31T00:00:00.000Z\"\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
 								}
 							]
 						}
-					},
-					"response": [
+					],
+					"id": "7b119abb-b942-4b60-b849-c371080d5ce7"
+				},
+				{
+					"name": "Delete Exchange Rate",
+					"item": [
 						{
-							"id": "aed98fa7-dcbb-4546-9853-5e24372d7977",
 							"name": "Delete Exchange Rate",
-							"originalRequest": {
+							"id": "f7853175-63e1-4c0b-8142-2eb234ad6f9a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
@@ -27481,66 +27476,95 @@
 									],
 									"variable": [
 										{
+											"id": "6a6acaa9-0b03-4e47-a061-98bed32d8c58",
 											"key": "id",
 											"value": "0193df8d-4cf4-711a-8600-663f0a676683"
 										}
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
+							"response": [
 								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "32"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
-								},
-								{
-									"key": "Date",
-									"value": "Thu, 19 Dec 2024 15:36:40 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
+									"id": "aed98fa7-dcbb-4546-9853-5e24372d7977",
+									"name": "Delete Exchange Rate",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/exchange-rates/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"exchange-rates",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0193df8d-4cf4-711a-8600-663f0a676683"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 19 Dec 2024 15:36:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
 								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+							]
 						}
-					]
+					],
+					"id": "d1894551-93cd-439a-bdb9-89519c016685"
 				}
 			],
 			"id": "4bf066e0-3290-48f9-92c2-f29fdb50c6b1"
