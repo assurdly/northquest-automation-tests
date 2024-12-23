@@ -28116,6 +28116,32 @@
 					"item": [
 						{
 							"name": "Delete Exchange Rate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "96c1ab9b-734f-4023-a91c-7ed3c08d9ccb",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "f7853175-63e1-4c0b-8142-2eb234ad6f9a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -28144,6 +28170,272 @@
 							"response": [
 								{
 									"id": "aed98fa7-dcbb-4546-9853-5e24372d7977",
+									"name": "Delete Exchange Rate",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/exchange-rates/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"exchange-rates",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0193df8d-4cf4-711a-8600-663f0a676683"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 19 Dec 2024 15:36:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Exchange Rate - Empty Exchange Rate Field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "96c1ab9b-734f-4023-a91c-7ed3c08d9ccb",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"error\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "c297e667-d8b3-4b9c-a6cc-ddb51b2734a9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/exchange-rates/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"exchange-rates",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "df4a0fb4-6aae-47a1-af1b-c57eb9c0482c",
+									"name": "Delete Exchange Rate",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/exchange-rates/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"exchange-rates",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "0193df8d-4cf4-711a-8600-663f0a676683"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 19 Dec 2024 15:36:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Exchange Rate - Invalid Exchange Rate Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "96c1ab9b-734f-4023-a91c-7ed3c08d9ccb",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"error\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "8c48e7ce-7f10-4559-9726-8b1b81d89b70",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/exchange-rates/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"exchange-rates",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "6768d92c-c1e4-8007-885a-81ab4531c40e"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "b67b21a3-f16f-454c-83bd-78c6c9335c59",
 									"name": "Delete Exchange Rate",
 									"originalRequest": {
 										"method": "DELETE",
