@@ -37125,7 +37125,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"dynamic\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\"\n}",
+											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"dynamic\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\",\n    \"pin\": \"1234\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -37144,9 +37144,8 @@
 											],
 											"variable": [
 												{
-													"id": "1d5cea78-9245-4ec1-a09a-31419e3bd0d9",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												}
 											]
 										}
