@@ -17688,17 +17688,14 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"enabled\": true,\n    // \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\", optional\n    \"pin\": \"1234\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
 							}
 						},
+						"method": "GET",
+						"header": [],
 						"url": {
 							"raw": "{{base_url}}/profiles/:profile_id/maker-checker-operations",
 							"host": [
@@ -17711,14 +17708,119 @@
 							],
 							"variable": [
 								{
-									"id": "a3328fa4-893e-4e13-9c78-490c1f8be309",
 									"key": "profile_id",
-									"value": "{{profileId}}"
+									"value": "{{userFetchedProfileId}}"
 								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"id": "4d88261e-752d-4f67-99b1-9de56f92d92c",
+							"name": "Get Operations - Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/maker-checker-operations",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"maker-checker-operations"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 24 Dec 2024 11:43:40 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"50-ZpJKY+mfRetoAxUUA0RNPaYoQxU\""
+								},
+								{
+									"key": "cf-cache-status",
+									"value": "DYNAMIC"
+								},
+								{
+									"key": "Report-To",
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=u%2BBMAeb%2BqQ9tNSb9VXWuKkOwv3HfbHOp34Yul5AcUQwEoPzxXE70Sie8P7NGahkL%2BAAjTXnheL%2FL6w8eU2tA%2FmsPmgGTgvSGxkXRH6fYXUMxpvfPEv5p8bFVIKWX4IzJ1prqjs6%2FTOKEd8cFdRNd\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "NEL",
+									"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+								},
+								{
+									"key": "Server",
+									"value": "cloudflare"
+								},
+								{
+									"key": "CF-RAY",
+									"value": "8f7055c60b261fe0-IAD"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "br"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=86400"
+								},
+								{
+									"key": "server-timing",
+									"value": "cfL4;desc=\"?proto=TCP&rtt=2293&min_rtt=2134&rtt_var=914&sent=3&recv=5&lost=0&retrans=0&sent_bytes=219&recv_bytes=1320&delivery_rate=678537&cwnd=243&unsent_bytes=0&cid=b1a8b1beb14e8e82&ts=132&x=0\""
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 0,\n        \"total_items\": 0\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Approve Operation",
@@ -17743,9 +17845,8 @@
 							],
 							"variable": [
 								{
-									"id": "6c60555d-76dc-4186-8f42-ef6058e94404",
 									"key": "profile_id",
-									"value": "{{profileId}}"
+									"value": "{{userFetchedProfileId}}"
 								}
 							]
 						}
@@ -17775,9 +17876,8 @@
 							],
 							"variable": [
 								{
-									"id": "8e01f937-a658-4628-8d70-3a048bc9a205",
 									"key": "profile_id",
-									"value": "{{profileId}}"
+									"value": "{{userFetchedProfileId}}"
 								}
 							]
 						}
