@@ -20134,11 +20134,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"start_date\": \"2024-12-30T21:00:00.000Z\",\n    \"end_date\": \"2024-12-31T12:00:00.000Z\",\n    \"amount\": 100.23,\n    \"type\": \"bill_payment\",\n    \"frequency\": \"once\",\n    \"category_id\": \"airtime\",\n    \"option_id\": \"\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"biller_id\":\"mtn\"\n}",
+									"raw": "{\n    \"start_date\": \"2024-12-30T21:00:00.000Z\",\n    \"end_date\": \"2024-12-31T12:00:00.000Z\",\n    \"amount\": 100.23,\n    \"type\": \"bill-payment\",\n    \"frequency\": \"once\",\n    \"category_id\": \"airtime\",\n    \"option_id\": \"\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"biller_id\":\"mtn\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
