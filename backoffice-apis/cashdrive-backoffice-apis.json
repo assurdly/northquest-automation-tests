@@ -26386,7 +26386,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"{{$randomAlphaNumeric}}\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n    \"expires_on\": \"2024-12-31\"\n}",
+									"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2024-12-31\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
