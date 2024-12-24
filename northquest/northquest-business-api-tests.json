@@ -10069,143 +10069,6 @@
 					"id": "1769156e-de76-469b-94da-b9fd5736410e"
 				},
 				{
-					"name": "Update Maker Checker",
-					"item": [
-						{
-							"name": "Update Maker Checker",
-							"id": "07d07cdf-ef3c-46d0-b8de-c35ef3d62e26",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"enabled\": true,\n    \"pin\": \"1234\"\n    // \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/maker-checker",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"maker-checker"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "985657c8-b43a-4ba7-863f-43e602e1e86f",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"enabled\": false,\n    \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/maker-checker",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"maker-checker"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "73"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"49-Jxaxu7Xyoh2Jj4rkF8B+9bGtVig\""
-										},
-										{
-											"key": "Date",
-											"value": "Sat, 26 Oct 2024 20:50:27 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Permission Updated Successfully\"\n    }\n}"
-								}
-							]
-						}
-					],
-					"id": "5f2fbdf3-bfdb-4133-a0bd-52a9a72ac8b1"
-				},
-				{
 					"name": "Change Password",
 					"item": [
 						{
@@ -17677,6 +17540,253 @@
 			"name": "Dashboard",
 			"item": [],
 			"id": "731128c9-c36f-448f-b830-d845adea7c92"
+		},
+		{
+			"name": "Maker Checker",
+			"item": [
+				{
+					"name": "Update Maker Checker",
+					"item": [
+						{
+							"name": "Update Maker Checker",
+							"id": "07d07cdf-ef3c-46d0-b8de-c35ef3d62e26",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"enabled\": true,\n    \"pin\": \"1234\"\n    // \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/maker-checker",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"maker-checker"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "985657c8-b43a-4ba7-863f-43e602e1e86f",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"enabled\": false,\n    \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/maker-checker",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"maker-checker"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "73"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"49-Jxaxu7Xyoh2Jj4rkF8B+9bGtVig\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 26 Oct 2024 20:50:27 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Permission Updated Successfully\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "5f2fbdf3-bfdb-4133-a0bd-52a9a72ac8b1"
+				},
+				{
+					"name": "Get Operations",
+					"id": "a4832b34-ef6a-4006-898d-aff834217fcd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"enabled\": true,\n    // \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\", optional\n    \"pin\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/maker-checker-operations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"maker-checker-operations"
+							],
+							"variable": [
+								{
+									"id": "a3328fa4-893e-4e13-9c78-490c1f8be309",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Operation",
+					"id": "b001e4e6-c2d2-4f2e-90cb-8e3ff93c973f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/maker-checker-operations/0193d597-9016-7eed-87b8-e9127f36b645/approve",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"maker-checker-operations",
+								"0193d597-9016-7eed-87b8-e9127f36b645",
+								"approve"
+							],
+							"variable": [
+								{
+									"id": "6c60555d-76dc-4186-8f42-ef6058e94404",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reject Operation",
+					"id": "19a3fcdd-dad1-41e3-9f5d-8f7627b224b6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/maker-checker-operations/0193d597-9016-7eed-87b8-e9127f36b645/approve",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"maker-checker-operations",
+								"0193d597-9016-7eed-87b8-e9127f36b645",
+								"approve"
+							],
+							"variable": [
+								{
+									"id": "8e01f937-a658-4628-8d70-3a048bc9a205",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "56629944-2f56-4ef3-82be-c7fa715a6582",
+			"description": "These contains business specific settings that are not available to individual user types"
 		},
 		{
 			"name": "Wallets",
