@@ -17716,7 +17716,7 @@
 					},
 					"response": [
 						{
-							"id": "4d88261e-752d-4f67-99b1-9de56f92d92c",
+							"id": "c0c6485e-f1d3-409d-ab3c-124759b6b23c",
 							"name": "Get Operations - Success",
 							"originalRequest": {
 								"method": "GET",
@@ -17745,7 +17745,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Tue, 24 Dec 2024 11:43:40 GMT"
+									"value": "Tue, 24 Dec 2024 12:14:40 GMT"
 								},
 								{
 									"key": "Content-Type",
@@ -17781,7 +17781,7 @@
 								},
 								{
 									"key": "ETag",
-									"value": "W/\"50-ZpJKY+mfRetoAxUUA0RNPaYoQxU\""
+									"value": "W/\"322-J2BplVj0ofBGJcknu+38FSI2Fes\""
 								},
 								{
 									"key": "cf-cache-status",
@@ -17789,7 +17789,7 @@
 								},
 								{
 									"key": "Report-To",
-									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=u%2BBMAeb%2BqQ9tNSb9VXWuKkOwv3HfbHOp34Yul5AcUQwEoPzxXE70Sie8P7NGahkL%2BAAjTXnheL%2FL6w8eU2tA%2FmsPmgGTgvSGxkXRH6fYXUMxpvfPEv5p8bFVIKWX4IzJ1prqjs6%2FTOKEd8cFdRNd\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+									"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=8GE3pa5Q4VzBoXbZ5cwBw8F1%2Fb6cEWcOC916M01Qfr1ghRUclc%2F%2B0UxjFeUpPNzn5HTWKC7q0GU3ZEpr1fucDglGGzMYuvH%2FPnRncFKDoAw1uuCVDdOeukXT5hUxSxKjSqebzBIYjQ8j9AK8nNHD\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
 								},
 								{
 									"key": "NEL",
@@ -17801,7 +17801,7 @@
 								},
 								{
 									"key": "CF-RAY",
-									"value": "8f7055c60b261fe0-IAD"
+									"value": "8f70832e08cdd647-IAD"
 								},
 								{
 									"key": "Content-Encoding",
@@ -17813,12 +17813,12 @@
 								},
 								{
 									"key": "server-timing",
-									"value": "cfL4;desc=\"?proto=TCP&rtt=2293&min_rtt=2134&rtt_var=914&sent=3&recv=5&lost=0&retrans=0&sent_bytes=219&recv_bytes=1320&delivery_rate=678537&cwnd=243&unsent_bytes=0&cid=b1a8b1beb14e8e82&ts=132&x=0\""
+									"value": "cfL4;desc=\"?proto=TCP&rtt=1945&min_rtt=1844&rtt_var=608&sent=7&recv=7&lost=0&retrans=0&sent_bytes=4344&recv_bytes=1877&delivery_rate=1570498&cwnd=242&unsent_bytes=0&cid=f7642b20e5a8650c&ts=22909&x=0\""
 								}
 							],
 							"cookie": [],
 							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": [],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 0,\n        \"total_items\": 0\n    }\n}"
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193f896-e174-7112-857b-70a48881b40f\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-24T12:14:17.973Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-24T12:14:17.973Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"0193a649-e3d0-7881-8b7f-2ef1d89a9aff\",\n            \"status\": \"pending\",\n            \"command\": \"PayBillPaymentCommand\",\n            \"command_data\": {\n                \"categoryId\": \"airtime\",\n                \"billerId\": \"mtn\",\n                \"data\": {\n                    \"account_number\": \"7918852161\",\n                    \"amount\": 100,\n                    \"pin\": \"1234\",\n                    \"account_id\": \"0193a699-2f15-7881-8b7f-ae50980bcfad\"\n                }\n            },\n            \"maker_id\": \"0193de45-6bd7-7ddc-9295-99ab46743e21\",\n            \"made_on\": \"2024-12-24T12:14:17.972Z\",\n            \"checker_id\": null,\n            \"checked_on\": null,\n            \"maker_checker_id\": \"0193df18-702c-7ddc-9298-482c857161b9\"\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
 						}
 					]
 				},
@@ -20121,6 +20121,47 @@
 										{
 											"key": "profile_id",
 											"value": "{{userFetchedBusinessProfileId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Bill Payment Schedule Copy",
+							"id": "e2a879f0-61a6-4dce-91df-8b35fe3ed223",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"start_date\": \"2024-12-30T21:00:00.000Z\",\n    \"end_date\": \"2024-12-31T12:00:00.000Z\",\n    \"amount\": 10000000000000000.23,\n    \"type\": \"bill_payment\",\n    \"frequency\": \"once\",\n    \"category_id\": \"\",\n    \"option_id\": \"\",\n    \"account_id\": \"\",\n    \"biller_id\":\"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/bill-payment",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"schedules",
+										"bill-payment"
+									],
+									"variable": [
+										{
+											"id": "8314b0af-0283-4acf-ab99-506b0c065142",
+											"key": "profile_id",
+											"value": "{{profileId}}"
 										}
 									]
 								}
