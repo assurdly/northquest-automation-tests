@@ -37621,14 +37621,15 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts",
+											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/",
 											"host": [
 												"{{base_url}}"
 											],
 											"path": [
 												"profiles",
 												":profile_id",
-												"virtual-accounts"
+												"virtual-accounts",
+												""
 											],
 											"query": [
 												{
@@ -37641,9 +37642,8 @@
 											],
 											"variable": [
 												{
-													"id": "824f1e16-a576-4a8d-800b-3d9d666770e2",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												}
 											]
 										}
