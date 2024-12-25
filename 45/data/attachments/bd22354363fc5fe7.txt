@@ -1,0 +1,11 @@
+{
+    "name": "Transfer Fee - Low Range",
+    "description": "Flat fee for transfers between 0 and 5000",
+    "type": "flat",
+    "category": "internal-transfer",
+    "currency": "NGN",
+    "amount": 10.00,
+    "min_amount": 2000,
+    "max_amount": 5000,
+    "percentage": null
+}
