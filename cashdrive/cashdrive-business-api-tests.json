@@ -17829,10 +17829,25 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pin\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/maker-checker-operations/0193d597-9016-7eed-87b8-e9127f36b645/approve",
+							"raw": "{{base_url}}/profiles/:profile_id/maker-checker-operations/0193f961-230d-7666-8635-e25e9db14acf/approve",
 							"host": [
 								"{{base_url}}"
 							],
@@ -17840,7 +17855,7 @@
 								"profiles",
 								":profile_id",
 								"maker-checker-operations",
-								"0193d597-9016-7eed-87b8-e9127f36b645",
+								"0193f961-230d-7666-8635-e25e9db14acf",
 								"approve"
 							],
 							"variable": [
@@ -17860,10 +17875,25 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"reason\": \"Test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/maker-checker-operations/0193d597-9016-7eed-87b8-e9127f36b645/approve",
+							"raw": "{{base_url}}/profiles/:profile_id/maker-checker-operations/0193f910-e7fc-7666-8634-e8142a400cbf/reject",
 							"host": [
 								"{{base_url}}"
 							],
@@ -17871,8 +17901,8 @@
 								"profiles",
 								":profile_id",
 								"maker-checker-operations",
-								"0193d597-9016-7eed-87b8-e9127f36b645",
-								"approve"
+								"0193f910-e7fc-7666-8634-e8142a400cbf",
+								"reject"
 							],
 							"variable": [
 								{
