@@ -12644,6 +12644,166 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
 								}
 							]
+						},
+						{
+							"name": "Delete Document Type-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1a5e8258-cf88-4aff-a210-d33e9f864bd8",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    // pm.test(\"Test for valid status code\", () => {\r",
+											"    //     pm.expect(statusCode).to.eql(401)\r",
+											"    // })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "7cf39758-add6-4e71-9fdb-067ea4cb881e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/admin/document-types/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"admin",
+										"document-types",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "01938c01-0f46-7778-8dba-675a2f75b8ec"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "558eb6c4-7af4-4ce5-82e0-f54fb4a7f802",
+									"name": "Delete Document Type",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/admin/document-types/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"admin",
+												"document-types",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "01938c01-0f46-7778-8dba-675a2f75b8ec"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 07 Dec 2024 21:01:00 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+										},
+										{
+											"key": "cf-cache-status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=ahash50XHF%2BxpeLyShFrIBpa8xmFuuKW2BF%2FJc1OKXJrTGPvXhdlXvtoUvwLRyJKcOgmqYi2g1RAQ%2BgmActd5miHiBnyfDXmIbe%2Bja6OZN4qjhEORO%2BD9DCw0h0QkG8B30Hf6uSmjVmzVLNRTRRV\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "8ee772ccde569711-AMS"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "server-timing",
+											"value": "cfL4;desc=\"?proto=TCP&rtt=139190&min_rtt=123595&rtt_var=31132&sent=31&recv=27&lost=0&retrans=0&sent_bytes=7822&recv_bytes=3005&delivery_rate=41727&cwnd=257&unsent_bytes=0&cid=24ba820c32899fdc&ts=18633&x=0\""
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+								}
+							]
 						}
 					],
 					"id": "e12ae45b-1ff8-49db-935d-c21816274661"
