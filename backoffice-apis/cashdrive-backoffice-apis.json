@@ -13404,6 +13404,36 @@
 						},
 						{
 							"name": "Update Tier-Empty tierId field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "55029a69-3cd5-41ec-8885-09f511de1515",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    \r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    \r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).includes(\"Tier ID must be a valid UUID\");\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "02604627-7546-4db2-85a7-d2552dbf5b32",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -13556,6 +13586,33 @@
 						},
 						{
 							"name": "Delete Tier-Invalid Tier Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2d928ac1-be9c-4572-bd4b-35380bb607cc",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    \r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).includes(\"Tier ID must be a valid UUID\");\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "e1914063-99c4-4034-b438-41daaefb3cad",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
