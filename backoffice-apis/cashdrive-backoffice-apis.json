@@ -13648,6 +13648,33 @@
 						},
 						{
 							"name": "Delete Tier-Empty tier Id Field",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ba4d1bec-c45a-44cf-8699-ae336dd4ca4a",
+										"exec": [
+											"try {\r",
+											"    const { message, statusCode } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    \r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).includes(\"Tier ID must be a valid UUID\");\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "a72fa6e6-3dba-4540-a241-bafa7df8c13c",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
