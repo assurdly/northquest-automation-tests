@@ -13118,7 +13118,7 @@
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
 											"\r",
-											"    pm.environment.set(\"adminFetchedProfileId\", data[0].id);\r",
+											"    // pm.environment.set(\"adminFetchedProfileId\", data[0].id);\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -13332,6 +13332,34 @@
 						},
 						{
 							"name": "Update Tier-Invalid  Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e89e81e-a5f8-4bbf-9693-506adaa34e4d",
+										"exec": [
+											"try {\r",
+											"    const { message, status } = pm.response.json()\r",
+											"\r",
+											"    \r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).includes(\"Tier ID must be a valid UUID\");\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "2715d015-8279-4176-87e7-44479d16c43d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
