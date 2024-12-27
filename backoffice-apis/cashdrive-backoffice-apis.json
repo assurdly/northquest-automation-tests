@@ -7607,6 +7607,36 @@
 					"item": [
 						{
 							"name": "Update Admin User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fd1ff67c-f51a-4c7f-b61a-ba113a702a0a",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for response format\", () => {\r",
+											"        pm.expect(data).to.be.an(\"object\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "97de6577-a18b-457c-8eeb-bafbb33d5c6a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -10548,6 +10578,36 @@
 					"item": [
 						{
 							"name": "Get Settings",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2c9bbbcb-af2e-45d6-ac13-733d21833cde",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for response format\", () => {\r",
+											"        pm.expect(data).to.be.an(\"array\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "43ff2d70-301f-4462-a243-ae83f78ffe95",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -10753,6 +10813,36 @@
 					"item": [
 						{
 							"name": "Get Setting",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4af7432f-6dd8-444b-9a6e-61463cb404d3",
+										"exec": [
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for response format\", () => {\r",
+											"        pm.expect(data).to.be.an(\"object\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "71fd12e0-eca6-4454-811c-72c7194c3797",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -10772,7 +10862,6 @@
 									],
 									"variable": [
 										{
-											"id": "1ea0909d-8a19-4cb3-8812-1335b201248c",
 											"key": "id",
 											"value": "0192720c-9a93-7926-a576-d28eb25a58f3"
 										}
