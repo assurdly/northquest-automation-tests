@@ -17093,6 +17093,269 @@
 							]
 						},
 						{
+							"name": "Get Users Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dce6dcb9-d141-4faf-984f-fdd51c2d3f7f",
+										"exec": [
+											"// try {\r",
+											"//     const { status, data } = pm.response.json()\r",
+											"\r",
+											"//     pm.test(\"Status code is 200\", function () {\r",
+											"//         pm.response.to.have.status(200);\r",
+											"//     });\r",
+											"\r",
+											"//     pm.test(\"Test for valid status\", () => {\r",
+											"//         pm.expect(status).to.eql(\"success\")\r",
+											"//     })\r",
+											"\r",
+											"//     pm.test(\"Test for valid error message\", () => {\r",
+											"//         pm.expect(data).to.be.an(\"object\")\r",
+											"//     })\r",
+											"\r",
+											"// } catch (error) {\r",
+											"//     console.error(\"Error from test:\", error);\r",
+											"// }"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "017cff43-3594-47bf-ad27-409399f9c290",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"users"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "Azeez",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "active",
+											"disabled": true
+										},
+										{
+											"key": "role_id",
+											"value": "01926788-704b-7336-86de-a5f24f6e9082",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"id": "65174444-c764-4d93-bdb2-159d023f716d",
+											"key": "profile_id",
+											"value": "{{userFetchedBusinessProfileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "ad0178d6-d835-4614-8533-e2f4bc3bd6b5",
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "darehorla@gmail.com",
+													"disabled": true
+												},
+												{
+													"key": "phone",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "name",
+													"value": "A",
+													"disabled": true
+												},
+												{
+													"key": "status",
+													"value": null,
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "840"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"348-rqE0MsagCJf/M+WqcLPDfCAuqws\""
+										},
+										{
+											"key": "Date",
+											"value": "Sun, 06 Oct 2024 23:47:17 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"users\": [\n            {\n                \"id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n                \"first_name\": \"Sodiq\",\n                \"last_name\": \"Dare\",\n                \"email\": \"darehorla@gmail.com\",\n                \"phone\": null,\n                \"userProfile\": {\n                    \"status\": \"active\",\n                    \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"role\": {\n                        \"name\": \"Owner\",\n                        \"slug\": \"owner\"\n                    }\n                }\n            },\n            {\n                \"id\": \"01925238-10ec-7112-9440-bc46320cdde3\",\n                \"first_name\": null,\n                \"last_name\": null,\n                \"email\": \"daresodiq000@gmail.com\",\n                \"phone\": null,\n                \"userProfile\": {\n                    \"status\": \"pending\",\n                    \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"role\": {\n                        \"name\": \"Owner\",\n                        \"slug\": \"owner\"\n                    }\n                }\n            },\n            {\n                \"id\": \"01925239-38dc-7112-9492-4c3e36f2b489\",\n                \"first_name\": \"Wunmi\",\n                \"last_name\": \"Ade\",\n                \"email\": \"daresodiq0000@gmail.com\",\n                \"phone\": null,\n                \"userProfile\": {\n                    \"status\": \"active\",\n                    \"role_id\": \"01923272-bb64-7c78-94f5-2bf9c692f08f\",\n                    \"role\": {\n                        \"name\": \"Owner\",\n                        \"slug\": \"owner\"\n                    }\n                }\n            }\n        ],\n        \"currentPage\": 1,\n        \"totalPages\": 1,\n        \"totalItems\": 3\n    }\n}"
+								},
+								{
+									"id": "b5e44459-2c1c-4cef-98eb-31299a50631d",
+									"name": "Get Users",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users"
+											],
+											"query": [
+												{
+													"key": "status",
+													"value": null,
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 07 Oct 2024 00:23:52 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "161"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"a1-gttBimkGqC5vA6hrWxPcnYKgbW4\""
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Profile not found\",\n    \"timestamp\": \"2024-10-07T00:23:52.990Z\",\n    \"path\": \"/api-backend/profiles/01925236-19c0-7112-9440-aa8162716104/users\"\n}"
+								}
+							]
+						},
+						{
 							"name": "Get Users - No Auth",
 							"event": [
 								{
