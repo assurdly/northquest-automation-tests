@@ -20087,7 +20087,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "// {\n//   \"transactions\": [\n//     {\n//       \"account_number\": \"1780004070\",\n//       \"bank_code\": \"999998\",\n//       \"amount\": 100,\n//       \"narration\": \"Sodiq\"\n//     },\n//     {\n//       \"account_number\": \"1780004070\",\n//       \"bank_code\": \"999998\",\n//       \"amount\": 100,\n//       \"narration\": \"Sodiq\"\n//     },\n//     {\n//       \"account_number\": \"1780004070\",\n//       \"bank_code\": \"999998\",\n//       \"amount\": 100,\n//       \"narration\": \"Sodiq\"\n//     }\n//   ],\n//   \"pin\": \"1316\"\n// }\n",
+									"raw": "{\n  \"transactions\": [\n    {\n      \"account_number\": \"1780004070\",\n      \"bank_code\": \"999998\",\n      \"amount\": 100,\n      \"narration\": \"Sodiq\"\n    },\n    {\n      \"account_number\": \"1780004070\",\n      \"bank_code\": \"999998\",\n      \"amount\": 100,\n      \"narration\": \"Sodiq\"\n    },\n    {\n      \"account_number\": \"1780004070\",\n      \"bank_code\": \"999998\",\n      \"amount\": 100,\n      \"narration\": \"Sodiq\"\n    }\n  ],\n  \"pin\": \"1316\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -20108,12 +20108,10 @@
 									],
 									"variable": [
 										{
-											"id": "0d39a787-c6c6-49fe-b250-406b97e8bab3",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "833ff5c2-c8a6-47b0-b5fa-65e679ebf160",
 											"key": "account_id",
 											"value": "{{userFetchedAccountId}}"
 										}
