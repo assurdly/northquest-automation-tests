@@ -2912,6 +2912,7 @@
 										"exec": [
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
+											"    pm.environment.set(\"adminFetchedPermisssionId\", data[0].id)\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -3009,7 +3010,7 @@
 										"exec": [
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
-											"    pm.environment.set(\"adminFetchedRole\", data.roles[0].id)\r",
+											"    pm.environment.set(\"adminFetchedRole\", data[0].id)\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
