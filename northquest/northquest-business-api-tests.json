@@ -28922,12 +28922,10 @@
 									],
 									"variable": [
 										{
-											"id": "618d9dc9-4494-46e8-a54d-057b9c887edd",
 											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
+											"value": "{{userFetchedBusinessProfileId}}"
 										},
 										{
-											"id": "ea59cc2e-7d97-47a9-b8b1-18bcc573a2a7",
 											"key": "category_id",
 											"value": "cabletv"
 										}
@@ -32523,7 +32521,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -32547,17 +32545,14 @@
 													],
 													"variable": [
 														{
-															"id": "71c636c2-483e-4ff8-8c66-9b254eca1649",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "8b4983bd-fe1d-4a94-84ae-a6d443d5d1aa",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "990a4f45-f66a-446a-a3dd-481007e9dd62",
 															"key": "biller_id",
 															"value": "mtn"
 														}
