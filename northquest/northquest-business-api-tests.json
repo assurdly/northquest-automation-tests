@@ -32833,7 +32833,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -32857,17 +32857,14 @@
 													],
 													"variable": [
 														{
-															"id": "168e17f5-eaa9-4638-bcd0-b000b319e334",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "24cdc16e-e429-4018-9b30-2d666f1e25bb",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "15bb124c-fa6f-4e22-bf43-e30add9d078a",
 															"key": "biller_id",
 															"value": "smile"
 														}
@@ -32992,7 +32989,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\": 100,\n    \"option_id\":\"\",\n    \"pin\": \"1316\"\n   \n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\": 100,\n    \"option_id\":\"\",\n    \"pin\": \"1234\"\n   \n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33016,17 +33013,14 @@
 													],
 													"variable": [
 														{
-															"id": "765b85ca-2fb6-4c86-b5cd-8b9f2bff264d",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "5af194cf-a288-4603-9dc6-2cf53259ed74",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "860151a3-81c9-4c47-aa95-dc203d727b7c",
 															"key": "biller_id",
 															"value": "mtn"
 														}
@@ -34417,7 +34411,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -34441,17 +34435,14 @@
 													],
 													"variable": [
 														{
-															"id": "8e39cef2-ee19-41cd-bc0c-419a07cabddc",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "963d0d12-2fde-48c1-afc3-98608422d9cc",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "02c2bdf0-dd47-43b9-ab99-16bff1aa2cd6",
 															"key": "biller_id",
 															"value": "dstv1"
 														}
@@ -34501,7 +34492,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"07034953306\",\n    \"amount\": 2300,\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n    \n}",
+											"raw": "{\n    \"account_number\": \"07034953306\",\n    \"amount\": 2300,\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n    \n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -34525,17 +34516,14 @@
 											],
 											"variable": [
 												{
-													"id": "5818c9f8-f023-433f-b1a0-1af1ee2613b1",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
-													"id": "767a1407-1a2b-4130-bbb3-4904cf741b2a",
 													"key": "category_id",
 													"value": "electricity"
 												},
 												{
-													"id": "6360bb2d-1774-4ff5-83f8-44e520afa877",
 													"key": "biller_id",
 													"value": "abuja_electric_postpaid"
 												}
