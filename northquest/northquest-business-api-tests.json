@@ -19750,7 +19750,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"status\": \"inactive\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
+									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -19770,12 +19770,10 @@
 									],
 									"variable": [
 										{
-											"id": "0dd22a07-c56e-4336-9074-ade36dfbfc85",
 											"key": "profile_id",
 											"value": "{{userFetchedBusinessProfileId}}"
 										},
 										{
-											"id": "13e68ef8-89c4-4d52-b6dd-678a679db7f1",
 											"key": "id",
 											"value": "{{businessFetchedActiveUserObjectId}}"
 										}
