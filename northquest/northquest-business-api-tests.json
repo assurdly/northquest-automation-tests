@@ -4338,10 +4338,6 @@
 											"        pm.response.to.have.status(\"Bad Request\");",
 											"    });",
 											"",
-											"    // pm.test(\"Test for valid error message\", () => {",
-											"    //     pm.expect(data).to.include(\"The identity must be a valid email address or phone number.\")",
-											"    // })",
-											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
 											"}"
