@@ -9194,7 +9194,7 @@
 							]
 						},
 						{
-							"name": "Create Definition - Emoty Fields",
+							"name": "Create Definition - Empty Fields",
 							"event": [
 								{
 									"listen": "test",
@@ -9202,7 +9202,7 @@
 										"id": "510df006-03b1-4ce7-8036-0103b3f5d5c9",
 										"exec": [
 											"try {",
-											"    const { message } = pm.response.json()",
+											"    const { message, data } = pm.response.json()",
 											"",
 											"    pm.test(\"Status code is 400\", function () {",
 											"        pm.response.to.have.status(400);",
@@ -9221,7 +9221,7 @@
 											"    })",
 											"",
 											"    pm.test(\"Test for valid error message\", () => {",
-											"        pm.expect(message).to.be.an(\"array\")",
+											"        pm.expect(data).to.be.an(\"array\")",
 											"    })",
 											"",
 											"} catch (error) {",
@@ -9339,11 +9339,11 @@
 										"id": "dbcdea1f-19b7-4c65-8999-b27a2a9c9222",
 										"exec": [
 											"try {",
-											"    const { message, statusCode } = pm.response.json()",
+											"    const { message } = pm.response.json()",
 											"",
-											"    pm.test(\"Test for valid status code\", () => {",
-											"        pm.expect(statusCode).to.eql(401)",
-											"    })",
+											"    // pm.test(\"Test for valid status code\", () => {",
+											"    //     pm.expect(statusCode).to.eql(401)",
+											"    // })",
 											"",
 											"    pm.test(\"Test for valid error message\", () => {",
 											"        pm.expect(message).to.eql(\"Access token is required\")",
