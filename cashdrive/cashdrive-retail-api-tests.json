@@ -21568,7 +21568,7 @@
 													}
 												}
 											],
-											"id": "a78a8206-0aee-4480-89bb-64e7301b8a58",
+											"id": "b7783ef1-a1b9-4b40-afcd-90a8c71d06c5",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -21583,7 +21583,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -21607,14 +21607,17 @@
 													],
 													"variable": [
 														{
+															"id": "8e15500b-8c2a-4944-a17a-6636a70b302a",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "3a0158d7-4030-4c80-9f95-f04c568c3fe6",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
+															"id": "8378a93f-2b6e-4ff6-b558-ad8db6c5ee2c",
 															"key": "biller_id",
 															"value": "mtn"
 														}
@@ -21624,7 +21627,7 @@
 											"response": []
 										}
 									],
-									"id": "381f4495-eab1-4814-9ffd-6d9684f785a2"
+									"id": "93e2ba21-602f-4b85-89be-277d00069584"
 								},
 								{
 									"name": "GLO",
@@ -21646,7 +21649,7 @@
 													}
 												}
 											],
-											"id": "6a773647-1fc0-4db6-b41e-d4956fd8bf49",
+											"id": "2ddce2c2-5fa0-4dad-944d-7adb5ff1984a",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -21661,7 +21664,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -21685,14 +21688,17 @@
 													],
 													"variable": [
 														{
+															"id": "d0ddcee3-e1ba-4d53-8e3f-f80c5820d0a8",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "30804ca7-149a-4f02-8354-322d0efe431e",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
+															"id": "b33abdcd-a0d7-4f4b-9e67-7dd7a3c3bb16",
 															"key": "biller_id",
 															"value": "glo"
 														}
@@ -21702,7 +21708,7 @@
 											"response": []
 										}
 									],
-									"id": "95d41d83-6a8b-4019-b247-4b87338eda13"
+									"id": "2953b0fa-26a7-4b69-915a-2d504318a9b7"
 								},
 								{
 									"name": "AIRTEL",
@@ -21724,7 +21730,7 @@
 													}
 												}
 											],
-											"id": "533f89e5-5359-4354-9be7-118faa3090a4",
+											"id": "e3bca7a9-38a9-4548-953e-b776455b9e67",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -21739,7 +21745,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -21763,14 +21769,17 @@
 													],
 													"variable": [
 														{
+															"id": "196cdbce-c0e3-4887-aa51-501d86b2b969",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "9e3c8fd7-e5ab-4b82-b00c-78190080f20e",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
+															"id": "10a6eb2a-48e9-4c6e-aa65-88e5fdb0b826",
 															"key": "biller_id",
 															"value": "airtel"
 														}
@@ -21780,7 +21789,7 @@
 											"response": []
 										}
 									],
-									"id": "fc179dbe-c30c-44bc-ab40-2729c8dc2257"
+									"id": "3d1a3f92-334d-4e04-8d07-6f4af9b9d636"
 								},
 								{
 									"name": "9MOBILE",
@@ -21793,8 +21802,8 @@
 													"script": {
 														"id": "72bf7378-4689-4da6-8f07-50f915915b58",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
@@ -21802,7 +21811,7 @@
 													}
 												}
 											],
-											"id": "8dbbe1ae-556a-4f2e-9199-d945d3a89cc2",
+											"id": "fa398067-b524-490f-ad9b-ce6fe5f684f6",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -21817,7 +21826,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -21841,14 +21850,17 @@
 													],
 													"variable": [
 														{
+															"id": "a7388323-1973-4299-8b97-41d1c0f18e0a",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "8e3e5a9a-4ac7-4ed2-8771-0f473392782e",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
+															"id": "9ab69fd2-b374-43c3-bd25-baa1207d24b0",
 															"key": "biller_id",
 															"value": "9mobile"
 														}
@@ -21858,7 +21870,7 @@
 											"response": []
 										}
 									],
-									"id": "3a34135e-c336-4fa6-9381-bb523d605737"
+									"id": "2b3c209f-2d62-42e5-beb1-28df6a4173db"
 								},
 								{
 									"name": "SMILE",
@@ -21880,7 +21892,7 @@
 													}
 												}
 											],
-											"id": "bc452500-afb1-4fc2-8bbe-4daa4fef5d43",
+											"id": "8bbf1340-4432-4084-9344-0568a8f373dc",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -21895,7 +21907,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -21919,14 +21931,17 @@
 													],
 													"variable": [
 														{
+															"id": "53296103-a43f-4100-b619-1b3c1a109e58",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "9dbc2845-c090-42e1-8a20-08246af16fdd",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
+															"id": "a616a339-1e4e-4028-8f65-a331eb0f2b97",
 															"key": "biller_id",
 															"value": "smile"
 														}
@@ -21936,10 +21951,10 @@
 											"response": []
 										}
 									],
-									"id": "ea436802-fc3f-474d-b490-ac66a2a29c66"
+									"id": "79c99f3e-767d-41c7-bb8e-562af60ebd1b"
 								}
 							],
-							"id": "4396dcb1-4365-4c55-8a97-f62fae2efe92"
+							"id": "220c4e8c-92a0-4887-8232-7d3ec0e50b6f"
 						},
 						{
 							"name": "Make bill payment-Data",
@@ -21964,7 +21979,7 @@
 													}
 												}
 											],
-											"id": "6b605255-6f34-4479-837e-d21faada4bad",
+											"id": "249c6e99-1d83-4762-b926-ad8290245e69",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -21979,7 +21994,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 100,\n    \"option_id\": \"100\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 100,\n    \"option_id\": \"100\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22003,14 +22018,17 @@
 													],
 													"variable": [
 														{
+															"id": "3c9ca474-371c-4066-80d9-e3325320c178",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "2fd068a2-f895-4cdb-8bbc-f8d24dee9bda",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
+															"id": "446fa089-d61e-49e1-9edd-c96a863011e6",
 															"key": "biller_id",
 															"value": "mtn"
 														}
@@ -22036,7 +22054,7 @@
 													}
 												}
 											],
-											"id": "1abf9384-9e41-4394-bba8-fb1b1aa6efab",
+											"id": "8534ed4c-a094-4e82-b231-b035aaf4a248",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22051,7 +22069,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\": 100,\n    \"option_id\":\"\",\n    \"pin\": \"1316\"\n   \n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\": 100,\n    \"option_id\":\"\",\n    \"pin\": \"1234\"\n   \n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22075,14 +22093,17 @@
 													],
 													"variable": [
 														{
+															"id": "1240fcfe-fa32-4d78-8a97-c0f1a75a0e26",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "c7cf61fe-6b0d-4255-a7bc-fe2e5107a65a",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
+															"id": "76b0cabf-c882-4f29-a79d-6046d74ecff5",
 															"key": "biller_id",
 															"value": "mtn"
 														}
@@ -22092,7 +22113,7 @@
 											"response": []
 										}
 									],
-									"id": "b3625d33-0de5-48f4-82b0-3590fd8a3e93"
+									"id": "94f14789-2876-4503-9e70-df0712cfc757"
 								},
 								{
 									"name": "GLO",
@@ -22114,7 +22135,7 @@
 													}
 												}
 											],
-											"id": "fcd4b9c5-4024-4710-a466-9d2ea67c30c2",
+											"id": "0bef7f2d-1f26-46fe-a6df-6e1b16de8574",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22153,14 +22174,17 @@
 													],
 													"variable": [
 														{
+															"id": "c0f9065e-a88f-49ba-b03d-f76417d9a1d6",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "86030dcb-ed18-4470-b4fc-645f1f6991bb",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
+															"id": "7efdf04e-7ee6-443a-ba65-f455f59dbf2c",
 															"key": "biller_id",
 															"value": "glo"
 														}
@@ -22170,7 +22194,7 @@
 											"response": []
 										}
 									],
-									"id": "c7e2776e-51fa-47f7-8775-71e352d15fde"
+									"id": "47adb094-522a-46a0-9ad4-d9509c4059ff"
 								},
 								{
 									"name": "AIRTEL",
@@ -22192,7 +22216,7 @@
 													}
 												}
 											],
-											"id": "f0d07905-10e9-4953-9431-fca2d948c8b8",
+											"id": "c3244956-82f3-4bd6-98e9-87808b9547d1",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22207,7 +22231,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 50,\n    \"option_id\": \"49.99\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 50,\n    \"option_id\": \"49.99\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22231,14 +22255,17 @@
 													],
 													"variable": [
 														{
+															"id": "4f7814ce-f758-45a0-8112-8082f1dc233f",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "fcb1cea9-41b9-40b7-b7d7-eda2d3fec714",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
+															"id": "ff0247b3-6318-4a9c-9417-5b0267d19773",
 															"key": "biller_id",
 															"value": "airtel"
 														}
@@ -22248,7 +22275,7 @@
 											"response": []
 										}
 									],
-									"id": "34ba862c-e15c-4d64-a261-9cf2c0a70740"
+									"id": "96186f32-4456-44b4-b5a1-1ae6f0f848c4"
 								},
 								{
 									"name": "9MOBILE",
@@ -22270,7 +22297,7 @@
 													}
 												}
 											],
-											"id": "7131ff4d-73a9-439c-b70b-a9fc18f18b62",
+											"id": "c8ffee32-8cfe-4cd5-ad97-f031c865c649",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22285,7 +22312,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 200,\n    \"option_id\": \"200\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 200,\n    \"option_id\": \"200\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22309,14 +22336,17 @@
 													],
 													"variable": [
 														{
+															"id": "dffb625c-0441-4037-8b52-9aebd070b814",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "e4e17c01-c6c5-4ae8-9f22-14e8a76fa958",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
+															"id": "35d682f6-f09d-47f9-86e6-3e74eb6f63ab",
 															"key": "biller_id",
 															"value": "9mobile"
 														}
@@ -22326,7 +22356,7 @@
 											"response": []
 										}
 									],
-									"id": "7260de13-6144-4d44-9bc5-30862a5c95a5"
+									"id": "c218f640-84ff-4b92-a104-ba518c78d7ba"
 								},
 								{
 									"name": "SMILE",
@@ -22348,7 +22378,7 @@
 													}
 												}
 											],
-											"id": "a93ded7c-f009-4eed-bd15-80112f50127e",
+											"id": "6141bc19-ca9c-4d34-98b3-f888b3d625a6",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22363,7 +22393,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 1800,\n    \"option_id\": \"101\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 1800,\n    \"option_id\": \"101\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22387,14 +22417,17 @@
 													],
 													"variable": [
 														{
+															"id": "2a158ae6-5b88-4f3c-8429-b817f5a4ec68",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "1faa1416-9243-41ce-aeb1-1abcd82a197d",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
+															"id": "d43c0440-42ec-4fd8-a557-6fb9deab9a21",
 															"key": "biller_id",
 															"value": "smile"
 														}
@@ -22404,10 +22437,10 @@
 											"response": []
 										}
 									],
-									"id": "6858f750-9fb5-4e72-81d2-50f89dd665a1"
+									"id": "cba1f722-98d2-49cf-a1a0-845f8d6890af"
 								}
 							],
-							"id": "e6b600b7-805c-4fd2-b5af-6a9d3198d76a"
+							"id": "92da819e-1e18-4c36-8962-e8a0683ece4c"
 						},
 						{
 							"name": "Make bill payment-Cable TV",
@@ -22432,7 +22465,7 @@
 													}
 												}
 											],
-											"id": "4e39291b-4a18-4efb-babc-21d771558c75",
+											"id": "a42bdf4d-7bab-47d0-924a-028047edb904",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22447,7 +22480,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22471,14 +22504,17 @@
 													],
 													"variable": [
 														{
+															"id": "08a70714-b38a-4651-980c-aaf8e4f05249",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "25302495-b051-4dec-9fd7-8100b3a1d7bf",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
+															"id": "1bf3b7c7-e2ae-48b1-befc-25c60516c2ff",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -22504,7 +22540,7 @@
 													}
 												}
 											],
-											"id": "b86ef66c-1420-4e9d-b448-cb2504fc4b73",
+											"id": "7f9c9ac0-f6b0-4c8d-a942-a6dc63a8db70",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22519,7 +22555,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22543,14 +22579,17 @@
 													],
 													"variable": [
 														{
+															"id": "8f114c95-58b1-490d-9512-111828b14f99",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
+															"id": "91660e7f-3bb4-4e32-aa92-7a897f2a58d7",
 															"key": "category_id",
 															"value": ""
 														},
 														{
+															"id": "58bf5602-967f-4bfa-8dad-fa2fdd392029",
 															"key": "biller_id",
 															"value": ""
 														}
@@ -22576,7 +22615,7 @@
 													}
 												}
 											],
-											"id": "db80fcc7-142d-4884-9aa5-c40619398b4b",
+											"id": "f2f78a9c-5328-47b8-96a1-f14a2ca6a023",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22591,7 +22630,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22615,14 +22654,17 @@
 													],
 													"variable": [
 														{
+															"id": "efd7deb5-11ab-4866-9cf0-846d2a1f10f4",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "2ca26b0f-d619-4abd-ae71-36f05f82c0ab",
 															"key": "category_id",
 															"value": "cabletv1"
 														},
 														{
+															"id": "ba984578-7a32-4cdb-a04f-470a28e0e9b6",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -22648,7 +22690,7 @@
 													}
 												}
 											],
-											"id": "b7bc892a-3add-49eb-ba10-91c9f0e710c7",
+											"id": "0f9637e6-9e2e-465f-8cb3-597a963f8313",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22663,7 +22705,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22687,14 +22729,17 @@
 													],
 													"variable": [
 														{
+															"id": "6059699c-8317-44c7-a358-dab576ff0260",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "3c4356d7-e215-4ef9-8fa1-93e646dd451d",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
+															"id": "2a679d4e-0266-4148-9cd3-d7c4abb005e3",
 															"key": "biller_id",
 															"value": "dstv1"
 														}
@@ -22720,7 +22765,7 @@
 													}
 												}
 											],
-											"id": "604f9e00-27ab-47a8-bc50-c1a1af9812c1",
+											"id": "ca7819f3-ba65-4bab-ac98-0b4bbce2e2da",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22735,7 +22780,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22759,14 +22804,17 @@
 													],
 													"variable": [
 														{
+															"id": "7af4c9a8-9896-484e-8286-106935388ab7",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "5b268f63-3ddd-410c-ae01-bdc24b16242c",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
+															"id": "f0b23069-f134-42cb-8e7a-41ace5b58816",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -22776,7 +22824,7 @@
 											"response": []
 										}
 									],
-									"id": "3e32e250-6427-47e4-97c3-69e833acfb76"
+									"id": "dde8745e-b292-4bc6-b825-e55ceb0a98fd"
 								},
 								{
 									"name": "GOTV",
@@ -22798,7 +22846,7 @@
 													}
 												}
 											],
-											"id": "212218d3-fe6c-4ff6-aa86-640068efd82c",
+											"id": "2ad3ec2e-0a88-4776-bb4a-312f4f9fb768",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22813,7 +22861,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22837,14 +22885,17 @@
 													],
 													"variable": [
 														{
+															"id": "7920a025-c3e0-4774-9cd2-3ee2f372de7d",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "1b2b76c1-d1b6-42e2-a366-8d1e69532849",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
+															"id": "d4c8677d-582d-4665-b0bc-f26ebc56da93",
 															"key": "biller_id",
 															"value": "gotv"
 														}
@@ -22870,7 +22921,7 @@
 													}
 												}
 											],
-											"id": "e5e818e3-d4d6-4b24-93b9-9c5f0585764a",
+											"id": "94becf59-6388-483a-9b92-caa02fd4cc07",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22885,7 +22936,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22909,14 +22960,17 @@
 													],
 													"variable": [
 														{
+															"id": "bfad6a93-046c-4ca6-84f3-81bd40f7fba4",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
+															"id": "20d6563c-de67-4eff-8743-f54e5d9d10c3",
 															"key": "category_id",
 															"value": ""
 														},
 														{
+															"id": "325f8684-5d24-442c-aa02-cca5c8f58eef",
 															"key": "biller_id",
 															"value": ""
 														}
@@ -22942,7 +22996,7 @@
 													}
 												}
 											],
-											"id": "35581f72-d32e-4ac5-a04a-80ca5c6d2b04",
+											"id": "33b7fe4f-bd0a-4b67-a852-3eceb17748d1",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -22957,7 +23011,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22981,14 +23035,17 @@
 													],
 													"variable": [
 														{
+															"id": "76d1ced6-8136-4365-85b0-ed4fb2cd008d",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
+															"id": "cf9afee2-1655-414a-a6b1-91cffaaaa2e2",
 															"key": "category_id",
 															"value": "cabletv1"
 														},
 														{
+															"id": "5ed07541-4d9e-4430-98e4-a96da9e1eb31",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -23014,7 +23071,7 @@
 													}
 												}
 											],
-											"id": "24e0220d-4896-46f3-8065-676e29bd3eb4",
+											"id": "63ee8e78-89b8-4708-95ea-7ce9007443a2",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -23029,7 +23086,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -23053,14 +23110,17 @@
 													],
 													"variable": [
 														{
+															"id": "972d86de-8b12-42c2-beca-72dab11e4165",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
+															"id": "2e00fe0b-4827-4744-96fb-a2634b0e5e60",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
+															"id": "512fc10d-bf8c-4f38-bbed-953bc538dbaa",
 															"key": "biller_id",
 															"value": "dstv1"
 														}
@@ -23086,7 +23146,7 @@
 													}
 												}
 											],
-											"id": "ddc6c2ad-689e-4681-8cac-78790876290f",
+											"id": "b1255ae8-970d-40cb-8a87-c527fea416d1",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -23101,7 +23161,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -23125,14 +23185,17 @@
 													],
 													"variable": [
 														{
+															"id": "51b3ca8e-80df-4e41-b73e-e77f138e45a4",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
+															"id": "d06dfa03-4516-4615-ac54-ab4c3608db58",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
+															"id": "83e36d93-1647-4616-b171-61de5fd43b64",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -23142,7 +23205,7 @@
 											"response": []
 										}
 									],
-									"id": "14090c38-144c-4196-a430-ff9fed6361b0"
+									"id": "b7c774ab-881a-41be-8a1d-53387e98c376"
 								},
 								{
 									"name": "STARTIMES",
@@ -23164,7 +23227,7 @@
 													}
 												}
 											],
-											"id": "ff911175-ae41-40c8-91a0-c2a242d96b1d",
+											"id": "163e820d-03d2-4994-bdde-53fb5450905a",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -23179,7 +23242,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\",\n    \"pin\": \"2222\",\n    \"account_id\":\"019390f5-db96-7335-b5bb-74eac1376a9c\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\",\n    \"pin\": \"1234\",\n    \"account_id\":\"019390f5-db96-7335-b5bb-74eac1376a9c\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -23203,14 +23266,17 @@
 													],
 													"variable": [
 														{
+															"id": "718bfaae-daa7-49f1-8840-557b49ea6ee8",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
+															"id": "dc20860f-0f7f-471c-a3f3-57cf9d57da8b",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
+															"id": "f60a2c85-dd18-44f1-9761-0f671b062fdb",
 															"key": "biller_id",
 															"value": "startimes"
 														}
@@ -23236,7 +23302,7 @@
 													}
 												}
 											],
-											"id": "43b275d8-69fb-4c3e-9727-abf590db0bf9",
+											"id": "29dbcba2-6948-488e-bd30-77e37a056f00",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -23251,7 +23317,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -23275,14 +23341,17 @@
 													],
 													"variable": [
 														{
+															"id": "90ba01fa-fa3f-439e-bb50-605b2e63ac5c",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
+															"id": "5cc4e18f-5746-4157-9a41-d78812293d90",
 															"key": "category_id",
 															"value": ""
 														},
 														{
+															"id": "f3221426-be5d-459c-957f-30a2dcaed13c",
 															"key": "biller_id",
 															"value": ""
 														}
@@ -23308,7 +23377,7 @@
 													}
 												}
 											],
-											"id": "4c6a2d60-aff0-4b05-8ddd-4c49b3751b7f",
+											"id": "1a1bdc97-53c9-45a0-b1c4-37677579a06e",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -23323,7 +23392,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -23347,14 +23416,17 @@
 													],
 													"variable": [
 														{
+															"id": "e5084dbb-a59d-468f-ad87-cc53ea80242d",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
+															"id": "1f411a01-a6b2-4817-add4-d7431ee751dc",
 															"key": "category_id",
 															"value": "cabletv1"
 														},
 														{
+															"id": "e53f7c3f-86f6-45f2-ab59-d968713ed625",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -23380,7 +23452,7 @@
 													}
 												}
 											],
-											"id": "6bf4cadc-1fad-466c-a8a2-a139bd9086b1",
+											"id": "3fe46c57-903a-48d7-8af3-a71d127cd35b",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -23395,7 +23467,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -23419,14 +23491,17 @@
 													],
 													"variable": [
 														{
+															"id": "4408e933-46d0-4f0e-a683-d6f27f526e91",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
+															"id": "70474d43-257f-4f0c-9843-a435e4c7d61d",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
+															"id": "2ff749ba-fef3-46c0-abcb-e91ae6084a72",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -23452,7 +23527,7 @@
 													}
 												}
 											],
-											"id": "a81e15ab-9387-42f6-9748-a37e659ae7a9",
+											"id": "a09d2b18-fe15-440d-bafe-f055a0a6772f",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -23467,7 +23542,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -23491,14 +23566,17 @@
 													],
 													"variable": [
 														{
+															"id": "9de2a466-d957-4779-aa1c-fef9a9e31396",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
+															"id": "884ca36e-07d9-4125-8eb9-0629159b73ef",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
+															"id": "36ccd587-e19b-4f64-a6c4-a0eaf7459a8f",
 															"key": "biller_id",
 															"value": "dstv1"
 														}
@@ -23508,10 +23586,10 @@
 											"response": []
 										}
 									],
-									"id": "b73a6bb8-4508-4e25-b7ab-43090535563f"
+									"id": "43d3cfd9-c677-4058-9284-d4ed48351e64"
 								}
 							],
-							"id": "fcf46cf3-04ed-416d-85fb-7a456c972940"
+							"id": "7f6ffb0d-194a-4688-9eeb-35dc362468ee"
 						},
 						{
 							"name": "Make bill payment-Electricity",
@@ -23533,7 +23611,7 @@
 											}
 										}
 									],
-									"id": "06b8be7e-1003-459a-95e2-0601647454b5",
+									"id": "059db529-fe1a-4b52-a31b-1e38fe71af77",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -23548,7 +23626,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"07034953306\",\n    \"amount\": 2300,\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n    \n}",
+											"raw": "{\n    \"account_number\": \"07034953306\",\n    \"amount\": 2300,\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n    \n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -23572,14 +23650,17 @@
 											],
 											"variable": [
 												{
+													"id": "3c33f437-eb91-401d-a7c1-4df8623af88a",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
+													"id": "6a783781-7fcc-4de0-965a-7144f69d9489",
 													"key": "category_id",
 													"value": "electricity"
 												},
 												{
+													"id": "5edce9de-d0f3-4b66-b287-826aecdaa48e",
 													"key": "biller_id",
 													"value": "abuja_electric_postpaid"
 												}
@@ -23590,7 +23671,7 @@
 								},
 								{
 									"name": "Make Bill Payment-Invalid category Id",
-									"id": "d6da6bab-88df-4045-9143-be8201de2000",
+									"id": "baefe42f-3345-4123-a496-4d6a167c50c2",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -23629,14 +23710,17 @@
 											],
 											"variable": [
 												{
+													"id": "6fc55632-8e93-4c6a-a53c-5202e9d32c22",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
+													"id": "a32459d4-8f4d-4538-ac71-6fd2ba892f98",
 													"key": "category_id",
 													"value": "electricity1"
 												},
 												{
+													"id": "ec0026c8-f096-489c-a28e-e28ab7f99e57",
 													"key": "biller_id",
 													"value": "abuja_electric_postpaid"
 												}
@@ -23646,7 +23730,7 @@
 									"response": []
 								}
 							],
-							"id": "b2baf224-927d-4027-a6a7-22999c64dcad"
+							"id": "815acbe9-cfd4-4bcf-985d-612d1b0eeea9"
 						},
 						{
 							"name": "Make bill payment-Education",
@@ -23668,7 +23752,7 @@
 											}
 										}
 									],
-									"id": "2dd3faf0-9951-4c0c-8352-c52e8dbcbf1c",
+									"id": "a56b773c-9801-4d73-af99-5b7cda845908",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -23683,7 +23767,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -23707,14 +23791,17 @@
 											],
 											"variable": [
 												{
+													"id": "08280b33-10c8-4070-b7a6-dc91a55204a9",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
+													"id": "5eb45fb8-daf0-4b20-8532-0905819719f6",
 													"key": "category_id",
 													"value": "epin"
 												},
 												{
+													"id": "c0b7eded-4c65-4eb5-a43f-08107ded20b9",
 													"key": "biller_id",
 													"value": "waec"
 												}
@@ -23724,14 +23811,14 @@
 									"response": []
 								}
 							],
-							"id": "8831e827-969b-4252-9c20-8a1fc02b3b49"
+							"id": "0f440494-e1ab-4238-8f39-0989ad7a3ed3"
 						},
 						{
 							"name": "Make bill payment-Betting",
 							"item": [
 								{
 									"name": "Make Bill Payment",
-									"id": "f0eb8b0c-4654-43f6-b73b-9acf8bd18cd5",
+									"id": "aa100399-cec3-446a-9e8f-2de8b056e7e3",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -23746,7 +23833,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\",\n     \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -23770,14 +23857,17 @@
 											],
 											"variable": [
 												{
+													"id": "b2b413d6-5368-49b0-8a84-579a514ca470",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
+													"id": "4e982362-1486-4d98-b73b-de7786ed6048",
 													"key": "category_id",
 													"value": "cabletv"
 												},
 												{
+													"id": "3bb4ad9f-aa8d-4f31-ab12-edc54a538236",
 													"key": "biller_id",
 													"value": "dstv"
 												}
@@ -23787,559 +23877,13 @@
 									"response": []
 								}
 							],
-							"id": "3b8fe1b4-4de9-4912-8ad2-9a7cd1ce3b82"
+							"id": "cc0eb945-338b-4423-ac29-0def128ea905"
 						}
 					],
-					"id": "f214bdc5-b6cb-4384-8755-a1ab1c785e6c"
+					"id": "7521436b-6cbf-4d34-95e7-6d52fc54f7e4"
 				}
 			],
 			"id": "f643d92d-8b0d-4907-bb9d-9c4bcbfbef66"
-		},
-		{
-			"name": "Savings/Investments",
-			"item": [
-				{
-					"name": "Create Saving Plan",
-					"id": "a3bfa1f0-85c3-4f34-b9d7-d690e3225a5e",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"Vacation Funds\",\n    \"product_id\": \"0193b0a2-cf3c-777f-a47d-bfd87e79d692\",\n    \"periodic_amount\": 500,\n    \"tenor_value\": 10,\n    \"tenor_period\": \"months\",\n    \"account_id\":\"0193912b-6f5e-7335-b5bc-3302dcc08103\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/savings",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"savings"
-							],
-							"variable": [
-								{
-									"id": "757c2f92-2252-485c-87db-f4b53d02201b",
-									"key": "profile_id",
-									"value": "{{profileId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Saving Products",
-					"id": "c9374850-5ba3-4890-af8a-dd8e7f7e5b6c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{base_url}}/saving-products"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Saving Product",
-					"id": "5acafccf-626f-49db-86a7-17fe8a760606",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{base_url}}/saving-products/0193a390-8deb-7220-b5e4-f5af6318af0a"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Saving Plans",
-					"id": "9cd79d96-1233-494b-832c-15750a1ff460",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/savings",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"savings"
-							],
-							"variable": [
-								{
-									"id": "d4da904f-0024-4cad-b75d-cc97db1662f6",
-									"key": "profile_id",
-									"value": "{{profileId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Saving Plan",
-					"id": "69b4cbff-865b-499e-992a-804c5b208c3b",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/savings/0193b7b5-45ab-7882-9cf9-448b336e0f8a",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"savings",
-								"0193b7b5-45ab-7882-9cf9-448b336e0f8a"
-							],
-							"variable": [
-								{
-									"key": "profile_id",
-									"value": "{{profileId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Withdraw Savings Plan",
-					"id": "b19f3ebf-4ef1-4b52-baf1-815bafc3ed27",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"amount\": 10\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/withdraw",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"savings",
-								"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
-								"withdraw"
-							],
-							"variable": [
-								{
-									"id": "0373d508-8941-4c97-a625-de0bffef0527",
-									"key": "profile_id",
-									"value": "{{profileId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Withdraw Savings Plan Copy",
-					"id": "63e0bf85-d40d-43be-a950-e98c9a05ea24",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"amount\": 10\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/withdraw",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"savings",
-								"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
-								"withdraw"
-							],
-							"variable": [
-								{
-									"id": "22aeee5f-3a2c-417e-a33e-b2f19898abfe",
-									"key": "profile_id",
-									"value": "{{profileId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Saving Plan Certificate",
-					"id": "39320b92-fd51-44a7-9546-4901589c5f23",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/certificate",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"savings",
-								"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
-								"certificate"
-							],
-							"variable": [
-								{
-									"id": "344435dd-ade7-4a8d-935b-56b94b80590f",
-									"key": "profile_id",
-									"value": "{{profileId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"id": "8a482a0d-6425-438a-8df7-cf39458f48e4"
-		},
-		{
-			"name": "Loans",
-			"item": [
-				{
-					"name": "Create Loan",
-					"id": "22caa8d8-20ad-4b80-a91a-ea12633a28cc",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"amount\": 5000,\n    \"tenor_period\": \"months\",\n    \"tenor_value\": 2,\n    \"frequency\": \"monthly\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/loans",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"loans"
-							],
-							"variable": [
-								{
-									"id": "9a642b11-71b3-4dcf-b9db-31bf77b0ecc0",
-									"key": "profile_id",
-									"value": "{{userFetchedBusinessProfileId}}"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "41adac39-2bbf-42d7-afa2-b47dcf689ae0",
-							"name": "Create Loan",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"amount\": 5000,\n    \"tenor_period\": \"months\",\n    \"tenor_value\": 2,\n    \"frequency\": \"monthly\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/loans",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"loans"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
-										}
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "865"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"361-zDmUc0kWGZ5sG7ahQCflez8vPUs\""
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 10 Dec 2024 11:42:15 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n        \"tenor_value\": 2,\n        \"tenor_period\": \"months\",\n        \"frequency\": \"monthly\",\n        \"interest_rate\": \"2.00\",\n        \"interest_period\": \"flat\",\n        \"status\": \"pending\",\n        \"currency\": \"NGN\",\n        \"principal\": 5000,\n        \"interest\": 100,\n        \"amount_disbursed\": 0,\n        \"total\": 5100,\n        \"total_paid\": 0,\n        \"total_due\": 5100,\n        \"cba_id\": null,\n        \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n        \"schedules\": [\n            {\n                \"principal\": 2500,\n                \"principal_paid\": 0,\n                \"interest\": 50,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 2550\n            },\n            {\n                \"principal\": 2500,\n                \"principal_paid\": 0,\n                \"interest\": 50,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 2550\n            }\n        ],\n        \"id\": \"0193b060-8374-733b-a822-306134abd4f3\",\n        \"created_on\": \"2024-12-10T11:42:15.756Z\",\n        \"modified_on\": \"2024-12-10T11:42:15.756Z\",\n        \"deleted_on\": null\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "List Loans",
-					"id": "c53a40d4-ef4e-439d-aa84-1d503d9237c6",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/loans?filter[status]=pending",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"loans"
-							],
-							"query": [
-								{
-									"key": "filter[status]",
-									"value": "pending",
-									"description": "running | pending | approved | declined | terminated | past-due | cancelled"
-								}
-							],
-							"variable": [
-								{
-									"id": "bcc1d598-55b1-4830-9494-9a671e22ec86",
-									"key": "profile_id",
-									"value": "{{userFetchedBusinessProfileId}}"
-								}
-							]
-						}
-					},
-					"response": [
-						{
-							"id": "0bc9af8c-e8d3-463f-bcd8-ffdea1840628",
-							"name": "List Loans",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/loans",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"loans"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
-										}
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "778"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"30a-mypWf4wT6OQzRxLli+PKJzMs8Ss\""
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 10 Dec 2024 11:47:21 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193b060-8374-733b-a822-306134abd4f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-10T11:42:15.756Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-10T11:42:15.756Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"tenor_value\": 2,\n            \"tenor_period\": \"months\",\n            \"frequency\": \"monthly\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"status\": \"pending\",\n            \"currency\": \"NGN\",\n            \"principal\": 5000,\n            \"interest\": 100,\n            \"amount_disbursed\": 0,\n            \"total\": 5100,\n            \"total_paid\": 0,\n            \"total_due\": 5100,\n            \"review\": null,\n            \"reviewed_on\": null,\n            \"reviewed_by\": null,\n            \"cba_id\": null,\n            \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n            \"credit_line_id\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
-						}
-					]
-				},
-				{
-					"name": "Get Loan",
-					"id": "61866876-eaf1-4ecc-b6b3-01656cf270c4",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/loans/:id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"loans",
-								":id"
-							],
-							"variable": [
-								{
-									"id": "a51169c1-ce20-4656-a41f-f1c8f2f2bf58",
-									"key": "profile_id",
-									"value": "{{userFetchedBusinessProfileId}}"
-								},
-								{
-									"id": "7aed5bfc-bed9-405c-b624-c393afada222",
-									"key": "id",
-									"value": "0193b0a8-3a22-755e-a58b-d2bddcc3937d"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"id": "feb7ef15-436f-455a-ba33-6d33b43069db"
 		},
 		{
 			"name": "Transactions",
@@ -24458,7 +24002,7 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "01931947-9fea-744d-8f66-118c138292e3"
+											"value": "{{userFetchedProfileId}}"
 										}
 									]
 								}
@@ -27305,191 +26849,6 @@
 			"id": "66334dd0-bfac-4d37-8ba2-c645a8fe0e57"
 		},
 		{
-			"name": "Mandates",
-			"item": [
-				{
-					"name": "Create Mandate",
-					"id": "165ec4bc-79c4-436a-90a3-5979946f0883",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"account_number\": \"0112345678\",\n    \"phone_number\": \"07034138291\",\n    // \"beneficiary_id\": 1,\n    \"debit_type\": \"all\",\n    \"type\": \"emandate\",\n    \"frequency\": \"daily\",\n    \"bank_code\": \"044\",\n    \"schedule\": false,\n    \"number_of_payments\": 10,\n    // \"schedule_amount\": 1000,\n    \"payment_start_date\":\"2024-11-28\",\n    \"minimum_amount\": 1000,\n    \"email\": \"azeez@mailinator.com\",\n    \"start_date\": \"2024-11-28\",\n    \"end_date\": \"2024-12-28\",\n    \"narration\": \"Mandate for the payments of personal loan\",\n    \"address\": \"4 Perez Drive Lekki Phase 1, Lagos\",\n    \"amount\": 2000\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/mandates",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"mandates"
-							],
-							"variable": [
-								{
-									"key": "profile_id",
-									"value": "01925236-19c0-7112-9440-aa8162716104"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get mandates",
-					"id": "60fed5ac-4212-4d38-a734-c32d355b0fc2",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"account_number\": \"0112345678\",\n    \"phone_number\": \"07034138291\",\n    // \"beneficiary_id\": 1,\n    \"debit_type\": \"all\",\n    \"type\": \"emandate\",\n    \"frequency\": \"daily\",\n    \"bank_id\": 51,\n    \"schedule\": false,\n    \"number_of_payments\": 10,\n    // \"schedule_amount\": 1000,\n    \"payment_start_date\": \"2024-10-05\",\n    \"minimum_amount\": 1000,\n    \"email\": \"azeez@mailinator.com\",\n    \"start_date\": \"2024-10-05\",\n    \"end_date\": \"2024-10-18\",\n    \"narration\": \"Mandate for the payments of personal loan\",\n    \"address\": \"4 Perez Drive Lekki Phase 1, Lagos\",\n    \"amount\": 2000\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/mandates",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"mandates"
-							],
-							"variable": [
-								{
-									"key": "profile_id",
-									"value": "01925236-19c0-7112-9440-aa8162716104"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get mandate",
-					"id": "c88327f9-1060-4029-a577-37ae0de58823",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"account_number\": \"0112345678\",\n    \"phone_number\": \"07034138291\",\n    // \"beneficiary_id\": 1,\n    \"debit_type\": \"all\",\n    \"type\": \"emandate\",\n    \"frequency\": \"daily\",\n    \"bank_id\": 51,\n    \"schedule\": false,\n    \"number_of_payments\": 10,\n    // \"schedule_amount\": 1000,\n    \"payment_start_date\": \"2024-10-05\",\n    \"minimum_amount\": 1000,\n    \"email\": \"azeez@mailinator.com\",\n    \"start_date\": \"2024-10-05\",\n    \"end_date\": \"2024-10-18\",\n    \"narration\": \"Mandate for the payments of personal loan\",\n    \"address\": \"4 Perez Drive Lekki Phase 1, Lagos\",\n    \"amount\": 2000\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/mandates/:mandate_id",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"mandates",
-								":mandate_id"
-							],
-							"variable": [
-								{
-									"id": "2f4b50d5-8f29-4319-a395-00c94165c665",
-									"key": "profile_id",
-									"value": "01925236-19c0-7112-9440-aa8162716104"
-								},
-								{
-									"id": "5f393a99-e425-415d-8ec7-c23e040d6860",
-									"key": "mandate_id",
-									"value": "0192d3bb-ab1d-799a-8886-eda13495c137"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Refresh Mandate Status",
-					"id": "b13d7f8d-c000-40e3-9cf8-8b63f2996f88",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"account_number\": \"0112345678\",\n    \"phone_number\": \"07034138291\",\n    // \"beneficiary_id\": 1,\n    \"debit_type\": \"all\",\n    \"type\": \"emandate\",\n    \"frequency\": \"daily\",\n    \"bank_id\": 51,\n    \"schedule\": false,\n    \"number_of_payments\": 10,\n    // \"schedule_amount\": 1000,\n    \"payment_start_date\": \"2024-10-05\",\n    \"minimum_amount\": 1000,\n    \"email\": \"azeez@mailinator.com\",\n    \"start_date\": \"2024-10-05\",\n    \"end_date\": \"2024-10-18\",\n    \"narration\": \"Mandate for the payments of personal loan\",\n    \"address\": \"4 Perez Drive Lekki Phase 1, Lagos\",\n    \"amount\": 2000\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/profiles/:profile_id/mandates/:mandate_id/refresh",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"profiles",
-								":profile_id",
-								"mandates",
-								":mandate_id",
-								"refresh"
-							],
-							"variable": [
-								{
-									"id": "e3d3ad32-bc9c-4a2f-a80e-5784a189914d",
-									"key": "profile_id",
-									"value": "01925236-19c0-7112-9440-aa8162716104"
-								},
-								{
-									"id": "508ffe4b-98f2-404d-a5de-f12c8e05f5c5",
-									"key": "mandate_id",
-									"value": "0192d3bb-ab1d-799a-8886-eda13495c137"
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"id": "ca37bbf7-a3fe-4467-9923-44724e121894"
-		},
-		{
 			"name": "User",
 			"item": [
 				{
@@ -28677,135 +28036,6 @@
 						}
 					],
 					"id": "5eb5e6b1-568e-4376-b223-53e6533cc78d"
-				},
-				{
-					"name": "Update Email",
-					"id": "0a2991fc-7992-4b7c-a271-ca235fbbdafe",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"email_otp_id\": \"01934eb2-2f21-7ffa-b2b8-7f18f51b9785\",\n    \"email_otp\": \"979924\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/users/me"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Phone",
-					"id": "5c4b31a5-4fd1-4082-ba49-7ed6f12312aa",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"phone_otp_id\": \"01934eb2-2f21-7ffa-b2b8-7f18f51b9785\",\n    \"phone_otp\": \"170554\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/users/me"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Me",
-					"id": "e74cdb21-bdb1-4aaf-8c2b-3d2479ec6a9f",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"gender\": \"female\",\n    \"photo_id\": \"01934623-421c-7669-9557-714dc903f2c3\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/users/me"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Me",
-					"id": "c002a4b7-4f53-4804-9175-1b831564cf47",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "{{base_url}}/users/me"
-					},
-					"response": []
-				},
-				{
-					"name": "Generate Update Email OTP",
-					"id": "d951a397-dc17-4892-82c0-32b2476c0a86",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{userAccessToken}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"type\": \"update-email\",\n    \"email\": \"mikeangel@mailinator.com\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/users/generate-otp"
-					},
-					"response": []
-				},
-				{
-					"name": "Generate Update Phone OTP",
-					"id": "e649ff91-01d3-416d-9e57-447aab89d1e8",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"type\": \"update-phone\",\n    \"email\": \"mikeangel@mailinator.com\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/users/generate-otp"
-					},
-					"response": []
 				}
 			],
 			"id": "016a4f53-3b2b-4ed8-ac78-b44ca10a517a"
