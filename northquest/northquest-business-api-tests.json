@@ -25668,140 +25668,6 @@
 					"name": "Match Contacts",
 					"item": [
 						{
-							"name": "Contact Transfer",
-							"id": "d13cd29f-affe-4a87-909f-e50e33fda9b3",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"phone_number\": \"08149583661\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/transfer/contact",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts",
-										":account_id",
-										"transfer",
-										"contact"
-									],
-									"variable": [
-										{
-											"id": "146e1ab5-08fe-456d-ac59-d520be729b27",
-											"key": "profile_id",
-											"value": "{{profileId}}"
-										},
-										{
-											"id": "f1228772-1ef6-47ed-8945-a0ade9ec7961",
-											"key": "account_id",
-											"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "c493b0de-2585-490c-a91c-2824f5a26490",
-									"name": "Pending Approval",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/accounts/:account_id/transfer",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"accounts",
-												":account_id",
-												"transfer"
-											],
-											"variable": [
-												{
-													"key": "account_id",
-													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-												}
-											]
-										}
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "70"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"46-8bfyF8xfJ1hm7Swt5nggBBZF7H0\""
-										},
-										{
-											"key": "Date",
-											"value": "Sat, 26 Oct 2024 20:23:39 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Transaction pending approval\"\n    }\n}"
-								}
-							]
-						},
-						{
 							"name": "Match Contacts",
 							"event": [
 								{
@@ -26827,9 +26693,8 @@
 											],
 											"variable": [
 												{
-													"id": "b638d0d2-f653-45ff-9783-5e5870219ccd",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
@@ -26986,9 +26851,8 @@
 											],
 											"variable": [
 												{
-													"id": "abb9c6dc-1886-42ec-b131-1aea8c3c44a3",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
@@ -27145,9 +27009,8 @@
 											],
 											"variable": [
 												{
-													"id": "74533b7b-f662-4ac2-86fa-9b23b1a1e203",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedProfileId}}"
 												}
 											]
 										}
