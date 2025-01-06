@@ -4338,10 +4338,6 @@
 											"        pm.response.to.have.status(\"Bad Request\");",
 											"    });",
 											"",
-											"    // pm.test(\"Test for valid error message\", () => {",
-											"    //     pm.expect(data).to.include(\"The identity must be a valid email address or phone number.\")",
-											"    // })",
-											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
 											"}"
@@ -8101,7 +8097,7 @@
 											"        }",
 											"    } = pm.response.json();",
 											"",
-											"    pm.environment.set(\"userAccessToken\", token)",
+											"    pm.environment.set(\"userRefreshedAccessToken\", token)",
 											"    pm.environment.set(\"userRefreshToken\", userRefreshToken)",
 											"",
 											"    pm.test(\"Status code is 200\", function () {",
@@ -8124,10 +8120,7 @@
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
+									"type": "noauth"
 								},
 								"method": "POST",
 								"header": [],
@@ -8273,142 +8266,6 @@
 							"response": [
 								{
 									"id": "3849bdc0-8127-477a-99d7-5a5a3a5d2690",
-									"name": "Success",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI0YzU1LWFmMjMtNzQ0Zi1iOWY0LTEzZjEzOTE2NmFjMSIsImlhdCI6MTczMDc5OTE5MCwiZXhwIjoxNzMxNDAzOTkwfQ.H2eDin0ofOD1UX_5KQJuiPeLxltWNmcT0BXURkiOd24\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/auth/refresh"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "433"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1b1-TKo+7Da2v+VhzLMLGgt67xzTxQk\""
-										},
-										{
-											"key": "Date",
-											"value": "Tue, 05 Nov 2024 09:33:31 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI0YzU1LWFmMjMtNzQ0Zi1iOWY0LTEzZjEzOTE2NmFjMSIsImlhdCI6MTczMDc5OTIxMSwiZXhwIjoxNzMwODg1NjExfQ._q4UboHomxrhaOPaCAW_JASGV7LmSpOGhfnzP5OcZJc\",\n        \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOTI0YzU1LWFmMjMtNzQ0Zi1iOWY0LTEzZjEzOTE2NmFjMSIsImlhdCI6MTczMDc5OTIxMSwiZXhwIjoxNzMxNDA0MDExfQ.dWXNtBYxZyTcrgdCipKJyMQ1ok12YJIXRtumDRgXiX4\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Refresh Token - Empty Fields Copy",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "2570f8dc-bc37-4972-a9e3-13cb372f955f",
-										"exec": [
-											"try {",
-											"    const {",
-											"        data, message, status",
-											"    } = pm.response.json();",
-											"",
-											"    pm.test(\"Status code is 400\", function () {",
-											"        pm.response.to.have.status(400);",
-											"    });",
-											"",
-											"    pm.test(\"Status code is 400\", function () {",
-											"        pm.expect(message).include(\"Invalid or expired refresh token\");",
-											"    });",
-											"",
-											"    pm.test(\"Status code is 400\", function () {",
-											"        pm.expect(status).include(\"error\");ß",
-											"    });",
-											"",
-											"    pm.test(\"Status code is 400\", function () {",
-											"        pm.expect(data).to.be.null;",
-											"    });",
-											"",
-											"} catch (error) {",
-											"    console.error(\"Error from test:\", error);",
-											"}",
-											""
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "cc28cd54-00f3-4222-9cf8-1353c237d29d",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"refresh_token\": \"eyJpZCI6IjAxOTM3MmRlLTE3ZWYtN2NjMi04ZmMwLTQzZmUxMWJhMDQyZiIsImlhdCI6MTczNjAyMTA1NCwiZXhwIjoxNzM2MDIxOTU0fQ.-I_0sEr9CtWoHgWfOZdvG9HhDtPEA8OigY11vPRM3iM\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/auth/refresh"
-							},
-							"response": [
-								{
-									"id": "b51e7c7e-a3da-4a6c-be0b-741de43982a2",
 									"name": "Success",
 									"originalRequest": {
 										"method": "POST",
