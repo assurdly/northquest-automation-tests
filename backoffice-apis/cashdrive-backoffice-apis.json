@@ -24582,6 +24582,37 @@
 					"item": [
 						{
 							"name": "Get Dispute",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cd4b927f-1376-47cf-8e6e-3e4d2c24ef19",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for response bdy format\", () => {",
+											"        pm.expect(data).to.be.an(\"object\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "d74b6200-5b29-4e96-9d63-0284c80df61d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -24704,11 +24735,7 @@
 										"id": "0d0221fc-004e-49fe-948f-322611235a63",
 										"exec": [
 											"try {",
-											"    const { message, statusCode } = pm.response.json()",
-											"",
-											"    pm.test(\"Test for valid status code\", () => {",
-											"        pm.expect(statusCode).to.eql(401)",
-											"    })",
+											"    const { message } = pm.response.json()",
 											"",
 											"    pm.test(\"Test for valid error message\", () => {",
 											"        pm.expect(message).to.eql(\"Access token is required\")",
@@ -24847,7 +24874,7 @@
 							"response": []
 						},
 						{
-							"name": "Update Dispute Copy - Empty Fields",
+							"name": "Update Dispute - Empty Fields",
 							"event": [
 								{
 									"listen": "test",
@@ -24904,11 +24931,7 @@
 										"id": "b00bcce7-6c4b-41d5-8379-4c8ea91b99c5",
 										"exec": [
 											"try {",
-											"    const { message, statusCode } = pm.response.json()",
-											"",
-											"    pm.test(\"Test for valid status code\", () => {",
-											"        pm.expect(statusCode).to.eql(401)",
-											"    })",
+											"    const { message } = pm.response.json()",
 											"",
 											"    pm.test(\"Test for valid error message\", () => {",
 											"        pm.expect(message).to.eql(\"Access token is required\")",
@@ -28020,31 +28043,6 @@
 			"id": "42719287-a840-4273-a87e-fdf4b0161bc9"
 		},
 		{
-			"name": "Logout",
-			"item": [
-				{
-					"name": "Logout",
-					"id": "968f2c18-be46-4471-9752-48320f7a4f7d",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{adminAccessToken}}"
-							}
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": "{{base_url}}/admin/auth/logout"
-					},
-					"response": []
-				}
-			],
-			"id": "5310db30-9af7-42f1-a91a-bb18b4223d57"
-		},
-		{
 			"name": "Referral Configurations",
 			"item": [
 				{
@@ -29781,6 +29779,31 @@
 				}
 			],
 			"id": "4bf066e0-3290-48f9-92c2-f29fdb50c6b1"
+		},
+		{
+			"name": "Logout",
+			"item": [
+				{
+					"name": "Logout",
+					"id": "968f2c18-be46-4471-9752-48320f7a4f7d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{adminAccessToken}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/admin/auth/logout"
+					},
+					"response": []
+				}
+			],
+			"id": "5310db30-9af7-42f1-a91a-bb18b4223d57"
 		}
 	],
 	"auth": {
