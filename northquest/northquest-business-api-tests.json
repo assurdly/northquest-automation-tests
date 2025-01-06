@@ -27434,12 +27434,10 @@
 											],
 											"variable": [
 												{
-													"id": "e89922f5-0cbb-4cff-bfeb-54f79e3e173b",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedProfileId}}"
 												},
 												{
-													"id": "3a84d52e-c103-4685-bdd1-7c664c71cba8",
 													"key": "beneficiary_id",
 													"value": "{{userFetchedBenefId}}"
 												}
@@ -28156,7 +28154,7 @@
 									]
 								},
 								{
-									"name": "Get Transfer Beneficiary-Invalid beneficiary Id",
+									"name": "Get Transfer Beneficiary-Invalid profile Id",
 									"event": [
 										{
 											"listen": "test",
@@ -28357,12 +28355,10 @@
 											],
 											"variable": [
 												{
-													"id": "25abb500-7f6c-46ad-8e45-7dc46dda62b1",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedProfileId}}"
 												},
 												{
-													"id": "c153be7b-b009-450a-9c0f-8b090872fe5e",
 													"key": "beneficiary_id",
 													"value": "{{userFetchedBenefId}}1"
 												}
