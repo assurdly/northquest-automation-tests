@@ -14117,7 +14117,7 @@
 											"    pm.environment.set(\"businessFetchedInvitedUserProfileId\", data[0].userProfile.id)\r",
 											"    pm.environment.set(\"businessFetchedInvitedUserObjectId\", data[0].id)\r",
 											"    pm.environment.set(\"businessFetchedInvitedUserEmail\", data[0].email)\r",
-											"    pm.environment.set(\"businessFetchedActiveUserObjectId\", data.find(user => user.userProfile.status === \"inactive\").id)\r",
+											"    pm.environment.set(\"businessFetchedActiveUserObjectId\", data.find(user => user.userProfile.status === \"active\").id)\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -14181,8 +14181,7 @@
 										},
 										{
 											"key": "limit",
-											"value": "20",
-											"type": "text"
+											"value": "20"
 										}
 									],
 									"variable": [
@@ -19643,6 +19642,149 @@
 							"response": [
 								{
 									"id": "875e1392-b488-4a57-83ee-b87e0e473ebf",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "458"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User Profile - Active",
+							"id": "39d2d239-8c4a-427c-8609-666b7954e446",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"inactive\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/userss/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"userss",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "0dd22a07-c56e-4336-9074-ade36dfbfc85",
+											"key": "profile_id",
+											"value": "{{userFetchedBusinessProfileId}}"
+										},
+										{
+											"id": "13e68ef8-89c4-4d52-b6dd-678a679db7f1",
+											"key": "id",
+											"value": "{{businessFetchedActiveUserObjectId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "cf49c1ca-91da-433d-8309-272af0429a09",
 									"name": "Success",
 									"originalRequest": {
 										"method": "PATCH",
