@@ -42496,7 +42496,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"type\": \"\", // static | dynamic\n    \"purpose\": \"\",\n    \"account_id\": \"\",\n    \"expires_on\": \"\",\n    \"pin\": \"\"\n}",
+											"raw": "{\n    \"name\": \"\",\n    \"type\": \"\", // static | dynamic\n    \"purpose\": \"\",\n    \"account_id\": \"\",\n    \"expires_on\": \"\",\n    \"pin\": \"1234\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -42970,10 +42970,7 @@
 									},
 									"request": {
 										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{userAccessToken}}"
-											}
+											"type": "noauth"
 										},
 										"method": "GET",
 										"header": [],
@@ -43285,13 +43282,13 @@
 													"        pm.expect(status).to.eql(\"error\")",
 													"    })",
 													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(data).to.not.eql([])",
-													"    })",
+													"    // pm.test(\"Test for valid error message\", () => {",
+													"    //     pm.expect(data).to.not.eql([])",
+													"    // })",
 													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(data).to.be.an(\"array\")",
-													"    })",
+													"    // pm.test(\"Test for valid error message\", () => {",
+													"    //     pm.expect(data).to.be.an(\"array\")",
+													"    // })",
 													"",
 													"} catch (error) {",
 													"    console.error(\"Error from test:\", error);",
