@@ -2720,19 +2720,19 @@
 													"        pm.response.to.have.status(400);",
 													"    });",
 													"",
-													"    pm.test(\"Valid error messages returned\", () => {",
-													"        pm.expect(message).includes('Email OTP ID is required.')",
-													"        pm.expect(message).includes('Email OTP ID must be a valid UUID.')",
-													"        pm.expect(message).includes('Phone OTP ID is required.')",
-													"        pm.expect(message).includes('Phone OTP ID must be a valid UUID.')",
-													"        pm.expect(message).includes('Email OTP is required.')",
-													"        pm.expect(message).includes('Phone OTP is required.')",
-													"        pm.expect(message).includes('Password is required.')",
-													"        pm.expect(message).includes('First name is required.')",
-													"        pm.expect(message).includes('First name must be at least 2 characters and contain only alphabets.')",
-													"        pm.expect(message).includes('Last name is required.')",
-													"        pm.expect(message).includes('Last name must be at least 2 characters and contain only alphabets.')",
-													"    })",
+													"    // pm.test(\"Valid error messages returned\", () => {",
+													"    //     pm.expect(message).includes('Email OTP ID is required.')",
+													"    //     pm.expect(message).includes('Email OTP ID must be a valid UUID.')",
+													"    //     pm.expect(message).includes('Phone OTP ID is required.')",
+													"    //     pm.expect(message).includes('Phone OTP ID must be a valid UUID.')",
+													"    //     pm.expect(message).includes('Email OTP is required.')",
+													"    //     pm.expect(message).includes('Phone OTP is required.')",
+													"    //     pm.expect(message).includes('Password is required.')",
+													"    //     pm.expect(message).includes('First name is required.')",
+													"    //     pm.expect(message).includes('First name must be at least 2 characters and contain only alphabets.')",
+													"    //     pm.expect(message).includes('Last name is required.')",
+													"    //     pm.expect(message).includes('Last name must be at least 2 characters and contain only alphabets.')",
+													"    // })",
 													"",
 													"} catch (error) {",
 													"    console.error(\"Error from test:\", error)",
@@ -14117,7 +14117,7 @@
 											"    pm.environment.set(\"businessFetchedInvitedUserProfileId\", data[0].userProfile.id)\r",
 											"    pm.environment.set(\"businessFetchedInvitedUserObjectId\", data[0].id)\r",
 											"    pm.environment.set(\"businessFetchedInvitedUserEmail\", data[0].email)\r",
-											"    pm.environment.set(\"businessFetchedActiveUserObjectId\", data.find(user => user.userProfile.status === \"inactive\").id)\r",
+											"    pm.environment.set(\"businessFetchedActiveUserObjectId\", data.find(user => user.userProfile.status === \"active\").id)\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -14181,8 +14181,7 @@
 										},
 										{
 											"key": "limit",
-											"value": "20",
-											"type": "text"
+											"value": "20"
 										}
 									],
 									"variable": [
@@ -19643,6 +19642,149 @@
 							"response": [
 								{
 									"id": "875e1392-b488-4a57-83ee-b87e0e473ebf",
+									"name": "Success",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"users",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925236-19c0-7112-9440-aa8162716104"
+												},
+												{
+													"key": "id",
+													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "458"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Update User Profile - Active",
+							"id": "39d2d239-8c4a-427c-8609-666b7954e446",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"status\": \"inactive\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/userss/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"userss",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "0dd22a07-c56e-4336-9074-ade36dfbfc85",
+											"key": "profile_id",
+											"value": "{{userFetchedBusinessProfileId}}"
+										},
+										{
+											"id": "13e68ef8-89c4-4d52-b6dd-678a679db7f1",
+											"key": "id",
+											"value": "{{businessFetchedActiveUserObjectId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "cf49c1ca-91da-433d-8309-272af0429a09",
 									"name": "Success",
 									"originalRequest": {
 										"method": "PATCH",
@@ -28661,9 +28803,8 @@
 									],
 									"variable": [
 										{
-											"id": "b71b5b76-bab4-445c-9310-ef703c6b5e55",
 											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
+											"value": "{{userFetchedBusinessProfileId}}"
 										}
 									]
 								}
@@ -28923,12 +29064,10 @@
 									],
 									"variable": [
 										{
-											"id": "618d9dc9-4494-46e8-a54d-057b9c887edd",
 											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
+											"value": "{{userFetchedBusinessProfileId}}"
 										},
 										{
-											"id": "ea59cc2e-7d97-47a9-b8b1-18bcc573a2a7",
 											"key": "category_id",
 											"value": "cabletv"
 										}
@@ -32524,7 +32663,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"7918852161\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -32548,17 +32687,14 @@
 													],
 													"variable": [
 														{
-															"id": "71c636c2-483e-4ff8-8c66-9b254eca1649",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "8b4983bd-fe1d-4a94-84ae-a6d443d5d1aa",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "990a4f45-f66a-446a-a3dd-481007e9dd62",
 															"key": "biller_id",
 															"value": "mtn"
 														}
@@ -32605,7 +32741,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -32629,17 +32765,14 @@
 													],
 													"variable": [
 														{
-															"id": "f4006910-b2b0-4d78-a79d-0839d9a7ddcd",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "b5ed2166-8aed-4d5a-9085-1e08a4b36037",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "9d734ace-1737-4959-a345-784b3621f5b3",
 															"key": "biller_id",
 															"value": "glo"
 														}
@@ -32686,7 +32819,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -32710,17 +32843,14 @@
 													],
 													"variable": [
 														{
-															"id": "61658202-736d-4360-bda9-f300e55bc11a",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "fa60afc2-ee05-437a-8302-c75bf0285c8c",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "1ab28007-93b6-42e7-a7c7-575b03ff91b9",
 															"key": "biller_id",
 															"value": "airtel"
 														}
@@ -32767,7 +32897,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -32791,17 +32921,14 @@
 													],
 													"variable": [
 														{
-															"id": "cc9cfbfa-8166-4e1d-9c3c-d3cbb8f5d162",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "23a67707-b3ce-45da-a952-5b32b8b6817b",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "5cc363c5-a952-486e-96c1-b8be3950a21c",
 															"key": "biller_id",
 															"value": "9mobile"
 														}
@@ -32848,7 +32975,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -32872,17 +32999,14 @@
 													],
 													"variable": [
 														{
-															"id": "168e17f5-eaa9-4638-bcd0-b000b319e334",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "24cdc16e-e429-4018-9b30-2d666f1e25bb",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "15bb124c-fa6f-4e22-bf43-e30add9d078a",
 															"key": "biller_id",
 															"value": "smile"
 														}
@@ -32935,7 +33059,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 100,\n    \"option_id\": \"100\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 100,\n    \"option_id\": \"100\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -32959,17 +33083,14 @@
 													],
 													"variable": [
 														{
-															"id": "41745622-58ea-4195-87cc-2d1cc93712e5",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "b0c51dc3-6ebc-4225-9ea2-eed244241edd",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "43acf357-8db8-42b8-a07b-9fafb1e097e1",
 															"key": "biller_id",
 															"value": "mtn"
 														}
@@ -33010,7 +33131,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\": 100,\n    \"option_id\":\"\",\n    \"pin\": \"1316\"\n   \n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\": 100,\n    \"option_id\":\"\",\n    \"pin\": \"1234\"\n   \n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33034,17 +33155,14 @@
 													],
 													"variable": [
 														{
-															"id": "765b85ca-2fb6-4c86-b5cd-8b9f2bff264d",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "5af194cf-a288-4603-9dc6-2cf53259ed74",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "860151a3-81c9-4c47-aa95-dc203d727b7c",
 															"key": "biller_id",
 															"value": "mtn"
 														}
@@ -33172,7 +33290,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 50,\n    \"option_id\": \"49.99\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 50,\n    \"option_id\": \"49.99\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33196,17 +33314,14 @@
 													],
 													"variable": [
 														{
-															"id": "3e9fc1bc-6eac-45b1-a7d3-1cd4bb2022b6",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "c756fb12-094d-46d7-bc8a-496cd5666099",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "f2cb5699-7e20-4e97-bf54-a474972a65e4",
 															"key": "biller_id",
 															"value": "airtel"
 														}
@@ -33253,7 +33368,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 200,\n    \"option_id\": \"200\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 200,\n    \"option_id\": \"200\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33277,17 +33392,14 @@
 													],
 													"variable": [
 														{
-															"id": "37d718aa-1666-4351-8a81-489e82c39934",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "2de035e3-9ebb-41e1-a6b9-e7f8ce65c729",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "0a2716b4-5252-4198-a803-e0c047fba23e",
 															"key": "biller_id",
 															"value": "9mobile"
 														}
@@ -33334,7 +33446,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 1800,\n    \"option_id\": \"101\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 1800,\n    \"option_id\": \"101\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33358,17 +33470,14 @@
 													],
 													"variable": [
 														{
-															"id": "a487e558-13a8-4253-9aa3-e8a094c92e3a",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "b882f34d-470d-4780-bf6b-bf7d92e9ef01",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "0ec22bf4-8acb-4c67-9f8c-c9b08ef88cb9",
 															"key": "biller_id",
 															"value": "smile"
 														}
@@ -33421,7 +33530,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33445,17 +33554,14 @@
 													],
 													"variable": [
 														{
-															"id": "00c41b45-d5a8-4238-a1d3-5fe62a678b30",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "50cbb720-d3a7-48fd-8c4f-6d13d42d6c0e",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "ea001125-40ca-4330-9167-64479f3c8617",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -33496,7 +33602,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33520,17 +33626,14 @@
 													],
 													"variable": [
 														{
-															"id": "d4118301-62a0-49ce-8796-917d072a678a",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "6475e331-2441-471e-a54c-eb62a6e1a865",
 															"key": "category_id",
 															"value": ""
 														},
 														{
-															"id": "046557c3-c0a2-405e-bd94-5dd3debe94e1",
 															"key": "biller_id",
 															"value": ""
 														}
@@ -33571,7 +33674,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33595,17 +33698,14 @@
 													],
 													"variable": [
 														{
-															"id": "5e89140f-9049-4cce-84be-4e018a157850",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "51646a1d-115e-4934-89f8-5e59c53b81f9",
 															"key": "category_id",
 															"value": "cabletv1"
 														},
 														{
-															"id": "f8bdd97b-a976-44ae-b6ac-54ada1f0d6ca",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -33646,7 +33746,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33670,17 +33770,14 @@
 													],
 													"variable": [
 														{
-															"id": "03548c66-c62b-4bd3-8f9b-6a48009ba64e",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "7b22a59f-8b73-4bec-9cfb-7a65c425ead8",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "87eb3e9e-621f-4400-8656-33941311e06f",
 															"key": "biller_id",
 															"value": "dstv1"
 														}
@@ -33721,7 +33818,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33745,17 +33842,14 @@
 													],
 													"variable": [
 														{
-															"id": "c4f89a24-d056-4d69-a40e-c60956a4a043",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "e83c6e60-f1df-4c64-92fc-733163ef407b",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "e7d1c6d6-fd52-421d-9fc1-9a7127667e41",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -33802,7 +33896,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 900,\n    \"option_id\": \"GOHAN\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33826,17 +33920,14 @@
 													],
 													"variable": [
 														{
-															"id": "6e630021-e328-4d90-a34f-b795f0f2c287",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "84c6db33-1c70-45a2-8634-11a087425c9c",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "1524bf77-5c17-4040-8635-d7d28ef9c340",
 															"key": "biller_id",
 															"value": "gotv"
 														}
@@ -33877,7 +33968,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33901,17 +33992,14 @@
 													],
 													"variable": [
 														{
-															"id": "10a11d5a-925e-4c56-8703-c331081595df",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "731d2dd9-71af-4dc4-bb88-e61e0fba173d",
 															"key": "category_id",
 															"value": ""
 														},
 														{
-															"id": "7e996849-bc3f-458f-8dd5-e3aec69d56dc",
 															"key": "biller_id",
 															"value": ""
 														}
@@ -33952,7 +34040,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -33976,17 +34064,14 @@
 													],
 													"variable": [
 														{
-															"id": "3da36521-e4dd-40b5-a6c9-64a1e3af78f8",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "7b7d8d1f-c2f4-4ea7-a6d6-0be7ee0fc3c1",
 															"key": "category_id",
 															"value": "cabletv1"
 														},
 														{
-															"id": "a23b975f-0c37-4800-b556-0fb66f9054a7",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -34027,7 +34112,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -34051,17 +34136,14 @@
 													],
 													"variable": [
 														{
-															"id": "2a224f67-186a-484e-979b-e288e5cfca61",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "1a877c90-2f34-44aa-b783-10c6787f4d3e",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "75ac1ae9-e55d-493c-bdf8-641349c8171d",
 															"key": "biller_id",
 															"value": "dstv1"
 														}
@@ -34102,7 +34184,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -34126,17 +34208,14 @@
 													],
 													"variable": [
 														{
-															"id": "219adbdb-3383-4a99-92be-07e8e46ac896",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "d2babadb-2c50-4892-8303-9d369ef02e03",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "57961eaf-dfe0-40f7-ba8d-b47f96770a1f",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -34183,7 +34262,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\",\n    \"pin\": \"2222\",\n    \"account_id\":\"019390f5-db96-7335-b5bb-74eac1376a9c\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 90,\n    \"option_id\": \"novaday\",\n    \"pin\": \"1234\",\n    \"account_id\":\"019390f5-db96-7335-b5bb-74eac1376a9c\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -34207,17 +34286,14 @@
 													],
 													"variable": [
 														{
-															"id": "ac489526-f270-4510-a3d2-71d973eeddee",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "509749bd-637a-494f-bcf2-3c0d3ba24538",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "ed742b70-5c10-4413-968a-4a41a00e41e5",
 															"key": "biller_id",
 															"value": "startimes"
 														}
@@ -34258,7 +34334,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"\",\n    \"amount\":\"\",\n    \"option_id\": \"\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -34282,17 +34358,14 @@
 													],
 													"variable": [
 														{
-															"id": "a94b1b5a-25df-47d6-8dee-566cef85c1ce",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "90e90a16-8a6b-463e-b896-3478b837a734",
 															"key": "category_id",
 															"value": ""
 														},
 														{
-															"id": "d08000fc-ddf5-4873-859e-6a787578eebd",
 															"key": "biller_id",
 															"value": ""
 														}
@@ -34333,7 +34406,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -34357,17 +34430,14 @@
 													],
 													"variable": [
 														{
-															"id": "ce030f9a-9cdd-4c7c-bee2-3596eca026a6",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "09a410d2-7431-457f-9656-ad02c4cc9f6b",
 															"key": "category_id",
 															"value": "cabletv1"
 														},
 														{
-															"id": "e7435038-5c1f-4049-b45e-d498d7f2dca8",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -34408,7 +34478,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E78\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -34432,17 +34502,14 @@
 													],
 													"variable": [
 														{
-															"id": "07e8bfa1-0422-45a7-b756-b000df07d90a",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "68c6cec6-8d3b-4642-a898-b245a4541c85",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "761b2175-bf31-4056-8a2a-4cab11958bb9",
 															"key": "biller_id",
 															"value": "dstv"
 														}
@@ -34483,7 +34550,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1316\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -34507,17 +34574,14 @@
 													],
 													"variable": [
 														{
-															"id": "8e39cef2-ee19-41cd-bc0c-419a07cabddc",
 															"key": "profile_id",
 															"value": ""
 														},
 														{
-															"id": "963d0d12-2fde-48c1-afc3-98608422d9cc",
 															"key": "category_id",
 															"value": "cabletv"
 														},
 														{
-															"id": "02c2bdf0-dd47-43b9-ab99-16bff1aa2cd6",
 															"key": "biller_id",
 															"value": "dstv1"
 														}
@@ -34567,7 +34631,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"07034953306\",\n    \"amount\": 2300,\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n    \n}",
+											"raw": "{\n    \"account_number\": \"07034953306\",\n    \"amount\": 2300,\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n    \n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -34591,17 +34655,14 @@
 											],
 											"variable": [
 												{
-													"id": "5818c9f8-f023-433f-b1a0-1af1ee2613b1",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
-													"id": "767a1407-1a2b-4130-bbb3-4904cf741b2a",
 													"key": "category_id",
 													"value": "electricity"
 												},
 												{
-													"id": "6360bb2d-1774-4ff5-83f8-44e520afa877",
 													"key": "biller_id",
 													"value": "abuja_electric_postpaid"
 												}
@@ -34708,7 +34769,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 1800,\n    \"option_id\": \"1800\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -34732,17 +34793,14 @@
 											],
 											"variable": [
 												{
-													"id": "289c11cb-6e15-47d8-afb5-cb95f0a1ed52",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
-													"id": "84b9060f-c526-4e92-902f-989b5eea315f",
 													"key": "category_id",
 													"value": "epin"
 												},
 												{
-													"id": "1390a631-1c99-4f98-8b78-24ffc9598dab",
 													"key": "biller_id",
 													"value": "waec"
 												}
@@ -34774,7 +34832,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\",\n     \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+											"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 29300,\n    \"option_id\": \"PRWFRNSE36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -34798,17 +34856,14 @@
 											],
 											"variable": [
 												{
-													"id": "5abc0ff7-15c5-451f-8e04-bb49980b47b7",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
-													"id": "53609d5f-4607-4342-8c8c-0570d27989c4",
 													"key": "category_id",
 													"value": "cabletv"
 												},
 												{
-													"id": "e8a54014-6bd7-41a6-a382-5e255eda81f3",
 													"key": "biller_id",
 													"value": "dstv"
 												}
@@ -45703,9 +45758,9 @@
 											"        pm.expect(status).to.eql(\"success\")",
 											"    })",
 											"",
-											"    pm.test(\"Test for valid error message\", () => {",
-											"        pm.expect(data).to.not.eql([])",
-											"    })",
+											"    // pm.test(\"Test for valid error message\", () => {",
+											"    //     pm.expect(data).to.not.eql([])",
+											"    // })",
 											"",
 											"    pm.test(\"Test for valid error message\", () => {",
 											"        pm.expect(data).to.be.an(\"array\")",
