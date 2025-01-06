@@ -10616,7 +10616,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/admin/settings?filter[parent_id]=01934380-6a81-7ff7-8592-14fc1a6f5131",
+									"raw": "{{base_url}}/admin/settings?limit=100",
 									"host": [
 										"{{base_url}}"
 									],
@@ -10632,7 +10632,13 @@
 										},
 										{
 											"key": "filter[parent_id]",
-											"value": "01934380-6a81-7ff7-8592-14fc1a6f5131"
+											"value": "01934380-6a81-7ff7-8592-14fc1a6f5131",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "100",
+											"type": "text"
 										}
 									]
 								}
@@ -16140,6 +16146,9 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
