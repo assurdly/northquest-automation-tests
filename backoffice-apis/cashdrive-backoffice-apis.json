@@ -22040,11 +22040,6 @@
 			"name": "Transactions",
 			"item": [
 				{
-					"name": "Disputes",
-					"item": [],
-					"id": "fdb68948-59f1-46de-a182-d5e0a8e4f16d"
-				},
-				{
 					"name": "Fees",
 					"item": [
 						{
@@ -24318,11 +24313,8 @@
 										"exec": [
 											"try {",
 											"    const { status, data } = pm.response.json()",
-											"    pm.environment.set(\"adminFetchedDisputeId\", data.disputes[0].id)",
 											"",
-											"    // if (data.disputes > 0) {",
-											"",
-											"    // }",
+											"    pm.environment.set(\"adminFetchedDisputeId\", data[0].id)",
 											"",
 											"    pm.test(\"Status code is 200\", function () {",
 											"        pm.response.to.have.status(200);",
@@ -24332,8 +24324,8 @@
 											"        pm.expect(status).to.eql(\"success\")",
 											"    })",
 											"",
-											"    pm.test(\"Test for data structure\", () => {",
-											"        pm.expect(data.disputes).to.be.an(\"array\")",
+											"    pm.test(\"Test for response bdy format\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
 											"    })",
 											"",
 											"} catch (error) {",
