@@ -12081,21 +12081,42 @@
 					"name": "Create wallet",
 					"item": [
 						{
-							"name": "Create Account",
+							"name": "Create Wallet",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "03fe1ffd-b2da-41bf-b6b5-9e68e1ada37f",
+										"id": "1f2c636a-1372-4824-950b-3b2df93c7533",
 										"exec": [
-											""
+											"try {",
+											"    const { status, data, message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 201\", function () {",
+											"        pm.response.to.have.status(201);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test that data is not null\", () => {",
+											"        pm.expect(data).to.not.be.null",
+											"    })",
+											"",
+											"    pm.test(\"Test that bank object is returned\", () => {",
+											"        pm.expect(data.bank).to.not.be.null",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
 									}
 								}
 							],
-							"id": "94b4d9b9-5d3a-4ce7-8e85-4da8b5b58947",
+							"id": "45f41e44-5e0c-4d66-87ee-0ba8c1e4a5a4",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -12110,7 +12131,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"savings\",\n    \"currency\": \"NGN\"\n}",
+									"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"currency\": \"NGN\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -12137,7 +12158,7 @@
 							},
 							"response": [
 								{
-									"id": "e2c20180-e04c-4222-94f6-4eaa1c0296d2",
+									"id": "1721675f-f4ee-44a5-9fcf-8f623ca74755",
 									"name": "Create Account",
 									"originalRequest": {
 										"method": "POST",
@@ -12224,23 +12245,42 @@
 							]
 						},
 						{
-							"name": "Create Account-Invalid Profile Id",
+							"name": "Create Wallet - Invalid Profile Id",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"id": "c881226a-f9a4-4cdd-a9f7-c6420a2a9abf",
 										"exec": [
-											"pm.test(\"Status code is 400\", function () {\r",
+											"try {\r",
+											"    const { status, data, message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
 											"        pm.response.to.have.status(400);\r",
-											"    });"
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"error\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test that data is null\", () => {\r",
+											"        pm.expect(data).to.be.null\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Profile ID must be a valid UUID\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
 									}
 								}
 							],
-							"id": "ece1e329-fa81-41bc-8016-10d838dd6c0a",
+							"id": "9356dbb1-e96e-464f-b0d5-d039cd7c5ead",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -12274,6 +12314,7 @@
 									],
 									"variable": [
 										{
+											"id": "e25344e9-fee9-41bb-be1d-eac39bb919d1",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}1"
 										}
@@ -12282,7 +12323,7 @@
 							},
 							"response": [
 								{
-									"id": "302e7742-68f1-4cc5-ba3d-d43d367666d5",
+									"id": "99a1273a-c39d-474b-9377-cf49da9032f8",
 									"name": "Create Account",
 									"originalRequest": {
 										"method": "POST",
@@ -12369,7 +12410,7 @@
 							]
 						},
 						{
-							"name": "Create Account-Empty fields",
+							"name": "Create Wallet - Empty fields",
 							"event": [
 								{
 									"listen": "test",
@@ -12385,7 +12426,7 @@
 									}
 								}
 							],
-							"id": "a918d28a-c7b3-4965-b200-e6481645425d",
+							"id": "33b1d54e-990c-40ec-ba10-7f4aa4bdc0fc",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -12419,6 +12460,7 @@
 									],
 									"variable": [
 										{
+											"id": "31be3ba4-1f27-4a34-8806-b36ba58a5999",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
@@ -12427,7 +12469,7 @@
 							},
 							"response": [
 								{
-									"id": "160d8d40-6215-4681-ae59-5d5760134910",
+									"id": "2bb46d23-6bb9-4ce2-af0d-ada710985df1",
 									"name": "Create Account",
 									"originalRequest": {
 										"method": "POST",
@@ -12514,83 +12556,13 @@
 							]
 						}
 					],
-					"id": "a84064eb-e3fc-401e-ad74-f9a91922048d"
-				},
-				{
-					"name": "Update wallet",
-					"item": [
-						{
-							"name": "Update Account",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "a423570d-915a-4a1a-a020-4a61b59a4985",
-										"exec": [
-											"// pm.test(\"Status code is 200\", function () {\r",
-											"//     pm.response.to.have.status(200);\r",
-											"// })"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "e73f05ba-099d-4a59-a7f2-6fdb532f3381",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"restricted\": false\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts",
-										":account_id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										},
-										{
-											"key": "account_id",
-											"value": "{{userFetchedAccountId}}"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"id": "e49ccf3a-c11b-4f82-aea7-cfb77ff5ddb2"
+					"id": "4033b671-8026-4053-99f3-50186c0622f2"
 				},
 				{
 					"name": "List wallets",
 					"item": [
 						{
-							"name": "List Accounts",
+							"name": "List wallets",
 							"event": [
 								{
 									"listen": "test",
@@ -12600,9 +12572,11 @@
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
 											"    const accountWithMoney = data.find((item) => item.available_balance >= 1000);\r",
+											"    const accountWithoutMoney = data.find((item) => item.available_balance < 10 && item.restricted == false);\r",
 											"\r",
 											"    pm.environment.set(\"userFetchedAccountId\", accountWithMoney.id);\r",
 											"    pm.environment.set(\"userFetchedAccountnumber\", accountWithMoney.account_number);\r",
+											"    pm.environment.set(\"userFetchedAccountWithoutMoney\", accountWithoutMoney.id);\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -12625,7 +12599,7 @@
 									}
 								}
 							],
-							"id": "2a6edbc0-4e51-4a3e-9df2-b0828a0b247a",
+							"id": "c2c54c8b-c2fd-482e-9809-fe695fd15b4e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -12658,7 +12632,7 @@
 							},
 							"response": [
 								{
-									"id": "b6720e56-6f13-463a-a869-164b1c4a4e6d",
+									"id": "ed1a2ba3-0b02-46e4-8520-8ac94686062c",
 									"name": "List Accounts",
 									"originalRequest": {
 										"method": "GET",
@@ -12736,7 +12710,7 @@
 							]
 						},
 						{
-							"name": "List Accounts-Invalid Profile Id",
+							"name": "List wallets - Invalid Profile Id",
 							"event": [
 								{
 									"listen": "test",
@@ -12769,7 +12743,7 @@
 									}
 								}
 							],
-							"id": "6dd4d300-e6dd-44c6-ac38-5832f1c98610",
+							"id": "9c936a06-a545-45f2-8c57-82e7cbaefd0d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -12794,6 +12768,7 @@
 									],
 									"variable": [
 										{
+											"id": "fc80d2dc-800e-4adb-ad69-e0dbbcf4b7a9",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}1"
 										}
@@ -12802,7 +12777,7 @@
 							},
 							"response": [
 								{
-									"id": "1bb857a4-a5cc-4eb8-a0fd-639ce63dd789",
+									"id": "2629e2cb-89ef-4818-902f-da3be49ae4b4",
 									"name": "List Accounts",
 									"originalRequest": {
 										"method": "GET",
@@ -12880,7 +12855,7 @@
 							]
 						},
 						{
-							"name": "List Accounts-No auth",
+							"name": "List wallets - No auth",
 							"event": [
 								{
 									"listen": "test",
@@ -12893,6 +12868,8 @@
 											"     pm.test(\"Status code is 401\", function () {\r",
 											"        pm.response.to.have.status(401);\r",
 											"    });\r",
+											"\r",
+											"    \r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.eql(\"Access token is required\")\r",
@@ -12907,7 +12884,7 @@
 									}
 								}
 							],
-							"id": "670927e5-4637-4e4b-916a-d130d1909fcb",
+							"id": "6453202e-59cc-4956-9947-47c002db3910",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -12929,6 +12906,7 @@
 									],
 									"variable": [
 										{
+											"id": "1811cdf0-b41c-4f41-9182-b96a52596f4e",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
@@ -12937,7 +12915,7 @@
 							},
 							"response": [
 								{
-									"id": "3a40fd86-1d68-4eb7-ba8d-5139a1928cbd",
+									"id": "f61d3bf7-dc2c-409e-805a-43a081eaa9f4",
 									"name": "List Accounts",
 									"originalRequest": {
 										"method": "GET",
@@ -13015,29 +12993,44 @@
 							]
 						}
 					],
-					"id": "dae0ffdb-9e26-4f57-8be8-f5167d5077cb"
+					"id": "3811261e-b7e0-4246-be60-f7e454cd4e92"
 				},
 				{
 					"name": "Get wallet",
 					"item": [
 						{
-							"name": "Get Account",
+							"name": "Get Wallet",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"id": "0bac8f99-d836-453a-95f0-f9e1ea511b15",
 										"exec": [
-											"// pm.test(\"Status code is 200\", function () {\r",
-											"//         pm.response.to.have.status(200);\r",
-											"//     });"
+											"try {\r",
+											"    const { status, data } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(data).to.be.an(\"object\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
 										],
 										"type": "text/javascript",
 										"packages": {}
 									}
 								}
 							],
-							"id": "7dc7d485-90af-44cb-8774-ccc346a14247",
+							"id": "33e7afe9-09b2-45ef-9c5f-59d2331663b1",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -13050,6 +13043,634 @@
 								},
 								"method": "GET",
 								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										":account_id"
+									],
+									"variable": [
+										{
+											"id": "6509fdf0-142f-4be3-ae8a-847108bc400b",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"id": "8b63fad0-db69-4ec0-9e07-bbaaa99babbc",
+											"key": "account_id",
+											"value": "{{userFetchedAccountId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "7d1323d5-b9ea-4d73-b71a-a8c002076c84",
+									"name": "Get Account",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												":profile_id",
+												"accounts",
+												":account_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												},
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "516"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Wallet - Invalid Profile Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ba1b6844-a297-42dd-8e6f-63e44a783cae",
+										"exec": [
+											"try {\r",
+											"    const { status, data, message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"error\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for data to be null\", () => {\r",
+											"        pm.expect(data).to.be.null\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.be.eql(\"Profile ID must be a valid UUID\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "e4435c00-7e77-42e5-bf98-f168d3285656",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										":account_id"
+									],
+									"variable": [
+										{
+											"id": "dfc0dc99-a692-467e-9f53-294c418019fe",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}1"
+										},
+										{
+											"id": "3f042839-57cc-4027-8ee2-6293e5e1c13a",
+											"key": "account_id",
+											"value": "{{userFetchedAccountId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "019bb78f-91e9-4c5b-8ee7-b102e8c533f0",
+									"name": "Get Account",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												":profile_id",
+												"accounts",
+												":account_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												},
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "516"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Wallet - Invalid account Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9bb33e07-3613-4555-99a5-d77b774a2798",
+										"exec": [
+											"try {\r",
+											"    const { status, data, message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"error\")\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for data to be null\", () => {\r",
+											"        pm.expect(data).to.be.null\r",
+											"    })\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.be.eql(\"Account ID must be a valid UUID\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "6824d394-1256-4d12-b451-476316109353",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										":account_id"
+									],
+									"variable": [
+										{
+											"id": "a355959d-2417-4d7b-9771-f6769d7df82a",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"id": "eecb8a54-5a57-41d6-a69f-4ee587bbb0fd",
+											"key": "account_id",
+											"value": "{{userFetchedAccountId}}2"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "c36182f0-e20f-494a-b247-93230b4db659",
+									"name": "Get Account",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												":profile_id",
+												"accounts",
+												":account_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												},
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "516"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Wallet - No Auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fbb829fb-ef34-4d86-8963-420be6b63cd0",
+										"exec": [
+											"try {\r",
+											"    const { message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 401\", function () {\r",
+											"        pm.response.to.have.status(401);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid error message\", () => {\r",
+											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(error)\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "06070844-e389-4b21-b3b6-3ecb43664bd6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										":account_id"
+									],
+									"variable": [
+										{
+											"id": "87e64220-6365-4588-bda4-a72626df9310",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"id": "0aa7c90d-5d23-44ea-a666-3f0d77647b71",
+											"key": "account_id",
+											"value": "{{userFetchedAccountId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "c11c9e7d-4144-4fd9-af20-a49dc2a62f6e",
+									"name": "Get Account",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												":profile_id",
+												"accounts",
+												":account_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+												},
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "516"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "4e9c1ee7-fed9-4783-b36e-9396d56fa91e"
+				},
+				{
+					"name": "Update wallet",
+					"item": [
+						{
+							"name": "Update Wallet - Restrict",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a423570d-915a-4a1a-a020-4a61b59a4985",
+										"exec": [
+											"try {\r",
+											"    const { status, data, message } = pm.response.json()\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
+											"\r",
+											"} catch (error) {\r",
+											"    console.error(\"Error from test:\", error);\r",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "c83e052f-d369-49df-8d72-b58a6f17bbf5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restricted\": true\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
 									"host": [
@@ -13068,390 +13689,34 @@
 										},
 										{
 											"key": "account_id",
-											"value": "{{userFetchedAccountId}}"
+											"value": "{{userFetchedAccountWithoutMoney}}"
 										}
 									]
 								}
 							},
-							"response": [
-								{
-									"id": "3e4fb761-0927-4d44-95f3-8cd2f49aae0a",
-									"name": "Get Account",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts",
-												":account_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												},
-												{
-													"key": "account_id",
-													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "516"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
-								}
-							]
+							"response": []
 						},
 						{
-							"name": "Get Account-Invalid Profile Id",
+							"name": "Update Wallet - Unrestrict",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "ba1b6844-a297-42dd-8e6f-63e44a783cae",
-										"exec": [
-											"pm.test(\"Status code is 400\", function () {\r",
-											"        pm.response.to.have.status(400);\r",
-											"    });"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "111727d3-fb28-42fa-933c-4afa1bbaa885",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts",
-										":account_id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}1"
-										},
-										{
-											"key": "account_id",
-											"value": "{{userFetchedAccountId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "3801db29-7470-4ce4-8f9e-6b4f47b035c3",
-									"name": "Get Account",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts",
-												":account_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												},
-												{
-													"key": "account_id",
-													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "516"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Get Account-Invalid account Id",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "9bb33e07-3613-4555-99a5-d77b774a2798",
-										"exec": [
-											"pm.test(\"Status code is 400\", function () {\r",
-											"        pm.response.to.have.status(400);\r",
-											"    });"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "807787bd-e6d0-4edd-b77b-66f7e6ca1ec1",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts",
-										":account_id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
-										},
-										{
-											"key": "account_id",
-											"value": "{{userFetchedAccountId}}2"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "50332c40-1b0e-48d8-bd3a-4212f0af2611",
-									"name": "Get Account",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts",
-												":account_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												},
-												{
-													"key": "account_id",
-													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "516"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Get Account-No Auth",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "fbb829fb-ef34-4d86-8963-420be6b63cd0",
+										"id": "a423570d-915a-4a1a-a020-4a61b59a4985",
 										"exec": [
 											"try {\r",
-											"    const { message, statusCode } = pm.response.json()\r",
+											"    const { status, data, message } = pm.response.json()\r",
 											"\r",
-											"   pm.test(\"Status code is 401\", function () {\r",
-											"        pm.response.to.have.status(401);\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
 											"    });\r",
 											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
-											"    console.error(error)\r",
+											"    console.error(\"Error from test:\", error);\r",
 											"}"
 										],
 										"type": "text/javascript",
@@ -13459,16 +13724,28 @@
 									}
 								}
 							],
-							"id": "bf265464-384f-4362-8acf-31c5f99835a2",
+							"id": "8669ef87-8d6c-49fd-90cf-692d3ff3386e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"auth": {
-									"type": "noauth"
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
 								},
-								"method": "GET",
+								"method": "PATCH",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"restricted\": false\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
 									"host": [
@@ -13483,46 +13760,130 @@
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
+											"value": "{{userFetchedPersonalProfileId}}"
 										},
 										{
 											"key": "account_id",
-											"value": "{{userFetchedAccountId}}"
+											"value": "{{userFetchedAccountWithoutMoney}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "802f6c3a-7078-40c6-81f9-3789ebf3692d"
+				},
+				{
+					"name": "Close Wallet",
+					"item": [
+						{
+							"name": "Close Wallet",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f263c962-7e77-4291-8835-e826aa090725",
+										"exec": [
+											"try {",
+											"    const { status, data, message } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "0364ff1f-3569-450c-8066-ac21c2906b28",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pin\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/close",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										":account_id",
+										"close"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedPersonalProfileId}}"
+										},
+										{
+											"key": "account_id",
+											"value": "{{userFetchedAccountWithoutMoney}}"
 										}
 									]
 								}
 							},
 							"response": [
 								{
-									"id": "202c19a0-b75f-48be-9c6a-99f5207d39bd",
-									"name": "Get Account",
+									"id": "52a1188a-a124-4cfd-9015-251466f34f6c",
+									"name": "Close Account",
 									"originalRequest": {
-										"method": "GET",
+										"method": "POST",
 										"header": [],
 										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
+											"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/close",
 											"host": [
 												"{{base_url}}"
 											],
 											"path": [
+												"profiles",
 												":profile_id",
 												"accounts",
-												":account_id"
+												":account_id",
+												"close"
 											],
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
+													"value": "0193a649-e3d0-7881-8b7f-2ef1d89a9aff"
 												},
 												{
 													"key": "account_id",
-													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+													"value": "0193e64c-bff4-7cc7-a74e-487122ac0955"
 												}
 											]
 										}
 									},
-									"status": "OK",
-									"code": 200,
+									"status": "Created",
+									"code": 201,
 									"_postman_previewlanguage": "json",
 									"header": [
 										{
@@ -13551,15 +13912,15 @@
 										},
 										{
 											"key": "Content-Length",
-											"value": "516"
+											"value": "569"
 										},
 										{
 											"key": "ETag",
-											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
+											"value": "W/\"239-L1FoukguseRob4hThyC3mtgaZTI\""
 										},
 										{
 											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
+											"value": "Mon, 30 Dec 2024 03:09:06 GMT"
 										},
 										{
 											"key": "Connection",
@@ -13572,15 +13933,15 @@
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
+									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
 								}
 							]
 						}
 					],
-					"id": "6c21256a-bc01-4952-b7f8-b5d07d879867"
+					"id": "0c9086d7-6102-4e41-a118-467533033897"
 				}
 			],
-			"id": "804127ad-4d2d-4303-b951-836a31a59380"
+			"id": "bb82ffd8-104f-48e8-81ec-7922492822f8"
 		},
 		{
 			"name": "Transfers",
@@ -14465,6 +14826,1495 @@
 				}
 			],
 			"id": "74d3495e-2777-4f0e-908e-27d189928dcc"
+		},
+		{
+			"name": "Transfer Copy",
+			"item": [
+				{
+					"name": "Transfer",
+					"item": [
+						{
+							"name": "Transfer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5e9eb6ad-d9c0-4874-bcf9-d4007138e63d",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 201\", function () {",
+											"        pm.response.to.have.status(201);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "5116bfce-ae9a-4814-88be-67d96619c9dc",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"beneficiary_id\": \"01932f12-e38f-7445-8d7e-099680bac163\",\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\",\n    \"pin\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/transfer",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										":account_id",
+										"transfer"
+									],
+									"variable": [
+										{
+											"id": "d6942661-10fd-4bbb-b91c-403e236d7a1f",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"id": "b5a3b9f5-63a4-46a5-8a72-55672ecfbb60",
+											"key": "account_id",
+											"value": "{{userFetchedAccountId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "78c00ee0-b1a3-4609-af36-686e6b6f03a4",
+									"name": "Pending Approval",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/accounts/:account_id/transfer",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"accounts",
+												":account_id",
+												"transfer"
+											],
+											"variable": [
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-8bfyF8xfJ1hm7Swt5nggBBZF7H0\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 26 Oct 2024 20:23:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Transaction pending approval\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Transfer Empty Fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5e9eb6ad-d9c0-4874-bcf9-d4007138e63d",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"    const errors = [",
+											"        \"Account Number can not be greater or less than 10 digits\",",
+											"        \"Account Number cannot be empty\",",
+											"        \"Bank Code can only be numbers\",",
+											"        \"Bank Code cannot be empty\",",
+											"        \"Amount must be a number\",",
+											"        \"Amount cannot be empty\",",
+											"        \"Amount cannot be less than 1\"",
+											"    ]",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"error\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        errors.forEach(error => {",
+											"            pm.expect(data).to.include(error)",
+											"        })",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "038eba13-1e69-4743-ae7d-72c4c242e427",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"beneficiary_id\": \"01932f12-e38f-7445-8d7e-099680bac163\",\n    \"account_number\": \"\",\n    \"bank_code\": \"\",\n    \"amount\": \"\",\n    \"narration\": \"\",\n    \"pin\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/transfer",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										":account_id",
+										"transfer"
+									],
+									"variable": [
+										{
+											"id": "b33a189d-2e20-4330-9a2c-25ff5711eca6",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"id": "10a74714-0b46-4252-a899-49d419c681e0",
+											"key": "account_id",
+											"value": "{{userFetchedAccountId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "ce406ce5-d1a6-44a2-a32a-139d0ff1b924",
+									"name": "Pending Approval",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/accounts/:account_id/transfer",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"accounts",
+												":account_id",
+												"transfer"
+											],
+											"variable": [
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-8bfyF8xfJ1hm7Swt5nggBBZF7H0\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 26 Oct 2024 20:23:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Transaction pending approval\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "5e952808-6140-4637-93fe-10144195fec8"
+				},
+				{
+					"name": "Batch Account Enquiry",
+					"item": [
+						{
+							"name": "Batch Account Enquiry",
+							"id": "819595cf-913f-4adb-9b7c-6c2ba9f20cd2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "DZ-SAg3qa/sample_accounts.csv"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/verification/account/batch-upload",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"verification",
+										"account",
+										"batch-upload"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "6807502e-9ea2-4213-863a-f1a8f21e5008"
+				},
+				{
+					"name": "Bulk transfer",
+					"item": [
+						{
+							"name": "Bulk Transfer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3824c027-a84e-4af6-b6dd-055f9a4560da",
+										"exec": [
+											"try {",
+											"    const { status, data: { message } } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 201\", function () {",
+											"        pm.response.to.have.status(201);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(message).to.eql(\"Transfers Queued Successfully\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "0de7abee-fb3b-43db-95f6-be878d2fa375",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"recipients\": [\n    {\n      \"account_number\": \"1780004070\",\n      \"bank_code\": \"999998\",\n      \"amount\": 10,\n      \"narration\": \"Sodiq\"\n    },\n    {\n      \"account_number\": \"1780004070\",\n      \"bank_code\": \"999998\",\n      \"amount\": 10,\n      \"narration\": \"Sodiq\"\n    }\n  ],\n  \"pin\": \"1234\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/bulk-transfer",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										":account_id",
+										"bulk-transfer"
+									],
+									"variable": [
+										{
+											"id": "b1d79833-37cc-4358-a3a3-1c89588ea2b8",
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"id": "ca47f71e-35b3-4067-9811-cfb3b4731b81",
+											"key": "account_id",
+											"value": "{{userFetchedAccountId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "069e37bc-219d-4502-83f5-eb10c41a4eef",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "[\n    {\n        \"account_number\": \"1780004070\",\n        \"bank_code\": \"999998\",\n        \"amount\": 100,\n        \"narration\": \"Sodiq\"\n    }\n]",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/accounts/:account_id/bulk-transfer",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"accounts",
+												":account_id",
+												"bulk-transfer"
+											],
+											"variable": [
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "74"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4a-PXqPl8K2qC3OzYNWW1TcJksz+CY\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 25 Oct 2024 17:12:40 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Transfers Processed Successfully\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "f2ed2d4a-8e38-4e60-8b92-c9d27b56503e"
+				},
+				{
+					"name": "Schedule",
+					"item": [
+						{
+							"name": "Transfer Schedule",
+							"item": [
+								{
+									"name": "Create Transfer Schedule",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "09ac0dd6-38d6-47bf-b806-5b2732ef9146",
+												"exec": [
+													"try {",
+													"    const { status, data: { id } } = pm.response.json()",
+													"    pm.environment.set(\"createdTransferScheduleId\", id)",
+													"",
+													"    pm.test(\"Status code is 201\", function () {",
+													"        pm.response.to.have.status(201);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    // pm.test(\"Test for valid status\", () => {",
+													"    //     pm.expect(message).to.eql(\"Transfers Queued Successfully\")",
+													"    // })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "7e160776-f8d4-43d1-b875-8b56c29007d3",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"start_date\": \"2025-01-10T21:00:00.000Z\",\n    \"end_date\": \"2025-01-20T21:00:00.000Z\",\n    \"amount\": 50.23,\n    \"type\": \"transfer\",\n    \"frequency\": \"daily\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"pin\": \"1234\",\n    \"recipients\": [\n        {\n            \"narration\": \"Sodiq\",\n            // \"beneficiary_id\": \"0192e710-2759-766f-9de2-61a30f028e20\",\n            \"account_number\": \"1780004070\",\n            \"account_name\": \"Sodid Dare\",\n            \"bank_code\": \"999998\"\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/transfer",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"schedules",
+												"transfer"
+											],
+											"variable": [
+												{
+													"id": "5093d437-1689-46da-884a-de8e4db4c631",
+													"key": "profile_id",
+													"value": "{{userFetchedProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "d5d5cacf-4b7c-4e67-8c3d-bb764636e176",
+											"name": "Success",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"start_date\": \"2024-11-14\",\n    \"end_date\": \"2024-11-15\",\n    \"amount\": 100.23,\n    \"type\": \"transfer\",\n    \"frequency\": \"once\",\n    \"account_id\":\"0192b537-3f83-719b-8ec4-df689454f0ee\",\n    \"recipients\": [\n        {\n            \"narration\": \"Sodiq\",\n            // \"beneficiary_id\": \"0192e710-2759-766f-9de2-61a30f028e20\",\n            \"account_number\": \"1780004070\",\n            \"bank_code\": \"999998\"\n        }\n    ]\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/transfer",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transactions",
+														"schedules",
+														"transfer"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "707"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2c3-wCVK2u4H1NUAsYPN/0e49reS55U\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 12 Nov 2024 13:39:01 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"recipients\": [\n                {\n                    \"narration\": \"Sodiq\",\n                    \"account_number\": \"1780004070\",\n                    \"bank_code\": \"999998\"\n                }\n            ]\n        },\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"frequency\": \"once\",\n        \"type\": \"transfer\",\n        \"start_date\": \"2024-11-14T00:00:00.000Z\",\n        \"next_run_date\": \"2024-11-14T00:00:00.000Z\",\n        \"end_date\": \"2024-11-15T00:00:00.000Z\",\n        \"amount\": \"100.23\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"id\": \"01932099-593e-7ee1-a981-f481189c5401\",\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-11-12T13:39:01.053Z\",\n        \"modified_on\": \"2024-11-12T13:39:01.053Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
+										}
+									]
+								},
+								{
+									"name": "Update Transfer Schedule",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "ea36b3dd-dd01-4de3-85fa-c0728c4f45d5",
+												"exec": [
+													"try {",
+													"    const { status, data: { id } } = pm.response.json()",
+													"    pm.environment.set(\"createdTransferScheduleId\", id)",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    // pm.test(\"Test for valid status\", () => {",
+													"    //     pm.expect(message).to.eql(\"Transfers Queued Successfully\")",
+													"    // })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "19a73c61-4b87-4e52-89c3-404e4fd59825",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"start_date\": \"2025-01-10\",\n    \"end_date\": \"2025-01-20\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/{{createdTransferScheduleId}}",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"schedules",
+												"{{createdTransferScheduleId}}"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{userFetchedProfileId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "eb260911-c209-4738-90a8-d8692c36a43c",
+											"name": "Success",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"start_date\": \"2024-12-30\",\n    \"end_date\": \"2024-12-31\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/01932093-1a4c-788d-959b-18f7c7b68e05",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transactions",
+														"schedules",
+														"01932093-1a4c-788d-959b-18f7c7b68e05"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "707"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"2c3-boOn3nUE7OjIaBswZMw0uHac720\""
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 12 Nov 2024 13:39:45 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01932093-1a4c-788d-959b-18f7c7b68e05\",\n        \"meta\": {\n            \"recipients\": [\n                {\n                    \"narration\": \"Sodiq\",\n                    \"account_number\": \"1780004070\",\n                    \"bank_code\": \"999998\"\n                }\n            ]\n        },\n        \"created_on\": \"2024-11-12T13:32:11.723Z\",\n        \"created_by\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"modified_on\": \"2024-11-12T13:39:45.578Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"frequency\": \"once\",\n        \"type\": \"transfer\",\n        \"start_date\": \"2024-12-30T00:00:00.000Z\",\n        \"next_run_date\": \"2024-12-30T00:00:00.000Z\",\n        \"end_date\": \"2024-12-31T00:00:00.000Z\",\n        \"status\": \"active\",\n        \"amount\": \"100.23\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n    }\n}"
+										}
+									]
+								}
+							],
+							"id": "0060ba48-02ad-4e7c-8763-171a7f5b33cd"
+						},
+						{
+							"name": "Bills Payment Schedule",
+							"item": [
+								{
+									"name": "Create Bill Payment Schedule Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "37783aec-15fc-4159-a77c-006d07dfc9cb",
+												"exec": [
+													"try {",
+													"    const { status, data: { id } } = pm.response.json()",
+													"    pm.environment.set(\"createdTransferScheduleId\", id)",
+													"",
+													"    pm.test(\"Status code is 201\", function () {",
+													"        pm.response.to.have.status(201);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    // pm.test(\"Test for valid status\", () => {",
+													"    //     pm.expect(message).to.eql(\"Transfers Queued Successfully\")",
+													"    // })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "4b2e3f7d-1c7f-4cce-bd8d-acb9ec4a94a4",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"start_date\": \"2025-01-10T21:00:00.000Z\",\n    \"end_date\": \"2025-01-20T21:00:00.000Z\",\n    \"amount\": 100.23,\n    \"type\": \"bill-payment\",\n    \"frequency\": \"daily\",\n    \"category_id\": \"airtime\",\n    \"option_id\": \"\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"biller_id\": \"mtn\",\n    \"pin\": \"1234\",\n    \"account_number\": \"09055755671\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules/bill-payment",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"schedules",
+												"bill-payment"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{userFetchedProfileId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "10a827dd-15c5-4462-bffa-c99c16215b21"
+						},
+						{
+							"name": "Get Transaction Schedules",
+							"item": [
+								{
+									"name": "Get Transactions Schedules",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b07914e4-da46-49fd-a542-583a0c7791e0",
+												"exec": [
+													"try {",
+													"    const { status, data: { id } } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    // pm.test(\"Test for valid status\", () => {",
+													"    //     pm.expect(message).to.eql(\"Transfers Queued Successfully\")",
+													"    // })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "4fea2f4e-6452-4dc5-94e9-e41e10dc03e7",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"schedules"
+											],
+											"query": [
+												{
+													"key": "filter[amount]",
+													"value": "100.23",
+													"disabled": true
+												},
+												{
+													"key": "filter[account_id]",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee",
+													"disabled": true
+												},
+												{
+													"key": "filter[type]",
+													"value": "bill_payment",
+													"disabled": true
+												},
+												{
+													"key": "filter[created_on]",
+													"value": "2024-12-21",
+													"disabled": true
+												},
+												{
+													"key": "filter[next_run_date][gt]",
+													"value": "2025-01-03",
+													"description": "Upcoming",
+													"disabled": true
+												},
+												{
+													"key": "filter[next_run_date][lt]",
+													"value": "2025-01-03",
+													"description": "Past",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "8eff94db-1d45-48ed-b175-d9785cd25661",
+													"key": "profile_id",
+													"value": "{{userFetchedBusinessProfileId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"id": "804b9480-a5ca-4285-9eff-42bc2f0502a9"
+						}
+					],
+					"id": "54eb896d-b419-4e9a-b497-aecf80ba0e42"
+				},
+				{
+					"name": "Banks",
+					"item": [
+						{
+							"name": "Get Banks",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2acf9aa0-0d43-4902-81e1-4f1a6232924a",
+										"exec": [
+											"try {",
+											"    const { status, data: { id } } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    // pm.test(\"Test for valid status\", () => {",
+											"    //     pm.expect(message).to.eql(\"Transfers Queued Successfully\")",
+											"    // })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "ee15173b-2b5c-4ffe-bd5e-91b5ca13d458",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/misc/banks"
+							},
+							"response": []
+						}
+					],
+					"id": "31f74846-4c57-4ab0-b8a4-2d6ef1d56892"
+				},
+				{
+					"name": "Match Contacts",
+					"item": [
+						{
+							"name": "Contact Transfer",
+							"id": "8a520d2b-dbcb-4c8e-9697-56c9e14b1aaa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"phone_number\": \"08149583661\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/transfer/contact",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										":account_id",
+										"transfer",
+										"contact"
+									],
+									"variable": [
+										{
+											"id": "146e1ab5-08fe-456d-ac59-d520be729b27",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										},
+										{
+											"id": "f1228772-1ef6-47ed-8945-a0ade9ec7961",
+											"key": "account_id",
+											"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "6184bf1d-d31b-411e-b2ee-3eb988a638b1",
+									"name": "Pending Approval",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/accounts/:account_id/transfer",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"accounts",
+												":account_id",
+												"transfer"
+											],
+											"variable": [
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-8bfyF8xfJ1hm7Swt5nggBBZF7H0\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 26 Oct 2024 20:23:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Transaction pending approval\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Match Contacts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6cafd54f-2801-406e-86aa-7582f9be60c4",
+										"exec": [
+											"try {",
+											"    const { status, data: { id } } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 201\", function () {",
+											"        pm.response.to.have.status(201);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    // pm.test(\"Test for valid status\", () => {",
+											"    //     pm.expect(message).to.eql(\"Transfers Queued Successfully\")",
+											"    // })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "b01578ef-5a5e-4cdf-840e-ceeaf6be4d9c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"contacts\": [\n        \"+2348149583661\",\n        \"+2349055755671\"\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/match-contacts",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										"match-contacts"
+									],
+									"variable": [
+										{
+											"id": "5de8ae68-d00f-468d-a3e9-36e18af09860",
+											"key": "profile_id",
+											"value": "{{userFetchedBusinessProfileId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "6dec324b-3106-405d-a6eb-05406402ad30",
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"contacts\": [\n        \"+2348149583661\"\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/accounts/match-contacts",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"accounts",
+												"match-contacts"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "79"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"4f-AwvIbAEuSTjtpuoHs8jfRE9mo0s\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 19 Nov 2024 16:28:37 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": \"John Doe\",\n            \"account_number\": \"8149583661\"\n        }\n    ]\n}"
+								}
+							]
+						}
+					],
+					"id": "dd63b3e5-1766-40c4-9fbe-d96c5bf8d318"
+				}
+			],
+			"id": "a9b704a8-364a-4636-8a99-7717ba7c189e"
 		},
 		{
 			"name": "Beneficiaries",
@@ -31896,1875 +33746,6 @@
 				}
 			],
 			"id": "8a3a9305-5965-4644-ac4f-0e5ba53e26aa"
-		},
-		{
-			"name": "Wallets Copy",
-			"item": [
-				{
-					"name": "Create wallet",
-					"item": [
-						{
-							"name": "Create Wallet",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "1f2c636a-1372-4824-950b-3b2df93c7533",
-										"exec": [
-											"try {",
-											"    const { status, data, message } = pm.response.json()",
-											"",
-											"    pm.test(\"Status code is 201\", function () {",
-											"        pm.response.to.have.status(201);",
-											"    });",
-											"",
-											"    pm.test(\"Test for valid status\", () => {",
-											"        pm.expect(status).to.eql(\"success\")",
-											"    })",
-											"",
-											"    pm.test(\"Test that data is not null\", () => {",
-											"        pm.expect(data).to.not.be.null",
-											"    })",
-											"",
-											"    pm.test(\"Test that bank object is returned\", () => {",
-											"        pm.expect(data.bank).to.not.be.null",
-											"    })",
-											"",
-											"} catch (error) {",
-											"    console.error(\"Error from test:\", error);",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "45f41e44-5e0c-4d66-87ee-0ba8c1e4a5a4",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"currency\": \"NGN\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "1721675f-f4ee-44a5-9fcf-8f623ca74755",
-									"name": "Create Account",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Spending\",\n    \"currency\": \"NGN\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												}
-											]
-										}
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "480"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1e0-0YekJUHDFhKP6jhV44xwe267RyM\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:51:14 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Spending\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"1234567890\",\n        \"currency\": \"NGN\",\n        \"id\": \"0192e86c-722c-7881-a19d-6e78ce08d56f\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-11-01T15:51:14.308Z\",\n        \"modified_on\": \"2024-11-01T15:51:14.308Z\",\n        \"deleted_on\": null,\n        \"ledger_balance\": \"0.00\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"0.00\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Create Wallet - Invalid Profile Id",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "c881226a-f9a4-4cdd-a9f7-c6420a2a9abf",
-										"exec": [
-											"try {\r",
-											"    const { status, data, message } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Status code is 400\", function () {\r",
-											"        pm.response.to.have.status(400);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"error\")\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Test that data is null\", () => {\r",
-											"        pm.expect(data).to.be.null\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).to.eql(\"Profile ID must be a valid UUID\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "9356dbb1-e96e-464f-b0d5-d039cd7c5ead",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"Spending\",\n    \"currency\": \"NGN\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts"
-									],
-									"variable": [
-										{
-											"id": "e25344e9-fee9-41bb-be1d-eac39bb919d1",
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}1"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "99a1273a-c39d-474b-9377-cf49da9032f8",
-									"name": "Create Account",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Spending\",\n    \"currency\": \"NGN\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												}
-											]
-										}
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "480"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1e0-0YekJUHDFhKP6jhV44xwe267RyM\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:51:14 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Spending\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"1234567890\",\n        \"currency\": \"NGN\",\n        \"id\": \"0192e86c-722c-7881-a19d-6e78ce08d56f\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-11-01T15:51:14.308Z\",\n        \"modified_on\": \"2024-11-01T15:51:14.308Z\",\n        \"deleted_on\": null,\n        \"ledger_balance\": \"0.00\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"0.00\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Create Wallet - Empty fields",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "b5cc6f1e-3f45-42ad-92d4-af4f9053ee53",
-										"exec": [
-											"pm.test(\"Status code is 400\", function () {\r",
-											"        pm.response.to.have.status(400);\r",
-											"    });"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "33b1d54e-990c-40ec-ba10-7f4aa4bdc0fc",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"name\": \"\",\n    \"currency\": \"NGN\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts"
-									],
-									"variable": [
-										{
-											"id": "31be3ba4-1f27-4a34-8806-b36ba58a5999",
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "2bb46d23-6bb9-4ce2-af0d-ada710985df1",
-									"name": "Create Account",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"name\": \"Spending\",\n    \"currency\": \"NGN\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												}
-											]
-										}
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "480"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1e0-0YekJUHDFhKP6jhV44xwe267RyM\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:51:14 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Spending\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"1234567890\",\n        \"currency\": \"NGN\",\n        \"id\": \"0192e86c-722c-7881-a19d-6e78ce08d56f\",\n        \"meta\": null,\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-11-01T15:51:14.308Z\",\n        \"modified_on\": \"2024-11-01T15:51:14.308Z\",\n        \"deleted_on\": null,\n        \"ledger_balance\": \"0.00\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"0.00\"\n    }\n}"
-								}
-							]
-						}
-					],
-					"id": "4033b671-8026-4053-99f3-50186c0622f2"
-				},
-				{
-					"name": "List wallets",
-					"item": [
-						{
-							"name": "List wallets",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "138b1920-998c-448a-a73f-748df9713c47",
-										"exec": [
-											"try {\r",
-											"    const { status, data } = pm.response.json()\r",
-											"    const accountWithMoney = data.find((item) => item.available_balance >= 1000);\r",
-											"    const accountWithoutMoney = data.find((item) => item.available_balance < 10 && item.restricted == false);\r",
-											"\r",
-											"    pm.environment.set(\"userFetchedAccountId\", accountWithMoney.id);\r",
-											"    pm.environment.set(\"userFetchedAccountnumber\", accountWithMoney.account_number);\r",
-											"    pm.environment.set(\"userFetchedAccountWithoutMoney\", accountWithoutMoney.id);\r",
-											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data).to.be.an(\"array\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "c2c54c8b-c2fd-482e-9809-fe695fd15b4e",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "ed1a2ba3-0b02-46e4-8520-8ac94686062c",
-									"name": "List Accounts",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "971"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"3cb-QGjE0PG+bDBmmxLCvGT4BAmscHg\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:52:28 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n            \"meta\": {\n                \"account_type\": \"savings\"\n            },\n            \"created_on\": \"2024-10-22T17:12:40.747Z\",\n            \"created_by\": \"system\",\n            \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n            \"modified_by\": \"system\",\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"John Doe\",\n            \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n            \"account_number\": \"9876543210\",\n            \"ledger_balance\": \"2496.32\",\n            \"hold_balance\": \"0.00\",\n            \"available_balance\": \"2496.32\",\n            \"currency\": \"GBP\"\n        },\n        {\n            \"id\": \"0192e86c-722c-7881-a19d-6e78ce08d56f\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-01T15:51:14.308Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-01T15:51:14.308Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Spending\",\n            \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n            \"account_number\": \"1234567890\",\n            \"ledger_balance\": \"0.00\",\n            \"hold_balance\": \"0.00\",\n            \"available_balance\": \"0.00\",\n            \"currency\": \"NGN\"\n        }\n    ]\n}"
-								}
-							]
-						},
-						{
-							"name": "List wallets - Invalid Profile Id",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "138b1920-998c-448a-a73f-748df9713c47",
-										"exec": [
-											"try {\r",
-											"    const { status, message } = pm.response.json()\r",
-											"\r",
-											"\r",
-											"    pm.test(\"Status code is 400\", function () {\r",
-											"        pm.response.to.have.status(400);\r",
-											"    });\r",
-											"\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"error\")\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "9c936a06-a545-45f2-8c57-82e7cbaefd0d",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts"
-									],
-									"variable": [
-										{
-											"id": "fc80d2dc-800e-4adb-ad69-e0dbbcf4b7a9",
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}1"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "2629e2cb-89ef-4818-902f-da3be49ae4b4",
-									"name": "List Accounts",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "971"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"3cb-QGjE0PG+bDBmmxLCvGT4BAmscHg\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:52:28 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n            \"meta\": {\n                \"account_type\": \"savings\"\n            },\n            \"created_on\": \"2024-10-22T17:12:40.747Z\",\n            \"created_by\": \"system\",\n            \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n            \"modified_by\": \"system\",\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"John Doe\",\n            \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n            \"account_number\": \"9876543210\",\n            \"ledger_balance\": \"2496.32\",\n            \"hold_balance\": \"0.00\",\n            \"available_balance\": \"2496.32\",\n            \"currency\": \"GBP\"\n        },\n        {\n            \"id\": \"0192e86c-722c-7881-a19d-6e78ce08d56f\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-01T15:51:14.308Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-01T15:51:14.308Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Spending\",\n            \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n            \"account_number\": \"1234567890\",\n            \"ledger_balance\": \"0.00\",\n            \"hold_balance\": \"0.00\",\n            \"available_balance\": \"0.00\",\n            \"currency\": \"NGN\"\n        }\n    ]\n}"
-								}
-							]
-						},
-						{
-							"name": "List wallets - No auth",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "138b1920-998c-448a-a73f-748df9713c47",
-										"exec": [
-											"try {\r",
-											"    const { message, statusCode } = pm.response.json()\r",
-											"\r",
-											"     pm.test(\"Status code is 401\", function () {\r",
-											"        pm.response.to.have.status(401);\r",
-											"    });\r",
-											"\r",
-											"    \r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).to.eql(\"Access token is required\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(error)\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "6453202e-59cc-4956-9947-47c002db3910",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts"
-									],
-									"variable": [
-										{
-											"id": "1811cdf0-b41c-4f41-9182-b96a52596f4e",
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "f61d3bf7-dc2c-409e-805a-43a081eaa9f4",
-									"name": "List Accounts",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "971"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"3cb-QGjE0PG+bDBmmxLCvGT4BAmscHg\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:52:28 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n            \"meta\": {\n                \"account_type\": \"savings\"\n            },\n            \"created_on\": \"2024-10-22T17:12:40.747Z\",\n            \"created_by\": \"system\",\n            \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n            \"modified_by\": \"system\",\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"John Doe\",\n            \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n            \"account_number\": \"9876543210\",\n            \"ledger_balance\": \"2496.32\",\n            \"hold_balance\": \"0.00\",\n            \"available_balance\": \"2496.32\",\n            \"currency\": \"GBP\"\n        },\n        {\n            \"id\": \"0192e86c-722c-7881-a19d-6e78ce08d56f\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-01T15:51:14.308Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-01T15:51:14.308Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Spending\",\n            \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n            \"account_number\": \"1234567890\",\n            \"ledger_balance\": \"0.00\",\n            \"hold_balance\": \"0.00\",\n            \"available_balance\": \"0.00\",\n            \"currency\": \"NGN\"\n        }\n    ]\n}"
-								}
-							]
-						}
-					],
-					"id": "3811261e-b7e0-4246-be60-f7e454cd4e92"
-				},
-				{
-					"name": "Get wallet",
-					"item": [
-						{
-							"name": "Get Wallet",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "0bac8f99-d836-453a-95f0-f9e1ea511b15",
-										"exec": [
-											"try {\r",
-											"    const { status, data } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data).to.be.an(\"object\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "33e7afe9-09b2-45ef-9c5f-59d2331663b1",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts",
-										":account_id"
-									],
-									"variable": [
-										{
-											"id": "6509fdf0-142f-4be3-ae8a-847108bc400b",
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
-										},
-										{
-											"id": "8b63fad0-db69-4ec0-9e07-bbaaa99babbc",
-											"key": "account_id",
-											"value": "{{userFetchedAccountId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "7d1323d5-b9ea-4d73-b71a-a8c002076c84",
-									"name": "Get Account",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts",
-												":account_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												},
-												{
-													"key": "account_id",
-													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "516"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Get Wallet - Invalid Profile Id",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "ba1b6844-a297-42dd-8e6f-63e44a783cae",
-										"exec": [
-											"try {\r",
-											"    const { status, data, message } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Status code is 400\", function () {\r",
-											"        pm.response.to.have.status(400);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"error\")\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Test for data to be null\", () => {\r",
-											"        pm.expect(data).to.be.null\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).to.be.eql(\"Profile ID must be a valid UUID\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "e4435c00-7e77-42e5-bf98-f168d3285656",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts",
-										":account_id"
-									],
-									"variable": [
-										{
-											"id": "dfc0dc99-a692-467e-9f53-294c418019fe",
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}1"
-										},
-										{
-											"id": "3f042839-57cc-4027-8ee2-6293e5e1c13a",
-											"key": "account_id",
-											"value": "{{userFetchedAccountId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "019bb78f-91e9-4c5b-8ee7-b102e8c533f0",
-									"name": "Get Account",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts",
-												":account_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												},
-												{
-													"key": "account_id",
-													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "516"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Get Wallet - Invalid account Id",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "9bb33e07-3613-4555-99a5-d77b774a2798",
-										"exec": [
-											"try {\r",
-											"    const { status, data, message } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Status code is 400\", function () {\r",
-											"        pm.response.to.have.status(400);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"error\")\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Test for data to be null\", () => {\r",
-											"        pm.expect(data).to.be.null\r",
-											"    })\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).to.be.eql(\"Account ID must be a valid UUID\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "6824d394-1256-4d12-b451-476316109353",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts",
-										":account_id"
-									],
-									"variable": [
-										{
-											"id": "a355959d-2417-4d7b-9771-f6769d7df82a",
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
-										},
-										{
-											"id": "eecb8a54-5a57-41d6-a69f-4ee587bbb0fd",
-											"key": "account_id",
-											"value": "{{userFetchedAccountId}}2"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "c36182f0-e20f-494a-b247-93230b4db659",
-									"name": "Get Account",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts",
-												":account_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												},
-												{
-													"key": "account_id",
-													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "516"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Get Wallet - No Auth",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "fbb829fb-ef34-4d86-8963-420be6b63cd0",
-										"exec": [
-											"try {\r",
-											"    const { message } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Status code is 401\", function () {\r",
-											"        pm.response.to.have.status(401);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).to.eql(\"Access token is required\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(error)\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "06070844-e389-4b21-b3b6-3ecb43664bd6",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts",
-										":account_id"
-									],
-									"variable": [
-										{
-											"id": "87e64220-6365-4588-bda4-a72626df9310",
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
-										},
-										{
-											"id": "0aa7c90d-5d23-44ea-a666-3f0d77647b71",
-											"key": "account_id",
-											"value": "{{userFetchedAccountId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "c11c9e7d-4144-4fd9-af20-a49dc2a62f6e",
-									"name": "Get Account",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/:profile_id/accounts/:account_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												":profile_id",
-												"accounts",
-												":account_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925345-cca2-7886-abfb-4f247ae2e9bb"
-												},
-												{
-													"key": "account_id",
-													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "516"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"204-LtyE1t39n1k4jLxXL/RWRvIGjsw\""
-										},
-										{
-											"key": "Date",
-											"value": "Fri, 01 Nov 2024 15:54:04 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\",\n        \"meta\": {\n            \"account_type\": \"savings\"\n        },\n        \"created_on\": \"2024-10-22T17:12:40.747Z\",\n        \"created_by\": \"system\",\n        \"modified_on\": \"2024-11-01T09:31:32.426Z\",\n        \"modified_by\": \"system\",\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"John Doe\",\n        \"profile_id\": \"01925345-cca2-7886-abfb-4f247ae2e9bb\",\n        \"account_number\": \"9876543210\",\n        \"ledger_balance\": \"2496.32\",\n        \"hold_balance\": \"0.00\",\n        \"available_balance\": \"2496.32\",\n        \"currency\": \"GBP\"\n    }\n}"
-								}
-							]
-						}
-					],
-					"id": "4e9c1ee7-fed9-4783-b36e-9396d56fa91e"
-				},
-				{
-					"name": "Update wallet",
-					"item": [
-						{
-							"name": "Update Wallet - Restrict",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "a423570d-915a-4a1a-a020-4a61b59a4985",
-										"exec": [
-											"try {\r",
-											"    const { status, data, message } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "c83e052f-d369-49df-8d72-b58a6f17bbf5",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"restricted\": true\n\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts",
-										":account_id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										},
-										{
-											"key": "account_id",
-											"value": "{{userFetchedAccountWithoutMoney}}"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Update Wallet - Unrestrict",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "a423570d-915a-4a1a-a020-4a61b59a4985",
-										"exec": [
-											"try {\r",
-											"    const { status, data, message } = pm.response.json()\r",
-											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });\r",
-											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "8669ef87-8d6c-49fd-90cf-692d3ff3386e",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"restricted\": false\n\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts",
-										":account_id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										},
-										{
-											"key": "account_id",
-											"value": "{{userFetchedAccountWithoutMoney}}"
-										}
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"id": "802f6c3a-7078-40c6-81f9-3789ebf3692d"
-				},
-				{
-					"name": "Close Wallet",
-					"item": [
-						{
-							"name": "Close Wallet",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "f263c962-7e77-4291-8835-e826aa090725",
-										"exec": [
-											"try {",
-											"    const { status, data, message } = pm.response.json()",
-											"",
-											"    pm.test(\"Status code is 200\", function () {",
-											"        pm.response.to.have.status(200);",
-											"    });",
-											"",
-											"    pm.test(\"Test for valid status\", () => {",
-											"        pm.expect(status).to.eql(\"success\")",
-											"    })",
-											"",
-											"} catch (error) {",
-											"    console.error(\"Error from test:\", error);",
-											"}"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "0364ff1f-3569-450c-8066-ac21c2906b28",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"pin\": \"1234\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/close",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"accounts",
-										":account_id",
-										"close"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										},
-										{
-											"key": "account_id",
-											"value": "{{userFetchedAccountWithoutMoney}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "52a1188a-a124-4cfd-9015-251466f34f6c",
-									"name": "Close Account",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/close",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"accounts",
-												":account_id",
-												"close"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "0193a649-e3d0-7881-8b7f-2ef1d89a9aff"
-												},
-												{
-													"key": "account_id",
-													"value": "0193e64c-bff4-7cc7-a74e-487122ac0955"
-												}
-											]
-										}
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "569"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"239-L1FoukguseRob4hThyC3mtgaZTI\""
-										},
-										{
-											"key": "Date",
-											"value": "Mon, 30 Dec 2024 03:09:06 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
-								}
-							]
-						}
-					],
-					"id": "0c9086d7-6102-4e41-a118-467533033897"
-				}
-			],
-			"id": "bb82ffd8-104f-48e8-81ec-7922492822f8"
 		},
 		{
 			"name": "Calculate Loan",
