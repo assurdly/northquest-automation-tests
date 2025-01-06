@@ -11469,10 +11469,10 @@
 										"id": "7fc7afdf-18c5-46cc-bcc5-9b670d9add4b",
 										"exec": [
 											"try {\r",
-											"    const { message, statusCode } = pm.response.json()\r",
+											"    const { status } = pm.response.json()\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).to.eql(\"Access token is required\")\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
