@@ -7940,6 +7940,37 @@
 					"item": [
 						{
 							"name": "Update Profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d0cac616-f33e-4520-8393-e57b7c3bd7d2",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"object\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "9767a60b-f6ff-456c-8923-5099762fe245",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -7949,7 +7980,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "// {\n//     // \"type\": \"personal\",\n//     // \"name\": \"\",\n//     // \"first_name\": \"Azeez\",\n//     // \"last_name\": \"Ibrahim\",\n//     \"nin\": \"1234567890\"\n// }",
+									"raw": "{\n    \"meta\": {\n        \"business-name\": \"{{$randomCompanyName}}\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -7967,7 +7998,6 @@
 									],
 									"variable": [
 										{
-											"id": "0e947c02-e624-484b-a681-fc0679ae6702",
 											"key": "id",
 											"value": "{{userFetchedProfileId}}"
 										}
