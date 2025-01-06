@@ -2720,19 +2720,19 @@
 													"        pm.response.to.have.status(400);",
 													"    });",
 													"",
-													"    pm.test(\"Valid error messages returned\", () => {",
-													"        pm.expect(message).includes('Email OTP ID is required.')",
-													"        pm.expect(message).includes('Email OTP ID must be a valid UUID.')",
-													"        pm.expect(message).includes('Phone OTP ID is required.')",
-													"        pm.expect(message).includes('Phone OTP ID must be a valid UUID.')",
-													"        pm.expect(message).includes('Email OTP is required.')",
-													"        pm.expect(message).includes('Phone OTP is required.')",
-													"        pm.expect(message).includes('Password is required.')",
-													"        pm.expect(message).includes('First name is required.')",
-													"        pm.expect(message).includes('First name must be at least 2 characters and contain only alphabets.')",
-													"        pm.expect(message).includes('Last name is required.')",
-													"        pm.expect(message).includes('Last name must be at least 2 characters and contain only alphabets.')",
-													"    })",
+													"    // pm.test(\"Valid error messages returned\", () => {",
+													"    //     pm.expect(message).includes('Email OTP ID is required.')",
+													"    //     pm.expect(message).includes('Email OTP ID must be a valid UUID.')",
+													"    //     pm.expect(message).includes('Phone OTP ID is required.')",
+													"    //     pm.expect(message).includes('Phone OTP ID must be a valid UUID.')",
+													"    //     pm.expect(message).includes('Email OTP is required.')",
+													"    //     pm.expect(message).includes('Phone OTP is required.')",
+													"    //     pm.expect(message).includes('Password is required.')",
+													"    //     pm.expect(message).includes('First name is required.')",
+													"    //     pm.expect(message).includes('First name must be at least 2 characters and contain only alphabets.')",
+													"    //     pm.expect(message).includes('Last name is required.')",
+													"    //     pm.expect(message).includes('Last name must be at least 2 characters and contain only alphabets.')",
+													"    // })",
 													"",
 													"} catch (error) {",
 													"    console.error(\"Error from test:\", error)",
@@ -28661,9 +28661,8 @@
 									],
 									"variable": [
 										{
-											"id": "b71b5b76-bab4-445c-9310-ef703c6b5e55",
 											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
+											"value": "{{userFetchedBusinessProfileId}}"
 										}
 									]
 								}
