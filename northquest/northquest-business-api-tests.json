@@ -8097,7 +8097,7 @@
 											"        }",
 											"    } = pm.response.json();",
 											"",
-											"    pm.environment.set(\"userAccessToken\", token)",
+											"    pm.environment.set(\"userRefreshedAccessToken\", token)",
 											"    pm.environment.set(\"userRefreshToken\", userRefreshToken)",
 											"",
 											"    pm.test(\"Status code is 200\", function () {",
@@ -8120,10 +8120,7 @@
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
+									"type": "noauth"
 								},
 								"method": "POST",
 								"header": [],
