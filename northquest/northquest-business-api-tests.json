@@ -43693,7 +43693,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												},
 												{
 													"key": "id",
@@ -43828,6 +43828,15 @@
 										},
 										"method": "DELETE",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"pin\": \"1234\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
 											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
 											"host": [
@@ -43841,12 +43850,10 @@
 											],
 											"variable": [
 												{
-													"id": "b5286c85-6cf0-44ba-8046-2581ae3eb20f",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												},
 												{
-													"id": "04953ddb-21a8-4a7d-889d-46a0f46f3558",
 													"key": "id",
 													"value": ""
 												}
@@ -43979,6 +43986,15 @@
 										},
 										"method": "DELETE",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"pin\": \"1234\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
 											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
 											"host": [
@@ -43992,12 +44008,10 @@
 											],
 											"variable": [
 												{
-													"id": "c032e46e-5def-4c69-a005-fbd3d324bb68",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												},
 												{
-													"id": "a0346057-ba1a-45ea-9530-71ef2e8cbbe0",
 													"key": "id",
 													"value": "31931947-9fea-744d-8f66-118c138292e3"
 												}
@@ -44148,7 +44162,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\"\n}",
+											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\",\n    \"pin\": \"1234\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -44167,7 +44181,6 @@
 											],
 											"variable": [
 												{
-													"id": "fd61decf-84fb-4ba2-835d-8ab146c3179b",
 													"key": "profile_id",
 													"value": "{{userFetchedPersonalProfileId}}"
 												}
@@ -44309,7 +44322,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"type\": \"\", // static | dynamic\n    \"purpose\": \"\",\n    \"account_id\": \"\",\n    \"expires_on\": \"\"\n}",
+											"raw": "{\n    \"name\": \"\",\n    \"type\": \"\", // static | dynamic\n    \"purpose\": \"\",\n    \"account_id\": \"\",\n    \"expires_on\": \"\",\n    \"pin\": \"\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -44328,9 +44341,8 @@
 											],
 											"variable": [
 												{
-													"id": "5db54102-3772-4bd6-8261-bc41cb98820a",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												}
 											]
 										}
@@ -44474,7 +44486,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"bless\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\"\n}",
+											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"bless\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\",\n    \"pin\": \"1234\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -44493,9 +44505,8 @@
 											],
 											"variable": [
 												{
-													"id": "0e29d025-f54f-4df8-abb9-d2f04d85456c",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												}
 											]
 										}
