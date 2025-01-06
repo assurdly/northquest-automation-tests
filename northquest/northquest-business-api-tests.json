@@ -32599,7 +32599,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -32623,17 +32623,14 @@
 													],
 													"variable": [
 														{
-															"id": "f4006910-b2b0-4d78-a79d-0839d9a7ddcd",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "b5ed2166-8aed-4d5a-9085-1e08a4b36037",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "9d734ace-1737-4959-a345-784b3621f5b3",
 															"key": "biller_id",
 															"value": "glo"
 														}
@@ -32680,7 +32677,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -32704,17 +32701,14 @@
 													],
 													"variable": [
 														{
-															"id": "61658202-736d-4360-bda9-f300e55bc11a",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "fa60afc2-ee05-437a-8302-c75bf0285c8c",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "1ab28007-93b6-42e7-a7c7-575b03ff91b9",
 															"key": "biller_id",
 															"value": "airtel"
 														}
@@ -32761,7 +32755,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -32785,17 +32779,14 @@
 													],
 													"variable": [
 														{
-															"id": "cc9cfbfa-8166-4e1d-9c3c-d3cbb8f5d162",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "23a67707-b3ce-45da-a952-5b32b8b6817b",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "5cc363c5-a952-486e-96c1-b8be3950a21c",
 															"key": "biller_id",
 															"value": "9mobile"
 														}
@@ -32929,7 +32920,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 100,\n    \"option_id\": \"100\",\n    \"pin\": \"2222\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"11020034671\",\n    \"amount\": 100,\n    \"option_id\": \"100\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -32953,17 +32944,14 @@
 													],
 													"variable": [
 														{
-															"id": "41745622-58ea-4195-87cc-2d1cc93712e5",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "b0c51dc3-6ebc-4225-9ea2-eed244241edd",
 															"key": "category_id",
 															"value": "databundle"
 														},
 														{
-															"id": "43acf357-8db8-42b8-a07b-9fafb1e097e1",
 															"key": "biller_id",
 															"value": "mtn"
 														}
