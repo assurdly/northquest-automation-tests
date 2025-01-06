@@ -16230,423 +16230,6 @@
 							"id": "6f73b8c5-579e-43cb-9f94-1981611028fb"
 						},
 						{
-							"name": "Delete Beneficiary",
-							"item": [
-								{
-									"name": "Delete Transfer Beneficiary",
-									"id": "aa13130a-270c-49ed-94ed-4205c9e0f8ec",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{userAccessToken}}"
-											}
-										},
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"transfer-beneficiaries",
-												":beneficiary_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{userFetchedProfileId}}"
-												},
-												{
-													"key": "beneficiary_id",
-													"value": "{{userFetchedBenefId}}"
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"id": "458c6a8a-cd75-4204-a54c-8a589a91ac8a",
-											"name": "Success",
-											"originalRequest": {
-												"method": "DELETE",
-												"header": [],
-												"url": {
-													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e383-c2b7-7446-891e-7b148d063ad5",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"profiles",
-														":profile_id",
-														"transfer-beneficiaries",
-														"0192e383-c2b7-7446-891e-7b148d063ad5"
-													],
-													"variable": [
-														{
-															"key": "profile_id",
-															"value": "{{profileId}}"
-														}
-													]
-												}
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "32"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
-												},
-												{
-													"key": "Date",
-													"value": "Thu, 31 Oct 2024 17:13:03 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
-										}
-									]
-								},
-								{
-									"name": "Delete Transfer Beneficiary-Invalid Profile Id",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "e8910f8f-d308-487d-93c4-05787a160e1d",
-												"exec": [
-													"try {\r",
-													"    const { message } = pm.response.json()\r",
-													"\r",
-													"    pm.test(\"Status code is 400\", () => {\r",
-													"        pm.response.to.have.status(400);\r",
-													"    });\r",
-													"\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error)\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "95f103dc-a500-4c3f-b7e2-1264c8301d2e",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{userAccessToken}}"
-											}
-										},
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"transfer-beneficiaries",
-												":beneficiary_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{userProfileId}}1"
-												},
-												{
-													"key": "beneficiary_id",
-													"value": "{{userFetchedBenefId}}"
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"id": "462672e9-4e9f-4024-bd98-bc15eaf168db",
-											"name": "Success",
-											"originalRequest": {
-												"method": "DELETE",
-												"header": [],
-												"url": {
-													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e383-c2b7-7446-891e-7b148d063ad5",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"profiles",
-														":profile_id",
-														"transfer-beneficiaries",
-														"0192e383-c2b7-7446-891e-7b148d063ad5"
-													],
-													"variable": [
-														{
-															"key": "profile_id",
-															"value": "{{profileId}}"
-														}
-													]
-												}
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "32"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
-												},
-												{
-													"key": "Date",
-													"value": "Thu, 31 Oct 2024 17:13:03 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
-										}
-									]
-								},
-								{
-									"name": "Delete Transfer Beneficiary -Invalid beneficiary Id",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"id": "230c7f60-94ae-4111-ba09-837e1d52f649",
-												"exec": [
-													"try {\r",
-													"    const { message } = pm.response.json()\r",
-													"\r",
-													"    pm.test(\"Status code is 400\", () => {\r",
-													"        pm.response.to.have.status(400);\r",
-													"    });\r",
-													"\r",
-													"\r",
-													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).includes(\"Beneficiary ID must be a valid UUID\")\r",
-													"    })\r",
-													"\r",
-													"} catch (error) {\r",
-													"    console.error(\"Error from test:\", error)\r",
-													"}"
-												],
-												"type": "text/javascript",
-												"packages": {}
-											}
-										}
-									],
-									"id": "135ec555-1023-4b80-bc8e-08c512c5d149",
-									"protocolProfileBehavior": {
-										"disableBodyPruning": true
-									},
-									"request": {
-										"auth": {
-											"type": "bearer",
-											"bearer": {
-												"token": "{{userAccessToken}}"
-											}
-										},
-										"method": "DELETE",
-										"header": [],
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"transfer-beneficiaries",
-												":beneficiary_id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
-												},
-												{
-													"key": "beneficiary_id",
-													"value": "{{userFetchedBenefId}}"
-												}
-											]
-										}
-									},
-									"response": [
-										{
-											"id": "62da52cd-b25a-4b85-998f-a62d83b01e37",
-											"name": "Success",
-											"originalRequest": {
-												"method": "DELETE",
-												"header": [],
-												"url": {
-													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e383-c2b7-7446-891e-7b148d063ad5",
-													"host": [
-														"{{base_url}}"
-													],
-													"path": [
-														"profiles",
-														":profile_id",
-														"transfer-beneficiaries",
-														"0192e383-c2b7-7446-891e-7b148d063ad5"
-													],
-													"variable": [
-														{
-															"key": "profile_id",
-															"value": "{{profileId}}"
-														}
-													]
-												}
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "X-Powered-By",
-													"value": "Express"
-												},
-												{
-													"key": "Access-Control-Allow-Origin",
-													"value": "*"
-												},
-												{
-													"key": "X-RateLimit-Limit",
-													"value": "100"
-												},
-												{
-													"key": "X-RateLimit-Remaining",
-													"value": "99"
-												},
-												{
-													"key": "X-RateLimit-Reset",
-													"value": "1"
-												},
-												{
-													"key": "Content-Type",
-													"value": "application/json; charset=utf-8"
-												},
-												{
-													"key": "Content-Length",
-													"value": "32"
-												},
-												{
-													"key": "ETag",
-													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
-												},
-												{
-													"key": "Date",
-													"value": "Thu, 31 Oct 2024 17:13:03 GMT"
-												},
-												{
-													"key": "Connection",
-													"value": "keep-alive"
-												},
-												{
-													"key": "Keep-Alive",
-													"value": "timeout=5"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
-										}
-									]
-								}
-							],
-							"id": "7ca6ad39-4c23-4d99-bd4e-8156ed929b24"
-						},
-						{
 							"name": "Get Beneficiaries",
 							"item": [
 								{
@@ -17113,6 +16696,304 @@
 								}
 							],
 							"id": "2aafd081-aeb6-4343-ae10-2e5596656334"
+						},
+						{
+							"name": "Delete Beneficiary",
+							"item": [
+								{
+									"name": "Delete Transfer Beneficiary-Invalid Profile Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e8910f8f-d308-487d-93c4-05787a160e1d",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "95f103dc-a500-4c3f-b7e2-1264c8301d2e",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transfer-beneficiaries",
+												":beneficiary_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{userProfileId}}1"
+												},
+												{
+													"key": "beneficiary_id",
+													"value": "{{userFetchedBenefId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "462672e9-4e9f-4024-bd98-bc15eaf168db",
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e383-c2b7-7446-891e-7b148d063ad5",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transfer-beneficiaries",
+														"0192e383-c2b7-7446-891e-7b148d063ad5"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 17:13:03 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete Transfer Beneficiary -Invalid beneficiary Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "230c7f60-94ae-4111-ba09-837e1d52f649",
+												"exec": [
+													"try {\r",
+													"    const { message } = pm.response.json()\r",
+													"\r",
+													"    pm.test(\"Status code is 400\", () => {\r",
+													"        pm.response.to.have.status(400);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													"    pm.test(\"Test for valid error message\", () => {\r",
+													"        pm.expect(message).includes(\"Beneficiary ID must be a valid UUID\")\r",
+													"    })\r",
+													"\r",
+													"} catch (error) {\r",
+													"    console.error(\"Error from test:\", error)\r",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "135ec555-1023-4b80-bc8e-08c512c5d149",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transfer-beneficiaries",
+												":beneficiary_id"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{userFetchedPersonalProfileId}}"
+												},
+												{
+													"key": "beneficiary_id",
+													"value": "{{userFetchedBenefId}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"id": "62da52cd-b25a-4b85-998f-a62d83b01e37",
+											"name": "Success",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e383-c2b7-7446-891e-7b148d063ad5",
+													"host": [
+														"{{base_url}}"
+													],
+													"path": [
+														"profiles",
+														":profile_id",
+														"transfer-beneficiaries",
+														"0192e383-c2b7-7446-891e-7b148d063ad5"
+													],
+													"variable": [
+														{
+															"key": "profile_id",
+															"value": "{{profileId}}"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "X-Powered-By",
+													"value": "Express"
+												},
+												{
+													"key": "Access-Control-Allow-Origin",
+													"value": "*"
+												},
+												{
+													"key": "X-RateLimit-Limit",
+													"value": "100"
+												},
+												{
+													"key": "X-RateLimit-Remaining",
+													"value": "99"
+												},
+												{
+													"key": "X-RateLimit-Reset",
+													"value": "1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json; charset=utf-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "32"
+												},
+												{
+													"key": "ETag",
+													"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 31 Oct 2024 17:13:03 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=5"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+										}
+									]
+								}
+							],
+							"id": "7ca6ad39-4c23-4d99-bd4e-8156ed929b24"
 						},
 						{
 							"name": "Get Beneficiary",
@@ -17695,6 +17576,140 @@
 								}
 							],
 							"id": "797eccd8-b3f5-4ba1-912b-6b6d3df4f685"
+						},
+						{
+							"name": "Delete Transfer Beneficiary",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c69b49d4-c6ba-4302-909c-db78dd179f4b",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "aa13130a-270c-49ed-94ed-4205c9e0f8ec",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/:beneficiary_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transfer-beneficiaries",
+										":beneficiary_id"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"key": "beneficiary_id",
+											"value": "{{userFetchedBenefId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "458c6a8a-cd75-4204-a54c-8a589a91ac8a",
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transfer-beneficiaries/0192e383-c2b7-7446-891e-7b148d063ad5",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transfer-beneficiaries",
+												"0192e383-c2b7-7446-891e-7b148d063ad5"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{profileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 31 Oct 2024 17:13:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+								}
+							]
 						}
 					],
 					"id": "b2e1e224-7f80-4b9d-84cb-603813a87e15"
