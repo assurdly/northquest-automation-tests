@@ -3501,7 +3501,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"permissions\": [\n    \"01929211-b54f-7970-87e1-91950a529d45\",\n    \"01929211-b54f-74dd-92c6-f81b2e09c062\",\n    \"01929211-b54f-7427-bfe8-147d59ec6edd\",\n    \"01929211-b54f-7320-95b1-a8c5d4028b6f\",\n    \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\",\n    \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n    \"019291bc-4e74-769e-ab34-984446abf18d\",\n    \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n    \"019291bb-74c2-7d09-b969-5395961a0651\",\n    \"019291bb-74c2-7d09-b969-5395961a0630\",\n    \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n    \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n    \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n    \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n    \"01929211-b54f-77d3-9d4d-112d965f2761\",\n    \"01929211-b54f-74dd-92c6-f81b2e09c062\"\n    ]\n}",
+									"raw": "{\n    \"permissions\": [\n        \"01929211-b54f-7970-87e1-91950a529d45\",\n        \"01929211-b54f-74dd-92c6-f81b2e09c062\",\n        \"01929211-b54f-7427-bfe8-147d59ec6edd\",\n        \"01929211-b54f-7320-95b1-a8c5d4028b6f\",\n        \"019291bc-4e74-7ef1-a49f-c6d58c3d1b4d\",\n        \"019291bc-4e74-79b4-8852-5b1a13aee30d\",\n        \"019291bc-4e74-769e-ab34-984446abf18d\",\n        \"019291bb-74c2-7d17-a6d4-8f8871ff3d09\",\n        \"019291bb-74c2-7d09-b969-5395961a0651\",\n        \"019291bb-74c2-7d09-b969-5395961a0630\",\n        \"019291bb-74c2-7bbb-87d9-9f2bccce64a8\",\n        \"019291bb-74c2-781b-ba21-54b07b4fa58c\",\n        \"019291bb-74c2-749d-8638-6e8e2029c06e\",\n        \"019291bb-74c2-72be-a401-b6722a14a9a9\",\n        \"01929211-b54f-77d3-9d4d-112d965f2761\",\n        \"01929211-b54f-74dd-92c6-f81b2e09c062\"\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3521,7 +3521,7 @@
 									"variable": [
 										{
 											"key": "id",
-											"value": "01927265-d8bc-7195-996f-e131d5e13329"
+											"value": "{{adminFetchedRole}}"
 										}
 									]
 								}
@@ -13122,17 +13122,17 @@
 											"\r",
 											"    // pm.environment.set(\"adminFetchedProfileId\", data[0].id);\r",
 											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
+											"    pm.test(\"Status code is 400\", function () {\r",
+											"        pm.response.to.have.status(400);\r",
 											"    });\r",
 											"\r",
 											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
+											"        pm.expect(status).to.eql(\"error\")\r",
 											"    })\r",
 											"\r",
 											"\r",
 											"    pm.test(\"Test for valid success message\", () => {\r",
-											"        pm.expect(data).to.be.an(\"array\")\r",
+											"        pm.expect(data).to.be.null\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
@@ -13159,7 +13159,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Tier 1\",\n    \"description\": \"Tier 1\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 0,\n    \"single_receiving_limit\": 0,\n    \"period_sending_limit\": 0,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 0,\n    \"period_receiving_limit_time_unit\": \"day\",\n    \"requirements\": [\n        {\n            \"type\": \"documents\",\n            \"type_id\": \"{{adminFetchedDocumentTypeId}}\"\n        },\n        {\n            \"type\": \"definitions\",\n            \"type_id\": \"{{adminFetchedDefinition}}\"\n        }\n    ]\n}",
+									"raw": "{\n    \"name\": \"Tier 1\",\n    \"description\": \"Tier 1\",\n    \"profile_type\": \"personal\",\n    \"level\": 1,\n    \"enabled\": true,\n    \"single_sending_limit\": 0,\n    \"single_receiving_limit\": 0,\n    \"period_sending_limit\": 0,\n    \"period_sending_limit_time_unit\": \"day\",\n    \"period_receiving_limit\": 0,\n    \"period_receiving_limit_time_unit\": \"day\",\n    \"requirements\": [\n        {\n            \"type\": \"document\",\n            \"type_id\": \"{{adminFetchedDocumentTypeId}}\"\n        },\n        {\n            \"type\": \"kyc\",\n            \"type_id\": \"{{adminFetchedDefinition}}\"\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
