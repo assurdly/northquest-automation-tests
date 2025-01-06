@@ -3794,7 +3794,6 @@
 											"    pm.environment.set(\"userTenantId\", tenantId)",
 											"    pm.environment.set(\"loggedInUserPassword\", requestBody.password)",
 											"",
-											"",
 											"    pm.test(\"Status code is 200\", function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
@@ -41483,6 +41482,46 @@
 						}
 					],
 					"id": "4a54b609-2335-44b5-85a0-b09825b9bd2f"
+				},
+				{
+					"name": "Director Verification",
+					"id": "10e12afb-6b9b-4037-a2c5-1c7865eda8cc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"first_name\": \"\",\n        \"last_name\": \"\",\n        \"email\": \"\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile:id/verification/directors",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile:id",
+								"verification",
+								"directors"
+							],
+							"variable": [
+								{
+									"id": "1d4e77ea-55db-4d19-ab9c-10030fe40965",
+									"key": "profile:id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "cb92a590-a6cd-4763-a421-3aae070d62cd"
@@ -46146,46 +46185,6 @@
 				}
 			],
 			"id": "8e317657-71c9-47bc-a4ab-becf2cf1575b"
-		},
-		{
-			"name": "Director Verification",
-			"id": "10e12afb-6b9b-4037-a2c5-1c7865eda8cc",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "[\n    {\n        \"first_name\": \"\",\n        \"last_name\": \"\",\n        \"email\": \"\"\n    }\n]",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/profiles/:profile:id/verification/directors",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"profiles",
-						":profile:id",
-						"verification",
-						"directors"
-					],
-					"variable": [
-						{
-							"id": "1d4e77ea-55db-4d19-ab9c-10030fe40965",
-							"key": "profile:id",
-							"value": ""
-						}
-					]
-				}
-			},
-			"response": []
 		}
 	],
 	"event": [
