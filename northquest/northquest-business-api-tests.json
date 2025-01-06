@@ -42676,7 +42676,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"\",\n    \"type\": \"\", // static | dynamic\n    \"purpose\": \"\",\n    \"account_id\": \"\",\n    \"expires_on\": \"\"\n}",
+											"raw": "{\n    \"name\": \"\",\n    \"type\": \"\", // static | dynamic\n    \"purpose\": \"\",\n    \"account_id\": \"\",\n    \"expires_on\": \"\",\n    \"pin\": \"\"\n\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -42695,7 +42695,6 @@
 											],
 											"variable": [
 												{
-													"id": "2442a1df-09ee-4228-97e9-7a2d44d47e80",
 													"key": "profile_id",
 													"value": "{{userFetchedPersonalProfileId}}"
 												}
@@ -42841,7 +42840,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"bless\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\"\n}",
+											"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"bless\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-01-30\",\n    \"pin\": \"\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -42860,7 +42859,6 @@
 											],
 											"variable": [
 												{
-													"id": "281c18ed-f208-4b57-b967-56dd1850079c",
 													"key": "profile_id",
 													"value": "{{userFetchedPersonalProfileId}}"
 												}
@@ -43181,9 +43179,8 @@
 											],
 											"variable": [
 												{
-													"id": "8f21940f-c052-42d1-b686-ee9147edfb61",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												}
 											]
 										}
@@ -43346,12 +43343,10 @@
 											],
 											"variable": [
 												{
-													"id": "bbdf47fb-fa7c-4b31-b066-eb3543ac7c26",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												},
 												{
-													"id": "4a1fa689-b595-41cb-8c15-247e4e6974c6",
 													"key": "id",
 													"value": "{{userCreatedDynamicVirtualAccountId}}"
 												}
@@ -43524,12 +43519,10 @@
 											],
 											"variable": [
 												{
-													"id": "e83a1c72-80ed-421d-8af3-f5ca081036be",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												},
 												{
-													"id": "6cb2b9ee-a8dd-4418-b994-0c44ca24c5a7",
 													"key": "id",
 													"value": "{{userCreatedVirtualAccountId}}"
 												}
@@ -43677,6 +43670,15 @@
 										},
 										"method": "DELETE",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"pin\": \"1234\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
 											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
 											"host": [
@@ -43690,12 +43692,10 @@
 											],
 											"variable": [
 												{
-													"id": "4127c957-de75-47e8-801c-26d2ba24d8c8",
 													"key": "profile_id",
 													"value": "{{userFetchedPersonalProfileId}}"
 												},
 												{
-													"id": "87421308-5a46-45e3-ae71-5aa924e41eb3",
 													"key": "id",
 													"value": "{{userCreatedDynamicVirtualAccountId}}"
 												}
