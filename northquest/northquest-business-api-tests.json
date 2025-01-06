@@ -44676,9 +44676,8 @@
 											],
 											"variable": [
 												{
-													"id": "f28e3c5b-a467-494a-8cf8-81b8caede248",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												}
 											]
 										}
@@ -44825,9 +44824,8 @@
 											],
 											"variable": [
 												{
-													"id": "b99decde-ec64-44c4-8a6f-319d567fc28a",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												}
 											]
 										}
@@ -44937,9 +44935,9 @@
 													"        pm.expect(status).to.eql(\"success\")",
 													"    })",
 													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(data).to.not.eql([])",
-													"    })",
+													"    // pm.test(\"Test for valid error message\", () => {",
+													"    //     pm.expect(data).to.not.eql([])",
+													"    // })",
 													"",
 													"    pm.test(\"Test for valid error message\", () => {",
 													"        pm.expect(data).to.be.an(\"object\")",
@@ -44990,12 +44988,10 @@
 											],
 											"variable": [
 												{
-													"id": "d0983c14-c551-4b42-be70-c61a7428d60a",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												},
 												{
-													"id": "7d372b6a-3966-4097-beb9-ed1f5b30e902",
 													"key": "id",
 													"value": "{{userCreatedStaticVirtualAccountId}}"
 												}
@@ -45168,12 +45164,10 @@
 											],
 											"variable": [
 												{
-													"id": "666903cc-b42b-4f3f-9538-2386a39d0272",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												},
 												{
-													"id": "d1df91ea-9adf-4b3f-adf4-198c000c242b",
 													"key": "id",
 													"value": "{{userCreatedVirtualAccountId}}"
 												}
@@ -45321,6 +45315,15 @@
 										},
 										"method": "DELETE",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"pin\": \"1234\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
 											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
 											"host": [
@@ -45334,12 +45337,10 @@
 											],
 											"variable": [
 												{
-													"id": "6311443a-7b42-4745-885c-4c6f684baa9d",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												},
 												{
-													"id": "0ca5783a-9f5a-4821-bd70-f75dd88a993a",
 													"key": "id",
 													"value": "{{userCreatedStaticVirtualAccountId}}"
 												}
@@ -45472,6 +45473,15 @@
 										},
 										"method": "DELETE",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"pin\": \"1234\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
 											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
 											"host": [
@@ -45485,12 +45495,10 @@
 											],
 											"variable": [
 												{
-													"id": "8101ae5a-8167-4cf1-bab0-573fb72cafc8",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												},
 												{
-													"id": "2aef25a0-b063-46d0-9300-f7be0b304cd5",
 													"key": "id",
 													"value": ""
 												}
@@ -45623,6 +45631,15 @@
 										},
 										"method": "DELETE",
 										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"pin\": \"1234\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
 										"url": {
 											"raw": "{{base_url}}/profiles/:profile_id/virtual-accounts/:id",
 											"host": [
@@ -45636,14 +45653,12 @@
 											],
 											"variable": [
 												{
-													"id": "d48dd31c-a67f-4042-8409-4f626f3a120d",
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												},
 												{
-													"id": "0c195d02-51c5-48f6-b09c-b5b1bf05637f",
 													"key": "id",
-													"value": "31931947-9fea-744d-8f66-118c138292e3"
+													"value": ""
 												}
 											]
 										}
