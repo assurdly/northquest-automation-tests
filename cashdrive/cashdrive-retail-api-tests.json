@@ -8356,1234 +8356,9 @@
 									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"nin\": \"1234567890\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"personal\",\n        \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\",\n        \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-09-27T13:57:43.894Z\",\n        \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
 								}
 							]
-						},
-						{
-							"name": "Create Profile - Already Existing Profile Name",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "7b7fd739-c560-4484-ad3a-e9eaa492a78d",
-										"exec": [
-											"// try {",
-											"//     const { message } = pm.response.json()",
-											"",
-											"//     pm.test(\"Status code is 400\", () => {",
-											"//         pm.response.to.have.status(400);",
-											"//     });",
-											"",
-											"//     pm.test(\"Status code name has string\", function () {",
-											"//         pm.response.to.have.status(\"Bad Request\");",
-											"//     });",
-											"",
-											"//     pm.test(\"Test for valid error message\", () => {",
-											"//         pm.expect(message).includes(\"name should not be empty\")",
-											"//     })",
-											"",
-											"// } catch (error) {",
-											"//     console.error(\"Error from test:\", error)",
-											"// }"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "611d1dbd-99ba-4d73-b1d0-db870df5b3f1",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"type\": \"\",\n    \"name\": \"Test\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"\",\n    \"gender\": \"male\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/profiles"
-							},
-							"response": [
-								{
-									"id": "08b1b992-c453-431c-b221-67e35a709292",
-									"name": "Create Profile",
-									"originalRequest": {
-										"method": "POST",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"type\": \"personal\",\n    \"name\": \"wunmi\",\n    \"first_name\": \"\",\n    \"last_name\": \"\",\n    \"nin\": \"1234567890\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": "{{base_url}}/profiles"
-									},
-									"status": "Created",
-									"code": 201,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Fri, 27 Sep 2024 13:57:44 GMT"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "445"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1bd-FAijTRuS60lyD9Xj8CumelVWbXU\""
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"meta\": {\n            \"first_name\": \"\",\n            \"last_name\": \"\",\n            \"nin\": \"1234567890\"\n        },\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"wunmi\",\n        \"type\": \"personal\",\n        \"primary_user_id\": \"019233c3-ec4c-7ffa-922e-94bfe8e3b407\",\n        \"id\": \"019233c5-f357-7ffa-922e-9ff5318f8678\",\n        \"created_by\": null,\n        \"modified_by\": null,\n        \"deleted_by\": null,\n        \"created_on\": \"2024-09-27T13:57:43.894Z\",\n        \"modified_on\": \"2024-09-27T13:57:43.894Z\",\n        \"deleted_on\": null,\n        \"status\": \"active\"\n    }\n}"
-								}
-							]
 						}
 					],
 					"id": "54e3ba12-8a21-4e18-8a3f-0e77e9bd6f1a"
-				},
-				{
-					"name": "Update User Profile",
-					"item": [
-						{
-							"name": "Update User Profile",
-							"id": "042d874e-f600-491c-b6da-3d4defa2f10d",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"users",
-										":id"
-									],
-									"variable": [
-										{
-											"id": "02c7c3ee-0a26-41e8-8ba3-78b5f1a6f76a",
-											"key": "profile_id",
-											"value": "01925236-19c0-7112-9440-aa8162716104"
-										},
-										{
-											"id": "82f7ece8-35c5-4ef9-b7cb-e223ed22be1d",
-											"key": "id",
-											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "e1ad65c0-87dd-4766-b54c-45d37687c1a8",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"users",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925236-19c0-7112-9440-aa8162716104"
-												},
-												{
-													"key": "id",
-													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "458"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Update User Profile-Invalid profile id",
-							"id": "6ec0afec-8d99-49a7-8e58-0bb13f10794b",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"users",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										},
-										{
-											"key": "id",
-											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "b511a5a1-be97-4f9a-8c8e-b114dd1b7a44",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"users",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925236-19c0-7112-9440-aa8162716104"
-												},
-												{
-													"key": "id",
-													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "458"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Update User Profile-Invalid id",
-							"id": "78bcd558-57f3-4745-bfcb-da85545eede3",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"users",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										},
-										{
-											"key": "id",
-											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "8914564e-f34f-4fb7-9471-93d1e74f039c",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"users",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925236-19c0-7112-9440-aa8162716104"
-												},
-												{
-													"key": "id",
-													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "458"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Update User Profile-Empty id field",
-							"id": "416c2ce9-0521-4408-a8f2-403c5a0017ef",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"users",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										},
-										{
-											"key": "id",
-											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "09fb4ef1-0200-4ccc-9be4-bd6db2ecaf4a",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"users",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925236-19c0-7112-9440-aa8162716104"
-												},
-												{
-													"key": "id",
-													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "458"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Update User Profile-Empty profile id field",
-							"id": "7981322d-9bc3-4c43-8970-6bc674cb70c9",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"users",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										},
-										{
-											"key": "id",
-											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "6d473a14-37c3-4721-b446-4174b4553dc1",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"users",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925236-19c0-7112-9440-aa8162716104"
-												},
-												{
-													"key": "id",
-													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "458"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Update User Profile-Invalid status",
-							"id": "32f0b2e7-1e0f-40b1-ad62-52b3152a7ae2",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"users",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										},
-										{
-											"key": "id",
-											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "e5a8e54b-533f-4de8-b38c-b0179a3cf4ad",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"users",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925236-19c0-7112-9440-aa8162716104"
-												},
-												{
-													"key": "id",
-													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "458"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Update User Profile-Invalid role ID",
-							"id": "251aa2ad-6d1f-44bd-bf3a-7eb0b36ac39b",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"users",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										},
-										{
-											"key": "id",
-											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "313d1559-9776-460c-a31f-d4165760dfe3",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"users",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925236-19c0-7112-9440-aa8162716104"
-												},
-												{
-													"key": "id",
-													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "458"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Update User Profile-Empty fields",
-							"id": "16a98c20-7a7b-4467-a77f-352b0d258fd1",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"users",
-										":id"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedPersonalProfileId}}"
-										},
-										{
-											"key": "id",
-											"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "23094967-4111-49ce-93e0-c8a46b183295",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/users/:id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"users",
-												":id"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "01925236-19c0-7112-9440-aa8162716104"
-												},
-												{
-													"key": "id",
-													"value": "01924c55-af23-744f-b9f4-13f139166ac1"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "458"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"1ca-vkjUPZC7HxAiH9GZ2nPYbNuSdts\""
-										},
-										{
-											"key": "Date",
-											"value": "Wed, 09 Oct 2024 22:05:13 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01925236-19cd-7112-9440-b0da1342a592\",\n        \"meta\": null,\n        \"created_on\": \"2024-10-03T11:48:50.239Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-10-09T22:01:44.948Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"status\": \"active\",\n        \"user_id\": \"01924c55-af23-744f-b9f4-13f139166ac1\",\n        \"profile_id\": \"01925236-19c0-7112-9440-aa8162716104\",\n        \"role_id\": \"01926788-56f8-7336-86de-98a2678c8611\"\n    }\n}"
-								}
-							]
-						}
-					],
-					"id": "a0a9a8f1-7736-4fbb-82d8-f58880280db0"
 				},
 				{
 					"name": "Update Profile",
@@ -10169,143 +8944,6 @@
 					"id": "b9fb30d3-acaa-41bd-953e-ad9397991486"
 				},
 				{
-					"name": "Update Maker Checker",
-					"item": [
-						{
-							"name": "Update Maker Checker",
-							"id": "c220d0e6-c32f-49e8-8ea7-a86f7a8a864f",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{userAccessToken}}"
-									}
-								},
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "// {\n//     \"enabled\": true\n//     // \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n// }",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/maker-checker",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"profiles",
-										":profile_id",
-										"maker-checker"
-									],
-									"variable": [
-										{
-											"key": "profile_id",
-											"value": "{{userFetchedProfileId}}"
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "86b91d0c-7a68-418b-84a3-9374917fdf04",
-									"name": "Success",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"enabled\": false,\n    \"permission_id\": \"01927c43-83df-7e99-9369-c6b61ed657c8\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/maker-checker",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"profiles",
-												":profile_id",
-												"maker-checker"
-											],
-											"variable": [
-												{
-													"key": "profile_id",
-													"value": "{{profileId}}"
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "X-Powered-By",
-											"value": "Express"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "100"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "99"
-										},
-										{
-											"key": "X-RateLimit-Reset",
-											"value": "1"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json; charset=utf-8"
-										},
-										{
-											"key": "Content-Length",
-											"value": "73"
-										},
-										{
-											"key": "ETag",
-											"value": "W/\"49-Jxaxu7Xyoh2Jj4rkF8B+9bGtVig\""
-										},
-										{
-											"key": "Date",
-											"value": "Sat, 26 Oct 2024 20:50:27 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "keep-alive"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Permission Updated Successfully\"\n    }\n}"
-								}
-							]
-						}
-					],
-					"id": "d1edd69c-22e5-4993-ae3b-f3995608ca72"
-				},
-				{
 					"name": "Change Password",
 					"item": [
 						{
@@ -10854,6 +9492,857 @@
 						}
 					],
 					"id": "74531a52-d1cd-4680-a995-96e048a80846"
+				},
+				{
+					"name": "Change Password/ Passcode Copy",
+					"item": [
+						{
+							"name": "Change Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { data: { message } } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for successfull Request\", () => {",
+											"        pm.expect(message).to.eql(\"Password reset successfully.\")",
+											"    })",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "1f4e04f3-34eb-4fd9-a5bf-bc2fb5d1f354",
+										"exec": [
+											"const randomPasscode = Math.ceil(Math.random() * 800000) + 10000",
+											"console.log(randomPasscode)",
+											"pm.environment.set(\"randomPasscode\", randomPasscode)"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "e294a01f-ebaf-43db-9307-965e391b840c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"{{loggedInUserPassword}}\",\n    \"password\": \"{{randomPasscode}}\",\n    \"confirm_password\": \"{{randomPasscode}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "d469f73c-9bc4-40c0-8c4e-1fd453ac9849",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password - Empty Fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for Invalid old password\", () => {",
+											"        pm.expect(message).to.include(\"Password is required.\")",
+											"    })",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "938c3696-3c36-4ff3-a310-acbe7b949e55",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"\",\n    \"password\": \"\",\n    \"confirm_password\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "baaecbd2-7a13-46c9-8180-856613361618",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password - Invalid Current Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for Invalid old password\", () => {",
+											"        pm.expect([\"Invalid current passcode\", \"Invalid current password\"]).to.include(message);",
+											"    })",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "5416860a-c436-4777-9339-8378d9cd1f9d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"131613\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "12a84cf6-e1a3-4aa6-a979-09b152ec6f48",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password - Invalid Current Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { message } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for Invalid current password\", () => {",
+											"        pm.expect([\"Invalid current passcode\", \"Invalid current password\"]).to.include(message);",
+											"    });",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "6360aa1e-98cb-40b1-a425-32a843b2008f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"1234563\",\n    \"password\": \"Password12@@\",\n    \"confirm_password\": \"Password12@@\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "79bb2cfb-1676-4afe-a0a3-ba6f2f5cfdd1",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password - Revert",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { data: { message } } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for successfull Request\", () => {",
+											"        pm.expect(message).to.eql(\"Password reset successfully.\")",
+											"    })",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "577e8d5c-bd71-4f18-b7e8-bd421d7ea979",
+										"exec": [
+											"const randomPasscodeRevert = Math.ceil(Math.random() * 999999)",
+											"console.log(randomPasscodeRevert)",
+											"pm.environment.set(\"randomPasscodeRevert\", randomPasscodeRevert)"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "82e99990-1c76-4e67-82a6-840c1bb3c978",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"{{randomPasscode}}\",\n    \"password\": \"{{randomPasscodeRevert}}\",\n    \"confirm_password\": \"{{randomPasscodeRevert}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "4af1c48f-33e0-4822-a996-97495809e71a",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Change Password - Rebase",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1e6b74bd-7d1a-4148-87de-327ba0f95a81",
+										"exec": [
+											"try {",
+											"    const { data: { message } } = pm.response.json()",
+											"",
+											"    pm.test(\"Tests for successfull Request\", () => {",
+											"        pm.expect(message).to.eql(\"Password reset successfully.\")",
+											"    })",
+											"",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"",
+											"} catch (error) {",
+											"    console.error(\"errors from tests\", error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "705e68cb-30e6-477c-8e72-f1004b080f85",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"old_password\": \"{{randomPasscodeRevert}}\",\n    \"password\": \"123456\",\n    \"confirm_password\": \"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/auth/change-password"
+							},
+							"response": [
+								{
+									"id": "2549d40b-270f-4b9b-a979-632230eff448",
+									"name": "Change Password",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"old_password\": \"128392\",\n    \"password\": \"128392\",\n    \"confirm_password\": \"128392\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": "{{base_url}}/auth/change-password"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-3gNF4IDbCs6Bv4ENKs0nmbNf4DQ\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Nov 2024 16:27:02 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Password reset successfully.\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"id": "1b5fe512-75c1-40cf-9645-aafdeff26870"
 				}
 			],
 			"id": "041b1e26-a034-468a-b1be-bea8bc6ce5cd"
