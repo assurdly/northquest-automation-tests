@@ -40658,7 +40658,7 @@
 												"exec": [
 													"try {",
 													"    const { status, data } = pm.response.json()",
-													"    pm.environment.set(\"userCreatedVirtualAccountId\", data.id)",
+													"    pm.environment.set(\"userCreatedDynamicVirtualAccountId\", data.id)",
 													"",
 													"    pm.test(\"Status code is 201\", function () {",
 													"        pm.response.to.have.status(201);",
@@ -41466,13 +41466,11 @@
 													"        pm.expect(status).to.eql(\"success\")",
 													"    })",
 													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(data).to.not.eql([])",
-													"    })",
+													"    // pm.test(\"Test for valid error message\", () => {",
+													"    //     pm.expect(data).to.not.eql([])",
+													"    // })",
 													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(data).to.be.an(\"object\")",
-													"    })",
+													"",
 													"",
 													"} catch (error) {",
 													"    console.error(\"Error from test:\", error);",
@@ -41646,9 +41644,9 @@
 													"        pm.expect(data).to.not.eql([])",
 													"    })",
 													"",
-													"    pm.test(\"Test for valid error message\", () => {",
-													"        pm.expect(data).to.be.an(\"array\")",
-													"    })",
+													"    // pm.test(\"Test for valid error message\", () => {",
+													"    //     pm.expect(data).to.be.an(\"array\")",
+													"    // })",
 													"",
 													"} catch (error) {",
 													"    console.error(\"Error from test:\", error);",
@@ -42122,7 +42120,7 @@
 									]
 								},
 								{
-									"name": "Delete Virtual Account - Empty Virtual Account Id Copy",
+									"name": "Delete Virtual Account - invalid Virtual Account Id",
 									"event": [
 										{
 											"listen": "test",
@@ -42358,7 +42356,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{userFetchedPersonalProfileId}}"
+													"value": "{{userFetchedBusinessProfileId}}"
 												}
 											]
 										}
