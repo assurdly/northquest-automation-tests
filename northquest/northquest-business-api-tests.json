@@ -32871,8 +32871,8 @@
 													"script": {
 														"id": "72bf7378-4689-4da6-8f07-50f915915b58",
 														"exec": [
-															"pm.test(\"Status code is 200\", function () {",
-															"    pm.response.to.have.status(200);",
+															"pm.test(\"Status code is 201\", function () {",
+															"    pm.response.to.have.status(201);",
 															"});"
 														],
 														"type": "text/javascript",
