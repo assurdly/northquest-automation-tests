@@ -25583,7 +25583,7 @@
 											}
 										},
 										"url": {
-											"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules",
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules?filter[type]=bill-payment",
 											"host": [
 												"{{base_url}}"
 											],
@@ -25606,8 +25606,7 @@
 												},
 												{
 													"key": "filter[type]",
-													"value": "bill_payment",
-													"disabled": true
+													"value": "bill-payment"
 												},
 												{
 													"key": "filter[created_on]",
