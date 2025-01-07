@@ -33422,7 +33422,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"}",
+													"raw": "{\n    \"account_number\": \"1102003467\",\n    \"amount\": 5300,\n    \"option_id\": \"NLTESE36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"account_name\": \"Test Name\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
