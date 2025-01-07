@@ -35437,7 +35437,7 @@
 							]
 						},
 						{
-							"name": "Get Transactions Copy",
+							"name": "Get Transactions",
 							"id": "19e40253-e1ad-40ad-b449-410610d8698d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -37722,6 +37722,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "GET",
 								"header": [],
 								"body": {
@@ -37734,7 +37740,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/transactions/0192e39c-3492-7445-bc38-6977bba60b85/receipt",
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/{{userFetchedTransactionId}}/receipt",
 									"host": [
 										"{{base_url}}"
 									],
@@ -37742,14 +37748,13 @@
 										"profiles",
 										":profile_id",
 										"transactions",
-										"0192e39c-3492-7445-bc38-6977bba60b85",
+										"{{userFetchedTransactionId}}",
 										"receipt"
 									],
 									"variable": [
 										{
-											"id": "494c3e03-c637-4060-935e-7dd618b0b297",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "{{userFetchedBusinessProfileId}}"
 										}
 									]
 								}
