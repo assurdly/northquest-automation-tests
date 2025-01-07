@@ -37711,6 +37711,53 @@
 						}
 					],
 					"id": "9e5e6cf0-242f-4c80-849d-04f67191aded"
+				},
+				{
+					"name": "Download Receipt",
+					"item": [
+						{
+							"name": "Download Transaction Receipt Copy",
+							"id": "340c7e1a-4fe5-4b0a-badb-49b5b22ac8e5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transactions/0192e39c-3492-7445-bc38-6977bba60b85/receipt",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transactions",
+										"0192e39c-3492-7445-bc38-6977bba60b85",
+										"receipt"
+									],
+									"variable": [
+										{
+											"id": "494c3e03-c637-4060-935e-7dd618b0b297",
+											"key": "profile_id",
+											"value": "{{profileId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "4de81d0c-5b23-4a9d-9f27-4ba6435d25ed"
 				}
 			],
 			"id": "0219b329-fc55-4316-a93a-b47be6d3f18a"
