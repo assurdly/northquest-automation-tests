@@ -24486,6 +24486,43 @@
 						}
 					],
 					"id": "ba758630-522e-4d7f-a7de-ff89cb666d85"
+				},
+				{
+					"name": "Get Account Statement",
+					"id": "b4674f16-a17d-4c90-b0cb-c16670684077",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/statement",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"accounts",
+								":account_id",
+								"statement"
+							],
+							"variable": [
+								{
+									"id": "370208bb-9243-48e5-8801-521ece43c4c3",
+									"key": "profile_id",
+									"value": "{{profileId}}"
+								},
+								{
+									"id": "bd965954-2802-4085-8c5a-d2506539c9c1",
+									"key": "account_id",
+									"value": "{{accountId}}"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "1a32a93b-a083-45cb-ba0f-ad54b0e96b21"
@@ -37716,7 +37753,7 @@
 					"name": "Download Receipt",
 					"item": [
 						{
-							"name": "Download Transaction Receipt Copy",
+							"name": "Download Transaction Receipt",
 							"id": "340c7e1a-4fe5-4b0a-badb-49b5b22ac8e5",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
