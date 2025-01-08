@@ -36536,7 +36536,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"transaction_id\": \"{{userFetchedTransactionId}}\",\n    \"note\": \"egbami, e no dey work\"\n}",
+									"raw": "{\n    \"transaction_id\": \"{{userFetchedTransactionId}}\",\n    \"note\": \"egbami, e no dey work\",\n    \"file_id\": \"0194462d-2cbc-788e-b49e-8f0163251b62\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -36556,7 +36556,6 @@
 									],
 									"variable": [
 										{
-											"id": "9072b66b-1252-4774-ba1a-e3aba479006a",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
