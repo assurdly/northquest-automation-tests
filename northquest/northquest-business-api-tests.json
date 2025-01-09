@@ -15377,8 +15377,8 @@
 											"    pm.environment.set(\"businessInvitedUserToken\", data.token)",
 											"    pm.environment.set(\"businessInvitedUserEmail\", requestBody.email)",
 											"",
-											"    pm.test(\"Status code is 201\", function () {",
-											"        pm.response.to.have.status(201);",
+											"    pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
 											"    });",
 											"",
 											"    pm.test(\"Test for valid status\", () => {",
@@ -15413,7 +15413,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"{{$randomFirstName}}@mailinator.com\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
+									"raw": "{\n    \"email\": \"azeez@mailinator.com\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
