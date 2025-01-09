@@ -71071,11 +71071,11 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "0ea6ef44-b4ae-4782-b763-994a076e8c66",
+				"id": "f8e7c183-dc23-4868-97df-8d292ecc42e0",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"pm.environment.set('origin', \"https://dev.admin.northquestfinance.com\")\r",
+					"pm.environment.set('origin', \"https://dev.app.northquestfinance.com\")\r",
 					"pm.request.headers.add({\r",
 					"    key: \"origin\",\r",
 					"    value: pm.environment.get(\"origin\")\r",
@@ -71086,7 +71086,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "1fb6156e-fcdc-4c85-9b58-c0ba615cfa06",
+				"id": "b0c3fe34-3f23-4819-92a2-81dc0ed6eee3",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
