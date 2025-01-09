@@ -12572,7 +12572,7 @@
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
 											"    const accountWithMoney = data.find((item) => item.available_balance >= 1000);\r",
-											"    const accountWithoutMoney = data.find((item) => item.available_balance < 10 && item.restricted == false);\r",
+											"    const accountWithoutMoney = data.find((item) => item.available_balance < 200 && item.restricted == false);\r",
 											"\r",
 											"    pm.environment.set(\"userFetchedAccountId\", accountWithMoney.id);\r",
 											"    pm.environment.set(\"userFetchedAccountnumber\", accountWithMoney.account_number);\r",
