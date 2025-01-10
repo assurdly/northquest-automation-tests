@@ -25636,6 +25636,116 @@
 										}
 									},
 									"response": []
+								},
+								{
+									"name": "Get Transactions Schedules Copy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "b07914e4-da46-49fd-a542-583a0c7791e0",
+												"exec": [
+													"try {",
+													"    const { status, data: { id } } = pm.response.json()",
+													"",
+													"    pm.test(\"Status code is 200\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"    pm.test(\"Test for valid status\", () => {",
+													"        pm.expect(status).to.eql(\"success\")",
+													"    })",
+													"",
+													"    // pm.test(\"Test for valid status\", () => {",
+													"    //     pm.expect(message).to.eql(\"Transfers Queued Successfully\")",
+													"    // })",
+													"",
+													"} catch (error) {",
+													"    console.error(\"Error from test:\", error);",
+													"}"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"id": "c5d94aa6-df3b-4ce6-af58-08105057e53b",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": {
+												"token": "{{userAccessToken}}"
+											}
+										},
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"0112345678\",\n    \"bank_code\": \"999998\",\n    \"account_id\": \"0192b537-3f83-719b-8ec4-df689454f0ee\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transactions/schedules?filter[type]=bill-payment",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transactions",
+												"schedules"
+											],
+											"query": [
+												{
+													"key": "filter[amount]",
+													"value": "100.23",
+													"disabled": true
+												},
+												{
+													"key": "filter[account_id]",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee",
+													"disabled": true
+												},
+												{
+													"key": "filter[type]",
+													"value": "bill-payment"
+												},
+												{
+													"key": "filter[created_on]",
+													"value": "2024-12-21",
+													"disabled": true
+												},
+												{
+													"key": "filter[next_run_date][gt]",
+													"value": "2025-01-03",
+													"description": "Upcoming",
+													"disabled": true
+												},
+												{
+													"key": "filter[next_run_date][lt]",
+													"value": "2025-01-03",
+													"description": "Past",
+													"type": "text",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"id": "ea87b067-c52d-4763-b00e-7a2d712957cc",
+													"key": "profile_id",
+													"value": "{{userFetchedBusinessProfileId}}"
+												}
+											]
+										}
+									},
+									"response": []
 								}
 							],
 							"id": "c764e657-98cd-4fcc-a66b-454fdd4f063f"
