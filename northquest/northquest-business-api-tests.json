@@ -8402,12 +8402,13 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/profiles",
+									"raw": "{{base_url}}/profiles/",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
-										"profiles"
+										"profiles",
+										""
 									],
 									"query": [
 										{
