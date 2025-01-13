@@ -15413,7 +15413,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"azeez@mailinator.com\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
+									"raw": "{\n    \"email\": \"{{$randomLastName}}@mailinator.com\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
