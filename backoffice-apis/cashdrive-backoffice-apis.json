@@ -24302,7 +24302,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/admin/transactions/disputes?relations=transaction&relations=profile",
+									"raw": "{{base_url}}/admin/transactions/disputes",
 									"host": [
 										"{{base_url}}"
 									],
@@ -24314,11 +24314,13 @@
 									"query": [
 										{
 											"key": "relations",
-											"value": "transaction"
+											"value": "transaction",
+											"disabled": true
 										},
 										{
 											"key": "relations",
-											"value": "profile"
+											"value": "profile",
+											"disabled": true
 										}
 									]
 								}
