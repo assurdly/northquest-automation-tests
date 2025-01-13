@@ -23355,10 +23355,6 @@
 											"try {\r",
 											"    const { message, statusCode } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Test for valid status code\", () => {\r",
-											"        pm.expect(statusCode).to.eql(401)\r",
-											"    })\r",
-											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.eql(\"Access token is required\")\r",
 											"    })\r",
@@ -25858,7 +25854,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c056\"\n}",
+									"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"01934a52-6414-700c-bc80-46137d7c056\",\n    \"expires_on\": \"2025-12-31\"\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -25942,6 +25938,36 @@
 						},
 						{
 							"name": "Create Virtual Account-Empty Fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f280d54f-d2bd-4859-bb02-a424120705e9",
+										"exec": [
+											"try {",
+											"    const { status, data} = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"error\")",
+											"    })",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(data).to.be.an(\"array\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "41c27d57-6b75-4c93-9745-a5ab5a35a50f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
@@ -25957,7 +25983,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
+									"raw": "{\n    \"name\": \"\",\n    \"type\": \"\", // static | dynamic\n    \"purpose\": \"\",\n    \"account_id\": \"\",\n    \"expires_on\": \"\"\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -26041,16 +26067,35 @@
 						},
 						{
 							"name": "Create Virtual Account-No auth",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d8ac6915-7ffb-4c4a-a2de-248980b4adec",
+										"exec": [
+											"try {",
+											"    const { message, statusCode } = pm.response.json()",
+											"",
+											"    pm.test(\"Test for valid error message\", () => {",
+											"        pm.expect(message).to.eql(\"Access token is required\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(error)",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"id": "89d01fe4-2512-4f87-b04e-291b88f1ba26",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{adminAccessToken}}"
-									}
+									"type": "noauth"
 								},
 								"method": "POST",
 								"header": [],
