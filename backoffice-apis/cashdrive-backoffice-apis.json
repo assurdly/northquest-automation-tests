@@ -5130,19 +5130,26 @@
 										"id": "7cda83d6-764c-4f26-b27a-45a1958ff272",
 										"exec": [
 											"try {\r",
-											"    const { message } = pm.response.json()\r",
+											"    const { status, data } = pm.response.json()\r",
+											"    const requestBody = JSON.parse(pm.request.body.raw);\r",
 											"\r",
-											"    pm.test(\"Status code is 201\", () => {\r",
-											"        pm.response.to.have.status(201);\r",
+											"    pm.environment.set(\"adminInvitedUserToken\", data.token)\r",
+											"    pm.environment.set(\"adminInvitedUserEmail\", requestBody.email)\r",
+											"\r",
+											"    pm.test(\"Status code is 200\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
 											"    });\r",
 											"\r",
+											"    pm.test(\"Test for valid status\", () => {\r",
+											"        pm.expect(status).to.eql(\"success\")\r",
+											"    })\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(message).to.eql(\"User successfully invited.\")\r",
+											"        pm.expect(data).to.be.an(\"object\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error)\r",
+											"    console.error(error)\r",
 											"}"
 										],
 										"type": "text/javascript",
@@ -5165,7 +5172,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\": \"yayahmohammed+1@gmail.com\",\n    \"role_id\":\"019295e4-b39f-7dd9-892d-46959f7d679d\"\n}",
+									"raw": "{\n    \"email\": \"{{$randomEmail}}\",\n    \"role_id\":\"019295e4-b39f-7dd9-892d-46959f7d679d\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6026,7 +6033,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMTkzZDlkOC0wMGUyLTdhYTMtODhjZi05ZWM1NGY0MDlmZmIiLCJpYXQiOjE3MzQ1MjY2MzIsImV4cCI6MTczNDUyNzUzMn0.eBwnkCoMSgWRsfmDis9wQLfQSVvQ8GntRp48K9Aqibw\",\n    \"password\": \"Password12@@\",\n    \"last_name\": \"Ade\",\n    \"first_name\": \"Wunmi\"\n}",
+									"raw": "{\n    \"token\": \"{{adminInvitedUserToken}}\",\n    \"password\": \"123456\",\n    \"last_name\": \"{{$randomLastName}}\",\n    \"first_name\": \"{{$randomFirstName}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
