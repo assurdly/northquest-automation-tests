@@ -3918,7 +3918,7 @@
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
 											"\r",
-											"    pm.environment.set(\"adminFetchedUserId\", data.users[0].id);\r",
+											"    pm.environment.set(\"adminFetchedUserId\", data[0].id);\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -3928,9 +3928,8 @@
 											"        pm.expect(status).to.eql(\"success\")\r",
 											"    })\r",
 											"\r",
-											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data).to.be.an(\"object\")\r",
+											"        pm.expect(data).to.be.an(\"array\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
@@ -3961,7 +3960,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/admin/users?filter[search]=a",
+									"raw": "{{base_url}}/admin/users",
 									"host": [
 										"{{base_url}}"
 									],
@@ -3972,7 +3971,8 @@
 									"query": [
 										{
 											"key": "filter[search]",
-											"value": "a"
+											"value": "a",
+											"disabled": true
 										},
 										{
 											"key": "filter[status]",
@@ -6166,7 +6166,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\":\"gambo@yopmail.com\",\n    \"password\":\"Password12@@\"\n}",
+									"raw": "{\n    \"email\": \"{{adminInvitedUserEmail}}\",\n    \"password\": \"123456\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
