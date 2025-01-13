@@ -22711,7 +22711,7 @@
 										"exec": [
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
-											"    pm.environment.set(\"adminFetchedTransactionId\", data.transactions[0].id)\r",
+											"    pm.environment.set(\"adminFetchedTransactionId\", data[0].id)\r",
 											"\r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
@@ -22722,7 +22722,7 @@
 											"    })\r",
 											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data).to.be.an(\"object\")\r",
+											"        pm.expect(data).to.be.an(\"array\")\r",
 											"    })\r",
 											"\r",
 											"} catch (error) {\r",
@@ -23221,7 +23221,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/admin/transactions/{{adminFetchedTransactionId}}?relations=disputes&relations=transfer&relations=transfer&relations=transfer",
+									"raw": "{{base_url}}/admin/transactions/{{adminFetchedTransactionId}}",
 									"host": [
 										"{{base_url}}"
 									],
@@ -23233,19 +23233,23 @@
 									"query": [
 										{
 											"key": "relations",
-											"value": "disputes"
+											"value": "disputes",
+											"disabled": true
 										},
 										{
 											"key": "relations",
-											"value": "transfer"
+											"value": "transfer",
+											"disabled": true
 										},
 										{
 											"key": "relations",
-											"value": "transfer"
+											"value": "transfer",
+											"disabled": true
 										},
 										{
 											"key": "relations",
-											"value": "transfer"
+											"value": "transfer",
+											"disabled": true
 										}
 									]
 								}
@@ -25464,7 +25468,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2024-12-31\"\n}",
+									"raw": "{\n    \"name\": \"{{$randomBankAccountName}}\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"expires_on\": \"2025-12-31\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -25594,7 +25598,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n    \"expires_on\": \"2024-12-31\"\n}",
+									"raw": "{\n    \"name\": \"My Test\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n    \"expires_on\": \"2025-12-31\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -25724,7 +25728,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"{{$randomAlphaNumeric}}\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"accountId\": \"01934a52-6414-700c-bc80-46137d7c0561\"\n}",
+									"raw": "{\n    \"name\": \"{{$randomAlphaNumeric}}\",\n    \"type\": \"static\", // static | dynamic\n    \"purpose\": \"Test\",\n    \"account_id\": \"01934a52-6414-700c-bc80-46137d7c0561\",\n    \"expires_on\": \"2025-12-31\"\n\n}",
 									"options": {
 										"raw": {
 											"language": "json"
