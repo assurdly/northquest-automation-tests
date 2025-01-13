@@ -6769,7 +6769,7 @@
 											"    });",
 											"",
 											"    pm.test(\"Valid error messages returned\", () => {",
-											"        pm.expect(message).to.include('Passwords do not match')",
+											"        pm.expect(message).to.include('Credentials does not match')",
 											"    })",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
