@@ -1144,7 +1144,7 @@
 													"    const { message } = pm.response.json()",
 													"",
 													"    pm.test(\"Successful POST request\", function () {",
-													"        pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+													"        pm.expect(pm.response.code).to.be.oneOf([201, 200]);",
 													"    });",
 													"",
 													"} catch (error) {",
