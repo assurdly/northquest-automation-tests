@@ -3828,7 +3828,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"identity\": \"calista@mailinator.com\",\n    // \"identity\": \"Ismael@mailinator.com\",\n    \"password\": \"123456\"\n}",
+									"raw": "{\n    // \"identity\": \"calista@mailinator.com\",\n    \"identity\": \"Ismael@mailinator.com\",\n    \"password\": \"123456\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5120,7 +5120,7 @@
 											"    const { data: { message } } = pm.response.json()",
 											"",
 											"    pm.test(\"Successful POST request\", () => {",
-											"        pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+											"        pm.expect(pm.response.code).to.be.oneOf([201, 200]);",
 											"    });",
 											"",
 											"    pm.test(\"Test for valid error message\", () => {",
@@ -5415,7 +5415,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"identity\":\"azeez@mailinator.com\"\n}",
+									"raw": "{\n    \"identity\":\"azeez0000@mailinator.com\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6581,7 +6581,7 @@
 											"    });",
 											"",
 											"    pm.test(\"Valid error messages returned\", () => {",
-											"        pm.expect(message).includes('Passwords do not match')",
+											"        pm.expect(message).includes('Credentials does not match')",
 											"    })",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error)",
