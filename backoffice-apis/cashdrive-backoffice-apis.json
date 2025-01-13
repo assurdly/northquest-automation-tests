@@ -6004,7 +6004,6 @@
 											"        pm.response.to.have.status(200);\r",
 											"    });\r",
 											"\r",
-											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.eql(\"User invite accepted successfully.\")\r",
 											"    })\r",
@@ -6059,7 +6058,6 @@
 											"        pm.response.to.have.status(400);\r",
 											"    });\r",
 											"\r",
-											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.eql(\"User invite is already accepted\")\r",
 											"    })\r",
@@ -6079,16 +6077,13 @@
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{adminAccessToken}}"
-									}
+									"type": "noauth"
 								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMTkyYjVmMC00MzBkLTcwMDEtYjE5Ny1jZjEwZDA0NDRiNGIiLCJpYXQiOjE3Mjk2MjkyNzQsImV4cCI6MTcyOTYzMjg3NH0.DtyA7F8FHFZw5ZkKZLR5hCNtJjTecikyxttlCiC2ivU\",\n    \"password\": \"Password12@@\",\n    \"last_name\": \"Ade\",\n    \"first_name\": \"Wunmi\"\n}",
+									"raw": "{\n    \"token\": \"{{adminInvitedUserToken}}\",\n    \"password\": \"123456\",\n    \"last_name\": \"{{$randomLastName}}\",\n    \"first_name\": \"{{$randomFirstName}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
