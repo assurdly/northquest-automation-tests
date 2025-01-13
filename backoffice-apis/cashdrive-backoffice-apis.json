@@ -770,8 +770,6 @@
 											"        pm.response.to.have.status(400);\r",
 											"    });\r",
 											"\r",
-											"    \r",
-											"\r",
 											"    pm.test(\"Validate error message\", () => {\r",
 											"        pm.expect(message).to.include('Email does not exist');\r",
 											"    })\r",
@@ -800,7 +798,7 @@
 										}
 									}
 								},
-								"url": "{{base_url}}/admin/auth/login"
+								"url": "{{base_url}}/admin/auth/forgot-password"
 							},
 							"response": [
 								{
@@ -7864,7 +7862,6 @@
 											" try {\r",
 											"    const { status, data } = pm.response.json()\r",
 											"\r",
-											"    \r",
 											"    pm.test(\"Status code is 200\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
 											"    });\r",
