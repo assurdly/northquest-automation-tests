@@ -25,17 +25,20 @@
 													"script": {
 														"id": "db8a99fb-c32a-495b-a2a3-1ab828f6c6ac",
 														"exec": [
-															"try {",
-															"    const { message, data } = pm.response.json()",
-															"    pm.environment.set(\"otpId\", data.id)",
+															"var jsonData = pm.response.json();",
 															"",
-															"    pm.test(\"Successful POST request\", function () {",
-															"        pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
-															"    });",
+															"pm.test(\"Status code is 200\", function () {",
+															"    pm.response.to.have.status(200);",
+															"});",
 															"",
-															"} catch (error) {",
-															"    console.error(\"Error from test:\", error)",
-															"}"
+															"pm.test(\"Response status is 'success'\", function () {",
+															"    pm.expect(jsonData.status).to.eql(\"success\");",
+															"});",
+															"",
+															"pm.test(\"Data object contains expected fields\", function () {",
+															"    pm.expect(jsonData.data).to.have.property(\"id\");",
+															"    pm.expect(jsonData.data).to.have.property(\"identity\");",
+															"})"
 														],
 														"type": "text/javascript",
 														"packages": {}
