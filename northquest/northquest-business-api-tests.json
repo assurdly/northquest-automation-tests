@@ -8705,10 +8705,6 @@
 											"        pm.response.to.have.status(400);\r",
 											"    });\r",
 											"\r",
-											"    // pm.test(\"Test for valid status\", () => {\r",
-											"    //     pm.expect(status).to.eql(\"success\")\r",
-											"    // })\r",
-											"\r",
 											"    pm.test(\"Test for valid error message\", () => {\r",
 											"        pm.expect(message).to.include(\"Profile ID must be a valid UUID\")\r",
 											"    })\r",
@@ -8746,7 +8742,6 @@
 									],
 									"variable": [
 										{
-											"id": "f864a0cb-72d1-4840-ac2f-95b90b4e8a28",
 											"key": "profile_id",
 											"value": "01925882-f353-7002-8052-04c8be2c03da2@/"
 										}
@@ -9027,10 +9022,6 @@
 											"    pm.test(\"Test for valid status\", () => {",
 											"        pm.expect(status).to.eql(\"error\")",
 											"    })",
-											"",
-											"    // pm.test(\"Test for valid error message\", () => {",
-											"    //     pm.expect(data).to.be.an(\"object\")",
-											"    // })",
 											"",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error);",
