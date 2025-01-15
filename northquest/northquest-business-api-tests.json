@@ -19535,8 +19535,8 @@
 					"name": "Update User Profile",
 					"item": [
 						{
-							"name": "Update User Profile - Inactive",
-							"id": "21fad51b-05a4-4841-9329-5c696c473d32",
+							"name": "Update User Profile - Active",
+							"id": "39d2d239-8c4a-427c-8609-666b7954e446",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -19551,7 +19551,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"status\": \"inactive\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
+									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -19583,7 +19583,7 @@
 							},
 							"response": [
 								{
-									"id": "875e1392-b488-4a57-83ee-b87e0e473ebf",
+									"id": "cf49c1ca-91da-433d-8309-272af0429a09",
 									"name": "Success",
 									"originalRequest": {
 										"method": "PATCH",
@@ -19676,8 +19676,8 @@
 							]
 						},
 						{
-							"name": "Update User Profile - Active",
-							"id": "39d2d239-8c4a-427c-8609-666b7954e446",
+							"name": "Update User Profile - Inactive",
+							"id": "21fad51b-05a4-4841-9329-5c696c473d32",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -19692,7 +19692,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
+									"raw": "{\n    \"status\": \"inactive\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -19724,7 +19724,7 @@
 							},
 							"response": [
 								{
-									"id": "cf49c1ca-91da-433d-8309-272af0429a09",
+									"id": "875e1392-b488-4a57-83ee-b87e0e473ebf",
 									"name": "Success",
 									"originalRequest": {
 										"method": "PATCH",
@@ -24552,6 +24552,169 @@
 							"response": [
 								{
 									"id": "df0235d2-56c1-46fd-9b2d-add46f8e03dc",
+									"name": "Pending Approval",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/accounts/:account_id/transfer",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"accounts",
+												":account_id",
+												"transfer"
+											],
+											"variable": [
+												{
+													"key": "account_id",
+													"value": "0192b537-3f83-719b-8ec4-df689454f0ee"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "70"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"46-8bfyF8xfJ1hm7Swt5nggBBZF7H0\""
+										},
+										{
+											"key": "Date",
+											"value": "Sat, 26 Oct 2024 20:23:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"message\": \"Transaction pending approval\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Pending Transfer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5e9eb6ad-d9c0-4874-bcf9-d4007138e63d",
+										"exec": [
+											"try {",
+											"    const { status, data } = pm.response.json()",
+											"",
+											"    pm.test(\"Status code is 201\", function () {",
+											"        pm.response.to.have.status(201);",
+											"    });",
+											"",
+											"    pm.test(\"Test for valid status\", () => {",
+											"        pm.expect(status).to.eql(\"success\")",
+											"    })",
+											"",
+											"} catch (error) {",
+											"    console.error(\"Error from test:\", error);",
+											"}"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "381d058c-88d1-4cd3-9b42-ed8981aa303c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"999998\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/accounts/:account_id/transfer",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"accounts",
+										":account_id",
+										"transfer"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										},
+										{
+											"key": "account_id",
+											"value": "{{userFetchedAccountId}}"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "00580f7e-d2af-417b-a969-cb26335bbb45",
 									"name": "Pending Approval",
 									"originalRequest": {
 										"method": "POST",
