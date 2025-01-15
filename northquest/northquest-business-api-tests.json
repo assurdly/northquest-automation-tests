@@ -25234,10 +25234,6 @@
 													"        pm.expect(status).to.eql(\"success\")",
 													"    })",
 													"",
-													"    // pm.test(\"Test for valid status\", () => {",
-													"    //     pm.expect(message).to.eql(\"Transfers Queued Successfully\")",
-													"    // })",
-													"",
 													"} catch (error) {",
 													"    console.error(\"Error from test:\", error);",
 													"}"
