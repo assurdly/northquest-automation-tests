@@ -24297,6 +24297,17 @@
 										{
 											"key": "relations",
 											"value": "profile",
+											"description": "filter",
+											"disabled": true
+										},
+										{
+											"key": "filter[created_on][lt]",
+											"value": "2025-12-31",
+											"disabled": true
+										},
+										{
+											"key": "filter[created_on][gt]",
+											"value": "2025-12-01",
 											"disabled": true
 										}
 									]
