@@ -7298,7 +7298,6 @@
 											"    pm.environment.set(\"userFetchedPersonalProfileId\", data.find((item) => item.type === \"personal\").id);",
 											"    pm.environment.set(\"userFetchedProfileId\", data.find((item) => item.type === \"personal\").id);",
 											"",
-											"",
 											"    pm.test(\"Status code is 200\", function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
