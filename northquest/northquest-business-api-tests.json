@@ -19551,7 +19551,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"status\": \"inactive\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
+									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
