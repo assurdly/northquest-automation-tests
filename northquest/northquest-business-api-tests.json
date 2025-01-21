@@ -19551,7 +19551,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"status\": \"active\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
+									"raw": "{\n    \"status\": \"inactive\",\n    \"role_id\": \"{{businessFetchedRoleId}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -19559,14 +19559,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/userss/:id",
+									"raw": "{{base_url}}/profiles/:profile_id/users/:id",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"profiles",
 										":profile_id",
-										"userss",
+										"users",
 										":id"
 									],
 									"variable": [
