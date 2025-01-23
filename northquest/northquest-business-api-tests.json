@@ -14395,7 +14395,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/users?limit=30",
+									"raw": "{{base_url}}/profiles/:profile_id/users?search=Azeez",
 									"host": [
 										"{{base_url}}"
 									],
@@ -14407,8 +14407,7 @@
 									"query": [
 										{
 											"key": "search",
-											"value": "Azeez",
-											"disabled": true
+											"value": "Azeez"
 										},
 										{
 											"key": "status",
@@ -14422,7 +14421,8 @@
 										},
 										{
 											"key": "limit",
-											"value": "30"
+											"value": "30",
+											"disabled": true
 										}
 									],
 									"variable": [
