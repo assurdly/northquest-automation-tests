@@ -38625,10 +38625,139 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/transaction-summary",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"transaction-summary"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "{{userFetchedProfileId}}"
+										}
+									]
+								}
 							},
-							"response": []
+							"response": [
+								{
+									"id": "01777ece-b220-4ef9-ba63-fd0098f6dc2e",
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{base_url}}/profiles/:profile_id/transaction-summary",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":profile_id",
+												"transaction-summary"
+											],
+											"variable": [
+												{
+													"key": "profile_id",
+													"value": "{{userFetchedProfileId}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 15:41:08 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"a9-QRT4lS1nnEJhSispnGoGQBnKWK8\""
+										},
+										{
+											"key": "cf-cache-status",
+											"value": "DYNAMIC"
+										},
+										{
+											"key": "Report-To",
+											"value": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=xZmivrRMS1QME3IlD2RXj%2FxQIssGFn5DtqTRthN6tfWlUJBNcd%2Fld%2BQxrjkqKtjGhjsQiWOOHyYdxKoBRxqC66HWLKYuXOk1b5viekRnVC21aCc8hqK4O%2BJdpn4b%2Fe7Tw8Q27d4aAa%2B5D6seB0nX\"}],\"group\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "NEL",
+											"value": "{\"success_fraction\":0,\"report_to\":\"cf-nel\",\"max_age\":604800}"
+										},
+										{
+											"key": "Server",
+											"value": "cloudflare"
+										},
+										{
+											"key": "CF-RAY",
+											"value": "9068e2dd8f0063d5-LHR"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "br"
+										},
+										{
+											"key": "alt-svc",
+											"value": "h3=\":443\"; ma=86400"
+										},
+										{
+											"key": "server-timing",
+											"value": "cfL4;desc=\"?proto=TCP&rtt=136422&min_rtt=132850&rtt_var=33348&sent=23&recv=23&lost=0&retrans=0&sent_bytes=4342&recv_bytes=1550&delivery_rate=28926&cwnd=254&unsent_bytes=0&cid=8ee6e1e37bed57b8&ts=19000&x=0\""
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"total_amount\": \"29900.00\",\n            \"total_count\": \"214\",\n            \"entry_type\": \"credit\"\n        },\n        {\n            \"total_amount\": \"900901.90\",\n            \"total_count\": \"484\",\n            \"entry_type\": \"debit\"\n        }\n    ]\n}"
+								}
+							]
 						}
 					],
 					"id": "99e6da43-21f3-45c9-a8a9-734659b13aee"
