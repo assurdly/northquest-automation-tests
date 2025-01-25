@@ -7083,20 +7083,17 @@
 									"script": {
 										"id": "989c07c8-173b-48ed-acda-fd30ca1fcb1f",
 										"exec": [
-											"try {",
-											"    const { data: { message } } = pm.response.json()",
+											"const { status, data: { message } } = pm.response.json()",
 											"",
-											"    pm.test(\"Successful POST request\", () => {",
-											"        pm.response.to.have.status(200);",
-											"    });",
-											"    ",
-											"    pm.test(\"Test for valid error message\", () => {",
-											"        pm.expect(message).to.eql(\"OTP sent successfully\")",
-											"    })",
+											"pm.test(\"Successful POST request\", () => {",
+											"    pm.response.to.have.status(200);",
+											"    pm.expect(status).to.eql(\"success\")",
 											"",
-											"} catch (error) {",
-											"    console.error(\"Error from test:\", error)",
-											"}"
+											"});",
+											"",
+											"pm.test(\"Test for valid error message\", () => {",
+											"    pm.expect(message).to.eql(\"OTP sent successfully\")",
+											"})"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -7353,20 +7350,16 @@
 									"script": {
 										"id": "880d3b84-c510-4362-934f-d1005082e91a",
 										"exec": [
-											"try {",
-											"    const { data: { message } } = pm.response.json()",
+											"const { data: { message } } = pm.response.json()",
 											"",
-											"    pm.test(\"Tests for successfull Request\", () => {",
-											"        pm.expect(message).to.eql(\"Password reset successfully.\")",
-											"    })",
+											"pm.test(\"Tests for successfull Request\", () => {",
+											"    pm.expect(message).to.eql(\"Password reset successfully.\")",
+											"})",
 											"",
-											"    pm.test(\"Status code is 200\", function () {",
-											"        pm.response.to.have.status(200);",
-											"    });",
-											"",
-											"} catch (error) {",
-											"    console.error(\"errors from tests\", error)",
-											"}"
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
