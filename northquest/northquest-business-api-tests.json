@@ -1129,21 +1129,18 @@
 											"script": {
 												"id": "ea8f65a8-9078-4e87-8634-841fbab3944e",
 												"exec": [
-													"try {",
-													"    const { data, status } = pm.response.json()",
-													"    pm.environment.set(\"otpId\", data.id)",
+													"const { data, status } = pm.response.json()",
+													"pm.environment.set(\"otpId\", data.id)",
 													"",
-													"    pm.test(\"Successful POST request\", function () {",
-													"        pm.expect(pm.response.code).to.be.oneOf([201, 200]);",
-													"    });",
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);",
+													"});",
 													"",
-													"    pm.test(\"Valid status response\", () => {",
-													"        pm.expect(status).to.eql(\"success\")",
-													"    })",
+													"pm.test(\"Valid status response\", () => {",
+													"    pm.expect(status).to.eql(\"success\")",
+													"})",
 													"",
-													"} catch (error) {",
-													"    console.error(\"Error from test:\", error)",
-													"}"
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -1389,24 +1386,20 @@
 											"script": {
 												"id": "c792f258-e664-4432-9c37-4b37d1a1985b",
 												"exec": [
-													"try {",
-													"    const { message } = pm.response.json()",
+													"const { message } = pm.response.json()",
 													"",
-													"    pm.test(\"Status code is 400\", () => {",
-													"        pm.response.to.have.status(400);",
-													"    });",
+													"pm.test(\"Status code is 400\", () => {",
+													"    pm.response.to.have.status(400);",
+													"});",
 													"",
-													"    pm.test(\"Status code name has string\", function () {",
-													"        pm.response.to.have.status(\"Bad Request\");",
-													"    });",
+													"pm.test(\"Status code name has string\", function () {",
+													"    pm.response.to.have.status(\"Bad Request\");",
+													"});",
 													"",
-													"    pm.test (\"Test for valid error message\", () => {",
-													"        pm.expect(message).to.include(\"Invalid phone number\")",
-													"    })",
-													"",
-													"} catch (error) {",
-													"    console.error(\"Error from test:\", error)",
-													"}"
+													"pm.test(\"Test for valid error message\", () => {",
+													"    pm.expect(message).to.include(\"Invalid phone number\")",
+													"})",
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -45344,7 +45337,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "3f84e37a-1ba7-41ab-bc70-8c2861d131fd",
+				"id": "8bdd74ca-7f5f-47b3-b3a2-066b7a196239",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -45359,7 +45352,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "16ab8381-c23f-48dd-b2b7-be95c2990c2a",
+				"id": "59f3464e-04a8-4538-a595-d9c989f2c599",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
