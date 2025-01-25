@@ -6,6 +6,11 @@
 	},
 	"item": [
 		{
+			"name": "!",
+			"item": [],
+			"id": "83ee2bb6-8cba-4ad2-87e2-9c9901ea4c27"
+		},
+		{
 			"name": "Onboarding",
 			"item": [
 				{
@@ -29789,61 +29794,6 @@
 				}
 			],
 			"id": "27adbe68-1a8b-4be9-b690-a7919ecc5eb7"
-		},
-		{
-			"name": "Make Bill Payment-Invalid category Id",
-			"id": "0238c500-90e0-48c6-836a-8bdb0bfc0656",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": {
-						"token": "{{userAccessToken}}"
-					}
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{base_url}}/profiles/:profile_id/bill-payments/categories/:category_id/billers/:biller_id/pay",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"profiles",
-						":profile_id",
-						"bill-payments",
-						"categories",
-						":category_id",
-						"billers",
-						":biller_id",
-						"pay"
-					],
-					"variable": [
-						{
-							"id": "92e691aa-fb89-4218-85fa-c4c827786293",
-							"key": "profile_id",
-							"value": "{{userFetchedProfileId}}"
-						},
-						{
-							"id": "71e65351-997d-4382-a283-4cde08d42eef",
-							"key": "category_id",
-							"value": "electricity1"
-						},
-						{
-							"id": "cd00f06e-828b-40dd-b5c2-d7a6af03d6fa",
-							"key": "biller_id",
-							"value": "abuja_electric_postpaid"
-						}
-					]
-				}
-			},
-			"response": []
 		},
 		{
 			"name": "Make Bill Payment",
