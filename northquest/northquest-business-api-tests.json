@@ -2433,17 +2433,24 @@
 											"script": {
 												"id": "742c27e8-72c6-4981-90f0-70ef0dd92bc4",
 												"exec": [
-													"try {",
-													"    const { message, data: { token } } = pm.response.json()",
-													"    pm.environment.set(\"createdUserToken\", token)",
+													"const { status, data } = pm.response.json();",
+													"pm.environment.set(\"createdUserToken\", data.token);",
 													"",
-													"    // pm.test(\"Successful POST request\", function () {",
-													"    //     pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
-													"    // });",
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);",
+													"    pm.expect(status).to.equal(\"success\");",
+													"});",
 													"",
-													"} catch (error) {",
-													"    console.error(\"Error from test:\", error)",
-													"}"
+													"pm.test(\"Validate response token\", function () {",
+													"    pm.expect(data).to.haveOwnProperty(\"token\");",
+													"    pm.expect(data.token).to.be.a(\"string\");",
+													"});",
+													"",
+													"pm.test(\"Ensure sensitive fields are not exposed\", function () {",
+													"    pm.expect(data).to.not.haveOwnProperty(\"password\");",
+													"    pm.expect(data).to.not.haveOwnProperty(\"pin\");",
+													"});",
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
