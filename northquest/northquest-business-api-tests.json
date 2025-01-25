@@ -1645,7 +1645,6 @@
 											"script": {
 												"id": "b6e2bb18-a7e9-41b4-94b5-0e2ceb29de13",
 												"exec": [
-													"try {",
 													"    const { message } = pm.response.json()",
 													"",
 													"    pm.test(\"Status code is 400\", () => {",
@@ -1660,9 +1659,7 @@
 													"        pm.expect(message).to.include(\"Invalid phone number\")",
 													"    })",
 													"",
-													"} catch (error) {",
-													"    console.error(\"Error from test:\", error)",
-													"}",
+													"",
 													""
 												],
 												"type": "text/javascript",
