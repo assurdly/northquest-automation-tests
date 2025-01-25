@@ -2711,6 +2711,7 @@
 													"    \"Last name must be at least 2 characters and contain only alphabets.\",",
 													"    \"Last name must be at least 2 characters and contain only alphabets.\"",
 													"];",
+													"",
 													"pm.test(\"Status code validation\", () => {",
 													"    pm.response.to.have.status(400);",
 													"    pm.expect(status).to.equal(\"error\");",
