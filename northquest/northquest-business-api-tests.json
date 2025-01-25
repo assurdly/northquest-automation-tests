@@ -22,17 +22,18 @@
 											"script": {
 												"id": "db8a99fb-c32a-495b-a2a3-1ab828f6c6ac",
 												"exec": [
-													"try {",
-													"    const { message, data } = pm.response.json()",
-													"    pm.environment.set(\"otpId\", data.id)",
+													"const { status, data } = pm.response.json()",
+													"pm.environment.set(\"otpId\", data.id)",
 													"",
-													"    pm.test(\"Successful POST request\", function () {",
-													"        pm.expect(pm.response.code).to.be.oneOf([201, 200]);",
-													"    });",
+													"pm.test(\"Successful POST request\", function () {",
+													"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);",
+													"});",
 													"",
-													"} catch (error) {",
-													"    console.error(\"Error from test:\", error)",
-													"}"
+													"pm.test(\"Valid status response\", () => {",
+													"    pm.expect(status).to.eql(\"success\")",
+													"})",
+													"",
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
