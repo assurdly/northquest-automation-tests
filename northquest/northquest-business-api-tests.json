@@ -2466,7 +2466,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email_otp_id\": \"{{otpId}}\",\n    // \"phone_otp_id\": \"{{otpId}}\",\n    \"email_otp\": \"983738\",\n    // \"phone_otp\": \"439034\",\n    \"password\": \"123456\",\n    \"referral_code\": \"\",\n    \"last_name\": \"Testing\",\n    \"first_name\": \"Sunday\"\n}",
+											"raw": "{\n    \"email_otp_id\": \"{{otpId}}\",\n    // \"phone_otp_id\": \"{{otpId}}\",\n    \"email_otp\": \"983738\",\n    // \"phone_otp\": \"439034\",\n    \"password\": \"123456\",\n    \"referral_code\": \"\",\n    \"last_name\": \"{{$randomFirstName}}\",\n    \"first_name\": \"{{$randomLastName}}\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -2696,30 +2696,32 @@
 											"script": {
 												"id": "f2f700b1-e134-4bc0-94fb-b06d3d30466a",
 												"exec": [
-													"try {",
-													"    const { message } = pm.response.json()",
+													"const { status, message, data } = pm.response.json();",
 													"",
-													"    pm.test(\"Status code is 400\", () => {",
-													"        pm.response.to.have.status(400);",
+													"const expectedErrors = [",
+													"    \"Email OTP ID is required.\",",
+													"    \"Email OTP ID must be a valid UUID.\",",
+													"    \"Phone OTP ID is required.\",",
+													"    \"Phone OTP ID must be a valid UUID.\",",
+													"    \"Email OTP is required.\",",
+													"    \"Phone OTP is required.\",",
+													"    \"Password is required.\",",
+													"    \"First name must be at least 2 characters and contain only alphabets.\",",
+													"    \"First name must be at least 2 characters and contain only alphabets.\",",
+													"    \"Last name must be at least 2 characters and contain only alphabets.\",",
+													"    \"Last name must be at least 2 characters and contain only alphabets.\"",
+													"];",
+													"pm.test(\"Status code validation\", () => {",
+													"    pm.response.to.have.status(400);",
+													"    pm.expect(status).to.equal(\"error\");",
+													"});",
+													"",
+													"pm.test(\"Validate error messages\", () => {",
+													"    expectedErrors.forEach(errorMsg => {",
+													"        pm.expect(data).to.include(errorMsg);",
 													"    });",
-													"",
-													"    // pm.test(\"Valid error messages returned\", () => {",
-													"    //     pm.expect(message).includes('Email OTP ID is required.')",
-													"    //     pm.expect(message).includes('Email OTP ID must be a valid UUID.')",
-													"    //     pm.expect(message).includes('Phone OTP ID is required.')",
-													"    //     pm.expect(message).includes('Phone OTP ID must be a valid UUID.')",
-													"    //     pm.expect(message).includes('Email OTP is required.')",
-													"    //     pm.expect(message).includes('Phone OTP is required.')",
-													"    //     pm.expect(message).includes('Password is required.')",
-													"    //     pm.expect(message).includes('First name is required.')",
-													"    //     pm.expect(message).includes('First name must be at least 2 characters and contain only alphabets.')",
-													"    //     pm.expect(message).includes('Last name is required.')",
-													"    //     pm.expect(message).includes('Last name must be at least 2 characters and contain only alphabets.')",
-													"    // })",
-													"",
-													"} catch (error) {",
-													"    console.error(\"Error from test:\", error)",
-													"}"
+													"});",
+													""
 												],
 												"type": "text/javascript",
 												"packages": {}
@@ -2993,7 +2995,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email_otp_id\": \"0191fa72-2542-7553-aff4-e58ed86ccbb2\",\n    \"phone_otp_id\": \"0191fa72-78bd-7553-aff4-e97226e6478b\",\n    \"email_otp\": \"699056\",\n    \"phone_otp\": \"450790\",\n    \"password\": \"passwo\",\n    \"referral_code\": \"\",\n    \"last_name\": \"Sodiq\",\n    \"first_name\": \"Dare\"\n}",
+											"raw": "{\n    \"email_otp_id\": \"{{otpId}}\",\n    // \"phone_otp_id\": \"{{otpId}}\",\n    \"email_otp\": \"983738\",\n    // \"phone_otp\": \"439034\",\n    \"password\": \"whenWeMove\",\n    \"referral_code\": \"\",\n    \"last_name\": \"Testing\",\n    \"first_name\": \"Sunday\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
