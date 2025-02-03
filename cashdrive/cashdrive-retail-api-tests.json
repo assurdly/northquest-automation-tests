@@ -8032,7 +8032,7 @@
 			"id": "5fdabe1b-85e7-4e10-bcca-a95ccb15474d"
 		},
 		{
-			"name": "Savings/Investments Copy",
+			"name": "Savings/Investments",
 			"item": [
 				{
 					"name": "Create Saving Plan",
@@ -8810,7 +8810,7 @@
 			"id": "9b47cce3-b50d-4efa-a021-86c2575697c9"
 		},
 		{
-			"name": "Loans Copy",
+			"name": "Loans",
 			"item": [
 				{
 					"name": "Create Loan",
@@ -9195,12 +9195,10 @@
 							],
 							"variable": [
 								{
-									"id": "18bda5f9-4d84-431b-b594-34420a9e897d",
 									"key": "profile_id",
-									"value": "01931947-9fea-744d-8f66-118c138292e3"
+									"value": "{{profile_id}}"
 								},
 								{
-									"id": "712cde70-d043-41b1-ac07-c09318a4bba7",
 									"key": "id",
 									"value": "01940996-61f4-777f-8de6-31370cb9992b"
 								}
