@@ -17,7 +17,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "bcebc68b-af58-4e37-bc5d-c0a6c0c889cb",
+										"id": "22f47b47-4107-4ce4-84fc-877c66242a7b",
 										"exec": [
 											"try {",
 											"    const {",
@@ -33,6 +33,29 @@
 											"    });",
 											"} catch (error) {",
 											"    console.error(\"Error from test:\", error);",
+											"}",
+											"",
+											"",
+											"",
+											"let jsonData = pm.response.json();",
+											"",
+											"// Validate response status",
+											"pm.test(\"Response status is 'success'\", () => {",
+											"    pm.expect(jsonData).to.have.property(\"status\", \"success\");",
+											"});",
+											"",
+											"// Ensure data object exists",
+											"pm.test(\"Response contains a data object\", () => {",
+											"    pm.expect(jsonData).to.have.property(\"data\").that.is.an(\"object\");",
+											"});",
+											"",
+											"",
+											"// Extract and store user ID as a collection variable (profile_id)",
+											"if (jsonData.data.user && jsonData.data.user.id) {",
+											"    pm.collectionVariables.set(\"profile_id\", jsonData.data.user.id);",
+											"    pm.test(\"Profile ID is set as a collection variable\", () => {",
+											"        pm.expect(pm.collectionVariables.get(\"profile_id\")).to.be.a(\"string\");",
+											"    });",
 											"}",
 											""
 										],
@@ -50,7 +73,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    // \"identity\": \"sammieyisau@gmail.com\",\n    // \"password\": \"234567\",\n    // \"identity\": \"darehorla@gmail.com\",\n    // \"password\": \"128392\"\n    \"identity\": \"mikeangel@mailinator.com\",\n    \"password\": \"123456\",\n    // \"identity\": \"Calista@mailinator.com\",\n    // \"password\": \"123456\",\n    // \"identity\": \"Ismael@mailinator.com\",\n    // \"password\": \"123456\",\n    \"device\": {\n        \"device_id\": \"000000000\",\n        \"notification_token\": \"token\", // nullable\n        \"longitude\": -82.9987,\n        \"latitude\": 39.9587,\n        \"os_name\": \"Android\",\n        \"os_version\": \"7 Kit Kat\"\n    }\n}",
+									"raw": "{\n    // \"identity\": \"sammieyisau@gmail.com\",\n    // \"password\": \"234567\",\n    // \"identity\": \"darehorla@gmail.com\",\n    // \"password\": \"128392\"\n    // \"identity\": \"mikeangel@mailinator.com\",\n    // \"password\": \"123456\",\n     \"identity\": \"lanre@mailinator.com\",\n    \"password\": \"222222\",\n    // \"identity\": \"Calista@mailinator.com\",\n    // \"password\": \"123456\",\n    // \"identity\": \"Ismael@mailinator.com\",\n    // \"password\": \"123456\",\n    \"device\": {\n        \"device_id\": \"000000000\",\n        \"notification_token\": \"token\", // nullable\n        \"longitude\": -82.9987,\n        \"latitude\": 39.9587,\n        \"os_name\": \"Android\",\n        \"os_version\": \"7 Kit Kat\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
