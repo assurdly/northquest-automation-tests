@@ -1,0 +1,23 @@
+{
+    "name": "Tier 1",
+    "description": "Tier 1",
+    "profile_type": "personal",
+    "level": 1,
+    "enabled": true,
+    "single_sending_limit": 0,
+    "single_receiving_limit": 0,
+    "period_sending_limit": 0,
+    "period_sending_limit_time_unit": "day",
+    "period_receiving_limit": 0,
+    "period_receiving_limit_time_unit": "day",
+    "requirements": [
+        {
+            "type": "documents",
+            "type_id": "0194b932-a1f0-7bb8-88f2-c418eac553e5"
+        },
+        {
+            "type": "definitions",
+            "type_id": "0194b8d1-526e-7bb8-88ef-c83e8c21e149"
+        }
+    ]
+}
