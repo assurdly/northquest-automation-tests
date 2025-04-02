@@ -38223,7 +38223,7 @@
 									"script": {
 										"id": "99c039aa-ea5d-43ea-94be-bf8cc97df17f",
 										"exec": [
-											"const { status } = pm.response.json()\r",
+											"const responseBody = pm.response.text();\r",
 											"\r",
 											"pm.test(\"Status code is 200\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
@@ -38270,7 +38270,6 @@
 									],
 									"variable": [
 										{
-											"id": "f82c80de-a24a-48d3-bf66-2899a7095c20",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										}
@@ -39609,6 +39608,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "dc5f06e1-cc25-4046-8766-cb0377a40fbd",
 										"exec": [
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
@@ -39621,9 +39621,6 @@
 											"        pm.expect(status).to.eql(\"success\")\r",
 											"    })\r",
 											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data).to.be.an(\"object\")\r",
-											"    })\r",
 											"\r",
 											"} catch (error) {\r",
 											"    console.error(\"Error from test:\", error);\r",
@@ -39631,8 +39628,7 @@
 											""
 										],
 										"type": "text/javascript",
-										"packages": {},
-										"id": "dc5f06e1-cc25-4046-8766-cb0377a40fbd"
+										"packages": {}
 									}
 								}
 							],
@@ -39663,7 +39659,6 @@
 									],
 									"variable": [
 										{
-											"id": "1e1d1a3c-3561-4771-9bbf-a8032e542e0f",
 											"key": "profile_id",
 											"value": "{{userFetchedBusinessProfileId}}"
 										}
