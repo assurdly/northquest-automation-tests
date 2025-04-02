@@ -28678,17 +28678,18 @@
 										{
 											"listen": "test",
 											"script": {
+												"id": "959047ff-e8c4-4d2e-8462-8aaff203342f",
 												"exec": [
 													"try {\r",
 													"    const { message } = pm.response.json()\r",
 													"\r",
-													"    pm.test(\"Status code is 400\", () => {\r",
-													"        pm.response.to.have.status(400);\r",
+													"    pm.test(\"Status code is 404\", () => {\r",
+													"        pm.response.to.have.status(404);\r",
 													"    });\r",
 													"\r",
 													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).includes(\"Profile ID must be a valid UUID\")\r",
+													"        pm.expect(message).includes(\"Cannot DELETE /api-backend/profiles/1/transfer-beneficiaries/\")\r",
 													"    })\r",
 													"\r",
 													"} catch (error) {\r",
@@ -28696,8 +28697,7 @@
 													"}"
 												],
 												"type": "text/javascript",
-												"packages": {},
-												"id": "959047ff-e8c4-4d2e-8462-8aaff203342f"
+												"packages": {}
 											}
 										}
 									],
@@ -28727,12 +28727,10 @@
 											],
 											"variable": [
 												{
-													"id": "14a1993e-8505-4a5c-970b-d6256045f60e",
 													"key": "profile_id",
 													"value": "{{userProfileId}}1"
 												},
 												{
-													"id": "a2509c98-c0f3-410e-b5a3-64f1e133a936",
 													"key": "beneficiary_id",
 													"value": "{{userFetchedBenefId}}"
 												}
@@ -28826,6 +28824,7 @@
 										{
 											"listen": "test",
 											"script": {
+												"id": "ab061dd3-7284-460f-820d-65f5487a9f2c",
 												"exec": [
 													"try {\r",
 													"    const { message } = pm.response.json()\r",
@@ -28844,8 +28843,7 @@
 													"}"
 												],
 												"type": "text/javascript",
-												"packages": {},
-												"id": "ab061dd3-7284-460f-820d-65f5487a9f2c"
+												"packages": {}
 											}
 										}
 									],
@@ -28875,14 +28873,12 @@
 											],
 											"variable": [
 												{
-													"id": "c0aea262-248c-4803-ad48-0c1dba581d9c",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												},
 												{
-													"id": "5f4e5610-2c3a-44eb-a227-96970c7ef03d",
 													"key": "beneficiary_id",
-													"value": "{{userFetchedBenefId}}"
+													"value": "{{userFetchedBenefId}}+yfh0"
 												}
 											]
 										}
