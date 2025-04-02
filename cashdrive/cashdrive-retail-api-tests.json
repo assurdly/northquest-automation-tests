@@ -3949,7 +3949,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"identity\": \"boom@mailinator.com\",\n    \"password\": \"123456\",\n    // \"code\": \"572649\",\n    \"device\": {\n        \"device_id\": \"000000000\",\n        \"notification_token\": \"token\", // nullable\n        \"longitude\": -82.9987,\n        \"latitude\": 39.9587,\n        \"os_name\": \"Android\",\n        \"os_version\": \"7 Kit Kat\"\n    }\n}",
+									"raw": "{\n    \"identity\": \"boom@mailinator.com\",\n    \"password\": \"123456\",\n    // \"code\": \"572649\", 2FA\n    \"device\": {\n        \"device_id\": \"000000000\",\n        \"notification_token\": \"token\", // nullable\n        \"longitude\": -82.9987,\n        \"latitude\": 39.9587,\n        \"os_name\": \"Android\",\n        \"os_version\": \"7 Kit Kat\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
