@@ -51,6 +51,8 @@
 												"exec": [
 													"// pm.environment.set('origin', \"https://northquestfinance.com\")",
 													"pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')",
+													"// pm.environment.set('base_url', 'https://public-prod.northquestfinance.com/api-backend')",
+													"",
 													"",
 													"// const emailToLowerCase = (email) => {",
 													"//     return email.toLowerCase()",
@@ -34284,11 +34286,13 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8bd6eab6-8127-439b-89cc-daad6145b2fb",
+				"id": "710862bb-830e-4ed0-a5d5-8715d4f70b21",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					"pm.environment.set('origin', \"https://dev.app.northquestfinance.com\")\r",
+					"// pm.environment.set('origin', \"https://app.northquestfinance.com\")\r",
+					"\r",
 					"pm.request.headers.add({\r",
 					"    key: \"origin\",\r",
 					"    value: pm.environment.get(\"origin\")\r",
@@ -34299,7 +34303,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "c7a1c916-348e-4d44-816f-c988147970d7",
+				"id": "21c2ea24-3960-4627-b664-bac367a01f64",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
