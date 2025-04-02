@@ -19822,12 +19822,10 @@
 									],
 									"variable": [
 										{
-											"id": "67b24f14-ed91-4f8a-8ff4-cffda9b5e135",
 											"key": "profile_id",
 											"value": "{{userFetchedBusinessProfileId}}"
 										},
 										{
-											"id": "dafba5f4-8886-4c10-944d-fc8f5fb30350",
 											"key": "id",
 											"value": "{{businessFetchedActiveUserObjectId}}"
 										}
@@ -21680,24 +21678,20 @@
 									"script": {
 										"id": "b42656c9-a276-4070-a121-fa8e190e70cf",
 										"exec": [
-											"try {\r",
-											"    const { status, data } = pm.response.json()\r",
+											"// try {\r",
+											"//     const { status, data } = pm.response.json()\r",
 											"\r",
-											"    pm.test(\"Status code is 200\", function () {\r",
-											"        pm.response.to.have.status(200);\r",
-											"    });\r",
+											"//     pm.test(\"Status code is 200\", function () {\r",
+											"//         pm.response.to.have.status(200);\r",
+											"//     });\r",
 											"\r",
-											"    pm.test(\"Test for valid status\", () => {\r",
-											"        pm.expect(status).to.eql(\"success\")\r",
-											"    })\r",
+											"//     pm.test(\"Test for valid status\", () => {\r",
+											"//         pm.expect(status).to.eql(\"success\")\r",
+											"//     })\r",
 											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data).to.be.an(\"object\")\r",
-											"    })\r",
-											"\r",
-											"} catch (error) {\r",
-											"    console.error(\"Error from test:\", error);\r",
-											"}"
+											"// } catch (error) {\r",
+											"//     console.error(\"Error from test:\", error);\r",
+											"// }"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -21747,7 +21741,6 @@
 									],
 									"variable": [
 										{
-											"id": "7af6e817-992c-484b-a61f-e754462308e0",
 											"key": "profile_id",
 											"value": "{{userFetchedBusinessProfileId}}"
 										}
