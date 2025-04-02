@@ -3951,7 +3951,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"identity\": \"boom@mailinator.com\",\n    \"password\": \"123456\",\n    // \"code\": \"572649\", 2FA\n    \"device\": {\n        \"device_id\": \"000000000\",\n        \"notification_token\": \"token\", // nullable\n        \"longitude\": -82.9987,\n        \"latitude\": 39.9587,\n        \"os_name\": \"Android\",\n        \"os_version\": \"7 Kit Kat\"\n    }\n}",
+									"raw": "{\n    \"identity\": \"olani@mailinator.com\",\n    \"password\": \"123456\",\n    // \"code\": \"572649\", 2FA\n    \"device\": {\n        \"device_id\": \"000000000\",\n        \"notification_token\": \"token\", // nullable\n        \"longitude\": -82.9987,\n        \"latitude\": 39.9587,\n        \"os_name\": \"Android\",\n        \"os_version\": \"7 Kit Kat\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -8517,7 +8517,7 @@
 			}
 		},
 		{
-			"name": "Profile Copy",
+			"name": "Profile",
 			"item": [
 				{
 					"name": "Create Profile",
@@ -10810,7 +10810,7 @@
 			"id": "e9415141-9ef0-4757-ab86-fe1af03153f5"
 		},
 		{
-			"name": "Dashboard Copy",
+			"name": "Dashboard",
 			"item": [
 				{
 					"name": "Get Saving Plan Stats",
@@ -11613,7 +11613,7 @@
 			"id": "4438cc83-8ebd-4a75-ba33-893517f774f1"
 		},
 		{
-			"name": "Wallets Copy",
+			"name": "Wallets",
 			"item": [
 				{
 					"name": "Create wallet",
@@ -13380,7 +13380,7 @@
 			"id": "ab3c463f-1119-47f1-a554-eca00b582193"
 		},
 		{
-			"name": "Transfer Copy",
+			"name": "Transfer",
 			"item": [
 				{
 					"name": "Transfer",
@@ -14993,7 +14993,7 @@
 			"id": "4046d2cb-200a-40b2-8ff8-d7e3c1dc1912"
 		},
 		{
-			"name": "Get Fees Copy",
+			"name": "Get Fees",
 			"item": [
 				{
 					"name": "Get Fees",
@@ -15322,7 +15322,7 @@
 			"id": "6a49e796-91d4-4ffe-a425-58c47f210745"
 		},
 		{
-			"name": "Beneficiaries Copy",
+			"name": "Beneficiaries",
 			"item": [
 				{
 					"name": "Transfer Beneficiaries",
@@ -18372,7 +18372,7 @@
 			"id": "7b1070c5-ced8-417b-aea7-b73c4ba20bc5"
 		},
 		{
-			"name": "Pay Bills Copy",
+			"name": "Pay Bills",
 			"item": [
 				{
 					"name": "List Bill categories",
@@ -24650,7 +24650,7 @@
 			"id": "c890983f-468b-40da-851a-71547d689cbe"
 		},
 		{
-			"name": "Transactions Copy",
+			"name": "Transactions",
 			"item": [
 				{
 					"name": "Get transactions",
@@ -27725,7 +27725,7 @@
 			"id": "1a081607-e713-4cbf-b4c2-f12a75cdfe33"
 		},
 		{
-			"name": "User Copy",
+			"name": "User",
 			"item": [
 				{
 					"name": "Set Security Question",
@@ -28923,7 +28923,7 @@
 			"id": "23e0632e-f04c-415e-9faf-f556b188105b"
 		},
 		{
-			"name": "Files Copy",
+			"name": "Files",
 			"item": [
 				{
 					"name": "Upload File",
@@ -29159,7 +29159,7 @@
 			"id": "eab02ae1-4f71-4696-add1-744d45f8ca3a"
 		},
 		{
-			"name": "Tiers Copy",
+			"name": "Tiers",
 			"item": [
 				{
 					"name": "Fetch Teirs",
@@ -29664,7 +29664,7 @@
 			"id": "4aa0e274-a4ab-47bf-b8c5-aa50202a7228"
 		},
 		{
-			"name": "Documents Copy",
+			"name": "Documents",
 			"item": [
 				{
 					"name": "List Documents",
@@ -29914,7 +29914,7 @@
 			"id": "c2c20fde-0778-4b72-8f73-4fa753c7dd12"
 		},
 		{
-			"name": "Referral Copy",
+			"name": "Referral",
 			"item": [
 				{
 					"name": "Get Referral Activities",
@@ -30051,7 +30051,7 @@
 			"id": "05444347-32de-4a19-9211-2e93eb107d94"
 		},
 		{
-			"name": "Notification Copy",
+			"name": "Notification",
 			"item": [
 				{
 					"name": "List Notifications",
@@ -30428,7 +30428,7 @@
 			"id": "96f078ee-a1b9-4015-a099-0899eddb4889"
 		},
 		{
-			"name": "Savings/Investments Copy",
+			"name": "Savings/Investments",
 			"item": [
 				{
 					"name": "Get Savings Products",
@@ -31142,7 +31142,7 @@
 			"id": "48f9532f-eb78-4808-b9ad-de0d39617fc2"
 		},
 		{
-			"name": "Settings Copy",
+			"name": "Settings",
 			"item": [
 				{
 					"name": "Locations",
