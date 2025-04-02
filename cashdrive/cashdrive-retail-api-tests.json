@@ -13422,7 +13422,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    // \"beneficiary_id\": \"0194b87c-20fa-7bb8-88ea-631daa0e36cb\",\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"044\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\",\n    \"pin\": \"1234\",\n    \"bank_name\": \"Northquest Finance\",\n    \"logo_url\": \"https://lendstack-s3.s3.us-east-2.amazonaws.com/bank_logos/044.png\",\n    \"account_name\": \"Mike Jacob\"\n}",
+									"raw": "{\n    // \"beneficiary_id\": \"0194b87c-20fa-7bb8-88ea-631daa0e36cb\",\n    \"account_number\": \"1780004070\",\n    \"bank_code\": \"044\",\n    \"amount\": 100.23,\n    \"narration\": \"Sodiq\",\n    \"pin\": \"1316\",\n    \"bank_name\": \"Northquest Finance\",\n    \"logo_url\": \"https://lendstack-s3.s3.us-east-2.amazonaws.com/bank_logos/044.png\",\n    \"account_name\": \"Mike Jacob\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -13443,12 +13443,10 @@
 									],
 									"variable": [
 										{
-											"id": "df955eb5-2fbc-47ec-9e2d-426271fecbf2",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "45d8989b-17fa-440a-b96a-5e366ee2a1cd",
 											"key": "account_id",
 											"value": "{{userFetchedAccountId}}"
 										}
@@ -13823,7 +13821,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"recipients\": [\n        {\n            \"account_number\": \"1780004070\",\n            \"bank_code\": \"999998\",\n            \"amount\": 10,\n            \"narration\": \"Sodiq\"\n        },\n        {\n            \"account_number\": \"1780004070\",\n            \"bank_code\": \"999998\",\n            \"amount\": 10,\n            \"narration\": \"Sodiq\"\n        }\n    ],\n    \"pin\": \"1234\"\n}",
+									"raw": "{\n    \"recipients\": [\n        {\n            \"account_number\": \"1780004070\",\n            \"bank_code\": \"999998\",\n            \"amount\": 10,\n            \"narration\": \"Sodiq\"\n        },\n        {\n            \"account_number\": \"1780004070\",\n            \"bank_code\": \"999998\",\n            \"amount\": 10,\n            \"narration\": \"Sodiq\"\n        }\n    ],\n    \"pin\": \"1316\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -13844,12 +13842,10 @@
 									],
 									"variable": [
 										{
-											"id": "8ea6a645-cc80-4ad3-9fda-266598e1ab90",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "8ffe4ca6-f64f-4005-ba0a-b7be1f83cd4a",
 											"key": "account_id",
 											"value": "{{userFetchedAccountId}}"
 										}
@@ -14156,7 +14152,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"start_date\": \"2025-02-10T21:00:00.000Z\",\n    \"end_date\": \"2025-02-20T21:00:00.000Z\",\n    // \"amount\": 50.23,\n    \"type\": \"transfer\",\n    \"frequency\": \"daily\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"pin\": \"1234\",\n    \"recipients\": [\n        {\n            \"narration\": \"Sodiq\",\n            // \"beneficiary_id\": \"0192e710-2759-766f-9de2-61a30f028e20\",\n            \"account_number\": \"1780004070\",\n            \"account_name\": \"Sodid Dare\",\n            \"amount\": 50.23,\n            \"bank_code\": \"999998\"\n        }\n    ]\n}",
+											"raw": "{\n    \"start_date\": \"2025-05-10T21:00:00.000Z\",\n    \"end_date\": \"2025-06-20T21:00:00.000Z\",\n    // \"amount\": 50.23,\n    \"type\": \"transfer\",\n    \"frequency\": \"daily\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"pin\": \"1316\",\n    \"recipients\": [\n        {\n            \"narration\": \"Sodiq\",\n            // \"beneficiary_id\": \"0192e710-2759-766f-9de2-61a30f028e20\",\n            \"account_number\": \"1780004070\",\n            \"account_name\": \"Sodid Dare\",\n            \"amount\": 50.23,\n            \"bank_code\": \"999998\"\n        }\n    ]\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -14177,7 +14173,6 @@
 											],
 											"variable": [
 												{
-													"id": "b905b81b-9467-484b-ae4e-da4659257992",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												}
@@ -14496,7 +14491,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"start_date\": \"2025-02-10T21:00:00.000Z\",\n    \"end_date\": \"2025-02-20T21:00:00.000Z\",\n    \"amount\": 100.23,\n    \"type\": \"bill-payment\",\n    \"frequency\": \"daily\",\n    \"category_id\": \"airtime\",\n    \"option_id\": \"\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"biller_id\": \"mtn\",\n    \"pin\": \"1234\",\n    \"account_number\": \"09055755671\"\n}",
+											"raw": "{\n    \"start_date\": \"2025-05-10T21:00:00.000Z\",\n    \"end_date\": \"2025-06-20T21:00:00.000Z\",\n    \"amount\": 100.23,\n    \"type\": \"bill-payment\",\n    \"frequency\": \"daily\",\n    \"category_id\": \"airtime\",\n    \"option_id\": \"\",\n    \"account_id\": \"{{userFetchedAccountId}}\",\n    \"biller_id\": \"mtn\",\n    \"pin\": \"1316\",\n    \"account_number\": \"09055755671\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -14517,7 +14512,6 @@
 											],
 											"variable": [
 												{
-													"id": "40c1c62d-c9a7-458c-9623-4e71f5b9630a",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												}
