@@ -40,12 +40,34 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Copy existing content to allure-history
+      - name: Find latest folder number
+        id: get_latest_folder
+        if: always()
         run: |
           mkdir -p allure-history
           if [ -d gh-pages ]; then
             cp -r gh-pages/* allure-history/
+            # Find the highest numbered folder and store it
+            latest_number=$(find allure-history -maxdepth 1 -type d -name "[0-9]*" | sort -V | tail -n 1 | xargs basename 2>/dev/null || echo "0")
+            # If no numbered folders exist, start with 0
+            if [[ ! "$latest_number" =~ ^[0-9]+$ ]]; then
+              latest_number=0
+            fi
+            # Calculate next folder number
+            next_number=$((latest_number + 1))
+            echo "Latest folder number: $latest_number"
+            echo "Next folder number: $next_number"
+            echo "::set-output name=next_folder_number::$next_number"
+          else
+            # If gh-pages doesn't exist yet, start with folder 1
+            echo "No history found, starting with folder 1"
+            echo "::set-output name=next_folder_number::1"
           fi
+
+      - name: Configure Allure report folder
+        if: always()
+        run: |
+          echo "NEXT_FOLDER_NUMBER=${{ steps.get_latest_folder.outputs.next_folder_number }}" >> $GITHUB_ENV
 
       - name: Allure report action
         id: build
@@ -57,6 +79,7 @@ jobs:
           gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
+          subfolder: ${{ env.NEXT_FOLDER_NUMBER }}
 
       - name: Wait before deploying to GitHub Pages
         if: always()
@@ -71,23 +94,10 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - name: Wait for Allure report to be generated
-        if: always()
-        continue-on-error: true
-        run: sleep 30
-
-      - name: Find latest folder in gh-pages
-        id: new_folder
-        run: |
-          latest_folder=$(find allure-history -mindepth 1 -maxdepth 1 -type d -name '[0-9]*' | sort -n | tail -n 1)
-          latest_folder_number=$(basename $latest_folder)
-          echo "Latest Folder Number: $latest_folder_number"
-          echo "::set-output name=latest_folder_number::$latest_folder_number"
-
       - name: Parse latest summary.json
         id: parse_latest_json
         run: |
-          latest_folder_number=${{ steps.new_folder.outputs.latest_folder_number }}
+          latest_folder_number=${{ env.NEXT_FOLDER_NUMBER }}
           latest_summary_path="allure-history/${latest_folder_number}/widgets/summary.json"
           echo "Latest Summary Path: $latest_summary_path"
           if [ -f "$latest_summary_path" ]; then
@@ -132,4 +142,4 @@ jobs:
       #       Failing Tests: ${{ steps.parse_latest_json.outputs.failing_percentage }}%
       #       Total Passed: ${{ steps.parse_latest_json.outputs.passed_tests }}
       #       Total Failed: ${{ steps.parse_latest_json.outputs.failed_tests }}
-      #       GitHub Pages URL: ${{ secrets.PAGES_URL }}/${{ steps.new_folder.outputs.latest_folder_number }}
+      #       GitHub Pages URL: ${{ secrets.PAGES_URL }}/${{ env.NEXT_FOLDER_NUMBER }}
