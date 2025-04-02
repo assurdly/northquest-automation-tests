@@ -12087,7 +12087,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"name\": \"{{userInputtedRoleName}}\",\n    \"description\": \"sodiq\",\n    \"permissions\": [\n        \"019253c6-b848-7764-a1c0-7fb0a820b694\"\n    ]\n}",
+											"raw": "{   \"name\": \"Owner\",\n    // \"name\": \"{{userInputtedRoleName}}\",\n    \"description\": \"sodiq\",\n    \"permissions\": [\n        \"019253c6-b848-7764-a1c0-7fb0a820b694\"\n    ]\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -12106,7 +12106,6 @@
 											],
 											"variable": [
 												{
-													"id": "160fec86-a9ae-4efe-8742-cad268ce1f0f",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												}
