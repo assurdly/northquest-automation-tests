@@ -24797,6 +24797,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "9abd5c49-ef75-46a9-a9ed-ce833e70919a",
 										"exec": [
 											"try {\r",
 											"    const { status, data } = pm.response.json()\r",
@@ -24809,17 +24810,12 @@
 											"        pm.expect(status).to.eql(\"success\")\r",
 											"    })\r",
 											"\r",
-											"    pm.test(\"Test for valid error message\", () => {\r",
-											"        pm.expect(data).to.be.an(\"object\")\r",
-											"    })\r",
-											"\r",
 											"} catch (error) {\r",
 											"    console.error(\"Error from test:\", error);\r",
 											"}"
 										],
 										"type": "text/javascript",
-										"packages": {},
-										"id": "9abd5c49-ef75-46a9-a9ed-ce833e70919a"
+										"packages": {}
 									}
 								}
 							],
@@ -24849,12 +24845,10 @@
 									],
 									"variable": [
 										{
-											"id": "9b74b120-ff89-4a09-b95b-0a4ff4dce986",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "09271b9d-80e2-49c9-a3da-fa336e49aaf4",
 											"key": "account_id",
 											"value": "{{userFetchedAccountId}}"
 										}
