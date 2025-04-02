@@ -311,6 +311,7 @@
 										{
 											"listen": "test",
 											"script": {
+												"id": "10413f73-0ead-409e-b91b-f036d8d65dc9",
 												"exec": [
 													"const { message } = pm.response.json()",
 													"",
@@ -332,8 +333,7 @@
 													""
 												],
 												"type": "text/javascript",
-												"packages": {},
-												"id": "10413f73-0ead-409e-b91b-f036d8d65dc9"
+												"packages": {}
 											}
 										}
 									],
@@ -356,7 +356,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email\":\"azeezassurdly.com\"\n}",
+											"raw": "{\n    \"email\":\"azeezassurdlycom\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -584,6 +584,7 @@
 										{
 											"listen": "test",
 											"script": {
+												"id": "84aeab4e-836f-498d-9d0e-6151435953df",
 												"exec": [
 													"const { message } = pm.response.json()",
 													"",
@@ -605,8 +606,7 @@
 													""
 												],
 												"type": "text/javascript",
-												"packages": {},
-												"id": "84aeab4e-836f-498d-9d0e-6151435953df"
+												"packages": {}
 											}
 										}
 									],
