@@ -27292,7 +27292,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "[\n    {\n        \"category\": \"transfer\",\n        \"amount\": 5000,\n        \"bank_code\": \"433\" //optional only required for bank transfers\n    }\n]",
+							"raw": "[\n    {\n        \"category\": \"transfer\",\n        \"amount\": 500,\n        \"bank_code\": \"433\" //optional only required for bank transfers\n    }\n]",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -27312,7 +27312,6 @@
 							],
 							"variable": [
 								{
-									"id": "bda4c445-af90-48a4-8ee9-0698caeb8b51",
 									"key": "profile_id",
 									"value": "{{userFetchedBusinessProfileId}}"
 								}
