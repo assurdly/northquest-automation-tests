@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Onboarding Copy",
+			"name": "Onboarding",
 			"item": [
 				{
 					"name": "SignUp",
@@ -3949,7 +3949,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    // \"identity\": \"calista@mailinator.com\",\n    \"identity\": \"Ismael@mailinator.com\",\n    \"password\": \"123456\",\n    // \"code\": \"572649\",\n    \"device\": {\n        \"device_id\": \"000000000\",\n        \"notification_token\": \"token\", // nullable\n        \"longitude\": -82.9987,\n        \"latitude\": 39.9587,\n        \"os_name\": \"Android\",\n        \"os_version\": \"7 Kit Kat\"\n    }\n}",
+									"raw": "{\n    \"identity\": \"boom@mailinator.com\",\n    \"password\": \"123456\",\n    // \"code\": \"572649\",\n    \"device\": {\n        \"device_id\": \"000000000\",\n        \"notification_token\": \"token\", // nullable\n        \"longitude\": -82.9987,\n        \"latitude\": 39.9587,\n        \"os_name\": \"Android\",\n        \"os_version\": \"7 Kit Kat\"\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -8515,7 +8515,7 @@
 			}
 		},
 		{
-			"name": "Profile Copy",
+			"name": "Profile",
 			"item": [
 				{
 					"name": "Create Profile",
@@ -8951,7 +8951,7 @@
 											"try {",
 											"    const { status, data } = pm.response.json();",
 											"",
-											"    const businessProfile = data.find((item) => item.type === \"business\");",
+											"    const businessProfile = data.find((item) => item.type === \"personal\");",
 											"    if (businessProfile) {",
 											"        pm.environment.set(\"userFetchedBusinessProfileId\", businessProfile.id);",
 											"        pm.environment.set(\"userFetchedProfileId\", businessProfile.id);",
@@ -11497,7 +11497,7 @@
 			"id": "0ef4ede3-b77c-4a51-ac85-5508a72f63df"
 		},
 		{
-			"name": "Roles and Permissions Copy",
+			"name": "Roles and Permissions",
 			"item": [
 				{
 					"name": "Permisssions",
