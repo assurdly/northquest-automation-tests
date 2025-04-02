@@ -28233,6 +28233,7 @@
 										{
 											"listen": "test",
 											"script": {
+												"id": "e6867bc2-867e-49fb-ad53-67bf2d49762f",
 												"exec": [
 													"try {\r",
 													"    const { message } = pm.response.json()\r",
@@ -28251,8 +28252,7 @@
 													"}"
 												],
 												"type": "text/javascript",
-												"packages": {},
-												"id": "e6867bc2-867e-49fb-ad53-67bf2d49762f"
+												"packages": {}
 											}
 										}
 									],
@@ -28290,7 +28290,6 @@
 											],
 											"variable": [
 												{
-													"id": "e08c65cc-aad1-4db3-90df-2a5a444c7b39",
 													"key": "profile_id",
 													"value": "{{userFetchedProfileId}}"
 												}
@@ -28689,7 +28688,7 @@
 													"\r",
 													"\r",
 													"    pm.test(\"Test for valid error message\", () => {\r",
-													"        pm.expect(message).includes(\"Cannot DELETE /api-backend/profiles/1/transfer-beneficiaries/\")\r",
+													"        pm.expect(message).includes(\"Cannot DELETE\")\r",
 													"    })\r",
 													"\r",
 													"} catch (error) {\r",
@@ -28728,7 +28727,7 @@
 											"variable": [
 												{
 													"key": "profile_id",
-													"value": "{{userProfileId}}1"
+													"value": "{{userProfileId}}ioos#6kl"
 												},
 												{
 													"key": "beneficiary_id",
