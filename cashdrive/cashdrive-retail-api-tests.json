@@ -14985,7 +14985,7 @@
 			"id": "f85bdfd9-79e5-4678-ae57-f390123ce4f4"
 		},
 		{
-			"name": "Get Fees Copy",
+			"name": "Get Fees",
 			"item": [
 				{
 					"name": "Get Fees",
@@ -15314,7 +15314,7 @@
 			"id": "7294d2c9-179b-4759-a3d3-713cf53f87ca"
 		},
 		{
-			"name": "Beneficiaries Copy",
+			"name": "Beneficiaries",
 			"item": [
 				{
 					"name": "Transfer Beneficiaries",
@@ -18364,7 +18364,7 @@
 			"id": "6cdcd28f-201e-4c80-bb77-50f03f81061b"
 		},
 		{
-			"name": "Pay Bills Copy",
+			"name": "Pay Bills",
 			"item": [
 				{
 					"name": "List Bill categories",
@@ -24642,7 +24642,7 @@
 			"id": "d602e2c7-badc-4360-b46e-b46c94e15758"
 		},
 		{
-			"name": "Transactions Copy",
+			"name": "Transactions",
 			"item": [
 				{
 					"name": "Get transactions",
@@ -27717,7 +27717,7 @@
 			"id": "f0679b4c-65bc-4eb9-b7fb-74ca99ffd8dd"
 		},
 		{
-			"name": "User Copy",
+			"name": "User",
 			"item": [
 				{
 					"name": "Set Security Question",
@@ -27739,7 +27739,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"questions\": [\n        {\n            \"question\": \"What is the name of your first pet?\",\n            \"answer\": \"Fluffy\"\n        },\n         {\n            \"question\": \"What is the name of your first name?\",\n            \"answer\": \"Fluffy\"\n        },\n        {\n            \"question\": \"What was the make of your first car?\",\n            \"answer\": \"Toyota\"\n        }\n    ],\n    \"otp\": \"983738\"\n}",
+									"raw": "// {\n//     \"questions\": [\n//         {\n//             \"question\": \"What is the name of your first pet?\",\n//             \"answer\": \"Fluffy\"\n//         },\n//          {\n//             \"question\": \"What is the name of your first name?\",\n//             \"answer\": \"Fluffy\"\n//         },\n//         {\n//             \"question\": \"What was the make of your first car?\",\n//             \"answer\": \"Toyota\"\n//         }\n//     ],\n//     \"otp\": \"983738\"\n// }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -27913,7 +27913,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"otp\": \"983738\",\n    \"pin\": \"1234\",\n    \"confirm_pin\": \"1234\"\n}",
+									"raw": "{\n    \"otp\": \"983738\",\n    \"pin\": \"1316\",\n    \"confirm_pin\": \"1316\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -28915,7 +28915,7 @@
 			"id": "bf88bf9a-fb85-43c4-a3ae-5beb94bbb227"
 		},
 		{
-			"name": "Files Copy",
+			"name": "Files",
 			"item": [
 				{
 					"name": "Upload File",
@@ -29151,7 +29151,7 @@
 			"id": "4cfd80b2-a54b-49e0-a3fa-7aae74c80e05"
 		},
 		{
-			"name": "Tiers Copy",
+			"name": "Tiers",
 			"item": [
 				{
 					"name": "Fetch Teirs",
@@ -29656,7 +29656,7 @@
 			"id": "136e27f6-711b-42b6-a506-a6d427cc0b98"
 		},
 		{
-			"name": "Documents Copy",
+			"name": "Documents",
 			"item": [
 				{
 					"name": "List Documents",
@@ -29906,7 +29906,7 @@
 			"id": "30b93601-1d82-4d33-8b1f-26429f02c081"
 		},
 		{
-			"name": "Referral Copy",
+			"name": "Referral",
 			"item": [
 				{
 					"name": "Get Referral Activities",
@@ -30043,7 +30043,7 @@
 			"id": "ea9adf04-cffe-40d5-89fd-bd100b1f3e81"
 		},
 		{
-			"name": "Notification Copy",
+			"name": "Notification",
 			"item": [
 				{
 					"name": "List Notifications",
@@ -30420,7 +30420,7 @@
 			"id": "4d3b341c-d0c5-4ae0-8652-318def719ceb"
 		},
 		{
-			"name": "Savings/Investments Copy",
+			"name": "Savings/Investments",
 			"item": [
 				{
 					"name": "Get Savings Products",
@@ -31572,12 +31572,18 @@
 					]
 				},
 				{
-					"name": "Get Saving Plan Copy",
+					"name": "Get Saving Plan",
 					"id": "10b9228a-9a6b-4b9c-813b-05a46ad4ab85",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{userAccessToken}}"
+							}
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -31593,12 +31599,10 @@
 							],
 							"variable": [
 								{
-									"id": "e58ddcd4-ab31-40f8-bbfb-329e6c939d5d",
 									"key": "profile_id",
-									"value": "{{profileId}}"
+									"value": "{{userFetchedPersonalProfileId}}"
 								},
 								{
-									"id": "2762d484-1b95-4ed7-aff1-1468b01f23f8",
 									"key": "plan_id",
 									"value": "0193de24-1a4c-7006-aa72-56d5ea8b4de5"
 								}
