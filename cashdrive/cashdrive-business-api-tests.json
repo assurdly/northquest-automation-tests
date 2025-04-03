@@ -45272,6 +45272,736 @@
 				}
 			],
 			"id": "e93aa20e-899c-4263-aa91-11fc0e505e6b"
+		},
+		{
+			"name": "Loan Products",
+			"item": [
+				{
+					"name": "List Loan Products",
+					"id": "a97debc0-ceca-440b-9563-7899d751e5dc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/loan-products"
+					},
+					"response": [
+						{
+							"id": "08b0acee-e8f0-4f0a-ac4e-aa0f50e5371e",
+							"name": "List Loan Products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/loan-products"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1638"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"666-RJRWku5r1UI4TGw0hZjw6lyYBhQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 08 Dec 2024 22:05:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"01931742-f612-722b-8de7-7729782689de\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T18:08:04.842Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-19T20:26:14.047Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Demo Product\",\n            \"description\": \"This is the demo Product\",\n            \"currency\": \"NGN\",\n            \"profile_type\": \"personal\",\n            \"payment_method\": \"card\",\n            \"payment_model\": \"straight\",\n            \"disbursement_method\": \"account\",\n            \"collection_method\": \"manual\",\n            \"interest_rate\": \"5.00\",\n            \"interest_period\": \"flat\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"100.00\",\n            \"frequency\": \"daily\",\n            \"min_tenor_value\": 1,\n            \"min_tenor_period\": \"days\",\n            \"max_tenor_value\": 7,\n            \"max_tenor_period\": \"weeks\",\n            \"enabled\": true,\n            \"cba_id\": null,\n            \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\"\n        },\n        {\n            \"id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-19T20:36:10.255Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-19T20:36:10.255Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Test Product\",\n            \"description\": \"This is the demo Product\",\n            \"currency\": \"NGN\",\n            \"profile_type\": \"personal\",\n            \"payment_method\": \"card\",\n            \"payment_model\": \"straight\",\n            \"disbursement_method\": \"account\",\n            \"collection_method\": \"manual\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"1000.00\",\n            \"frequency\": \"daily\",\n            \"min_tenor_value\": 1,\n            \"min_tenor_period\": \"days\",\n            \"max_tenor_value\": 7,\n            \"max_tenor_period\": \"weeks\",\n            \"enabled\": true,\n            \"cba_id\": null,\n            \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\"\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Loan Product",
+					"id": "61d48b4d-f8ab-4561-b92f-9350dc251a87",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/loan-products/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"loan-products",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "97364ae8-ab19-4365-9af7-797ee5a6e7a6",
+									"key": "id",
+									"value": "01931742-f612-722b-8de7-7729782689de"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "023536e5-d008-4bb8-aabc-44acf791b10e",
+							"name": "Get Loan Product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/loan-products/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"loan-products",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "01931742-f612-722b-8de7-7729782689de"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2139"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"85b-SRt7LkBvGYQLw61n+4THSAbAtrk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 08 Dec 2024 22:06:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"01931742-f612-722b-8de7-7729782689de\",\n        \"meta\": null,\n        \"created_on\": \"2024-11-10T18:08:04.842Z\",\n        \"created_by\": null,\n        \"modified_on\": \"2024-11-19T20:26:14.047Z\",\n        \"modified_by\": null,\n        \"deleted_on\": null,\n        \"deleted_by\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Demo Product\",\n        \"description\": \"This is the demo Product\",\n        \"currency\": \"NGN\",\n        \"profile_type\": \"personal\",\n        \"payment_method\": \"card\",\n        \"payment_model\": \"straight\",\n        \"disbursement_method\": \"account\",\n        \"collection_method\": \"manual\",\n        \"interest_rate\": \"5.00\",\n        \"interest_period\": \"flat\",\n        \"min_amount\": \"0.00\",\n        \"max_amount\": \"100.00\",\n        \"frequency\": \"daily\",\n        \"min_tenor_value\": 1,\n        \"min_tenor_period\": \"days\",\n        \"max_tenor_value\": 7,\n        \"max_tenor_period\": \"weeks\",\n        \"enabled\": true,\n        \"cba_id\": null,\n        \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n        \"offer_letter_template\": {\n            \"id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T18:07:03.773Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-10T18:07:03.773Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"configurable\": false,\n            \"title\": \"Offer Letter\",\n            \"body\": \"<html>Offer</html>\",\n            \"variables\": null\n        },\n        \"fees\": [\n            {\n                \"id\": \"01932b35-3862-7ee1-9a0e-e706d92476ce\",\n                \"meta\": null,\n                \"created_on\": \"2024-11-14T15:05:28.683Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-12-08T20:08:25.877Z\",\n                \"modified_by\": \"01927265-4ed2-79cc-a0e6-e11339a359f3\",\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"name\": \"Processing Fee\",\n                \"description\": \"Processing Fee\",\n                \"type\": \"flat\",\n                \"category\": \"processing\",\n                \"currency\": \"NGN\",\n                \"amount\": \"100.00\",\n                \"min_amount\": \"300.00\",\n                \"max_amount\": \"500.00\",\n                \"percentage\": null,\n                \"applicable_to\": \"all\",\n                \"product_id\": \"01931742-f612-722b-8de7-7729782689de\"\n            }\n        ],\n        \"documents\": [\n            {\n                \"id\": \"019289f1-8d87-766b-8bff-1ee5c22d9add\",\n                \"meta\": null,\n                \"created_on\": \"2024-10-14T07:32:42.240Z\",\n                \"created_by\": null,\n                \"modified_on\": \"2024-10-14T07:32:42.240Z\",\n                \"modified_by\": null,\n                \"deleted_on\": null,\n                \"deleted_by\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_type\": null,\n                \"name\": \"Proof of address\",\n                \"description\": \"Proof of address\",\n                \"enabled\": true,\n                \"required\": true\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			],
+			"id": "1cd1f308-2a13-4bec-860e-9e8838f29a7a"
+		},
+		{
+			"name": "Loans",
+			"item": [
+				{
+					"name": "Create Loan",
+					"id": "d250ad6e-9702-46a5-b718-43fa804411fd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 5000,\n    \"tenor_period\": \"months\",\n    \"tenor_value\": 2,\n    \"frequency\": \"monthly\",\n    \"product_id\": \"01931742-f612-722b-8de7-7729782689de\",\n    \"start_date\": \"2025-12-01\",\n    \"collaterals\": [\n        {\n            \"identifier\": \"1234567890\",\n            \"type_id\": \"0195d240-b82f-7aa8-afb5-43c1b5a8a795\",\n            \"meta\": {\n                \"amount\": 5000,\n                \"schema1\": \"...\",\n                \"schema2\": \"...\"\n            }\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/loans",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"loans"
+							],
+							"variable": [
+								{
+									"id": "9c52923f-f521-4a33-9c2e-b5525b61b2c5",
+									"key": "profile_id",
+									"value": "0193a649-e3d0-7881-8b7f-2ef1d89a9aff"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "feeaa3d1-d51e-4a4e-a032-68faaa250873",
+							"name": "Create Loan",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\": 5000,\n    \"tenor_period\": \"months\",\n    \"tenor_value\": 2,\n    \"frequency\": \"monthly\",\n    \"product_id\": \"01931742-f612-722b-8de7-7729782689de\",\n    \"start_date\": \"2025-12-01\",\n    \"collaterals\": [\n        {\n            \"identifier\": \"1234567890\",\n            \"type_id\": \"0195d240-b82f-7aa8-afb5-43c1b5a8a795\",\n            \"meta\": {\n                \"amount\": 5000,\n                \"schema1\": \"...\",\n                \"schema2\": \"...\"\n            }\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/loans",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"loans"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "0193a649-e3d0-7881-8b7f-2ef1d89a9aff"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "771"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"303-JLXXdzmZx3QR2ntkSDJIfQdAolg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Mar 2025 12:20:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"0193a649-e3d0-7881-8b7f-2ef1d89a9aff\",\n        \"tenor_value\": 2,\n        \"tenor_period\": \"months\",\n        \"frequency\": \"monthly\",\n        \"interest_rate\": \"5.00\",\n        \"interest_period\": \"flat\",\n        \"status\": \"in-review\",\n        \"currency\": \"NGN\",\n        \"principal\": 5000,\n        \"interest\": 250,\n        \"amount_disbursed\": 0,\n        \"total\": 5250,\n        \"total_paid\": 0,\n        \"total_due\": 5250,\n        \"cba_id\": null,\n        \"product_id\": \"01931742-f612-722b-8de7-7729782689de\",\n        \"id\": \"0195d265-d058-7884-a905-8c1a2941ce8a\",\n        \"created_by_id\": \"019372de-17ef-7cc2-8fc0-43fe11ba042f\",\n        \"meta\": null,\n        \"modified_by_id\": null,\n        \"deleted_by_id\": null,\n        \"review\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"credit_line_id\": null,\n        \"created_on\": \"2025-03-26T12:20:42.858Z\",\n        \"modified_on\": \"2025-03-26T12:20:42.858Z\",\n        \"deleted_on\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List Loans",
+					"id": "b272d71a-9fc7-4040-b2de-ac279746a858",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/loans?filter[status]=pending",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"loans"
+							],
+							"query": [
+								{
+									"key": "filter[status]",
+									"value": "pending",
+									"description": "running | pending | approved | declined | terminated | past-due | cancelled"
+								}
+							],
+							"variable": [
+								{
+									"id": "f579496b-80a5-4360-8f8f-bd4eaedadc29",
+									"key": "profile_id",
+									"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "581b9e8b-bf81-4255-85e9-19bb94b38645",
+							"name": "List Loans",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/loans",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"loans"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "778"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30a-mypWf4wT6OQzRxLli+PKJzMs8Ss\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 10 Dec 2024 11:47:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"0193b060-8374-733b-a822-306134abd4f3\",\n            \"meta\": null,\n            \"created_on\": \"2024-12-10T11:42:15.756Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-12-10T11:42:15.756Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"profile_id\": \"01934f10-9ed7-7ddb-b324-a1477bca0a99\",\n            \"tenor_value\": 2,\n            \"tenor_period\": \"months\",\n            \"frequency\": \"monthly\",\n            \"interest_rate\": \"2.00\",\n            \"interest_period\": \"flat\",\n            \"status\": \"pending\",\n            \"currency\": \"NGN\",\n            \"principal\": 5000,\n            \"interest\": 100,\n            \"amount_disbursed\": 0,\n            \"total\": 5100,\n            \"total_paid\": 0,\n            \"total_due\": 5100,\n            \"review\": null,\n            \"reviewed_on\": null,\n            \"reviewed_by\": null,\n            \"cba_id\": null,\n            \"product_id\": \"01934623-c78f-7664-8b2d-2f06d575e8bb\",\n            \"credit_line_id\": null\n        }\n    ],\n    \"meta\": {\n        \"page\": 1,\n        \"total_pages\": 1,\n        \"total_items\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Loan",
+					"id": "9a60e2d5-a8b5-46ea-a2af-978cfd0a8c10",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/loans/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"loans",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "651001ac-a18f-491f-845b-8c9eec9c386e",
+									"key": "profile_id",
+									"value": "0193a649-e3d0-7881-8b7f-2ef1d89a9aff"
+								},
+								{
+									"id": "a14092df-f288-4018-ba17-32edb0366393",
+									"key": "id",
+									"value": "0195d265-d058-7884-a905-8c1a2941ce8a"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "09b7bef7-2561-44ca-a3d3-841267cef83e",
+							"name": "Get Loan",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/loans/:id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"loans",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "0193a649-e3d0-7881-8b7f-2ef1d89a9aff"
+										},
+										{
+											"key": "id",
+											"value": "0195d265-d058-7884-a905-8c1a2941ce8a"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3532"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"dcc-tEKvspdsqM1QpJxdK6ApyVmj2jw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 26 Mar 2025 12:21:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"0195d265-d058-7884-a905-8c1a2941ce8a\",\n        \"meta\": null,\n        \"created_on\": \"2025-03-26T12:20:42.858Z\",\n        \"created_by_id\": \"019372de-17ef-7cc2-8fc0-43fe11ba042f\",\n        \"modified_on\": \"2025-03-26T12:20:42.858Z\",\n        \"modified_by_id\": null,\n        \"deleted_on\": null,\n        \"deleted_by_id\": null,\n        \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n        \"profile_id\": \"0193a649-e3d0-7881-8b7f-2ef1d89a9aff\",\n        \"tenor_value\": 2,\n        \"tenor_period\": \"months\",\n        \"frequency\": \"monthly\",\n        \"interest_rate\": \"5.00\",\n        \"interest_period\": \"flat\",\n        \"status\": \"in-review\",\n        \"currency\": \"NGN\",\n        \"principal\": 5000,\n        \"interest\": 250,\n        \"amount_disbursed\": 0,\n        \"total\": 5250,\n        \"total_paid\": 0,\n        \"total_due\": 5250,\n        \"review\": null,\n        \"reviewed_on\": null,\n        \"reviewed_by\": null,\n        \"cba_id\": null,\n        \"product_id\": \"01931742-f612-722b-8de7-7729782689de\",\n        \"credit_line_id\": null,\n        \"product\": {\n            \"id\": \"01931742-f612-722b-8de7-7729782689de\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T18:08:04.842Z\",\n            \"created_by_id\": null,\n            \"modified_on\": \"2024-11-19T20:26:14.047Z\",\n            \"modified_by_id\": null,\n            \"deleted_on\": null,\n            \"deleted_by_id\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Demo Product\",\n            \"description\": \"This is the demo Product\",\n            \"currency\": \"NGN\",\n            \"profile_type\": \"personal\",\n            \"payment_methods\": null,\n            \"payment_model\": \"straight\",\n            \"disbursement_method\": \"account\",\n            \"collection_methods\": null,\n            \"interest_rate\": \"5.00\",\n            \"interest_period\": \"flat\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"100.00\",\n            \"frequencies\": null,\n            \"min_tenor_value\": 1,\n            \"min_tenor_period\": \"days\",\n            \"max_tenor_value\": 7,\n            \"max_tenor_period\": \"weeks\",\n            \"status\": \"active\",\n            \"cba_id\": null,\n            \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\"\n        },\n        \"credit_line\": null,\n        \"schedules\": [\n            {\n                \"id\": \"0195d265-d12e-7884-a905-94ba0bb0bf93\",\n                \"meta\": null,\n                \"created_on\": \"2025-03-26T12:20:42.858Z\",\n                \"created_by_id\": \"019372de-17ef-7cc2-8fc0-43fe11ba042f\",\n                \"modified_on\": \"2025-03-26T12:20:42.858Z\",\n                \"modified_by_id\": null,\n                \"deleted_on\": null,\n                \"deleted_by_id\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193a649-e3d0-7881-8b7f-2ef1d89a9aff\",\n                \"principal\": 2500,\n                \"principal_paid\": 0,\n                \"principal_due\": 0,\n                \"interest\": 125,\n                \"interest_paid\": 0,\n                \"interest_due\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"fee_due\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"penalty_due\": 0,\n                \"total\": 2625,\n                \"total_paid\": 0,\n                \"total_due\": 0,\n                \"due_date\": \"2026-01-01T00:00:00.000Z\",\n                \"paid_date\": null,\n                \"loan_id\": \"0195d265-d058-7884-a905-8c1a2941ce8a\"\n            },\n            {\n                \"id\": \"0195d265-d12e-7884-a905-9a2fa858ab50\",\n                \"meta\": null,\n                \"created_on\": \"2025-03-26T12:20:42.858Z\",\n                \"created_by_id\": \"019372de-17ef-7cc2-8fc0-43fe11ba042f\",\n                \"modified_on\": \"2025-03-26T12:20:42.858Z\",\n                \"modified_by_id\": null,\n                \"deleted_on\": null,\n                \"deleted_by_id\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193a649-e3d0-7881-8b7f-2ef1d89a9aff\",\n                \"principal\": 2500,\n                \"principal_paid\": 0,\n                \"principal_due\": 0,\n                \"interest\": 125,\n                \"interest_paid\": 0,\n                \"interest_due\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"fee_due\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"penalty_due\": 0,\n                \"total\": 2625,\n                \"total_paid\": 0,\n                \"total_due\": 0,\n                \"due_date\": \"2026-02-01T00:00:00.000Z\",\n                \"paid_date\": null,\n                \"loan_id\": \"0195d265-d058-7884-a905-8c1a2941ce8a\"\n            }\n        ],\n        \"collaterals\": [\n            {\n                \"id\": \"0195d265-d4a1-7884-a905-a4b5a24d2ac1\",\n                \"meta\": {\n                    \"amount\": 5000,\n                    \"schema1\": \"...\",\n                    \"schema2\": \"...\"\n                },\n                \"created_on\": \"2025-03-26T12:20:42.858Z\",\n                \"created_by_id\": \"019372de-17ef-7cc2-8fc0-43fe11ba042f\",\n                \"modified_on\": \"2025-03-26T12:20:42.858Z\",\n                \"modified_by_id\": null,\n                \"deleted_on\": null,\n                \"deleted_by_id\": null,\n                \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n                \"profile_id\": \"0193a649-e3d0-7881-8b7f-2ef1d89a9aff\",\n                \"identifier\": \"1234567890\",\n                \"amount\": \"5000.00\",\n                \"type_id\": \"0195d240-b82f-7aa8-afb5-43c1b5a8a795\",\n                \"loan_id\": \"0195d265-d058-7884-a905-8c1a2941ce8a\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Download Offer Letter",
+					"id": "bea2c808-7415-4591-8493-eaea427ea873",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/loans/:id/offer-letter",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"loans",
+								":id",
+								"offer-letter"
+							],
+							"variable": [
+								{
+									"id": "3489f6e1-216e-41f0-9315-2aded0af5970",
+									"key": "profile_id",
+									"value": "01931947-9fea-744d-8f66-118c138292e3"
+								},
+								{
+									"id": "16057f21-248a-4c06-b6b3-ee3bb1c4b130",
+									"key": "id",
+									"value": "01940996-61f4-777f-8de6-31370cb9992b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Loan Stats",
+					"id": "c1345ae6-2bd1-4df1-a478-675d39211021",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profiles/:profile_id/loans/stats",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profiles",
+								":profile_id",
+								"loans",
+								"stats"
+							],
+							"variable": [
+								{
+									"id": "650f25af-3dcf-4119-89eb-42d83b008449",
+									"key": "profile_id",
+									"value": "01934f10-9ed7-7ddb-b324-a1477bca0a99"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "1b368df5-e7ca-4a31-beb8-0fc8a7283d84",
+							"name": "Get Loan Stats",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/profiles/:profile_id/loans/stats",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":profile_id",
+										"loans",
+										"stats"
+									],
+									"variable": [
+										{
+											"key": "profile_id",
+											"value": "0192f830-de29-7aa1-bdc7-2b10e00b482d"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "534"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"216-XqfAqUXkyGTa7g1Vbw9wLpMYApk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 06 Jan 2025 12:31:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"approved\"\n        },\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"cancelled\"\n        },\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"declined\"\n        },\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"past-due\"\n        },\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"pending\"\n        },\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"running\"\n        },\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"terminated\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"id": "f5fb0707-f0a2-4025-9d9d-a725965f363e",
+			"auth": {
+				"type": "bearer",
+				"bearer": {
+					"token": "{{token}}"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "57b0062c-7ada-4838-93d3-9bdc19129172",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ab72da02-d88d-4477-b055-98b881ab4ddf",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		}
 	],
 	"event": [
