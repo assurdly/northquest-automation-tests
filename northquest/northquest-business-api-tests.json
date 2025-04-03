@@ -10267,13 +10267,14 @@
 										"exec": [
 											"const { message } = pm.response.json()",
 											"",
-											"pm.test(\"Tests for Invalid old password\", () => {",
-											"    pm.expect(message).to.include(\"Password is required.\")",
-											"})",
-											"",
 											"pm.test(\"Status code is 400\", function () {",
 											"    pm.response.to.have.status(400);",
+											"",
+											"    pm.test(\"Tests for Invalid old password\", () => {",
+											"    pm.expect(message).to.include(\"Password is required.\")",
+											"})",
 											"});",
+											"",
 											"",
 											""
 										],
