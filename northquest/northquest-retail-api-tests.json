@@ -24,7 +24,7 @@
 												"exec": [
 													"try {",
 													"    const { status, data } = pm.response.json()",
-													"    pm.environment.set(\"otpId\", data.id)",
+													"    pm.environment.set(\"emailOtpId\", data.id)",
 													"",
 													"    pm.test(\"Successful POST request\", function () {",
 													"        pm.expect(pm.response.code).to.be.oneOf([201, 200]);",
