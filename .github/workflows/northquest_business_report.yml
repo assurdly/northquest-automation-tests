@@ -3,7 +3,7 @@ name: Postman Test and Allure Report
 on:
   push:
     branches:
-      - developmemt
+      - main
     paths:
       - 'northquest/northquest-business-api-tests.json'
   schedule:
