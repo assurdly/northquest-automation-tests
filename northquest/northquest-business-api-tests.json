@@ -8951,7 +8951,7 @@
 									"script": {
 										"id": "3e93d6ae-b285-4aab-87b7-6c335b890c9b",
 										"exec": [
-											"try {",
+											"",
 											"    const { status, data } = pm.response.json();",
 											"",
 											"    const businessProfile = data.find((item) => item.type === \"business\");",
@@ -8975,9 +8975,7 @@
 											"        pm.expect(data).to.be.an(\"array\");",
 											"    });",
 											"",
-											"} catch (error) {",
-											"    console.error(\"Error processing response:\", error.message);",
-											"}"
+											""
 										],
 										"type": "text/javascript",
 										"packages": {}
