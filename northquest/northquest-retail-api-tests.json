@@ -2473,7 +2473,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email_otp_id\": \"{{otpId}}\",\n    // \"phone_otp_id\": \"{{otpId}}\",\n    \"email_otp\": \"983738\",\n    // \"phone_otp\": \"439034\",\n    \"password\": \"123456\",\n    \"referral_code\": \"7LD1QN\",\n    \"last_name\": \"{{$randomFirstName}}\",\n    \"first_name\": \"{{$randomLastName}}\"\n}",
+											"raw": "{\n    \"email_otp_id\": \"{{emailOtpId}}\",\n    // \"phone_otp_id\": \"{{otpId}}\",\n    \"email_otp\": \"983738\",\n    // \"phone_otp\": \"439034\",\n    \"password\": \"123456\",\n    // \"referral_code\": \"7LD1QN\",\n    \"last_name\": \"{{$randomFirstName}}\",\n    \"first_name\": \"{{$randomLastName}}\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
