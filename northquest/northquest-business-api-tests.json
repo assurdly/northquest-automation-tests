@@ -3952,7 +3952,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"identity\": \"ola@mailinator.com\",\n    \"password\": \"123456\",\n    // \"code\": \"572649\",\n    \"device\": {\n        \"device_id\": \"000000000\",\n        \"notification_token\": \"token\", // nullable\n        \"longitude\": -82.9987,\n        \"latitude\": 39.9587,\n        \"os_name\": \"Android\",\n        \"os_version\": \"7 Kit Kat\"\n    }\n}",
+									"raw": "{\n    \"identity\": \"l.adeosun.la@gmail.com\",\n    \"password\": \"131613\"\n    // \"code\": \"572649\",\n    // \"device\": {\n    //     \"device_id\": \"000000000\",\n    //     \"notification_token\": \"token\", // nullable\n    //     \"longitude\": -82.9987,\n    //     \"latitude\": 39.9587,\n    //     \"os_name\": \"Android\",\n    //     \"os_version\": \"7 Kit Kat\"\n    // }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -44915,12 +44915,12 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "fc1493fd-e307-414e-8891-3120096c4f9b",
+				"id": "e4434ec4-22f3-4511-92fe-37cfe677d3e4",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"pm.environment.set('origin', \"https://dev.app.northquestfinance.com\")\r",
-					"// pm.environment.set('origin', \"https://app.northquestfinance.com\")\r",
+					"// pm.environment.set('origin', \"https://dev.app.northquestfinance.com\")\r",
+					"pm.environment.set('origin', \"https://app.northquestfinance.com\")\r",
 					"\r",
 					"pm.request.headers.add({\r",
 					"    key: \"origin\",\r",
@@ -44932,7 +44932,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "c9edf35a-c03c-4574-9e4e-3f7b3d179078",
+				"id": "54dc3e6d-1f9f-4d6f-911b-0eb46b081255",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
