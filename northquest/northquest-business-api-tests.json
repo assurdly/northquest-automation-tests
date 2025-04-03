@@ -26041,13 +26041,14 @@
 										"exec": [
 											"const { status, data } = pm.response.json()",
 											"",
+											"pm.test(\"Test for valid status\", () => {",
+											"    pm.expect(status).to.be.oneOf([\"success\", \"pending\"]);",
+											"});",
+											"",
 											"pm.test(\"Status code is 201 or 202\", function () {",
 											"    pm.expect(pm.response.code).to.be.oneOf([201, 200]);",
 											"});",
 											"",
-											"pm.test(\"Test for valid status\", () => {",
-											"    pm.expect(status).to.be.oneOf([\"success\", \"pending\"]);",
-											"});",
 											""
 										],
 										"type": "text/javascript",
@@ -26091,12 +26092,10 @@
 									],
 									"variable": [
 										{
-											"id": "f3470741-1056-4bde-be0c-36718a31171c",
 											"key": "profile_id",
 											"value": "{{userFetchedProfileId}}"
 										},
 										{
-											"id": "8e073bac-93bf-4076-b797-49b6d02a4060",
 											"key": "account_id",
 											"value": "{{userFetchedAccountId}}"
 										}
@@ -44908,11 +44907,17 @@
 			"id": "60bfa567-1384-481b-9837-3f3f39e64e3f"
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{userAccessToken}}"
+		}
+	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "a0b41763-b00d-4c07-a5ea-97322528d64d",
+				"id": "fc1493fd-e307-414e-8891-3120096c4f9b",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
@@ -44929,7 +44934,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "da154af6-93ce-446d-8da8-3cb704884781",
+				"id": "c9edf35a-c03c-4574-9e4e-3f7b3d179078",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
