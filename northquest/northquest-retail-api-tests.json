@@ -22308,7 +22308,7 @@
 												"header": [],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n    \"account_number\": \"09055755671\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
+													"raw": "{\n    \"account_number\": \"9055755671\",\n    \"amount\": 100,\n    // \"option_id\": \"NNJ2E36\",\n    \"pin\": \"1234\",\n    \"account_id\": \"{{userFetchedAccountId}}\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -22332,17 +22332,14 @@
 													],
 													"variable": [
 														{
-															"id": "400b8af4-4693-4305-8944-ec8215091634",
 															"key": "profile_id",
 															"value": "{{userFetchedProfileId}}"
 														},
 														{
-															"id": "1382b65f-d60a-4cb0-8212-baa90621f272",
 															"key": "category_id",
 															"value": "airtime"
 														},
 														{
-															"id": "f6186dfa-11e1-4cfd-b5f4-4e81847722f6",
 															"key": "biller_id",
 															"value": "mtn"
 														}
