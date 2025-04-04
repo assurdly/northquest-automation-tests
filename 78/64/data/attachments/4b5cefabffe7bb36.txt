@@ -1,0 +1,5 @@
+pm.environment.set('origin', "https://dev.app.cashdrive.co")
+pm.request.headers.add({
+    key: "origin",
+    value: pm.environment.get("origin")
+});
