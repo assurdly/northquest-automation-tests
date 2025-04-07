@@ -11485,6 +11485,138 @@
 						}
 					],
 					"id": "6af102b4-bdb7-43e7-abe1-24d5d1812339"
+				},
+				{
+					"name": "Delete Profile",
+					"item": [
+						{
+							"name": "Delete Profile",
+							"id": "a5bb2bca-5a8a-4d58-ba11-1327981ac125",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pin\": \"1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/profiles/:id/delete",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"profiles",
+										":id",
+										"delete"
+									],
+									"variable": [
+										{
+											"id": "22fd31bd-54d9-4585-9855-400449994def",
+											"key": "id",
+											"value": "019450bd-9d8f-700b-b89d-d7f715405e7b"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "dd0355c2-4310-4250-b1fb-5718210b99c7",
+									"name": "Delete Profile",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"pin\": \"1234\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/profiles/:id/delete",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"profiles",
+												":id",
+												"delete"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "019450bd-9d8f-700b-b89d-d7f715405e7b"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "100"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "99"
+										},
+										{
+											"key": "X-RateLimit-Reset",
+											"value": "1"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"20-bff5r/a5MyNNWy9hjn8a8pOLDxA\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 02 Apr 2025 05:30:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"status\": \"success\",\n    \"data\": null\n}"
+								}
+							]
+						}
+					],
+					"id": "67343782-2529-433e-b255-f8ac87149ee3"
 				}
 			],
 			"id": "f5bfde89-4ff3-49de-8acf-875a99a62283"
