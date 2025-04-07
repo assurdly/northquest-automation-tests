@@ -11496,6 +11496,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -11519,9 +11525,8 @@
 									],
 									"variable": [
 										{
-											"id": "22fd31bd-54d9-4585-9855-400449994def",
 											"key": "id",
-											"value": "019450bd-9d8f-700b-b89d-d7f715405e7b"
+											"value": "0193a649-e3d0-7881-8b7f-2ef1d89a9aff"
 										}
 									]
 								}
