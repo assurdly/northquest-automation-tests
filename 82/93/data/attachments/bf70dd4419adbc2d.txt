@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Processing Fee",
+        "description": "Processing Fee",
+        "type": "flat", 
+        "category": "processing", 
+        "currency": "NGN",
+        "amount": 100,
+        "min_amount": 300,
+        "max_amount": 500,
+        "percentage": null,
+        "applicable_to": "all" 
+    }
+]
