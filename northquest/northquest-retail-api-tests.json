@@ -5266,7 +5266,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"identity\":\"{{loggedInUserIdentity}}\"\n}",
+									"raw": "{\n    \"identity\":\"{{loggedInUserIdentity}}\"\n}\n\n",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -6317,7 +6317,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"identity\": \"{{loggedInUserIdentity}}\",\n    \"otp\": \"983738\",\n    \"password\": \"{{randomPasscode}}\",\n    \"confirm_password\": \"{{randomPasscode}}\"\n}",
+									"raw": "{\n    \"identity\": \"{{loggedInUserIdentity}}\",\n    \"otp\": \"983738\",\n    \"password\": \"{{randomPasscode}}\",\n    \"confirm_password\": \"{{randomPasscode}}\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
