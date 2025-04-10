@@ -26138,13 +26138,13 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "95481a76-d7e3-4f8f-8e8d-67e058f5d0c7",
+				"id": "5d2de97c-637f-458e-83cf-5e589db72055",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					"// pm.environment.set('origin', \"https://dev.admin.northquestfinance.com\") // NQ Dev Origin",
-					"pm.environment.set('origin', \"https://dev.admin.cashdrive.co\") //Casdrive Dev Origin",
-					"// pm.environment.set('origin', \"https://admin.northquestfinance.com\") //Production",
+					"// pm.environment.set('origin', \"https://dev.admin.cashdrive.co\") //Casdrive Dev Origin",
+					"pm.environment.set('origin', \"https://admin.northquestfinance.com\") //Production",
 					"",
 					"pm.request.headers.add({",
 					"    key: \"origin\",",
@@ -26161,7 +26161,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "13d62854-59aa-4555-8403-ea2f72a58ba2",
+				"id": "dcb92fc3-0a29-463a-8eab-f9a55da1bd77",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
