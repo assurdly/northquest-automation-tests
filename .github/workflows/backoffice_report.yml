@@ -7,9 +7,9 @@ on:
     paths:
       - 'backoffice-apis/**'
   schedule:
-    - cron: '30 18 * * 3' # Runs every Wednesday at 7:30pm
-    - cron: '30 18 * * 5' # Runs every Friday at 7:30pm
-    - cron: '0 20 * * 0' # Runs every Sunday at 8:00pm
+    - cron: '30 18 * * 3'
+    - cron: '30 18 * * 5'
+    - cron: '0 20 * * 0'
 
 jobs:
   run_tests:
@@ -21,18 +21,17 @@ jobs:
 
       - name: Install newman and newman-reporter-allure
         run: |
-          npm install -g newman newman-reporter-allure
-          echo "Newman and newman-reporter-allure installed."
+          npm install -g newman newman-reporter-allure surge
+          echo "Newman, Allure and Surge installed."
 
       - name: Run Postman tests
         if: always()
         continue-on-error: true
         run: |
           newman run backoffice-apis/backoffice-apis.json --reporters cli,allure
-          echo "Postman tests run."
 
-      - name: Wait for 3 minutes before publishing
-        run: sleep 100  
+      - name: Wait before publishing
+        run: sleep 100
 
       - name: Get Allure history
         uses: actions/checkout@v2
@@ -42,8 +41,8 @@ jobs:
           repository: ${{ github.repository }}
           ref: gh-pages
           path: gh-pages
-      
-      - name: Wait for 3 minutes before publishing
+
+      - name: Wait again
         run: sleep 200
 
       - name: Find latest folder number
@@ -53,27 +52,19 @@ jobs:
           mkdir -p allure-history
           if [ -d gh-pages ]; then
             cp -r gh-pages/* allure-history/
-            # Find the highest numbered folder and store it
             latest_number=$(find allure-history -maxdepth 1 -type d -name "[0-9]*" | sort -V | tail -n 1 | xargs basename 2>/dev/null || echo "0")
-            # If no numbered folders exist, start with 0
             if [[ ! "$latest_number" =~ ^[0-9]+$ ]]; then
               latest_number=0
             fi
-            # Calculate next folder number
             next_number=$((latest_number + 1))
-            echo "Latest folder number: $latest_number"
-            echo "Next folder number: $next_number"
             echo "::set-output name=next_folder_number::$next_number"
           else
-            # If gh-pages doesn't exist yet, start with folder 1
-            echo "No history found, starting with folder 1"
             echo "::set-output name=next_folder_number::1"
           fi
 
       - name: Configure Allure report folder
         if: always()
-        run: |
-          echo "NEXT_FOLDER_NUMBER=${{ steps.get_latest_folder.outputs.next_folder_number }}" >> $GITHUB_ENV
+        run: echo "NEXT_FOLDER_NUMBER=${{ steps.get_latest_folder.outputs.next_folder_number }}" >> $GITHUB_ENV
 
       - name: Allure report action
         id: build
@@ -87,65 +78,43 @@ jobs:
           allure_history: allure-history
           subfolder: ${{ env.NEXT_FOLDER_NUMBER }}
 
-      - name: Wait before deploying to GitHub Pages
+      - name: Wait before Surge deployment
         if: always()
-        run: sleep 200
+        run: sleep 60
 
-      - name: Deploy report to GitHub Pages
-        id: deploy
+      - name: Deploy to Surge
         if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: allure-history
+        run: |
+          export SURGE_TOKEN=${{ secrets.SURGE_TOKEN }}
+          export SURGE_LOGIN=${{ secrets.SURGE_LOGIN }}
+          DOMAIN=https://${{ secrets.SURGE_DOMAIN_PREFIX }}-${{ env.NEXT_FOLDER_NUMBER }}.surge.sh
+          surge ./allure-history/${{ env.NEXT_FOLDER_NUMBER }} --domain $DOMAIN
+          echo "Deployed to: $DOMAIN"
+          echo "::set-output name=surge_url::$DOMAIN"
 
       - name: Parse latest summary.json
         id: parse_latest_json
         run: |
           latest_folder_number=${{ env.NEXT_FOLDER_NUMBER }}
-          latest_summary_path="allure-history/${latest_folder_number}/widgets/summary.json"
-          echo "Latest Summary Path: $latest_summary_path"
-          if [ -f "$latest_summary_path" ]; then
-            cat "$latest_summary_path"
-            passed_tests=$(jq -r '.statistic.passed' "$latest_summary_path")
-            failed_tests=$(jq -r '.statistic.failed' "$latest_summary_path")
-            total_tests=$((passed_tests + failed_tests))
-            if [ "$total_tests" -gt 0 ]; then
-              passing_percentage=$(( passed_tests * 100 / total_tests ))
-              failing_percentage=$(( failed_tests * 100 / total_tests ))
+          summary_path="allure-history/${latest_folder_number}/widgets/summary.json"
+          if [ -f "$summary_path" ]; then
+            passed=$(jq -r '.statistic.passed' "$summary_path")
+            failed=$(jq -r '.statistic.failed' "$summary_path")
+            total=$((passed + failed))
+            if [ "$total" -gt 0 ]; then
+              pass_pct=$((passed * 100 / total))
+              fail_pct=$((failed * 100 / total))
             else
-              passing_percentage=0
-              failing_percentage=0
+              pass_pct=0
+              fail_pct=0
             fi
-            echo "Passed Tests: $passed_tests"
-            echo "Failed Tests: $failed_tests"
-            echo "Passing Percentage: $passing_percentage%"
-            echo "Failing Percentage: $failing_percentage%"
-            echo "::set-output name=passing_percentage::$passing_percentage"
-            echo "::set-output name=failing_percentage::$failing_percentage"
-            echo "::set-output name=passed_tests::$passed_tests"
-            echo "::set-output name=failed_tests::$failed_tests"
+            echo "::set-output name=passing_percentage::$pass_pct"
+            echo "::set-output name=failing_percentage::$fail_pct"
+            echo "::set-output name=passed_tests::$passed"
+            echo "::set-output name=failed_tests::$failed"
           else
-            echo "summary.json not found"
             echo "::set-output name=passing_percentage::0"
             echo "::set-output name=failing_percentage::0"
             echo "::set-output name=passed_tests::0"
             echo "::set-output name=failed_tests::0"
           fi
-        
-      # - name: Notify Slack
-      #   if: always()
-      #   uses: rtCamp/action-slack-notify@v2
-      #   env:
-      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-      #     SLACK_CHANNEL: 'C070KUKPDLZ'
-      #     SLACK_MESSAGE: |
-      #       *Wholistic Organization - API Quality Readiness*
-      #       *Contributors - Azeez*
-      #       Status: ${{ job.status }}
-      #       Passing Tests: ${{ steps.parse_latest_json.outputs.passing_percentage }}%
-      #       Failing Tests: ${{ steps.parse_latest_json.outputs.failing_percentage }}%
-      #       Total Passed: ${{ steps.parse_latest_json.outputs.passed_tests }}
-      #       Total Failed: ${{ steps.parse_latest_json.outputs.failed_tests }}
-      #       GitHub Pages URL: ${{ secrets.PAGES_URL }}/${{ env.NEXT_FOLDER_NUMBER }}
