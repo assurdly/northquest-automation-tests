@@ -21,8 +21,7 @@ jobs:
 
       - name: Install newman and newman-reporter-allure
         run: |
-          npm install -g newman newman-reporter-allure surge
-          echo "Newman, Allure and Surge installed."
+          npm install -g newman newman-reporter-allure
 
       - name: Run Postman tests
         if: always()
@@ -30,8 +29,8 @@ jobs:
         run: |
           newman run backoffice-apis/backoffice-apis.json --reporters cli,allure
 
-      - name: Wait before publishing
-        run: sleep 100
+      - name: Wait for 3 minutes before publishing
+        run: sleep 10
 
       - name: Get Allure history
         uses: actions/checkout@v2
@@ -42,8 +41,8 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Wait again
-        run: sleep 200
+      - name: Wait before processing history
+        run: sleep 10
 
       - name: Find latest folder number
         id: get_latest_folder
@@ -66,7 +65,7 @@ jobs:
         if: always()
         run: echo "NEXT_FOLDER_NUMBER=${{ steps.get_latest_folder.outputs.next_folder_number }}" >> $GITHUB_ENV
 
-      - name: Allure report action
+      - name: Generate Allure report
         id: build
         uses: simple-elf/allure-report-action@master
         if: always()
@@ -78,43 +77,56 @@ jobs:
           allure_history: allure-history
           subfolder: ${{ env.NEXT_FOLDER_NUMBER }}
 
-      - name: Wait before Surge deployment
-        if: always()
-        run: sleep 60
-
-      - name: Deploy to Surge
-        if: always()
-        run: |
-          export SURGE_TOKEN=${{ secrets.SURGE_TOKEN }}
-          export SURGE_LOGIN=${{ secrets.SURGE_LOGIN }}
-          DOMAIN=https://${{ secrets.SURGE_DOMAIN_PREFIX }}-${{ env.NEXT_FOLDER_NUMBER }}.surge.sh
-          surge ./allure-history/${{ env.NEXT_FOLDER_NUMBER }} --domain $DOMAIN
-          echo "Deployed to: $DOMAIN"
-          echo "::set-output name=surge_url::$DOMAIN"
-
       - name: Parse latest summary.json
         id: parse_latest_json
         run: |
           latest_folder_number=${{ env.NEXT_FOLDER_NUMBER }}
-          summary_path="allure-history/${latest_folder_number}/widgets/summary.json"
-          if [ -f "$summary_path" ]; then
-            passed=$(jq -r '.statistic.passed' "$summary_path")
-            failed=$(jq -r '.statistic.failed' "$summary_path")
-            total=$((passed + failed))
-            if [ "$total" -gt 0 ]; then
-              pass_pct=$((passed * 100 / total))
-              fail_pct=$((failed * 100 / total))
+          latest_summary_path="allure-history/${latest_folder_number}/widgets/summary.json"
+          echo "Latest Summary Path: $latest_summary_path"
+          if [ -f "$latest_summary_path" ]; then
+            passed_tests=$(jq -r '.statistic.passed' "$latest_summary_path")
+            failed_tests=$(jq -r '.statistic.failed' "$latest_summary_path")
+            total_tests=$((passed_tests + failed_tests))
+            if [ "$total_tests" -gt 0 ]; then
+              passing_percentage=$(( passed_tests * 100 / total_tests ))
+              failing_percentage=$(( failed_tests * 100 / total_tests ))
             else
-              pass_pct=0
-              fail_pct=0
+              passing_percentage=0
+              failing_percentage=0
             fi
-            echo "::set-output name=passing_percentage::$pass_pct"
-            echo "::set-output name=failing_percentage::$fail_pct"
-            echo "::set-output name=passed_tests::$passed"
-            echo "::set-output name=failed_tests::$failed"
+            echo "::set-output name=passing_percentage::$passing_percentage"
+            echo "::set-output name=failing_percentage::$failing_percentage"
+            echo "::set-output name=passed_tests::$passed_tests"
+            echo "::set-output name=failed_tests::$failed_tests"
           else
             echo "::set-output name=passing_percentage::0"
             echo "::set-output name=failing_percentage::0"
             echo "::set-output name=passed_tests::0"
             echo "::set-output name=failed_tests::0"
           fi
+
+      - name: Deploy gh-pages branch to Surge
+        if: always()
+        run: |
+          git clone --branch gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages-deploy
+          cd gh-pages-deploy
+          npm install -g surge
+          surge . ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }} --email ${{ secrets.SURGE_EMAIL }}
+          
+
+      # Optional Slack Notification
+      # - name: Notify Slack
+      #   if: always()
+      #   uses: rtCamp/action-slack-notify@v2
+      #   env:
+      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      #     SLACK_CHANNEL: 'C070KUKPDLZ'
+      #     SLACK_MESSAGE: |
+      #       *Wholistic Organization - API Quality Readiness*
+      #       *Contributors - Azeez*
+      #       Status: ${{ job.status }}
+      #       Passing Tests: ${{ steps.parse_latest_json.outputs.passing_percentage }}%
+      #       Failing Tests: ${{ steps.parse_latest_json.outputs.failing_percentage }}%
+      #       Total Passed: ${{ steps.parse_latest_json.outputs.passed_tests }}
+      #       Total Failed: ${{ steps.parse_latest_json.outputs.failed_tests }}
+      #       Report URL: https://${{ secrets.SURGE_DOMAIN }}/${{ env.NEXT_FOLDER_NUMBER }}
