@@ -31006,7 +31006,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"amount\": 10\n}",
+									"raw": "{\n    \"amount\": 10,\n    \"account_id\": \"01961b11-9614-7aa9-8b8b-f6e198a8058f\",\n    \"pin\":\"1234\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -31014,7 +31014,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/savings/01963441-9899-7888-844e-29f8977f6fe6/withdraw",
+									"raw": "{{base_url}}/profiles/:profile_id/savings/019663fa-489a-7eec-b096-af17e1938b92/withdraw",
 									"host": [
 										"{{base_url}}"
 									],
@@ -31022,7 +31022,7 @@
 										"profiles",
 										":profile_id",
 										"savings",
-										"01963441-9899-7888-844e-29f8977f6fe6",
+										"019663fa-489a-7eec-b096-af17e1938b92",
 										"withdraw"
 									],
 									"variable": [
