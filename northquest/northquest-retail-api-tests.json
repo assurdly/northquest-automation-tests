@@ -34283,12 +34283,12 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "710862bb-830e-4ed0-a5d5-8715d4f70b21",
+				"id": "66b2d9a6-4525-404a-a53d-8ab5b4a2b348",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
-					"pm.environment.set('origin', \"https://dev.app.northquestfinance.com\")\r",
-					"// pm.environment.set('origin', \"https://app.northquestfinance.com\")\r",
+					"// pm.environment.set('origin', \"https://dev.app.northquestfinance.com\")\r",
+					"pm.environment.set('origin', \"https://app.northquestfinance.com\")\r",
 					"\r",
 					"pm.request.headers.add({\r",
 					"    key: \"origin\",\r",
@@ -34300,7 +34300,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "21c2ea24-3960-4627-b664-bac367a01f64",
+				"id": "cb9904c2-f207-47f6-90ca-ba9933e7b3dd",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
