@@ -30996,6 +30996,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
@@ -31008,7 +31014,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/withdraw",
+									"raw": "{{base_url}}/profiles/:profile_id/savings/01963441-9899-7888-844e-29f8977f6fe6/withdraw",
 									"host": [
 										"{{base_url}}"
 									],
@@ -31016,12 +31022,11 @@
 										"profiles",
 										":profile_id",
 										"savings",
-										"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
+										"01963441-9899-7888-844e-29f8977f6fe6",
 										"withdraw"
 									],
 									"variable": [
 										{
-											"id": "6a34b961-6f37-46f9-a6f4-c3593de70484",
 											"key": "profile_id",
 											"value": "{{profileId}}"
 										}
