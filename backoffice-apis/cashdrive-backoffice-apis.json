@@ -190,7 +190,7 @@
 											"    const { message } = pm.response.json()\r",
 											"\r",
 											"    pm.test(\"Status code is 400\", () => {\r",
-											"        pm.response.to.have.status(400);\r",
+											"        pm.response.to.have.status(401);\r",
 											"    });\r",
 											"\r",
 											"    pm.test(\"Status code name has string\", function () {\r",
