@@ -7,9 +7,9 @@ on:
     paths:
       - 'cashdrive/cashdrive-business-api-tests.json'
   schedule:
-    - cron: '30 18 * * 3' # Runs every Wednesday at 7:30pm
-    - cron: '30 18 * * 5' # Runs every Friday at 7:30pm
-    - cron: '0 20 * * 0' # Runs every Sunday at 8:00pm
+    - cron: '30 18 * * 3' # Wednesday 7:30pm
+    - cron: '30 18 * * 5' # Friday 7:30pm
+    - cron: '0 20 * * 0'  # Sunday 8:00pm
 
 jobs:
   run_tests:
@@ -31,7 +31,7 @@ jobs:
           newman run cashdrive/cashdrive-business-api-tests.json --reporters cli,allure
           echo "Postman tests run."
 
-      - name: Get Allure history
+      - name: Get Allure history from gh-pages
         uses: actions/checkout@v2
         if: always()
         continue-on-error: true
@@ -40,11 +40,13 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Copy existing content to allure-history
+      - name: Prepare allure-history/cashdrive-business folder
         run: |
           mkdir -p allure-history
-          if [ -d gh-pages ]; then
-            cp -r gh-pages/* allure-history/
+          if [ -d gh-pages/cashdrive-business ]; then
+            cp -r gh-pages/cashdrive-business allure-history/
+          else
+            mkdir -p allure-history/cashdrive-business
           fi
 
       - name: Allure report action
@@ -56,11 +58,11 @@ jobs:
           allure_results: allure-results
           gh_pages: gh-pages
           allure_report: allure-report
-          allure_history: allure-history
+          allure_history: allure-history/cashdrive-business
 
       - name: Wait before deploying to GitHub Pages
         if: always()
-        run: sleep 100
+        run: sleep 10
 
       - name: Deploy report to GitHub Pages
         id: deploy
@@ -74,13 +76,14 @@ jobs:
       - name: Wait for Allure report to be generated
         if: always()
         continue-on-error: true
-        run: sleep 30
+        run: sleep 10
 
-      - name: Find latest folder in gh-pages
+      - name: Find latest folder in cashdrive-business
         id: new_folder
         run: |
-          latest_folder=$(find allure-history -mindepth 1 -maxdepth 1 -type d -name '[0-9]*' | sort -n | tail -n 1)
-          latest_folder_number=$(basename $latest_folder)
+          base_path=allure-history/cashdrive-business
+          latest_folder=$(find "$base_path" -mindepth 1 -maxdepth 1 -type d -name '[0-9]*' | sort -n | tail -n 1)
+          latest_folder_number=$(basename "$latest_folder")
           echo "Latest Folder Number: $latest_folder_number"
           echo "::set-output name=latest_folder_number::$latest_folder_number"
 
@@ -88,7 +91,7 @@ jobs:
         id: parse_latest_json
         run: |
           latest_folder_number=${{ steps.new_folder.outputs.latest_folder_number }}
-          latest_summary_path="allure-history/${latest_folder_number}/widgets/summary.json"
+          latest_summary_path="allure-history/cashdrive-business/${latest_folder_number}/widgets/summary.json"
           echo "Latest Summary Path: $latest_summary_path"
           if [ -f "$latest_summary_path" ]; then
             cat "$latest_summary_path"
@@ -102,10 +105,6 @@ jobs:
               passing_percentage=0
               failing_percentage=0
             fi
-            echo "Passed Tests: $passed_tests"
-            echo "Failed Tests: $failed_tests"
-            echo "Passing Percentage: $passing_percentage%"
-            echo "Failing Percentage: $failing_percentage%"
             echo "::set-output name=passing_percentage::$passing_percentage"
             echo "::set-output name=failing_percentage::$failing_percentage"
             echo "::set-output name=passed_tests::$passed_tests"
@@ -117,7 +116,7 @@ jobs:
             echo "::set-output name=passed_tests::0"
             echo "::set-output name=failed_tests::0"
           fi
-        
+
       # - name: Notify Slack
       #   if: always()
       #   uses: rtCamp/action-slack-notify@v2
@@ -132,4 +131,4 @@ jobs:
       #       Failing Tests: ${{ steps.parse_latest_json.outputs.failing_percentage }}%
       #       Total Passed: ${{ steps.parse_latest_json.outputs.passed_tests }}
       #       Total Failed: ${{ steps.parse_latest_json.outputs.failed_tests }}
-      #       GitHub Pages URL: ${{ secrets.PAGES_URL }}/${{ steps.new_folder.outputs.latest_folder_number }}
+      #       GitHub Pages URL: ${{ secrets.PAGES_URL }}/cashdrive-business/${{ steps.new_folder.outputs.latest_folder_number }}
