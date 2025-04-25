@@ -29,41 +29,17 @@ jobs:
         run: |
           newman run backoffice-apis/backoffice-apis.json --reporters cli,allure
 
-      - name: Wait for 3 minutes before publishing
-        run: sleep 10
-
-      - name: Get Allure history
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
-        with:
-          repository: ${{ github.repository }}
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Wait before processing history
-        run: sleep 10
-
-      - name: Find latest folder number
+      - name: Prepare Allure history and versioning
         id: get_latest_folder
-        if: always()
         run: |
           mkdir -p allure-history
-          if [ -d gh-pages ]; then
-            cp -r gh-pages/* allure-history/
-            latest_number=$(find allure-history -maxdepth 1 -type d -name "[0-9]*" | sort -V | tail -n 1 | xargs basename 2>/dev/null || echo "0")
-            if [[ ! "$latest_number" =~ ^[0-9]+$ ]]; then
-              latest_number=0
-            fi
-            next_number=$((latest_number + 1))
-            echo "::set-output name=next_folder_number::$next_number"
-          else
-            echo "::set-output name=next_folder_number::1"
+          latest_number=$(find allure-history -maxdepth 1 -type d -name "[0-9]*" | sort -V | tail -n 1 | xargs basename 2>/dev/null || echo "0")
+          if [[ ! "$latest_number" =~ ^[0-9]+$ ]]; then
+            latest_number=0
           fi
-
-      - name: Configure Allure report folder
-        if: always()
-        run: echo "NEXT_FOLDER_NUMBER=${{ steps.get_latest_folder.outputs.next_folder_number }}" >> $GITHUB_ENV
+          next_number=$((latest_number + 1))
+          echo "NEXT_FOLDER_NUMBER=$next_number" >> $GITHUB_ENV
+          echo "::set-output name=next_folder::$next_number"
 
       - name: Generate Allure report
         id: build
@@ -72,61 +48,18 @@ jobs:
         continue-on-error: true
         with:
           allure_results: allure-results
-          gh_pages: gh-pages
           allure_report: allure-report
           allure_history: allure-history
           subfolder: ${{ env.NEXT_FOLDER_NUMBER }}
 
-      - name: Parse latest summary.json
-        id: parse_latest_json
+      - name: Generate index redirect to latest report
         run: |
-          latest_folder_number=${{ env.NEXT_FOLDER_NUMBER }}
-          latest_summary_path="allure-history/${latest_folder_number}/widgets/summary.json"
-          echo "Latest Summary Path: $latest_summary_path"
-          if [ -f "$latest_summary_path" ]; then
-            passed_tests=$(jq -r '.statistic.passed' "$latest_summary_path")
-            failed_tests=$(jq -r '.statistic.failed' "$latest_summary_path")
-            total_tests=$((passed_tests + failed_tests))
-            if [ "$total_tests" -gt 0 ]; then
-              passing_percentage=$(( passed_tests * 100 / total_tests ))
-              failing_percentage=$(( failed_tests * 100 / total_tests ))
-            else
-              passing_percentage=0
-              failing_percentage=0
-            fi
-            echo "::set-output name=passing_percentage::$passing_percentage"
-            echo "::set-output name=failing_percentage::$failing_percentage"
-            echo "::set-output name=passed_tests::$passed_tests"
-            echo "::set-output name=failed_tests::$failed_tests"
-          else
-            echo "::set-output name=passing_percentage::0"
-            echo "::set-output name=failing_percentage::0"
-            echo "::set-output name=passed_tests::0"
-            echo "::set-output name=failed_tests::0"
-          fi
+          latest=${{ env.NEXT_FOLDER_NUMBER }}
+          mkdir -p allure-history/latest
+          echo "<script>window.location.href='/${latest}/index.html';</script>" > allure-history/latest/index.html
 
-      - name: Deploy gh-pages branch to Surge
-        if: always()
-        run: |
-          git clone --branch gh-pages https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} gh-pages-deploy
-          cd gh-pages-deploy
-          npm install -g surge
-          surge . ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }} --email ${{ secrets.SURGE_EMAIL }}
-          
-
-      # Optional Slack Notification
-      # - name: Notify Slack
-      #   if: always()
-      #   uses: rtCamp/action-slack-notify@v2
-      #   env:
-      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-      #     SLACK_CHANNEL: 'C070KUKPDLZ'
-      #     SLACK_MESSAGE: |
-      #       *Wholistic Organization - API Quality Readiness*
-      #       *Contributors - Azeez*
-      #       Status: ${{ job.status }}
-      #       Passing Tests: ${{ steps.parse_latest_json.outputs.passing_percentage }}%
-      #       Failing Tests: ${{ steps.parse_latest_json.outputs.failing_percentage }}%
-      #       Total Passed: ${{ steps.parse_latest_json.outputs.passed_tests }}
-      #       Total Failed: ${{ steps.parse_latest_json.outputs.failed_tests }}
-      #       Report URL: https://${{ secrets.SURGE_DOMAIN }}/${{ env.NEXT_FOLDER_NUMBER }}
+      # # Optional: Deploy to Render using rsync, curl, or GH integration
+      # # Replace this with whatever Render setup you use (Git auto-deploy or upload script)
+      # - name: Upload to Render (example only)
+      #   run: |
+      #     echo "Assuming Render is auto-deploying from main branch or render.yaml"
