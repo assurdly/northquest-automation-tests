@@ -68,8 +68,8 @@
 									"script": {
 										"id": "a440c91c-213d-4f63-ae45-de8c42a5c197",
 										"exec": [
-											"pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')",
-											"// pm.environment.set('base_url', 'https://public-prod.northquestfinance.com/api-backend')",
+											"// pm.environment.set('base_url', 'https://public.northquestfinance.com/api-backend')",
+											"pm.environment.set('base_url', 'https://public-prod.northquestfinance.com/api-backend')",
 											"",
 											"",
 											"",
@@ -96,7 +96,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"email\":\"sodiq@google.com\",\n    \"password\":\"Password12@@\"\n    // , \"code\": \"270624\"\n}\n\n// {\n//     \"email\":\"northquest-cashdrive@assurdly.com\",\n//     \"password\":\"Password123@#\"\n//     // , \"code\": \"270624\"\n// }",
+									"raw": "// {\n//     \"email\":\"sodiq@google.com\",\n//     \"password\":\"Password12@@\"\n//     // , \"code\": \"270624\"\n// }\n\n{\n    \"email\":\"northquest-cashdrive@assurdly.com\",\n    \"password\":\"Password123@#\"\n    // , \"code\": \"270624\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -26138,13 +26138,13 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "785b6284-9d46-4faa-800d-b0cca7996898",
+				"id": "dc7b3255-73f0-4a4b-9fd8-47bfbf7be0c1",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
 					"// pm.environment.set('origin', \"https://dev.admin.northquestfinance.com\") // NQ Dev Origin",
-					"pm.environment.set('origin', \"https://dev.admin.cashdrive.co\") //Casdrive Dev Origin",
-					"// pm.environment.set('origin', \"https://admin.northquestfinance.com\") //Production",
+					"// pm.environment.set('origin', \"https://dev.admin.cashdrive.co\") //Casdrive Dev Origin",
+					"pm.environment.set('origin', \"https://admin.northquestfinance.com\") //Production",
 					"",
 					"pm.request.headers.add({",
 					"    key: \"origin\",",
@@ -26161,7 +26161,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ba6ccfaa-4367-454d-a3bd-f33127c12d81",
+				"id": "306f394d-16ba-4b71-bb01-7db7e986a271",
 				"type": "text/javascript",
 				"packages": {},
 				"exec": [
