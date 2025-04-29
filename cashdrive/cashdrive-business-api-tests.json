@@ -46108,99 +46108,6 @@
 					]
 				},
 				{
-					"name": "Calculate Loan",
-					"id": "4cfe3b1a-2141-4f2c-a2d5-45fe4cd63a6c",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    // \"amount\": 5000,\n    // \"tenor_period\": \"months\",\n    // \"tenor_value\": 2,\n    // \"frequency\": \"monthly\",\n    // \"product_id\": \"01931742-f612-722b-8de7-7729782689de\",\n    // \"start_date\": \"2025-12-01\",\n    // \"collaterals\": [\n    //     {\n    //         \"identifier\": \"1234567890\",\n    //         \"type_id\": \"0195d240-b82f-7aa8-afb5-43c1b5a8a795\",\n    //         \"meta\": {\n    //             \"amount\": 5000,\n    //             \"schema1\": \"...\",\n    //             \"schema2\": \"...\"\n    //         }\n    //     }\n    // ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/misc/loans/calculate"
-					},
-					"response": [
-						{
-							"id": "e4454366-e244-40c5-b2fb-952d314581ad",
-							"name": "Calculate Loan",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"amount\": 5000,\n    \"tenor_value\": 30,\n    \"tenor_period\": \"days\",\n    \"product_id\": \"01931742-f612-722b-8de7-7729782689de\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "{{base_url}}/misc/loans/calculate"
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "X-Powered-By",
-									"value": "Express"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "100"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "99"
-								},
-								{
-									"key": "X-RateLimit-Reset",
-									"value": "1"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json; charset=utf-8"
-								},
-								{
-									"key": "Content-Length",
-									"value": "5424"
-								},
-								{
-									"key": "ETag",
-									"value": "W/\"1530-s3eRdGjeeBOPmfzpqEJeEgmLHwE\""
-								},
-								{
-									"key": "Date",
-									"value": "Sun, 08 Dec 2024 22:06:54 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5"
-								}
-							],
-							"cookie": [],
-							"responseTime": null,
-							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"product\": {\n            \"id\": \"01931742-f612-722b-8de7-7729782689de\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T18:08:04.842Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-19T20:26:14.047Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Demo Product\",\n            \"description\": \"This is the demo Product\",\n            \"currency\": \"NGN\",\n            \"profile_type\": \"personal\",\n            \"payment_method\": \"card\",\n            \"payment_model\": \"straight\",\n            \"disbursement_method\": \"account\",\n            \"collection_method\": \"manual\",\n            \"interest_rate\": \"5.00\",\n            \"interest_period\": \"flat\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"100.00\",\n            \"frequency\": \"daily\",\n            \"min_tenor_value\": 1,\n            \"min_tenor_period\": \"days\",\n            \"max_tenor_value\": 7,\n            \"max_tenor_period\": \"weeks\",\n            \"enabled\": true,\n            \"cba_id\": null,\n            \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\"\n        },\n        \"schedules\": [\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.57,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 174.9,\n                \"balance\": 5249.9\n            }\n        ]\n    }\n}"
-						}
-					]
-				},
-				{
 					"name": "Calculate Vehicle Value",
 					"id": "d82ee53c-f13a-459b-ba0e-c163054bdfd6",
 					"protocolProfileBehavior": {
@@ -46290,6 +46197,113 @@
 							"cookie": [],
 							"responseTime": null,
 							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"type\": \"original\",\n            \"price\": 32915628,\n            \"currency\": \"NGN\"\n        },\n        {\n            \"type\": \"local-used\",\n            \"price\": 0,\n            \"currency\": \"NGN\"\n        },\n        {\n            \"type\": \"foreign-used\",\n            \"price\": 0,\n            \"currency\": \"NGN\"\n        },\n        {\n            \"type\": \"force-sale\",\n            \"price\": 0,\n            \"currency\": \"NGN\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Calculate Loan",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "489bf20f-95a7-4970-bece-5493a1399ff5",
+								"exec": [
+									"const data = pm.response.json",
+									"console.log (data)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "4cfe3b1a-2141-4f2c-a2d5-45fe4cd63a6c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": null,\n    \"tenor_period\": null,\n    \"tenor_value\": null,\n    // \"frequency\": \"monthly\",\n    \"product_id\": \"01968077-b281-7ee3-98de-e8d731036a49\",\n    // \"start_date\": \"2025-12-01\",\n    \"collaterals\": [\n        {\n            \"identifier\": \"1NXBR32E85Z505904\",\n            \"type_id\": \"0196807c-58a7-7ee3-98df-588f3806e736\",\n            \"meta\": {\n                \"amount\": 199779\n                // \"schema1\": \"...\",\n                // \"schema2\": \"...\"\n            }\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/misc/loans/calculate"
+					},
+					"response": [
+						{
+							"id": "e4454366-e244-40c5-b2fb-952d314581ad",
+							"name": "Calculate Loan",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\": 5000,\n    \"tenor_value\": 30,\n    \"tenor_period\": \"days\",\n    \"product_id\": \"01931742-f612-722b-8de7-7729782689de\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/misc/loans/calculate"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "5424"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1530-s3eRdGjeeBOPmfzpqEJeEgmLHwE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 08 Dec 2024 22:06:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"product\": {\n            \"id\": \"01931742-f612-722b-8de7-7729782689de\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T18:08:04.842Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-19T20:26:14.047Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Demo Product\",\n            \"description\": \"This is the demo Product\",\n            \"currency\": \"NGN\",\n            \"profile_type\": \"personal\",\n            \"payment_method\": \"card\",\n            \"payment_model\": \"straight\",\n            \"disbursement_method\": \"account\",\n            \"collection_method\": \"manual\",\n            \"interest_rate\": \"5.00\",\n            \"interest_period\": \"flat\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"100.00\",\n            \"frequency\": \"daily\",\n            \"min_tenor_value\": 1,\n            \"min_tenor_period\": \"days\",\n            \"max_tenor_value\": 7,\n            \"max_tenor_period\": \"weeks\",\n            \"enabled\": true,\n            \"cba_id\": null,\n            \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\"\n        },\n        \"schedules\": [\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.57,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 174.9,\n                \"balance\": 5249.9\n            }\n        ]\n    }\n}"
 						}
 					]
 				},
