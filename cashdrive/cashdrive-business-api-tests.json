@@ -46106,6 +46106,625 @@
 							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"approved\"\n        },\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"cancelled\"\n        },\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"declined\"\n        },\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"past-due\"\n        },\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"pending\"\n        },\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"running\"\n        },\n        {\n            \"count\": \"0\",\n            \"total_paid\": \"0\",\n            \"total_principal\": \"0\",\n            \"value\": \"terminated\"\n        }\n    ]\n}"
 						}
 					]
+				},
+				{
+					"name": "Calculate Loan",
+					"id": "4cfe3b1a-2141-4f2c-a2d5-45fe4cd63a6c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"amount\": 5000,\n    // \"tenor_period\": \"months\",\n    // \"tenor_value\": 2,\n    // \"frequency\": \"monthly\",\n    // \"product_id\": \"01931742-f612-722b-8de7-7729782689de\",\n    // \"start_date\": \"2025-12-01\",\n    // \"collaterals\": [\n    //     {\n    //         \"identifier\": \"1234567890\",\n    //         \"type_id\": \"0195d240-b82f-7aa8-afb5-43c1b5a8a795\",\n    //         \"meta\": {\n    //             \"amount\": 5000,\n    //             \"schema1\": \"...\",\n    //             \"schema2\": \"...\"\n    //         }\n    //     }\n    // ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/misc/loans/calculate"
+					},
+					"response": [
+						{
+							"id": "e4454366-e244-40c5-b2fb-952d314581ad",
+							"name": "Calculate Loan",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"amount\": 5000,\n    \"tenor_value\": 30,\n    \"tenor_period\": \"days\",\n    \"product_id\": \"01931742-f612-722b-8de7-7729782689de\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/misc/loans/calculate"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "5424"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1530-s3eRdGjeeBOPmfzpqEJeEgmLHwE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 08 Dec 2024 22:06:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"product\": {\n            \"id\": \"01931742-f612-722b-8de7-7729782689de\",\n            \"meta\": null,\n            \"created_on\": \"2024-11-10T18:08:04.842Z\",\n            \"created_by\": null,\n            \"modified_on\": \"2024-11-19T20:26:14.047Z\",\n            \"modified_by\": null,\n            \"deleted_on\": null,\n            \"deleted_by\": null,\n            \"tenant_id\": \"00000000-0000-0000-0000-000000000000\",\n            \"name\": \"Demo Product\",\n            \"description\": \"This is the demo Product\",\n            \"currency\": \"NGN\",\n            \"profile_type\": \"personal\",\n            \"payment_method\": \"card\",\n            \"payment_model\": \"straight\",\n            \"disbursement_method\": \"account\",\n            \"collection_method\": \"manual\",\n            \"interest_rate\": \"5.00\",\n            \"interest_period\": \"flat\",\n            \"min_amount\": \"0.00\",\n            \"max_amount\": \"100.00\",\n            \"frequency\": \"daily\",\n            \"min_tenor_value\": 1,\n            \"min_tenor_period\": \"days\",\n            \"max_tenor_value\": 7,\n            \"max_tenor_period\": \"weeks\",\n            \"enabled\": true,\n            \"cba_id\": null,\n            \"offer_letter_template_id\": \"01931742-0781-722b-8de7-6c42b6f4c2ea\"\n        },\n        \"schedules\": [\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.67,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 175,\n                \"balance\": 5249.9\n            },\n            {\n                \"principal\": 166.57,\n                \"principal_paid\": 0,\n                \"interest\": 8.33,\n                \"interest_paid\": 0,\n                \"fee\": 0,\n                \"fee_paid\": 0,\n                \"penalty\": 0,\n                \"penalty_paid\": 0,\n                \"total\": 174.9,\n                \"balance\": 5249.9\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Calculate Vehicle Value",
+					"id": "d82ee53c-f13a-459b-ba0e-c163054bdfd6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"vin\": \"1NXBR32E85Z505904\"\n    \"year\": 2020,\n    \"make\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"mileage\": 50000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/misc/vehicle-valuation"
+					},
+					"response": [
+						{
+							"id": "36a5710c-dc83-44d4-b58a-b8041f429054",
+							"name": "Calculate Car Value",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // \"vin\": \"1NXBR32E85Z505904\",\n    \"year\": 2020,\n    \"make\": \"Toyota\",\n    \"model\": \"Corolla\",\n    \"mileage\": 50000\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/misc/car-valuation"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "232"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e8-XBfmsH+O+OO7UPKeyg3621Ybciw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Jan 2025 14:58:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"type\": \"original\",\n            \"price\": 32915628,\n            \"currency\": \"NGN\"\n        },\n        {\n            \"type\": \"local-used\",\n            \"price\": 0,\n            \"currency\": \"NGN\"\n        },\n        {\n            \"type\": \"foreign-used\",\n            \"price\": 0,\n            \"currency\": \"NGN\"\n        },\n        {\n            \"type\": \"force-sale\",\n            \"price\": 0,\n            \"currency\": \"NGN\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Vehicles",
+					"id": "1b80cfaa-b841-49f5-832c-4f60de557e02",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/misc/vehicles?year=2021",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"misc",
+								"vehicles"
+							],
+							"query": [
+								{
+									"key": "year",
+									"value": "2021"
+								},
+								{
+									"key": "make",
+									"value": "Toyota",
+									"disabled": true
+								},
+								{
+									"key": "model",
+									"value": "Camry",
+									"disabled": true
+								},
+								{
+									"key": "trim",
+									"value": "LE",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "73bdd8f4-6d0d-4353-aa10-db8e2ee03b3f",
+							"name": "Get Vehicles Years",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{base_url}}/misc/vehicles"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "659"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"293-Jbvy0ffDamCiQE2PhzWLvVkpA2w\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jan 2025 06:18:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": 1981\n        },\n        {\n            \"name\": 1982\n        },\n        {\n            \"name\": 1983\n        },\n        {\n            \"name\": 1984\n        },\n        {\n            \"name\": 1985\n        },\n        {\n            \"name\": 1986\n        },\n        {\n            \"name\": 1987\n        },\n        {\n            \"name\": 1988\n        },\n        {\n            \"name\": 1989\n        },\n        {\n            \"name\": 1990\n        },\n        {\n            \"name\": 1991\n        },\n        {\n            \"name\": 1992\n        },\n        {\n            \"name\": 1993\n        },\n        {\n            \"name\": 1994\n        },\n        {\n            \"name\": 1995\n        },\n        {\n            \"name\": 1996\n        },\n        {\n            \"name\": 1997\n        },\n        {\n            \"name\": 1998\n        },\n        {\n            \"name\": 1999\n        },\n        {\n            \"name\": 2000\n        },\n        {\n            \"name\": 2001\n        },\n        {\n            \"name\": 2002\n        },\n        {\n            \"name\": 2003\n        },\n        {\n            \"name\": 2004\n        },\n        {\n            \"name\": 2005\n        },\n        {\n            \"name\": 2006\n        },\n        {\n            \"name\": 2007\n        },\n        {\n            \"name\": 2008\n        },\n        {\n            \"name\": 2009\n        },\n        {\n            \"name\": 2010\n        },\n        {\n            \"name\": 2011\n        },\n        {\n            \"name\": 2012\n        },\n        {\n            \"name\": 2013\n        },\n        {\n            \"name\": 2014\n        },\n        {\n            \"name\": 2015\n        },\n        {\n            \"name\": 2016\n        },\n        {\n            \"name\": 2017\n        },\n        {\n            \"name\": 2018\n        },\n        {\n            \"name\": 2019\n        },\n        {\n            \"name\": 2020\n        },\n        {\n            \"name\": 2021\n        },\n        {\n            \"name\": 2022\n        },\n        {\n            \"name\": 2023\n        },\n        {\n            \"name\": 2024\n        },\n        {\n            \"name\": 2025\n        }\n    ]\n}"
+						},
+						{
+							"id": "8123ace4-942c-4c50-8f9e-eb94ea7da0bb",
+							"name": "Get Vehicles Makes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/misc/vehicles?year=2021",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"misc",
+										"vehicles"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2021"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "848"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"350-n13mw98RAefFcsqslveMfgrOyGU\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jan 2025 06:18:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": \"Acura\"\n        },\n        {\n            \"name\": \"Alfa Romeo\"\n        },\n        {\n            \"name\": \"Aston Martin\"\n        },\n        {\n            \"name\": \"Audi\"\n        },\n        {\n            \"name\": \"Bentley\"\n        },\n        {\n            \"name\": \"BMW\"\n        },\n        {\n            \"name\": \"Bugatti\"\n        },\n        {\n            \"name\": \"Buick\"\n        },\n        {\n            \"name\": \"Cadillac\"\n        },\n        {\n            \"name\": \"Chevrolet\"\n        },\n        {\n            \"name\": \"Chrysler\"\n        },\n        {\n            \"name\": \"Dodge\"\n        },\n        {\n            \"name\": \"Ferrari\"\n        },\n        {\n            \"name\": \"FIAT\"\n        },\n        {\n            \"name\": \"Ford\"\n        },\n        {\n            \"name\": \"Genesis\"\n        },\n        {\n            \"name\": \"GMC\"\n        },\n        {\n            \"name\": \"Honda\"\n        },\n        {\n            \"name\": \"Hyundai\"\n        },\n        {\n            \"name\": \"Infiniti\"\n        },\n        {\n            \"name\": \"Isuzu\"\n        },\n        {\n            \"name\": \"Jaguar\"\n        },\n        {\n            \"name\": \"Jeep\"\n        },\n        {\n            \"name\": \"KIA\"\n        },\n        {\n            \"name\": \"Lamborghini\"\n        },\n        {\n            \"name\": \"Land Rover\"\n        },\n        {\n            \"name\": \"Lexus\"\n        },\n        {\n            \"name\": \"Lincoln\"\n        },\n        {\n            \"name\": \"Maserati\"\n        },\n        {\n            \"name\": \"Mazda\"\n        },\n        {\n            \"name\": \"McLaren\"\n        },\n        {\n            \"name\": \"Mercedes-Benz\"\n        },\n        {\n            \"name\": \"Mini\"\n        },\n        {\n            \"name\": \"Mitsubishi\"\n        },\n        {\n            \"name\": \"Nissan\"\n        },\n        {\n            \"name\": \"Porsche\"\n        },\n        {\n            \"name\": \"Ram\"\n        },\n        {\n            \"name\": \"Rolls-Royce\"\n        },\n        {\n            \"name\": \"Subaru\"\n        },\n        {\n            \"name\": \"Suzuki\"\n        },\n        {\n            \"name\": \"Tesla\"\n        },\n        {\n            \"name\": \"Toyota\"\n        },\n        {\n            \"name\": \"Volkswagen\"\n        },\n        {\n            \"name\": \"Volvo\"\n        }\n    ]\n}"
+						},
+						{
+							"id": "df13e2b4-4b05-46fd-b549-823c1106a422",
+							"name": "Get Vehicles Models",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/misc/vehicles?year=2021&make=Toyota",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"misc",
+										"vehicles"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2021"
+										},
+										{
+											"key": "make",
+											"value": "Toyota"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "424"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a8-KfdqAamu3SwFGQzX/p7NC+s2V2s\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jan 2025 06:20:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": \"4Runner\"\n        },\n        {\n            \"name\": \"Avalon\"\n        },\n        {\n            \"name\": \"Avalon Hybrid\"\n        },\n        {\n            \"name\": \"C-HR\"\n        },\n        {\n            \"name\": \"Camry\"\n        },\n        {\n            \"name\": \"Camry Hybrid\"\n        },\n        {\n            \"name\": \"Corolla\"\n        },\n        {\n            \"name\": \"GR Supra\"\n        },\n        {\n            \"name\": \"Highlander\"\n        },\n        {\n            \"name\": \"Highlander Hybrid\"\n        },\n        {\n            \"name\": \"Mirai\"\n        },\n        {\n            \"name\": \"Prius\"\n        },\n        {\n            \"name\": \"Prius Prime\"\n        },\n        {\n            \"name\": \"RAV4\"\n        },\n        {\n            \"name\": \"RAV4 Hybrid\"\n        },\n        {\n            \"name\": \"Sequoia\"\n        },\n        {\n            \"name\": \"Sienna\"\n        },\n        {\n            \"name\": \"Tacoma\"\n        },\n        {\n            \"name\": \"Tundra\"\n        },\n        {\n            \"name\": \"Venza\"\n        }\n    ]\n}"
+						},
+						{
+							"id": "8c0e4b13-ff8f-430e-a5ac-236b5630a08d",
+							"name": "Get Vehicles Trims",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/misc/vehicles?year=2021&make=Toyota&model=Camry",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"misc",
+										"vehicles"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2021"
+										},
+										{
+											"key": "make",
+											"value": "Toyota"
+										},
+										{
+											"key": "model",
+											"value": "Camry"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "152"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"98-6kdP/PhgjgZ3+P79fBxWBzXGHB4\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jan 2025 06:20:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": \"L\"\n        },\n        {\n            \"name\": \"LE\"\n        },\n        {\n            \"name\": \"LE Convenient Pkg Audio\"\n        },\n        {\n            \"name\": \"Special Edition Nightshade Edition\"\n        },\n        {\n            \"name\": \"XSE\"\n        }\n    ]\n}"
+						},
+						{
+							"id": "10070950-69b7-4e2a-af56-17b02156bbac",
+							"name": "Get Vehicles Styles",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/misc/vehicles?year=2021&make=Toyota&model=Camry&trim=LE",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"misc",
+										"vehicles"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2021"
+										},
+										{
+											"key": "make",
+											"value": "Toyota"
+										},
+										{
+											"key": "model",
+											"value": "Camry"
+										},
+										{
+											"key": "trim",
+											"value": "LE"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "100"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "99"
+								},
+								{
+									"key": "X-RateLimit-Reset",
+									"value": "1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-EgHATRKs15JH064fO6OUiyW8j3g\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jan 2025 06:20:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": \"AWD\"\n        }\n    ]\n}"
+						}
+					]
 				}
 			],
 			"id": "f5fb0707-f0a2-4025-9d9d-a725965f363e",
