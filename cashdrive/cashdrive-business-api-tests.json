@@ -46208,8 +46208,17 @@
 							"script": {
 								"id": "489bf20f-95a7-4970-bece-5493a1399ff5",
 								"exec": [
-									"const data = pm.response.json",
-									"console.log (data)"
+									"const data = pm.response.json().data.schedules;",
+									"let sum = 0;",
+									"",
+									"const sumFunc = async (a, b) => (a + b);",
+									"",
+									"for (const datum of data) {",
+									"    sum = await sumFunc(sum, datum.principal);",
+									"}",
+									"",
+									"console.log(sum);",
+									""
 								],
 								"type": "text/javascript",
 								"packages": {}
