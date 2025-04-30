@@ -31014,7 +31014,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/savings/019663fa-489a-7eec-b096-af17e1938b92/withdraw",
+									"raw": "{{base_url}}/profiles/:profile_id/savings/01951f87-391a-7aa2-a9dd-7c543ab757a9/withdraw",
 									"host": [
 										"{{base_url}}"
 									],
@@ -31022,13 +31022,13 @@
 										"profiles",
 										":profile_id",
 										"savings",
-										"019663fa-489a-7eec-b096-af17e1938b92",
+										"01951f87-391a-7aa2-a9dd-7c543ab757a9",
 										"withdraw"
 									],
 									"variable": [
 										{
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": ""
 										}
 									]
 								}
