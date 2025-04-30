@@ -43264,11 +43264,17 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{userAccessToken}}"
+									}
+								},
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"amount\": 10\n}",
+									"raw": "{\n    \"amount\": 100,\n    \"account_id\":\"01951f87-391a-7aa2-a9dd-7c543ab757a9\",\n    \"pin\":\"1234\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -43276,7 +43282,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/profiles/:profile_id/savings/0193a39d-287d-7442-9d5a-eeaf88b5d09e/withdraw",
+									"raw": "{{base_url}}/profiles/:profile_id/savings/01965cc2-55b6-7cc5-88f7-4b019b6cb2dc/withdraw",
 									"host": [
 										"{{base_url}}"
 									],
@@ -43284,14 +43290,13 @@
 										"profiles",
 										":profile_id",
 										"savings",
-										"0193a39d-287d-7442-9d5a-eeaf88b5d09e",
+										"01965cc2-55b6-7cc5-88f7-4b019b6cb2dc",
 										"withdraw"
 									],
 									"variable": [
 										{
-											"id": "6a34b961-6f37-46f9-a6f4-c3593de70484",
 											"key": "profile_id",
-											"value": "{{profileId}}"
+											"value": "0193a649-e3d0-7881-8b7f-2ef1d89a9aff"
 										}
 									]
 								}
@@ -47248,6 +47253,10 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {}
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -47284,9 +47293,8 @@
 							],
 							"variable": [
 								{
-									"id": "885e0bef-7476-4b5d-adda-30baa617db5e",
 									"key": "profile_id",
-									"value": "{{profileId}}"
+									"value": "0193a649-e3d0-7881-8b7f-2ef1d89a9aff"
 								}
 							]
 						}
