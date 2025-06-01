@@ -1,0 +1,19 @@
+{
+    "amount": 5000,
+    "tenor_period": "months",
+    "tenor_value": 2,
+    "frequency": "monthly",
+    "product_id": "01931742-f612-722b-8de7-7729782689de",
+    "start_date": "2025-12-01",
+    "collaterals": [
+        {
+            "identifier": "1234567890",
+            "type_id": "0195d240-b82f-7aa8-afb5-43c1b5a8a795",
+            "meta": {
+                "amount": 5000,
+                "schema1": "...",
+                "schema2": "..."
+            }
+        }
+    ]
+}

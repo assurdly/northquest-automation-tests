@@ -1,0 +1,19 @@
+{
+    "start_date": "2025-05-10T21:00:00.000Z",
+    "end_date": "2025-06-20T21:00:00.000Z",
+    
+    "type": "transfer",
+    "frequency": "daily",
+    "account_id": "0193a699-2f15-7881-8b7f-ae50980bcfad",
+    "pin": "1234",
+    "recipients": [
+        {
+            "narration": "Sodiq",
+            
+            "account_number": "1780004070",
+            "account_name": "Sodid Dare",
+            "amount": 50.23,
+            "bank_code": "999998"
+        }
+    ]
+}
