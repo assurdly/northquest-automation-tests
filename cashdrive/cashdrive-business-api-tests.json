@@ -4958,6 +4958,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "91d99559-dd41-40c7-ba80-66eecf76434f",
 										"exec": [
 											"const { message, status } = pm.response.json()",
 											"",
@@ -4976,8 +4977,7 @@
 											""
 										],
 										"type": "text/javascript",
-										"packages": {},
-										"id": "91d99559-dd41-40c7-ba80-66eecf76434f"
+										"packages": {}
 									}
 								}
 							],
