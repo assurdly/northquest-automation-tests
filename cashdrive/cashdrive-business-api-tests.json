@@ -3484,6 +3484,7 @@
 										{
 											"listen": "test",
 											"script": {
+												"id": "744a3e01-8237-4558-8fe9-ff7201cee94d",
 												"exec": [
 													"const { message, status } = pm.response.json()",
 													"",
@@ -3498,8 +3499,7 @@
 													""
 												],
 												"type": "text/javascript",
-												"packages": {},
-												"id": "744a3e01-8237-4558-8fe9-ff7201cee94d"
+												"packages": {}
 											}
 										}
 									],
@@ -3512,7 +3512,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"email_otp_id\": \"0191fa72-2542-7553-aff4-e58ed86ccbb2\",\n    // \"phone_otp_id\": \"0191fa72-78bd-7553-aff4-e97226e6478b\",\n    \"email_otp\": \"699056\",\n    // \"phone_otp\": \"450790\",\n    \"password\": \"Password12@@\",\n    \"referral_code\": \"\",\n    \"last_name\": \"Sodiq\",\n    \"first_name\": \"Dare\"\n}",
+											"raw": "{\n    \"email_otp_id\": \"0191fa72-2542-7553-aff4-e58ed86ccbb2\",\n    // \"phone_otp_id\": \"0191fa72-78bd-7553-aff4-e97226e6478b\",\n    \"email_otp\": \"699056\",\n    // \"phone_otp\": \"450790\",\n    \"password\": \"123456\",\n    \"referral_code\": \"\",\n    \"last_name\": \"Sodiq\",\n    \"first_name\": \"Dare\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
