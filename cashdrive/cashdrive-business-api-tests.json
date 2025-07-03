@@ -5492,6 +5492,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "b3a4692f-d4eb-4e1e-ba9a-5d37851ec74a",
 										"exec": [
 											"const { message, status } = pm.response.json()",
 											"",
@@ -5506,8 +5507,7 @@
 											""
 										],
 										"type": "text/javascript",
-										"packages": {},
-										"id": "b3a4692f-d4eb-4e1e-ba9a-5d37851ec74a"
+										"packages": {}
 									}
 								}
 							],
@@ -5520,7 +5520,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"identity\":\"azeez0000@mailinator.com\"\n}",
+									"raw": "{\n    \"identity\":\"zeez0000@mailinator.com\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
