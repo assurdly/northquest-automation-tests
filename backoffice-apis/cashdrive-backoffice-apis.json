@@ -11431,10 +11431,24 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "noauth"
+								},
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAxOWFlOGEwLWZiMTItN2VlOS04MzE0LTE2ZDRmZmE2MmFmMiIsInR5cGUiOiJhZG1pbiIsImlhdCI6MTc2NTI4MjQ1MSwiZXhwIjoxNzY2MTgyNDUxfQ.36aTtj9I1gxH1Ah31GTPOgcP2_1YKRVhl8TlgDEBdh0",
+										"type": "text"
+									},
+									{
+										"key": "Origin",
+										"value": "https://dev.admin.cashdrive.co/",
+										"type": "text"
+									}
+								],
 								"url": {
-									"raw": "{{base_url}}/admin/profiles/stats?filter[type]=Personal",
+									"raw": "{{base_url}}/admin/profiles/stats?filter%5Btype%5D=personal",
 									"host": [
 										"{{base_url}}"
 									],
@@ -11445,13 +11459,8 @@
 									],
 									"query": [
 										{
-											"key": "filter[type]",
-											"value": "Personal"
-										},
-										{
-											"key": "filter[status]",
-											"value": "active",
-											"disabled": true
+											"key": "filter%5Btype%5D",
+											"value": "personal"
 										}
 									]
 								}
