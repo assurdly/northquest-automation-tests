@@ -1,7 +1,0 @@
-pm.environment.set('origin', "https://dev.app.northquestfinance.com")
-// pm.environment.set('origin', "https://app.northquestfinance.com")
-
-pm.request.headers.add({
-    key: "origin",
-    value: pm.environment.get("origin")
-});
